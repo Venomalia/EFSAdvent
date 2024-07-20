@@ -1,0 +1,11 @@
+SLR4 (Captain Soldier)
+
+Captain soldier
+
+life: 12
+atcp: 3
+atcn: 0
+dstr: 1
+dasu: 5
+efsz: 3
+voic: 6

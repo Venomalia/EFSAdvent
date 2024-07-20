@@ -1,0 +1,11 @@
+DCR2 (Demo Crystal 5-4)
+
+Music fades out
+
+life: 6-4
+atcp: 1
+atcn: 0
+dstr: 0
+dasu: 0
+efsz: 0
+voic: 2

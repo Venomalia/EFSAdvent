@@ -1,0 +1,11 @@
+SLR1 (Sword Soldier)
+
+Soldier with sword
+
+life: 12
+atcp: 2
+atcn: 0
+dstr: 1
+dasu: 4
+efsz: 2
+voic: 0

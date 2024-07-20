@@ -1,0 +1,11 @@
+FGAN (Phantom Ganon)
+
+
+
+life: 4
+atcp: 2
+atcn: 0
+dstr: 1
+dasu: 11
+efsz: 0
+voic: 0

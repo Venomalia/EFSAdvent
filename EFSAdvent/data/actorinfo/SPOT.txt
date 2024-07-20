@@ -1,0 +1,11 @@
+SPOT (spotlight)
+
+
+
+life: 1
+atcp: 0
+atcn: 255
+dstr: 0
+dasu: 0
+efsz: 2
+voic: 0

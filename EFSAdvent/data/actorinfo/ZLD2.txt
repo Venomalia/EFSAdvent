@@ -1,0 +1,11 @@
+ZLD2 (Ganon Battle Zelda)
+
+Cutscene with Zelda, crash at end
+
+life: 1
+atcp: 0
+atcn: 0
+dstr: 1
+dasu: 0
+efsz: 2
+voic: 0

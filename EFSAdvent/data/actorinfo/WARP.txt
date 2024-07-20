@@ -1,0 +1,41 @@
+WARP (warp)
+
+Variable 1:
+Which layer the warp takes the players to
+
+Variable 2:
+The X coordinate players arrive at
+
+Variable 3:
+The Y coordinate players arrive at
+
+Variable 4:
+Manner of warp:
+
+0	Walking up stairs
+
+1	Walking down stairs
+
+2	Walking down stairs
+
+3	Walking up stairs
+
+4	Falling down hole
+5	Link holds sword up, appears in smoke
+
+6	Link spins, light deforming appearance
+
+7	Falling down hole
+
+8	Falling down hole
+
+9	Falling down hole, Link flickering appearance
+
+
+life: 1
+atcp: 0
+atcn: 0
+dstr: 0
+dasu: 0
+efsz: 2
+voic: 0

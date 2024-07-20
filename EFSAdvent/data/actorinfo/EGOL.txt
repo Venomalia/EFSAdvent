@@ -1,0 +1,11 @@
+EGOL (Igor)
+
+Large Amos Knightesque thing
+
+life: 16
+atcp: 3
+atcn: 0
+dstr: 1
+dasu: 5
+efsz: 3
+voic: 2

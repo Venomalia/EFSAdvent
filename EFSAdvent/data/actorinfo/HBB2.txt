@@ -1,0 +1,11 @@
+HBB2 (Formation Keith)
+
+Red bat
+
+life: 16
+atcp: 2
+atcn: 0
+dstr: 1
+dasu: 4
+efsz: 2
+voic: 0

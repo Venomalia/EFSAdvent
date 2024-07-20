@@ -1,0 +1,11 @@
+MIRA (Mummy)
+
+Gibdo
+
+life: 48
+atcp: 3
+atcn: 0
+dstr: 1
+dasu: 6
+efsz: 3
+voic: 11

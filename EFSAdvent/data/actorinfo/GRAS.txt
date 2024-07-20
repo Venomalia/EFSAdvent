@@ -1,0 +1,11 @@
+GRAS (grass)
+
+
+
+life: 1
+atcp: 1
+atcn: 4
+dstr: 0
+dasu: 0
+efsz: 2
+voic: 0

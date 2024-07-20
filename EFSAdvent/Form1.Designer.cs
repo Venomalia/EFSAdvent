@@ -1,0 +1,1500 @@
+﻿namespace EFSAdvent
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+			this.tileSheetPanel = new System.Windows.Forms.Panel();
+			this.tileSheetPictureBox = new System.Windows.Forms.PictureBox();
+			this.layersPanel = new System.Windows.Forms.Panel();
+			this.layerPictureBox = new System.Windows.Forms.PictureBox();
+			this.MapPanel = new System.Windows.Forms.Panel();
+			this.mapPictureBox = new System.Windows.Forms.PictureBox();
+			this.loggerTextBox = new System.Windows.Forms.TextBox();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.SaveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.SaveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.ExportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.copyTilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pasteTilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.xSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.xSizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.rightSideGroupBox = new System.Windows.Forms.GroupBox();
+			this.updateLayersButton = new System.Windows.Forms.Button();
+			this.buttonSaveLayers = new System.Windows.Forms.Button();
+			this.layersCheckList = new System.Windows.Forms.CheckedListBox();
+			this.tabControl = new System.Windows.Forms.TabControl();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
+			this.MapVariableUnknown1 = new System.Windows.Forms.NumericUpDown();
+			this.MapVariableOverlay = new System.Windows.Forms.NumericUpDown();
+			this.MapVariableUnknown2 = new System.Windows.Forms.NumericUpDown();
+			this.MapVariableUnknown3 = new System.Windows.Forms.NumericUpDown();
+			this.MapVariableTileSheet = new System.Windows.Forms.NumericUpDown();
+			this.MapVariableE3Banner = new System.Windows.Forms.NumericUpDown();
+			this.MapVariableMusic = new System.Windows.Forms.NumericUpDown();
+			this.MapVariableStartY = new System.Windows.Forms.NumericUpDown();
+			this.MapVariableStartX = new System.Windows.Forms.NumericUpDown();
+			this.MapRoomNumberInput = new System.Windows.Forms.NumericUpDown();
+			this.label20 = new System.Windows.Forms.Label();
+			this.label19 = new System.Windows.Forms.Label();
+			this.label18 = new System.Windows.Forms.Label();
+			this.label17 = new System.Windows.Forms.Label();
+			this.csvLabel4 = new System.Windows.Forms.Label();
+			this.MapSaveButton = new System.Windows.Forms.Button();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.MapRoomLoadButton = new System.Windows.Forms.Button();
+			this.MapRoomUpdateButton = new System.Windows.Forms.Button();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.clipboardRadioButton = new System.Windows.Forms.RadioButton();
+			this.brushRadioButton = new System.Windows.Forms.RadioButton();
+			this.BrushSizeLabel = new System.Windows.Forms.Label();
+			this.BrushSizeComboBox = new System.Windows.Forms.ComboBox();
+			this.BrushTileLabel = new System.Windows.Forms.Label();
+			this.BrushTilePictureBox = new System.Windows.Forms.PictureBox();
+			this.currentTileSheetComboBox = new System.Windows.Forms.ComboBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.buttonActorsSelectNone = new System.Windows.Forms.Button();
+			this.actorDeleteButton = new System.Windows.Forms.Button();
+			this.actorLayerComboBox = new System.Windows.Forms.ComboBox();
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.cloneButton = new System.Windows.Forms.Button();
+			this.ActorVariable4Input = new System.Windows.Forms.NumericUpDown();
+			this.ActorVariable3Input = new System.Windows.Forms.NumericUpDown();
+			this.ActorVariable2Input = new System.Windows.Forms.NumericUpDown();
+			this.ActorVariable1Input = new System.Windows.Forms.NumericUpDown();
+			this.ActorYCoordInput = new System.Windows.Forms.NumericUpDown();
+			this.ActorXCoordInput = new System.Windows.Forms.NumericUpDown();
+			this.ActorLayerInput = new System.Windows.Forms.NumericUpDown();
+			this.label12 = new System.Windows.Forms.Label();
+			this.ActorNameComboBox = new System.Windows.Forms.ComboBox();
+			this.label13 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.actorsAddNewButton = new System.Windows.Forms.Button();
+			this.label8 = new System.Windows.Forms.Label();
+			this.actorsSaveButton = new System.Windows.Forms.Button();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.actorsReloadButton = new System.Windows.Forms.Button();
+			this.actorsCheckListBox = new System.Windows.Forms.CheckedListBox();
+			this.actorInfoBox = new System.Windows.Forms.GroupBox();
+			this.ActorInfoPictureBox = new System.Windows.Forms.PictureBox();
+			this.ActorInfoTextBox = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
+			this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
+			this.BottomGroupBox = new System.Windows.Forms.GroupBox();
+			this.tileSheetPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
+			this.layersPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
+			this.MapPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
+			this.menuStrip1.SuspendLayout();
+			this.rightSideGroupBox.SuspendLayout();
+			this.tabControl.SuspendLayout();
+			this.tabPage3.SuspendLayout();
+			this.MapVariablesGroupBox.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableOverlay)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableTileSheet)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableE3Banner)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableMusic)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableStartY)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableStartX)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapRoomNumberInput)).BeginInit();
+			this.tabPage2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).BeginInit();
+			this.tabPage1.SuspendLayout();
+			this.groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ActorVariable4Input)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorVariable3Input)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorVariable1Input)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorXCoordInput)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).BeginInit();
+			this.actorInfoBox.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).BeginInit();
+			this.BottomGroupBox.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// tileSheetPanel
+			// 
+			this.tileSheetPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.tileSheetPanel.AutoScroll = true;
+			this.tileSheetPanel.BackColor = System.Drawing.Color.Transparent;
+			this.tileSheetPanel.Controls.Add(this.tileSheetPictureBox);
+			this.tileSheetPanel.Location = new System.Drawing.Point(0, 61);
+			this.tileSheetPanel.Name = "tileSheetPanel";
+			this.tileSheetPanel.Size = new System.Drawing.Size(273, 462);
+			this.tileSheetPanel.TabIndex = 0;
+			// 
+			// tileSheetPictureBox
+			// 
+			this.tileSheetPictureBox.Location = new System.Drawing.Point(0, 0);
+			this.tileSheetPictureBox.Name = "tileSheetPictureBox";
+			this.tileSheetPictureBox.Size = new System.Drawing.Size(100, 50);
+			this.tileSheetPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.tileSheetPictureBox.TabIndex = 0;
+			this.tileSheetPictureBox.TabStop = false;
+			this.tileSheetPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tilePictureBox_MouseClick);
+			this.tileSheetPictureBox.MouseEnter += new System.EventHandler(this.tileSheetPictureBox_MouseEnter);
+			// 
+			// layersPanel
+			// 
+			this.layersPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.layersPanel.BackColor = System.Drawing.SystemColors.InactiveBorder;
+			this.layersPanel.Controls.Add(this.layerPictureBox);
+			this.layersPanel.Location = new System.Drawing.Point(283, 27);
+			this.layersPanel.MinimumSize = new System.Drawing.Size(512, 512);
+			this.layersPanel.Name = "layersPanel";
+			this.layersPanel.Size = new System.Drawing.Size(512, 516);
+			this.layersPanel.TabIndex = 1;
+			// 
+			// layerPictureBox
+			// 
+			this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
+			this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
+			this.layerPictureBox.Name = "layerPictureBox";
+			this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
+			this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.layerPictureBox.TabIndex = 0;
+			this.layerPictureBox.TabStop = false;
+			this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
+			this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
+			this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
+			// 
+			// MapPanel
+			// 
+			this.MapPanel.Controls.Add(this.mapPictureBox);
+			this.MapPanel.Location = new System.Drawing.Point(11, 266);
+			this.MapPanel.Name = "MapPanel";
+			this.MapPanel.Size = new System.Drawing.Size(205, 206);
+			this.MapPanel.TabIndex = 2;
+			// 
+			// mapPictureBox
+			// 
+			this.mapPictureBox.Location = new System.Drawing.Point(-1, 0);
+			this.mapPictureBox.Name = "mapPictureBox";
+			this.mapPictureBox.Size = new System.Drawing.Size(200, 200);
+			this.mapPictureBox.TabIndex = 0;
+			this.mapPictureBox.TabStop = false;
+			this.mapPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectMapRoom);
+			this.mapPictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mapPictureBox_MouseDoubleClick);
+			// 
+			// loggerTextBox
+			// 
+			this.loggerTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.loggerTextBox.Cursor = System.Windows.Forms.Cursors.Default;
+			this.loggerTextBox.Location = new System.Drawing.Point(6, 207);
+			this.loggerTextBox.Multiline = true;
+			this.loggerTextBox.Name = "loggerTextBox";
+			this.loggerTextBox.ReadOnly = true;
+			this.loggerTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.loggerTextBox.Size = new System.Drawing.Size(151, 333);
+			this.loggerTextBox.TabIndex = 22;
+			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.viewToolStripMenuItem,
+            this.helpToolStripMenuItem});
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(958, 24);
+			this.menuStrip1.TabIndex = 3;
+			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// fileToolStripMenuItem
+			// 
+			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.SaveMenuItem,
+            this.SaveAsMenuItem,
+            this.ExportMenuItem,
+            this.quitToolStripMenuItem});
+			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+			this.fileToolStripMenuItem.Text = "File";
+			// 
+			// newToolStripMenuItem
+			// 
+			this.newToolStripMenuItem.Enabled = false;
+			this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+			this.newToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+			this.newToolStripMenuItem.Text = "New File";
+			this.newToolStripMenuItem.Click += new System.EventHandler(this.NewToolStripMenuItem_Click);
+			// 
+			// openToolStripMenuItem
+			// 
+			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+			this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+			this.openToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+			this.openToolStripMenuItem.Text = "Open..";
+			this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenLevel);
+			// 
+			// SaveMenuItem
+			// 
+			this.SaveMenuItem.Enabled = false;
+			this.SaveMenuItem.Name = "SaveMenuItem";
+			this.SaveMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+			this.SaveMenuItem.Size = new System.Drawing.Size(196, 22);
+			this.SaveMenuItem.Text = "Save changes";
+			this.SaveMenuItem.Click += new System.EventHandler(this.saveChangesToolStripMenuItem_Click);
+			// 
+			// SaveAsMenuItem
+			// 
+			this.SaveAsMenuItem.Enabled = false;
+			this.SaveAsMenuItem.Name = "SaveAsMenuItem";
+			this.SaveAsMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+			this.SaveAsMenuItem.Size = new System.Drawing.Size(196, 22);
+			this.SaveAsMenuItem.Text = "Save as ...";
+			this.SaveAsMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+			// 
+			// ExportMenuItem
+			// 
+			this.ExportMenuItem.Enabled = false;
+			this.ExportMenuItem.Name = "ExportMenuItem";
+			this.ExportMenuItem.Size = new System.Drawing.Size(196, 22);
+			this.ExportMenuItem.Text = "Export as .arc";
+			this.ExportMenuItem.Click += new System.EventHandler(this.ExportLevel);
+			// 
+			// quitToolStripMenuItem
+			// 
+			this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+			this.quitToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+			this.quitToolStripMenuItem.Text = "Quit";
+			this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+			// 
+			// editToolStripMenuItem
+			// 
+			this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undoToolStripMenuItem,
+            this.redoToolStripMenuItem,
+            this.copyTilesToolStripMenuItem,
+            this.pasteTilesToolStripMenuItem});
+			this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+			this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+			this.editToolStripMenuItem.Text = "Edit";
+			// 
+			// undoToolStripMenuItem
+			// 
+			this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+			this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+			this.undoToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+			this.undoToolStripMenuItem.Text = "Undo Tile Change";
+			this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+			// 
+			// redoToolStripMenuItem
+			// 
+			this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+			this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+			this.redoToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+			this.redoToolStripMenuItem.Text = "Redo Tile Change";
+			this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+			// 
+			// copyTilesToolStripMenuItem
+			// 
+			this.copyTilesToolStripMenuItem.Name = "copyTilesToolStripMenuItem";
+			this.copyTilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+			this.copyTilesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+			this.copyTilesToolStripMenuItem.Text = "Copy Tiles";
+			this.copyTilesToolStripMenuItem.Click += new System.EventHandler(this.copyTilesToolStripMenuItem_Click);
+			// 
+			// pasteTilesToolStripMenuItem
+			// 
+			this.pasteTilesToolStripMenuItem.Name = "pasteTilesToolStripMenuItem";
+			this.pasteTilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+			this.pasteTilesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+			this.pasteTilesToolStripMenuItem.Text = "Paste Tiles";
+			this.pasteTilesToolStripMenuItem.Click += new System.EventHandler(this.pasteTilesToolStripMenuItem_Click);
+			// 
+			// viewToolStripMenuItem
+			// 
+			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xSizeToolStripMenuItem,
+            this.xSizeToolStripMenuItem1});
+			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+			this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+			this.viewToolStripMenuItem.Text = "View";
+			// 
+			// xSizeToolStripMenuItem
+			// 
+			this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
+			this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.xSizeToolStripMenuItem.Text = "1x size";
+			this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.oneXSizeToolStripMenuItem_Click);
+			// 
+			// xSizeToolStripMenuItem1
+			// 
+			this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
+			this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.xSizeToolStripMenuItem1.Text = "2x size";
+			this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
+			// 
+			// helpToolStripMenuItem
+			// 
+			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+			this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+			this.helpToolStripMenuItem.Text = "Help";
+			// 
+			// aboutToolStripMenuItem
+			// 
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.aboutToolStripMenuItem.Text = "About";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+			// 
+			// rightSideGroupBox
+			// 
+			this.rightSideGroupBox.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.rightSideGroupBox.Controls.Add(this.updateLayersButton);
+			this.rightSideGroupBox.Controls.Add(this.buttonSaveLayers);
+			this.rightSideGroupBox.Controls.Add(this.layersCheckList);
+			this.rightSideGroupBox.Controls.Add(this.loggerTextBox);
+			this.rightSideGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
+			this.rightSideGroupBox.Location = new System.Drawing.Point(795, 24);
+			this.rightSideGroupBox.Name = "rightSideGroupBox";
+			this.rightSideGroupBox.Size = new System.Drawing.Size(163, 552);
+			this.rightSideGroupBox.TabIndex = 7;
+			this.rightSideGroupBox.TabStop = false;
+			this.rightSideGroupBox.Text = "Layers";
+			// 
+			// updateLayersButton
+			// 
+			this.updateLayersButton.Location = new System.Drawing.Point(6, 178);
+			this.updateLayersButton.Name = "updateLayersButton";
+			this.updateLayersButton.Size = new System.Drawing.Size(75, 23);
+			this.updateLayersButton.TabIndex = 20;
+			this.updateLayersButton.Text = "Update view";
+			this.updateLayersButton.UseVisualStyleBackColor = true;
+			this.updateLayersButton.Click += new System.EventHandler(this.updateLayersButton_Click);
+			// 
+			// buttonSaveLayers
+			// 
+			this.buttonSaveLayers.Enabled = false;
+			this.buttonSaveLayers.Location = new System.Drawing.Point(82, 178);
+			this.buttonSaveLayers.Name = "buttonSaveLayers";
+			this.buttonSaveLayers.Size = new System.Drawing.Size(75, 23);
+			this.buttonSaveLayers.TabIndex = 21;
+			this.buttonSaveLayers.Text = "Save Layers";
+			this.buttonSaveLayers.UseVisualStyleBackColor = true;
+			this.buttonSaveLayers.Click += new System.EventHandler(this.buttonSaveLayers_Click);
+			// 
+			// layersCheckList
+			// 
+			this.layersCheckList.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.layersCheckList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.layersCheckList.CheckOnClick = true;
+			this.layersCheckList.ColumnWidth = 70;
+			this.layersCheckList.FormattingEnabled = true;
+			this.layersCheckList.Items.AddRange(new object[] {
+            "Layer 1-0",
+            "Layer 1-1",
+            "Layer 1-2",
+            "Layer 1-3",
+            "Layer 1-4",
+            "Layer 1-5",
+            "Layer 1-6",
+            "Layer 1-7",
+            "Layer 2-0",
+            "Layer 2-1",
+            "Layer 2-2",
+            "Layer 2-3",
+            "Layer 2-4",
+            "Layer 2-5",
+            "Layer 2-6",
+            "Layer 2-7"});
+			this.layersCheckList.Location = new System.Drawing.Point(6, 16);
+			this.layersCheckList.MultiColumn = true;
+			this.layersCheckList.Name = "layersCheckList";
+			this.layersCheckList.Size = new System.Drawing.Size(145, 120);
+			this.layersCheckList.TabIndex = 19;
+			this.layersCheckList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LayersCheckList_ItemCheck);
+			// 
+			// tabControl
+			// 
+			this.tabControl.Controls.Add(this.tabPage3);
+			this.tabControl.Controls.Add(this.tabPage2);
+			this.tabControl.Controls.Add(this.tabPage1);
+			this.tabControl.Dock = System.Windows.Forms.DockStyle.Left;
+			this.tabControl.Location = new System.Drawing.Point(0, 24);
+			this.tabControl.Name = "tabControl";
+			this.tabControl.SelectedIndex = 0;
+			this.tabControl.Size = new System.Drawing.Size(281, 552);
+			this.tabControl.TabIndex = 8;
+			// 
+			// tabPage3
+			// 
+			this.tabPage3.Controls.Add(this.MapVariablesGroupBox);
+			this.tabPage3.Location = new System.Drawing.Point(4, 22);
+			this.tabPage3.Name = "tabPage3";
+			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage3.Size = new System.Drawing.Size(273, 526);
+			this.tabPage3.TabIndex = 3;
+			this.tabPage3.Text = "Map Info";
+			this.tabPage3.UseVisualStyleBackColor = true;
+			// 
+			// MapVariablesGroupBox
+			// 
+			this.MapVariablesGroupBox.Controls.Add(this.MapVariableUnknown1);
+			this.MapVariablesGroupBox.Controls.Add(this.MapVariableOverlay);
+			this.MapVariablesGroupBox.Controls.Add(this.MapVariableUnknown2);
+			this.MapVariablesGroupBox.Controls.Add(this.MapVariableUnknown3);
+			this.MapVariablesGroupBox.Controls.Add(this.MapVariableTileSheet);
+			this.MapVariablesGroupBox.Controls.Add(this.MapVariableE3Banner);
+			this.MapVariablesGroupBox.Controls.Add(this.MapVariableMusic);
+			this.MapVariablesGroupBox.Controls.Add(this.MapVariableStartY);
+			this.MapVariablesGroupBox.Controls.Add(this.MapVariableStartX);
+			this.MapVariablesGroupBox.Controls.Add(this.MapRoomNumberInput);
+			this.MapVariablesGroupBox.Controls.Add(this.label20);
+			this.MapVariablesGroupBox.Controls.Add(this.label19);
+			this.MapVariablesGroupBox.Controls.Add(this.label18);
+			this.MapVariablesGroupBox.Controls.Add(this.label17);
+			this.MapVariablesGroupBox.Controls.Add(this.csvLabel4);
+			this.MapVariablesGroupBox.Controls.Add(this.MapSaveButton);
+			this.MapVariablesGroupBox.Controls.Add(this.label5);
+			this.MapVariablesGroupBox.Controls.Add(this.MapPanel);
+			this.MapVariablesGroupBox.Controls.Add(this.label4);
+			this.MapVariablesGroupBox.Controls.Add(this.MapRoomLoadButton);
+			this.MapVariablesGroupBox.Controls.Add(this.MapRoomUpdateButton);
+			this.MapVariablesGroupBox.Controls.Add(this.label10);
+			this.MapVariablesGroupBox.Controls.Add(this.label11);
+			this.MapVariablesGroupBox.Controls.Add(this.label16);
+			this.MapVariablesGroupBox.Controls.Add(this.label14);
+			this.MapVariablesGroupBox.Controls.Add(this.label15);
+			this.MapVariablesGroupBox.Controls.Add(this.label3);
+			this.MapVariablesGroupBox.Location = new System.Drawing.Point(0, 3);
+			this.MapVariablesGroupBox.Name = "MapVariablesGroupBox";
+			this.MapVariablesGroupBox.Size = new System.Drawing.Size(267, 478);
+			this.MapVariablesGroupBox.TabIndex = 13;
+			this.MapVariablesGroupBox.TabStop = false;
+			this.MapVariablesGroupBox.Text = "Map";
+			// 
+			// MapVariableUnknown1
+			// 
+			this.MapVariableUnknown1.Location = new System.Drawing.Point(203, 17);
+			this.MapVariableUnknown1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+			this.MapVariableUnknown1.Name = "MapVariableUnknown1";
+			this.MapVariableUnknown1.Size = new System.Drawing.Size(58, 20);
+			this.MapVariableUnknown1.TabIndex = 28;
+			this.MapVariableUnknown1.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
+			// 
+			// MapVariableOverlay
+			// 
+			this.MapVariableOverlay.Location = new System.Drawing.Point(203, 43);
+			this.MapVariableOverlay.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+			this.MapVariableOverlay.Name = "MapVariableOverlay";
+			this.MapVariableOverlay.Size = new System.Drawing.Size(58, 20);
+			this.MapVariableOverlay.TabIndex = 27;
+			this.MapVariableOverlay.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
+			// 
+			// MapVariableUnknown2
+			// 
+			this.MapVariableUnknown2.Location = new System.Drawing.Point(203, 70);
+			this.MapVariableUnknown2.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+			this.MapVariableUnknown2.Name = "MapVariableUnknown2";
+			this.MapVariableUnknown2.Size = new System.Drawing.Size(58, 20);
+			this.MapVariableUnknown2.TabIndex = 26;
+			this.MapVariableUnknown2.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
+			// 
+			// MapVariableUnknown3
+			// 
+			this.MapVariableUnknown3.Location = new System.Drawing.Point(203, 96);
+			this.MapVariableUnknown3.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+			this.MapVariableUnknown3.Name = "MapVariableUnknown3";
+			this.MapVariableUnknown3.Size = new System.Drawing.Size(58, 20);
+			this.MapVariableUnknown3.TabIndex = 25;
+			this.MapVariableUnknown3.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
+			// 
+			// MapVariableTileSheet
+			// 
+			this.MapVariableTileSheet.Location = new System.Drawing.Point(84, 122);
+			this.MapVariableTileSheet.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+			this.MapVariableTileSheet.Name = "MapVariableTileSheet";
+			this.MapVariableTileSheet.Size = new System.Drawing.Size(58, 20);
+			this.MapVariableTileSheet.TabIndex = 24;
+			this.MapVariableTileSheet.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
+			// 
+			// MapVariableE3Banner
+			// 
+			this.MapVariableE3Banner.Location = new System.Drawing.Point(84, 96);
+			this.MapVariableE3Banner.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+			this.MapVariableE3Banner.Name = "MapVariableE3Banner";
+			this.MapVariableE3Banner.Size = new System.Drawing.Size(58, 20);
+			this.MapVariableE3Banner.TabIndex = 23;
+			this.MapVariableE3Banner.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
+			// 
+			// MapVariableMusic
+			// 
+			this.MapVariableMusic.Location = new System.Drawing.Point(84, 70);
+			this.MapVariableMusic.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+			this.MapVariableMusic.Name = "MapVariableMusic";
+			this.MapVariableMusic.Size = new System.Drawing.Size(58, 20);
+			this.MapVariableMusic.TabIndex = 22;
+			this.MapVariableMusic.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
+			// 
+			// MapVariableStartY
+			// 
+			this.MapVariableStartY.Location = new System.Drawing.Point(84, 43);
+			this.MapVariableStartY.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+			this.MapVariableStartY.Name = "MapVariableStartY";
+			this.MapVariableStartY.Size = new System.Drawing.Size(58, 20);
+			this.MapVariableStartY.TabIndex = 21;
+			this.MapVariableStartY.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
+			// 
+			// MapVariableStartX
+			// 
+			this.MapVariableStartX.Location = new System.Drawing.Point(84, 17);
+			this.MapVariableStartX.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+			this.MapVariableStartX.Name = "MapVariableStartX";
+			this.MapVariableStartX.Size = new System.Drawing.Size(58, 20);
+			this.MapVariableStartX.TabIndex = 20;
+			this.MapVariableStartX.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
+			// 
+			// MapRoomNumberInput
+			// 
+			this.MapRoomNumberInput.Location = new System.Drawing.Point(11, 182);
+			this.MapRoomNumberInput.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+			this.MapRoomNumberInput.Name = "MapRoomNumberInput";
+			this.MapRoomNumberInput.Size = new System.Drawing.Size(117, 20);
+			this.MapRoomNumberInput.TabIndex = 19;
+			// 
+			// label20
+			// 
+			this.label20.AutoSize = true;
+			this.label20.Location = new System.Drawing.Point(149, 98);
+			this.label20.Name = "label20";
+			this.label20.Size = new System.Drawing.Size(56, 13);
+			this.label20.TabIndex = 18;
+			this.label20.Text = "Unknown:";
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.Location = new System.Drawing.Point(149, 72);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(56, 13);
+			this.label19.TabIndex = 17;
+			this.label19.Text = "Unknown:";
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(149, 45);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(46, 13);
+			this.label18.TabIndex = 16;
+			this.label18.Text = "Overlay:";
+			this.ActorAttributesTip.SetToolTip(this.label18, "Index of texture that is applied over top of layer tiles in-game.");
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Location = new System.Drawing.Point(149, 20);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(56, 13);
+			this.label17.TabIndex = 15;
+			this.label17.Text = "Unknown:";
+			// 
+			// csvLabel4
+			// 
+			this.csvLabel4.AutoSize = true;
+			this.csvLabel4.Location = new System.Drawing.Point(7, 98);
+			this.csvLabel4.Name = "csvLabel4";
+			this.csvLabel4.Size = new System.Drawing.Size(60, 13);
+			this.csvLabel4.TabIndex = 14;
+			this.csvLabel4.Text = "E3 Banner:";
+			this.ActorAttributesTip.SetToolTip(this.csvLabel4, "Set to 1 to show E3 banner when starting boss005 or boss006");
+			// 
+			// MapSaveButton
+			// 
+			this.MapSaveButton.Enabled = false;
+			this.MapSaveButton.Location = new System.Drawing.Point(11, 208);
+			this.MapSaveButton.Name = "MapSaveButton";
+			this.MapSaveButton.Size = new System.Drawing.Size(117, 35);
+			this.MapSaveButton.TabIndex = 12;
+			this.MapSaveButton.Text = "Save changes\r\nto Map";
+			this.MapSaveButton.UseVisualStyleBackColor = true;
+			this.MapSaveButton.Click += new System.EventHandler(this.SaveMap);
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(8, 166);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(120, 13);
+			this.label5.TabIndex = 12;
+			this.label5.Text = "Selected Room Number";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(8, 250);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(122, 13);
+			this.label4.TabIndex = 11;
+			this.label4.Text = "Layout of Rooms in Map";
+			// 
+			// MapRoomLoadButton
+			// 
+			this.MapRoomLoadButton.Enabled = false;
+			this.MapRoomLoadButton.Location = new System.Drawing.Point(198, 167);
+			this.MapRoomLoadButton.Name = "MapRoomLoadButton";
+			this.MapRoomLoadButton.Size = new System.Drawing.Size(55, 35);
+			this.MapRoomLoadButton.TabIndex = 11;
+			this.MapRoomLoadButton.Text = "Load Room";
+			this.MapRoomLoadButton.UseVisualStyleBackColor = true;
+			this.MapRoomLoadButton.Click += new System.EventHandler(this.LoadRoom);
+			// 
+			// MapRoomUpdateButton
+			// 
+			this.MapRoomUpdateButton.Enabled = false;
+			this.MapRoomUpdateButton.Location = new System.Drawing.Point(134, 167);
+			this.MapRoomUpdateButton.Name = "MapRoomUpdateButton";
+			this.MapRoomUpdateButton.Size = new System.Drawing.Size(56, 35);
+			this.MapRoomUpdateButton.TabIndex = 10;
+			this.MapRoomUpdateButton.Text = "Update";
+			this.MapRoomUpdateButton.UseVisualStyleBackColor = true;
+			this.MapRoomUpdateButton.Click += new System.EventHandler(this.UpdateMapRoomNumber);
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(8, 124);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(58, 13);
+			this.label10.TabIndex = 1;
+			this.label10.Text = "Tile Sheet:";
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(8, 72);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(56, 13);
+			this.label11.TabIndex = 1;
+			this.label11.Text = "BG Music:";
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Location = new System.Drawing.Point(8, 45);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(73, 13);
+			this.label16.TabIndex = 1;
+			this.label16.Text = "Start Room Y:";
+			this.ActorAttributesTip.SetToolTip(this.label16, "0-based Y coordinate of the room the players start in.");
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.Location = new System.Drawing.Point(8, 45);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(70, 13);
+			this.label14.TabIndex = 1;
+			this.label14.Text = "Start Room X";
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Location = new System.Drawing.Point(8, 19);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(73, 13);
+			this.label15.TabIndex = 1;
+			this.label15.Text = "Start Room X:";
+			this.ActorAttributesTip.SetToolTip(this.label15, "0-based X coordinate of the room the players start in.");
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(8, 19);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(70, 13);
+			this.label3.TabIndex = 1;
+			this.label3.Text = "Start Room X";
+			this.ActorAttributesTip.SetToolTip(this.label3, "0-based X coordinate of the room the players start in.");
+			// 
+			// tabPage2
+			// 
+			this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+			this.tabPage2.Controls.Add(this.clipboardRadioButton);
+			this.tabPage2.Controls.Add(this.brushRadioButton);
+			this.tabPage2.Controls.Add(this.BrushSizeLabel);
+			this.tabPage2.Controls.Add(this.BrushSizeComboBox);
+			this.tabPage2.Controls.Add(this.BrushTileLabel);
+			this.tabPage2.Controls.Add(this.BrushTilePictureBox);
+			this.tabPage2.Controls.Add(this.currentTileSheetComboBox);
+			this.tabPage2.Controls.Add(this.label2);
+			this.tabPage2.Controls.Add(this.tileSheetPanel);
+			this.tabPage2.Location = new System.Drawing.Point(4, 22);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage2.Size = new System.Drawing.Size(273, 526);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "Tile Sheet";
+			// 
+			// clipboardRadioButton
+			// 
+			this.clipboardRadioButton.AutoSize = true;
+			this.clipboardRadioButton.Location = new System.Drawing.Point(186, 35);
+			this.clipboardRadioButton.Name = "clipboardRadioButton";
+			this.clipboardRadioButton.Size = new System.Drawing.Size(81, 17);
+			this.clipboardRadioButton.TabIndex = 9;
+			this.clipboardRadioButton.Text = "Copy/Paste";
+			this.clipboardRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// brushRadioButton
+			// 
+			this.brushRadioButton.AutoSize = true;
+			this.brushRadioButton.Checked = true;
+			this.brushRadioButton.Location = new System.Drawing.Point(128, 35);
+			this.brushRadioButton.Name = "brushRadioButton";
+			this.brushRadioButton.Size = new System.Drawing.Size(52, 17);
+			this.brushRadioButton.TabIndex = 8;
+			this.brushRadioButton.TabStop = true;
+			this.brushRadioButton.Text = "Brush";
+			this.brushRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// BrushSizeLabel
+			// 
+			this.BrushSizeLabel.AutoSize = true;
+			this.BrushSizeLabel.Location = new System.Drawing.Point(-3, 37);
+			this.BrushSizeLabel.Name = "BrushSizeLabel";
+			this.BrushSizeLabel.Size = new System.Drawing.Size(77, 13);
+			this.BrushSizeLabel.TabIndex = 7;
+			this.BrushSizeLabel.Text = "Tile brush size:";
+			// 
+			// BrushSizeComboBox
+			// 
+			this.BrushSizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.BrushSizeComboBox.FormattingEnabled = true;
+			this.BrushSizeComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
+			this.BrushSizeComboBox.Location = new System.Drawing.Point(84, 34);
+			this.BrushSizeComboBox.Name = "BrushSizeComboBox";
+			this.BrushSizeComboBox.Size = new System.Drawing.Size(38, 21);
+			this.BrushSizeComboBox.TabIndex = 6;
+			// 
+			// BrushTileLabel
+			// 
+			this.BrushTileLabel.AutoSize = true;
+			this.BrushTileLabel.BackColor = System.Drawing.Color.Transparent;
+			this.BrushTileLabel.Location = new System.Drawing.Point(206, 10);
+			this.BrushTileLabel.Name = "BrushTileLabel";
+			this.BrushTileLabel.Size = new System.Drawing.Size(13, 13);
+			this.BrushTileLabel.TabIndex = 5;
+			this.BrushTileLabel.Text = "0";
+			// 
+			// BrushTilePictureBox
+			// 
+			this.BrushTilePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.BrushTilePictureBox.Location = new System.Drawing.Point(239, 2);
+			this.BrushTilePictureBox.Name = "BrushTilePictureBox";
+			this.BrushTilePictureBox.Size = new System.Drawing.Size(32, 32);
+			this.BrushTilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.BrushTilePictureBox.TabIndex = 4;
+			this.BrushTilePictureBox.TabStop = false;
+			// 
+			// currentTileSheetComboBox
+			// 
+			this.currentTileSheetComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.currentTileSheetComboBox.FormattingEnabled = true;
+			this.currentTileSheetComboBox.Items.AddRange(new object[] {
+            "Tile Sheet 00",
+            "Tile Sheet 01",
+            "Tile Sheet 02",
+            "Tile Sheet 03",
+            "Tile Sheet 04",
+            "Tile Sheet 05",
+            "Tile Sheet 06",
+            "Tile Sheet 07",
+            "Tile Sheet 08",
+            "Tile Sheet 09",
+            "Tile Sheet 10",
+            "Tile Sheet 11",
+            "Tile Sheet 12",
+            "Tile Sheet 13",
+            "Tile Sheet 14",
+            "Tile Sheet 15",
+            "Tile Sheet 16",
+            "Tile Sheet 17",
+            "Tile Sheet 18",
+            "Tile Sheet 19",
+            "Tile Sheet 20",
+            "Tile Sheet 21",
+            "Tile Sheet 22",
+            "Tile Sheet 23",
+            "Tile Sheet 24",
+            "Tile Sheet 25",
+            "Tile Sheet 26",
+            "Tile Sheet 27"});
+			this.currentTileSheetComboBox.Location = new System.Drawing.Point(84, 5);
+			this.currentTileSheetComboBox.Name = "currentTileSheetComboBox";
+			this.currentTileSheetComboBox.Size = new System.Drawing.Size(93, 21);
+			this.currentTileSheetComboBox.TabIndex = 3;
+			this.currentTileSheetComboBox.SelectionChangeCommitted += new System.EventHandler(this.currentTileSheetComboBox_SelectionChangeCommitted);
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(-3, 8);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(90, 13);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Current Tilesheet:";
+			// 
+			// tabPage1
+			// 
+			this.tabPage1.Controls.Add(this.buttonActorsSelectNone);
+			this.tabPage1.Controls.Add(this.actorDeleteButton);
+			this.tabPage1.Controls.Add(this.actorLayerComboBox);
+			this.tabPage1.Controls.Add(this.groupBox2);
+			this.tabPage1.Controls.Add(this.actorsCheckListBox);
+			this.tabPage1.Controls.Add(this.actorInfoBox);
+			this.tabPage1.Location = new System.Drawing.Point(4, 22);
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage1.Size = new System.Drawing.Size(273, 526);
+			this.tabPage1.TabIndex = 2;
+			this.tabPage1.Text = "Actors";
+			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// buttonActorsSelectNone
+			// 
+			this.buttonActorsSelectNone.Location = new System.Drawing.Point(7, 238);
+			this.buttonActorsSelectNone.Name = "buttonActorsSelectNone";
+			this.buttonActorsSelectNone.Size = new System.Drawing.Size(80, 23);
+			this.buttonActorsSelectNone.TabIndex = 3;
+			this.buttonActorsSelectNone.Text = "Select none";
+			this.buttonActorsSelectNone.UseVisualStyleBackColor = true;
+			this.buttonActorsSelectNone.Click += new System.EventHandler(this.buttonActorsSelectNone_Click);
+			// 
+			// actorDeleteButton
+			// 
+			this.actorDeleteButton.Enabled = false;
+			this.actorDeleteButton.Location = new System.Drawing.Point(7, 262);
+			this.actorDeleteButton.Name = "actorDeleteButton";
+			this.actorDeleteButton.Size = new System.Drawing.Size(80, 35);
+			this.actorDeleteButton.TabIndex = 4;
+			this.actorDeleteButton.Text = "Delete Selected";
+			this.actorDeleteButton.UseVisualStyleBackColor = true;
+			this.actorDeleteButton.Click += new System.EventHandler(this.actorDeleteButton_Click);
+			// 
+			// actorLayerComboBox
+			// 
+			this.actorLayerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.actorLayerComboBox.Enabled = false;
+			this.actorLayerComboBox.FormattingEnabled = true;
+			this.actorLayerComboBox.Items.AddRange(new object[] {
+            "Layer 0",
+            "Layer 1",
+            "Layer 2",
+            "Layer 3",
+            "Layer 4",
+            "Layer 5",
+            "Layer 6",
+            "Layer 7"});
+			this.actorLayerComboBox.Location = new System.Drawing.Point(7, 6);
+			this.actorLayerComboBox.Name = "actorLayerComboBox";
+			this.actorLayerComboBox.Size = new System.Drawing.Size(80, 21);
+			this.actorLayerComboBox.TabIndex = 0;
+			this.actorLayerComboBox.SelectionChangeCommitted += new System.EventHandler(this.actorLayerComboBox_SelectionChangeCommitted);
+			// 
+			// groupBox2
+			// 
+			this.groupBox2.Controls.Add(this.cloneButton);
+			this.groupBox2.Controls.Add(this.ActorVariable4Input);
+			this.groupBox2.Controls.Add(this.ActorVariable3Input);
+			this.groupBox2.Controls.Add(this.ActorVariable2Input);
+			this.groupBox2.Controls.Add(this.ActorVariable1Input);
+			this.groupBox2.Controls.Add(this.ActorYCoordInput);
+			this.groupBox2.Controls.Add(this.ActorXCoordInput);
+			this.groupBox2.Controls.Add(this.ActorLayerInput);
+			this.groupBox2.Controls.Add(this.label12);
+			this.groupBox2.Controls.Add(this.ActorNameComboBox);
+			this.groupBox2.Controls.Add(this.label13);
+			this.groupBox2.Controls.Add(this.label9);
+			this.groupBox2.Controls.Add(this.actorsAddNewButton);
+			this.groupBox2.Controls.Add(this.label8);
+			this.groupBox2.Controls.Add(this.actorsSaveButton);
+			this.groupBox2.Controls.Add(this.label7);
+			this.groupBox2.Controls.Add(this.label6);
+			this.groupBox2.Controls.Add(this.actorsReloadButton);
+			this.groupBox2.Location = new System.Drawing.Point(93, 6);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Size = new System.Drawing.Size(174, 291);
+			this.groupBox2.TabIndex = 5;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Actor Attributes";
+			// 
+			// cloneButton
+			// 
+			this.cloneButton.Location = new System.Drawing.Point(101, 233);
+			this.cloneButton.Name = "cloneButton";
+			this.cloneButton.Size = new System.Drawing.Size(67, 23);
+			this.cloneButton.TabIndex = 31;
+			this.cloneButton.Text = "Clone";
+			this.ActorAttributesTip.SetToolTip(this.cloneButton, "Create a new actor which is a copy of the currently selected actor");
+			this.cloneButton.UseVisualStyleBackColor = true;
+			this.cloneButton.Click += new System.EventHandler(this.cloneButton_Click);
+			// 
+			// ActorVariable4Input
+			// 
+			this.ActorVariable4Input.Location = new System.Drawing.Point(101, 206);
+			this.ActorVariable4Input.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+			this.ActorVariable4Input.Name = "ActorVariable4Input";
+			this.ActorVariable4Input.Size = new System.Drawing.Size(66, 20);
+			this.ActorVariable4Input.TabIndex = 30;
+			this.ActorVariable4Input.ValueChanged += new System.EventHandler(this.ActorChanged);
+			this.ActorVariable4Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+			// 
+			// ActorVariable3Input
+			// 
+			this.ActorVariable3Input.Location = new System.Drawing.Point(101, 181);
+			this.ActorVariable3Input.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+			this.ActorVariable3Input.Name = "ActorVariable3Input";
+			this.ActorVariable3Input.Size = new System.Drawing.Size(66, 20);
+			this.ActorVariable3Input.TabIndex = 29;
+			this.ActorVariable3Input.ValueChanged += new System.EventHandler(this.ActorChanged);
+			this.ActorVariable3Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+			// 
+			// ActorVariable2Input
+			// 
+			this.ActorVariable2Input.Location = new System.Drawing.Point(101, 155);
+			this.ActorVariable2Input.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+			this.ActorVariable2Input.Name = "ActorVariable2Input";
+			this.ActorVariable2Input.Size = new System.Drawing.Size(66, 20);
+			this.ActorVariable2Input.TabIndex = 28;
+			this.ActorVariable2Input.ValueChanged += new System.EventHandler(this.ActorChanged);
+			this.ActorVariable2Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+			// 
+			// ActorVariable1Input
+			// 
+			this.ActorVariable1Input.Location = new System.Drawing.Point(101, 129);
+			this.ActorVariable1Input.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+			this.ActorVariable1Input.Name = "ActorVariable1Input";
+			this.ActorVariable1Input.Size = new System.Drawing.Size(66, 20);
+			this.ActorVariable1Input.TabIndex = 27;
+			this.ActorVariable1Input.ValueChanged += new System.EventHandler(this.ActorChanged);
+			this.ActorVariable1Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+			// 
+			// ActorYCoordInput
+			// 
+			this.ActorYCoordInput.Location = new System.Drawing.Point(101, 103);
+			this.ActorYCoordInput.Maximum = new decimal(new int[] {
+            63,
+            0,
+            0,
+            0});
+			this.ActorYCoordInput.Name = "ActorYCoordInput";
+			this.ActorYCoordInput.Size = new System.Drawing.Size(66, 20);
+			this.ActorYCoordInput.TabIndex = 26;
+			this.ActorYCoordInput.ValueChanged += new System.EventHandler(this.ActorChanged);
+			this.ActorYCoordInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+			// 
+			// ActorXCoordInput
+			// 
+			this.ActorXCoordInput.Location = new System.Drawing.Point(101, 77);
+			this.ActorXCoordInput.Maximum = new decimal(new int[] {
+            63,
+            0,
+            0,
+            0});
+			this.ActorXCoordInput.Name = "ActorXCoordInput";
+			this.ActorXCoordInput.Size = new System.Drawing.Size(66, 20);
+			this.ActorXCoordInput.TabIndex = 25;
+			this.ActorXCoordInput.ValueChanged += new System.EventHandler(this.ActorChanged);
+			this.ActorXCoordInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+			// 
+			// ActorLayerInput
+			// 
+			this.ActorLayerInput.Location = new System.Drawing.Point(101, 51);
+			this.ActorLayerInput.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+			this.ActorLayerInput.Name = "ActorLayerInput";
+			this.ActorLayerInput.Size = new System.Drawing.Size(66, 20);
+			this.ActorLayerInput.TabIndex = 24;
+			this.ActorLayerInput.ValueChanged += new System.EventHandler(this.ActorChanged);
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(7, 26);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(35, 13);
+			this.label12.TabIndex = 11;
+			this.label12.Text = "Actor:";
+			// 
+			// ActorNameComboBox
+			// 
+			this.ActorNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.ActorNameComboBox.FormattingEnabled = true;
+			this.ActorNameComboBox.Location = new System.Drawing.Point(101, 23);
+			this.ActorNameComboBox.MaxDropDownItems = 14;
+			this.ActorNameComboBox.Name = "ActorNameComboBox";
+			this.ActorNameComboBox.Size = new System.Drawing.Size(66, 21);
+			this.ActorNameComboBox.TabIndex = 5;
+			this.ActorNameComboBox.SelectionChangeCommitted += new System.EventHandler(this.ActorChanged);
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(7, 131);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(57, 13);
+			this.label13.TabIndex = 8;
+			this.label13.Text = "Variable 1:";
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(7, 157);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(57, 13);
+			this.label9.TabIndex = 8;
+			this.label9.Text = "Variable 2:";
+			// 
+			// actorsAddNewButton
+			// 
+			this.actorsAddNewButton.Enabled = false;
+			this.actorsAddNewButton.Location = new System.Drawing.Point(10, 261);
+			this.actorsAddNewButton.Name = "actorsAddNewButton";
+			this.actorsAddNewButton.Size = new System.Drawing.Size(80, 23);
+			this.actorsAddNewButton.TabIndex = 15;
+			this.actorsAddNewButton.Text = "Add New";
+			this.ActorAttributesTip.SetToolTip(this.actorsAddNewButton, "Adds a new AGBW actor to the highest active layer");
+			this.actorsAddNewButton.UseVisualStyleBackColor = true;
+			this.actorsAddNewButton.Click += new System.EventHandler(this.actorsAddNewButton_Click);
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(7, 105);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(71, 13);
+			this.label8.TabIndex = 7;
+			this.label8.Text = "Y Coordinate:";
+			// 
+			// actorsSaveButton
+			// 
+			this.actorsSaveButton.Enabled = false;
+			this.actorsSaveButton.Location = new System.Drawing.Point(101, 261);
+			this.actorsSaveButton.Name = "actorsSaveButton";
+			this.actorsSaveButton.Size = new System.Drawing.Size(67, 23);
+			this.actorsSaveButton.TabIndex = 16;
+			this.actorsSaveButton.Text = "Save All";
+			this.ActorAttributesTip.SetToolTip(this.actorsSaveButton, "Save all changed actor data to disk");
+			this.actorsSaveButton.UseVisualStyleBackColor = true;
+			this.actorsSaveButton.Click += new System.EventHandler(this.actorsSaveButton_Click);
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(7, 79);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(71, 13);
+			this.label7.TabIndex = 7;
+			this.label7.Text = "X Coordinate:";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(7, 53);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(88, 13);
+			this.label6.TabIndex = 6;
+			this.label6.Text = "Appear on Layer:";
+			this.ActorAttributesTip.SetToolTip(this.label6, "A number between 0 and 7 which selects\r\nthe layer this actor appears on.");
+			// 
+			// actorsReloadButton
+			// 
+			this.actorsReloadButton.Enabled = false;
+			this.actorsReloadButton.Location = new System.Drawing.Point(10, 232);
+			this.actorsReloadButton.Name = "actorsReloadButton";
+			this.actorsReloadButton.Size = new System.Drawing.Size(80, 23);
+			this.actorsReloadButton.TabIndex = 13;
+			this.actorsReloadButton.Text = "Reload All";
+			this.ActorAttributesTip.SetToolTip(this.actorsReloadButton, "Discard all unsaved changes and reload all original actor data from disk");
+			this.actorsReloadButton.UseVisualStyleBackColor = true;
+			this.actorsReloadButton.Click += new System.EventHandler(this.actorsReloadButton_Click);
+			// 
+			// actorsCheckListBox
+			// 
+			this.actorsCheckListBox.FormattingEnabled = true;
+			this.actorsCheckListBox.Location = new System.Drawing.Point(7, 29);
+			this.actorsCheckListBox.Name = "actorsCheckListBox";
+			this.actorsCheckListBox.Size = new System.Drawing.Size(80, 199);
+			this.actorsCheckListBox.TabIndex = 2;
+			this.actorsCheckListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.actorsCheckListBox_ItemCheck);
+			this.actorsCheckListBox.Click += new System.EventHandler(this.actorsCheckListBox_Click);
+			this.actorsCheckListBox.SelectedIndexChanged += new System.EventHandler(this.actorsCheckListBox_SelectedIndexChanged);
+			this.actorsCheckListBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.actorsCheckListBox_KeyUp);
+			// 
+			// actorInfoBox
+			// 
+			this.actorInfoBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.actorInfoBox.Controls.Add(this.ActorInfoPictureBox);
+			this.actorInfoBox.Controls.Add(this.ActorInfoTextBox);
+			this.actorInfoBox.Location = new System.Drawing.Point(7, 303);
+			this.actorInfoBox.Name = "actorInfoBox";
+			this.actorInfoBox.Size = new System.Drawing.Size(260, 217);
+			this.actorInfoBox.TabIndex = 0;
+			this.actorInfoBox.TabStop = false;
+			this.actorInfoBox.Text = "Actor Information";
+			// 
+			// ActorInfoPictureBox
+			// 
+			this.ActorInfoPictureBox.BackColor = System.Drawing.Color.DarkGray;
+			this.ActorInfoPictureBox.Location = new System.Drawing.Point(190, 15);
+			this.ActorInfoPictureBox.MaximumSize = new System.Drawing.Size(64, 64);
+			this.ActorInfoPictureBox.MinimumSize = new System.Drawing.Size(32, 32);
+			this.ActorInfoPictureBox.Name = "ActorInfoPictureBox";
+			this.ActorInfoPictureBox.Size = new System.Drawing.Size(64, 64);
+			this.ActorInfoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.ActorInfoPictureBox.TabIndex = 1;
+			this.ActorInfoPictureBox.TabStop = false;
+			// 
+			// ActorInfoTextBox
+			// 
+			this.ActorInfoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.ActorInfoTextBox.Location = new System.Drawing.Point(7, 15);
+			this.ActorInfoTextBox.Multiline = true;
+			this.ActorInfoTextBox.Name = "ActorInfoTextBox";
+			this.ActorInfoTextBox.ReadOnly = true;
+			this.ActorInfoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.ActorInfoTextBox.Size = new System.Drawing.Size(177, 196);
+			this.ActorInfoTextBox.TabIndex = 0;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(7, 12);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(61, 13);
+			this.label1.TabIndex = 9;
+			this.label1.Text = "Working in:";
+			// 
+			// RootFolderPathTextBox
+			// 
+			this.RootFolderPathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.RootFolderPathTextBox.Location = new System.Drawing.Point(74, 9);
+			this.RootFolderPathTextBox.Name = "RootFolderPathTextBox";
+			this.RootFolderPathTextBox.ReadOnly = true;
+			this.RootFolderPathTextBox.Size = new System.Drawing.Size(426, 20);
+			this.RootFolderPathTextBox.TabIndex = 23;
+			// 
+			// ActorAttributesTip
+			// 
+			this.ActorAttributesTip.AutoPopDelay = 10000;
+			this.ActorAttributesTip.InitialDelay = 500;
+			this.ActorAttributesTip.ReshowDelay = 100;
+			// 
+			// BottomGroupBox
+			// 
+			this.BottomGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.BottomGroupBox.Controls.Add(this.label1);
+			this.BottomGroupBox.Controls.Add(this.RootFolderPathTextBox);
+			this.BottomGroupBox.Location = new System.Drawing.Point(283, 540);
+			this.BottomGroupBox.Name = "BottomGroupBox";
+			this.BottomGroupBox.Size = new System.Drawing.Size(506, 32);
+			this.BottomGroupBox.TabIndex = 24;
+			this.BottomGroupBox.TabStop = false;
+			// 
+			// Form1
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(958, 576);
+			this.Controls.Add(this.BottomGroupBox);
+			this.Controls.Add(this.tabControl);
+			this.Controls.Add(this.rightSideGroupBox);
+			this.Controls.Add(this.layersPanel);
+			this.Controls.Add(this.menuStrip1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MainMenuStrip = this.menuStrip1;
+			this.MinimumSize = new System.Drawing.Size(974, 614);
+			this.Name = "Form1";
+			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+			this.Text = "EFSAdvent";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+			this.tileSheetPanel.ResumeLayout(false);
+			this.tileSheetPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).EndInit();
+			this.layersPanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
+			this.MapPanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).EndInit();
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
+			this.rightSideGroupBox.ResumeLayout(false);
+			this.rightSideGroupBox.PerformLayout();
+			this.tabControl.ResumeLayout(false);
+			this.tabPage3.ResumeLayout(false);
+			this.MapVariablesGroupBox.ResumeLayout(false);
+			this.MapVariablesGroupBox.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableOverlay)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableTileSheet)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableE3Banner)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableMusic)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableStartY)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapVariableStartX)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MapRoomNumberInput)).EndInit();
+			this.tabPage2.ResumeLayout(false);
+			this.tabPage2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).EndInit();
+			this.tabPage1.ResumeLayout(false);
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ActorVariable4Input)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorVariable3Input)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorVariable1Input)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorXCoordInput)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).EndInit();
+			this.actorInfoBox.ResumeLayout(false);
+			this.actorInfoBox.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).EndInit();
+			this.BottomGroupBox.ResumeLayout(false);
+			this.BottomGroupBox.PerformLayout();
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel tileSheetPanel;
+        private System.Windows.Forms.Panel layersPanel;
+        private System.Windows.Forms.PictureBox tileSheetPictureBox;
+        private System.Windows.Forms.PictureBox layerPictureBox;
+        private System.Windows.Forms.Panel MapPanel;
+        private System.Windows.Forms.TextBox loggerTextBox;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.GroupBox rightSideGroupBox;
+        private System.Windows.Forms.CheckedListBox layersCheckList;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox currentTileSheetComboBox;
+        private System.Windows.Forms.PictureBox mapPictureBox;
+        private System.Windows.Forms.Button MapRoomUpdateButton;
+        private System.Windows.Forms.Button MapRoomLoadButton;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox BrushTilePictureBox;
+        private System.Windows.Forms.Label BrushTileLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox RootFolderPathTextBox;
+        private System.Windows.Forms.GroupBox MapVariablesGroupBox;
+        private System.Windows.Forms.Button updateLayersButton;
+        private System.Windows.Forms.GroupBox actorInfoBox;
+        private System.Windows.Forms.Button actorsSaveButton;
+        private System.Windows.Forms.Button actorsReloadButton;
+        private System.Windows.Forms.ToolTip ActorAttributesTip;
+        private System.Windows.Forms.CheckedListBox actorsCheckListBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button actorsAddNewButton;
+        private System.Windows.Forms.ComboBox actorLayerComboBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox ActorNameComboBox;
+        private System.Windows.Forms.TextBox ActorInfoTextBox;
+        private System.Windows.Forms.PictureBox ActorInfoPictureBox;
+        private System.Windows.Forms.Button actorDeleteButton;
+        private System.Windows.Forms.Button MapSaveButton;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button buttonActorsSelectNone;
+        private System.Windows.Forms.Button buttonSaveLayers;
+        private System.Windows.Forms.ToolStripMenuItem ExportMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
+		private System.Windows.Forms.Label csvLabel4;
+		private System.Windows.Forms.Label label20;
+		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.GroupBox BottomGroupBox;
+		private System.Windows.Forms.Label BrushSizeLabel;
+		private System.Windows.Forms.ComboBox BrushSizeComboBox;
+		private System.Windows.Forms.NumericUpDown MapRoomNumberInput;
+		private System.Windows.Forms.NumericUpDown MapVariableUnknown1;
+		private System.Windows.Forms.NumericUpDown MapVariableOverlay;
+		private System.Windows.Forms.NumericUpDown MapVariableUnknown2;
+		private System.Windows.Forms.NumericUpDown MapVariableUnknown3;
+		private System.Windows.Forms.NumericUpDown MapVariableTileSheet;
+		private System.Windows.Forms.NumericUpDown MapVariableE3Banner;
+		private System.Windows.Forms.NumericUpDown MapVariableMusic;
+		private System.Windows.Forms.NumericUpDown MapVariableStartY;
+		private System.Windows.Forms.NumericUpDown MapVariableStartX;
+		private System.Windows.Forms.NumericUpDown ActorVariable4Input;
+		private System.Windows.Forms.NumericUpDown ActorVariable3Input;
+		private System.Windows.Forms.NumericUpDown ActorVariable2Input;
+		private System.Windows.Forms.NumericUpDown ActorVariable1Input;
+		private System.Windows.Forms.NumericUpDown ActorYCoordInput;
+		private System.Windows.Forms.NumericUpDown ActorXCoordInput;
+		private System.Windows.Forms.NumericUpDown ActorLayerInput;
+		private System.Windows.Forms.RadioButton clipboardRadioButton;
+		private System.Windows.Forms.RadioButton brushRadioButton;
+		private System.Windows.Forms.ToolStripMenuItem copyTilesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pasteTilesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem xSizeToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem xSizeToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem SaveMenuItem;
+		private System.Windows.Forms.Button cloneButton;
+		private System.Windows.Forms.ToolStripMenuItem SaveAsMenuItem;
+	}
+}
+

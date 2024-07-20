@@ -1,0 +1,11 @@
+ICHL (Ice Boss Child)
+
+Flying blue samurai
+
+life: 4
+atcp: 2
+atcn: 0
+dstr: 1
+dasu: 7
+efsz: 2
+voic: 0

@@ -1,0 +1,11 @@
+GOL2 (goal 2)
+
+Four cornered evil imprisoning field
+
+life: 1
+atcp: 0
+atcn: 0
+dstr: 0
+dasu: 0
+efsz: 2
+voic: 0

@@ -1,0 +1,11 @@
+SLR3 (Iron Ball Soldier)
+
+Ball on chain soldier
+
+life: 32
+atcp: 2
+atcn: 0
+dstr: 1
+dasu: 2
+efsz: 3
+voic: 6

@@ -1,0 +1,11 @@
+ROCK (rock)
+
+4 Tile stone
+
+life: 1
+atcp: 4
+atcn: 32
+dstr: 0
+dasu: 0
+efsz: 2
+voic: 0

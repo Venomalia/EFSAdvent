@@ -1,0 +1,26 @@
+PNPC (panel rewriting NPC)
+
+Causes a tile to be changed to a different tile.
+
+Variable 1: Trigger value
+Should be "triggering actor"s trigger value + 4.
+e.g. If a switch has value 120, this must be 124(may need to be hex XC, and switch X8)
+
+Variable 2:
+Somehow determines which layer the tile change occurs on.
+
+Variable 3 & Variable 4:
+Value of tile that appears.
+This are actually a single 16-bit number.
+So:
+1
+165
+= 255 + 165.
+
+life: 1
+atcp: 0
+atcn: 0
+dstr: 0
+dasu: 0
+efsz: 2
+voic: 0

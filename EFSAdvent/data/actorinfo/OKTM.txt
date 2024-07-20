@@ -1,0 +1,11 @@
+OKTM (Octorok Ball)
+
+Octorok's stone
+
+life: 1
+atcp: 2
+atcn: 0
+dstr: 0
+dasu: 0
+efsz: 2
+voic: 0

@@ -1,0 +1,11 @@
+DDRK (deadlock)
+
+Little monster with wings
+
+life: 16
+atcp: 2
+atcn: 0
+dstr: 1
+dasu: 3
+efsz: 1
+voic: 0

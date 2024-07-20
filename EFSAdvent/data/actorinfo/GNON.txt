@@ -1,0 +1,11 @@
+GNON (Ganon)
+
+
+
+life: 1
+atcp: 2
+atcn: 0
+dstr: 1
+dasu: 0
+efsz: 2
+voic: 0

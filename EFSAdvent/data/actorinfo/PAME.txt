@@ -1,0 +1,11 @@
+PAME (Pame)
+
+Rock monster
+
+life: 8
+atcp: 2
+atcn: 0
+dstr: 1
+dasu: 7
+efsz: 1
+voic: 0

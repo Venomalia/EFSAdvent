@@ -1,0 +1,25 @@
+Tile Information:
+
+74:
+Not traversable
+
+104:
+Reveals round switch
+
+105:
+Reveals hole
+
+106:
+Reveals star switch
+
+107:
+Drops two hearts
+
+112:
+Drops random item? (i.e. normal bush)
+
+117:
+Drops one heart
+
+432:
+Traversable (Walking)

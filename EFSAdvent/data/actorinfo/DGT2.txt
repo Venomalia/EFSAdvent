@@ -1,0 +1,11 @@
+DGT2 (tail)
+
+Centipede enemy
+
+life: 12
+atcp: 2
+atcn: 0
+dstr: 1
+dasu: 1
+efsz: 1
+voic: 0

@@ -1,0 +1,11 @@
+STAL (Starfoss)
+
+Stalfos
+
+life: 8
+atcp: 2
+atcn: 0
+dstr: 1
+dasu: 8
+efsz: 2
+voic: 10

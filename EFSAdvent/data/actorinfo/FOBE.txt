@@ -1,0 +1,11 @@
+FOBE (formation bee)
+
+Red bee thing that flies away
+
+life: 1
+atcp: 1
+atcn: 1
+dstr: 0
+dasu: 0
+efsz: 1
+voic: 0
