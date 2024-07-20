@@ -23,15 +23,15 @@ namespace EFSAdvent.FourSwords
             get { return new String(Name.Skip(3).ToArray()); }
         }
 
-		public int StartX { get; private set; }
-		public int StartY { get; private set; }
-		public int BackgroundMusicId { get; private set; }
-		public int ShowE3Banner { get; private set; }
-		public int TileSheetId { get; private set; }
-		public int Unknown1 { get; private set; }
-		public int OverlayTextureId { get; private set; }
-		public int Unknown2 { get; private set; }
-		public int Unknown3 { get; private set; }
+        public int StartX { get; private set; }
+        public int StartY { get; private set; }
+        public int BackgroundMusicId { get; private set; }
+        public int ShowE3Banner { get; private set; }
+        public int TileSheetId { get; private set; }
+        public int NPCSheetID { get; private set; }
+        public int OverlayTextureId { get; private set; }
+        public int Unknown2 { get; private set; }
+        public int DisallowTingle { get; private set; }
 
         public bool IsShadowBattle { get; private set; }
         public bool IsDirty { get; private set; }
@@ -60,18 +60,18 @@ namespace EFSAdvent.FourSwords
 
             Name = firstLineParts[0];
 
-			StartX = int.Parse(firstLineParts[1]);
-			StartY = int.Parse(firstLineParts[2]);
-			BackgroundMusicId = int.Parse(firstLineParts[3]);
-			ShowE3Banner = int.Parse(firstLineParts[4]);
-			TileSheetId = int.Parse(firstLineParts[5]);
-			Unknown1 = int.Parse(firstLineParts[6]);
-			OverlayTextureId = int.Parse(firstLineParts[7]);
-			Unknown2 = int.Parse(firstLineParts[8]);
-			if (firstLineParts.Length >= 10 && int.TryParse(firstLineParts[9], out int value))
-			{
-				Unknown3 = value;
-			}
+            StartX = int.Parse(firstLineParts[1]);
+            StartY = int.Parse(firstLineParts[2]);
+            BackgroundMusicId = int.Parse(firstLineParts[3]);
+            ShowE3Banner = int.Parse(firstLineParts[4]);
+            TileSheetId = int.Parse(firstLineParts[5]);
+            NPCSheetID = int.Parse(firstLineParts[6]);
+            OverlayTextureId = int.Parse(firstLineParts[7]);
+            Unknown2 = int.Parse(firstLineParts[8]);
+            if (firstLineParts.Length >= 10 && int.TryParse(firstLineParts[9], out int value))
+            {
+                DisallowTingle = value;
+            }
 
             _data = new byte[DIMENSION, DIMENSION];
             XDimension = YDimension = DIMENSION;
@@ -131,21 +131,21 @@ namespace EFSAdvent.FourSwords
                 return;
             }
 
-			const byte COMMA = 0x2C;
-			byte[] NEWLINE = new byte[] { 0x0D, 0x0A };
-			var csvVariables = new string[]
-			{
-				StartX.ToString(),
-				StartY.ToString(),
-				BackgroundMusicId.ToString(),
-				ShowE3Banner.ToString(),
-				TileSheetId.ToString(),
-				Unknown1.ToString(),
-				OverlayTextureId.ToString(),
-				Unknown2.ToString(),
-				Unknown3.ToString()
-			};
-			var csvStream = new FileStream(_path, FileMode.Create);
+            const byte COMMA = 0x2C;
+            byte[] NEWLINE = new byte[] { 0x0D, 0x0A };
+            var csvVariables = new string[]
+            {
+                StartX.ToString(),
+                StartY.ToString(),
+                BackgroundMusicId.ToString(),
+                ShowE3Banner.ToString(),
+                TileSheetId.ToString(),
+                NPCSheetID.ToString(),
+                OverlayTextureId.ToString(),
+                Unknown2.ToString(),
+                DisallowTingle.ToString()
+            };
+            var csvStream = new FileStream(_path, FileMode.Create);
 
             csvStream.Write(Encoding.ASCII.GetBytes(Name), 0, Name.Length);
 
@@ -226,18 +226,18 @@ namespace EFSAdvent.FourSwords
             IsDirty = true;
         }
 
-		public void SetVariables(int startX, int startY, int backgroundMusicId, int showE3Banner,
-				int tileSetId, int unknown1, int overlayTextureId, int unknown2, int unknown3)
-		{
-			StartX = startX;
-			StartY = startY;
-			BackgroundMusicId = backgroundMusicId;
-			ShowE3Banner = showE3Banner;
-			TileSheetId = tileSetId;
-			Unknown1 = unknown1;
-			OverlayTextureId = overlayTextureId;
-			Unknown2 = unknown2;
-			Unknown3 = unknown3;
+        public void SetVariables(int startX, int startY, int backgroundMusicId, int showE3Banner,
+                int tileSetId, int nPCSheetID, int overlayTextureId, int unknown2, int disallowTingle)
+        {
+            StartX = startX;
+            StartY = startY;
+            BackgroundMusicId = backgroundMusicId;
+            ShowE3Banner = showE3Banner;
+            TileSheetId = tileSetId;
+            NPCSheetID = nPCSheetID;
+            OverlayTextureId = overlayTextureId;
+            Unknown2 = unknown2;
+            DisallowTingle = disallowTingle;
 
             IsDirty = true;
         }
