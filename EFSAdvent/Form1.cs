@@ -173,7 +173,10 @@ namespace EFSAdvent
             MapVariableDisallowTingle.Enabled = !_level.Map.IsShadowBattle;
             MapRoomNumberInput.Enabled = !_level.Map.IsShadowBattle;
 
-			_ignoreMapVariableUpdates = false;
+            MapRoomNumberInput.Value = _level.Map.GetRoomValue(_level.Map.StartX, _level.Map.StartY);
+			LoadRoom(sender, e);
+
+            _ignoreMapVariableUpdates = false;
 		}
 
         private void ResetVarsForNewLevel()
