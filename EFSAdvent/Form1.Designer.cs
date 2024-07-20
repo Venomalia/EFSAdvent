@@ -203,6 +203,7 @@
             this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.layerPictureBox.Enabled = false;
             this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
             this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
             this.layerPictureBox.Name = "layerPictureBox";
@@ -413,6 +414,7 @@
             this.rightSideGroupBox.Controls.Add(this.layersCheckList);
             this.rightSideGroupBox.Controls.Add(this.loggerTextBox);
             this.rightSideGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.rightSideGroupBox.Enabled = false;
             this.rightSideGroupBox.Location = new System.Drawing.Point(795, 24);
             this.rightSideGroupBox.Name = "rightSideGroupBox";
             this.rightSideGroupBox.Size = new System.Drawing.Size(163, 552);
@@ -478,6 +480,7 @@
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabControl.Enabled = false;
             this.tabControl.Location = new System.Drawing.Point(0, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;

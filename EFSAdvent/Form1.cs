@@ -158,6 +158,9 @@ namespace EFSAdvent
 			ExportMenuItem.Enabled = true;
 			SaveMenuItem.Enabled = true;
 			SaveAsMenuItem.Enabled = true;
+            tabControl.Enabled = true;
+            layerPictureBox.Enabled = true;
+            rightSideGroupBox.Enabled = true;
 
             MapVariableStartX.Enabled = !_level.Map.IsShadowBattle;
             MapVariableStartY.Enabled = !_level.Map.IsShadowBattle;
