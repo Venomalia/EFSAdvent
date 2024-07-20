@@ -385,10 +385,10 @@ namespace EFSAdvent
 				(int)MapVariableStartY.Value,
 				(int)MapVariableMusic.Value,
 				(int)MapVariableE3Banner.Value,
-				(int)MapVariableOverlay.Value,
 				(int)MapVariableTileSheet.Value,
-				(int)MapVariableNPCSheetID.Value,
-				(int)MapVariableUnknown2.Value,
+                (int)MapVariableNPCSheetID.Value,
+                (int)MapVariableOverlay.Value,
+                (int)MapVariableUnknown2.Value,
 				(int)MapVariableDisallowTingle.Value
 			);
 		}
