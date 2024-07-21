@@ -35,6 +35,7 @@ namespace EFSAdvent
 
         byte currentRoomNumber;
         (int x, int y) selectedRoomCoordinates;
+        (int x, int y) lastActorCoordinates;
 
         int? actorMouseDownOnIndex;
 
@@ -579,20 +580,22 @@ namespace EFSAdvent
 
             void SetMouseDownActor()
             {
+                lastActorCoordinates = (scaledEvent.X / ACTOR_PIXELS_PER_COORDINATE, scaledEvent.Y / ACTOR_PIXELS_PER_COORDINATE);
+                _logger.Clear();
+                _logger.AppendText($"Actor coordinates: x{lastActorCoordinates.x} y{lastActorCoordinates.y}");
+
                 if (e.Button != MouseButtons.Left)
                 {
                     return;
                 }
 
-                int mouseCoordsX = scaledEvent.X / ACTOR_PIXELS_PER_COORDINATE;
-                int mouseCoordsY = scaledEvent.Y / ACTOR_PIXELS_PER_COORDINATE;
                 actorMouseDownOnIndex = null;
                 for (int i = 0; i < actorsCheckListBox.Items.Count; i++)
                 {
                     if (actorsCheckListBox.GetItemChecked(i) == true)
                     {
                         var actor = _level.Room.GetActor(i);
-                        if (actor.XCoord == mouseCoordsX && actor.YCoord == mouseCoordsY)
+                        if (actor.XCoord == lastActorCoordinates.x && actor.YCoord == lastActorCoordinates.y)
                         {
                             actorMouseDownOnIndex = i;
                             actorsCheckListBox.SelectedIndex = i;
@@ -634,7 +637,7 @@ namespace EFSAdvent
                 return;
             }
             _logger.Clear();
-            _logger.AppendText($"Tile coordinates: {eventX} {eventY}");
+            _logger.AppendText($"Tile coordinates: x{eventX} y{eventY}");
 
             //If right click set the brush tile to the clicked tile
             if (scaledEvent.Button == MouseButtons.Right)
