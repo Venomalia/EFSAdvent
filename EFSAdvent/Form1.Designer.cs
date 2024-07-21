@@ -36,6 +36,7 @@
             this.layerPictureBox = new System.Windows.Forms.PictureBox();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addNewActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MapPanel = new System.Windows.Forms.Panel();
             this.mapPictureBox = new System.Windows.Forms.PictureBox();
             this.loggerTextBox = new System.Windows.Forms.TextBox();
@@ -266,17 +267,26 @@
             // 
             this.actorContextMenuStrip.DropShadowEnabled = false;
             this.actorContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewActorsToolStripMenuItem});
+            this.addNewActorsToolStripMenuItem,
+            this.pastToolStripMenuItem});
             this.actorContextMenuStrip.Name = "actorContextMenuStrip";
-            this.actorContextMenuStrip.Size = new System.Drawing.Size(156, 26);
+            this.actorContextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            this.actorContextMenuStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.actorContextMenuStrip_Paint);
             // 
             // addNewActorsToolStripMenuItem
             // 
             this.addNewActorsToolStripMenuItem.Name = "addNewActorsToolStripMenuItem";
-            this.addNewActorsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.addNewActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewActorsToolStripMenuItem.Text = "Add New Actor";
             this.addNewActorsToolStripMenuItem.ToolTipText = "Adds a new AGBW actor to the highest active layer";
             this.addNewActorsToolStripMenuItem.Click += new System.EventHandler(this.actorsAddNewButton_Click);
+            // 
+            // pastToolStripMenuItem
+            // 
+            this.pastToolStripMenuItem.Name = "pastToolStripMenuItem";
+            this.pastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pastToolStripMenuItem.Text = "Paste Here";
+            this.pastToolStripMenuItem.Click += new System.EventHandler(this.pastToolStripMenuItem_Click);
             // 
             // MapPanel
             // 
@@ -465,7 +475,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -1072,6 +1082,7 @@
             this.VariablesTabControl.SelectedIndex = 1;
             this.VariablesTabControl.Size = new System.Drawing.Size(170, 136);
             this.VariablesTabControl.TabIndex = 33;
+            this.ActorAttributesTip.SetToolTip(this.VariablesTabControl, "Specify the view of the actor variables");
             // 
             // Variables4TabPage
             // 
@@ -1532,10 +1543,10 @@
             this.cloneButton.Name = "cloneButton";
             this.cloneButton.Size = new System.Drawing.Size(80, 23);
             this.cloneButton.TabIndex = 31;
-            this.cloneButton.Text = "Clone";
-            this.ActorAttributesTip.SetToolTip(this.cloneButton, "Create a new actor which is a copy of the currently selected actor");
+            this.cloneButton.Text = "Copy";
+            this.ActorAttributesTip.SetToolTip(this.cloneButton, "Copies the currently selected actor to the clipboard.");
             this.cloneButton.UseVisualStyleBackColor = true;
-            this.cloneButton.Click += new System.EventHandler(this.cloneButton_Click);
+            this.cloneButton.Click += new System.EventHandler(this.CopyActorToClipboard);
             // 
             // actorDeleteButton
             // 
@@ -1914,6 +1925,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.ContextMenuStrip actorContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem addNewActorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pastToolStripMenuItem;
     }
 }
 

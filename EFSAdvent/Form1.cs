@@ -1071,12 +1071,10 @@ namespace EFSAdvent
 
         #region Actors
 
-        private void cloneButton_Click(object sender, EventArgs e)
+        private void CopyActorToClipboard(object sender, EventArgs e)
         {
-            if (_level.Room.CloneActor(actorsCheckListBox.SelectedIndex))
-            {
-                BuildLayerActorList(true);
-            }
+            string actor = _level.Room.GetActor(actorsCheckListBox.SelectedIndex).CopyToString();
+            System.Windows.Forms.Clipboard.SetText(actor);
         }
 
         private void ActorChangedV5(object sender, EventArgs e)
@@ -1381,10 +1379,46 @@ namespace EFSAdvent
 
             BuildLayerActorList(true);
             DrawActors(true);
+            SelectedActor(actor);
 
+        }
+
+        private void SelectedActor(Actor actor)
+        {
             int index = _level.Room.IndexOf(actor);
             actorsCheckListBox.SetItemChecked(index, true);
             actorsCheckListBox.SelectedIndex = index;
+        }
+
+        private void actorContextMenuStrip_Paint(object sender, PaintEventArgs e)
+        {
+            if (System.Windows.Forms.Clipboard.ContainsText())
+            {
+                string actor = System.Windows.Forms.Clipboard.GetText();
+                pastToolStripMenuItem.Enabled = Actor.IsStringActor(actor);
+            }
+            else
+            {
+                pastToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void pastToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Actor actor = new Actor();
+            if (actor.PasteFromString(System.Windows.Forms.Clipboard.GetText()))
+            {
+                int? activeLayer = GetHighestActiveLayerIndex();
+                int baseLayer = activeLayer.HasValue
+                    ? (activeLayer > 7 ? activeLayer - 8 : activeLayer).Value
+                    : 0;
+
+                actor.Update((byte)baseLayer, (byte)lastActorCoordinates.x, (byte)lastActorCoordinates.y);
+                _level.Room.AddActor(actor);
+                BuildLayerActorList(true);
+                DrawActors(true);
+                SelectedActor(actor);
+            }
         }
 
         private void actorDeleteButton_Click(object sender, EventArgs e)

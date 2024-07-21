@@ -148,10 +148,15 @@ namespace EFSAdvent.FourSwords
         public Actor AddActor(string name, byte layer, byte xCoord = 0, byte yCoord = 0)
         {
             Actor actor = new Actor(name, layer, xCoord, yCoord);
+            AddActor(actor);
+            return actor;
+        }
+
+        public void AddActor(Actor actor)
+        {
             _actors.Add(actor);
             SortActors();
             ActorsAreDirty = true;
-            return actor;
         }
 
         public bool RemoveActorAt(int index)
