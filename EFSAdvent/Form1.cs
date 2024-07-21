@@ -1071,6 +1071,36 @@ namespace EFSAdvent
             }
         }
 
+        private void ActorChangedV5(object sender, EventArgs e)
+        {
+            if (_ignoreActorChanges)
+            {
+                return;
+            }
+            _ignoreActorChanges = true;
+            ActorVariable1Input.Value = (int)ActorVariable1AInput.Value << 3 | (int)ActorVariable1BInput.Value;
+            ActorVariable2Input.Value = ActorVariable2Input2.Value;
+            ActorVariable3Input.Value = ActorVariable3Input2.Value;
+            ActorVariable4Input.Value = ActorVariable4Input2.Value;
+            _ignoreActorChanges = false;
+            ActorChanged(sender, e);
+        }
+
+        private void ActorChangedV6(object sender, EventArgs e)
+        {
+            if (_ignoreActorChanges)
+            {
+                return;
+            }
+            _ignoreActorChanges = true;
+            ActorVariable1Input.Value = (int)ActorV6Variable1Input.Value << 3 | (int)ActorV6Variable2Input.Value >> 2;
+            ActorVariable2Input.Value = ((int)ActorV6Variable2Input.Value & 0x3) << 6 | (int)ActorV6Variable3Input.Value << 1 | (int)ActorV6Variable4Input.Value >> 4;
+            ActorVariable3Input.Value = ((int)ActorV6Variable4Input.Value & 0xF) << 4 | (int)ActorV6Variable5Input.Value >> 1;
+            ActorVariable4Input.Value = ((int)ActorV6Variable5Input.Value & 0x1) << 7 | (int)ActorV6Variable6Input.Value;
+            _ignoreActorChanges = false;
+            ActorChanged(sender, e);
+        }
+
         private bool _ignoreActorChanges = false;
         private void ActorChanged(object sender, EventArgs e)
         {
@@ -1088,6 +1118,8 @@ namespace EFSAdvent
                 (byte)ActorVariable2Input.Value,
                 (byte)ActorVariable3Input.Value,
                 (byte)ActorVariable4Input.Value);
+
+            UpdateActorPackedVariables();
 
             if (!(sender is NumericUpDown input) || input.Name == "ActorLayerInput")
             {
@@ -1170,6 +1202,20 @@ namespace EFSAdvent
             }
         }
 
+        private void UpdateActorPackedVariables()
+        {
+            _ignoreActorChanges = true;
+            ActorVariable1AInput.Value = (int)ActorVariable1Input.Value >> 3;
+            ActorVariable1BInput.Value = (int)ActorVariable1Input.Value & 0x7;
+            ActorV6Variable1Input.Value = ActorVariable1AInput.Value;
+            ActorV6Variable2Input.Value = (int)ActorVariable1BInput.Value << 2 | (int)ActorVariable2Input.Value >> 6;
+            ActorV6Variable3Input.Value = ((int)ActorVariable2Input.Value >> 1) & 0x1F;
+            ActorV6Variable4Input.Value = ((int)ActorVariable2Input.Value & 0x1) << 4 | (int)ActorVariable3Input.Value >> 4;
+            ActorV6Variable5Input.Value = ((int)ActorVariable3Input.Value & 0xF) << 1 | (int)ActorVariable4Input.Value >> 7;
+            ActorV6Variable6Input.Value = (int)ActorVariable4Input.Value & 0x7F;
+            _ignoreActorChanges = false;
+        }
+
         private void NewActorSelected()
         {
             var newActor = _level.Room.GetActor(actorsCheckListBox.SelectedIndex);
@@ -1180,10 +1226,24 @@ namespace EFSAdvent
             ActorXCoordInput.Value = newActor.XCoord;
             ActorYCoordInput.Value = newActor.YCoord;
             ActorVariable1Input.Value = newActor.Variable1;
-            ActorVariable2Input.Value = newActor.Variable2;
-            ActorVariable3Input.Value = newActor.Variable3;
-            ActorVariable4Input.Value = newActor.Variable4;
+            ActorVariable2Input.Value = ActorVariable2Input2.Value = newActor.Variable2;
+            ActorVariable3Input.Value = ActorVariable3Input2.Value = newActor.Variable3;
+            ActorVariable4Input.Value = ActorVariable4Input2.Value = newActor.Variable4;
+            UpdateActorPackedVariables();
             _ignoreActorChanges = false;
+
+            if (newActor.Name == "SWT4" || newActor.Name == "HOUS" || newActor.Name == "SHTR" || newActor.Name == "BPOH" || newActor.Name == "BPH2" || newActor.Name == "SPOT" || newActor.Name == "GLBS" || newActor.Name == "LCLS" || newActor.Name == "OFFS" || newActor.Name == "CKSW" || newActor.Name == "WTSW" || newActor.Name == "LOSW")
+            {
+                VariablesTabControl.SelectedIndex = 2;
+            }
+            else if (newActor.Name == "TZOK")
+            {
+                VariablesTabControl.SelectedIndex = 0;
+            }
+            else
+            {
+                VariablesTabControl.SelectedIndex = 1;
+            }
 
             //Load the actor info txt into the box
             string exePath = Application.ExecutablePath;

@@ -97,31 +97,60 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonActorsSelectNone = new System.Windows.Forms.Button();
-            this.actorDeleteButton = new System.Windows.Forms.Button();
             this.actorLayerComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cloneButton = new System.Windows.Forms.Button();
+            this.VariablesTabControl = new System.Windows.Forms.TabControl();
+            this.Variables4TabPage = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.ActorVariable1Input = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ActorVariable2Input = new System.Windows.Forms.NumericUpDown();
             this.ActorVariable4Input = new System.Windows.Forms.NumericUpDown();
             this.ActorVariable3Input = new System.Windows.Forms.NumericUpDown();
-            this.ActorVariable2Input = new System.Windows.Forms.NumericUpDown();
-            this.ActorVariable1Input = new System.Windows.Forms.NumericUpDown();
-            this.ActorYCoordInput = new System.Windows.Forms.NumericUpDown();
+            this.Variables5TabPage = new System.Windows.Forms.TabPage();
+            this.ActorVariable1AInput = new System.Windows.Forms.NumericUpDown();
+            this.ActorVariable1BInput = new System.Windows.Forms.NumericUpDown();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.ActorVariable2Input2 = new System.Windows.Forms.NumericUpDown();
+            this.ActorVariable4Input2 = new System.Windows.Forms.NumericUpDown();
+            this.ActorVariable3Input2 = new System.Windows.Forms.NumericUpDown();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.Variables6TabPage = new System.Windows.Forms.TabPage();
+            this.ActorV6Variable5Input = new System.Windows.Forms.NumericUpDown();
+            this.ActorV6Variable6Input = new System.Windows.Forms.NumericUpDown();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.ActorV6Variable3Input = new System.Windows.Forms.NumericUpDown();
+            this.ActorV6Variable4Input = new System.Windows.Forms.NumericUpDown();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.ActorV6Variable1Input = new System.Windows.Forms.NumericUpDown();
+            this.ActorV6Variable2Input = new System.Windows.Forms.NumericUpDown();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.groupBoxCoridinate = new System.Windows.Forms.GroupBox();
             this.ActorXCoordInput = new System.Windows.Forms.NumericUpDown();
+            this.ActorYCoordInput = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cloneButton = new System.Windows.Forms.Button();
+            this.actorDeleteButton = new System.Windows.Forms.Button();
             this.ActorLayerInput = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.ActorNameComboBox = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.actorsAddNewButton = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.actorsSaveButton = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.actorsReloadButton = new System.Windows.Forms.Button();
             this.actorsCheckListBox = new System.Windows.Forms.CheckedListBox();
             this.actorInfoBox = new System.Windows.Forms.GroupBox();
             this.ActorInfoPictureBox = new System.Windows.Forms.PictureBox();
             this.ActorInfoTextBox = new System.Windows.Forms.TextBox();
+            this.actorsReloadButton = new System.Windows.Forms.Button();
+            this.actorsSaveButton = new System.Windows.Forms.Button();
+            this.actorsAddNewButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
@@ -151,12 +180,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.VariablesTabControl.SuspendLayout();
+            this.Variables4TabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1Input)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4Input)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable3Input)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1Input)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).BeginInit();
+            this.Variables5TabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1AInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1BInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4Input2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable3Input2)).BeginInit();
+            this.Variables6TabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable5Input)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable6Input)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable3Input)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable4Input)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable1Input)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable2Input)).BeginInit();
+            this.groupBoxCoridinate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorXCoordInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).BeginInit();
             this.actorInfoBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).BeginInit();
@@ -380,14 +425,14 @@
             // xSizeToolStripMenuItem
             // 
             this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
-            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.xSizeToolStripMenuItem.Text = "1x size";
             this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.oneXSizeToolStripMenuItem_Click);
             // 
             // xSizeToolStripMenuItem1
             // 
             this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
-            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
             this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
             // 
@@ -402,7 +447,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -937,11 +982,11 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.buttonActorsSelectNone);
-            this.tabPage1.Controls.Add(this.actorDeleteButton);
             this.tabPage1.Controls.Add(this.actorLayerComboBox);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.actorsCheckListBox);
             this.tabPage1.Controls.Add(this.actorInfoBox);
+            this.tabPage1.Controls.Add(this.actorsAddNewButton);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -952,24 +997,13 @@
             // 
             // buttonActorsSelectNone
             // 
-            this.buttonActorsSelectNone.Location = new System.Drawing.Point(7, 238);
+            this.buttonActorsSelectNone.Location = new System.Drawing.Point(7, 245);
             this.buttonActorsSelectNone.Name = "buttonActorsSelectNone";
-            this.buttonActorsSelectNone.Size = new System.Drawing.Size(80, 23);
+            this.buttonActorsSelectNone.Size = new System.Drawing.Size(74, 23);
             this.buttonActorsSelectNone.TabIndex = 3;
             this.buttonActorsSelectNone.Text = "Select none";
             this.buttonActorsSelectNone.UseVisualStyleBackColor = true;
             this.buttonActorsSelectNone.Click += new System.EventHandler(this.buttonActorsSelectNone_Click);
-            // 
-            // actorDeleteButton
-            // 
-            this.actorDeleteButton.Enabled = false;
-            this.actorDeleteButton.Location = new System.Drawing.Point(7, 262);
-            this.actorDeleteButton.Name = "actorDeleteButton";
-            this.actorDeleteButton.Size = new System.Drawing.Size(80, 35);
-            this.actorDeleteButton.TabIndex = 4;
-            this.actorDeleteButton.Text = "Delete Selected";
-            this.actorDeleteButton.UseVisualStyleBackColor = true;
-            this.actorDeleteButton.Click += new System.EventHandler(this.actorDeleteButton_Click);
             // 
             // actorLayerComboBox
             // 
@@ -987,149 +1021,530 @@
             "Layer 7"});
             this.actorLayerComboBox.Location = new System.Drawing.Point(7, 6);
             this.actorLayerComboBox.Name = "actorLayerComboBox";
-            this.actorLayerComboBox.Size = new System.Drawing.Size(80, 21);
+            this.actorLayerComboBox.Size = new System.Drawing.Size(74, 21);
             this.actorLayerComboBox.TabIndex = 0;
             this.actorLayerComboBox.SelectionChangeCommitted += new System.EventHandler(this.actorLayerComboBox_SelectionChangeCommitted);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.VariablesTabControl);
+            this.groupBox2.Controls.Add(this.groupBoxCoridinate);
             this.groupBox2.Controls.Add(this.cloneButton);
-            this.groupBox2.Controls.Add(this.ActorVariable4Input);
-            this.groupBox2.Controls.Add(this.ActorVariable3Input);
-            this.groupBox2.Controls.Add(this.ActorVariable2Input);
-            this.groupBox2.Controls.Add(this.ActorVariable1Input);
-            this.groupBox2.Controls.Add(this.ActorYCoordInput);
-            this.groupBox2.Controls.Add(this.ActorXCoordInput);
+            this.groupBox2.Controls.Add(this.actorDeleteButton);
             this.groupBox2.Controls.Add(this.ActorLayerInput);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.ActorNameComboBox);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.actorsAddNewButton);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.actorsSaveButton);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.actorsReloadButton);
-            this.groupBox2.Location = new System.Drawing.Point(93, 6);
+            this.groupBox2.Location = new System.Drawing.Point(87, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(174, 291);
+            this.groupBox2.Size = new System.Drawing.Size(180, 291);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Actor Attributes";
             // 
-            // cloneButton
+            // VariablesTabControl
             // 
-            this.cloneButton.Location = new System.Drawing.Point(101, 233);
-            this.cloneButton.Name = "cloneButton";
-            this.cloneButton.Size = new System.Drawing.Size(67, 23);
-            this.cloneButton.TabIndex = 31;
-            this.cloneButton.Text = "Clone";
-            this.ActorAttributesTip.SetToolTip(this.cloneButton, "Create a new actor which is a copy of the currently selected actor");
-            this.cloneButton.UseVisualStyleBackColor = true;
-            this.cloneButton.Click += new System.EventHandler(this.cloneButton_Click);
+            this.VariablesTabControl.Controls.Add(this.Variables4TabPage);
+            this.VariablesTabControl.Controls.Add(this.Variables5TabPage);
+            this.VariablesTabControl.Controls.Add(this.Variables6TabPage);
+            this.VariablesTabControl.Location = new System.Drawing.Point(6, 119);
+            this.VariablesTabControl.Name = "VariablesTabControl";
+            this.VariablesTabControl.SelectedIndex = 1;
+            this.VariablesTabControl.Size = new System.Drawing.Size(170, 136);
+            this.VariablesTabControl.TabIndex = 33;
             // 
-            // ActorVariable4Input
+            // Variables4TabPage
             // 
-            this.ActorVariable4Input.Location = new System.Drawing.Point(101, 206);
-            this.ActorVariable4Input.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.ActorVariable4Input.Name = "ActorVariable4Input";
-            this.ActorVariable4Input.Size = new System.Drawing.Size(66, 20);
-            this.ActorVariable4Input.TabIndex = 30;
-            this.ActorVariable4Input.ValueChanged += new System.EventHandler(this.ActorChanged);
-            this.ActorVariable4Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+            this.Variables4TabPage.Controls.Add(this.label15);
+            this.Variables4TabPage.Controls.Add(this.label14);
+            this.Variables4TabPage.Controls.Add(this.ActorVariable1Input);
+            this.Variables4TabPage.Controls.Add(this.label13);
+            this.Variables4TabPage.Controls.Add(this.label9);
+            this.Variables4TabPage.Controls.Add(this.ActorVariable2Input);
+            this.Variables4TabPage.Controls.Add(this.ActorVariable4Input);
+            this.Variables4TabPage.Controls.Add(this.ActorVariable3Input);
+            this.Variables4TabPage.Location = new System.Drawing.Point(4, 22);
+            this.Variables4TabPage.Name = "Variables4TabPage";
+            this.Variables4TabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.Variables4TabPage.Size = new System.Drawing.Size(162, 110);
+            this.Variables4TabPage.TabIndex = 0;
+            this.Variables4TabPage.Text = "4V";
+            this.Variables4TabPage.UseVisualStyleBackColor = true;
             // 
-            // ActorVariable3Input
+            // label15
             // 
-            this.ActorVariable3Input.Location = new System.Drawing.Point(101, 181);
-            this.ActorVariable3Input.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.ActorVariable3Input.Name = "ActorVariable3Input";
-            this.ActorVariable3Input.Size = new System.Drawing.Size(66, 20);
-            this.ActorVariable3Input.TabIndex = 29;
-            this.ActorVariable3Input.ValueChanged += new System.EventHandler(this.ActorChanged);
-            this.ActorVariable3Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(2, 86);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(57, 13);
+            this.label15.TabIndex = 32;
+            this.label15.Text = "Variable 4:";
             // 
-            // ActorVariable2Input
+            // label14
             // 
-            this.ActorVariable2Input.Location = new System.Drawing.Point(101, 155);
-            this.ActorVariable2Input.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.ActorVariable2Input.Name = "ActorVariable2Input";
-            this.ActorVariable2Input.Size = new System.Drawing.Size(66, 20);
-            this.ActorVariable2Input.TabIndex = 28;
-            this.ActorVariable2Input.ValueChanged += new System.EventHandler(this.ActorChanged);
-            this.ActorVariable2Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(2, 60);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 13);
+            this.label14.TabIndex = 31;
+            this.label14.Text = "Variable 3:";
             // 
             // ActorVariable1Input
             // 
-            this.ActorVariable1Input.Location = new System.Drawing.Point(101, 129);
+            this.ActorVariable1Input.Location = new System.Drawing.Point(109, 6);
             this.ActorVariable1Input.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.ActorVariable1Input.Name = "ActorVariable1Input";
-            this.ActorVariable1Input.Size = new System.Drawing.Size(66, 20);
+            this.ActorVariable1Input.Size = new System.Drawing.Size(51, 20);
             this.ActorVariable1Input.TabIndex = 27;
             this.ActorVariable1Input.ValueChanged += new System.EventHandler(this.ActorChanged);
             this.ActorVariable1Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
             // 
-            // ActorYCoordInput
+            // label13
             // 
-            this.ActorYCoordInput.Location = new System.Drawing.Point(101, 103);
-            this.ActorYCoordInput.Maximum = new decimal(new int[] {
-            63,
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(2, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 13);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Variable 1:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(2, 34);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Variable 2:";
+            // 
+            // ActorVariable2Input
+            // 
+            this.ActorVariable2Input.Location = new System.Drawing.Point(109, 32);
+            this.ActorVariable2Input.Maximum = new decimal(new int[] {
+            255,
             0,
             0,
             0});
-            this.ActorYCoordInput.Name = "ActorYCoordInput";
-            this.ActorYCoordInput.Size = new System.Drawing.Size(66, 20);
-            this.ActorYCoordInput.TabIndex = 26;
-            this.ActorYCoordInput.ValueChanged += new System.EventHandler(this.ActorChanged);
-            this.ActorYCoordInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+            this.ActorVariable2Input.Name = "ActorVariable2Input";
+            this.ActorVariable2Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorVariable2Input.TabIndex = 28;
+            this.ActorVariable2Input.ValueChanged += new System.EventHandler(this.ActorChanged);
+            this.ActorVariable2Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+            // 
+            // ActorVariable4Input
+            // 
+            this.ActorVariable4Input.Location = new System.Drawing.Point(109, 84);
+            this.ActorVariable4Input.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.ActorVariable4Input.Name = "ActorVariable4Input";
+            this.ActorVariable4Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorVariable4Input.TabIndex = 30;
+            this.ActorVariable4Input.ValueChanged += new System.EventHandler(this.ActorChanged);
+            this.ActorVariable4Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+            // 
+            // ActorVariable3Input
+            // 
+            this.ActorVariable3Input.Location = new System.Drawing.Point(109, 58);
+            this.ActorVariable3Input.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.ActorVariable3Input.Name = "ActorVariable3Input";
+            this.ActorVariable3Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorVariable3Input.TabIndex = 29;
+            this.ActorVariable3Input.ValueChanged += new System.EventHandler(this.ActorChanged);
+            this.ActorVariable3Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+            // 
+            // Variables5TabPage
+            // 
+            this.Variables5TabPage.Controls.Add(this.ActorVariable1AInput);
+            this.Variables5TabPage.Controls.Add(this.ActorVariable1BInput);
+            this.Variables5TabPage.Controls.Add(this.label21);
+            this.Variables5TabPage.Controls.Add(this.label22);
+            this.Variables5TabPage.Controls.Add(this.label23);
+            this.Variables5TabPage.Controls.Add(this.ActorVariable2Input2);
+            this.Variables5TabPage.Controls.Add(this.ActorVariable4Input2);
+            this.Variables5TabPage.Controls.Add(this.ActorVariable3Input2);
+            this.Variables5TabPage.Controls.Add(this.label25);
+            this.Variables5TabPage.Controls.Add(this.label24);
+            this.Variables5TabPage.Location = new System.Drawing.Point(4, 22);
+            this.Variables5TabPage.Name = "Variables5TabPage";
+            this.Variables5TabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.Variables5TabPage.Size = new System.Drawing.Size(162, 110);
+            this.Variables5TabPage.TabIndex = 1;
+            this.Variables5TabPage.Text = "5V";
+            this.Variables5TabPage.UseVisualStyleBackColor = true;
+            // 
+            // ActorVariable1AInput
+            // 
+            this.ActorVariable1AInput.Location = new System.Drawing.Point(29, 7);
+            this.ActorVariable1AInput.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.ActorVariable1AInput.Name = "ActorVariable1AInput";
+            this.ActorVariable1AInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorVariable1AInput.TabIndex = 40;
+            this.ActorVariable1AInput.ValueChanged += new System.EventHandler(this.ActorChangedV5);
+            // 
+            // ActorVariable1BInput
+            // 
+            this.ActorVariable1BInput.Location = new System.Drawing.Point(109, 6);
+            this.ActorVariable1BInput.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.ActorVariable1BInput.Name = "ActorVariable1BInput";
+            this.ActorVariable1BInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorVariable1BInput.TabIndex = 39;
+            this.ActorVariable1BInput.ValueChanged += new System.EventHandler(this.ActorChangedV5);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(2, 86);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(57, 13);
+            this.label21.TabIndex = 38;
+            this.label21.Text = "Variable 4:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(2, 60);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(57, 13);
+            this.label22.TabIndex = 37;
+            this.label22.Text = "Variable 3:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(2, 34);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(57, 13);
+            this.label23.TabIndex = 33;
+            this.label23.Text = "Variable 2:";
+            // 
+            // ActorVariable2Input2
+            // 
+            this.ActorVariable2Input2.Location = new System.Drawing.Point(109, 32);
+            this.ActorVariable2Input2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.ActorVariable2Input2.Name = "ActorVariable2Input2";
+            this.ActorVariable2Input2.Size = new System.Drawing.Size(51, 20);
+            this.ActorVariable2Input2.TabIndex = 34;
+            this.ActorVariable2Input2.ValueChanged += new System.EventHandler(this.ActorChangedV5);
+            // 
+            // ActorVariable4Input2
+            // 
+            this.ActorVariable4Input2.Location = new System.Drawing.Point(109, 84);
+            this.ActorVariable4Input2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.ActorVariable4Input2.Name = "ActorVariable4Input2";
+            this.ActorVariable4Input2.Size = new System.Drawing.Size(51, 20);
+            this.ActorVariable4Input2.TabIndex = 36;
+            this.ActorVariable4Input2.ValueChanged += new System.EventHandler(this.ActorChangedV5);
+            // 
+            // ActorVariable3Input2
+            // 
+            this.ActorVariable3Input2.Location = new System.Drawing.Point(109, 58);
+            this.ActorVariable3Input2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.ActorVariable3Input2.Name = "ActorVariable3Input2";
+            this.ActorVariable3Input2.Size = new System.Drawing.Size(51, 20);
+            this.ActorVariable3Input2.TabIndex = 35;
+            this.ActorVariable3Input2.ValueChanged += new System.EventHandler(this.ActorChangedV5);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(80, 9);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(29, 13);
+            this.label25.TabIndex = 42;
+            this.label25.Text = "V1b:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(2, 9);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(29, 13);
+            this.label24.TabIndex = 41;
+            this.label24.Text = "V1a:";
+            // 
+            // Variables6TabPage
+            // 
+            this.Variables6TabPage.Controls.Add(this.ActorV6Variable5Input);
+            this.Variables6TabPage.Controls.Add(this.ActorV6Variable6Input);
+            this.Variables6TabPage.Controls.Add(this.label30);
+            this.Variables6TabPage.Controls.Add(this.label31);
+            this.Variables6TabPage.Controls.Add(this.ActorV6Variable3Input);
+            this.Variables6TabPage.Controls.Add(this.ActorV6Variable4Input);
+            this.Variables6TabPage.Controls.Add(this.label28);
+            this.Variables6TabPage.Controls.Add(this.label29);
+            this.Variables6TabPage.Controls.Add(this.ActorV6Variable1Input);
+            this.Variables6TabPage.Controls.Add(this.ActorV6Variable2Input);
+            this.Variables6TabPage.Controls.Add(this.label26);
+            this.Variables6TabPage.Controls.Add(this.label27);
+            this.Variables6TabPage.Location = new System.Drawing.Point(4, 22);
+            this.Variables6TabPage.Name = "Variables6TabPage";
+            this.Variables6TabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.Variables6TabPage.Size = new System.Drawing.Size(162, 110);
+            this.Variables6TabPage.TabIndex = 2;
+            this.Variables6TabPage.Text = "6V";
+            this.Variables6TabPage.UseVisualStyleBackColor = true;
+            // 
+            // ActorV6Variable5Input
+            // 
+            this.ActorV6Variable5Input.Location = new System.Drawing.Point(29, 59);
+            this.ActorV6Variable5Input.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.ActorV6Variable5Input.Name = "ActorV6Variable5Input";
+            this.ActorV6Variable5Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable5Input.TabIndex = 52;
+            this.ActorV6Variable5Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            // 
+            // ActorV6Variable6Input
+            // 
+            this.ActorV6Variable6Input.Location = new System.Drawing.Point(109, 58);
+            this.ActorV6Variable6Input.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.ActorV6Variable6Input.Name = "ActorV6Variable6Input";
+            this.ActorV6Variable6Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable6Input.TabIndex = 51;
+            this.ActorV6Variable6Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(80, 61);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(23, 13);
+            this.label30.TabIndex = 54;
+            this.label30.Text = "V6:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(2, 61);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(23, 13);
+            this.label31.TabIndex = 53;
+            this.label31.Text = "V5:";
+            // 
+            // ActorV6Variable3Input
+            // 
+            this.ActorV6Variable3Input.Location = new System.Drawing.Point(29, 33);
+            this.ActorV6Variable3Input.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.ActorV6Variable3Input.Name = "ActorV6Variable3Input";
+            this.ActorV6Variable3Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable3Input.TabIndex = 48;
+            this.ActorV6Variable3Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            // 
+            // ActorV6Variable4Input
+            // 
+            this.ActorV6Variable4Input.Location = new System.Drawing.Point(109, 32);
+            this.ActorV6Variable4Input.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.ActorV6Variable4Input.Name = "ActorV6Variable4Input";
+            this.ActorV6Variable4Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable4Input.TabIndex = 47;
+            this.ActorV6Variable4Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(80, 35);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(23, 13);
+            this.label28.TabIndex = 50;
+            this.label28.Text = "V4:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(2, 35);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(23, 13);
+            this.label29.TabIndex = 49;
+            this.label29.Text = "V3:";
+            // 
+            // ActorV6Variable1Input
+            // 
+            this.ActorV6Variable1Input.Location = new System.Drawing.Point(29, 7);
+            this.ActorV6Variable1Input.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.ActorV6Variable1Input.Name = "ActorV6Variable1Input";
+            this.ActorV6Variable1Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable1Input.TabIndex = 44;
+            this.ActorV6Variable1Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            // 
+            // ActorV6Variable2Input
+            // 
+            this.ActorV6Variable2Input.Location = new System.Drawing.Point(109, 6);
+            this.ActorV6Variable2Input.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.ActorV6Variable2Input.Name = "ActorV6Variable2Input";
+            this.ActorV6Variable2Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable2Input.TabIndex = 43;
+            this.ActorV6Variable2Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(80, 9);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(23, 13);
+            this.label26.TabIndex = 46;
+            this.label26.Text = "V2:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(2, 9);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(23, 13);
+            this.label27.TabIndex = 45;
+            this.label27.Text = "V1:";
+            // 
+            // groupBoxCoridinate
+            // 
+            this.groupBoxCoridinate.Controls.Add(this.ActorXCoordInput);
+            this.groupBoxCoridinate.Controls.Add(this.ActorYCoordInput);
+            this.groupBoxCoridinate.Controls.Add(this.label8);
+            this.groupBoxCoridinate.Controls.Add(this.label7);
+            this.groupBoxCoridinate.Location = new System.Drawing.Point(6, 72);
+            this.groupBoxCoridinate.Name = "groupBoxCoridinate";
+            this.groupBoxCoridinate.Size = new System.Drawing.Size(170, 42);
+            this.groupBoxCoridinate.TabIndex = 32;
+            this.groupBoxCoridinate.TabStop = false;
+            this.groupBoxCoridinate.Text = "Coridinate";
             // 
             // ActorXCoordInput
             // 
-            this.ActorXCoordInput.Location = new System.Drawing.Point(101, 77);
+            this.ActorXCoordInput.Location = new System.Drawing.Point(33, 16);
             this.ActorXCoordInput.Maximum = new decimal(new int[] {
             63,
             0,
             0,
             0});
             this.ActorXCoordInput.Name = "ActorXCoordInput";
-            this.ActorXCoordInput.Size = new System.Drawing.Size(66, 20);
+            this.ActorXCoordInput.Size = new System.Drawing.Size(51, 20);
             this.ActorXCoordInput.TabIndex = 25;
             this.ActorXCoordInput.ValueChanged += new System.EventHandler(this.ActorChanged);
             this.ActorXCoordInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
             // 
+            // ActorYCoordInput
+            // 
+            this.ActorYCoordInput.Location = new System.Drawing.Point(113, 16);
+            this.ActorYCoordInput.Maximum = new decimal(new int[] {
+            63,
+            0,
+            0,
+            0});
+            this.ActorYCoordInput.Name = "ActorYCoordInput";
+            this.ActorYCoordInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorYCoordInput.TabIndex = 26;
+            this.ActorYCoordInput.ValueChanged += new System.EventHandler(this.ActorChanged);
+            this.ActorYCoordInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(84, 18);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(17, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Y:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(17, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "X:";
+            // 
+            // cloneButton
+            // 
+            this.cloneButton.Location = new System.Drawing.Point(96, 261);
+            this.cloneButton.Name = "cloneButton";
+            this.cloneButton.Size = new System.Drawing.Size(80, 23);
+            this.cloneButton.TabIndex = 31;
+            this.cloneButton.Text = "Clone";
+            this.ActorAttributesTip.SetToolTip(this.cloneButton, "Create a new actor which is a copy of the currently selected actor");
+            this.cloneButton.UseVisualStyleBackColor = true;
+            this.cloneButton.Click += new System.EventHandler(this.cloneButton_Click);
+            // 
+            // actorDeleteButton
+            // 
+            this.actorDeleteButton.Enabled = false;
+            this.actorDeleteButton.Location = new System.Drawing.Point(6, 261);
+            this.actorDeleteButton.Name = "actorDeleteButton";
+            this.actorDeleteButton.Size = new System.Drawing.Size(80, 22);
+            this.actorDeleteButton.TabIndex = 4;
+            this.actorDeleteButton.Text = "Delete";
+            this.actorDeleteButton.UseVisualStyleBackColor = true;
+            this.actorDeleteButton.Click += new System.EventHandler(this.actorDeleteButton_Click);
+            // 
             // ActorLayerInput
             // 
-            this.ActorLayerInput.Location = new System.Drawing.Point(101, 51);
+            this.ActorLayerInput.Location = new System.Drawing.Point(119, 46);
             this.ActorLayerInput.Maximum = new decimal(new int[] {
             7,
             0,
             0,
             0});
             this.ActorLayerInput.Name = "ActorLayerInput";
-            this.ActorLayerInput.Size = new System.Drawing.Size(66, 20);
+            this.ActorLayerInput.Size = new System.Drawing.Size(51, 20);
             this.ActorLayerInput.TabIndex = 24;
             this.ActorLayerInput.ValueChanged += new System.EventHandler(this.ActorChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 26);
+            this.label12.Location = new System.Drawing.Point(7, 23);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 13);
             this.label12.TabIndex = 11;
@@ -1139,101 +1554,29 @@
             // 
             this.ActorNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ActorNameComboBox.FormattingEnabled = true;
-            this.ActorNameComboBox.Location = new System.Drawing.Point(101, 23);
+            this.ActorNameComboBox.Location = new System.Drawing.Point(104, 15);
             this.ActorNameComboBox.MaxDropDownItems = 14;
             this.ActorNameComboBox.Name = "ActorNameComboBox";
             this.ActorNameComboBox.Size = new System.Drawing.Size(66, 21);
             this.ActorNameComboBox.TabIndex = 5;
             this.ActorNameComboBox.SelectionChangeCommitted += new System.EventHandler(this.ActorChanged);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 131);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 13);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Variable 1:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 157);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Variable 2:";
-            // 
-            // actorsAddNewButton
-            // 
-            this.actorsAddNewButton.Enabled = false;
-            this.actorsAddNewButton.Location = new System.Drawing.Point(10, 261);
-            this.actorsAddNewButton.Name = "actorsAddNewButton";
-            this.actorsAddNewButton.Size = new System.Drawing.Size(80, 23);
-            this.actorsAddNewButton.TabIndex = 15;
-            this.actorsAddNewButton.Text = "Add New";
-            this.ActorAttributesTip.SetToolTip(this.actorsAddNewButton, "Adds a new AGBW actor to the highest active layer");
-            this.actorsAddNewButton.UseVisualStyleBackColor = true;
-            this.actorsAddNewButton.Click += new System.EventHandler(this.actorsAddNewButton_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 105);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Y Coordinate:";
-            // 
-            // actorsSaveButton
-            // 
-            this.actorsSaveButton.Enabled = false;
-            this.actorsSaveButton.Location = new System.Drawing.Point(101, 261);
-            this.actorsSaveButton.Name = "actorsSaveButton";
-            this.actorsSaveButton.Size = new System.Drawing.Size(67, 23);
-            this.actorsSaveButton.TabIndex = 16;
-            this.actorsSaveButton.Text = "Save All";
-            this.ActorAttributesTip.SetToolTip(this.actorsSaveButton, "Save all changed actor data to disk");
-            this.actorsSaveButton.UseVisualStyleBackColor = true;
-            this.actorsSaveButton.Click += new System.EventHandler(this.actorsSaveButton_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 79);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "X Coordinate:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 53);
+            this.label6.Location = new System.Drawing.Point(7, 48);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Appear on Layer:";
             this.ActorAttributesTip.SetToolTip(this.label6, "A number between 0 and 7 which selects\r\nthe layer this actor appears on.");
             // 
-            // actorsReloadButton
-            // 
-            this.actorsReloadButton.Enabled = false;
-            this.actorsReloadButton.Location = new System.Drawing.Point(10, 232);
-            this.actorsReloadButton.Name = "actorsReloadButton";
-            this.actorsReloadButton.Size = new System.Drawing.Size(80, 23);
-            this.actorsReloadButton.TabIndex = 13;
-            this.actorsReloadButton.Text = "Reload All";
-            this.ActorAttributesTip.SetToolTip(this.actorsReloadButton, "Discard all unsaved changes and reload all original actor data from disk");
-            this.actorsReloadButton.UseVisualStyleBackColor = true;
-            this.actorsReloadButton.Click += new System.EventHandler(this.actorsReloadButton_Click);
-            // 
             // actorsCheckListBox
             // 
             this.actorsCheckListBox.FormattingEnabled = true;
             this.actorsCheckListBox.Location = new System.Drawing.Point(7, 29);
             this.actorsCheckListBox.Name = "actorsCheckListBox";
-            this.actorsCheckListBox.Size = new System.Drawing.Size(80, 199);
+            this.actorsCheckListBox.Size = new System.Drawing.Size(74, 214);
             this.actorsCheckListBox.TabIndex = 2;
             this.actorsCheckListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.actorsCheckListBox_ItemCheck);
             this.actorsCheckListBox.Click += new System.EventHandler(this.actorsCheckListBox_Click);
@@ -1245,6 +1588,8 @@
             this.actorInfoBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.actorInfoBox.Controls.Add(this.ActorInfoPictureBox);
             this.actorInfoBox.Controls.Add(this.ActorInfoTextBox);
+            this.actorInfoBox.Controls.Add(this.actorsReloadButton);
+            this.actorInfoBox.Controls.Add(this.actorsSaveButton);
             this.actorInfoBox.Location = new System.Drawing.Point(7, 303);
             this.actorInfoBox.Name = "actorInfoBox";
             this.actorInfoBox.Size = new System.Drawing.Size(260, 217);
@@ -1274,6 +1619,42 @@
             this.ActorInfoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ActorInfoTextBox.Size = new System.Drawing.Size(177, 196);
             this.ActorInfoTextBox.TabIndex = 0;
+            // 
+            // actorsReloadButton
+            // 
+            this.actorsReloadButton.Enabled = false;
+            this.actorsReloadButton.Location = new System.Drawing.Point(190, 159);
+            this.actorsReloadButton.Name = "actorsReloadButton";
+            this.actorsReloadButton.Size = new System.Drawing.Size(64, 23);
+            this.actorsReloadButton.TabIndex = 13;
+            this.actorsReloadButton.Text = "Reload All";
+            this.ActorAttributesTip.SetToolTip(this.actorsReloadButton, "Discard all unsaved changes and reload all original actor data from disk");
+            this.actorsReloadButton.UseVisualStyleBackColor = true;
+            this.actorsReloadButton.Click += new System.EventHandler(this.actorsReloadButton_Click);
+            // 
+            // actorsSaveButton
+            // 
+            this.actorsSaveButton.Enabled = false;
+            this.actorsSaveButton.Location = new System.Drawing.Point(190, 188);
+            this.actorsSaveButton.Name = "actorsSaveButton";
+            this.actorsSaveButton.Size = new System.Drawing.Size(64, 23);
+            this.actorsSaveButton.TabIndex = 16;
+            this.actorsSaveButton.Text = "Save All";
+            this.ActorAttributesTip.SetToolTip(this.actorsSaveButton, "Save all changed actor data to disk");
+            this.actorsSaveButton.UseVisualStyleBackColor = true;
+            this.actorsSaveButton.Click += new System.EventHandler(this.actorsSaveButton_Click);
+            // 
+            // actorsAddNewButton
+            // 
+            this.actorsAddNewButton.Enabled = false;
+            this.actorsAddNewButton.Location = new System.Drawing.Point(7, 274);
+            this.actorsAddNewButton.Name = "actorsAddNewButton";
+            this.actorsAddNewButton.Size = new System.Drawing.Size(74, 23);
+            this.actorsAddNewButton.TabIndex = 15;
+            this.actorsAddNewButton.Text = "Add New";
+            this.ActorAttributesTip.SetToolTip(this.actorsAddNewButton, "Adds a new AGBW actor to the highest active layer");
+            this.actorsAddNewButton.UseVisualStyleBackColor = true;
+            this.actorsAddNewButton.Click += new System.EventHandler(this.actorsAddNewButton_Click);
             // 
             // label1
             // 
@@ -1359,12 +1740,32 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.VariablesTabControl.ResumeLayout(false);
+            this.Variables4TabPage.ResumeLayout(false);
+            this.Variables4TabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1Input)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4Input)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable3Input)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1Input)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).EndInit();
+            this.Variables5TabPage.ResumeLayout(false);
+            this.Variables5TabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1AInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1BInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4Input2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable3Input2)).EndInit();
+            this.Variables6TabPage.ResumeLayout(false);
+            this.Variables6TabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable5Input)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable6Input)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable3Input)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable4Input)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable1Input)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable2Input)).EndInit();
+            this.groupBoxCoridinate.ResumeLayout(false);
+            this.groupBoxCoridinate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorXCoordInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).EndInit();
             this.actorInfoBox.ResumeLayout(false);
             this.actorInfoBox.PerformLayout();
@@ -1474,6 +1875,35 @@
 		private System.Windows.Forms.ToolStripMenuItem SaveMenuItem;
 		private System.Windows.Forms.Button cloneButton;
 		private System.Windows.Forms.ToolStripMenuItem SaveAsMenuItem;
-	}
+        private System.Windows.Forms.GroupBox groupBoxCoridinate;
+        private System.Windows.Forms.TabControl VariablesTabControl;
+        private System.Windows.Forms.TabPage Variables4TabPage;
+        private System.Windows.Forms.TabPage Variables5TabPage;
+        private System.Windows.Forms.TabPage Variables6TabPage;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.NumericUpDown ActorVariable2Input2;
+        private System.Windows.Forms.NumericUpDown ActorVariable4Input2;
+        private System.Windows.Forms.NumericUpDown ActorVariable3Input2;
+        private System.Windows.Forms.NumericUpDown ActorVariable1BInput;
+        private System.Windows.Forms.NumericUpDown ActorVariable1AInput;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.NumericUpDown ActorV6Variable3Input;
+        private System.Windows.Forms.NumericUpDown ActorV6Variable4Input;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.NumericUpDown ActorV6Variable1Input;
+        private System.Windows.Forms.NumericUpDown ActorV6Variable2Input;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.NumericUpDown ActorV6Variable5Input;
+        private System.Windows.Forms.NumericUpDown ActorV6Variable6Input;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+    }
 }
 
