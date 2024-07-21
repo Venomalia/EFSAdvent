@@ -447,8 +447,8 @@ namespace EFSAdvent
                     return;
                 }
 
-				int newActorXCoord = scaledEvent.X / ACTOR_PIXELS_PER_COORDINATE;
-				int newActorYCoord = scaledEvent.Y / ACTOR_PIXELS_PER_COORDINATE;
+                int newActorXCoord = scaledEvent.X / ACTOR_PIXELS_PER_COORDINATE;
+                int newActorYCoord = scaledEvent.Y / ACTOR_PIXELS_PER_COORDINATE;
 
                 if (newActorXCoord < 0) newActorXCoord = 0;
                 if (newActorYCoord < 0) newActorYCoord = 0;
@@ -639,22 +639,8 @@ namespace EFSAdvent
             //If right click set the brush tile to the clicked tile
             if (scaledEvent.Button == MouseButtons.Right)
             {
-                brushTileValue = _level.Room.GetLayerTile(layer.Value, eventX, eventY).Value;
-
                 //Write the value into the brush tile label and update the brush tile image
-                BrushTileLabel.Text = Convert.ToString(brushTileValue);
-                int brushTileX = ((brushTileValue % 16) * 16);
-                int brushTileY = ((brushTileValue / 16) * 16);
-                for (int px = 0; px < 16; px++)
-                {
-                    for (int py = 0; py < 16; py++)
-                    {
-                        Color color = tileSheetBitmap.GetPixel(brushTileX + px, brushTileY + py);
-                        brushTileBitmap.SetPixel(px, py, color);
-                    }
-                }
-
-                BrushTilePictureBox.Refresh();
+                UpdateBrushTileBitmap(_level.Room.GetLayerTile(layer.Value, eventX, eventY).Value);
             }
             else if (scaledEvent.Button == MouseButtons.Left) //If left button is pressed change the tile
             {
@@ -734,15 +720,26 @@ namespace EFSAdvent
         private void tilePictureBox_MouseClick(object sender, MouseEventArgs e)
         {
             //When a TileSheet tile is clicked on load its value into the brush
-            brushTileValue = (ushort)(((e.Y / TILE_DIMENSION_IN_PIXELS) * TILE_DIMENSION_IN_PIXELS) + (e.X / TILE_DIMENSION_IN_PIXELS));
+            UpdateBrushTileBitmap((ushort)(((e.Y / TILE_DIMENSION_IN_PIXELS) * TILE_DIMENSION_IN_PIXELS) + (e.X / TILE_DIMENSION_IN_PIXELS)));
+        }
 
-            //Write the value into the brush Label and update the brush tile image
+        private void UpdateBrushTileBitmap(ushort tileID)
+        {
+            if (tileID > 1023)
+            {
+                return;
+            }
+
+            brushTileValue = tileID;
             BrushTileLabel.Text = Convert.ToString(brushTileValue);
+            int brushTileX = ((brushTileValue % 16) * 16);
+            int brushTileY = ((brushTileValue / 16) * 16);
             for (int px = 0; px < 16; px++)
             {
                 for (int py = 0; py < 16; py++)
                 {
-                    brushTileBitmap.SetPixel(px, py, tileSheetBitmap.GetPixel(((e.X / 16) * 16) + px, ((e.Y / 16) * 16) + py));
+                    Color color = tileSheetBitmap.GetPixel(brushTileX + px, brushTileY + py);
+                    brushTileBitmap.SetPixel(px, py, color);
                 }
             }
 
@@ -1129,6 +1126,12 @@ namespace EFSAdvent
 
             UpdateActorPackedVariables();
 
+            if (ACTOR_NAMES[ActorNameComboBox.SelectedIndex] == "PNPC" || ACTOR_NAMES[ActorNameComboBox.SelectedIndex] == "PNP2")
+            {
+                UpdateBrushTileBitmap((ushort)(((byte)ActorVariable3Input.Value & 0x3)  << 8 | (byte)ActorVariable4Input.Value));
+                ActorInfoPictureBox.Refresh();
+            }
+
             if (!(sender is NumericUpDown input) || input.Name == "ActorLayerInput")
             {
                 BuildLayerActorList(true);
@@ -1269,9 +1272,17 @@ namespace EFSAdvent
                 _logger.AppendLine($"File data/actorinfo/{actorName}.txt not found.");
             }
 
-            ActorInfoPictureBox.Image = ACTOR_SPRITES.ContainsKey(actorName)
-                ? ACTOR_SPRITES[actorName]
-                : ACTOR_SPRITES[DEFAULT_SPRITE];
+            if (newActor.Name == "PNPC" || newActor.Name == "PNP2")
+            {
+                UpdateBrushTileBitmap((ushort)((newActor.Variable3 & 0x3) << 8 | newActor.Variable4));
+                ActorInfoPictureBox.Image = brushTileBitmap;
+            }
+            else
+            {
+                ActorInfoPictureBox.Image = ACTOR_SPRITES.ContainsKey(actorName)
+                    ? ACTOR_SPRITES[actorName]
+                    : ACTOR_SPRITES[DEFAULT_SPRITE];
+            }
         }
 
         // We don't want checking actors during DrawActors to call DrawActors...
