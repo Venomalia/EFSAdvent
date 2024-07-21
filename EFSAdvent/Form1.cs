@@ -325,6 +325,10 @@ namespace EFSAdvent
                     }
                 }
             }
+			
+			roomValue = _level.Map.GetRoomValue(_level.Map.StartX, _level.Map.StartY);
+            mapGraphics.DrawString(Convert.ToString(roomValue), serif, Brushes.Crimson, _level.Map.StartX * roomWidthInPixels, _level.Map.StartY * roomHeightInPixels);
+
             MapPanel.Refresh();
         }
 
@@ -389,9 +393,10 @@ namespace EFSAdvent
                 (int)MapVariableNPCSheetID.Value,
                 (int)MapVariableOverlay.Value,
                 (int)MapVariableUnknown2.Value,
-				(int)MapVariableDisallowTingle.Value
-			);
-		}
+                (int)MapVariableDisallowTingle.Value
+            );
+            DrawMap();
+        }
 
         #endregion Map
 
