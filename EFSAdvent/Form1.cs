@@ -13,6 +13,7 @@ namespace EFSAdvent
     public partial class Form1 : Form
     {
         const string VERSION = "1.2";
+        private string BaseTitel = $"EFSAdvent {VERSION}";
 
         const int ACTOR_PIXELS_PER_COORDINATE = 8;
         const string DEFAULT_SPRITE = "ActorDefault";
@@ -45,6 +46,7 @@ namespace EFSAdvent
         public Form1()
         {
             InitializeComponent();
+            this.Text = BaseTitel;
 
             tileSheetBitmap = new Bitmap("data\\Tile Sheet 00.PNG");
             tileSheetPictureBox.Image = tileSheetBitmap;
@@ -121,6 +123,7 @@ namespace EFSAdvent
             _level = new Level(openDialog.FileName, _logger);
             _level.LoadMap();
 
+            this.Text = $"{BaseTitel} - {_level.Map.Name}";
             SetMapVariableInput(MapVariableStartX, _level.Map.StartX);
             SetMapVariableInput(MapVariableStartY, _level.Map.StartY);
             SetMapVariableInput(MapVariableMusic, _level.Map.BackgroundMusicId);
