@@ -441,7 +441,13 @@ namespace EFSAdvent
 
 				int newActorXCoord = scaledEvent.X / ACTOR_PIXELS_PER_COORDINATE;
 				int newActorYCoord = scaledEvent.Y / ACTOR_PIXELS_PER_COORDINATE;
-				_level.Room.SetActorLocation(actorMouseDownOnIndex.Value, newActorXCoord, newActorYCoord);
+
+                if (newActorXCoord < 0) newActorXCoord = 0;
+                if (newActorYCoord < 0) newActorYCoord = 0;
+                if (newActorXCoord > ActorXCoordInput.Maximum) newActorXCoord = (int)ActorXCoordInput.Maximum;
+                if (newActorYCoord > ActorYCoordInput.Maximum) newActorYCoord = (int)ActorYCoordInput.Maximum;
+
+                _level.Room.SetActorLocation(actorMouseDownOnIndex.Value, newActorXCoord, newActorYCoord);
 
                 _ignoreActorChanges = true;
                 ActorXCoordInput.Value = newActorXCoord;
