@@ -130,17 +130,23 @@ namespace EFSAdvent.FourSwords
             return _actors[index];
         }
 
+        public int IndexOf(Actor actor)
+        {
+            return _actors.IndexOf(actor);
+        }
+
         public List<Actor> GetActors()
         {
             return _actors;
         }
 
-        public bool AddActor(string name, int layer)
+        public Actor AddActor(string name, byte layer, byte xCoord = 0, byte yCoord = 0)
         {
-            _actors.Add(new Actor(name, layer));
+            Actor actor = new Actor(name, layer, xCoord, yCoord);
+            _actors.Add(actor);
             SortActors();
             ActorsAreDirty = true;
-            return true;
+            return actor;
         }
 
         public bool RemoveActorAt(int index)

@@ -39,7 +39,7 @@ namespace EFSAdvent.FourSwords
             Layer = (byte)layer;
         }
 
-        public Actor(string name, byte layer, byte xCoord, byte yCoord, byte variable1, byte variable2, byte variable3, byte variable4)
+        public Actor(string name, byte layer, byte xCoord, byte yCoord, byte variable1 = 0, byte variable2 = 0, byte variable3 = 0, byte variable4 = 0)
         {
             Name = name;
             Layer = layer;

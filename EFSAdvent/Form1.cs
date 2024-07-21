@@ -1150,7 +1150,6 @@ namespace EFSAdvent
 
             //Enable all the actor buttons now that data to work with exists
             actorDeleteButton.Enabled = true;
-            actorsAddNewButton.Enabled = true;
             actorsSaveButton.Enabled = true;
             actorsReloadButton.Enabled = true;
             actorLayerComboBox.Enabled = true;
@@ -1328,6 +1327,20 @@ namespace EFSAdvent
             UpdateView(true);
         }
 
+        private void tabControl_TabIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedIndex == 2)
+            {
+                layerPictureBox.ContextMenuStrip = actorContextMenuStrip;
+                actorContextMenuStrip.Enabled = true;
+            }
+            else
+            {
+                layerPictureBox.ContextMenuStrip = null;
+                actorContextMenuStrip.Enabled = false;
+            }
+        }
+
         private void DrawActor(Actor actor)
         {
             if (!ACTOR_SPRITES.TryGetValue(actor.Name, out Bitmap actorSprite))
@@ -1359,9 +1372,15 @@ namespace EFSAdvent
             int baseLayer = activeLayer.HasValue
                 ? (activeLayer > 7 ? activeLayer - 8 : activeLayer).Value
                 : 0;
-            _level.Room.AddActor(ACTOR_NAMES[0], baseLayer);
+
+            Actor actor = _level.Room.AddActor(ACTOR_NAMES[0], (byte)baseLayer, (byte)lastActorCoordinates.x, (byte)lastActorCoordinates.y);
+
             BuildLayerActorList(true);
             DrawActors(true);
+
+            int index = _level.Room.IndexOf(actor);
+            actorsCheckListBox.SetItemChecked(index, true);
+            actorsCheckListBox.SelectedIndex = index;
         }
 
         private void actorDeleteButton_Click(object sender, EventArgs e)

@@ -34,6 +34,8 @@
             this.tileSheetPictureBox = new System.Windows.Forms.PictureBox();
             this.layersPanel = new System.Windows.Forms.Panel();
             this.layerPictureBox = new System.Windows.Forms.PictureBox();
+            this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addNewActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MapPanel = new System.Windows.Forms.Panel();
             this.mapPictureBox = new System.Windows.Forms.PictureBox();
             this.loggerTextBox = new System.Windows.Forms.TextBox();
@@ -150,7 +152,6 @@
             this.ActorInfoTextBox = new System.Windows.Forms.TextBox();
             this.actorsReloadButton = new System.Windows.Forms.Button();
             this.actorsSaveButton = new System.Windows.Forms.Button();
-            this.actorsAddNewButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
@@ -159,6 +160,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
+            this.actorContextMenuStrip.SuspendLayout();
             this.MapPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -259,6 +261,22 @@
             this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
             this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
             this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
+            // 
+            // actorContextMenuStrip
+            // 
+            this.actorContextMenuStrip.DropShadowEnabled = false;
+            this.actorContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewActorsToolStripMenuItem});
+            this.actorContextMenuStrip.Name = "actorContextMenuStrip";
+            this.actorContextMenuStrip.Size = new System.Drawing.Size(156, 26);
+            // 
+            // addNewActorsToolStripMenuItem
+            // 
+            this.addNewActorsToolStripMenuItem.Name = "addNewActorsToolStripMenuItem";
+            this.addNewActorsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.addNewActorsToolStripMenuItem.Text = "Add New Actor";
+            this.addNewActorsToolStripMenuItem.ToolTipText = "Adds a new AGBW actor to the highest active layer";
+            this.addNewActorsToolStripMenuItem.Click += new System.EventHandler(this.actorsAddNewButton_Click);
             // 
             // MapPanel
             // 
@@ -447,7 +465,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -531,6 +549,8 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(281, 552);
             this.tabControl.TabIndex = 8;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_TabIndexChanged);
+            this.tabControl.TabIndexChanged += new System.EventHandler(this.tabControl_TabIndexChanged);
             // 
             // tabPage3
             // 
@@ -987,7 +1007,6 @@
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.actorsCheckListBox);
             this.tabPage1.Controls.Add(this.actorInfoBox);
-            this.tabPage1.Controls.Add(this.actorsAddNewButton);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -998,7 +1017,7 @@
             // 
             // buttonActorsSelectNone
             // 
-            this.buttonActorsSelectNone.Location = new System.Drawing.Point(7, 245);
+            this.buttonActorsSelectNone.Location = new System.Drawing.Point(7, 267);
             this.buttonActorsSelectNone.Name = "buttonActorsSelectNone";
             this.buttonActorsSelectNone.Size = new System.Drawing.Size(74, 23);
             this.buttonActorsSelectNone.TabIndex = 3;
@@ -1577,7 +1596,7 @@
             this.actorsCheckListBox.FormattingEnabled = true;
             this.actorsCheckListBox.Location = new System.Drawing.Point(7, 29);
             this.actorsCheckListBox.Name = "actorsCheckListBox";
-            this.actorsCheckListBox.Size = new System.Drawing.Size(74, 214);
+            this.actorsCheckListBox.Size = new System.Drawing.Size(74, 229);
             this.actorsCheckListBox.TabIndex = 2;
             this.actorsCheckListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.actorsCheckListBox_ItemCheck);
             this.actorsCheckListBox.Click += new System.EventHandler(this.actorsCheckListBox_Click);
@@ -1645,18 +1664,6 @@
             this.actorsSaveButton.UseVisualStyleBackColor = true;
             this.actorsSaveButton.Click += new System.EventHandler(this.actorsSaveButton_Click);
             // 
-            // actorsAddNewButton
-            // 
-            this.actorsAddNewButton.Enabled = false;
-            this.actorsAddNewButton.Location = new System.Drawing.Point(7, 274);
-            this.actorsAddNewButton.Name = "actorsAddNewButton";
-            this.actorsAddNewButton.Size = new System.Drawing.Size(74, 23);
-            this.actorsAddNewButton.TabIndex = 15;
-            this.actorsAddNewButton.Text = "Add New";
-            this.ActorAttributesTip.SetToolTip(this.actorsAddNewButton, "Adds a new AGBW actor to the highest active layer");
-            this.actorsAddNewButton.UseVisualStyleBackColor = true;
-            this.actorsAddNewButton.Click += new System.EventHandler(this.actorsAddNewButton_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -1715,6 +1722,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).EndInit();
             this.layersPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
+            this.actorContextMenuStrip.ResumeLayout(false);
             this.MapPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -1821,7 +1829,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button actorsAddNewButton;
         private System.Windows.Forms.ComboBox actorLayerComboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -1905,6 +1912,8 @@
         private System.Windows.Forms.NumericUpDown ActorV6Variable6Input;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.ContextMenuStrip actorContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem addNewActorsToolStripMenuItem;
     }
 }
 
