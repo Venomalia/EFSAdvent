@@ -127,6 +127,11 @@ namespace EFSAdvent.FourSwords
 
         public Actor GetActor(int index)
         {
+            if (index < 0|| index > _actors.Count)
+            {
+                return null;
+            }
+
             return _actors[index];
         }
 

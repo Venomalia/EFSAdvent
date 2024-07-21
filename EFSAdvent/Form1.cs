@@ -1232,6 +1232,10 @@ namespace EFSAdvent
         private void NewActorSelected()
         {
             var newActor = _level.Room.GetActor(actorsCheckListBox.SelectedIndex);
+            if (newActor == null )
+            {
+                return;
+            }
 
             _ignoreActorChanges = true;
             ActorNameComboBox.SelectedIndex = Array.IndexOf(ACTOR_NAMES, newActor.Name);
