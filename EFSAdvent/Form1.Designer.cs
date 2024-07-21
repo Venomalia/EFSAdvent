@@ -705,6 +705,7 @@
             this.MapRoomNumberInput.Name = "MapRoomNumberInput";
             this.MapRoomNumberInput.Size = new System.Drawing.Size(117, 20);
             this.MapRoomNumberInput.TabIndex = 19;
+            this.MapRoomNumberInput.ValueChanged += new System.EventHandler(this.SelectRoomNumber);
             // 
             // label20
             // 

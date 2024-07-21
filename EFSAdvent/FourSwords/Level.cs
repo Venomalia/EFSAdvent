@@ -49,6 +49,12 @@ namespace EFSAdvent.FourSwords
             return true;
         }
 
+        public bool RoomExists(byte roomNumber)
+        {
+            string filePath = Path.Combine(_basePath, "szs", $"m{_number}", $"d_map{_number}_{roomNumber:D2}_mmm_1_0.szs");
+            return File.Exists(filePath);
+        }
+
         public void SaveLayers()
         {
             Room?.SaveLayers();

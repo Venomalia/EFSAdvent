@@ -341,9 +341,12 @@ namespace EFSAdvent
             byte roomValue = _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y);
             MapRoomNumberInput.Value = roomValue;
 
-            MapRoomLoadButton.Enabled = roomValue != Map.EMPTY_ROOM_VALUE;
-
             DrawMapWithSelectedRoomHighlighted();
+        }
+
+        private void SelectRoomNumber(object sender, EventArgs e)
+        {
+            MapRoomLoadButton.Enabled = _level.RoomExists((byte)MapRoomNumberInput.Value);
         }
 
         private void DrawMapWithSelectedRoomHighlighted()
