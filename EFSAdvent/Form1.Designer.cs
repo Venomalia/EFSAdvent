@@ -572,7 +572,7 @@
             this.MapVariablesGroupBox.Controls.Add(this.label3);
             this.MapVariablesGroupBox.Location = new System.Drawing.Point(0, 3);
             this.MapVariablesGroupBox.Name = "MapVariablesGroupBox";
-            this.MapVariablesGroupBox.Size = new System.Drawing.Size(267, 478);
+            this.MapVariablesGroupBox.Size = new System.Drawing.Size(267, 520);
             this.MapVariablesGroupBox.TabIndex = 13;
             this.MapVariablesGroupBox.TabStop = false;
             this.MapVariablesGroupBox.Text = "Map";
@@ -696,7 +696,7 @@
             // 
             // MapRoomNumberInput
             // 
-            this.MapRoomNumberInput.Location = new System.Drawing.Point(11, 182);
+            this.MapRoomNumberInput.Location = new System.Drawing.Point(11, 217);
             this.MapRoomNumberInput.Maximum = new decimal(new int[] {
             255,
             0,
@@ -757,18 +757,18 @@
             // MapSaveButton
             // 
             this.MapSaveButton.Enabled = false;
-            this.MapSaveButton.Location = new System.Drawing.Point(11, 208);
+            this.MapSaveButton.Location = new System.Drawing.Point(11, 478);
             this.MapSaveButton.Name = "MapSaveButton";
-            this.MapSaveButton.Size = new System.Drawing.Size(117, 35);
+            this.MapSaveButton.Size = new System.Drawing.Size(256, 35);
             this.MapSaveButton.TabIndex = 12;
-            this.MapSaveButton.Text = "Save changes\r\nto Map";
+            this.MapSaveButton.Text = "Save changes to Map";
             this.MapSaveButton.UseVisualStyleBackColor = true;
             this.MapSaveButton.Click += new System.EventHandler(this.SaveMap);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 166);
+            this.label5.Location = new System.Drawing.Point(8, 201);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 13);
             this.label5.TabIndex = 12;
@@ -786,7 +786,7 @@
             // MapRoomLoadButton
             // 
             this.MapRoomLoadButton.Enabled = false;
-            this.MapRoomLoadButton.Location = new System.Drawing.Point(198, 167);
+            this.MapRoomLoadButton.Location = new System.Drawing.Point(196, 202);
             this.MapRoomLoadButton.Name = "MapRoomLoadButton";
             this.MapRoomLoadButton.Size = new System.Drawing.Size(55, 35);
             this.MapRoomLoadButton.TabIndex = 11;
@@ -797,7 +797,7 @@
             // MapRoomUpdateButton
             // 
             this.MapRoomUpdateButton.Enabled = false;
-            this.MapRoomUpdateButton.Location = new System.Drawing.Point(134, 167);
+            this.MapRoomUpdateButton.Location = new System.Drawing.Point(134, 202);
             this.MapRoomUpdateButton.Name = "MapRoomUpdateButton";
             this.MapRoomUpdateButton.Size = new System.Drawing.Size(56, 35);
             this.MapRoomUpdateButton.TabIndex = 10;
