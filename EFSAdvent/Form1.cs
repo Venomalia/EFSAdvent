@@ -1286,9 +1286,24 @@ namespace EFSAdvent
             }
             else
             {
-                ActorInfoPictureBox.Image = ACTOR_SPRITES.ContainsKey(actorName)
-                    ? ACTOR_SPRITES[actorName]
-                    : ACTOR_SPRITES[DEFAULT_SPRITE];
+                ActorInfoPictureBox.Image = GetActorSpriteOrDefault(actorName, newActor.Variable4);
+            }
+        }
+
+        private Bitmap GetActorSpriteOrDefault(string actorName, byte type)
+        {
+            string specificActorName = $"{actorName}_{type & 0x7F}";
+            if (ACTOR_SPRITES.ContainsKey(specificActorName))
+            {
+                return ACTOR_SPRITES[specificActorName];
+            }
+            else if (ACTOR_SPRITES.ContainsKey(actorName))
+            {
+                return ACTOR_SPRITES[actorName];
+            }
+            else
+            {
+                return ACTOR_SPRITES[DEFAULT_SPRITE];
             }
         }
 
@@ -1348,10 +1363,7 @@ namespace EFSAdvent
 
         private void DrawActor(Actor actor)
         {
-            if (!ACTOR_SPRITES.TryGetValue(actor.Name, out Bitmap actorSprite))
-            {
-                actorSprite = ACTOR_SPRITES[DEFAULT_SPRITE];
-            }
+            Bitmap actorSprite = GetActorSpriteOrDefault(actor.Name, actor.Variable4);
 
             int destinationX = (actor.XCoord * ACTOR_PIXELS_PER_COORDINATE) - (actorSprite.Width / 2);
             int destinationY = (actor.YCoord * ACTOR_PIXELS_PER_COORDINATE) - (actorSprite.Height / 2);
