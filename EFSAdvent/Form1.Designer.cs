@@ -65,6 +65,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
+            this.MapRoomNewButton = new System.Windows.Forms.Button();
             this.MapVariableNPCSheetID = new System.Windows.Forms.NumericUpDown();
             this.MapVariableOverlay = new System.Windows.Forms.NumericUpDown();
             this.MapVariableUnknown2 = new System.Windows.Forms.NumericUpDown();
@@ -575,6 +576,7 @@
             // 
             // MapVariablesGroupBox
             // 
+            this.MapVariablesGroupBox.Controls.Add(this.MapRoomNewButton);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableNPCSheetID);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableOverlay);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableUnknown2);
@@ -606,6 +608,17 @@
             this.MapVariablesGroupBox.TabIndex = 13;
             this.MapVariablesGroupBox.TabStop = false;
             this.MapVariablesGroupBox.Text = "Map";
+            // 
+            // MapRoomNewButton
+            // 
+            this.MapRoomNewButton.Enabled = false;
+            this.MapRoomNewButton.Location = new System.Drawing.Point(196, 161);
+            this.MapRoomNewButton.Name = "MapRoomNewButton";
+            this.MapRoomNewButton.Size = new System.Drawing.Size(55, 35);
+            this.MapRoomNewButton.TabIndex = 29;
+            this.MapRoomNewButton.Text = "New Room";
+            this.MapRoomNewButton.UseVisualStyleBackColor = true;
+            this.MapRoomNewButton.Click += new System.EventHandler(this.NewRoom);
             // 
             // MapVariableNPCSheetID
             // 
@@ -1926,6 +1939,7 @@
         private System.Windows.Forms.ContextMenuStrip actorContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem addNewActorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pastToolStripMenuItem;
+        private System.Windows.Forms.Button MapRoomNewButton;
     }
 }
 

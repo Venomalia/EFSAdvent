@@ -15,7 +15,6 @@ namespace EFSAdvent.FourSwords
         public bool ActorsAreDirty { get; private set; }
         public bool LayersAreDirty { get; private set; }
 
-        public Room(string path, string levelNumber, byte roomNumber, Logger logger)
         public static string GetLayerFolder(string path, string levelNumber) => Path.Combine(path, "szs", $"m{levelNumber}");
 
         public static string GetLayerFileName(string levelNumber, int roomNumber, int level = 1, int layer = 0) => $"d_map{levelNumber}_{roomNumber:D2}_mmm_{level}_{layer}.szs";
@@ -28,6 +27,7 @@ namespace EFSAdvent.FourSwords
 
         public static string GetActorFilePath(string path, string levelNumber, int roomNumber) => Path.Combine(GetActorFolder(path, levelNumber), GetActorFileName(levelNumber, roomNumber));
 
+        public Room(string path, string levelNumber, byte roomNumber, Logger logger, bool newRoom = false)
         {
             _layers = new Layer[8, 2];
 
@@ -40,15 +40,30 @@ namespace EFSAdvent.FourSwords
             {
                 for (int level = 1; level < 3; level++)
                 {
+                    if (newRoom)
+                    {
+                        _layers[layer, level - 1] = new Layer();
+                    }
+                    else
+                    {
                         string layerFileName = GetLayerFileName(levelNumber, roomNumber, level, layer);
                         string szsPath = Path.Combine(layerFolder, layerFileName);
 
-                    _layers[layer, level - 1] = new Layer(szsPath, _logger);
+                        _layers[layer, level - 1] = new Layer(szsPath, _logger);
+                    }
                 }
             }
 
             LayersAreDirty = false;
+
+            if (newRoom)
+            {
+                _actors = new List<Actor>();
+            }
+            else
+            {
                 ReloadActors(path, levelNumber);
+            }
         }
 
         public bool SaveLayers(string path, string levelNumber)

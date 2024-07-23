@@ -156,12 +156,13 @@ namespace EFSAdvent
             DrawMap();
             layerPictureBox.Refresh();
 
-			MapRoomLoadButton.Enabled = false;
-			MapRoomUpdateButton.Enabled = !_level.Map.IsShadowBattle && true;
-			MapSaveButton.Enabled = !_level.Map.IsShadowBattle && true;
-			ExportMenuItem.Enabled = true;
-			SaveMenuItem.Enabled = true;
-			SaveAsMenuItem.Enabled = true;
+            MapRoomLoadButton.Enabled = false;
+            MapRoomNewButton.Enabled = false;
+            MapRoomUpdateButton.Enabled = !_level.Map.IsShadowBattle && true;
+            MapSaveButton.Enabled = !_level.Map.IsShadowBattle && true;
+            ExportMenuItem.Enabled = true;
+            SaveMenuItem.Enabled = true;
+            SaveAsMenuItem.Enabled = true;
             tabControl.Enabled = true;
             layerPictureBox.Enabled = true;
             rightSideGroupBox.Enabled = true;
@@ -178,10 +179,10 @@ namespace EFSAdvent
             MapRoomNumberInput.Enabled = !_level.Map.IsShadowBattle;
 
             MapRoomNumberInput.Value = _level.Map.GetRoomValue(_level.Map.StartX, _level.Map.StartY);
-			LoadRoom(sender, e);
+            LoadRoom(sender, e);
 
             _ignoreMapVariableUpdates = false;
-		}
+        }
 
         private void ResetVarsForNewLevel()
         {
@@ -192,8 +193,16 @@ namespace EFSAdvent
             selectedRoomCoordinates = (0, 0);
         }
 
-        private void LoadRoom(object sender, EventArgs e)
+        private void LoadRoom(object sender, EventArgs e) => LoadRoom(false);
+
+        private void NewRoom(object sender, EventArgs e) => LoadRoom(true);
+
+        private void LoadRoom(bool newRoom)
         {
+            if (!newRoom && MapRoomNumberInput.Value == Map.EMPTY_ROOM_VALUE)
+            {
+                return;
+            }
             if (_level.ActorsAreDirty || _level.LayersAreDirty)
             {
                 string dirtyData = (_level.ActorsAreDirty ? "Actor data" : string.Empty)
@@ -220,8 +229,8 @@ namespace EFSAdvent
                 }
             }
 
-            byte newRoomNumber = (byte)MapRoomNumberInput.Value;
-            if (_level.LoadRoom(newRoomNumber))
+            byte newRoomNumber = newRoom ? (_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value) ? (byte)_level.GetNextFreeRoom() : (byte)MapRoomNumberInput.Value) : (byte)MapRoomNumberInput.Value;
+            if (_level.LoadRoom(newRoomNumber, newRoom))
             {
                 currentRoomNumber = newRoomNumber;
                 _history.Reset();
@@ -241,6 +250,18 @@ namespace EFSAdvent
                 layersCheckList.SetItemChecked(8, true);
 
                 UpdateView(false);
+            }
+            if (newRoom)
+            {
+                MapRoomNumberInput.Value = newRoomNumber;
+                UpdateMapRoomNumber(newRoomNumber);
+                for (int y = 0; y < 24; y++)
+                {
+                    for (int x = 0; x < Layer.DIMENSION; x++)
+                    {
+                        _level.Room.SetLayerTile(0, x, y, 432);
+                    }
+                }
             }
         }
 
@@ -353,6 +374,7 @@ namespace EFSAdvent
             selectedRoomCoordinates = (e.X / roomWidthInPixels, e.Y / roomHeightInPixels);
             byte roomValue = _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y);
             MapRoomNumberInput.Value = roomValue;
+            MapRoomNewButton.Enabled = true;
 
             _logger.AppendText($"Map coordinates: x{selectedRoomCoordinates.x} y{selectedRoomCoordinates.y}");
 
@@ -383,10 +405,11 @@ namespace EFSAdvent
             LoadRoom(sender, e);
         }
 
-        private void UpdateMapRoomNumber(object sender, EventArgs e)
+        private void UpdateMapRoomNumber(object sender, EventArgs e) => UpdateMapRoomNumber((byte)MapRoomNumberInput.Value);
+
+        private void UpdateMapRoomNumber(byte roomID)
         {
-            byte newValue = (byte)MapRoomNumberInput.Value;
-            _level.Map.SetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y, newValue);
+            _level.Map.SetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y, roomID);
             DrawMap();
             DrawMapWithSelectedRoomHighlighted();
         }

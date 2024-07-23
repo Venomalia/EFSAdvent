@@ -39,20 +39,38 @@ namespace EFSAdvent.FourSwords
             Map.Save();
         }
 
-        public bool LoadRoom(byte roomNumber)
+        public bool LoadRoom(byte roomNumber, bool newRoom = false)
         {
             if (roomNumber == Map.EMPTY_ROOM_VALUE)
             {
                 return false;
             }
-            Room = new Room(_basePath, _number, roomNumber, _logger);
+            Room = new Room(_basePath, _number, roomNumber, _logger, newRoom);
             return true;
         }
 
         public bool RoomExists(int roomNumber)
         {
+            //d_map031_14_mmm_1_0.szs
             string filePath = Room.GetLayerFilePath(_basePath, _number, roomNumber);
             return File.Exists(filePath);
+        }
+
+        public int GetNextFreeRoom()
+        {
+            byte i = 0;
+            while (true)
+            {
+                if (!RoomExists(i))
+                {
+                    return i;
+                }
+                if (i == byte.MaxValue)
+                {
+                    return -1;
+                }
+                i++;
+            }
         }
 
         public void SaveLayers()
