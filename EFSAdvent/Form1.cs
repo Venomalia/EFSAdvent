@@ -78,7 +78,7 @@ namespace EFSAdvent
             string exePath = Application.ExecutablePath;
             string directory = Path.GetDirectoryName(exePath);
             string spriteFolder = Path.Combine(directory, "data", "actorsprites");
-            var spritePaths = Directory.GetFiles(spriteFolder, "*", SearchOption.TopDirectoryOnly);
+            var spritePaths = Directory.GetFiles(spriteFolder, "*.png", SearchOption.TopDirectoryOnly);
             foreach (var spritePath in spritePaths)
             {
                 var sprite = new Bitmap(spritePath);
