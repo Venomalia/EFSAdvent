@@ -49,20 +49,20 @@ namespace EFSAdvent.FourSwords
             return true;
         }
 
-        public bool RoomExists(byte roomNumber)
+        public bool RoomExists(int roomNumber)
         {
-            string filePath = Path.Combine(_basePath, "szs", $"m{_number}", $"d_map{_number}_{roomNumber:D2}_mmm_1_0.szs");
+            string filePath = Room.GetLayerFilePath(_basePath, _number, roomNumber);
             return File.Exists(filePath);
         }
 
         public void SaveLayers()
         {
-            Room?.SaveLayers();
+            Room?.SaveLayers(_basePath, _number);
         }
 
-        public void LoadActors()
+        public void ReloadActors()
         {
-            Room.LoadActors(_basePath, _number);
+            Room.ReloadActors(_basePath, _number);
         }
 
         public void SaveActors()

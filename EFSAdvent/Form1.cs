@@ -225,7 +225,14 @@ namespace EFSAdvent
             {
                 currentRoomNumber = newRoomNumber;
                 _history.Reset();
-                LoadActors();
+                BuildLayerActorList(false);
+
+                //Enable all the actor buttons now that data to work with exists
+                actorDeleteButton.Enabled = true;
+                actorsSaveButton.Enabled = true;
+                actorsReloadButton.Enabled = true;
+                actorLayerComboBox.Enabled = true;
+
                 for (int i = 1; i < 16; i++)
                 {
                     layersCheckList.SetItemChecked(i, false);
@@ -814,7 +821,7 @@ namespace EFSAdvent
 
         private void buttonSaveLayers_Click(object sender, EventArgs e)
         {
-            _level.Room.SaveLayers();
+            _level.SaveLayers();
             MessageBox.Show("Changes Saved");
         }
 
@@ -1148,16 +1155,10 @@ namespace EFSAdvent
             UpdateView(false);
         }
 
-        private void LoadActors()
+        private void ReloadActors()
         {
-            _level.LoadActors();
+            _level.ReloadActors();
             BuildLayerActorList(false);
-
-            //Enable all the actor buttons now that data to work with exists
-            actorDeleteButton.Enabled = true;
-            actorsSaveButton.Enabled = true;
-            actorsReloadButton.Enabled = true;
-            actorLayerComboBox.Enabled = true;
         }
 
         private void BuildLayerActorList(bool keepState = true)
@@ -1199,7 +1200,7 @@ namespace EFSAdvent
 
         private void actorsReloadButton_Click(object sender, EventArgs e)
         {
-            LoadActors();
+            ReloadActors();
         }
 
         private void actorsCheckListBox_SelectedIndexChanged(object sender, EventArgs e)

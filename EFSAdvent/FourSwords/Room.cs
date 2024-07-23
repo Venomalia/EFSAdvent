@@ -9,8 +9,6 @@ namespace EFSAdvent.FourSwords
     {
         private readonly Layer[,] _layers;
         private List<Actor> _actors;
-        private readonly string _path;
-        private readonly string _filePrefix;
         private readonly byte _roomNumber;
         private readonly Logger _logger;
 
@@ -18,10 +16,23 @@ namespace EFSAdvent.FourSwords
         public bool LayersAreDirty { get; private set; }
 
         public Room(string path, string levelNumber, byte roomNumber, Logger logger)
+        public static string GetLayerFolder(string path, string levelNumber) => Path.Combine(path, "szs", $"m{levelNumber}");
+
+        public static string GetLayerFileName(string levelNumber, int roomNumber, int level = 1, int layer = 0) => $"d_map{levelNumber}_{roomNumber:D2}_mmm_{level}_{layer}.szs";
+
+        public static string GetLayerFilePath(string path, string levelNumber, int roomNumber, int level = 1, int layer = 0) => Path.Combine(GetLayerFolder(path, levelNumber), GetLayerFileName(levelNumber, roomNumber, level, layer));
+
+        public static string GetActorFolder(string path, string levelNumber) => Path.Combine(path, "bin", $"b{levelNumber}");
+
+        public static string GetActorFileName(string levelNumber, int roomNumber) => $"d_enemy_map{levelNumber}_{roomNumber:D2}.bin";
+
+        public static string GetActorFilePath(string path, string levelNumber, int roomNumber) => Path.Combine(GetActorFolder(path, levelNumber), GetActorFileName(levelNumber, roomNumber));
+
         {
             _layers = new Layer[8, 2];
-            _path = Path.Combine(path, "szs", $"m{levelNumber}");
-            _filePrefix = $"d_map{levelNumber}_{roomNumber:D2}_mmm_";
+
+            string layerFolder = GetLayerFolder(path, levelNumber);
+
             _roomNumber = roomNumber;
             _logger = logger;
 
@@ -29,18 +40,20 @@ namespace EFSAdvent.FourSwords
             {
                 for (int level = 1; level < 3; level++)
                 {
-                    string szsPath = Path.Combine(_path, $"{_filePrefix}{level}_{layer}.szs");
+                        string layerFileName = GetLayerFileName(levelNumber, roomNumber, level, layer);
+                        string szsPath = Path.Combine(layerFolder, layerFileName);
 
                     _layers[layer, level - 1] = new Layer(szsPath, _logger);
                 }
             }
 
-            ActorsAreDirty = false;
             LayersAreDirty = false;
+                ReloadActors(path, levelNumber);
         }
 
-        public bool SaveLayers()
+        public bool SaveLayers(string path, string levelNumber)
         {
+            string layerFolder = GetLayerFolder(path, levelNumber);
             for (int layer = 0; layer < 8; layer++)
             {
                 for (int level = 1; level < 3; level++)
@@ -49,7 +62,9 @@ namespace EFSAdvent.FourSwords
                     var szsFormatLayer = curLayer.ConvertToSzsFormat();
 
                     var encodedSzs = Yaz0.Encode(szsFormatLayer);
-                    string szsPath = Path.Combine(_path, $"{_filePrefix}{level}_{layer}.szs");
+
+                    string layerFileName = GetLayerFileName(levelNumber, _roomNumber, level, layer);
+                    string szsPath = Path.Combine(layerFolder, layerFileName);
                     FileStream fileStream = File.Create(szsPath, encodedSzs.Length);
                     fileStream.Write(encodedSzs, 0, encodedSzs.Length);
                     fileStream.Flush();
@@ -80,11 +95,11 @@ namespace EFSAdvent.FourSwords
             _actors = _actors.OrderBy(a => a.Layer).ThenBy(a => a.Name).ThenBy(a => a.XCoord).ThenBy(a => a.YCoord).ToList();
         }
 
-        public void LoadActors(string path, string levelNumber)
+        public void ReloadActors(string path, string levelNumber)
         {
-            string actorsPath = Path.Combine(path, "bin", $"b{levelNumber}", $"d_enemy_map{levelNumber}_{_roomNumber:D2}.bin");
+            string actorsPath = GetActorFilePath(path, levelNumber, _roomNumber);
             _actors = new List<Actor>();
-            try
+            if (File.Exists(actorsPath))
             {
                 byte[] readBuffer = File.ReadAllBytes(actorsPath);
 
@@ -107,7 +122,7 @@ namespace EFSAdvent.FourSwords
                 SortActors();
 
             }
-            catch (FileNotFoundException)
+            else
             {
                 _logger.AppendLine("Can't find actors *.bin file. A new actors file has been created.");
             }
@@ -116,7 +131,7 @@ namespace EFSAdvent.FourSwords
 
         public void SaveActors(string path, string levelNumber)
         {
-            string actorsPath = Path.Combine(path, "bin", $"b{levelNumber}", $"d_enemy_map{levelNumber}_{_roomNumber:D2}.bin");
+            string actorsPath = Path.Combine(GetActorFolder(path, levelNumber), GetActorFileName(levelNumber, _roomNumber));
             FileStream actorsStream = File.Create(actorsPath);
             byte[] actorsBinary = GetActorsAsBinary();
 
@@ -127,7 +142,7 @@ namespace EFSAdvent.FourSwords
 
         public Actor GetActor(int index)
         {
-            if (index < 0|| index > _actors.Count)
+            if (index < 0 || index > _actors.Count)
             {
                 return null;
             }

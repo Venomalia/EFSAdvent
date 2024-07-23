@@ -6,18 +6,22 @@ namespace EFSAdvent.FourSwords
     {
         public const int DIMENSION = 32;
 
-        private ushort[] _data;
+        private readonly ushort[] _data;
 
-        public Layer(string szsFilePath, Logger logger)
+        public Layer()
         {
             _data = new ushort[0x400];
+        }
+
+        public Layer(string szsFilePath, Logger logger) : this()
+        {
             byte[] source;
 
-            try
+            if (File.Exists(szsFilePath))
             {
                 source = File.ReadAllBytes(szsFilePath);
             }
-            catch (FileNotFoundException)
+            else
             {
                 logger.AppendLine($"File not found: {szsFilePath}");
                 return;
