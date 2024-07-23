@@ -338,12 +338,16 @@ namespace EFSAdvent
 
         private void SelectMapRoom(object sender, MouseEventArgs e)
         {
+            _logger.Clear();
+
             int roomWidthInPixels = mapPictureBox.Width / _level.Map.XDimension;
             int roomHeightInPixels = mapPictureBox.Height / _level.Map.YDimension;
             //When the user clicks in the map load the value of the clicked room into the edit box
             selectedRoomCoordinates = (e.X / roomWidthInPixels, e.Y / roomHeightInPixels);
             byte roomValue = _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y);
             MapRoomNumberInput.Value = roomValue;
+
+            _logger.AppendText($"Map coordinates: x{selectedRoomCoordinates.x} y{selectedRoomCoordinates.y}");
 
             DrawMapWithSelectedRoomHighlighted();
         }
