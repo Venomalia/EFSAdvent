@@ -9,7 +9,7 @@ namespace EFSAdvent.FourSwords
     {
         private readonly Layer[,] _layers;
         private List<Actor> _actors;
-        private readonly byte _roomNumber;
+        public readonly byte RoomNumber;
         private readonly Logger _logger;
 
         public bool ActorsAreDirty { get; private set; }
@@ -33,7 +33,7 @@ namespace EFSAdvent.FourSwords
 
             string layerFolder = GetLayerFolder(path, levelNumber);
 
-            _roomNumber = roomNumber;
+            RoomNumber = roomNumber;
             _logger = logger;
 
             for (int layer = 0; layer < 8; layer++)
@@ -78,7 +78,7 @@ namespace EFSAdvent.FourSwords
 
                     var encodedSzs = Yaz0.Encode(szsFormatLayer);
 
-                    string layerFileName = GetLayerFileName(levelNumber, _roomNumber, level, layer);
+                    string layerFileName = GetLayerFileName(levelNumber, RoomNumber, level, layer);
                     string szsPath = Path.Combine(layerFolder, layerFileName);
                     FileStream fileStream = File.Create(szsPath, encodedSzs.Length);
                     fileStream.Write(encodedSzs, 0, encodedSzs.Length);
@@ -112,7 +112,7 @@ namespace EFSAdvent.FourSwords
 
         public void ReloadActors(string path, string levelNumber)
         {
-            string actorsPath = GetActorFilePath(path, levelNumber, _roomNumber);
+            string actorsPath = GetActorFilePath(path, levelNumber, RoomNumber);
             _actors = new List<Actor>();
             if (File.Exists(actorsPath))
             {
@@ -146,7 +146,7 @@ namespace EFSAdvent.FourSwords
 
         public void SaveActors(string path, string levelNumber)
         {
-            string actorsPath = Path.Combine(GetActorFolder(path, levelNumber), GetActorFileName(levelNumber, _roomNumber));
+            string actorsPath = Path.Combine(GetActorFolder(path, levelNumber), GetActorFileName(levelNumber, RoomNumber));
             FileStream actorsStream = File.Create(actorsPath);
             byte[] actorsBinary = GetActorsAsBinary();
 

@@ -215,6 +215,21 @@ namespace EFSAdvent.FourSwords
             throw new ArgumentException($"{nameof(GetRoomCoordinates)}: Map does not contain room value {roomValue}");
         }
 
+        public bool IsRoomInUse(int RoomID)
+        {
+            for (int x = 0; x < XDimension; x++)
+            {
+                for (int y = 0; y < YDimension; y++)
+                {
+                    if (RoomID == _data[y, x])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         public void SetRoomValue(int x, int y, byte newValue)
         {
             if (x < 0 || x > XDimension || y < 0 || y > YDimension)

@@ -65,6 +65,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
+            this.MapRoomRemoveButton = new System.Windows.Forms.Button();
             this.MapRoomNewButton = new System.Windows.Forms.Button();
             this.MapVariableNPCSheetID = new System.Windows.Forms.NumericUpDown();
             this.MapVariableOverlay = new System.Windows.Forms.NumericUpDown();
@@ -576,6 +577,7 @@
             // 
             // MapVariablesGroupBox
             // 
+            this.MapVariablesGroupBox.Controls.Add(this.MapRoomRemoveButton);
             this.MapVariablesGroupBox.Controls.Add(this.MapRoomNewButton);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableNPCSheetID);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableOverlay);
@@ -608,6 +610,17 @@
             this.MapVariablesGroupBox.TabIndex = 13;
             this.MapVariablesGroupBox.TabStop = false;
             this.MapVariablesGroupBox.Text = "Map";
+            // 
+            // MapRoomRemoveButton
+            // 
+            this.MapRoomRemoveButton.Enabled = false;
+            this.MapRoomRemoveButton.Location = new System.Drawing.Point(135, 161);
+            this.MapRoomRemoveButton.Name = "MapRoomRemoveButton";
+            this.MapRoomRemoveButton.Size = new System.Drawing.Size(55, 35);
+            this.MapRoomRemoveButton.TabIndex = 30;
+            this.MapRoomRemoveButton.Text = "Remove Room";
+            this.MapRoomRemoveButton.UseVisualStyleBackColor = true;
+            this.MapRoomRemoveButton.Click += new System.EventHandler(this.RemoveRoom);
             // 
             // MapRoomNewButton
             // 
@@ -1940,6 +1953,7 @@
         private System.Windows.Forms.ToolStripMenuItem addNewActorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pastToolStripMenuItem;
         private System.Windows.Forms.Button MapRoomNewButton;
+        private System.Windows.Forms.Button MapRoomRemoveButton;
     }
 }
 

@@ -158,6 +158,7 @@ namespace EFSAdvent
 
             MapRoomLoadButton.Enabled = false;
             MapRoomNewButton.Enabled = false;
+            MapRoomRemoveButton.Enabled = false;
             MapRoomUpdateButton.Enabled = !_level.Map.IsShadowBattle && true;
             MapSaveButton.Enabled = !_level.Map.IsShadowBattle && true;
             ExportMenuItem.Enabled = true;
@@ -265,6 +266,35 @@ namespace EFSAdvent
             }
         }
 
+        private void RemoveRoom(object sender, EventArgs e)
+        {
+            byte selectedRoom = _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y);
+
+            if (MapRoomNumberInput.Value == selectedRoom)
+            {
+                UpdateMapRoomNumber(Map.EMPTY_ROOM_VALUE);
+            }
+            if (!_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value) && _level.RoomExists((byte)MapRoomNumberInput.Value) && _level.Room.RoomNumber != selectedRoom)
+            {
+                var result = MessageBox.Show($"The room {MapRoomNumberInput.Value} is not used in this level map should it be deleted completely? This cannot be undone!",
+                                             $"Deleted room {MapRoomNumberInput.Value}?",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    File.Delete(Room.GetActorFilePath(RootFolderPathTextBox.Text, _level.Map.Number, (byte)MapRoomNumberInput.Value));
+                    for (int layer = 0; layer < 8; layer++)
+                    {
+                        File.Delete(Room.GetLayerFilePath(RootFolderPathTextBox.Text, _level.Map.Number, (byte)MapRoomNumberInput.Value, 1, layer));
+                        File.Delete(Room.GetLayerFilePath(RootFolderPathTextBox.Text, _level.Map.Number, (byte)MapRoomNumberInput.Value, 2, layer));
+                    }
+                }
+            }
+            // update
+            MapRoomNumberInput.Value = MapRoomNumberInput.Value;
+
+        }
+
         private void SaveActionToHistory(int layer, int x, int y, int brushWidth)
         {
             var oldValues = new List<ushort>();
@@ -357,8 +387,8 @@ namespace EFSAdvent
                     }
                 }
             }
-			
-			roomValue = _level.Map.GetRoomValue(_level.Map.StartX, _level.Map.StartY);
+
+            roomValue = _level.Map.GetRoomValue(_level.Map.StartX, _level.Map.StartY);
             mapGraphics.DrawString(Convert.ToString(roomValue), serif, Brushes.Crimson, _level.Map.StartX * roomWidthInPixels, _level.Map.StartY * roomHeightInPixels);
 
             MapPanel.Refresh();
@@ -374,6 +404,7 @@ namespace EFSAdvent
             selectedRoomCoordinates = (e.X / roomWidthInPixels, e.Y / roomHeightInPixels);
             byte roomValue = _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y);
             MapRoomNumberInput.Value = roomValue;
+            MapRoomRemoveButton.Enabled = roomValue != Map.EMPTY_ROOM_VALUE;
             MapRoomNewButton.Enabled = true;
 
             _logger.AppendText($"Map coordinates: x{selectedRoomCoordinates.x} y{selectedRoomCoordinates.y}");
@@ -383,7 +414,11 @@ namespace EFSAdvent
 
         private void SelectRoomNumber(object sender, EventArgs e)
         {
-            MapRoomLoadButton.Enabled = _level.RoomExists((byte)MapRoomNumberInput.Value);
+            MapRoomUpdateButton.Enabled = MapRoomRemoveButton.Enabled = MapRoomLoadButton.Enabled = _level.RoomExists((byte)MapRoomNumberInput.Value);
+            if (MapRoomRemoveButton.Enabled && MapRoomNumberInput.Value != _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y))
+            {
+                MapRoomRemoveButton.Enabled = !_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value);
+            }
         }
 
         private void DrawMapWithSelectedRoomHighlighted()
@@ -410,6 +445,7 @@ namespace EFSAdvent
         private void UpdateMapRoomNumber(byte roomID)
         {
             _level.Map.SetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y, roomID);
+            MapRoomRemoveButton.Enabled = roomID != Map.EMPTY_ROOM_VALUE;
             DrawMap();
             DrawMapWithSelectedRoomHighlighted();
         }
