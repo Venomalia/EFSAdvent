@@ -488,9 +488,12 @@ namespace EFSAdvent
 
         private MouseEventArgs ScaleEventToLayerRealSize(MouseEventArgs e)
         {
-            float widthScale = (float)LAYER_DIMENSION_IN_PIXELS / layerPictureBox.Width;
-            float heightScale = (float)LAYER_DIMENSION_IN_PIXELS / layerPictureBox.Height;
-            return new MouseEventArgs(e.Button, e.Clicks, (int)(e.X * widthScale), (int)(e.Y * heightScale), e.Delta);
+            int shortest = Math.Min(layerPictureBox.Width, layerPictureBox.Height);
+            float scale = (float)LAYER_DIMENSION_IN_PIXELS / shortest;
+            int widthOfset = (layerPictureBox.Size.Width - shortest)/2;
+            int heightOfset = (layerPictureBox.Size.Height - shortest)/2;
+
+            return new MouseEventArgs(e.Button, e.Clicks, (int)((e.X- widthOfset) * scale), (int)((e.Y- heightOfset) * scale), e.Delta);
         }
 
         private void layersPictureBox_MouseMove(object sender, MouseEventArgs e)

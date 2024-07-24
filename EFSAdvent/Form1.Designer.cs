@@ -259,7 +259,7 @@
             this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
             this.layerPictureBox.Name = "layerPictureBox";
             this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.layerPictureBox.TabIndex = 0;
             this.layerPictureBox.TabStop = false;
             this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
