@@ -65,8 +65,13 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
-            this.MapRoomRemoveButton = new System.Windows.Forms.Button();
+            this.RoomLayoutgroupBox1 = new System.Windows.Forms.GroupBox();
+            this.MapRoomLoadButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.MapRoomNewButton = new System.Windows.Forms.Button();
+            this.MapRoomSetButton = new System.Windows.Forms.Button();
+            this.MapRoomNumberInput = new System.Windows.Forms.NumericUpDown();
+            this.MapRoomRemoveButton = new System.Windows.Forms.Button();
             this.MapVariableNPCSheetID = new System.Windows.Forms.NumericUpDown();
             this.MapVariableOverlay = new System.Windows.Forms.NumericUpDown();
             this.MapVariableUnknown2 = new System.Windows.Forms.NumericUpDown();
@@ -76,17 +81,12 @@
             this.MapVariableMusic = new System.Windows.Forms.NumericUpDown();
             this.MapVariableStartY = new System.Windows.Forms.NumericUpDown();
             this.MapVariableStartX = new System.Windows.Forms.NumericUpDown();
-            this.MapRoomNumberInput = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.csvLabel4 = new System.Windows.Forms.Label();
             this.MapSaveButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.MapRoomLoadButton = new System.Windows.Forms.Button();
-            this.MapRoomUpdateButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -171,6 +171,8 @@
             this.tabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.MapVariablesGroupBox.SuspendLayout();
+            this.RoomLayoutgroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MapRoomNumberInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableNPCSheetID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableOverlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown2)).BeginInit();
@@ -180,7 +182,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableMusic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapRoomNumberInput)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -293,9 +294,9 @@
             // MapPanel
             // 
             this.MapPanel.Controls.Add(this.mapPictureBox);
-            this.MapPanel.Location = new System.Drawing.Point(11, 266);
+            this.MapPanel.Location = new System.Drawing.Point(8, 73);
             this.MapPanel.Name = "MapPanel";
-            this.MapPanel.Size = new System.Drawing.Size(205, 206);
+            this.MapPanel.Size = new System.Drawing.Size(245, 175);
             this.MapPanel.TabIndex = 2;
             // 
             // mapPictureBox
@@ -303,7 +304,7 @@
             this.mapPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mapPictureBox.Location = new System.Drawing.Point(0, 0);
             this.mapPictureBox.Name = "mapPictureBox";
-            this.mapPictureBox.Size = new System.Drawing.Size(200, 200);
+            this.mapPictureBox.Size = new System.Drawing.Size(240, 170);
             this.mapPictureBox.TabIndex = 0;
             this.mapPictureBox.TabStop = false;
             this.mapPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectMapRoom);
@@ -577,8 +578,9 @@
             // 
             // MapVariablesGroupBox
             // 
-            this.MapVariablesGroupBox.Controls.Add(this.MapRoomRemoveButton);
-            this.MapVariablesGroupBox.Controls.Add(this.MapRoomNewButton);
+            this.MapVariablesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.MapVariablesGroupBox.Controls.Add(this.RoomLayoutgroupBox1);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableNPCSheetID);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableOverlay);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableUnknown2);
@@ -588,18 +590,12 @@
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableMusic);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableStartY);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableStartX);
-            this.MapVariablesGroupBox.Controls.Add(this.MapRoomNumberInput);
             this.MapVariablesGroupBox.Controls.Add(this.label20);
             this.MapVariablesGroupBox.Controls.Add(this.label19);
             this.MapVariablesGroupBox.Controls.Add(this.label18);
             this.MapVariablesGroupBox.Controls.Add(this.label17);
             this.MapVariablesGroupBox.Controls.Add(this.csvLabel4);
             this.MapVariablesGroupBox.Controls.Add(this.MapSaveButton);
-            this.MapVariablesGroupBox.Controls.Add(this.label5);
-            this.MapVariablesGroupBox.Controls.Add(this.MapPanel);
-            this.MapVariablesGroupBox.Controls.Add(this.label4);
-            this.MapVariablesGroupBox.Controls.Add(this.MapRoomLoadButton);
-            this.MapVariablesGroupBox.Controls.Add(this.MapRoomUpdateButton);
             this.MapVariablesGroupBox.Controls.Add(this.label10);
             this.MapVariablesGroupBox.Controls.Add(this.label11);
             this.MapVariablesGroupBox.Controls.Add(this.label16);
@@ -611,27 +607,87 @@
             this.MapVariablesGroupBox.TabStop = false;
             this.MapVariablesGroupBox.Text = "Map";
             // 
-            // MapRoomRemoveButton
+            // RoomLayoutgroupBox1
             // 
-            this.MapRoomRemoveButton.Enabled = false;
-            this.MapRoomRemoveButton.Location = new System.Drawing.Point(135, 161);
-            this.MapRoomRemoveButton.Name = "MapRoomRemoveButton";
-            this.MapRoomRemoveButton.Size = new System.Drawing.Size(55, 35);
-            this.MapRoomRemoveButton.TabIndex = 30;
-            this.MapRoomRemoveButton.Text = "Remove Room";
-            this.MapRoomRemoveButton.UseVisualStyleBackColor = true;
-            this.MapRoomRemoveButton.Click += new System.EventHandler(this.RemoveRoom);
+            this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomLoadButton);
+            this.RoomLayoutgroupBox1.Controls.Add(this.MapPanel);
+            this.RoomLayoutgroupBox1.Controls.Add(this.label5);
+            this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomNewButton);
+            this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomSetButton);
+            this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomNumberInput);
+            this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomRemoveButton);
+            this.RoomLayoutgroupBox1.Location = new System.Drawing.Point(6, 182);
+            this.RoomLayoutgroupBox1.Name = "RoomLayoutgroupBox1";
+            this.RoomLayoutgroupBox1.Size = new System.Drawing.Size(255, 254);
+            this.RoomLayoutgroupBox1.TabIndex = 31;
+            this.RoomLayoutgroupBox1.TabStop = false;
+            this.RoomLayoutgroupBox1.Text = "Layout of Rooms in Map";
+            // 
+            // MapRoomLoadButton
+            // 
+            this.MapRoomLoadButton.Enabled = false;
+            this.MapRoomLoadButton.Location = new System.Drawing.Point(183, 44);
+            this.MapRoomLoadButton.Name = "MapRoomLoadButton";
+            this.MapRoomLoadButton.Size = new System.Drawing.Size(65, 20);
+            this.MapRoomLoadButton.TabIndex = 11;
+            this.MapRoomLoadButton.Text = "Load";
+            this.MapRoomLoadButton.UseVisualStyleBackColor = true;
+            this.MapRoomLoadButton.Click += new System.EventHandler(this.LoadRoom);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Selected Room";
             // 
             // MapRoomNewButton
             // 
             this.MapRoomNewButton.Enabled = false;
-            this.MapRoomNewButton.Location = new System.Drawing.Point(196, 161);
+            this.MapRoomNewButton.Location = new System.Drawing.Point(112, 18);
             this.MapRoomNewButton.Name = "MapRoomNewButton";
-            this.MapRoomNewButton.Size = new System.Drawing.Size(55, 35);
+            this.MapRoomNewButton.Size = new System.Drawing.Size(65, 20);
             this.MapRoomNewButton.TabIndex = 29;
-            this.MapRoomNewButton.Text = "New Room";
+            this.MapRoomNewButton.Text = "New";
             this.MapRoomNewButton.UseVisualStyleBackColor = true;
             this.MapRoomNewButton.Click += new System.EventHandler(this.NewRoom);
+            // 
+            // MapRoomSetButton
+            // 
+            this.MapRoomSetButton.Enabled = false;
+            this.MapRoomSetButton.Location = new System.Drawing.Point(112, 44);
+            this.MapRoomSetButton.Name = "MapRoomSetButton";
+            this.MapRoomSetButton.Size = new System.Drawing.Size(65, 20);
+            this.MapRoomSetButton.TabIndex = 10;
+            this.MapRoomSetButton.Text = "Set";
+            this.MapRoomSetButton.UseVisualStyleBackColor = true;
+            this.MapRoomSetButton.Click += new System.EventHandler(this.UpdateMapRoomNumber);
+            // 
+            // MapRoomNumberInput
+            // 
+            this.MapRoomNumberInput.Location = new System.Drawing.Point(8, 44);
+            this.MapRoomNumberInput.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.MapRoomNumberInput.Name = "MapRoomNumberInput";
+            this.MapRoomNumberInput.Size = new System.Drawing.Size(99, 20);
+            this.MapRoomNumberInput.TabIndex = 19;
+            this.MapRoomNumberInput.ValueChanged += new System.EventHandler(this.SelectRoomNumber);
+            // 
+            // MapRoomRemoveButton
+            // 
+            this.MapRoomRemoveButton.Enabled = false;
+            this.MapRoomRemoveButton.Location = new System.Drawing.Point(183, 18);
+            this.MapRoomRemoveButton.Name = "MapRoomRemoveButton";
+            this.MapRoomRemoveButton.Size = new System.Drawing.Size(65, 20);
+            this.MapRoomRemoveButton.TabIndex = 30;
+            this.MapRoomRemoveButton.Text = "Remove";
+            this.MapRoomRemoveButton.UseVisualStyleBackColor = false;
+            this.MapRoomRemoveButton.Click += new System.EventHandler(this.RemoveRoom);
             // 
             // MapVariableNPCSheetID
             // 
@@ -750,19 +806,6 @@
             this.MapVariableStartX.TabIndex = 20;
             this.MapVariableStartX.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
             // 
-            // MapRoomNumberInput
-            // 
-            this.MapRoomNumberInput.Location = new System.Drawing.Point(11, 217);
-            this.MapRoomNumberInput.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.MapRoomNumberInput.Name = "MapRoomNumberInput";
-            this.MapRoomNumberInput.Size = new System.Drawing.Size(117, 20);
-            this.MapRoomNumberInput.TabIndex = 19;
-            this.MapRoomNumberInput.ValueChanged += new System.EventHandler(this.SelectRoomNumber);
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -812,6 +855,7 @@
             // 
             // MapSaveButton
             // 
+            this.MapSaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.MapSaveButton.Enabled = false;
             this.MapSaveButton.Location = new System.Drawing.Point(11, 478);
             this.MapSaveButton.Name = "MapSaveButton";
@@ -820,46 +864,6 @@
             this.MapSaveButton.Text = "Save changes to Map";
             this.MapSaveButton.UseVisualStyleBackColor = true;
             this.MapSaveButton.Click += new System.EventHandler(this.SaveMap);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 201);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Selected Room Number";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 250);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Layout of Rooms in Map";
-            // 
-            // MapRoomLoadButton
-            // 
-            this.MapRoomLoadButton.Enabled = false;
-            this.MapRoomLoadButton.Location = new System.Drawing.Point(196, 202);
-            this.MapRoomLoadButton.Name = "MapRoomLoadButton";
-            this.MapRoomLoadButton.Size = new System.Drawing.Size(55, 35);
-            this.MapRoomLoadButton.TabIndex = 11;
-            this.MapRoomLoadButton.Text = "Load Room";
-            this.MapRoomLoadButton.UseVisualStyleBackColor = true;
-            this.MapRoomLoadButton.Click += new System.EventHandler(this.LoadRoom);
-            // 
-            // MapRoomUpdateButton
-            // 
-            this.MapRoomUpdateButton.Enabled = false;
-            this.MapRoomUpdateButton.Location = new System.Drawing.Point(134, 202);
-            this.MapRoomUpdateButton.Name = "MapRoomUpdateButton";
-            this.MapRoomUpdateButton.Size = new System.Drawing.Size(56, 35);
-            this.MapRoomUpdateButton.TabIndex = 10;
-            this.MapRoomUpdateButton.Text = "Update";
-            this.MapRoomUpdateButton.UseVisualStyleBackColor = true;
-            this.MapRoomUpdateButton.Click += new System.EventHandler(this.UpdateMapRoomNumber);
             // 
             // label10
             // 
@@ -1770,6 +1774,9 @@
             this.tabPage3.ResumeLayout(false);
             this.MapVariablesGroupBox.ResumeLayout(false);
             this.MapVariablesGroupBox.PerformLayout();
+            this.RoomLayoutgroupBox1.ResumeLayout(false);
+            this.RoomLayoutgroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MapRoomNumberInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableNPCSheetID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableOverlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown2)).EndInit();
@@ -1779,7 +1786,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableMusic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapRoomNumberInput)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).EndInit();
@@ -1844,11 +1850,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox currentTileSheetComboBox;
         private System.Windows.Forms.PictureBox mapPictureBox;
-        private System.Windows.Forms.Button MapRoomUpdateButton;
+        private System.Windows.Forms.Button MapRoomSetButton;
         private System.Windows.Forms.Button MapRoomLoadButton;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox BrushTilePictureBox;
         private System.Windows.Forms.Label BrushTileLabel;
@@ -1954,6 +1959,7 @@
         private System.Windows.Forms.ToolStripMenuItem pastToolStripMenuItem;
         private System.Windows.Forms.Button MapRoomNewButton;
         private System.Windows.Forms.Button MapRoomRemoveButton;
+        private System.Windows.Forms.GroupBox RoomLayoutgroupBox1;
     }
 }
 

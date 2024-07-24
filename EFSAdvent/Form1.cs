@@ -58,7 +58,7 @@ namespace EFSAdvent
             roomLayerGraphics = Graphics.FromImage(roomLayerBitmap);
             layerPictureBox.Image = roomLayerBitmap;
 
-            mapBitmap = new Bitmap(200, 200, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
+            mapBitmap = new Bitmap(mapPictureBox.Width, mapPictureBox.Height, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
             mapGraphics = Graphics.FromImage(mapBitmap);
             mapPictureBox.Image = mapBitmap;
 
@@ -159,7 +159,7 @@ namespace EFSAdvent
             MapRoomLoadButton.Enabled = false;
             MapRoomNewButton.Enabled = false;
             MapRoomRemoveButton.Enabled = false;
-            MapRoomUpdateButton.Enabled = !_level.Map.IsShadowBattle && true;
+            MapRoomSetButton.Enabled = !_level.Map.IsShadowBattle && true;
             MapSaveButton.Enabled = !_level.Map.IsShadowBattle && true;
             ExportMenuItem.Enabled = true;
             SaveMenuItem.Enabled = true;
@@ -346,7 +346,7 @@ namespace EFSAdvent
         {
             byte roomColour;
             var bitmapLock = mapBitmap.LockBits(
-                new Rectangle(0, 0, 200, 200),
+                new Rectangle(0, 0, mapPictureBox.Width, mapPictureBox.Height),
                 System.Drawing.Imaging.ImageLockMode.WriteOnly,
                 mapBitmap.PixelFormat);
 
@@ -414,10 +414,17 @@ namespace EFSAdvent
 
         private void SelectRoomNumber(object sender, EventArgs e)
         {
-            MapRoomUpdateButton.Enabled = MapRoomRemoveButton.Enabled = MapRoomLoadButton.Enabled = _level.RoomExists((byte)MapRoomNumberInput.Value);
-            if (MapRoomRemoveButton.Enabled && MapRoomNumberInput.Value != _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y))
+            bool roomExists = MapRoomLoadButton.Enabled = _level.RoomExists((byte)MapRoomNumberInput.Value);
+            byte selectedRoom = _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y);
+
+            if (roomExists && MapRoomNumberInput.Value != selectedRoom)
             {
+                MapRoomSetButton.Enabled = true;
                 MapRoomRemoveButton.Enabled = !_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value);
+            }
+            else
+            {
+                MapRoomRemoveButton.Enabled = MapRoomSetButton.Enabled = false;
             }
         }
 
@@ -1297,7 +1304,7 @@ namespace EFSAdvent
         private void NewActorSelected()
         {
             var newActor = _level.Room.GetActor(actorsCheckListBox.SelectedIndex);
-            if (newActor == null )
+            if (newActor == null)
             {
                 return;
             }
