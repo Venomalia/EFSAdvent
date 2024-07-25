@@ -87,6 +87,9 @@
     <Compile Include="FourSwords\Layer.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="PictureBoxWithInterpolationMode.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Clipboard.cs" />

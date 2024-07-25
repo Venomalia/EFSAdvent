@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -1470,6 +1471,31 @@ namespace EFSAdvent
             DrawActors(true);
             SelectedActor(actor);
 
+        }
+
+        private void bilinearToolStripMenuItem_Click(object sender, EventArgs e) => SetInterpolationMode(InterpolationMode.Bilinear);
+
+        private void bicubicToolStripMenuItem_Click(object sender, EventArgs e) => SetInterpolationMode(InterpolationMode.Bicubic);
+
+        private void nearestNeighborToolStripMenuItem_Click(object sender, EventArgs e) => SetInterpolationMode(InterpolationMode.NearestNeighbor);
+
+        private void SetInterpolationMode(InterpolationMode interpolationMode)
+        {
+            bilinearToolStripMenuItem.Checked = bicubicToolStripMenuItem.Checked = nearestNeighborToolStripMenuItem.Checked = false;
+            switch (interpolationMode)
+            {
+                case InterpolationMode.Bilinear:
+                    bilinearToolStripMenuItem.Checked = true;
+                    break;
+                case InterpolationMode.Bicubic:
+                    bicubicToolStripMenuItem.Checked = true;
+                    break;
+                case InterpolationMode.NearestNeighbor:
+                    nearestNeighborToolStripMenuItem.Checked = true;
+                    break;
+            }
+            layerPictureBox.InterpolationMode = interpolationMode;
+            layerPictureBox.Refresh();
         }
 
         private void SelectedActor(Actor actor)

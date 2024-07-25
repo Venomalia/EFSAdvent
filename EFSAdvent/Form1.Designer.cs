@@ -33,7 +33,7 @@
             this.tileSheetPanel = new System.Windows.Forms.Panel();
             this.tileSheetPictureBox = new System.Windows.Forms.PictureBox();
             this.layersPanel = new System.Windows.Forms.Panel();
-            this.layerPictureBox = new System.Windows.Forms.PictureBox();
+            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addNewActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +56,10 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.textureFilterModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bilinearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bicubicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nearestNeighborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightSideGroupBox = new System.Windows.Forms.GroupBox();
@@ -255,6 +259,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.layerPictureBox.Enabled = false;
+            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
             this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
             this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
             this.layerPictureBox.Name = "layerPictureBox";
@@ -448,7 +453,8 @@
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xSizeToolStripMenuItem,
-            this.xSizeToolStripMenuItem1});
+            this.xSizeToolStripMenuItem1,
+            this.textureFilterModeToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -466,6 +472,39 @@
             this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
             this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
+            // 
+            // textureFilterModeToolStripMenuItem
+            // 
+            this.textureFilterModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bilinearToolStripMenuItem,
+            this.bicubicToolStripMenuItem,
+            this.nearestNeighborToolStripMenuItem});
+            this.textureFilterModeToolStripMenuItem.Name = "textureFilterModeToolStripMenuItem";
+            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textureFilterModeToolStripMenuItem.Text = "Filter mode";
+            // 
+            // bilinearToolStripMenuItem
+            // 
+            this.bilinearToolStripMenuItem.Name = "bilinearToolStripMenuItem";
+            this.bilinearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bilinearToolStripMenuItem.Text = "Bilinear";
+            this.bilinearToolStripMenuItem.Click += new System.EventHandler(this.bilinearToolStripMenuItem_Click);
+            // 
+            // bicubicToolStripMenuItem
+            // 
+            this.bicubicToolStripMenuItem.Name = "bicubicToolStripMenuItem";
+            this.bicubicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bicubicToolStripMenuItem.Text = "Bicubic";
+            this.bicubicToolStripMenuItem.Click += new System.EventHandler(this.bicubicToolStripMenuItem_Click);
+            // 
+            // nearestNeighborToolStripMenuItem
+            // 
+            this.nearestNeighborToolStripMenuItem.Checked = true;
+            this.nearestNeighborToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.nearestNeighborToolStripMenuItem.Name = "nearestNeighborToolStripMenuItem";
+            this.nearestNeighborToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nearestNeighborToolStripMenuItem.Text = "Nearest Neighbor";
+            this.nearestNeighborToolStripMenuItem.Click += new System.EventHandler(this.nearestNeighborToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -1834,7 +1873,7 @@
         private System.Windows.Forms.Panel tileSheetPanel;
         private System.Windows.Forms.Panel layersPanel;
         private System.Windows.Forms.PictureBox tileSheetPictureBox;
-        private System.Windows.Forms.PictureBox layerPictureBox;
+        private EFSAdvent.PictureBoxWithInterpolationMode layerPictureBox;
         private System.Windows.Forms.Panel MapPanel;
         private System.Windows.Forms.TextBox loggerTextBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -1960,6 +1999,10 @@
         private System.Windows.Forms.Button MapRoomNewButton;
         private System.Windows.Forms.Button MapRoomRemoveButton;
         private System.Windows.Forms.GroupBox RoomLayoutgroupBox1;
+        private System.Windows.Forms.ToolStripMenuItem textureFilterModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bilinearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bicubicToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nearestNeighborToolStripMenuItem;
     }
 }
 
