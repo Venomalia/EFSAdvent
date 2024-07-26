@@ -110,38 +110,55 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.VariablesTabControl = new System.Windows.Forms.TabControl();
             this.Variables4TabPage = new System.Windows.Forms.TabPage();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label_V4_4 = new System.Windows.Forms.Label();
+            this.label_V4_3 = new System.Windows.Forms.Label();
             this.ActorVariable1Input = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label_V4_1 = new System.Windows.Forms.Label();
+            this.label_V4_2 = new System.Windows.Forms.Label();
             this.ActorVariable2Input = new System.Windows.Forms.NumericUpDown();
             this.ActorVariable4Input = new System.Windows.Forms.NumericUpDown();
             this.ActorVariable3Input = new System.Windows.Forms.NumericUpDown();
             this.Variables5TabPage = new System.Windows.Forms.TabPage();
             this.ActorVariable1AInput = new System.Windows.Forms.NumericUpDown();
             this.ActorVariable1BInput = new System.Windows.Forms.NumericUpDown();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.label_V5_4 = new System.Windows.Forms.Label();
+            this.label_V5_3 = new System.Windows.Forms.Label();
+            this.label_V5_2 = new System.Windows.Forms.Label();
             this.ActorVariable2Input2 = new System.Windows.Forms.NumericUpDown();
             this.ActorVariable4Input2 = new System.Windows.Forms.NumericUpDown();
             this.ActorVariable3Input2 = new System.Windows.Forms.NumericUpDown();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.label_V5_1b = new System.Windows.Forms.Label();
+            this.label_V5_1a = new System.Windows.Forms.Label();
             this.Variables6TabPage = new System.Windows.Forms.TabPage();
             this.ActorV6Variable5Input = new System.Windows.Forms.NumericUpDown();
             this.ActorV6Variable6Input = new System.Windows.Forms.NumericUpDown();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
+            this.label_V6_6 = new System.Windows.Forms.Label();
+            this.label_V6_5 = new System.Windows.Forms.Label();
             this.ActorV6Variable3Input = new System.Windows.Forms.NumericUpDown();
             this.ActorV6Variable4Input = new System.Windows.Forms.NumericUpDown();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
+            this.label_V6_4 = new System.Windows.Forms.Label();
+            this.label_V6_3 = new System.Windows.Forms.Label();
             this.ActorV6Variable1Input = new System.Windows.Forms.NumericUpDown();
             this.ActorV6Variable2Input = new System.Windows.Forms.NumericUpDown();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.label_V6_2 = new System.Windows.Forms.Label();
+            this.label_V6_1 = new System.Windows.Forms.Label();
+            this.Variables8TabPage = new System.Windows.Forms.TabPage();
+            this.ActorV8Variable4aInput = new System.Windows.Forms.NumericUpDown();
+            this.ActorV8Variable4bInput = new System.Windows.Forms.NumericUpDown();
+            this.label_V8_4b = new System.Windows.Forms.Label();
+            this.label_V8_4a = new System.Windows.Forms.Label();
+            this.ActorV8Variable3aInput = new System.Windows.Forms.NumericUpDown();
+            this.ActorV8Variable3bInput = new System.Windows.Forms.NumericUpDown();
+            this.label_V8_3b = new System.Windows.Forms.Label();
+            this.label_V8_3a = new System.Windows.Forms.Label();
+            this.ActorV8Variable2aInput = new System.Windows.Forms.NumericUpDown();
+            this.ActorV8Variable2bInput = new System.Windows.Forms.NumericUpDown();
+            this.label_V8_2b = new System.Windows.Forms.Label();
+            this.label_V8_2a = new System.Windows.Forms.Label();
+            this.ActorV8Variable1aInput = new System.Windows.Forms.NumericUpDown();
+            this.ActorV8Variable1bInput = new System.Windows.Forms.NumericUpDown();
+            this.label_V8_1b = new System.Windows.Forms.Label();
+            this.label_V8_1a = new System.Windows.Forms.Label();
             this.groupBoxCoridinate = new System.Windows.Forms.GroupBox();
             this.ActorXCoordInput = new System.Windows.Forms.NumericUpDown();
             this.ActorYCoordInput = new System.Windows.Forms.NumericUpDown();
@@ -209,6 +226,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable4Input)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable1Input)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable2Input)).BeginInit();
+            this.Variables8TabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable4aInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable4bInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable3aInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable3bInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable2aInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable2bInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable1aInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable1bInput)).BeginInit();
             this.groupBoxCoridinate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorXCoordInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).BeginInit();
@@ -278,13 +304,13 @@
             this.addNewActorsToolStripMenuItem,
             this.pastToolStripMenuItem});
             this.actorContextMenuStrip.Name = "actorContextMenuStrip";
-            this.actorContextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            this.actorContextMenuStrip.Size = new System.Drawing.Size(156, 48);
             this.actorContextMenuStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.actorContextMenuStrip_Paint);
             // 
             // addNewActorsToolStripMenuItem
             // 
             this.addNewActorsToolStripMenuItem.Name = "addNewActorsToolStripMenuItem";
-            this.addNewActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewActorsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.addNewActorsToolStripMenuItem.Text = "Add New Actor";
             this.addNewActorsToolStripMenuItem.ToolTipText = "Adds a new AGBW actor to the highest active layer";
             this.addNewActorsToolStripMenuItem.Click += new System.EventHandler(this.actorsAddNewButton_Click);
@@ -292,7 +318,7 @@
             // pastToolStripMenuItem
             // 
             this.pastToolStripMenuItem.Name = "pastToolStripMenuItem";
-            this.pastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pastToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.pastToolStripMenuItem.Text = "Paste Here";
             this.pastToolStripMenuItem.Click += new System.EventHandler(this.pastToolStripMenuItem_Click);
             // 
@@ -462,14 +488,14 @@
             // xSizeToolStripMenuItem
             // 
             this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
-            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.xSizeToolStripMenuItem.Text = "1x size";
             this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.oneXSizeToolStripMenuItem_Click);
             // 
             // xSizeToolStripMenuItem1
             // 
             this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
-            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
+            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
             this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
             // 
@@ -480,20 +506,20 @@
             this.bicubicToolStripMenuItem,
             this.nearestNeighborToolStripMenuItem});
             this.textureFilterModeToolStripMenuItem.Name = "textureFilterModeToolStripMenuItem";
-            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.textureFilterModeToolStripMenuItem.Text = "Filter mode";
             // 
             // bilinearToolStripMenuItem
             // 
             this.bilinearToolStripMenuItem.Name = "bilinearToolStripMenuItem";
-            this.bilinearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bilinearToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.bilinearToolStripMenuItem.Text = "Bilinear";
             this.bilinearToolStripMenuItem.Click += new System.EventHandler(this.bilinearToolStripMenuItem_Click);
             // 
             // bicubicToolStripMenuItem
             // 
             this.bicubicToolStripMenuItem.Name = "bicubicToolStripMenuItem";
-            this.bicubicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bicubicToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.bicubicToolStripMenuItem.Text = "Bicubic";
             this.bicubicToolStripMenuItem.Click += new System.EventHandler(this.bicubicToolStripMenuItem_Click);
             // 
@@ -502,7 +528,7 @@
             this.nearestNeighborToolStripMenuItem.Checked = true;
             this.nearestNeighborToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.nearestNeighborToolStripMenuItem.Name = "nearestNeighborToolStripMenuItem";
-            this.nearestNeighborToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nearestNeighborToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.nearestNeighborToolStripMenuItem.Text = "Nearest Neighbor";
             this.nearestNeighborToolStripMenuItem.Click += new System.EventHandler(this.nearestNeighborToolStripMenuItem_Click);
             // 
@@ -1146,8 +1172,11 @@
             this.VariablesTabControl.Controls.Add(this.Variables4TabPage);
             this.VariablesTabControl.Controls.Add(this.Variables5TabPage);
             this.VariablesTabControl.Controls.Add(this.Variables6TabPage);
+            this.VariablesTabControl.Controls.Add(this.Variables8TabPage);
+            this.VariablesTabControl.ItemSize = new System.Drawing.Size(20, 18);
             this.VariablesTabControl.Location = new System.Drawing.Point(6, 119);
             this.VariablesTabControl.Name = "VariablesTabControl";
+            this.VariablesTabControl.Padding = new System.Drawing.Point(3, 3);
             this.VariablesTabControl.SelectedIndex = 1;
             this.VariablesTabControl.Size = new System.Drawing.Size(170, 136);
             this.VariablesTabControl.TabIndex = 33;
@@ -1155,11 +1184,11 @@
             // 
             // Variables4TabPage
             // 
-            this.Variables4TabPage.Controls.Add(this.label15);
-            this.Variables4TabPage.Controls.Add(this.label14);
+            this.Variables4TabPage.Controls.Add(this.label_V4_4);
+            this.Variables4TabPage.Controls.Add(this.label_V4_3);
             this.Variables4TabPage.Controls.Add(this.ActorVariable1Input);
-            this.Variables4TabPage.Controls.Add(this.label13);
-            this.Variables4TabPage.Controls.Add(this.label9);
+            this.Variables4TabPage.Controls.Add(this.label_V4_1);
+            this.Variables4TabPage.Controls.Add(this.label_V4_2);
             this.Variables4TabPage.Controls.Add(this.ActorVariable2Input);
             this.Variables4TabPage.Controls.Add(this.ActorVariable4Input);
             this.Variables4TabPage.Controls.Add(this.ActorVariable3Input);
@@ -1171,23 +1200,23 @@
             this.Variables4TabPage.Text = "4V";
             this.Variables4TabPage.UseVisualStyleBackColor = true;
             // 
-            // label15
+            // label_V4_4
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(2, 86);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 13);
-            this.label15.TabIndex = 32;
-            this.label15.Text = "Variable 4:";
+            this.label_V4_4.AutoSize = true;
+            this.label_V4_4.Location = new System.Drawing.Point(2, 86);
+            this.label_V4_4.Name = "label_V4_4";
+            this.label_V4_4.Size = new System.Drawing.Size(57, 13);
+            this.label_V4_4.TabIndex = 32;
+            this.label_V4_4.Text = "Variable 4:";
             // 
-            // label14
+            // label_V4_3
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(2, 60);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 13);
-            this.label14.TabIndex = 31;
-            this.label14.Text = "Variable 3:";
+            this.label_V4_3.AutoSize = true;
+            this.label_V4_3.Location = new System.Drawing.Point(2, 60);
+            this.label_V4_3.Name = "label_V4_3";
+            this.label_V4_3.Size = new System.Drawing.Size(57, 13);
+            this.label_V4_3.TabIndex = 31;
+            this.label_V4_3.Text = "Variable 3:";
             // 
             // ActorVariable1Input
             // 
@@ -1203,23 +1232,23 @@
             this.ActorVariable1Input.ValueChanged += new System.EventHandler(this.ActorChanged);
             this.ActorVariable1Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
             // 
-            // label13
+            // label_V4_1
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(2, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 13);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Variable 1:";
+            this.label_V4_1.AutoSize = true;
+            this.label_V4_1.Location = new System.Drawing.Point(2, 9);
+            this.label_V4_1.Name = "label_V4_1";
+            this.label_V4_1.Size = new System.Drawing.Size(57, 13);
+            this.label_V4_1.TabIndex = 8;
+            this.label_V4_1.Text = "Variable 1:";
             // 
-            // label9
+            // label_V4_2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(2, 34);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Variable 2:";
+            this.label_V4_2.AutoSize = true;
+            this.label_V4_2.Location = new System.Drawing.Point(2, 34);
+            this.label_V4_2.Name = "label_V4_2";
+            this.label_V4_2.Size = new System.Drawing.Size(57, 13);
+            this.label_V4_2.TabIndex = 8;
+            this.label_V4_2.Text = "Variable 2:";
             // 
             // ActorVariable2Input
             // 
@@ -1267,14 +1296,14 @@
             // 
             this.Variables5TabPage.Controls.Add(this.ActorVariable1AInput);
             this.Variables5TabPage.Controls.Add(this.ActorVariable1BInput);
-            this.Variables5TabPage.Controls.Add(this.label21);
-            this.Variables5TabPage.Controls.Add(this.label22);
-            this.Variables5TabPage.Controls.Add(this.label23);
+            this.Variables5TabPage.Controls.Add(this.label_V5_4);
+            this.Variables5TabPage.Controls.Add(this.label_V5_3);
+            this.Variables5TabPage.Controls.Add(this.label_V5_2);
             this.Variables5TabPage.Controls.Add(this.ActorVariable2Input2);
             this.Variables5TabPage.Controls.Add(this.ActorVariable4Input2);
             this.Variables5TabPage.Controls.Add(this.ActorVariable3Input2);
-            this.Variables5TabPage.Controls.Add(this.label25);
-            this.Variables5TabPage.Controls.Add(this.label24);
+            this.Variables5TabPage.Controls.Add(this.label_V5_1b);
+            this.Variables5TabPage.Controls.Add(this.label_V5_1a);
             this.Variables5TabPage.Location = new System.Drawing.Point(4, 22);
             this.Variables5TabPage.Name = "Variables5TabPage";
             this.Variables5TabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -1309,32 +1338,32 @@
             this.ActorVariable1BInput.TabIndex = 39;
             this.ActorVariable1BInput.ValueChanged += new System.EventHandler(this.ActorChangedV5);
             // 
-            // label21
+            // label_V5_4
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(2, 86);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(57, 13);
-            this.label21.TabIndex = 38;
-            this.label21.Text = "Variable 4:";
+            this.label_V5_4.AutoSize = true;
+            this.label_V5_4.Location = new System.Drawing.Point(2, 86);
+            this.label_V5_4.Name = "label_V5_4";
+            this.label_V5_4.Size = new System.Drawing.Size(57, 13);
+            this.label_V5_4.TabIndex = 38;
+            this.label_V5_4.Text = "Variable 4:";
             // 
-            // label22
+            // label_V5_3
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(2, 60);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(57, 13);
-            this.label22.TabIndex = 37;
-            this.label22.Text = "Variable 3:";
+            this.label_V5_3.AutoSize = true;
+            this.label_V5_3.Location = new System.Drawing.Point(2, 60);
+            this.label_V5_3.Name = "label_V5_3";
+            this.label_V5_3.Size = new System.Drawing.Size(57, 13);
+            this.label_V5_3.TabIndex = 37;
+            this.label_V5_3.Text = "Variable 3:";
             // 
-            // label23
+            // label_V5_2
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(2, 34);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(57, 13);
-            this.label23.TabIndex = 33;
-            this.label23.Text = "Variable 2:";
+            this.label_V5_2.AutoSize = true;
+            this.label_V5_2.Location = new System.Drawing.Point(2, 34);
+            this.label_V5_2.Name = "label_V5_2";
+            this.label_V5_2.Size = new System.Drawing.Size(57, 13);
+            this.label_V5_2.TabIndex = 33;
+            this.label_V5_2.Text = "Variable 2:";
             // 
             // ActorVariable2Input2
             // 
@@ -1375,38 +1404,38 @@
             this.ActorVariable3Input2.TabIndex = 35;
             this.ActorVariable3Input2.ValueChanged += new System.EventHandler(this.ActorChangedV5);
             // 
-            // label25
+            // label_V5_1b
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(80, 9);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(29, 13);
-            this.label25.TabIndex = 42;
-            this.label25.Text = "V1b:";
+            this.label_V5_1b.AutoSize = true;
+            this.label_V5_1b.Location = new System.Drawing.Point(80, 9);
+            this.label_V5_1b.Name = "label_V5_1b";
+            this.label_V5_1b.Size = new System.Drawing.Size(29, 13);
+            this.label_V5_1b.TabIndex = 42;
+            this.label_V5_1b.Text = "V1b:";
             // 
-            // label24
+            // label_V5_1a
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(2, 9);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(29, 13);
-            this.label24.TabIndex = 41;
-            this.label24.Text = "V1a:";
+            this.label_V5_1a.AutoSize = true;
+            this.label_V5_1a.Location = new System.Drawing.Point(2, 9);
+            this.label_V5_1a.Name = "label_V5_1a";
+            this.label_V5_1a.Size = new System.Drawing.Size(29, 13);
+            this.label_V5_1a.TabIndex = 41;
+            this.label_V5_1a.Text = "V1a:";
             // 
             // Variables6TabPage
             // 
             this.Variables6TabPage.Controls.Add(this.ActorV6Variable5Input);
             this.Variables6TabPage.Controls.Add(this.ActorV6Variable6Input);
-            this.Variables6TabPage.Controls.Add(this.label30);
-            this.Variables6TabPage.Controls.Add(this.label31);
+            this.Variables6TabPage.Controls.Add(this.label_V6_6);
+            this.Variables6TabPage.Controls.Add(this.label_V6_5);
             this.Variables6TabPage.Controls.Add(this.ActorV6Variable3Input);
             this.Variables6TabPage.Controls.Add(this.ActorV6Variable4Input);
-            this.Variables6TabPage.Controls.Add(this.label28);
-            this.Variables6TabPage.Controls.Add(this.label29);
+            this.Variables6TabPage.Controls.Add(this.label_V6_4);
+            this.Variables6TabPage.Controls.Add(this.label_V6_3);
             this.Variables6TabPage.Controls.Add(this.ActorV6Variable1Input);
             this.Variables6TabPage.Controls.Add(this.ActorV6Variable2Input);
-            this.Variables6TabPage.Controls.Add(this.label26);
-            this.Variables6TabPage.Controls.Add(this.label27);
+            this.Variables6TabPage.Controls.Add(this.label_V6_2);
+            this.Variables6TabPage.Controls.Add(this.label_V6_1);
             this.Variables6TabPage.Location = new System.Drawing.Point(4, 22);
             this.Variables6TabPage.Name = "Variables6TabPage";
             this.Variables6TabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -1441,23 +1470,23 @@
             this.ActorV6Variable6Input.TabIndex = 51;
             this.ActorV6Variable6Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
-            // label30
+            // label_V6_6
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(80, 61);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(23, 13);
-            this.label30.TabIndex = 54;
-            this.label30.Text = "V6:";
+            this.label_V6_6.AutoSize = true;
+            this.label_V6_6.Location = new System.Drawing.Point(80, 61);
+            this.label_V6_6.Name = "label_V6_6";
+            this.label_V6_6.Size = new System.Drawing.Size(23, 13);
+            this.label_V6_6.TabIndex = 54;
+            this.label_V6_6.Text = "V6:";
             // 
-            // label31
+            // label_V6_5
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(2, 61);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(23, 13);
-            this.label31.TabIndex = 53;
-            this.label31.Text = "V5:";
+            this.label_V6_5.AutoSize = true;
+            this.label_V6_5.Location = new System.Drawing.Point(2, 61);
+            this.label_V6_5.Name = "label_V6_5";
+            this.label_V6_5.Size = new System.Drawing.Size(23, 13);
+            this.label_V6_5.TabIndex = 53;
+            this.label_V6_5.Text = "V5:";
             // 
             // ActorV6Variable3Input
             // 
@@ -1485,23 +1514,23 @@
             this.ActorV6Variable4Input.TabIndex = 47;
             this.ActorV6Variable4Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
-            // label28
+            // label_V6_4
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(80, 35);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(23, 13);
-            this.label28.TabIndex = 50;
-            this.label28.Text = "V4:";
+            this.label_V6_4.AutoSize = true;
+            this.label_V6_4.Location = new System.Drawing.Point(80, 35);
+            this.label_V6_4.Name = "label_V6_4";
+            this.label_V6_4.Size = new System.Drawing.Size(23, 13);
+            this.label_V6_4.TabIndex = 50;
+            this.label_V6_4.Text = "V4:";
             // 
-            // label29
+            // label_V6_3
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(2, 35);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(23, 13);
-            this.label29.TabIndex = 49;
-            this.label29.Text = "V3:";
+            this.label_V6_3.AutoSize = true;
+            this.label_V6_3.Location = new System.Drawing.Point(2, 35);
+            this.label_V6_3.Name = "label_V6_3";
+            this.label_V6_3.Size = new System.Drawing.Size(23, 13);
+            this.label_V6_3.TabIndex = 49;
+            this.label_V6_3.Text = "V3:";
             // 
             // ActorV6Variable1Input
             // 
@@ -1529,23 +1558,225 @@
             this.ActorV6Variable2Input.TabIndex = 43;
             this.ActorV6Variable2Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
-            // label26
+            // label_V6_2
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(80, 9);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(23, 13);
-            this.label26.TabIndex = 46;
-            this.label26.Text = "V2:";
+            this.label_V6_2.AutoSize = true;
+            this.label_V6_2.Location = new System.Drawing.Point(80, 9);
+            this.label_V6_2.Name = "label_V6_2";
+            this.label_V6_2.Size = new System.Drawing.Size(23, 13);
+            this.label_V6_2.TabIndex = 46;
+            this.label_V6_2.Text = "V2:";
             // 
-            // label27
+            // label_V6_1
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(2, 9);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(23, 13);
-            this.label27.TabIndex = 45;
-            this.label27.Text = "V1:";
+            this.label_V6_1.AutoSize = true;
+            this.label_V6_1.Location = new System.Drawing.Point(2, 9);
+            this.label_V6_1.Name = "label_V6_1";
+            this.label_V6_1.Size = new System.Drawing.Size(23, 13);
+            this.label_V6_1.TabIndex = 45;
+            this.label_V6_1.Text = "V1:";
+            // 
+            // Variables8TabPage
+            // 
+            this.Variables8TabPage.Controls.Add(this.ActorV8Variable4aInput);
+            this.Variables8TabPage.Controls.Add(this.ActorV8Variable4bInput);
+            this.Variables8TabPage.Controls.Add(this.label_V8_4b);
+            this.Variables8TabPage.Controls.Add(this.label_V8_4a);
+            this.Variables8TabPage.Controls.Add(this.ActorV8Variable3aInput);
+            this.Variables8TabPage.Controls.Add(this.ActorV8Variable3bInput);
+            this.Variables8TabPage.Controls.Add(this.label_V8_3b);
+            this.Variables8TabPage.Controls.Add(this.label_V8_3a);
+            this.Variables8TabPage.Controls.Add(this.ActorV8Variable2aInput);
+            this.Variables8TabPage.Controls.Add(this.ActorV8Variable2bInput);
+            this.Variables8TabPage.Controls.Add(this.label_V8_2b);
+            this.Variables8TabPage.Controls.Add(this.label_V8_2a);
+            this.Variables8TabPage.Controls.Add(this.ActorV8Variable1aInput);
+            this.Variables8TabPage.Controls.Add(this.ActorV8Variable1bInput);
+            this.Variables8TabPage.Controls.Add(this.label_V8_1b);
+            this.Variables8TabPage.Controls.Add(this.label_V8_1a);
+            this.Variables8TabPage.Location = new System.Drawing.Point(4, 22);
+            this.Variables8TabPage.Name = "Variables8TabPage";
+            this.Variables8TabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.Variables8TabPage.Size = new System.Drawing.Size(162, 110);
+            this.Variables8TabPage.TabIndex = 3;
+            this.Variables8TabPage.Text = "V8";
+            this.Variables8TabPage.UseVisualStyleBackColor = true;
+            // 
+            // ActorV8Variable4aInput
+            // 
+            this.ActorV8Variable4aInput.Location = new System.Drawing.Point(29, 84);
+            this.ActorV8Variable4aInput.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.ActorV8Variable4aInput.Name = "ActorV8Variable4aInput";
+            this.ActorV8Variable4aInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorV8Variable4aInput.TabIndex = 68;
+            this.ActorV8Variable4aInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
+            // 
+            // ActorV8Variable4bInput
+            // 
+            this.ActorV8Variable4bInput.Location = new System.Drawing.Point(109, 84);
+            this.ActorV8Variable4bInput.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.ActorV8Variable4bInput.Name = "ActorV8Variable4bInput";
+            this.ActorV8Variable4bInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorV8Variable4bInput.TabIndex = 67;
+            this.ActorV8Variable4bInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
+            // 
+            // label_V8_4b
+            // 
+            this.label_V8_4b.AutoSize = true;
+            this.label_V8_4b.Location = new System.Drawing.Point(80, 86);
+            this.label_V8_4b.Name = "label_V8_4b";
+            this.label_V8_4b.Size = new System.Drawing.Size(29, 13);
+            this.label_V8_4b.TabIndex = 70;
+            this.label_V8_4b.Text = "V4b:";
+            // 
+            // label_V8_4a
+            // 
+            this.label_V8_4a.AutoSize = true;
+            this.label_V8_4a.Location = new System.Drawing.Point(2, 86);
+            this.label_V8_4a.Name = "label_V8_4a";
+            this.label_V8_4a.Size = new System.Drawing.Size(29, 13);
+            this.label_V8_4a.TabIndex = 69;
+            this.label_V8_4a.Text = "V4a:";
+            // 
+            // ActorV8Variable3aInput
+            // 
+            this.ActorV8Variable3aInput.Location = new System.Drawing.Point(29, 59);
+            this.ActorV8Variable3aInput.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.ActorV8Variable3aInput.Name = "ActorV8Variable3aInput";
+            this.ActorV8Variable3aInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorV8Variable3aInput.TabIndex = 64;
+            this.ActorV8Variable3aInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
+            // 
+            // ActorV8Variable3bInput
+            // 
+            this.ActorV8Variable3bInput.Location = new System.Drawing.Point(109, 58);
+            this.ActorV8Variable3bInput.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.ActorV8Variable3bInput.Name = "ActorV8Variable3bInput";
+            this.ActorV8Variable3bInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorV8Variable3bInput.TabIndex = 63;
+            this.ActorV8Variable3bInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
+            // 
+            // label_V8_3b
+            // 
+            this.label_V8_3b.AutoSize = true;
+            this.label_V8_3b.Location = new System.Drawing.Point(80, 61);
+            this.label_V8_3b.Name = "label_V8_3b";
+            this.label_V8_3b.Size = new System.Drawing.Size(29, 13);
+            this.label_V8_3b.TabIndex = 66;
+            this.label_V8_3b.Text = "V3b:";
+            // 
+            // label_V8_3a
+            // 
+            this.label_V8_3a.AutoSize = true;
+            this.label_V8_3a.Location = new System.Drawing.Point(2, 61);
+            this.label_V8_3a.Name = "label_V8_3a";
+            this.label_V8_3a.Size = new System.Drawing.Size(29, 13);
+            this.label_V8_3a.TabIndex = 65;
+            this.label_V8_3a.Text = "V3a:";
+            // 
+            // ActorV8Variable2aInput
+            // 
+            this.ActorV8Variable2aInput.Location = new System.Drawing.Point(29, 33);
+            this.ActorV8Variable2aInput.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.ActorV8Variable2aInput.Name = "ActorV8Variable2aInput";
+            this.ActorV8Variable2aInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorV8Variable2aInput.TabIndex = 60;
+            this.ActorV8Variable2aInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
+            // 
+            // ActorV8Variable2bInput
+            // 
+            this.ActorV8Variable2bInput.Location = new System.Drawing.Point(109, 32);
+            this.ActorV8Variable2bInput.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.ActorV8Variable2bInput.Name = "ActorV8Variable2bInput";
+            this.ActorV8Variable2bInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorV8Variable2bInput.TabIndex = 59;
+            this.ActorV8Variable2bInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
+            // 
+            // label_V8_2b
+            // 
+            this.label_V8_2b.AutoSize = true;
+            this.label_V8_2b.Location = new System.Drawing.Point(80, 35);
+            this.label_V8_2b.Name = "label_V8_2b";
+            this.label_V8_2b.Size = new System.Drawing.Size(29, 13);
+            this.label_V8_2b.TabIndex = 62;
+            this.label_V8_2b.Text = "V2b:";
+            // 
+            // label_V8_2a
+            // 
+            this.label_V8_2a.AutoSize = true;
+            this.label_V8_2a.Location = new System.Drawing.Point(2, 35);
+            this.label_V8_2a.Name = "label_V8_2a";
+            this.label_V8_2a.Size = new System.Drawing.Size(29, 13);
+            this.label_V8_2a.TabIndex = 61;
+            this.label_V8_2a.Text = "V2a:";
+            // 
+            // ActorV8Variable1aInput
+            // 
+            this.ActorV8Variable1aInput.Location = new System.Drawing.Point(29, 7);
+            this.ActorV8Variable1aInput.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.ActorV8Variable1aInput.Name = "ActorV8Variable1aInput";
+            this.ActorV8Variable1aInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorV8Variable1aInput.TabIndex = 56;
+            this.ActorV8Variable1aInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
+            // 
+            // ActorV8Variable1bInput
+            // 
+            this.ActorV8Variable1bInput.Location = new System.Drawing.Point(109, 6);
+            this.ActorV8Variable1bInput.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.ActorV8Variable1bInput.Name = "ActorV8Variable1bInput";
+            this.ActorV8Variable1bInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorV8Variable1bInput.TabIndex = 55;
+            this.ActorV8Variable1bInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
+            // 
+            // label_V8_1b
+            // 
+            this.label_V8_1b.AutoSize = true;
+            this.label_V8_1b.Location = new System.Drawing.Point(80, 9);
+            this.label_V8_1b.Name = "label_V8_1b";
+            this.label_V8_1b.Size = new System.Drawing.Size(29, 13);
+            this.label_V8_1b.TabIndex = 58;
+            this.label_V8_1b.Text = "V1b:";
+            // 
+            // label_V8_1a
+            // 
+            this.label_V8_1a.AutoSize = true;
+            this.label_V8_1a.Location = new System.Drawing.Point(2, 9);
+            this.label_V8_1a.Name = "label_V8_1a";
+            this.label_V8_1a.Size = new System.Drawing.Size(29, 13);
+            this.label_V8_1a.TabIndex = 57;
+            this.label_V8_1a.Text = "V1a:";
             // 
             // groupBoxCoridinate
             // 
@@ -1853,6 +2084,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable4Input)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable1Input)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable2Input)).EndInit();
+            this.Variables8TabPage.ResumeLayout(false);
+            this.Variables8TabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable4aInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable4bInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable3aInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable3bInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable2aInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable2bInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable1aInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable1bInput)).EndInit();
             this.groupBoxCoridinate.ResumeLayout(false);
             this.groupBoxCoridinate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorXCoordInput)).EndInit();
@@ -1909,7 +2150,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label_V4_2;
         private System.Windows.Forms.ComboBox actorLayerComboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -1919,7 +2160,7 @@
         private System.Windows.Forms.PictureBox ActorInfoPictureBox;
         private System.Windows.Forms.Button actorDeleteButton;
         private System.Windows.Forms.Button MapSaveButton;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label_V4_1;
         private System.Windows.Forms.Button buttonActorsSelectNone;
         private System.Windows.Forms.Button buttonSaveLayers;
         private System.Windows.Forms.ToolStripMenuItem ExportMenuItem;
@@ -1969,30 +2210,30 @@
         private System.Windows.Forms.TabPage Variables4TabPage;
         private System.Windows.Forms.TabPage Variables5TabPage;
         private System.Windows.Forms.TabPage Variables6TabPage;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label_V4_4;
+        private System.Windows.Forms.Label label_V4_3;
+        private System.Windows.Forms.Label label_V5_4;
+        private System.Windows.Forms.Label label_V5_3;
+        private System.Windows.Forms.Label label_V5_2;
         private System.Windows.Forms.NumericUpDown ActorVariable2Input2;
         private System.Windows.Forms.NumericUpDown ActorVariable4Input2;
         private System.Windows.Forms.NumericUpDown ActorVariable3Input2;
         private System.Windows.Forms.NumericUpDown ActorVariable1BInput;
         private System.Windows.Forms.NumericUpDown ActorVariable1AInput;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label_V5_1b;
+        private System.Windows.Forms.Label label_V5_1a;
         private System.Windows.Forms.NumericUpDown ActorV6Variable3Input;
         private System.Windows.Forms.NumericUpDown ActorV6Variable4Input;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label_V6_4;
+        private System.Windows.Forms.Label label_V6_3;
         private System.Windows.Forms.NumericUpDown ActorV6Variable1Input;
         private System.Windows.Forms.NumericUpDown ActorV6Variable2Input;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label_V6_2;
+        private System.Windows.Forms.Label label_V6_1;
         private System.Windows.Forms.NumericUpDown ActorV6Variable5Input;
         private System.Windows.Forms.NumericUpDown ActorV6Variable6Input;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label_V6_6;
+        private System.Windows.Forms.Label label_V6_5;
         private System.Windows.Forms.ContextMenuStrip actorContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem addNewActorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pastToolStripMenuItem;
@@ -2003,6 +2244,23 @@
         private System.Windows.Forms.ToolStripMenuItem bilinearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bicubicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nearestNeighborToolStripMenuItem;
+        private System.Windows.Forms.TabPage Variables8TabPage;
+        private System.Windows.Forms.NumericUpDown ActorV8Variable4aInput;
+        private System.Windows.Forms.NumericUpDown ActorV8Variable4bInput;
+        private System.Windows.Forms.Label label_V8_4b;
+        private System.Windows.Forms.Label label_V8_4a;
+        private System.Windows.Forms.NumericUpDown ActorV8Variable3aInput;
+        private System.Windows.Forms.NumericUpDown ActorV8Variable3bInput;
+        private System.Windows.Forms.Label label_V8_3b;
+        private System.Windows.Forms.Label label_V8_3a;
+        private System.Windows.Forms.NumericUpDown ActorV8Variable2aInput;
+        private System.Windows.Forms.NumericUpDown ActorV8Variable2bInput;
+        private System.Windows.Forms.Label label_V8_2b;
+        private System.Windows.Forms.Label label_V8_2a;
+        private System.Windows.Forms.NumericUpDown ActorV8Variable1aInput;
+        private System.Windows.Forms.NumericUpDown ActorV8Variable1bInput;
+        private System.Windows.Forms.Label label_V8_1b;
+        private System.Windows.Forms.Label label_V8_1a;
     }
 }
 

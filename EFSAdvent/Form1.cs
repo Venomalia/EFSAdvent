@@ -1191,6 +1191,21 @@ namespace EFSAdvent
             ActorChanged(sender, e);
         }
 
+        private void ActorChangedV8(object sender, EventArgs e)
+        {
+            if (_ignoreActorChanges)
+            {
+                return;
+            }
+            _ignoreActorChanges = true;
+            ActorVariable1Input.Value = (int)ActorV8Variable1aInput.Value << 3 | (int)ActorV8Variable1bInput.Value;
+            ActorVariable2Input.Value = (int)ActorV8Variable2aInput.Value << 4 | (int)ActorV8Variable2bInput.Value;
+            ActorVariable3Input.Value = (int)ActorV8Variable3aInput.Value << 4 | (int)ActorV8Variable3bInput.Value;
+            ActorVariable4Input.Value = (int)ActorV8Variable4aInput.Value << 4 | (int)ActorV8Variable4bInput.Value;
+            _ignoreActorChanges = false;
+            ActorChanged(sender, e);
+        }
+
         private bool _ignoreActorChanges = false;
         private void ActorChanged(object sender, EventArgs e)
         {
@@ -1294,14 +1309,28 @@ namespace EFSAdvent
         private void UpdateActorPackedVariables()
         {
             _ignoreActorChanges = true;
+            // V5
             ActorVariable1AInput.Value = (int)ActorVariable1Input.Value >> 3;
             ActorVariable1BInput.Value = (int)ActorVariable1Input.Value & 0x7;
+            ActorVariable2Input2.Value = ActorVariable2Input.Value;
+            ActorVariable3Input2.Value = ActorVariable3Input.Value;
+            ActorVariable4Input2.Value = ActorVariable4Input.Value;
+            // V6
             ActorV6Variable1Input.Value = ActorVariable1AInput.Value;
             ActorV6Variable2Input.Value = (int)ActorVariable1BInput.Value << 2 | (int)ActorVariable2Input.Value >> 6;
             ActorV6Variable3Input.Value = ((int)ActorVariable2Input.Value >> 1) & 0x1F;
             ActorV6Variable4Input.Value = ((int)ActorVariable2Input.Value & 0x1) << 4 | (int)ActorVariable3Input.Value >> 4;
             ActorV6Variable5Input.Value = ((int)ActorVariable3Input.Value & 0xF) << 1 | (int)ActorVariable4Input.Value >> 7;
             ActorV6Variable6Input.Value = (int)ActorVariable4Input.Value & 0x7F;
+            // V8
+            ActorV8Variable1aInput.Value = ActorVariable1AInput.Value;
+            ActorV8Variable1bInput.Value = ActorVariable1BInput.Value;
+            ActorV8Variable2aInput.Value = (int)ActorVariable2Input.Value >> 4;
+            ActorV8Variable2bInput.Value = (int)ActorVariable2Input.Value & 0xf;
+            ActorV8Variable3aInput.Value = (int)ActorVariable3Input.Value >> 4;
+            ActorV8Variable3bInput.Value = (int)ActorVariable3Input.Value & 0xf;
+            ActorV8Variable4aInput.Value = (int)ActorVariable4Input.Value >> 4;
+            ActorV8Variable4bInput.Value = (int)ActorVariable4Input.Value & 0xf;
             _ignoreActorChanges = false;
         }
 
