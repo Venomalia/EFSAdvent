@@ -44,6 +44,10 @@ namespace EFSAdvent
         private readonly string[] ACTOR_NAMES;
         private readonly Dictionary<string, Bitmap> ACTOR_SPRITES = new Dictionary<string, Bitmap>();
 
+        private readonly HashSet<string> V4ACTORS = new HashSet<string>();
+        private readonly HashSet<string> V6ACTORS = new HashSet<string>();
+        private readonly HashSet<string> V8ACTORS = new HashSet<string>();
+
         public Form1()
         {
             InitializeComponent();
@@ -86,9 +90,38 @@ namespace EFSAdvent
                 ACTOR_SPRITES.Add(spritePath.Split(Path.DirectorySeparatorChar).Last().Split('.')[0], sprite);
             }
 
-            var names = File.ReadLines("data\\FSA Actor Namelist.txt");
-            ACTOR_NAMES = names.Select(n => n.Trim()).ToArray();
-            ActorNameComboBox.Items.AddRange(ACTOR_NAMES);
+            // Load Actor Namelist
+            string ActorNameListPath = "data\\FSA Actor Namelist.txt";
+            if (File.Exists(ActorNameListPath))
+            {
+                var names = File.ReadLines(ActorNameListPath);
+                ACTOR_NAMES = names.Select(n => n.Trim()).ToArray();
+                ActorNameComboBox.Items.AddRange(ACTOR_NAMES);
+            }
+
+            // Load V4 Typ Actors
+            string V4ActorListPath = "data\\V4 Typ Actors.txt";
+            if (File.Exists(V4ActorListPath))
+            {
+                var names = File.ReadLines(V4ActorListPath);
+                V4ACTORS = new HashSet<string>(names.Select(n => n.Trim()));
+            }
+
+            // Load V6 Typ Actors
+            string V6ActorListPath = "data\\V6 Typ Actors.txt";
+            if (File.Exists(V6ActorListPath))
+            {
+                var names = File.ReadLines(V6ActorListPath);
+                V6ACTORS = new HashSet<string>(names.Select(n => n.Trim()));
+            }
+
+            // Load V8 Typ Actors
+            string V8ActorListPath = "data\\V8 Typ Actors.txt";
+            if (File.Exists(V8ActorListPath))
+            {
+                var names = File.ReadLines(V8ActorListPath);
+                V8ACTORS = new HashSet<string>(names.Select(n => n.Trim()));
+            }
 
             ResetVarsForNewLevel();
         }
@@ -1354,13 +1387,18 @@ namespace EFSAdvent
             UpdateActorPackedVariables();
             _ignoreActorChanges = false;
 
-            if (newActor.Name == "SWT4" || newActor.Name == "HOUS" || newActor.Name == "SHTR" || newActor.Name == "BPOH" || newActor.Name == "BPH2" || newActor.Name == "SPOT" || newActor.Name == "GLBS" || newActor.Name == "LCLS" || newActor.Name == "OFFS" || newActor.Name == "CKSW" || newActor.Name == "WTSW" || newActor.Name == "LOSW")
+
+            if (V4ACTORS.Contains(newActor.Name))
+            {
+                VariablesTabControl.SelectedIndex = 0;
+            }
+            else if (V6ACTORS.Contains(newActor.Name))
             {
                 VariablesTabControl.SelectedIndex = 2;
             }
-            else if (newActor.Name == "TZOK")
+            else if (V8ACTORS.Contains(newActor.Name))
             {
-                VariablesTabControl.SelectedIndex = 0;
+                VariablesTabControl.SelectedIndex = 3;
             }
             else
             {
