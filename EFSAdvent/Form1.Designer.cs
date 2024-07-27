@@ -47,6 +47,9 @@
             this.SaveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roomImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actorsImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -377,6 +380,7 @@
             this.SaveMenuItem,
             this.SaveAsMenuItem,
             this.ExportMenuItem,
+            this.importToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -424,6 +428,32 @@
             this.ExportMenuItem.Size = new System.Drawing.Size(249, 22);
             this.ExportMenuItem.Text = "Export as .arc";
             this.ExportMenuItem.Click += new System.EventHandler(this.ExportLevel);
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.roomImportToolStripMenuItem,
+            this.actorsImportToolStripMenuItem});
+            this.importToolStripMenuItem.Enabled = false;
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.importToolStripMenuItem.Text = "Import";
+            // 
+            // roomImportToolStripMenuItem
+            // 
+            this.roomImportToolStripMenuItem.Name = "roomImportToolStripMenuItem";
+            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.roomImportToolStripMenuItem.Text = "Room";
+            this.roomImportToolStripMenuItem.ToolTipText = "Imports a room from another map file.";
+            this.roomImportToolStripMenuItem.Click += new System.EventHandler(this.roomImportToolStripMenuItem_Click);
+            // 
+            // actorsImportToolStripMenuItem
+            // 
+            this.actorsImportToolStripMenuItem.Name = "actorsImportToolStripMenuItem";
+            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.actorsImportToolStripMenuItem.Text = "Actors";
+            this.actorsImportToolStripMenuItem.ToolTipText = "Imports actors from another room file to the current room.";
+            this.actorsImportToolStripMenuItem.Click += new System.EventHandler(this.actorsImportToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
@@ -2261,6 +2291,9 @@
         private System.Windows.Forms.NumericUpDown ActorV8Variable1bInput;
         private System.Windows.Forms.Label label_V8_1b;
         private System.Windows.Forms.Label label_V8_1a;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem roomImportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actorsImportToolStripMenuItem;
     }
 }
 

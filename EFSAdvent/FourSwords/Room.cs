@@ -116,33 +116,42 @@ namespace EFSAdvent.FourSwords
             _actors = new List<Actor>();
             if (File.Exists(actorsPath))
             {
-                byte[] readBuffer = File.ReadAllBytes(actorsPath);
-
-                //Skip the last null entry
-                for (int i = 0; i < readBuffer.Length - 11; i += 11)
-                {
-                    _actors.Add(new Actor
-                    (
-                        Encoding.ASCII.GetString(readBuffer.Skip(i).Take(4).ToArray()),
-                        readBuffer[i + 4],
-                        readBuffer[i + 5],
-                        readBuffer[i + 6],
-                        readBuffer[i + 7],
-                        readBuffer[i + 8],
-                        readBuffer[i + 9],
-                        readBuffer[i + 10]
-                    ));
-                }
-
+                _actors = ReadActors(actorsPath);
                 SortActors();
-
             }
             else
             {
+                _actors = new List<Actor>();
                 _logger.AppendLine("Can't find actors *.bin file. A new actors file has been created.");
             }
             ActorsAreDirty = false;
         }
+
+
+        public static List<Actor> ReadActors(string path)
+        {
+            List<Actor> actors = new List<Actor>();
+            byte[] readBuffer = File.ReadAllBytes(path);
+
+            //Skip the last null entry
+            for (int i = 0; i < readBuffer.Length - 11; i += 11)
+            {
+                actors.Add(new Actor
+                (
+                    Encoding.ASCII.GetString(readBuffer.Skip(i).Take(4).ToArray()),
+                    readBuffer[i + 4],
+                    readBuffer[i + 5],
+                    readBuffer[i + 6],
+                    readBuffer[i + 7],
+                    readBuffer[i + 8],
+                    readBuffer[i + 9],
+                    readBuffer[i + 10]
+                ));
+            }
+
+            return actors;
+        }
+
 
         public void SaveActors(string path, string levelNumber)
         {
@@ -185,6 +194,13 @@ namespace EFSAdvent.FourSwords
         public void AddActor(Actor actor)
         {
             _actors.Add(actor);
+            SortActors();
+            ActorsAreDirty = true;
+        }
+
+        public void AddActors(IEnumerable<Actor> actors)
+        {
+            _actors.AddRange(actors);
             SortActors();
             ActorsAreDirty = true;
         }

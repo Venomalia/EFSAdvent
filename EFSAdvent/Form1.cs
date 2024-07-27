@@ -201,6 +201,7 @@ namespace EFSAdvent
             tabControl.Enabled = true;
             layerPictureBox.Enabled = true;
             rightSideGroupBox.Enabled = true;
+            importToolStripMenuItem.Enabled = true;
 
             MapVariableStartX.Enabled = !_level.Map.IsShadowBattle;
             MapVariableStartY.Enabled = !_level.Map.IsShadowBattle;
@@ -496,18 +497,18 @@ namespace EFSAdvent
             _level.SaveMap();
         }
 
-		private void UpdateMapVariables(object sender, EventArgs e)
-		{
-			if (_ignoreMapVariableUpdates)
-			{
-				return;
-			}
-			_level.Map.SetVariables(
-				(int)MapVariableStartX.Value,
-				(int)MapVariableStartY.Value,
-				(int)MapVariableMusic.Value,
-				(int)MapVariableE3Banner.Value,
-				(int)MapVariableTileSheet.Value,
+        private void UpdateMapVariables(object sender, EventArgs e)
+        {
+            if (_ignoreMapVariableUpdates)
+            {
+                return;
+            }
+            _level.Map.SetVariables(
+                (int)MapVariableStartX.Value,
+                (int)MapVariableStartY.Value,
+                (int)MapVariableMusic.Value,
+                (int)MapVariableE3Banner.Value,
+                (int)MapVariableTileSheet.Value,
                 (int)MapVariableNPCSheetID.Value,
                 (int)MapVariableOverlay.Value,
                 (int)MapVariableUnknown2.Value,
@@ -524,10 +525,10 @@ namespace EFSAdvent
         {
             int shortest = Math.Min(layerPictureBox.Width, layerPictureBox.Height);
             float scale = (float)LAYER_DIMENSION_IN_PIXELS / shortest;
-            int widthOfset = (layerPictureBox.Size.Width - shortest)/2;
-            int heightOfset = (layerPictureBox.Size.Height - shortest)/2;
+            int widthOfset = (layerPictureBox.Size.Width - shortest) / 2;
+            int heightOfset = (layerPictureBox.Size.Height - shortest) / 2;
 
-            return new MouseEventArgs(e.Button, e.Clicks, (int)((e.X- widthOfset) * scale), (int)((e.Y- heightOfset) * scale), e.Delta);
+            return new MouseEventArgs(e.Button, e.Clicks, (int)((e.X - widthOfset) * scale), (int)((e.Y - heightOfset) * scale), e.Delta);
         }
 
         private void layersPictureBox_MouseMove(object sender, MouseEventArgs e)
@@ -1261,7 +1262,7 @@ namespace EFSAdvent
 
             if (ACTOR_NAMES[ActorNameComboBox.SelectedIndex] == "PNPC" || ACTOR_NAMES[ActorNameComboBox.SelectedIndex] == "PNP2")
             {
-                UpdateBrushTileBitmap((ushort)(((byte)ActorVariable3Input.Value & 0x3)  << 8 | (byte)ActorVariable4Input.Value));
+                UpdateBrushTileBitmap((ushort)(((byte)ActorVariable3Input.Value & 0x3) << 8 | (byte)ActorVariable4Input.Value));
                 ActorInfoPictureBox.Refresh();
             }
 
@@ -1563,6 +1564,65 @@ namespace EFSAdvent
             }
             layerPictureBox.InterpolationMode = interpolationMode;
             layerPictureBox.Refresh();
+        }
+
+        private void roomImportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var openDialog = new OpenFileDialog { Filter = "Room actors files|d_enemy_map*.bin" };
+            if (openDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string name = Path.GetFileName(openDialog.FileName);
+            string mapNr = name.Substring(11, 3);
+            int RoomNR = int.Parse(name.Substring(15, 2));
+            string basePath = openDialog.FileName.Remove(openDialog.FileName.LastIndexOf("bin" + Path.DirectorySeparatorChar));
+            int freeRoomNr = _level.GetNextFreeRoom();
+
+            string actors = Room.GetActorFilePath(basePath, mapNr, RoomNR);
+            string newActors = Room.GetActorFilePath(RootFolderPathTextBox.Text, _level.Map.Number, freeRoomNr);
+            File.Copy(actors, newActors);
+
+            for (int la = 0; la < 8; la++)
+            {
+                for (int lv = 1; lv <= 2; lv++)
+                {
+                    string layer = Room.GetLayerFilePath(basePath, mapNr, RoomNR, lv, la);
+                    string newLayer = Room.GetLayerFilePath(RootFolderPathTextBox.Text, _level.Map.Number, freeRoomNr, lv, la);
+                    File.Copy(layer, newLayer);
+                }
+            }
+
+            MessageBox.Show($"Room successfully imported to room {freeRoomNr}.");
+            if (MapRoomNewButton.Enabled == true)
+            {
+                var result = MessageBox.Show($"Should the imported room be set to the selected position [{selectedRoomCoordinates.x},{selectedRoomCoordinates.y}]?",
+                                             $"Set to position?",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    MapRoomNumberInput.Value = freeRoomNr;
+                    UpdateMapRoomNumber((byte)freeRoomNr);
+                }
+            }
+        }
+
+        private void actorsImportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var openDialog = new OpenFileDialog { Filter = "Room actors files|d_enemy_map*.bin" };
+            if (openDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            List<Actor> actors = Room.ReadActors(openDialog.FileName);
+            _level.Room.AddActors(actors);
+            BuildLayerActorList(true);
+            DrawActors(true);
+
+            MessageBox.Show($"{actors.Count} actors have been successfully added to the current room.");
         }
 
         private void SelectedActor(Actor actor)
