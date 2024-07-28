@@ -1,11 +1,20 @@
-FLME (flame)
+FLME (Flame)
 
-Jet of fire
+Variable 1:
+Trigger by variable X
 
-life: 1
-atcp: 2
-atcn: 32
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+Direction
+0 = East
+1 = West
+2 = North
+3 = South
+
+Variable 4:
+0 = Jet of fire
+1 = Jet of fire, off
+2 = Jet of fire, when approaching
+3 = Jet of fire, on/off time-based
+4 = Small ring of fire
+5 = Ring of fire
+6 = Jet of fire, goes out completely when disabled

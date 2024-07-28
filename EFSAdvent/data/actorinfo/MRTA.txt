@@ -1,11 +1,11 @@
-MRTA (log)
+MRTA (Tree log)
 
-Wooden log?
+Variable 3:
+0 = Log
+1 = Armos Knigh
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+0 = Horizontal
+1 = Vertical
+16 = Big, Horizontal
+17 = Big, Vertical

@@ -1,11 +1,11 @@
 BFRY (Great Fairy)
-
 Big Fairy
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 1:
+Activated by variable X?
+
+Variable 4:
+0 = Heal
+1 = Item upgrader
+2 = Item
+4 = Item Drop state

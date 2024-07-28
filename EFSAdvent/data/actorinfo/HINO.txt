@@ -1,7 +1,5 @@
 HINO (Hinox)
 
-Charging Hinox
-
 life: 48
 atcp: 2
 atcn: 0

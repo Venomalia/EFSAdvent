@@ -1,6 +1,4 @@
-FALL (Fall Master)
-
-Wallmaster
+FALL (Wallmaster)
 
 life: 1
 atcp: 2

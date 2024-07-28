@@ -1,6 +1,4 @@
-LTZR (Lotus Zora)
-
-Lily pad with Zora underneath
+LTZR (Lily pad Zora)
 
 life: 1
 atcp: 0

@@ -1,11 +1,2 @@
 IMUP (Lifting Items)
-
-Rupee held above the head
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Item held above the head

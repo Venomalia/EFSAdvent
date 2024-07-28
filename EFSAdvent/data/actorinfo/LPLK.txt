@@ -1,6 +1,11 @@
-LPLK (rupee-like)
+LPLK (Force Like)
 
-Like Like that pretends to be a rupee
+Variable 4:
+0 = Green
+1 = Red
+2 = Blue
+3 = purple
+4 = Zelda (bug)
 
 life: 32
 atcp: 0

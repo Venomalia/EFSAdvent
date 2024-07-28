@@ -1,11 +1,8 @@
-BLDF (blindfold)
+BLDF (Blindfold)
 
-Floating black square
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+Size in Y axis.
+
+Variable 3:
+Size in X axis.

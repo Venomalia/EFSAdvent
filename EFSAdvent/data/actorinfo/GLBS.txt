@@ -1,11 +1,11 @@
 GLBS (Global Switch)
+Sets a global variable when a local variable has been triggered.
 
+Variable 1:
+Global variable to be set.
 
+Variable 2:
+Local variable that triggers this event.
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Packed data is composed as follows:
+11111222 22000000 00000000 00000000

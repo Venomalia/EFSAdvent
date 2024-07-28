@@ -1,11 +1,13 @@
-GENE (gushing)
+GENE (Enemy Generator)
 
-Rock throwing Hinox
+Variable 1:
+&0xF8 = Trigger by variable X
 
-life: 32
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+156 = ?
+
+Variable 3:
+224 = ?
+
+Variable 4:
+Amount

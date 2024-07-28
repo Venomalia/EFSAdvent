@@ -1,6 +1,8 @@
-RIVR (Riva)
+RIVR (Leever)
 
-
+Variable 4:
+0 = Green
+1 = Red
 
 life: 8
 atcp: 2

@@ -1,70 +1,42 @@
 SWEV (environmental switch control)
 
-Variable 2:
-00	Dark, no clouds
-01	""
-02	""
-03	""
-04	Water looks like lava, intense heat distortion
-05	Water looks like lava, mild heat distortion
-06	""
-07	""
-08	Dark, no clouds
-09	""
-0A	""
-0B	""
-0C	Water looks like lava, mild heat distortion
-0D	""
-0E	""
-0F	""
-10	Fog
-11	""
-12	""
-13	""
-14	Water looks like lava, mild heat distortion
-15	Water looks like lava, intense heat distortion
-16	""
-17	""
-18	Fog
-19	""
-1A	""
-1B	""
-1C	Water looks like lava, intense heat distortion
-1D	""
-1E	""
-1F	""
-20	Dark, cloud shadows
-21	""
-22	""
-23	""
-24	Water looks like lava, intense heat distortion
-25	Water looks like lava, mild heat distortion
-26	""
-27	""
-28	Clouds and reflections
-29	""
-more untested...
+Variable 1:
+Activated by variable X
 
+Variable 2:
+[Flags]
+0 =	Off
+1 = Spezial BG 1
+2 = Spezial BG 2
+(3) = Spezial BG 3
+4 =	Water looks like lava, heat distortion.
+8 =	Water BG.
+16 = Fog.
+(20) = 4+16
+(24) = 8+16
+32 = Clouds that cast shadows.
+(36) = 4+32
+(40) = 8+32
+(48) = 16+32
+(52) = 4+16+32
+(56) = 8+16+32
+64 = Height
+(66) 2+64
 
 Variable 3:
-00	Nothing
-01	""
-02	""
-03	""
-04	Snowstorm
-05	""
-06	""
-07	""
-08	Slowly falling snow
-More untested...
+[Flags]
+0 =	Off
+4 = Snowstorm
+8 = Falling snow
+32 = Rain
+64 = Rain
+128 = Cloud mist
+
 
 Variable 4:
-Seems to change how bright the screen is.
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+0 = Bright screen.
+1 = Dark screen.
+2 = ?
+3 = Cave noises?
+4 = Dark screen, Boss music.
+13 =

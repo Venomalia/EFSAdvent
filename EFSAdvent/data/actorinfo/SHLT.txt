@@ -1,11 +1,13 @@
 SHLT (Searchlight)
 
-Swarm of Poes
+Variable 2:
+Rail ID
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 3:
+& 0xF = X position of the area to which the player should be moved.
+>> 4 = Y position of the area to which the player should be moved.
+
+Variable 4:
+4 = Circles clockwise
+10 = Circles counterclockwise 
+28 = Use a Rail and teleport the player when he is discovered.

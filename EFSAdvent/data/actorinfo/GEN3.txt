@@ -1,11 +1,58 @@
 GEN3 (enemy generator 3)
 
+Variable 1a:
+Variable that activates this actor
 
+Variable 2:
+Amount
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+0 = Stalfos
+1 = Keese
+2 = Force Soldier
+3 = Blue Soldier
+4 = Dodongo
+5 = Goma
+6 = Deadrock
+7 = Buzz Blob
+8 = Bow Soldier
+9 = Terrorpin
+10 = Force Like
+11 = Gibdo
+12 = Blue Chief Soldier
+13 = Green Leever
+14 = Geldman
+15 = Ropa
+16 = Crab
+17 = Red Rope
+18 = Rat
+19 = Red Octorok
+20 = Pengator
+21 = Ball and Chain Soldiers
+22 = Bomb
+23 = Real Bombchu
+24 = Real Bombchu
+25 = Hinox
+26 = Blue Soldier
+27 = Black Soldier
+28 = Bow Soldier
+29 = Blue Chief Soldier
+30 = Hardhat Beetle
+31 = Ice Wizzrobe
+32 = Zol
+33 = Fire Ball and Chain Soldiers
+34 = Green Soldier
+35 = Zora
+36 = Big Yellow Soldier
+37 = Fire Wizzrobe
+38 = Big Green Terrorpin
+39 = Big Red Terrorpin
+40 = Big Blue Terrorpin
+41 = Big Purple Terrorpin
+42 = Big Terrorpin
+43 = Heart
+44 = Blue Dodongo
+Required: 
+45 = Keese (Flying back and forth)
+
+&128 = ?

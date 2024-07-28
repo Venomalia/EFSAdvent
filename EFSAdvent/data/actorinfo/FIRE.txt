@@ -1,11 +1,1 @@
-FIRE (Fire of Player Rod)
-
-Magic rod fireball
-
-life: 1
-atcp: 2
-atcn: 32
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+FIRE (Player fire rod fire)

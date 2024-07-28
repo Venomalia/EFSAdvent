@@ -1,11 +1,34 @@
 BCK2 (color block for 1 person)
 
-Stone block
+Variable 1:
+Opened by variable X
+Variable to be set when the block has been moved.
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+0 = movable east
+1 = movable west 
+2 = movable south 
+3 = movable north
+4 = Green, movable east
+5 = Green, movable west 
+6 = Green, movable south 
+7 = Green, movable north
+8 = Red, movable east
+9 = Red, movable west 
+10 = Red, movable south 
+11 = Red, movable north
+12 = Blue, movable east
+13 = Blue, movable west 
+14 = Blue, movable south 
+15 = Blue, movable north
+16 = Purple, movable east
+17 = Purple, movable west 
+18 = Purple, movable south 
+19 = Purple, movable north
+20 = Random color, movable east
+21 = Random color, movable west 
+22 = Random color, movable south 
+23 = Random color, movable north
+
+52 = Random color, movable east
+53 = Random color, movable west

@@ -1,11 +1,27 @@
 DOOR (door)
+A doorway.
 
-Different tiles
+Variable 1:
+Opened by variable X
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 3:
+2 = Closes when the room is entered?
+
+Variable 4:
+0 = 1 wide door
+1 = 2 wide door
+2 = 4 wide door
+
+Variable 5:
+0 = South 
+1 = North
+3 = East
+4 = West
+
+Variable 6:
+0 = Closed door
+1 = Key door
+2 = Bomb
+5 = 1x1 Key block
+7 = Locked Big chest
+8 = Vines

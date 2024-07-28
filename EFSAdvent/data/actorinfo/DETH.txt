@@ -1,6 +1,4 @@
-DETH (Grim Reaper)
-
-Vaati death bringer
+DETH (Vaati Reaper)
 
 life: 1
 atcp: 255

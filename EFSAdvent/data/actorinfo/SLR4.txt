@@ -1,6 +1,23 @@
-SLR4 (Captain Soldier)
+SLR4 (Chief Soldier)
 
-Captain soldier
+Variable 1b:
+Chief Soldier ID
+
+Variable 2:
+1 = Big stalfos soldier?
+
+Variable 3:
+102 = ?
+119 = ?
+
+Variable 4:
+0 = Blue
+1 = Blue
+2 = Green
+3 = Green
+4 = Red
+5 = Red
+5 = Dark green
 
 life: 12
 atcp: 3

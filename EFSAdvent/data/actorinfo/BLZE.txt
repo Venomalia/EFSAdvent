@@ -1,11 +1,1 @@
-BLZE (burning fire)
-
-Burst of fire (Repeats whereas BLZ2 does not?)
-
-life: 1
-atcp: 2
-atcn: 32
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+BLZE (Spreading fire)

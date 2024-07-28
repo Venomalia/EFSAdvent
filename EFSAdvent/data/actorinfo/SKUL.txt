@@ -1,6 +1,21 @@
-SKUL (Rotating Skull)
+SKUL (Bubble)
 
+Variable 1:
+Activated by variable X ?
 
+Variable 3:
+1 = Stay on walls, move down
+17 = Stay on wall, move up
++ V4 0 = Start at east wall
++ V4 1 = Start at west wall
++ V4 2 = Start at south wall
++ V4 3 = Start at north wall
+
+Variable 4:
+0 = Very large circle
+1 = Very large circle, offset
+
+128 = Moves through the room
 
 life: 1
 atcp: 2

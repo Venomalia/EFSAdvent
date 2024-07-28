@@ -1,11 +1,15 @@
-LOTS (lotus)
+LOTS (Lily pad)
 
-Lily pad
+Variable 1:
+Activated by variable X
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 3:
+Direction and distance?
+&0xF0 = distance?
+&0x0F
+
+Variable 4:
+1 = Small
+2 = Big
+49 = Small moves
+50 = Big moves

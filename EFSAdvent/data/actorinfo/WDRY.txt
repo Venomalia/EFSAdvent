@@ -1,11 +1,16 @@
 WDRY (wooden rupees)
+Force kristal that can be revealed with the fire rod.
 
-Triangle stone
+Variable 2:
+0 = Wooden
+1 = Ice
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+0 Green
+1 Blue
+2 Red
+3 Purple
+4 Small green
+5 Small blue
+6 Big red 
+7 Big purple

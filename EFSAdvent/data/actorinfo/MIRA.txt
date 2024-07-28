@@ -1,6 +1,8 @@
-MIRA (Mummy)
+MIRA (Gibdo)
 
-Gibdo
+Variable 4:
+0 = Gibdo
+1 = Greer
 
 life: 48
 atcp: 3

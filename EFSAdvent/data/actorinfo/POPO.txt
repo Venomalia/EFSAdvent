@@ -1,7 +1,5 @@
 POPO (Popo)
 
-Tentacle beast
-
 life: 4
 atcp: 2
 atcn: 0

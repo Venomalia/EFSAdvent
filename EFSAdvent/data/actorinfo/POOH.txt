@@ -1,6 +1,8 @@
-POOH (Po)
+POOH (Ghini)
 
-Poe
+Variable 4:
+0 = Default
+3 = Big
 
 life: 4
 atcp: 2

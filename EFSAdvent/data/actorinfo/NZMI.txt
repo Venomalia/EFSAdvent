@@ -1,6 +1,4 @@
-NZMI (Mouse)
-
-Rat
+NZMI (Rat)
 
 life: 1
 atcp: 2

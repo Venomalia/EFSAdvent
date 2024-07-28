@@ -1,11 +1,15 @@
-RAIL (rail data)
+RAIL (Rail data)
+Actor rail paht data
 
+Variable 1:
+?
 
+Variable 2:
+NR
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 3:
+Rail ID
+
+Variable 4:
+8 = Jumps
+17 = Jumps

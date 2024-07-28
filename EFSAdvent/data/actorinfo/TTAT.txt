@@ -1,6 +1,8 @@
-TTAT (Testitat)
+TTAT (Manhandla)
 
-Four headed spinning thing
+Variable 4:
+0 = Dafault
+5 = ?
 
 life: 8
 atcp: 4

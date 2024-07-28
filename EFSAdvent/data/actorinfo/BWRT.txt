@@ -1,6 +1,6 @@
-BWRT (Boss: Wort)
-
-
+BWRT (Boss: Wart)
+Boss fight against the Stone Arrghus,
+Requires “wart” Bti resources to function!
 
 life: 4
 atcp: 2

@@ -1,7 +1,5 @@
 BBSL (Giant Bomb Shadowlink)
 
-Shadow Link drops a huge bomb
-
 life: 1
 atcp: 0
 atcn: 0

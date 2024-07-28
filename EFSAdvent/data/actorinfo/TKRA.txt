@@ -1,11 +1,29 @@
-TKRA (treasure chest)
+TKRA (Treasure chest)
 
-
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+1 = Small green (1)
+2 = Small blue (5)
+2 = Small red (20)
+3 = Small purple (50)
+4 = Green(100)
+5 = Blue (150)
+6 = Red (200)
+7 = Purple (300)
+8 = big Green (1000)
+9 = big Blue (1500)
+10 = big Red (2000)
+11 = big Purple (3000)
+16 = Key
+17 = Big Key
+18 = Letter
+19 = Power Bracelet
+20 = Heart Container
+21 = Blue Bracelet
+22 = Moon Perl
+23 = Bombos Medallion
+24 = Quake Medallion
+25 = Book (text error)
+32 = Item crystal(text error)
+46 = Nova Bomb
+47 = Empty
+and more...

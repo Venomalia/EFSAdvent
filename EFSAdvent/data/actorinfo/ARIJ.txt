@@ -1,6 +1,5 @@
-ARIJ (Antlion)
-
-
+ARIJ (Devalant)
+Cannot be called up directly.
 
 life: 4
 atcp: 2

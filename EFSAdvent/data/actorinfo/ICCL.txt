@@ -1,6 +1,4 @@
-ICCL (icicles)
-
-Icicle
+ICCL (Icicle)
 
 life: 1
 atcp: 0

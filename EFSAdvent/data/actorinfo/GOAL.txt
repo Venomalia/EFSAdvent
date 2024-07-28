@@ -1,11 +1,2 @@
-GOAL (goal)
-
+GOAL (Level ende)
 Stops you from leaving the area(4 End of level warps/goals with 00 variables)
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0

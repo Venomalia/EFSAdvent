@@ -1,6 +1,10 @@
-OKAM (turtle)
+OKAM (Octorok)
 
-Oktorok
+
+Variable 3:
+0 = Oktorok
+1 = Crab
+2 = Stalfos, jumps and throws
 
 life: 4
 atcp: 2

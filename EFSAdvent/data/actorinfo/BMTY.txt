@@ -1,6 +1,4 @@
-BMTY (Bombchu)
-
-Fat mouse
+BMTY (Real Bombchu)
 
 life: 1
 atcp: 0

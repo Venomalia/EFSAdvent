@@ -1,6 +1,26 @@
-FLYO (Floor Bun)
+FLYO (Floor floor tile)
 
 Flying floor tile
+
+Variable 2:
+0 = Floor tile
+1 = Bush
+2 = ?
+3 = ?
+4 = ?
+5 = Pot
+6 = Statue
+7 = Chest
+8 = Floor tile, leaves a hole
+9 = Statue red
+17 = Red bush
+28 = Eye Statue
+
+Variable 3:
+Trigger by variable X
+
+Variable 4:
+Index nr
 
 life: 1
 atcp: 0

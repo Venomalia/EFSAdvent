@@ -1,0 +1,39 @@
+0: Aboveground
+1: Temple
+2: Field
+3: Plain 
+4: Village
+5: Hyrule Castle
+6: Tower of Flames
+7: Dungeon
+8: Graveyard
+9: Desert
+10: Woods
+11: Snow
+12: Hidden Dungeon
+13: Heavens
+14: Palace of Winds
+15: Ganon Battle
+16: Boss Battle
+17: null
+18: Ending
+19: Maiden Rescue
+20: Fanfare?
+21: Tingle Tower
+22: Guessing
+23: Fortune-Telling
+24: Mini Boss Battle
+25: Invincibility(bug)
+26: Jewel
+27: Item Fanfare
+28: Shadow Link Battle
+29: Graveyard
+30: Clear Fanfare
+31: Inside a House
+32: Dungeon
+33: Crystal Room
+34: Hidden Dungeon
+35: Tower of Flames
+36: Goddess
+37: Inside a House (Dark)
+38: Village (unsolved)

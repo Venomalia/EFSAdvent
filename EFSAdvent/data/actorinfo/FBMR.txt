@@ -1,11 +1,11 @@
-FBMR (Firebar (Manager))
+FBMR (Rotating fireball (Manager))
 
-Circling flame
+Variable 1a:
+Change of direction by variable X?
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+0 = counterclockwise
+1 = clockwise
+
+Variable 4:
+Number of flames on each side

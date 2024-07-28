@@ -1,11 +1,24 @@
-CIRC (magic circle)
+CIRC (Magic circle)
+Appearing magic circle warp
 
-Appearing warp platform
+Variable 1a:
+Activated by variable X
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 1b:
+Which layer the warp takes the players to
+
+Variable 2:
+The X coordinate players arrive at
+
+Variable 3:
+The Y coordinate players arrive at
+
+Variable 4:
+0 = Default
+1 = Green
+2 = Red
+3 = Blue
+4 = Purple
+5 = Number 10
+7 = Cactus
+8 = Glitter effect

@@ -1,6 +1,5 @@
 ZLD2 (Ganon Battle Zelda)
-
-Cutscene with Zelda, crash at end
+Cutscene with Zelda and Ganon.
 
 life: 1
 atcp: 0

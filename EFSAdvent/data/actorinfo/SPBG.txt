@@ -1,11 +1,22 @@
 SPBG (special BG drawing Obj)
 
+Variable 1a:
+Variable that activates this actor.
 
+Variable 1b:
+0 = ?
+4
+6 = ?
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+64 = ?
+
+Variable 2:
+0 = Hyrule castle gate
+Required: osiro_mon.bmd & osiro_mon.btk
+
+1 = Hyrule castle door
+Required: osiro_tobira.bmd & osiro_tobira.btk
+
+2 = Hyrule castle windows
+Required: osiro_mado.bmd & osiro_mado.btk

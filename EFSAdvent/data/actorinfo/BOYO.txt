@@ -1,11 +1,15 @@
-BOYO (Boyon Block)
+BOYO (Bumper Block)
 
-Rotating repulser
+Variable 3:
+1 = ?
+2 = ?
+3 = ?
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+0 = Spins in place
+1 = Moves from west to east
+2 = Moves in a small circle
+3 = Moves in a circle
+4 = Moves in a Big circle
+5 = ?
+6 = ?

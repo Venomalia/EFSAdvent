@@ -1,5 +1,27 @@
 SLK2 (Shadow Link 2)
+Mini boss fight against Shadow Link
 
+Variable 2a:
+0 = ?
+5 = ?
+Variable 2b:
+0 = ?
+4 = ?
+
+Variable 3a:
+0 = ?
+4 = ?
+
+Variable 3b:
+Rail ID
+
+Variable 4a:
+0 = ?
+2 = ?
+
+Variable 4b:
+0 = ?
+3 = ?
 
 
 life: 0

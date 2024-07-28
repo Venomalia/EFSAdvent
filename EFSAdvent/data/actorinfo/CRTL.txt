@@ -1,11 +1,7 @@
-CRTL (crystal ball)
+CRTL (Crystal ball)
 
-Mystery item bubble
-
-life: 1
-atcp: 2
-atcn: 8
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+0 = Default
+1 = Held state
+2 = Bug
+3 = Held state, Carrot

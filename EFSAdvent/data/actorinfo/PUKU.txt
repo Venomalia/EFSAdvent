@@ -1,6 +1,8 @@
 PUKU (Cheep-Cheep)
 
-Red fish
+Variable 4:
+0 = Default
+1 = Big
 
 life: 4
 atcp: 2

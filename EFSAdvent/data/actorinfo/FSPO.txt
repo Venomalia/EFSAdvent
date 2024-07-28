@@ -1,11 +1,18 @@
-FSPO (fire point)
+FSPO (Fire point)
+Giant bomb or its fuse
 
+Variable 1:
+Bomb Index
 
+Variable 2:
+0 = Fuse
+10 = Burning fuse
+128 = End point left
+needs: atari_left.bti
+needs: bakudan_left.bti
+160 = End point right
+needs: atari_right.bti
+needs: bakudan_right.bti
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+Fuse Index

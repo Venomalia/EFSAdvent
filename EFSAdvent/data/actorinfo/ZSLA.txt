@@ -1,6 +1,16 @@
 ZSLA (small fish shadow link (bow and arrow))
 
+Variable 4a:
+0 = ?
+1 = ?
+2 = ?
+3 = ?
 
+Variable 4b:
+0 = East
+1 = West
+2 = South
+3 = North
 
 life: 1
 atcp: 4

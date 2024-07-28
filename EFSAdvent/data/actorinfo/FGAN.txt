@@ -1,6 +1,9 @@
 FGAN (Phantom Ganon)
+Boss fight against the Phantom Ganon,
+Requires “fganon” Bti resources to function!
 
-
+Variable 3:
+32 = ?
 
 life: 4
 atcp: 2

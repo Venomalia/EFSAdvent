@@ -1,6 +1,4 @@
-MOZO (Mojamoja)
-
-Leever thing
+MOZO (Ropa)
 
 life: 8
 atcp: 2

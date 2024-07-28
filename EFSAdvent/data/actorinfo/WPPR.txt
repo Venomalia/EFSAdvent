@@ -1,11 +1,9 @@
 WPPR (Warp Pillar)
+Light beam that teleports from one map to another.
+Target map requires “WPPA” actor and 4 players start coordinates “PLAS”.
 
-Warp pillar
+Variable 3b:
+Map Y coridinate 
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4a:
+Map X coridinate 

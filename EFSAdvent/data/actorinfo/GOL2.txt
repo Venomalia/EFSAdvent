@@ -1,11 +1,14 @@
 GOL2 (goal 2)
+Evil imprisoning field
 
-Four cornered evil imprisoning field
+Variable 1:
+12 = ?
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+0 = Square
+1 = Diamond
+2 = Horizontal row
+3 = Vertikal row
+4 = Semicircle
+5 = Maid
+&128 = ?

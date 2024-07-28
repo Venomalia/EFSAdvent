@@ -1,6 +1,5 @@
 BZBR (Buzz Blob)
-
-Electric jelly
+Electric jelly enemie
 
 life: 4
 atcp: 2

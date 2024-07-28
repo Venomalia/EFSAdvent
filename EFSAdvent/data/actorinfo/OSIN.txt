@@ -1,6 +1,4 @@
-OSIN (Oshin)
-
-Angry stone
+OSIN (Stone Elevator)
 
 life: 1
 atcp: 0

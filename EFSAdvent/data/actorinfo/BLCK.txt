@@ -1,11 +1,19 @@
 BLCK (block)
+Movable stone block.
 
-1 Tile square stone block
+Variable 1:
+Enabled variable X
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+0 = 1x1 block
+1 = 2x2 block
+2 = 3x3 block
+3 = 4x4 block
+4 = 1x1 block
+5 = 2x2 block
+6 = 3x3 block
+7 = 4x4 block
+8 = 1x1 block, movable to the north
+9 = 2x2 block, movable to the north
+10 = 3x3 block, movable to the north
+11 = 4x4 block, movable to the north

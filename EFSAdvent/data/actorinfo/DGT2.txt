@@ -1,6 +1,4 @@
-DGT2 (tail)
-
-Centipede enemy
+DGT2 (Mini-moldorm)
 
 life: 12
 atcp: 2
