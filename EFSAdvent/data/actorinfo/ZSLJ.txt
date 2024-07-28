@@ -1,6 +1,12 @@
-ZSLJ (Small Fish Shadow Link (Jump))
+ZSLJ (Easy Shadow Link (Jump))
 
 
+Variable 4:
+0 = East
+1 = West
+2 = South
+3 = North
+49 = ?
 
 life: 1
 atcp: 4

@@ -1,6 +1,27 @@
-BPOH (Big Pow)
+BPOH (Big Poe)
+Boss fight against the Big Poe,
+Requires “bpoh” Bti resources to function!
 
+Variable 1:
+Spotlight 1 trigger Variable
 
+Variable 2:
+Spotlight 2 trigger Variable
+
+Variable 3:
+Spotlight 3 trigger Variable
+
+Variable 4:
+Spotlight 4 trigger Variable
+
+Variable 5:
+Variable to be set when Big Poe has low life to make the fight more difficult.
+
+Variable 6:
+124 = ?
+
+Packed data is composed as follows:
+11111222 22333334 44445555 56666666
 
 life: 4
 atcp: 2

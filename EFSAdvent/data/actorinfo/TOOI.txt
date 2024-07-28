@@ -1,11 +1,13 @@
-TOOI (thief driving NPC)
+TOOI (thief cage NPC)
 
+Variable 1:
+130 = ?
 
+Variable 2:
+71 = ?
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 3:
+Cage Id?
+
+Variable 4:
+Number of thieves to catch

@@ -1,7 +1,5 @@
 ZLDA (Princess Zelda)
 
-Young female NPC
-
 life: 1
 atcp: 0
 atcn: 0

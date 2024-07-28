@@ -1,11 +1,20 @@
 GEN3 (enemy generator 3)
 
+Variable 1a:
+Variable that activates this actor
 
+Variable 1a:
+?
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+Amount
+
+Variable 4:
+0 = Stalfos
+3 = Blue Soldier
+20 = Pengator
+34 = Green Soldier
+35 = Zora
+37 = Fire Wizzrobe
+43 = Heart
+153 = Hinox

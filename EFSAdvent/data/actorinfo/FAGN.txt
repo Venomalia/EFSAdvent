@@ -1,6 +1,4 @@
-FAGN (Fungin)
-
-
+FAGN (Pengator)
 
 life: 8
 atcp: 2

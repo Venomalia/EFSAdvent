@@ -1,11 +1,22 @@
 CKSW (check switch)
 
+Variable 1:
+Variable that activates this actor.
 
+Variable 2:
+Variable that is checked.
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 3:
+Variable that is checked.
+
+Variable 4:
+Variable that is checked.
+
+Variable 5:
+Variable that is checked.
+
+Variable 6:
+46 = ?
+
+Packed data is composed as follows:
+11111222 22333334 44445555 56666666

@@ -1,11 +1,14 @@
 SWNP (switch-related NPC)
 
-Small treasure chest
+Variable 1a:
+Activated by variable X
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+0 = Secret SE
+20 = Aapproach SE
+
+Variable 4:
+0 = Chest
+1 = Fixed block
+2 = Item stand
+3 = Play SE

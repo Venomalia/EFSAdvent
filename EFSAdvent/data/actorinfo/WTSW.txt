@@ -1,11 +1,17 @@
 WTSW (Wait switch)
+Activates a variable with time delay.
 
+Variable 1:
+Variable that activates this actor.
 
+Variable 2:
+Variable to be activated after the time has elapsed.
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 5:
+2 = ?
+
+Variable 5:
+64 = ?
+
+Packed data is composed as follows:
+11111222 22333334 44445555 56666666

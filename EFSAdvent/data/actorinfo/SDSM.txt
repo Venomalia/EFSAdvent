@@ -1,11 +1,14 @@
 SDSM (sandstorm)
+Gerudo desert sandstorm moves the player to another map if he uses the wrong exit.
 
-Sand storm effect
+Variable 3a:
+Y positon of the area to which the player should be warped.
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 3:
+X positon of the area to which the player should be warped.
+
+Variable 4a:
+Indicates possible exits?
+
+Variable 4b:
+Indicates possible exits?

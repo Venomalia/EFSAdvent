@@ -1,6 +1,8 @@
-TKTA (tektites)
+TKTA (tektite)
 
-Tektite
+Variable 4:
+0 = Red
+1 = Blue
 
 life: 4
 atcp: 2

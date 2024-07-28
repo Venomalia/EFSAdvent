@@ -1,6 +1,15 @@
-RUSA (quicksand)
+RUSA (Quicksand)
 
-Invisible repulsion
+Variable 3a:
+Rail to use
+
+Variable 4a:
+0 = Default
+1 = Devalant
+2 = Use Rail
+
+Variable 4b:
+0-15 = Size
 
 life: 4
 atcp: 2

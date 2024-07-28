@@ -1,6 +1,4 @@
-FOBR (formation bird)
-
-
+FOBR (Formation bird)
 
 life: 1
 atcp: 1

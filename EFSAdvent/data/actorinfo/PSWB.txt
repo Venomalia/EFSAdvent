@@ -1,11 +1,4 @@
 PSWB (4-person pull switch Bti version)
 
-Four person pull switch
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 1a:
+Variable that will be set when this actor is triggered.

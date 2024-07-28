@@ -1,6 +1,13 @@
-ZSLF (Small Fish Shadow Link (Fire))
+ZSLF (Easy Shadow Link (Fire))
 
+ZSLF, L:0, X:20, Y:29, V:0,0,0,1. left 
+ZSLF, L:0, X:19, Y:23, V:0,0,0,50.
 
+Variable 4:
+0 = East
+1 = West
+2 = South
+3 = North
 
 life: 1
 atcp: 4

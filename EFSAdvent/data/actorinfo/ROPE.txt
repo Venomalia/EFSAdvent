@@ -1,6 +1,4 @@
-ROPE (rope (snake))
-
-Snake
+ROPE (Rope)
 
 life: 8
 atcp: 2

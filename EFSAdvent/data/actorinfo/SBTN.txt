@@ -1,6 +1,4 @@
-SBTN (cactus)
-
-
+SBTN (Cactus)
 
 life: 1
 atcp: 0

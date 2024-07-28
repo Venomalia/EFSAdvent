@@ -1,11 +1,12 @@
 PSSW (push switch)
+Activates a variable when pressed against a wall.
 
+Variable 1:
+Enabled variable X
 
+Variable 2:
+2 = West?
+6 = North?
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 3:
+Duration?

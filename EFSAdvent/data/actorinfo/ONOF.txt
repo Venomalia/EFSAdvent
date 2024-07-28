@@ -1,11 +1,17 @@
 ONOF (On / Off switch)
 
-On/Off switch, lights up green
+Variable 1:
+Activated by variable X
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+7 = ?
+
+Variable 3:
+16 = ?
+32 = ?
+160 = ?
+
+Variable 4:
+0 = Permanent
+15 = Time switch?
+31 = ?

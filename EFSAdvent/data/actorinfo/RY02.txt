@@ -1,11 +1,3 @@
-RY02 (rupee 2)
+RY02 (Floating rupee 2)
 
 Floating rupee
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0

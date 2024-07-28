@@ -1,6 +1,7 @@
-HBB2 (Formation Keith)
+HBB2 (Keese Swarm)
 
-Red bat
+Variable 1a:
+Activated by variable X
 
 life: 16
 atcp: 2

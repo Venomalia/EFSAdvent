@@ -1,6 +1,4 @@
-Poon (Pawn)
-
-Octo thing that bounces off your sword
+Poon (Hardhat beetle)
 
 life: 16
 atcp: 2

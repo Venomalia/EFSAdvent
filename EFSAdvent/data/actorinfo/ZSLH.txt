@@ -1,6 +1,12 @@
-ZSLH (Small Fish Shadow Link (Hammer))
+ZSLH (Easy Shadow Link (Hammer))
 
 
+Variable 4:
+0 = East
+1 = West
+2 = South
+3 = North
+48 = ?
 
 life: 1
 atcp: 4

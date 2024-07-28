@@ -2,10 +2,12 @@ MEDM (eyeball switch)
 
 Tile with red eye thing
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 1:
+Trigger by variable X
+
+Variable 3:
+32 = ?
+33 = ?
+Variable 4:
+16 = ?
+127 = ?

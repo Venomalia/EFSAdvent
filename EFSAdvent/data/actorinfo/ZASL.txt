@@ -1,6 +1,7 @@
-ZASL (The Coslime)
+ZASL (Zol slime)
 
-Blue slime
+Variable 4:
+16 = Under a 2 person lifting rock
 
 life: 1
 atcp: 1

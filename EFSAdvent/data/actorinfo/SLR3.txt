@@ -1,6 +1,14 @@
-SLR3 (Iron Ball Soldier)
+SLR3 (Ball and chain soldier)
 
-Ball on chain soldier
+Variable 1:
+Activated by variable X
+
+Variable 4:
+0 = Yellow
+1 = Blue
+2 = Green
+3 = Black
+4 = Red, fire ball
 
 life: 32
 atcp: 2

@@ -1,6 +1,12 @@
 OKTA (Octorok)
 
-Octorok
+Variable 4:
+0 = Red
+1 = Blue
+2 = Pink
+2 = Red
+4 = Red, does not shoot
+5 = Red, shoots in all 4 directions
 
 life: 4
 atcp: 2

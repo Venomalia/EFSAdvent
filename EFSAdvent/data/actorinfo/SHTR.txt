@@ -1,11 +1,10 @@
-SHTR (shutter)
+SHTR (shutter door)
 
+Variable 1:
+Variable that activate it.
 
+Variable 2:
+variable that deactivate it.
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Packed data is composed as follows:
+11111222 22000000 00000000 00000000

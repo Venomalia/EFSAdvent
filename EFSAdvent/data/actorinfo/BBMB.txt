@@ -1,11 +1,7 @@
 BBMB (Giant Bomb)
 
-Huge bomb
+Variable 1:
+Trigger by variable X
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+1 = ?

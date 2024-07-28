@@ -1,11 +1,38 @@
 OBLF (OBJ lift)
 
-16 stone tiles
+Variable 1a:
+Variable that activates this actor.
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2b:
+0 = Default
+1 = Altanative V4 Types
+
+Variable 3a:
+2 = Must be activated by variable
+
+Variable 3b:
+0 = East
+1 = West
+2 = South
+3 = North
+
+Variable 4a:
+1 = Movable lift
+2 = 
+
+Variable 4b:
+0 = 4x4 Gray lift plate 
+1 = 2x2 Gray lift plate
+2 = 2x4 Gray lift plate
+3 = 4x2 Gray lift plate
+4 = 2x2 Gray O lift plate
+5 = 5x5 Gray lift plate with 4 switches
+6 = 1x1 Green lift plate
+7 = 1x1 Red lift plate
+8 = 1x1 Blue lift plate
+9 = 1x1 Purple lift plate
+11 = Fire Rod Lv2 Platform generator
+12 = 3x3 Appearing yellow lift plate with a switch
+13 = 4 plates turned Z
+14 = 4 plates Upside down L
+15 = 4 plates Z

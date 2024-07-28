@@ -1,11 +1,25 @@
 SWT4 (4 switch monitoring)
+A switch that needs up to 4 variables to activate itself
 
-Crab?
+Packed Variable 1:
+Variable that will be set when this actor is triggered.
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Packed Variable 2:
+Switch variable necessary to activate
+
+Packed Variable 3:
+Switch variable necessary to activate
+
+Packed Variable 4:
+Switch variable necessary to activate
+
+Packed Variable 5:
+Switch variable necessary to activate
+
+Packed Variable 6:
+Switch settings
+0 = Default
+1 = Remains active
+
+Packed data is composed as follows:
+11111222 22333334 44445555 56666666

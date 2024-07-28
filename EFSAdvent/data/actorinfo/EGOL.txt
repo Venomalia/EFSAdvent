@@ -1,6 +1,4 @@
-EGOL (Igor)
-
-Large Amos Knightesque thing
+EGOL (Eyegore)
 
 life: 16
 atcp: 3

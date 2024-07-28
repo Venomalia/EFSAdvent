@@ -1,4 +1,4 @@
-FOBE (formation bee)
+FOBE (Flying bee formation)
 
 Red bee thing that flies away
 

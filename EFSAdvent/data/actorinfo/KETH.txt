@@ -1,6 +1,9 @@
-KETH (Keith)
+KETH (Keese)
 
-Keese
+Variable 4:
+0 = Default
+3 = Flies back and forth
+16 = big
 
 life: 2
 atcp: 2

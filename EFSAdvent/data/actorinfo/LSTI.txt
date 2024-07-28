@@ -1,11 +1,15 @@
 LSTI (Dropped Items)
 
-Items player dropped spawner?
+Items player dropped
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+1 = Pegasus boots
+2 = Lantern
+4 = Bow
+5 = Hammer
+6 = Fire Rod
+7 = Roc's Feather
+8 = Bombs
+9 = Shovel
+10 = Slingshot
+11 = Four Sword (unused)

@@ -1,6 +1,26 @@
-HOUS (moving house)
+HOUS (Movable house)
+A house that can be moved by several links.
 
-Invisible house
+Variable 1:
+Activates this variable when the house is moved to the north
+
+Variable 2:
+Activates this variable when the house is moved to the south
+
+Variable 3:
+Activates this variable when the house is moved to the west
+
+Variable 4:
+Activates this variable when the house is moved to the east
+
+Variable 5:
+2 = ?
+
+Variable 6:
+2 = ?
+
+Packed data is composed as follows:
+11111222 22333334 44445555 56666666
 
 life: 1
 atcp: 0

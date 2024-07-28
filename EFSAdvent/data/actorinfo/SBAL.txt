@@ -1,11 +1,7 @@
-SBAL (Search Iron Ball)
+SBAL (Seeking Iron Ball)
 
-Chasing ball enemy
+Variable 1:
+Activated by variable X
 
-life: 1
-atcp: 2
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+17 = ?

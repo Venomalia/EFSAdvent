@@ -1,6 +1,8 @@
-TNDR (ton dollar)
+TNDR (Vulture)
 
-Vulture
+Variable 4:
+6 = ?
+8 = ?
 
 life: 4
 atcp: 2

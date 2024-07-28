@@ -1,5 +1,4 @@
-EETC (Other characters for ending)
-
+EETC (Other characters for ending cutscene)
 Four ladies from start of game who change formation
 
 life: 1

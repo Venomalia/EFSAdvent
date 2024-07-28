@@ -1,7 +1,5 @@
 FOSL (Formation Slime)
 
-
-
 life: 1
 atcp: 1
 atcn: 0

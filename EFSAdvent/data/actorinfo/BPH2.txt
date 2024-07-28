@@ -1,6 +1,25 @@
-BPH2 (Big Pow 2)
+BPH2 (Big Poe 2)
+Boss fight against the Big Poe second form,
+Requires “bigpoo” Bti resources to function!
 
+Variable 1:
+Spotlight 1 trigger Variable
 
+Variable 2:
+Spotlight 2 trigger Variable
+
+Variable 3:
+Spotlight 3 trigger Variable
+
+Variable 4:
+Spotlight 4 trigger Variable
+
+Variable 6:
+0 = Big Poe
+1 = Inerer Poe
+
+Packed data is composed as follows:
+11111222 22333334 44445555 56666666
 
 life: 4
 atcp: 2

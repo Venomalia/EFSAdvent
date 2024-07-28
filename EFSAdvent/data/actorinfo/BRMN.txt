@@ -1,7 +1,5 @@
 BRMN (Bird Manager)
 
-
-
 life: 1
 atcp: 0
 atcn: 0

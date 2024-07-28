@@ -1,11 +1,26 @@
-SEV2 (environmental control 2)
+SEV2 (Environmental control 2)
+
+Variable 1:
+1 = ?
+2 = ?
+4 = Waterfall effect
+Requires: niji_a.bmd, taki_a.bmd, taki_a.btk, taki_b.bmd, taki_b.btk
+80 = ?
+
+Variable 2:
+4 = Rays of light from the east
+Requires: morninglight00.bmd, morninglight00.brk, morninglight00.btk
+
+8 = Lost forest filter
+Requires: forestfilter00.bmd, forestfilter00.brk, forestfilter00.btk
+
+16 = swamp water?
+32 = heat
+128 = ?
 
 
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+Options
+0 = Waterfall start
+1 = Waterfall end
+2 = ?

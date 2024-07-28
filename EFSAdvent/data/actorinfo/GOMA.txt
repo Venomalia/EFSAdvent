@@ -1,6 +1,8 @@
-GOMA (Goma)
+GOMA (Gohma)
 
-Ghoma 
+Variable 4:
+0 = Default
+3 = Boss
 
 life: 12
 atcp: 4

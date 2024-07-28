@@ -2,10 +2,8 @@ BCK2 (color block for 1 person)
 
 Stone block
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+20 = movable east
+21 = movable west 
+22 = movable south 
+23 = movable north

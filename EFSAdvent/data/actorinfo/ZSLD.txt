@@ -1,7 +1,18 @@
-ZSLD (Small Fish Shadow Link (Thwomp))
+ZSLD (Easy Shadow Link (Dashing))
 
+ZSLD, L:0, X:54, Y:24, V:0,0,0,49.
 
+ZSLD, L:0, X:31, Y:27, V:0,0,0,50.
 
+Variable 4:
+0 = East
+1 = West
+2 = South
+3 = North
+48 =
+49 = West
+50 = North
+51 =
 life: 1
 atcp: 4
 atcn: 0

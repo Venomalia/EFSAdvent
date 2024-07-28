@@ -1,11 +1,17 @@
-ESRY (rupee to escape)
+ESRY (escaping rupee)
 
-Large rupee that floats away from you
+Variable 1:
+Activated by variable X
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+2 = ?
+
+Variable 4:
+0 Green
+1 Blue
+2 Red
+3 Purple
+4 Green flashing Purple
+5 Small red
+6 Small purple
+7 Small blue

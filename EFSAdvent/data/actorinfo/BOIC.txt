@@ -1,5 +1,4 @@
 BOIC (Ice Boss)
-
 Spawns flying samurais?
 
 life: 1

@@ -1,7 +1,5 @@
 ZORA (Zora)
 
-Zora
-
 life: 4
 atcp: 2
 atcn: 0

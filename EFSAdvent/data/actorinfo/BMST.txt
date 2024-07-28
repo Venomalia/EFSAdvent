@@ -1,6 +1,7 @@
-BMST (beam stone statue)
+BMST (Beamos)
 
-Green Beamos
+Variable 4:
+Range
 
 life: 1
 atcp: 2

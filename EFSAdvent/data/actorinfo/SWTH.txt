@@ -1,11 +1,13 @@
 SWTH (switch)
+One person switch
 
+Variable 1a:
+Enabled variable X
 
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+0 = Default
+1 = Remains active
+2 = ?
+3 = ?
+4 = Invisible trigger
+7 = Invisible trigger area, use V2 as range?

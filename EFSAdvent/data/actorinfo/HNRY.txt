@@ -1,11 +1,29 @@
-HNRY (feather rupee)
+HNRY (Hovering rupee)
 
-Floating large rupee
+Variable 1:
+2 = unk
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 2:
+1 = Moves Vertical
+2 = Moves horizontall
+3 = Clockwise
+4 = Counterclockwise
+5 = ? 
+6 = Moves Vertical, centered
+7 = Moves horizontall, centered
+
+Variable 3:
+FLAG
+1 = Appear effect
+4 = Hovers high when close
+16 = Hovers low
+
+Variable 4:
+0 Green
+1 Blue
+2 Red
+3 Purple
+4 Green flashing Purple
+5 Small red
+6 Small purple
+7 Small blue

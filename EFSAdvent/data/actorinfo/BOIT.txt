@@ -1,6 +1,4 @@
-BOIT (the tail of the ice boss)
-
-Glitched sprite
+BOIT (Tail of the ice boss)
 
 life: 1
 atcp: 0

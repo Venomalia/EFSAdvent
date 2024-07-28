@@ -1,6 +1,4 @@
-PEAC (Peace)
-
-Crab
+PEAC (Crab)
 
 life: 4
 atcp: 2

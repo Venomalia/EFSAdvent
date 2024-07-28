@@ -1,7 +1,5 @@
 DDGO (Dodongo)
 
-Dodongo
-
 life: 8
 atcp: 4
 atcn: 0

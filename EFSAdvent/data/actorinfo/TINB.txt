@@ -1,5 +1,5 @@
 TINB (Tingle Buster)
-
+Prevents Tingle from coming and stealing force crystals.
 
 
 life: 1

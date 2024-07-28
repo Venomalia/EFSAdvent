@@ -1,6 +1,4 @@
-GDMN (Sunao)
-
-
+GDMN (Geldman)
 
 life: 8
 atcp: 2

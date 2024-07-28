@@ -1,6 +1,5 @@
-ICHL (Ice Boss Child)
-
-Flying blue samurai
+ICHL (Frosteye)
+Ice Boss Child
 
 life: 4
 atcp: 2

@@ -1,6 +1,10 @@
 STAL (Starfoss)
 
-Stalfos
+Variable 4:
+0 = Default
+1 = Jumps
+2 = ?
+30 = Big
 
 life: 8
 atcp: 2

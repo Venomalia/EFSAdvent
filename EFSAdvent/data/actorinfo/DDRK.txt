@@ -1,6 +1,5 @@
-DDRK (deadlock)
-
-Little monster with wings
+DDRK (Deadlock)
+Deadlock enemie
 
 life: 16
 atcp: 2

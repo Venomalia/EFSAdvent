@@ -1,11 +1,1 @@
-RDBL (red / blue switch (red / blue floor panel rewriting))
-
-Red glow
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+RDBL (Red / Blue switch (red / blue floor panel rewriting))

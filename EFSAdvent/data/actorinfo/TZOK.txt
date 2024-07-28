@@ -1,6 +1,19 @@
 TZOK (thief)
 
-NPC with red bandana who runs away from you
+Variable 1:
+40 = Red bandana
+41 = Old man
+42 = Little girl
+43 = Woman
+
+Variable 2:
+9
+
+Variable 3:
+Cage Id
+
+Variable 4:
+Thief nr
 
 life: 1
 atcp: 0

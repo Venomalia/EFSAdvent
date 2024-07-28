@@ -1,11 +1,1 @@
-DNAV (5-4 Priestess Crystal Demo Navi)
-
-Navi
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+DNAV (5-4 navi for maiden crystal cutscene)

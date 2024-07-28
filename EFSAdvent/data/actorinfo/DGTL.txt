@@ -1,6 +1,6 @@
-DGTL (Degutail)
-
-
+DGTL (Big Moldorm)
+Boss fight against the Big Moldorm,
+Requires “degtail” Bti resources to function!
 
 life: 4
 atcp: 2

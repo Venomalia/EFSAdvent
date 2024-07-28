@@ -1,6 +1,11 @@
 SLMN (Slime Manager)
-
 Four slimes
+
+Variable 3:
+6 = ?
+
+Variable 4:
+16 = ?
 
 life: 1
 atcp: 0

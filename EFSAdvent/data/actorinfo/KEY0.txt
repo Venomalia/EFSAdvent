@@ -1,11 +1,26 @@
-KEY0 (key)
+KEY0 (Key)
+A key item which is required to progress.
 
-Key
+Variable 1:
+Variable that triggers this actor.
 
-life: 1
-atcp: 2
-atcn: 8
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 3:
+72 = Can be activated with Pegasus Boots
+
+Variable 3:
+2 = ?
+4 = ?
+
+Variable 4:
+0 = Key
+1 = Big Key
+2 = Letter
+3 = Power Bracelet
+4 = Heart Container
+5 = Blue Bracelet
+6 = Moon Perl
+7 = Bombos Medallion
+8 = Quake Medallion
+9 = Book
+10 = Key
+&128 = ?

@@ -1,6 +1,10 @@
-PAME (Pame)
+PAME (Terrorpin)
 
-Rock monster
+Variable 4:
+1 = Big
+3 = Big, green
+5 = Big, red
+8 = Big, blue
 
 life: 8
 atcp: 2

@@ -1,6 +1,14 @@
-GROK (G-clock)
+GROK (Helmaroc king)
+Boss fight against the Helmaroc king,
+Requires “grock” Bti resources to function!
 
-Starts cutscene then crashes
+Variable 4:
+0 = Helmaroc king
+2 = point at which the Helmaroc king is stuck in the left stone
+3 = point at which the Helmaroc king is stuck in the right stone
+4 = Point in GBA where the Helmaroc king is in the left stone.
+5 = Point in GBA where the Helmaroc king is in the right stone.
+7 = Flies once across the screen
 
 life: 4
 atcp: 2

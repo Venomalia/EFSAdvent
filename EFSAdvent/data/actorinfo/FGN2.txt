@@ -1,5 +1,6 @@
 FGN2 (Phantom Ganon 2)
-
+Boss fight against the Phantom Ganon 2,
+Requires “fganon” Bti resources to function!
 
 
 life: 4

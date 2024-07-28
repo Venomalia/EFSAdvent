@@ -1,11 +1,14 @@
-PNP2 (panel rewriting NPC2)
+PNP2 (Panel rewriting NPC2)
+Causes a tile on the entire area to be converted into another tile.
 
+Variable 1a:
+Variable that activates the tile to be changed.
 
+Variable 2+3:
+Value of the tile that should replace another.
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 3+4:
+Value of the tile to be replaced by another.
+
+Packed data is composed as follows:
+11111222 22223333 33333344 44444444

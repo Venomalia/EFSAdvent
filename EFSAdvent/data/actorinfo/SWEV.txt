@@ -1,5 +1,8 @@
 SWEV (environmental switch control)
 
+Variable 1:
+Activated by variable X
+
 Variable 2:
 00	Dark, no clouds
 01	""
@@ -60,6 +63,11 @@ More untested...
 
 Variable 4:
 Seems to change how bright the screen is.
+0 = Bright
+1 = Dark
+2 = ?
+3 = ?
+4 = ?
 
 life: 1
 atcp: 0

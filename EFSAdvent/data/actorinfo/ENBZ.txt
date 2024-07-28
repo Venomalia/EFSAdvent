@@ -1,6 +1,4 @@
-ENBZ (Enemy Occurrence Area)
-
-Soldiers appear in explosions
+ENBZ (Enemy area generator)
 
 life: 1
 atcp: 0

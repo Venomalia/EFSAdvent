@@ -1,11 +1,16 @@
 RASN (spiral staircase)
+Passageway that loading a new area on the map.
 
-Stair loading area
+Variable 1a:
+Activated by variable X
 
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+Variable 4:
+&0xF
+0 = Stairs up, load the next map in north
+1 = Stairs down, load the next map in south
+4 = Passage north, use packed variables structure Unknown.
+5 = Passage south, use packed variables structure Unknown.
+&0xF0
+Floor number, for stairs
+
+

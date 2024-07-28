@@ -1,5 +1,4 @@
-JIJI (old man)
-
+JIJI (Old man)
 Can be a range of different NPCs.
 
 Variable 1:
@@ -17,12 +16,4 @@ Variable 2: Actor Sprite
 Variable 3:
 
 Variable 4:
-What text actor says.
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0
+What text actor says?

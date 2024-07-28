@@ -1,6 +1,4 @@
-WNWN (One One)
-
-Chain chomp
+WNWN (Chain chomp)
 
 life: 4
 atcp: 2
