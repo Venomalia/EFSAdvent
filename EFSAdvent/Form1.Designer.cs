@@ -33,7 +33,6 @@
             this.tileSheetPanel = new System.Windows.Forms.Panel();
             this.tileSheetPictureBox = new System.Windows.Forms.PictureBox();
             this.layersPanel = new System.Windows.Forms.Panel();
-            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addNewActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,6 +71,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
+            this.MapVariableMusicComboBox = new System.Windows.Forms.ComboBox();
             this.RoomLayoutgroupBox1 = new System.Windows.Forms.GroupBox();
             this.MapRoomLoadButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -85,7 +85,6 @@
             this.MapVariableDisallowTingle = new System.Windows.Forms.NumericUpDown();
             this.MapVariableTileSheet = new System.Windows.Forms.NumericUpDown();
             this.MapVariableE3Banner = new System.Windows.Forms.NumericUpDown();
-            this.MapVariableMusic = new System.Windows.Forms.NumericUpDown();
             this.MapVariableStartY = new System.Windows.Forms.NumericUpDown();
             this.MapVariableStartX = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
@@ -183,10 +182,10 @@
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
+            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.actorContextMenuStrip.SuspendLayout();
             this.MapPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
@@ -203,7 +202,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableDisallowTingle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableTileSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableE3Banner)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableMusic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartX)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -245,6 +243,7 @@
             this.actorInfoBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).BeginInit();
             this.BottomGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tileSheetPanel
@@ -281,24 +280,6 @@
             this.layersPanel.Name = "layersPanel";
             this.layersPanel.Size = new System.Drawing.Size(512, 516);
             this.layersPanel.TabIndex = 1;
-            // 
-            // layerPictureBox
-            // 
-            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.layerPictureBox.Enabled = false;
-            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
-            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.Name = "layerPictureBox";
-            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.layerPictureBox.TabIndex = 0;
-            this.layerPictureBox.TabStop = false;
-            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
-            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
-            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
             // 
             // actorContextMenuStrip
             // 
@@ -442,7 +423,7 @@
             // roomImportToolStripMenuItem
             // 
             this.roomImportToolStripMenuItem.Name = "roomImportToolStripMenuItem";
-            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.roomImportToolStripMenuItem.Text = "Room";
             this.roomImportToolStripMenuItem.ToolTipText = "Imports a room from another map file.";
             this.roomImportToolStripMenuItem.Click += new System.EventHandler(this.roomImportToolStripMenuItem_Click);
@@ -450,7 +431,7 @@
             // actorsImportToolStripMenuItem
             // 
             this.actorsImportToolStripMenuItem.Name = "actorsImportToolStripMenuItem";
-            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.actorsImportToolStripMenuItem.Text = "Actors";
             this.actorsImportToolStripMenuItem.ToolTipText = "Imports actors from another room file to the current room.";
             this.actorsImportToolStripMenuItem.Click += new System.EventHandler(this.actorsImportToolStripMenuItem_Click);
@@ -675,6 +656,7 @@
             // 
             this.MapVariablesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.MapVariablesGroupBox.Controls.Add(this.MapVariableMusicComboBox);
             this.MapVariablesGroupBox.Controls.Add(this.RoomLayoutgroupBox1);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableNPCSheetID);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableOverlay);
@@ -682,7 +664,6 @@
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableDisallowTingle);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableTileSheet);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableE3Banner);
-            this.MapVariablesGroupBox.Controls.Add(this.MapVariableMusic);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableStartY);
             this.MapVariablesGroupBox.Controls.Add(this.MapVariableStartX);
             this.MapVariablesGroupBox.Controls.Add(this.label20);
@@ -702,6 +683,15 @@
             this.MapVariablesGroupBox.TabStop = false;
             this.MapVariablesGroupBox.Text = "Map";
             // 
+            // MapVariableMusicComboBox
+            // 
+            this.MapVariableMusicComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MapVariableMusicComboBox.FormattingEnabled = true;
+            this.MapVariableMusicComboBox.Location = new System.Drawing.Point(84, 43);
+            this.MapVariableMusicComboBox.Name = "MapVariableMusicComboBox";
+            this.MapVariableMusicComboBox.Size = new System.Drawing.Size(177, 21);
+            this.MapVariableMusicComboBox.TabIndex = 32;
+            // 
             // RoomLayoutgroupBox1
             // 
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomLoadButton);
@@ -711,7 +701,7 @@
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomSetButton);
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomNumberInput);
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomRemoveButton);
-            this.RoomLayoutgroupBox1.Location = new System.Drawing.Point(6, 182);
+            this.RoomLayoutgroupBox1.Location = new System.Drawing.Point(3, 153);
             this.RoomLayoutgroupBox1.Name = "RoomLayoutgroupBox1";
             this.RoomLayoutgroupBox1.Size = new System.Drawing.Size(255, 254);
             this.RoomLayoutgroupBox1.TabIndex = 31;
@@ -786,7 +776,7 @@
             // 
             // MapVariableNPCSheetID
             // 
-            this.MapVariableNPCSheetID.Location = new System.Drawing.Point(215, 69);
+            this.MapVariableNPCSheetID.Location = new System.Drawing.Point(215, 96);
             this.MapVariableNPCSheetID.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -799,7 +789,7 @@
             // 
             // MapVariableOverlay
             // 
-            this.MapVariableOverlay.Location = new System.Drawing.Point(84, 95);
+            this.MapVariableOverlay.Location = new System.Drawing.Point(84, 96);
             this.MapVariableOverlay.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -812,7 +802,7 @@
             // 
             // MapVariableUnknown2
             // 
-            this.MapVariableUnknown2.Location = new System.Drawing.Point(215, 95);
+            this.MapVariableUnknown2.Location = new System.Drawing.Point(215, 125);
             this.MapVariableUnknown2.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -825,7 +815,7 @@
             // 
             // MapVariableDisallowTingle
             // 
-            this.MapVariableDisallowTingle.Location = new System.Drawing.Point(84, 121);
+            this.MapVariableDisallowTingle.Location = new System.Drawing.Point(84, 122);
             this.MapVariableDisallowTingle.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -838,7 +828,7 @@
             // 
             // MapVariableTileSheet
             // 
-            this.MapVariableTileSheet.Location = new System.Drawing.Point(84, 69);
+            this.MapVariableTileSheet.Location = new System.Drawing.Point(84, 70);
             this.MapVariableTileSheet.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -851,7 +841,7 @@
             // 
             // MapVariableE3Banner
             // 
-            this.MapVariableE3Banner.Location = new System.Drawing.Point(215, 43);
+            this.MapVariableE3Banner.Location = new System.Drawing.Point(215, 70);
             this.MapVariableE3Banner.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -862,24 +852,11 @@
             this.MapVariableE3Banner.TabIndex = 23;
             this.MapVariableE3Banner.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
             // 
-            // MapVariableMusic
-            // 
-            this.MapVariableMusic.Location = new System.Drawing.Point(84, 43);
-            this.MapVariableMusic.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.MapVariableMusic.Name = "MapVariableMusic";
-            this.MapVariableMusic.Size = new System.Drawing.Size(46, 20);
-            this.MapVariableMusic.TabIndex = 22;
-            this.MapVariableMusic.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
-            // 
             // MapVariableStartY
             // 
             this.MapVariableStartY.Location = new System.Drawing.Point(215, 17);
             this.MapVariableStartY.Maximum = new decimal(new int[] {
-            10000,
+            9,
             0,
             0,
             0});
@@ -892,7 +869,7 @@
             // 
             this.MapVariableStartX.Location = new System.Drawing.Point(84, 17);
             this.MapVariableStartX.Maximum = new decimal(new int[] {
-            10000,
+            9,
             0,
             0,
             0});
@@ -904,7 +881,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 123);
+            this.label20.Location = new System.Drawing.Point(3, 124);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(81, 13);
             this.label20.TabIndex = 18;
@@ -913,7 +890,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(136, 97);
+            this.label19.Location = new System.Drawing.Point(136, 127);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 13);
             this.label19.TabIndex = 17;
@@ -922,7 +899,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 98);
+            this.label18.Location = new System.Drawing.Point(3, 99);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(46, 13);
             this.label18.TabIndex = 16;
@@ -932,7 +909,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(136, 71);
+            this.label17.Location = new System.Drawing.Point(136, 98);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(63, 13);
             this.label17.TabIndex = 15;
@@ -941,7 +918,7 @@
             // csvLabel4
             // 
             this.csvLabel4.AutoSize = true;
-            this.csvLabel4.Location = new System.Drawing.Point(136, 45);
+            this.csvLabel4.Location = new System.Drawing.Point(139, 72);
             this.csvLabel4.Name = "csvLabel4";
             this.csvLabel4.Size = new System.Drawing.Size(60, 13);
             this.csvLabel4.TabIndex = 14;
@@ -963,7 +940,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 71);
+            this.label10.Location = new System.Drawing.Point(3, 72);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 13);
             this.label10.TabIndex = 1;
@@ -972,7 +949,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 45);
+            this.label11.Location = new System.Drawing.Point(3, 46);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 1;
@@ -2041,6 +2018,24 @@
             this.BottomGroupBox.TabIndex = 24;
             this.BottomGroupBox.TabStop = false;
             // 
+            // layerPictureBox
+            // 
+            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layerPictureBox.Enabled = false;
+            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
+            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.Name = "layerPictureBox";
+            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.layerPictureBox.TabIndex = 0;
+            this.layerPictureBox.TabStop = false;
+            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
+            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
+            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2062,7 +2057,6 @@
             this.tileSheetPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).EndInit();
             this.layersPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.actorContextMenuStrip.ResumeLayout(false);
             this.MapPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).EndInit();
@@ -2083,7 +2077,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableDisallowTingle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableTileSheet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableE3Banner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableMusic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartX)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -2134,6 +2127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).EndInit();
             this.BottomGroupBox.ResumeLayout(false);
             this.BottomGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2215,7 +2209,6 @@
 		private System.Windows.Forms.NumericUpDown MapVariableDisallowTingle;
 		private System.Windows.Forms.NumericUpDown MapVariableTileSheet;
 		private System.Windows.Forms.NumericUpDown MapVariableE3Banner;
-		private System.Windows.Forms.NumericUpDown MapVariableMusic;
 		private System.Windows.Forms.NumericUpDown MapVariableStartY;
 		private System.Windows.Forms.NumericUpDown MapVariableStartX;
 		private System.Windows.Forms.NumericUpDown ActorVariable4Input;
@@ -2294,6 +2287,7 @@
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roomImportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actorsImportToolStripMenuItem;
+        private System.Windows.Forms.ComboBox MapVariableMusicComboBox;
     }
 }
 

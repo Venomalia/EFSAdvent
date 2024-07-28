@@ -137,6 +137,24 @@ namespace EFSAdvent
                 var names = File.ReadLines(V8ActorListPath);
                 V8ACTORS = new HashSet<string>(names.Select(n => n.Trim()));
             }
+
+
+            string musicListPath = Path.Combine(dataDirectory, "Music Name List.txt");
+            if (File.Exists(musicListPath))
+            {
+                var names = File.ReadLines(musicListPath);
+                foreach (var item in names.Select(n => n.Trim()))
+                {
+                    MapVariableMusicComboBox.Items.Add(item);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 40; i++)
+                {
+                    MapVariableMusicComboBox.Items.Add(i);
+                }
+            }
             ResetVarsForNewLevel();
         }
 
@@ -174,7 +192,7 @@ namespace EFSAdvent
             this.Text = $"{BaseTitel} - {_level.Map.Name}";
             SetMapVariableInput(MapVariableStartX, _level.Map.StartX);
             SetMapVariableInput(MapVariableStartY, _level.Map.StartY);
-            SetMapVariableInput(MapVariableMusic, _level.Map.BackgroundMusicId);
+            MapVariableMusicComboBox.SelectedIndex = _level.Map.BackgroundMusicId;
             SetMapVariableInput(MapVariableE3Banner, _level.Map.ShowE3Banner);
             SetMapVariableInput(MapVariableOverlay, _level.Map.OverlayTextureId);
             SetMapVariableInput(MapVariableTileSheet, _level.Map.TileSheetId);
@@ -219,7 +237,7 @@ namespace EFSAdvent
 
             MapVariableStartX.Enabled = !_level.Map.IsShadowBattle;
             MapVariableStartY.Enabled = !_level.Map.IsShadowBattle;
-            MapVariableMusic.Enabled = !_level.Map.IsShadowBattle;
+            MapVariableMusicComboBox.Enabled = !_level.Map.IsShadowBattle;
             MapVariableE3Banner.Enabled = !_level.Map.IsShadowBattle;
             MapVariableOverlay.Enabled = !_level.Map.IsShadowBattle;
             MapVariableTileSheet.Enabled = !_level.Map.IsShadowBattle;
@@ -520,7 +538,7 @@ namespace EFSAdvent
             _level.Map.SetVariables(
                 (int)MapVariableStartX.Value,
                 (int)MapVariableStartY.Value,
-                (int)MapVariableMusic.Value,
+                (int)MapVariableMusicComboBox.SelectedIndex,
                 (int)MapVariableE3Banner.Value,
                 (int)MapVariableTileSheet.Value,
                 (int)MapVariableNPCSheetID.Value,
