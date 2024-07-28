@@ -48,12 +48,29 @@ namespace EFSAdvent
         private readonly HashSet<string> V6ACTORS = new HashSet<string>();
         private readonly HashSet<string> V8ACTORS = new HashSet<string>();
 
+        private string dataDirectory;
         public Form1()
         {
             InitializeComponent();
             this.Text = BaseTitel;
 
-            tileSheetBitmap = new Bitmap("data\\Tile Sheet 00.PNG");
+            dataDirectory = "data";
+            if (!Directory.Exists(dataDirectory))
+            {
+                dataDirectory = "..\\..\\data";
+                if (!Directory.Exists(dataDirectory))
+                {
+                    dataDirectory = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "data");
+                    MessageBox.Show($"External resources from the \"{dataDirectory}\" folder are required for this tool to function.",
+                                                 "Data folder not found!",
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Error);
+                    Application.Exit();
+                }
+            }
+
+            string SheetPath = Path.Combine(dataDirectory, "Tile Sheet 00.PNG");
+            tileSheetBitmap = new Bitmap(SheetPath);
             tileSheetPictureBox.Image = tileSheetBitmap;
 
             brushTileBitmap = new Bitmap(16, 16, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
@@ -80,9 +97,7 @@ namespace EFSAdvent
             _clipboard = new Clipboard(_history);
             _logger = new Logger(loggerTextBox);
 
-            string exePath = Application.ExecutablePath;
-            string directory = Path.GetDirectoryName(exePath);
-            string spriteFolder = Path.Combine(directory, "data", "actorsprites");
+            string spriteFolder = Path.Combine(dataDirectory, "actorsprites");
             var spritePaths = Directory.GetFiles(spriteFolder, "*.png", SearchOption.TopDirectoryOnly);
             foreach (var spritePath in spritePaths)
             {
@@ -91,7 +106,7 @@ namespace EFSAdvent
             }
 
             // Load Actor Namelist
-            string ActorNameListPath = "data\\FSA Actor Namelist.txt";
+            string ActorNameListPath = Path.Combine(dataDirectory, "FSA Actor Namelist.txt");
             if (File.Exists(ActorNameListPath))
             {
                 var names = File.ReadLines(ActorNameListPath);
@@ -100,7 +115,7 @@ namespace EFSAdvent
             }
 
             // Load V4 Typ Actors
-            string V4ActorListPath = "data\\V4 Typ Actors.txt";
+            string V4ActorListPath = Path.Combine(dataDirectory, "V4 Typ Actors.txt");
             if (File.Exists(V4ActorListPath))
             {
                 var names = File.ReadLines(V4ActorListPath);
@@ -108,7 +123,7 @@ namespace EFSAdvent
             }
 
             // Load V6 Typ Actors
-            string V6ActorListPath = "data\\V6 Typ Actors.txt";
+            string V6ActorListPath = Path.Combine(dataDirectory, "V6 Typ Actors.txt");
             if (File.Exists(V6ActorListPath))
             {
                 var names = File.ReadLines(V6ActorListPath);
@@ -116,13 +131,12 @@ namespace EFSAdvent
             }
 
             // Load V8 Typ Actors
-            string V8ActorListPath = "data\\V8 Typ Actors.txt";
+            string V8ActorListPath = Path.Combine(dataDirectory, "V8 Typ Actors.txt");
             if (File.Exists(V8ActorListPath))
             {
                 var names = File.ReadLines(V8ActorListPath);
                 V8ACTORS = new HashSet<string>(names.Select(n => n.Trim()));
             }
-
             ResetVarsForNewLevel();
         }
 
@@ -912,10 +926,7 @@ namespace EFSAdvent
         private void ChangeTileSheet(int tileSheetIndex)
         {
             currentTileSheetComboBox.SelectedIndex = tileSheetIndex;
-
-            string exePath = Application.ExecutablePath;
-            string directory = Path.GetDirectoryName(exePath);
-            var tileSheetPath = Path.Combine(directory, "data", $"Tile Sheet {currentTileSheetComboBox.SelectedIndex:D2}.PNG");
+            var tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {currentTileSheetComboBox.SelectedIndex:D2}.PNG");
             var tileSheet = new Bitmap(tileSheetPath);
             var graphics = Graphics.FromImage(tileSheetBitmap);
             graphics.Clear(Color.FromArgb(00000000));
@@ -1407,10 +1418,8 @@ namespace EFSAdvent
             }
 
             //Load the actor info txt into the box
-            string exePath = Application.ExecutablePath;
-            string directory = Path.GetDirectoryName(exePath);
             string actorName = actorsCheckListBox.Text;
-            string actorInfoFilePath = Path.Combine(directory, "data", "actorinfo", $"{actorName}.txt");
+            string actorInfoFilePath = Path.Combine(dataDirectory, "actorinfo", $"{actorName}.txt");
             try
             {
                 string info = File.ReadAllText(actorInfoFilePath);
@@ -1419,7 +1428,7 @@ namespace EFSAdvent
             catch (FileNotFoundException)
             {
                 ActorInfoTextBox.Clear();
-                _logger.AppendLine($"File data/actorinfo/{actorName}.txt not found.");
+                _logger.AppendLine($"File \"{actorInfoFilePath}\" not found.");
             }
 
             if (newActor.Name == "PNPC" || newActor.Name == "PNP2")
