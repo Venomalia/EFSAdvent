@@ -13,7 +13,7 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        const string VERSION = "1.2";
+        const string VERSION = "1.3 [Venomalia]";
         private string BaseTitel = $"EFSAdvent {VERSION}";
 
         const int ACTOR_PIXELS_PER_COORDINATE = 8;
