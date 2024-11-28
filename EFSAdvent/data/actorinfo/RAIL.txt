@@ -11,5 +11,8 @@ Variable 3:
 Rail ID
 
 Variable 4:
+1 = ?
 8 = Jumps
+16 = ?
 17 = Jumps
+24 = ?

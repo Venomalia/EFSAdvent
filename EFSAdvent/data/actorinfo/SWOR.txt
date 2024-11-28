@@ -1,1 +1,13 @@
 SWOR (OR switch check)
+
+Variable 1:
+Variable that is set if one of the checked variables is set.
+
+Variable 2:
+Variable that is checked.
+
+Variable 3:
+Variable that is checked.
+
+Packed data is composed as follows:
+11111222 22333334 44445555 56666666

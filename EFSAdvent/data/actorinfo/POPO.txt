@@ -1,5 +1,9 @@
 POPO (Popo)
 
+Variable 4:
+0 = ?
+1 = ?
+
 life: 4
 atcp: 2
 atcn: 0

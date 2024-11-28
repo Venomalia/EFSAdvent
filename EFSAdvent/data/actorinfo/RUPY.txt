@@ -7,14 +7,23 @@ Variable 2:
 1 = Not ineractable
 2 = ?
 3 = Does not despawn
-4 = ?
-5 = ?
-6 = ?
-11 = Pegasus Boots?
-29 = ?
+4 = Pegasus Boots, west
+5 = Pegasus Boots, east
+6 = Pegasus Boots, south
+7 = Pegasus Boots, north
+8 = Pegasus Boots, west
+9 = Pegasus Boots, east
+10 = Pegasus Boots, south
+11 = Pegasus Boots, north
+12 = Pegasus Boots, west, Can be triggered again
+13 = Pegasus Boots, east, Can be triggered again
+14 = Pegasus Boots, south, Can be triggered again
+15 = Pegasus Boots, north, Can be triggered again
 16 = Must be activated by variable
+28 = Falls from the sky.
+29 = Pegasus Boots,
 35 = Under Water
-36 = Invisible Under Water
+36 = Invisible
 
 Variable 3:
 Frames to appear

@@ -1,15 +1,23 @@
 LOTS (Lily pad)
 
 Variable 1:
-Activated by variable X
+Variable which makes the Lily pad appear
 
-Variable 3:
-Direction and distance?
-&0xF0 = distance?
-&0x0F
+Variable 2b:
+Tile Distance (+16 tiles)
 
-Variable 4:
+Variable 3a:
+Tile Distance
+
+Variable 3b:
+0 = East
+1 = West
+2 = North
+3 = South
+
+Variable 4a:
+Swim speed
+
+Variable 4b:
 1 = Small
 2 = Big
-49 = Small moves
-50 = Big moves

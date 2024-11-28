@@ -1,10 +1,11 @@
 LIFT (lift)
-
-Rotating wooden platform
+Movable 6x6 wooden platform 
 
 Variable 2:
-12 = ?
-16 = ?
+Distance
 
 Variable 4:
-6 = 6x6
+0 = Rotating
+6 = Wast
+7 = North
+8 = Moves in a circle

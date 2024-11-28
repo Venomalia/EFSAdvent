@@ -6,14 +6,18 @@ Enabled variable X
 
 Variable 4:
 0 = 1x1 block
-1 = 2x2 block
-2 = 3x3 block
+1 = 2x2 block, Movable to the east or west.
+2 = 3x3 block, Movable to the east.
 3 = 4x4 block
 4 = 1x1 block
-5 = 2x2 block
+5 = 2x2 block, Movable to the north or south.
 6 = 3x3 block
-7 = 4x4 block
+7 = 4x4 block, Movable to the north or south.
 8 = 1x1 block, movable to the north
-9 = 2x2 block, movable to the north
+9 = 2x2 block, Fix
 10 = 3x3 block, movable to the north
 11 = 4x4 block, movable to the north
+12 = 1x1 block, Fix
+13 = 2x2 block, Fix
+14 = 3x3 block
+15 = 4x4 block

@@ -10,6 +10,9 @@ Variable 2b:
 
 Variable 3a:
 0 = ?
+1 = ?
+2 = ?
+3 = ?
 4 = ?
 
 Variable 3b:

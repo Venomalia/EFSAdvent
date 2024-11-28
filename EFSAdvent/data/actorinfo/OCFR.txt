@@ -1,2 +1,27 @@
 OCFR (Fire (Manager))
-Large flame spout
+
+Variable 1a:
+Variable which stops the iron balls
+
+Variable 1a:
+0 = alternating left right.
+1 = Always centered.
+2 = alternating left right,disappear after activating the variable.
+3 = Always centered, disappear after activating the variable.
+
+Variable 2:
+Random delay until the next flame.
+
+Variable 3:
+Delay until the next flame.
+
+Variable 4a:
+0 = South
+1 = North
+2 = East
+3 = West
+
+Variable 4b:
+0 = Fast flying
+4 = Slowly flying
+8 = Faster flying (Hits only enemies)

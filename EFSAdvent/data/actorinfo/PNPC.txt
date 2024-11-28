@@ -5,11 +5,13 @@ Variable 1a:
 Variable that activates the tile to be changed.
 
 Variable 1b:
-4 = ?
-1 = ?
+0 = No special effect
+4 = Dust particles
 
 Variable 2:
-Somehow determines which layer the tile change occurs on.
+0 = Base layer
+1 = Top layer
+16 = ?
 
 Variable 3+4:
 Value of the tile that appears.

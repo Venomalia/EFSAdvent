@@ -5,7 +5,11 @@ Variable 1a:
 Activated by variable X
 
 Variable 1b:
-Which layer the warp takes the players to
+0 = Back To TV
+1 = Slight shaking, Pixelation transition and music distortion.
+2 = Heavy shaking
+3 = Slight shaking
+4 = no shaking
 
 Variable 2:
 The X coordinate players arrive at
@@ -19,6 +23,6 @@ Variable 4:
 2 = Red
 3 = Blue
 4 = Purple
-5 = Number 10
+5 = 10 seconds
 7 = Cactus
 8 = Glitter effect

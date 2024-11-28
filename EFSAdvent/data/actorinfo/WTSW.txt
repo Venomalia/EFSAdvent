@@ -2,16 +2,16 @@ WTSW (Wait switch)
 Activates a variable with time delay.
 
 Variable 1:
-Variable that activates this actor.
-
-Variable 2:
 Variable to be activated after the time has elapsed.
 
-Variable 5:
-2 = ?
+Variable 2:
+Variable that activates this actor.
 
-Variable 5:
-64 = ?
+Variable 3:
+Strength of the earthquake effects
+
+Variable 4+5+6:
+Time until triggering
 
 Packed data is composed as follows:
-11111222 22333334 44445555 56666666
+11111222 22333334 44444444 44444444

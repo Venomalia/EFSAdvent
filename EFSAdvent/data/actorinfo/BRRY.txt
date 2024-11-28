@@ -1,9 +1,15 @@
 BRRY (Buried rupee)
 
+Variable 1a:
+Variable which activates this actor.
+
 Variable 2:
 0 = Buried visible
 1 = Buried deep
+2 = Buried visible, Requires active variable
+3 = Buried deep, Requires active variable
 4 = Secret SE
+5 = Secret SE, Requires active variable
 
 Variable 4:
 0 Green

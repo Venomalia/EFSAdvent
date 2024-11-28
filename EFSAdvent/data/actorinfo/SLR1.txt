@@ -18,6 +18,7 @@ Variable 4:
 2 = Blue
 3 = Red, linked to Captain
 4 = Black
+5 = ?
 6 = Big Yellow
 
 life: 12

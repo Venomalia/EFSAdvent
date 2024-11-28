@@ -1,13 +1,15 @@
 MEDM (eyeball switch)
 
-Tile with red eye thing
-
-Variable 1:
+Variable 1a:
 Trigger by variable X
 
+Variable 1b:
+?
+
 Variable 3:
-32 = ?
-33 = ?
+0 = Permanent
+16 = On / Off
+32 = Time
+
 Variable 4:
-16 = ?
-127 = ?
+Time the switch remains active.

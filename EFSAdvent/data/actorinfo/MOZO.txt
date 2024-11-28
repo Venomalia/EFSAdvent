@@ -1,5 +1,9 @@
 MOZO (Ropa)
 
+Variable 4:
+0 = ?
+1 = ?
+
 life: 8
 atcp: 2
 atcn: 0

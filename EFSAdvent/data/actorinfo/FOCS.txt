@@ -2,10 +2,10 @@ FOCS (Focus NPC)
 Focuses an area on the TV when active.
 
 Variable 1:
-Trigger by variable X
+Variable that is set as soon as in focus.
 
 Variable 2:
-64 = ?
+Variable that causes the area to be focused.
 
-Variable 2:
-3 = ?
+Packed data is composed as follows:
+11111222 22333334 44445555 56666666

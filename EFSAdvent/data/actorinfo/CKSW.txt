@@ -16,7 +16,9 @@ Variable 5:
 Variable that is checked.
 
 Variable 6:
-46 = ?
+0 = Sets a random variable.
+1 = Sets a random variable, can be triggered multiple times.
+46 = Sets all variables
 
 Packed data is composed as follows:
 11111222 22333334 44445555 56666666

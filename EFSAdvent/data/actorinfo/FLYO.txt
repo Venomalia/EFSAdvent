@@ -2,6 +2,9 @@ FLYO (Floor floor tile)
 
 Flying floor tile
 
+Variable 1a:
+Variable which should be triggered when this tile is destroyed.
+
 Variable 2:
 0 = Floor tile
 1 = Bush
@@ -21,11 +24,3 @@ Trigger by variable X
 
 Variable 4:
 Index nr
-
-life: 1
-atcp: 0
-atcn: 0
-dstr: 0
-dasu: 0
-efsz: 2
-voic: 0

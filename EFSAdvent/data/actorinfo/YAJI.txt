@@ -1,7 +1,11 @@
 YAJI (Arrow symbol)
 
+Variable 1a:
+Enabled variable X
+
 Variable 4:
 0 = East
 1 = West
 2 = North
 3 = South
+128 = ?

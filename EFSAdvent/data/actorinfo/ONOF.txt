@@ -1,17 +1,15 @@
 ONOF (On / Off switch)
 
-Variable 1:
+Variable 1a:
 Activated by variable X
 
-Variable 2:
-7 = ?
+Variable 1b:
+?
 
 Variable 3:
-16 = ?
-32 = ?
-160 = ?
+0 = Permanent
+16 = On / Off
+32 = Time
 
 Variable 4:
-0 = Permanent
-15 = Time switch?
-31 = ?
+Time the switch remains active.
