@@ -49,6 +49,7 @@ namespace EFSAdvent
         private readonly HashSet<string> V8ACTORS = new HashSet<string>();
 
         private string dataDirectory;
+
         public Form1()
         {
             InitializeComponent();
@@ -158,6 +159,31 @@ namespace EFSAdvent
             ResetVarsForNewLevel();
         }
 
+        private void NewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ShowSaveChangesDialog())
+                return;
+
+            using (var folderDialog = new FolderBrowserDialog())
+            {
+                folderDialog.Description = "Select a save location for the new level.";
+                folderDialog.ShowNewFolderButton = true;
+
+                if (folderDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                string selectedPath = folderDialog.SelectedPath;
+                int number = 9;
+                string newLevelPath;
+                do
+                {
+                    newLevelPath = Path.Combine(selectedPath, $"boss{++number:000}", "map");
+                } while (Directory.Exists(newLevelPath));
+                string newMapFilePath = Path.Combine(newLevelPath, $"map{number:000}.csv");
+                OpenLevelFile(newMapFilePath);
+            }
+        }
+
         private void OpenLevel(object sender, EventArgs e)
         {
             if (ShowSaveChangesDialog())
@@ -178,10 +204,15 @@ namespace EFSAdvent
                 MessageBox.Show("File must be a *.csv");
                 return;
             }
+            OpenLevelFile(openDialog.FileName);
+        }
+
+        private void OpenLevelFile(string mapPath)
+        {
             _ignoreMapVariableUpdates = true;
 
             ResetVarsForNewLevel();
-            _level = new Level(openDialog.FileName, _logger);
+            _level = new Level(mapPath, _logger);
             _level.LoadMap();
 
             this.Text = $"{BaseTitel} - {_level.Map.Name}";
@@ -211,7 +242,7 @@ namespace EFSAdvent
             MapVariablesGroupBox.Text = _level.Map.Name;
 
             //Get a string which is just the root bossxxx filepath for loading other files
-            RootFolderPathTextBox.Text = openDialog.FileName.Remove(openDialog.FileName.LastIndexOf("\\map\\") + 1);
+            RootFolderPathTextBox.Text = mapPath.Remove(mapPath.LastIndexOf("\\map\\") + 1);
 
             ChangeTileSheet(_level.TileSheetId);
             DrawMap();
@@ -242,7 +273,7 @@ namespace EFSAdvent
             MapRoomNumberInput.Enabled = !_level.Map.IsShadowBattle;
 
             MapRoomNumberInput.Value = _level.Map.GetRoomValue(_level.Map.StartX, _level.Map.StartY);
-            LoadRoom(sender, e);
+            LoadRoom(false);
 
             _ignoreMapVariableUpdates = false;
         }
@@ -962,14 +993,6 @@ namespace EFSAdvent
 
         #region Menu/Form
 
-        private void NewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO I think this needs more work
-            // Where does a new map save to??
-            DrawLayer(0);
-            layerPictureBox.Refresh();
-            //level = new Level();
-        }
 
         private void oneXSizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
