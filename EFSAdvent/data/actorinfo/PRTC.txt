@@ -4,6 +4,14 @@ Variable 2:
 1 = ?
 
 Variable 4:
-0 = Waterfall
+0 = Waterfall splashing
+1 = Small waterfall splashing
 2 = Dark swirl
-10 = ?
+3 = Light pillar, Upwards
+4 = Light pillar, Downwards
+5 = Light pillar, West
+6 = Light pillar, East
+7 = Falling stones
+8 = Glitter rain
+9 = Ice waterfall splashing?
+10 = Ashe rain

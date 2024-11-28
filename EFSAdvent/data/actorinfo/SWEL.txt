@@ -10,10 +10,11 @@ Variable 1b:
 
 Variable 4:
 1 = Green(100)
-2 = ? Blue (150)
+2 = Blue (150)
 3 = Red (200)
-4 = ? Purple (300)
+4 = Purple (300)
 5 = Key
-6 = ?
+6 = Moon Pearl
 7 = Heart Container
 8 = Small purple (50)
+9 = Blue Tektite

@@ -4,3 +4,4 @@ Movable block
 
 Variable 3:
 Type
+6 = Shopkeeper
