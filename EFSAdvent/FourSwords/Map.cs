@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace EFSAdvent.FourSwords
 {
@@ -36,26 +37,26 @@ namespace EFSAdvent.FourSwords
         public bool IsShadowBattle { get; private set; }
         public bool IsDirty { get; private set; }
 
-        public Map(Logger logger)
-        {
-            _logger = logger;
-        }
-
         public Map(string path, Logger logger)
         {
             _logger = logger;
             _path = path;
             _logger.Clear();
+            if (!File.Exists(path))
+            {
+                NewMap(path);
+                return;
+            }
+
             var file = File.OpenText(path);
             string firstLine = file.ReadLine();
-            if (!firstLine.StartsWith("map"))
+            IsShadowBattle = !firstLine.StartsWith("map");
+            if (IsShadowBattle)
             {
                 file.Close();
                 LoadShadowBattleMap(path);
-                IsShadowBattle = true;
                 return;
             }
-            IsShadowBattle = false;
             string[] firstLineParts = firstLine.Split(',');
 
             Name = firstLineParts[0];
@@ -89,6 +90,23 @@ namespace EFSAdvent.FourSwords
             }
 
             file.Close();
+        }
+
+        private void NewMap(string path)
+        {
+            Name = Path.GetFileNameWithoutExtension(path).Split('_').First();
+            IsShadowBattle = false;
+
+            XDimension = YDimension = DIMENSION;
+            _data = new byte[DIMENSION, DIMENSION];
+            for (int x = 0; x < DIMENSION; x++)
+            {
+                for (int y = 0; y < DIMENSION; y++)
+                {
+                    _data[x, y] = EMPTY_ROOM_VALUE;
+                }
+            }
+            Unknown2 = OverlayTextureId = NPCSheetID = TileSheetId = ShowE3Banner = BackgroundMusicId = StartY = StartX = 0;
         }
 
         // boss500 has a different format
@@ -145,6 +163,7 @@ namespace EFSAdvent.FourSwords
                 Unknown2.ToString(),
                 DisallowTingle.ToString()
             };
+            Directory.CreateDirectory(Path.GetDirectoryName(_path));
             var csvStream = new FileStream(_path, FileMode.Create);
 
             csvStream.Write(Encoding.ASCII.GetBytes(Name), 0, Name.Length);

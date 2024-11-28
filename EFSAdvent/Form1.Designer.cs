@@ -33,6 +33,7 @@
             this.tileSheetPanel = new System.Windows.Forms.Panel();
             this.tileSheetPictureBox = new System.Windows.Forms.PictureBox();
             this.layersPanel = new System.Windows.Forms.Panel();
+            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addNewActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -182,10 +183,10 @@
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
-            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.actorContextMenuStrip.SuspendLayout();
             this.MapPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
@@ -243,7 +244,6 @@
             this.actorInfoBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).BeginInit();
             this.BottomGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tileSheetPanel
@@ -280,6 +280,24 @@
             this.layersPanel.Name = "layersPanel";
             this.layersPanel.Size = new System.Drawing.Size(512, 516);
             this.layersPanel.TabIndex = 1;
+            // 
+            // layerPictureBox
+            // 
+            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layerPictureBox.Enabled = false;
+            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
+            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.Name = "layerPictureBox";
+            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.layerPictureBox.TabIndex = 0;
+            this.layerPictureBox.TabStop = false;
+            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
+            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
+            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
             // 
             // actorContextMenuStrip
             // 
@@ -369,7 +387,6 @@
             // 
             // newToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Enabled = false;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.newToolStripMenuItem.Text = "New File";
@@ -2018,24 +2035,6 @@
             this.BottomGroupBox.TabIndex = 24;
             this.BottomGroupBox.TabStop = false;
             // 
-            // layerPictureBox
-            // 
-            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.layerPictureBox.Enabled = false;
-            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
-            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.Name = "layerPictureBox";
-            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.layerPictureBox.TabIndex = 0;
-            this.layerPictureBox.TabStop = false;
-            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
-            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
-            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2057,6 +2056,7 @@
             this.tileSheetPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).EndInit();
             this.layersPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.actorContextMenuStrip.ResumeLayout(false);
             this.MapPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).EndInit();
@@ -2127,7 +2127,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).EndInit();
             this.BottomGroupBox.ResumeLayout(false);
             this.BottomGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,7 @@ namespace EFSAdvent.FourSwords
         public bool SaveLayers(string path, string levelNumber)
         {
             string layerFolder = GetLayerFolder(path, levelNumber);
+            Directory.CreateDirectory(layerFolder);
             for (int layer = 0; layer < 8; layer++)
             {
                 for (int level = 1; level < 3; level++)
@@ -156,6 +158,7 @@ namespace EFSAdvent.FourSwords
         public void SaveActors(string path, string levelNumber)
         {
             string actorsPath = Path.Combine(GetActorFolder(path, levelNumber), GetActorFileName(levelNumber, RoomNumber));
+            Directory.CreateDirectory(Path.GetDirectoryName(actorsPath));
             FileStream actorsStream = File.Create(actorsPath);
             byte[] actorsBinary = GetActorsAsBinary();
 
