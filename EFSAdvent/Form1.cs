@@ -160,14 +160,9 @@ namespace EFSAdvent
 
         private void OpenLevel(object sender, EventArgs e)
         {
-            if (_level?.IsDirty ?? false)
-            {
-                bool cancelled = ShowSaveChangesDialog();
-                if (cancelled)
-                {
-                    return;
-                }
-            }
+            if (ShowSaveChangesDialog())
+                return;
+
             var openDialog = new OpenFileDialog
             {
                 Filter = "CSV map files|*.csv"
@@ -1046,7 +1041,7 @@ namespace EFSAdvent
 
         private void saveChangesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowSaveChangesDialog("Save all open data?");
+            ShowSaveChangesDialog();
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1056,15 +1051,12 @@ namespace EFSAdvent
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_level?.IsDirty ?? false)
-            {
-                e.Cancel = ShowSaveChangesDialog();
-            }
+            e.Cancel = ShowSaveChangesDialog("Save all data before exiting?");
         }
 
-        private bool ShowSaveChangesDialog(string message = "Save all data before exiting?")
+        private bool ShowSaveChangesDialog(string message = "Save all open data?")
         {
-            if (_level != null)
+            if (_level?.IsDirty ?? false)
             {
                 switch (MessageBox.Show(message,
                                                     "Save changes?",
