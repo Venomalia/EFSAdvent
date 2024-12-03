@@ -1,4 +1,6 @@
-﻿namespace EFSAdvent
+﻿using System.Windows.Forms;
+
+namespace EFSAdvent
 {
     partial class Form1
     {
@@ -68,7 +70,7 @@
             this.rightSideGroupBox = new System.Windows.Forms.GroupBox();
             this.updateLayersButton = new System.Windows.Forms.Button();
             this.buttonSaveLayers = new System.Windows.Forms.Button();
-            this.layersCheckList = new System.Windows.Forms.CheckedListBox();
+            this.layersCheckList = new EFSAdvent.CheckedListBoxColorable();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
@@ -2147,7 +2149,7 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.GroupBox rightSideGroupBox;
-        private System.Windows.Forms.CheckedListBox layersCheckList;
+        private EFSAdvent.CheckedListBoxColorable layersCheckList;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;

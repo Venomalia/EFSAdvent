@@ -55,6 +55,18 @@ namespace EFSAdvent.FourSwords
             return _data[(y * DIMENSION) + x];
         }
 
+        public bool IsEmpty()
+        {
+            for (int i = 0; i < _data.Length; i++)
+            {
+                if (_data[i] != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public bool SetTile(int x, int y, ushort newValue)
         {
             if (x < 0 || x >= DIMENSION || y < 0 || y >= DIMENSION)

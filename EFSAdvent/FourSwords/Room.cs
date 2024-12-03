@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -106,6 +105,9 @@ namespace EFSAdvent.FourSwords
             }
             return success;
         }
+
+        public bool IsLayerEmpty(int layer)
+            => _layers[layer % 8, layer < 8 ? 0 : 1].IsEmpty();
 
         private void SortActors()
         {

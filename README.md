@@ -11,6 +11,8 @@ This branch is an unoficial update based on the [source code](https://bitbucket.
 - Import rooms and actors from other levels.
 - Preview which tiles will be changed by PNPC and PNP2 actors.
 - Detailed documentation for a significant number of actors.
+- Shadow Battle Map vaules will be loaded and can be edited.
+- Highlights used layers.
 
 ## Goals
 Fully document all actor variables and their behavior.

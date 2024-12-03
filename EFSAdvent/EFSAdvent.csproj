@@ -74,6 +74,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckedListBoxColorable.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FourSwords\Actor.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

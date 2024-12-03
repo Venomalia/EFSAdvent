@@ -14,7 +14,7 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        const string VERSION = "1.3 [Venomalia]";
+        const string VERSION = "1.4 [Venomalia]";
         private string BaseTitel = $"EFSAdvent {VERSION}";
 
         const int ACTOR_PIXELS_PER_COORDINATE = 8;
@@ -324,6 +324,12 @@ namespace EFSAdvent
                 layersCheckList.SetItemChecked(0, true);
                 layersCheckList.SetItemChecked(8, true);
 
+                for (int i = 0; i < 16; i++)
+                {
+                    Color color = _level.Room.IsLayerEmpty(i) ? Color.Gray : Color.Black;
+                    layersCheckList.Colors[$"Layer {(i < 8 ? 1 : 2)}-{i % 8}"] = color;
+                }
+                layersCheckList.Refresh();
                 UpdateView(false);
             }
             if (newRoom)
@@ -334,7 +340,7 @@ namespace EFSAdvent
                 {
                     for (int x = 0; x < Layer.DIMENSION; x++)
                     {
-                        _level.Room.SetLayerTile(0, x, y, 432);
+                        ChangeTile(0, x, y, 432);
                     }
                 }
             }
@@ -874,6 +880,17 @@ namespace EFSAdvent
             if (_level.Room.SetLayerTile(layer, x, y, newTileValue))
             {
                 buttonSaveLayers.Enabled = true;
+
+                if (newTileValue != 0)
+                {
+                    layersCheckList.Colors[$"Layer {(layer < 8 ? 1 : 2)}-{layer % 8}"] = Color.Black;
+                    layersCheckList.Refresh();
+                }
+                else if (newTileValue == 0 && _level.Room.IsLayerEmpty(layer))
+                {
+                    layersCheckList.Colors[$"Layer {(layer < 8 ? 1 : 2)}-{layer % 8}"] = Color.Gray;
+                    layersCheckList.Refresh();
+                }
             }
         }
 
@@ -937,6 +954,7 @@ namespace EFSAdvent
         {
             // Need to delay redraw because right now the newly checked layer won't have checked=true
             this.BeginInvoke((MethodInvoker)(() => UpdateView(false)));
+            layersCheckList.SelectedIndex = -1;
         }
 
         private void currentTileSheetComboBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -1055,12 +1073,12 @@ namespace EFSAdvent
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = ShowSaveChangesDialog(true,"Save all changes before exiting?");
+            e.Cancel = ShowSaveChangesDialog(true, "Save all changes before exiting?");
         }
 
         private bool ShowSaveChangesDialog(bool saveMap = true, string message = "Save all changes?")
         {
-            if (saveMap? _level?.IsDirty ?? false : (_level?.LayersAreDirty ?? false) || (_level?.ActorsAreDirty ?? false))
+            if (saveMap ? _level?.IsDirty ?? false : (_level?.LayersAreDirty ?? false) || (_level?.ActorsAreDirty ?? false))
             {
                 var dirtyDataBuilder = new StringBuilder();
 
