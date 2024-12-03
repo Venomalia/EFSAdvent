@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -224,7 +225,7 @@ namespace EFSAdvent
             MapRoomNewButton.Enabled = false;
             MapRoomRemoveButton.Enabled = false;
             MapRoomSetButton.Enabled = true;
-            MapSaveButton.Enabled = !_level.Map.IsShadowBattle;
+            MapSaveButton.Enabled = true;
             ExportMenuItem.Enabled = true;
             SaveMenuItem.Enabled = true;
             SaveAsMenuItem.Enabled = true;
@@ -296,34 +297,9 @@ namespace EFSAdvent
         private void LoadRoom(bool newRoom)
         {
             if (!newRoom && MapRoomNumberInput.Value == Map.EMPTY_ROOM_VALUE)
-            {
                 return;
-            }
-            if (_level.ActorsAreDirty || _level.LayersAreDirty)
-            {
-                string dirtyData = (_level.ActorsAreDirty ? "Actor data" : string.Empty)
-                    + (_level.ActorsAreDirty && _level.LayersAreDirty ? " and " : string.Empty)
-                    + (_level.LayersAreDirty ? "Layer data" : string.Empty);
-
-                var result = MessageBox.Show($"{dirtyData} has been changed, save changes first?",
-                                             "Save changes?",
-                                             MessageBoxButtons.YesNoCancel,
-                                             MessageBoxIcon.Question);
-
-                switch (result)
-                {
-                    case DialogResult.Yes:
-                        _level.SaveActors();
-                        _level.SaveLayers();
-                        break;
-
-                    case DialogResult.No:
-                        break;
-
-                    case DialogResult.Cancel:
-                        return;
-                }
-            }
+            if (ShowSaveChangesDialog(_level.Map.IsShadowBattle))
+                return;
 
             byte newRoomNumber = newRoom ? (_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value) ? (byte)_level.GetNextFreeRoom() : (byte)MapRoomNumberInput.Value) : (byte)MapRoomNumberInput.Value;
             if (_level.LoadRoom(newRoomNumber, newRoom))
@@ -1079,29 +1055,49 @@ namespace EFSAdvent
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = ShowSaveChangesDialog("Save all data before exiting?");
+            e.Cancel = ShowSaveChangesDialog(true,"Save all changes before exiting?");
         }
 
-        private bool ShowSaveChangesDialog(string message = "Save all open data?")
+        private bool ShowSaveChangesDialog(bool saveMap = true, string message = "Save all changes?")
         {
-            if (_level?.IsDirty ?? false)
+            if (saveMap? _level?.IsDirty ?? false : (_level?.LayersAreDirty ?? false) || (_level?.ActorsAreDirty ?? false))
             {
-                switch (MessageBox.Show(message,
-                                                    "Save changes?",
-                                                    MessageBoxButtons.YesNoCancel,
-                                                    MessageBoxIcon.Question))
+                var dirtyDataBuilder = new StringBuilder();
+
+                if (_level.ActorsAreDirty) dirtyDataBuilder.Append("Actor data");
+                if (_level.LayersAreDirty)
+                {
+                    if (dirtyDataBuilder.Length > 0)
+                        dirtyDataBuilder.Append(" and ");
+                    dirtyDataBuilder.Append("Layer data");
+                }
+                if (_level.MapIsDirty && saveMap)
+                {
+                    if (dirtyDataBuilder.Length > 0)
+                        dirtyDataBuilder.Append(" and ");
+                    dirtyDataBuilder.Append("Map data");
+                }
+
+                string dirtyData = dirtyDataBuilder.ToString();
+
+                var result = MessageBox.Show($"{dirtyData} has been changed, save changes first?", message, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                switch (result)
                 {
                     case DialogResult.Yes:
                         _level.SaveActors();
                         _level.SaveLayers();
-                        _level.Map.Save();
+                        if (saveMap)
+                        {
+                            _level.Map.Save();
+                        }
+                        break;
+
+                    case DialogResult.No:
                         break;
 
                     case DialogResult.Cancel:
                         return true;
-
-                    case DialogResult.No:
-                        break;
                 }
             }
             return false;

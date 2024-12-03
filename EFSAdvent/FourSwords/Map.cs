@@ -140,6 +140,7 @@ namespace EFSAdvent.FourSwords
 
         public void LoadShadowBattleRoom(int room)
         {
+            IsDirty = false;
             using (var file = new StreamReader(_path))
                 for (int y = 0; y < YDimension; y++)
                 {
@@ -159,6 +160,33 @@ namespace EFSAdvent.FourSwords
                         return;
                     }
                 }
+            _logger.AppendLine($"Room {room} not found in the file.");
+        }
+
+        public void SaveShadowBattleRoom(int room)
+        {
+            var lines = File.ReadAllLines(_path);
+            for (int y = 0; y < YDimension; y++)
+            {
+                if (_data[y, 0] == room)
+                {
+                    var firstLineParts = lines[y].Split(',');
+                    firstLineParts[0] = _data[y, 0].ToString();
+                    firstLineParts[1] = BackgroundMusicId.ToString();
+                    firstLineParts[2] = ShowE3Banner.ToString();
+                    firstLineParts[3] = TileSheetId.ToString();
+                    //Value 4 is unknown but always zero.
+                    firstLineParts[5] = NPCSheetID.ToString();
+                    firstLineParts[6] = OverlayTextureId.ToString();
+                    firstLineParts[7] = Unknown2.ToString();
+                    firstLineParts[8] = DisallowTingle.ToString();
+                    lines[y] = string.Join(",", firstLineParts);
+
+                    File.WriteAllLines(_path, lines);
+                    return;
+                }
+            }
+
             _logger.AppendLine($"Room {room} not found in the file.");
         }
 
