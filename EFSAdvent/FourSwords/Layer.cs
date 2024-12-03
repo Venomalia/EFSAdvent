@@ -28,8 +28,8 @@ namespace EFSAdvent.FourSwords
             }
 
             byte[] decodedSource = Yaz0.Decode(source);
-            var gameFormatData = new ushort[0x400];
-            for (int i = 0; i < 0x400; i++)
+            var gameFormatData = new ushort[_data.Length];
+            for (int i = 0; i < _data.Length; i++)
             {
                 gameFormatData[i] = (ushort)(decodedSource[i * 2] + (decodedSource[(i * 2) + 1] << 8));
             }
@@ -38,13 +38,10 @@ namespace EFSAdvent.FourSwords
             {
                 for (int x = 0; x < 16; x++)
                 {
-                    _data[(y * 32) + x] = gameFormatData[(y * 16) + x];
-
-                    _data[(y * 32) + x + 16] = gameFormatData[0x100 + (y * 16) + x];
-
-                    _data[((y + 16) * 32) + x] = gameFormatData[0x200 + (y * 16) + x];
-
-                    _data[((y + 16) * 32) + x + 16] = gameFormatData[0x300 + (y * 16) + x];
+                    _data[(y * DIMENSION) + x] = gameFormatData[(y * 16) + x];
+                    _data[(y * DIMENSION) + x + 16] = gameFormatData[0x100 + (y * 16) + x];
+                    _data[((y + 16) * DIMENSION) + x] = gameFormatData[0x200 + (y * 16) + x];
+                    _data[((y + 16) * DIMENSION) + x + 16] = gameFormatData[0x300 + (y * 16) + x];
                 }
             }
         }
@@ -70,44 +67,23 @@ namespace EFSAdvent.FourSwords
 
         public byte[] ConvertToSzsFormat()
         {
-            var chunkedLayer = new ushort[_data.Length];
-            int szsPosition = 0;
-
-            for (int y = 0; y < 16; y++)
+            var chunkedLayer = new ushort[_data.Length]; for (int y = 0; y < 16; y++)
             {
                 for (int x = 0; x < 16; x++)
                 {
-                    chunkedLayer[szsPosition++] = _data[(y * DIMENSION) + x];
-                }
-            }
-            for (int y = 0; y < 16; y++)
-            {
-                for (int x = 16; x < 32; x++)
-                {
-                    chunkedLayer[szsPosition++] = _data[(y * DIMENSION) + x];
-                }
-            }
-            for (int y = 16; y < 32; y++)
-            {
-                for (int x = 0; x < 16; x++)
-                {
-                    chunkedLayer[szsPosition++] = _data[(y * DIMENSION) + x];
-                }
-            }
-            for (int y = 16; y < 32; y++)
-            {
-                for (int x = 16; x < 32; x++)
-                {
-                    chunkedLayer[szsPosition++] = _data[(y * DIMENSION) + x];
+                    chunkedLayer[(y * 16) + x] = _data[(y * DIMENSION) + x];
+                    chunkedLayer[0x100 + (y * 16) + x] = _data[(y * DIMENSION) + x + 16];
+                    chunkedLayer[0x200 + (y * 16) + x] = _data[((y + 16) * DIMENSION) + x];
+                    chunkedLayer[0x300 + (y * 16) + x] = _data[((y + 16) * DIMENSION) + x + 16];
                 }
             }
 
-            byte[] szsFormatLayer = new byte[2048];
-            for (int i = 0; i < 1024; i++)
+            byte[] szsFormatLayer = new byte[_data.Length * 2];
+            for (int i = 0; i < _data.Length; i++)
             {
                 //Put the ushorts back into reverse order bytes
                 szsFormatLayer[i * 2] = (byte)(chunkedLayer[i] & 0xFF);
-                szsFormatLayer[i * 2 + 1] = (byte)((chunkedLayer[i] >> 8) & 0xFF);
+                szsFormatLayer[i * 2 + 1] = (byte)(chunkedLayer[i] >> 8);
             }
 
             return szsFormatLayer;
