@@ -46,6 +46,10 @@ namespace EFSAdvent.FourSwords
                 return false;
             }
             Room = new Room(_basePath, _number, roomNumber, _logger, newRoom);
+            if (Map.IsShadowBattle)
+            {
+                Map.LoadShadowBattleRoom(roomNumber);
+            }
             return true;
         }
 
