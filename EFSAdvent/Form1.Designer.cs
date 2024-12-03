@@ -340,6 +340,7 @@
             this.mapPictureBox.Size = new System.Drawing.Size(240, 170);
             this.mapPictureBox.TabIndex = 0;
             this.mapPictureBox.TabStop = false;
+            this.mapPictureBox.Click += new System.EventHandler(this.mapPictureBox_Click);
             this.mapPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectMapRoom);
             this.mapPictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mapPictureBox_MouseDoubleClick);
             // 

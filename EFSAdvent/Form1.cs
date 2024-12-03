@@ -209,12 +209,49 @@ namespace EFSAdvent
 
         private void OpenLevelFile(string mapPath)
         {
-            _ignoreMapVariableUpdates = true;
-
             ResetVarsForNewLevel();
             _level = new Level(mapPath, _logger);
             _level.LoadMap();
+            LoadMapVariable();
+            DrawMap();
 
+            //Get a string which is just the root bossxxx filepath for loading other files
+            RootFolderPathTextBox.Text = mapPath.Remove(mapPath.LastIndexOf("\\map\\") + 1);
+
+            layerPictureBox.Refresh();
+
+            MapRoomLoadButton.Enabled = false;
+            MapRoomNewButton.Enabled = false;
+            MapRoomRemoveButton.Enabled = false;
+            MapRoomSetButton.Enabled = true;
+            MapSaveButton.Enabled = !_level.Map.IsShadowBattle;
+            ExportMenuItem.Enabled = true;
+            SaveMenuItem.Enabled = true;
+            SaveAsMenuItem.Enabled = true;
+            tabControl.Enabled = true;
+            layerPictureBox.Enabled = true;
+            rightSideGroupBox.Enabled = true;
+            importToolStripMenuItem.Enabled = true;
+            MapVariableMusicComboBox.Enabled = true;
+            MapVariableE3Banner.Enabled = true;
+            MapVariableOverlay.Enabled = true;
+            MapVariableTileSheet.Enabled = true;
+            MapVariableNPCSheetID.Enabled = true;
+            MapVariableUnknown2.Enabled = true;
+            MapVariableDisallowTingle.Enabled = true;
+            MapRoomNumberInput.Enabled = true;
+
+            MapVariableStartX.Enabled = !_level.Map.IsShadowBattle;
+            MapVariableStartY.Enabled = !_level.Map.IsShadowBattle;
+
+            MapRoomNumberInput.Value = _level.Map.GetRoomValue(_level.Map.StartX, _level.Map.StartY);
+            LoadRoom(false);
+
+        }
+
+        private void LoadMapVariable()
+        {
+            _ignoreMapVariableUpdates = true;
             this.Text = $"{BaseTitel} - {_level.Map.Name}";
             SetMapVariableInput(MapVariableStartX, _level.Map.StartX);
             SetMapVariableInput(MapVariableStartY, _level.Map.StartY);
@@ -225,6 +262,9 @@ namespace EFSAdvent
             SetMapVariableInput(MapVariableNPCSheetID, _level.Map.NPCSheetID);
             SetMapVariableInput(MapVariableUnknown2, _level.Map.Unknown2);
             SetMapVariableInput(MapVariableDisallowTingle, _level.Map.DisallowTingle);
+            MapVariablesGroupBox.Text = _level.Map.Name;
+            ChangeTileSheet(_level.TileSheetId);
+            _ignoreMapVariableUpdates = false;
 
             void SetMapVariableInput(NumericUpDown input, int value)
             {
@@ -238,44 +278,6 @@ namespace EFSAdvent
                     input.Value = 0;
                 }
             }
-
-            MapVariablesGroupBox.Text = _level.Map.Name;
-
-            //Get a string which is just the root bossxxx filepath for loading other files
-            RootFolderPathTextBox.Text = mapPath.Remove(mapPath.LastIndexOf("\\map\\") + 1);
-
-            ChangeTileSheet(_level.TileSheetId);
-            DrawMap();
-            layerPictureBox.Refresh();
-
-            MapRoomLoadButton.Enabled = false;
-            MapRoomNewButton.Enabled = false;
-            MapRoomRemoveButton.Enabled = false;
-            MapRoomSetButton.Enabled = !_level.Map.IsShadowBattle && true;
-            MapSaveButton.Enabled = !_level.Map.IsShadowBattle && true;
-            ExportMenuItem.Enabled = true;
-            SaveMenuItem.Enabled = true;
-            SaveAsMenuItem.Enabled = true;
-            tabControl.Enabled = true;
-            layerPictureBox.Enabled = true;
-            rightSideGroupBox.Enabled = true;
-            importToolStripMenuItem.Enabled = true;
-
-            MapVariableStartX.Enabled = !_level.Map.IsShadowBattle;
-            MapVariableStartY.Enabled = !_level.Map.IsShadowBattle;
-            MapVariableMusicComboBox.Enabled = !_level.Map.IsShadowBattle;
-            MapVariableE3Banner.Enabled = !_level.Map.IsShadowBattle;
-            MapVariableOverlay.Enabled = !_level.Map.IsShadowBattle;
-            MapVariableTileSheet.Enabled = !_level.Map.IsShadowBattle;
-            MapVariableNPCSheetID.Enabled = !_level.Map.IsShadowBattle;
-            MapVariableUnknown2.Enabled = !_level.Map.IsShadowBattle;
-            MapVariableDisallowTingle.Enabled = !_level.Map.IsShadowBattle;
-            MapRoomNumberInput.Enabled = !_level.Map.IsShadowBattle;
-
-            MapRoomNumberInput.Value = _level.Map.GetRoomValue(_level.Map.StartX, _level.Map.StartY);
-            LoadRoom(false);
-
-            _ignoreMapVariableUpdates = false;
         }
 
         private void ResetVarsForNewLevel()
@@ -326,6 +328,9 @@ namespace EFSAdvent
             byte newRoomNumber = newRoom ? (_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value) ? (byte)_level.GetNextFreeRoom() : (byte)MapRoomNumberInput.Value) : (byte)MapRoomNumberInput.Value;
             if (_level.LoadRoom(newRoomNumber, newRoom))
             {
+                if (_level.Map.IsShadowBattle)
+                    LoadMapVariable();
+
                 currentRoomNumber = newRoomNumber;
                 _history.Reset();
                 BuildLayerActorList(false);
@@ -1665,6 +1670,11 @@ namespace EFSAdvent
             DrawActors(true);
 
             MessageBox.Show($"{actors.Count} actors have been successfully added to the current room.");
+        }
+
+        private void mapPictureBox_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void SelectedActor(Actor actor)

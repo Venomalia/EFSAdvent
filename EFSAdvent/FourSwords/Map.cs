@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Xml.Linq;
 
 namespace EFSAdvent.FourSwords
 {
@@ -42,6 +41,12 @@ namespace EFSAdvent.FourSwords
             _logger = logger;
             _path = path;
             _logger.Clear();
+            if (path.EndsWith("map500_ctrl.csv"))
+            {
+                _path = path.Replace("map500_ctrl.csv", "map500.csv");
+                _logger.AppendText("Unknown what map500_ctrl.csv is, loading map500.csv instead.");
+            }
+
             if (!File.Exists(path))
             {
                 NewMap(path);
@@ -54,7 +59,7 @@ namespace EFSAdvent.FourSwords
             if (IsShadowBattle)
             {
                 file.Close();
-                LoadShadowBattleMap(path);
+                LoadShadowBattleMap();
                 return;
             }
             string[] firstLineParts = firstLine.Split(',');
@@ -110,36 +115,51 @@ namespace EFSAdvent.FourSwords
         }
 
         // boss500 has a different format
-        private void LoadShadowBattleMap(string path)
+        private void LoadShadowBattleMap()
         {
-            if (path.EndsWith("map500_ctrl.csv"))
+            Name = Path.GetFileNameWithoutExtension(_path).Split('_').First();
+            using (var file = new StreamReader(_path))
             {
-                path = path.Replace("map500_ctrl.csv", "map500.csv");
-                _logger.AppendText("Unknown what map500_ctrl.csv is, loading map500.csv instead.");
-            }
-            Name = Path.GetFileNameWithoutExtension(path).Split('_').First();
-            var file = File.OpenText(path);
-            var lines = new List<string>();
-            string line;
-            while (!(line = file.ReadLine()).StartsWith("end"))
-            {
-                lines.Add(line);
-            }
-            XDimension = 1;
-            YDimension = lines.Count;
-            _data = new byte[YDimension, XDimension];
-            _logger.AppendLine("Shadow Battle room Tile Sheets need to be manually set, the correct values are:");
+                var lines = new List<string>();
+                string line;
+                while (!(line = file.ReadLine()).StartsWith("end"))
+                {
+                    lines.Add(line);
+                }
+                XDimension = 1;
+                YDimension = lines.Count;
+                _data = new byte[YDimension, XDimension];
 
-            int y = 0;
-            const int tileSheetIndex = 3;
-            foreach (string roomLine in lines)
-            {
-                var parts = roomLine.Split(',');
-                _data[y, 0] = byte.Parse(parts[0]);
-                _logger.AppendLine($"Room {y}: {parts[tileSheetIndex]}");
-                y++;
+                for (int y = 0; y < lines.Count; y++)
+                {
+                    var parts = lines[y].Split(',');
+                    _data[y, 0] = byte.Parse(parts[0]);
+                }
             }
-            file.Close();
+        }
+
+        public void LoadShadowBattleRoom(int room)
+        {
+            using (var file = new StreamReader(_path))
+                for (int y = 0; y < YDimension; y++)
+                {
+                    string firstLine = file.ReadLine();
+                    if (_data[y, 0] == room)
+                    {
+                        string[] firstLineParts = firstLine.Split(',');
+
+                        BackgroundMusicId = int.Parse(firstLineParts[1]);
+                        ShowE3Banner = int.Parse(firstLineParts[2]);
+                        TileSheetId = int.Parse(firstLineParts[3]);
+                        //Value 4 is unknown but always zero.
+                        NPCSheetID = int.Parse(firstLineParts[5]);
+                        OverlayTextureId = int.Parse(firstLineParts[6]);
+                        Unknown2 = int.Parse(firstLineParts[7]);
+                        DisallowTingle = int.Parse(firstLineParts[8]);
+                        return;
+                    }
+                }
+            _logger.AppendLine($"Room {room} not found in the file.");
         }
 
         public void Save()
