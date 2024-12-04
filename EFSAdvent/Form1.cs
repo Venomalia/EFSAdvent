@@ -323,7 +323,18 @@ namespace EFSAdvent
                 }
                 layersCheckList.SetItemChecked(0, true);
                 layersCheckList.SetItemChecked(8, true);
-
+                if (newRoom)
+                {
+                    MapRoomNumberInput.Value = newRoomNumber;
+                    UpdateMapRoomNumber(newRoomNumber);
+                    for (int y = 0; y < 24; y++)
+                    {
+                        for (int x = 0; x < Layer.DIMENSION; x++)
+                        {
+                            _level.Room.SetLayerTile(0, x, y, 432);
+                        }
+                    }
+                }
                 for (int i = 0; i < 16; i++)
                 {
                     Color color = _level.Room.IsLayerEmpty(i) ? Color.Gray : Color.Black;
@@ -331,18 +342,6 @@ namespace EFSAdvent
                 }
                 layersCheckList.Refresh();
                 UpdateView(false);
-            }
-            if (newRoom)
-            {
-                MapRoomNumberInput.Value = newRoomNumber;
-                UpdateMapRoomNumber(newRoomNumber);
-                for (int y = 0; y < 24; y++)
-                {
-                    for (int x = 0; x < Layer.DIMENSION; x++)
-                    {
-                        ChangeTile(0, x, y, 432);
-                    }
-                }
             }
         }
 
