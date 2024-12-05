@@ -218,7 +218,7 @@ namespace EFSAdvent
 
             //Get a string which is just the root bossxxx filepath for loading other files
             RootFolderPathTextBox.Text = mapPath.Remove(mapPath.LastIndexOf("\\map\\") + 1);
-
+            this.Text = $"{BaseTitel} - {_level.Map.Name} - {(mapPath.EndsWith("_1.csv") ? "single " : "multi")}player map";
             layerPictureBox.Refresh();
 
             MapRoomLoadButton.Enabled = false;
@@ -253,7 +253,6 @@ namespace EFSAdvent
         private void LoadMapVariable()
         {
             _ignoreMapVariableUpdates = true;
-            this.Text = $"{BaseTitel} - {_level.Map.Name}";
             SetMapVariableInput(MapVariableStartX, _level.Map.StartX);
             SetMapVariableInput(MapVariableStartY, _level.Map.StartY);
             MapVariableMusicComboBox.SelectedIndex = _level.Map.BackgroundMusicId;
