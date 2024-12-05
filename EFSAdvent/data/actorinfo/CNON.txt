@@ -2,3 +2,10 @@ CNON (Flying cannon)
 
 Variable 1:
 Activated by variable X
+
+Variable 3:
+Width of vertical movement
+
+Variable 4:
+0 = Default
+1 = Only moves after the first use

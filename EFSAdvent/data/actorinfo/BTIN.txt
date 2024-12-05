@@ -13,6 +13,7 @@ Variable 2:
 Variable 3:
 0 = Background
 16 = Foreground
+48 = Background
 64 = Background
 80 = Foreground
 

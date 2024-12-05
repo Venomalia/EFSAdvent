@@ -1,8 +1,12 @@
 AGBW (AGB window control)
 Controls the gba TV window.
 
-Variable 1:
-1 = ?
-
-Variable 2:
-128 = ?
+Variable 1b:
+0 = Centered
+1 = Left Centered
+2 = Bottom right
+3 = Top right
+4 = Bottom Centered
+5 = Slightly left 
+6 = Slightly right
+7 = Left Centered

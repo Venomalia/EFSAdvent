@@ -1,1 +1,17 @@
 GMBL (Gambling Shop)
+Requires 3 GMTB to function.
+
+Variable 1a:
+0 = Costs 100
+17 = Costs 300
+
+Variable 1b:
+Number of playable rounds.
+
+Variable 3:
+3 = ?
+35 = ?
+
+Variable 4:
+20 = ?
+37 = ?
