@@ -1,2 +1,8 @@
 TOMI (transparent NPC wall)
 An invisible wall blocking actors from passing through.
+
+Variable 3:
+Horizontal length
+
+Variable 4:
+Vertical length

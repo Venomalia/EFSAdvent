@@ -4,10 +4,13 @@ Soldier with bow or bombs
 Variable 1b:
 Chief Soldier ID
 
+Variable 2:
+8 = ?
+
 Variable 4:
 0 = With bow
-1 = With bow, hidden in grass
 2 = With bomb
+3 = With bow, hidden in grass
 
 life: 12
 atcp: 2

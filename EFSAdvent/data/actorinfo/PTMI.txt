@@ -1,1 +1,12 @@
 PTMI (transparent NPC wall for links)
+An invisible wall blocking links from passing through.
+
+Variable 1a:
+Variable that activates the wall
+(0 = always active)
+
+Variable 3:
+Horizontal length
+
+Variable 4:
+Vertical length

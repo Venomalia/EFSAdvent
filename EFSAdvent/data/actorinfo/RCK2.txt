@@ -4,4 +4,5 @@ Variable 1:
 Enabled variable X
 
 Variable 4:
+1 = Use variable 1.
 33 = Use variable 1?

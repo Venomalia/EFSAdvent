@@ -1,2 +1,9 @@
 WPCN (Warp Cannon)
-Link shooting cannon, huge
+Warp Cannon that teleports from one map to another.
+Target map requires 4 players start coordinates “PLAS”.
+
+Variable 2:
+Map X coridinate 
+
+Variable 3:
+Map Y coridinate 

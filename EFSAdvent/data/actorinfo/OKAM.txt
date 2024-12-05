@@ -1,10 +1,15 @@
-OKAM (Octorok)
-
+OKAM (Unused Enemy Aruki)
+An enemy that has to be defeated with several players.
 
 Variable 3:
+Replacement enemie in single player
 0 = Oktorok
 1 = Crab
 2 = Stalfos, jumps and throws
+
+Variable 4:
+0 = Horizontal
+1 = Vertical
 
 life: 4
 atcp: 2

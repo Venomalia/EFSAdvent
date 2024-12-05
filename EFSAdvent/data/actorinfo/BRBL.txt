@@ -1,2 +1,7 @@
 BRBL (Burning block (wooden box))
 A movable wooden box.
+
+
+Variable 4:
+0 = Nothing
+1 = Red Force Gem

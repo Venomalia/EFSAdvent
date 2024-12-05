@@ -1,1 +1,2 @@
 GFBS (Vaati Buster)
+Prevents Vaati from appearing in this area.

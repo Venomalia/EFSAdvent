@@ -5,6 +5,7 @@ Activated by variable X
 
 Variable 2:
 0 = Secret SE
+4 = ?
 20 = Aapproach SE
 
 Variable 4:

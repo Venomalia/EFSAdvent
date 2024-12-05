@@ -1,1 +1,8 @@
 RCK3 (1-1 Rocks dropped into the river)
+
+Variable 4:
+Move to
+0 = East
+1 = West
+2 = South
+3 = North

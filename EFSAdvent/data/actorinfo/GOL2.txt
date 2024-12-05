@@ -11,4 +11,4 @@ Variable 4:
 3 = Vertikal row
 4 = Semicircle
 5 = Maid
-&128 = ?
+[Flag &128] = ?

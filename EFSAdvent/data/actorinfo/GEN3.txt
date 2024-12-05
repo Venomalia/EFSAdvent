@@ -55,4 +55,4 @@ Variable 4:
 Required: 
 45 = Keese (Flying back and forth)
 
-&128 = ?
+[Flag &128] = ?

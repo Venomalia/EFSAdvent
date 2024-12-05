@@ -1,8 +1,14 @@
 FARY (fairy)
 A force fairy
 
-Variable 1:
+Variable 1a:
 Activated by variable X
+
+Variable 1b:
+4 = ?
+
+Variable 2:
+64 = ?
 
 Variable 4:
 0 = despawned?

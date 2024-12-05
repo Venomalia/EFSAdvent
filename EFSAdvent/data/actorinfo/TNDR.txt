@@ -1,6 +1,7 @@
 TNDR (Vulture)
 
 Variable 4:
+4 = ?
 6 = ?
 8 = ?
 

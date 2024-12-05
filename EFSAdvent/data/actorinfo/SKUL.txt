@@ -15,7 +15,7 @@ Variable 4:
 0 = Very large circle
 1 = Very large circle, offset
 
-128 = Moves through the room
+[Flag &128] = Moves through the room
 
 life: 1
 atcp: 2

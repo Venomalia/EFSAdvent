@@ -1,9 +1,10 @@
 SLR1 (Sword Soldier)
 
-Variable 1:
+Variable 1b:
 Chief Soldier ID
 
 Variable 2:
+1 = ?
 4 = ?
 8 = ?
 9 = ?
@@ -11,6 +12,7 @@ Variable 2:
 
 Variable 3:
 1 = ?
+17 = ?
 
 Variable 4:
 0 = Green

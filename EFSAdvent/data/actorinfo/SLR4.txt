@@ -9,6 +9,8 @@ Variable 2:
 Variable 3:
 102 = ?
 119 = ?
+136 = ?
+240 = ?
 
 Variable 4:
 0 = Blue
@@ -17,7 +19,7 @@ Variable 4:
 3 = Green
 4 = Red
 5 = Red
-5 = Dark green
+6 = Dark green
 
 life: 12
 atcp: 3

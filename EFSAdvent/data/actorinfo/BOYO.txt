@@ -1,9 +1,11 @@
 BOYO (Bumper Block)
 
 Variable 3:
-1 = ?
-2 = ?
-3 = ?
+Start positon
+0 = 0%
+1 = 25%
+2 = 50%
+3 = 75%
 
 Variable 4:
 0 = Spins in place

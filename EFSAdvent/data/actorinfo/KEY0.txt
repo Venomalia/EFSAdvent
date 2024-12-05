@@ -1,8 +1,12 @@
 KEY0 (Key)
 A key item which is required to progress.
 
-Variable 1:
+Variable 1a:
 Variable that triggers this actor (Flag must be set).
+
+Variable 1b:
+0 = ?
+4 = ?
 
 Variable 3:
 0 = Appears
@@ -22,4 +26,4 @@ Variable 4:
 8 = Quake Medallion
 9 = Book
 10 = Key
-&128 = Activated by variable.
+[Flag &128] = Activated by variable.

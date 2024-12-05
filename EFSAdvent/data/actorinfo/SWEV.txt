@@ -26,6 +26,8 @@ Variable 2:
 Variable 3:
 [Flags]
 0 =	Off
+2 = Spezial BG 4?
+Requires: wall.bti & sky.bti
 4 = Snowstorm
 8 = Falling snow
 32 = Rain
@@ -40,3 +42,4 @@ Variable 4:
 3 = Cave noises?
 4 = Dark screen, Boss music.
 13 =
+14 = 

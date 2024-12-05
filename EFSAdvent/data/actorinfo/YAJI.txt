@@ -8,4 +8,4 @@ Variable 4:
 1 = West
 2 = North
 3 = South
-128 = ?
+[Flag &128] = ?

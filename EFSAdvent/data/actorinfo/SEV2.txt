@@ -13,17 +13,22 @@ Variable 2:
 4 = Rays of light from the east
 Requires: morninglight00.bmd, morninglight00.brk, morninglight00.btk
 
+
 8 = Lost forest filter
 Requires: forestfilter00.bmd, forestfilter00.brk, forestfilter00.btk
+
+9 = Above the clouds
+Requires: enkei_dark.bti?
 
 16 = swamp water
 32 = heat
 64 = Many clouds that cast a lot of shadows.
 128 = Thick clouds that cast shadows.
 
-Variable 2:
-[Flags]
-8 = misterious fog
+Variable 3:
+8 = Lost forest filter
+Requires: forestfilter00.bmd, forestfilter00.brk, forestfilter00.btk
+
 16 = Crash
 32 = Light thunder and lightning in BG
 64 = Red fog

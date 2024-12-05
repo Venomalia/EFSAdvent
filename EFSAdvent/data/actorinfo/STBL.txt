@@ -5,3 +5,4 @@ Movable block
 Variable 3:
 Type
 6 = Shopkeeper
+48 = Royal throne

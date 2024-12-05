@@ -13,6 +13,7 @@ Variable 2:
 Variable 3:
 0 = Background
 16 = Foreground
+48 = Background
 64 = Background
 80 = Foreground
 
@@ -83,7 +84,7 @@ needs: bti_boss_i.bti
 21 = Prison bars
 needs: rouya.bti, rouya_a.bti
 
-22 =
+22 = Top of the tower of the wind
 needs: okujyo.bti
 
 23 =
@@ -167,7 +168,7 @@ needs: kairo.bti, kairo_ue.bti
 52 = Gerudo Tent
 needs: naporu_tent.bti, naporu_tent_a.bti
 
-53 = 
+53 = Top of the tower of the wind door
 needs: okujyo_kabuse.bti
 
 54 = Helmaroc King room cave entrance ceiling

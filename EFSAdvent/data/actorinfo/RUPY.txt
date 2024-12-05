@@ -1,7 +1,7 @@
 RUPY (rupee)
 
 Variable 1:
-Activated by variable X
+Activated by this lokal variable if Variable 2 indicates this.
 
 Variable 2:
 1 = Not ineractable
@@ -19,7 +19,8 @@ Variable 2:
 13 = Pegasus Boots, east, Can be triggered again
 14 = Pegasus Boots, south, Can be triggered again
 15 = Pegasus Boots, north, Can be triggered again
-16 = Must be activated by variable
+16 = Must be activated by variable and then falls from the sky.
+26 = Must be activated by variable and then appears.
 28 = Falls from the sky.
 29 = Pegasus Boots,
 35 = Under Water
