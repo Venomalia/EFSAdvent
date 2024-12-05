@@ -1,1 +1,10 @@
 NIWA (Cucco)
+
+Variable 3:
+0 = Default
+16 = Large Cucco
+32 = ?
+
+Variable 4:
+0 = did not flee.
+6 = fled from player.

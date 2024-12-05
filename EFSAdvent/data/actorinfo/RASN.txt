@@ -4,13 +4,25 @@ Passageway that loading a new area on the map.
 Variable 1a:
 Activated by variable X
 
-Variable 4:
+Variable 2:
+Vertical offset
+Leads to X field in east direction, if greater than 128 then west.
+
+Variable 3:
+Horizontal offset
+Leads to X field in south direction, if greater than 128 then north.
+
+Variable 4b:
 &0xF
 0 = Stairs up, load the next map in north
 1 = Stairs down, load the next map in south
-4 = Passage north, use packed variables structure Unknown.
-5 = Passage south, use packed variables structure Unknown.
-&0xF0
+4 = Passage north, use packed variables 2&3.
+5 = Passage south, use packed variables 2&3.
+6 = Passage east, use packed variables 2&3.
+7 = Passage west, use packed variables 2&3.
+
+Variable 4a:
 Floor number, for stairs
+8 = Displays level name, for passages
 
 

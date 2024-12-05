@@ -1,6 +1,6 @@
 SLR1 (Sword Soldier)
 
-Variable 1:
+Variable 1b:
 Chief Soldier ID
 
 Variable 2:
