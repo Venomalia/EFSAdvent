@@ -49,6 +49,8 @@ namespace EFSAdvent
             this.SaveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mapAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actorsImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -185,6 +187,7 @@ namespace EFSAdvent
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
+            this.levelAsArcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -342,7 +345,6 @@ namespace EFSAdvent
             this.mapPictureBox.Size = new System.Drawing.Size(240, 170);
             this.mapPictureBox.TabIndex = 0;
             this.mapPictureBox.TabStop = false;
-            this.mapPictureBox.Click += new System.EventHandler(this.mapPictureBox_Click);
             this.mapPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectMapRoom);
             this.mapPictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mapPictureBox_MouseDoubleClick);
             // 
@@ -424,11 +426,35 @@ namespace EFSAdvent
             // 
             // ExportMenuItem
             // 
+            this.ExportMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.levelAsArcToolStripMenuItem,
+            this.viewAspngToolStripMenuItem,
+            this.mapAspngToolStripMenuItem});
             this.ExportMenuItem.Enabled = false;
             this.ExportMenuItem.Name = "ExportMenuItem";
             this.ExportMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.ExportMenuItem.Text = "Export as .arc";
-            this.ExportMenuItem.Click += new System.EventHandler(this.ExportLevel);
+            this.ExportMenuItem.Text = "Export";
+            // 
+            // LevelAsArcToolStripMenuItem
+            // 
+            this.levelAsArcToolStripMenuItem.Name = "LevelAsArcToolStripMenuItem";
+            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.levelAsArcToolStripMenuItem.Text = "Level as .arc";
+            this.levelAsArcToolStripMenuItem.Click += new System.EventHandler(this.ExportLevel);
+            // 
+            // viewAspngToolStripMenuItem
+            // 
+            this.viewAspngToolStripMenuItem.Name = "viewAspngToolStripMenuItem";
+            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewAspngToolStripMenuItem.Text = "View as .png";
+            this.viewAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportViewAsPng);
+            // 
+            // mapAspngToolStripMenuItem
+            // 
+            this.mapAspngToolStripMenuItem.Name = "mapAspngToolStripMenuItem";
+            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mapAspngToolStripMenuItem.Text = "Map as .png";
+            this.mapAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
             // 
             // importToolStripMenuItem
             // 
@@ -2189,7 +2215,6 @@ namespace EFSAdvent
         private System.Windows.Forms.Label label_V4_1;
         private System.Windows.Forms.Button buttonActorsSelectNone;
         private System.Windows.Forms.Button buttonSaveLayers;
-        private System.Windows.Forms.ToolStripMenuItem ExportMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label label16;
@@ -2290,6 +2315,10 @@ namespace EFSAdvent
         private System.Windows.Forms.ToolStripMenuItem roomImportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actorsImportToolStripMenuItem;
         private System.Windows.Forms.ComboBox MapVariableMusicComboBox;
+        private ToolStripMenuItem ExportMenuItem;
+        private ToolStripMenuItem viewAspngToolStripMenuItem;
+        private ToolStripMenuItem mapAspngToolStripMenuItem;
+        private ToolStripMenuItem levelAsArcToolStripMenuItem;
     }
 }
 

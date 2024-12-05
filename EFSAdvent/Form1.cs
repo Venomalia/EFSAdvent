@@ -1003,21 +1003,8 @@ namespace EFSAdvent
 
         private void ExportLevel(object sender, EventArgs e)
         {
-            switch (MessageBox.Show("Save all data before exporting?",
-                                            "Save changes?",
-                                            MessageBoxButtons.YesNo,
-                                            MessageBoxIcon.Question))
-            {
-                case DialogResult.Yes:
-                    _level.SaveActors();
-                    BuildLayerActorList(true);
-                    _level.SaveLayers();
-                    _level.Map.Save();
-                    break;
-
-                case DialogResult.No:
-                    break;
-            }
+            if (ShowSaveChangesDialog(true, "Save all data before exporting?"))
+                return;
 
             var saveRarc = new SaveFileDialog
             {
@@ -1035,6 +1022,74 @@ namespace EFSAdvent
 
                 var packer = new RarcPacker();
                 packer.CreateRarc(path, saveRarc.FileName);
+            }
+        }
+
+        private void ExportViewAsPng(object sender, EventArgs e)
+        {
+            var savePng = new SaveFileDialog
+            {
+                DefaultExt = ".png",
+                AddExtension = true,
+                Filter = "Portable Network Graphics|*.png",
+                FileName = $"boss{_level.Map.Number}_{currentRoomNumber}"
+            };
+
+            if (savePng.ShowDialog() == DialogResult.OK)
+            {
+                roomLayerBitmap.Save(savePng.FileName);
+            }
+        }
+
+        private void ExportLevelAsPng(object sender, EventArgs e)
+        {
+            if (ShowSaveChangesDialog())
+                return;
+
+            var savePng = new SaveFileDialog
+            {
+                DefaultExt = ".png",
+                AddExtension = true,
+                Filter = "Portable Network Graphics|*.png",
+                FileName = $"boss{_level.Map.Number}"
+            };
+
+            if (savePng.ShowDialog() == DialogResult.OK)
+            {
+                byte lastRoom = currentRoomNumber;
+
+                int roomWidth = 512, roomHeight = 384; // Maße eines Raums
+                int mapWidth = roomWidth * _level.Map.XDimension; // Gesamtbreite
+                int mapHeight = roomHeight * _level.Map.YDimension; // Gesamthöhe
+
+                using (Bitmap levelBitmap = new Bitmap(mapWidth, mapHeight))
+                using (Graphics g = Graphics.FromImage(levelBitmap))
+                {
+                    for (int y = 0; y < _level.Map.YDimension; y++)
+                    {
+                        for (int x = 0; x < _level.Map.XDimension; x++)
+                        {
+                            byte roomValue = _level.Map.GetRoomValue(x, y);
+
+                            if (roomValue != Map.EMPTY_ROOM_VALUE)
+                            {
+                                MapRoomNumberInput.Value = roomValue;
+                                LoadRoom(false);
+
+                                int drawX = x * roomWidth;
+                                int drawY = y * roomHeight;
+
+                                Rectangle sourceRect = new Rectangle(0, 0, roomWidth, roomHeight);
+                                Rectangle destRect = new Rectangle(drawX, drawY, roomWidth, roomHeight);
+                                g.DrawImage(roomLayerBitmap, destRect, sourceRect, GraphicsUnit.Pixel);
+                            }
+                        }
+                    }
+
+                    levelBitmap.Save(savePng.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                }
+
+                MapRoomNumberInput.Value = currentRoomNumber = lastRoom;
             }
         }
 
@@ -1682,11 +1737,6 @@ namespace EFSAdvent
             DrawActors(true);
 
             MessageBox.Show($"{actors.Count} actors have been successfully added to the current room.");
-        }
-
-        private void mapPictureBox_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void SelectedActor(Actor actor)
