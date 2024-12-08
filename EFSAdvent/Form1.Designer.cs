@@ -49,6 +49,7 @@ namespace EFSAdvent
             this.SaveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.levelAsArcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,6 +127,7 @@ namespace EFSAdvent
             this.ActorVariable4Input = new System.Windows.Forms.NumericUpDown();
             this.ActorVariable3Input = new System.Windows.Forms.NumericUpDown();
             this.Variables5TabPage = new System.Windows.Forms.TabPage();
+            this.ActorVariable4FlagCheckBox = new System.Windows.Forms.CheckBox();
             this.ActorVariable1AInput = new System.Windows.Forms.NumericUpDown();
             this.ActorVariable1BInput = new System.Windows.Forms.NumericUpDown();
             this.label_V5_4 = new System.Windows.Forms.Label();
@@ -187,7 +189,6 @@ namespace EFSAdvent
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
-            this.levelAsArcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -435,24 +436,24 @@ namespace EFSAdvent
             this.ExportMenuItem.Size = new System.Drawing.Size(249, 22);
             this.ExportMenuItem.Text = "Export";
             // 
-            // LevelAsArcToolStripMenuItem
+            // levelAsArcToolStripMenuItem
             // 
-            this.levelAsArcToolStripMenuItem.Name = "LevelAsArcToolStripMenuItem";
-            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.levelAsArcToolStripMenuItem.Name = "levelAsArcToolStripMenuItem";
+            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.levelAsArcToolStripMenuItem.Text = "Level as .arc";
             this.levelAsArcToolStripMenuItem.Click += new System.EventHandler(this.ExportLevel);
             // 
             // viewAspngToolStripMenuItem
             // 
             this.viewAspngToolStripMenuItem.Name = "viewAspngToolStripMenuItem";
-            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.viewAspngToolStripMenuItem.Text = "View as .png";
             this.viewAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportViewAsPng);
             // 
             // mapAspngToolStripMenuItem
             // 
             this.mapAspngToolStripMenuItem.Name = "mapAspngToolStripMenuItem";
-            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.mapAspngToolStripMenuItem.Text = "Map as .png";
             this.mapAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
             // 
@@ -1347,6 +1348,7 @@ namespace EFSAdvent
             // 
             // Variables5TabPage
             // 
+            this.Variables5TabPage.Controls.Add(this.ActorVariable4FlagCheckBox);
             this.Variables5TabPage.Controls.Add(this.ActorVariable1AInput);
             this.Variables5TabPage.Controls.Add(this.ActorVariable1BInput);
             this.Variables5TabPage.Controls.Add(this.label_V5_4);
@@ -1364,6 +1366,17 @@ namespace EFSAdvent
             this.Variables5TabPage.TabIndex = 1;
             this.Variables5TabPage.Text = "5V";
             this.Variables5TabPage.UseVisualStyleBackColor = true;
+            // 
+            // ActorVariable4FlagCheckBox
+            // 
+            this.ActorVariable4FlagCheckBox.AutoSize = true;
+            this.ActorVariable4FlagCheckBox.Location = new System.Drawing.Point(57, 85);
+            this.ActorVariable4FlagCheckBox.Name = "ActorVariable4FlagCheckBox";
+            this.ActorVariable4FlagCheckBox.Size = new System.Drawing.Size(46, 17);
+            this.ActorVariable4FlagCheckBox.TabIndex = 43;
+            this.ActorVariable4FlagCheckBox.Text = "Flag";
+            this.ActorVariable4FlagCheckBox.UseVisualStyleBackColor = true;
+            this.ActorVariable4FlagCheckBox.CheckedChanged += new System.EventHandler(this.ActorChangedV5);
             // 
             // ActorVariable1AInput
             // 
@@ -1435,7 +1448,7 @@ namespace EFSAdvent
             // 
             this.ActorVariable4Input2.Location = new System.Drawing.Point(109, 84);
             this.ActorVariable4Input2.Maximum = new decimal(new int[] {
-            255,
+            127,
             0,
             0,
             0});
@@ -2319,6 +2332,7 @@ namespace EFSAdvent
         private ToolStripMenuItem viewAspngToolStripMenuItem;
         private ToolStripMenuItem mapAspngToolStripMenuItem;
         private ToolStripMenuItem levelAsArcToolStripMenuItem;
+        private CheckBox ActorVariable4FlagCheckBox;
     }
 }
 

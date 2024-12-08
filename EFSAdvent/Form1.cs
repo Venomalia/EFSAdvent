@@ -1321,7 +1321,7 @@ namespace EFSAdvent
             ActorVariable1Input.Value = (int)ActorVariable1AInput.Value << 3 | (int)ActorVariable1BInput.Value;
             ActorVariable2Input.Value = ActorVariable2Input2.Value;
             ActorVariable3Input.Value = ActorVariable3Input2.Value;
-            ActorVariable4Input.Value = ActorVariable4Input2.Value;
+            ActorVariable4Input.Value = (int)ActorVariable4Input2.Value | (ActorVariable4FlagCheckBox.Checked ? 0x80 : 0);
             _ignoreActorChanges = false;
             ActorChanged(sender, e);
         }
@@ -1454,7 +1454,8 @@ namespace EFSAdvent
             ActorVariable1BInput.Value = (int)ActorVariable1Input.Value & 0x7;
             ActorVariable2Input2.Value = ActorVariable2Input.Value;
             ActorVariable3Input2.Value = ActorVariable3Input.Value;
-            ActorVariable4Input2.Value = ActorVariable4Input.Value;
+            ActorVariable4Input2.Value = (int)ActorVariable4Input.Value & 0x7F;
+            ActorVariable4FlagCheckBox.Checked = ActorVariable4Input.Value >= 0x80;
             // V6
             ActorV6Variable1Input.Value = ActorVariable1AInput.Value;
             ActorV6Variable2Input.Value = (int)ActorVariable1BInput.Value << 2 | (int)ActorVariable2Input.Value >> 6;
@@ -1490,7 +1491,7 @@ namespace EFSAdvent
             ActorVariable1Input.Value = newActor.Variable1;
             ActorVariable2Input.Value = ActorVariable2Input2.Value = newActor.Variable2;
             ActorVariable3Input.Value = ActorVariable3Input2.Value = newActor.Variable3;
-            ActorVariable4Input.Value = ActorVariable4Input2.Value = newActor.Variable4;
+            ActorVariable4Input.Value = newActor.Variable4;
             UpdateActorPackedVariables();
             _ignoreActorChanges = false;
 
