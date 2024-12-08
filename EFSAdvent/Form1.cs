@@ -1364,7 +1364,8 @@ namespace EFSAdvent
                 return;
             }
 
-            _level.Room.UpdateActor(actorsCheckListBox.SelectedIndex,
+            UpdateActorPackedVariables();
+            bool RefreshActorList = _level.Room.UpdateActor(actorsCheckListBox.SelectedIndex,
                 ACTOR_NAMES[ActorNameComboBox.SelectedIndex],
                 (byte)ActorLayerInput.Value,
                 (byte)ActorXCoordInput.Value,
@@ -1374,17 +1375,15 @@ namespace EFSAdvent
                 (byte)ActorVariable3Input.Value,
                 (byte)ActorVariable4Input.Value);
 
-            UpdateActorPackedVariables();
+            if (RefreshActorList)
+            {
+                BuildLayerActorList(true);
+            }
 
             if (ACTOR_NAMES[ActorNameComboBox.SelectedIndex] == "PNPC" || ACTOR_NAMES[ActorNameComboBox.SelectedIndex] == "PNP2")
             {
                 UpdateBrushTileBitmap((ushort)(((byte)ActorVariable3Input.Value & 0x3) << 8 | (byte)ActorVariable4Input.Value));
                 ActorInfoPictureBox.Refresh();
-            }
-
-            if (!(sender is NumericUpDown input) || input.Name == "ActorLayerInput")
-            {
-                BuildLayerActorList(true);
             }
 
             UpdateView(false);
@@ -1398,6 +1397,9 @@ namespace EFSAdvent
 
         private void BuildLayerActorList(bool keepState = true)
         {
+            object[] checkedActorIds = actorsCheckListBox.CheckedItems.Cast<object>().ToArray();
+            object selectedActorId = actorsCheckListBox.SelectedItem;
+
             actorsCheckListBox.Items.Clear();
 
             if (_level.Room == null)
@@ -1405,30 +1407,18 @@ namespace EFSAdvent
                 return;
             }
 
-            Guid[] checkedActorIds = actorsCheckListBox.CheckedItems.Cast<Actor>().Select(actor => actor.Id).ToArray();
+            actorsCheckListBox.Items.AddRange(_level.Room.GetActors().ToArray());
 
-            Guid selectedActorId = ((Actor)actorsCheckListBox.SelectedItem)?.Id ?? Guid.Empty;
-
-            actorsCheckListBox.Items.AddRange(_level.Room.GetActors().Cast<object>().ToArray());
-
-            if (!keepState)
+            if (keepState)
             {
-                return;
-            }
-
-            for (int i = 0; i < actorsCheckListBox.Items.Count; i++)
-            {
-                if ((actorsCheckListBox.Items[i] is Actor actor))
+                for (int i = 0; i < actorsCheckListBox.Items.Count; i++)
                 {
-                    if (checkedActorIds.Contains(actor.Id))
-                    {
+                    object actor = actorsCheckListBox.Items[i];
+                    if (checkedActorIds.Contains(actor))
                         actorsCheckListBox.SetItemChecked(i, true);
-                    }
 
-                    if (actor.Id == selectedActorId)
-                    {
+                    if (actor == selectedActorId)
                         actorsCheckListBox.SetSelected(i, true);
-                    }
                 }
             }
         }

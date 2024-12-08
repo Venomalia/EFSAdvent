@@ -109,9 +109,15 @@ namespace EFSAdvent.FourSwords
         public bool IsLayerEmpty(int layer)
             => _layers[layer % 8, layer < 8 ? 0 : 1].IsEmpty();
 
-        private void SortActors()
+        private bool SortActors()
         {
-            _actors = _actors.OrderBy(a => a.Layer).ThenBy(a => a.Name).ThenBy(a => a.XCoord).ThenBy(a => a.YCoord).ToList();
+            var newOrder = _actors.OrderBy(a => (a.Layer, a.Name, a.XCoord, a.YCoord)).ToList();
+            if (!_actors.SequenceEqual(newOrder))
+            {
+                _actors = newOrder;
+                return true;
+            }
+            return false;
         }
 
         public void ReloadActors(string path, string levelNumber)
@@ -225,22 +231,20 @@ namespace EFSAdvent.FourSwords
         public void SetActorLocation(int index, int x, int y)
         {
             if (index < 0 || index >= _actors.Count)
-            {
                 return;
-            }
+
             _actors[index].SetCoordinates(x, y);
             ActorsAreDirty = true;
         }
 
-        public void UpdateActor(int index, string name, byte layer, byte xCoord, byte yCoord, byte variable1, byte variable2, byte variable3, byte variable4)
+        public bool UpdateActor(int index, string name, byte layer, byte xCoord, byte yCoord, byte variable1, byte variable2, byte variable3, byte variable4)
         {
             if (index < 0 || index >= _actors.Count)
-            {
-                return;
-            }
+                return false;
+
             _actors[index].Update(name, layer, xCoord, yCoord, variable1, variable2, variable3, variable4);
-            SortActors();
             ActorsAreDirty = true;
+            return SortActors();
         }
 
         public bool CloneActor(int index)
