@@ -70,6 +70,7 @@ namespace EFSAdvent
             this.nearestNeighborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightSideGroupBox = new System.Windows.Forms.GroupBox();
             this.updateLayersButton = new System.Windows.Forms.Button();
             this.buttonSaveLayers = new System.Windows.Forms.Button();
@@ -189,6 +190,7 @@ namespace EFSAdvent
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
+            this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -593,7 +595,9 @@ namespace EFSAdvent
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.wikiToolStripMenuItem,
+            this.sourceCodeToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -601,9 +605,16 @@ namespace EFSAdvent
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // wikiToolStripMenuItem
+            // 
+            this.wikiToolStripMenuItem.Name = "wikiToolStripMenuItem";
+            this.wikiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wikiToolStripMenuItem.Text = "Wiki";
+            this.wikiToolStripMenuItem.Click += new System.EventHandler(this.wikiToolStripMenuItem_Click);
             // 
             // rightSideGroupBox
             // 
@@ -2077,6 +2088,13 @@ namespace EFSAdvent
             this.BottomGroupBox.TabIndex = 24;
             this.BottomGroupBox.TabStop = false;
             // 
+            // sourceCodeToolStripMenuItem
+            // 
+            this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
+            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sourceCodeToolStripMenuItem.Text = "Source code";
+            this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.sourceCodeToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2333,6 +2351,8 @@ namespace EFSAdvent
         private ToolStripMenuItem mapAspngToolStripMenuItem;
         private ToolStripMenuItem levelAsArcToolStripMenuItem;
         private CheckBox ActorVariable4FlagCheckBox;
+        private ToolStripMenuItem wikiToolStripMenuItem;
+        private ToolStripMenuItem sourceCodeToolStripMenuItem;
     }
 }
 

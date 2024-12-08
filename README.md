@@ -13,9 +13,10 @@ This branch is an unoficial update based on the [source code](https://bitbucket.
 - Detailed documentation for a significant number of actors.
 - Shadow Battle Map vaules will be loaded and can be edited.
 - Highlights used layers.
+- Export Level as .png.
 
 ## Goals
 Fully document all actor variables and their behavior.
 
 ## Preview
-![grafik](https://github.com/user-attachments/assets/a5c24ac9-2eb2-49de-888c-218d9402205b)
+![grafik](https://github.com/user-attachments/assets/b8545f2f-d7f2-4e26-95db-4a959b618be9)

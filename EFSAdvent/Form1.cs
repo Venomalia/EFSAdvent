@@ -14,8 +14,10 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        const string VERSION = "1.4 [Venomalia]";
-        private string BaseTitel = $"EFSAdvent {VERSION}";
+        private const string VERSION = "1.5";
+        private const string BaseTitel = "EFSAdvent " + VERSION + " [Venomalia]";
+        private const string WikiUrl = "https://github.com/Venomalia/EFSAdvent/wiki";
+        private const string SourceCodeUrl = "https://github.com/Venomalia/EFSAdvent";
 
         const int ACTOR_PIXELS_PER_COORDINATE = 8;
         const string DEFAULT_SPRITE = "ActorDefault";
@@ -1109,9 +1111,21 @@ namespace EFSAdvent
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Editor for Four Swords Adventures by JaytheHam. v{VERSION}"
+            MessageBox.Show($"Editor for Four Swords Adventures by JaytheHam & Venomalia. v{VERSION}"
                 + "\nwww.jaytheham.com"
                 + "\nSend comments, bug reports etc to: jaytheham@gmail.com", $"EFSAdvent version {VERSION}");
+        }
+
+        private void wikiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Open the Wiki page in the default web browser
+            System.Diagnostics.Process.Start(WikiUrl);
+        }
+
+        private void sourceCodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Open the Source code page in the default web browser
+            System.Diagnostics.Process.Start(SourceCodeUrl);
         }
 
         private void saveChangesToolStripMenuItem_Click(object sender, EventArgs e)
