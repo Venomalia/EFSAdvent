@@ -46,6 +46,7 @@ namespace EFSAdvent
 
         private readonly string[] ACTOR_NAMES;
         private readonly Dictionary<string, Bitmap> ACTOR_SPRITES = new Dictionary<string, Bitmap>();
+        private readonly Dictionary<int, string> TILE_INFO = new Dictionary<int, string>();
 
         private readonly HashSet<string> V4ACTORS = new HashSet<string>();
         private readonly HashSet<string> V6ACTORS = new HashSet<string>();
@@ -140,6 +141,22 @@ namespace EFSAdvent
             {
                 var names = File.ReadLines(V8ActorListPath);
                 V8ACTORS = new HashSet<string>(names.Select(n => n.Trim()));
+            }
+
+            string TileInfoListPath = Path.Combine(dataDirectory, "Tile Data.txt");
+            if (File.Exists(TileInfoListPath))
+            {
+                foreach (var line in File.ReadLines(TileInfoListPath))
+                {
+                    if (string.IsNullOrWhiteSpace(line))
+                        continue;
+
+                    var parts = line.Split(':');
+                    if (int.TryParse(parts[0], out int key))
+                    {
+                        TILE_INFO[key] = parts[1].Trim().Replace("\\n", Environment.NewLine);
+                    }
+                }
             }
 
 
@@ -918,6 +935,12 @@ namespace EFSAdvent
                     Color color = tileSheetBitmap.GetPixel(brushTileX + px, brushTileY + py);
                     brushTileBitmap.SetPixel(px, py, color);
                 }
+            }
+
+            _logger.Clear();
+            if (TILE_INFO.TryGetValue(tileID,out string info))
+            {
+                _logger.AppendText(info);
             }
 
             BrushTilePictureBox.Refresh();

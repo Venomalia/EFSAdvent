@@ -1,25 +1,109 @@
-Tile Information:
-
-74:
-Not traversable
-
-104:
-Reveals round switch
-
-105:
-Reveals hole
-
-106:
-Reveals star switch
-
-107:
-Drops two hearts
-
-112:
-Drops random item? (i.e. normal bush)
-
-117:
-Drops one heart
-
-432:
-Traversable (Walking)
+0:Walkable
+1:Fragile block (Side view)
+2:Abyss
+3:Background (Side view)
+4:Shallow water
+5:Deep water, whirlpool
+6:Walkable
+7:Deep water
+8:Ceiling, not walkable
+9:Ceiling, not walkable
+10:Ceiling, not walkable
+11:Ceiling, not walkable\nGBA dividing wall
+12:Abyss
+13:Abyss, does damage
+14:not walkable
+15:not walkable
+16:Chest, open
+17:Plate
+18:Switch\nRequires SWTH Actor to function.
+19:Switch, Pressed
+20:Switch (Side view)\nRequires SWTH Actor to function.
+21:Switch, Pressed (Side view)
+22:Item pedestal (Side view)
+23:Item pedestal
+32:Block, not movable
+33:Block, movable
+34:Green block, movable
+35:Red block, movable
+36:Blue block, movable
+37:Purple block, movable
+38:Block, movable north
+39:Block, movable south
+48:Chest\nRequires TKRA Actor to function.
+49:Abyss, does damage
+43:Eyeball on switch\nRequires MEDM Actor to function.
+54:Block, movable west
+55:Block, movable east
+56:Thorn blockade\nRequires THRN Actor to function.
+57:Thorn blockade, top\nNot required!
+58:Mole tile
+59:Mole tile, chopped
+60:Stone tablet\nRequires KNBN Actor to function.
+61:Torch\nRequires TRCH and LWSW Actor to function.
+62:Spiked floor, retracted
+63:Spiked floor trap, Don't use!\nUse FLYK Actor.
+64:Pot
+65:Pot, reveals switch\nRequires SWTH Actor to function.
+66:Pot, drops a heart
+67:Pot, reveals star switch\nRequires SWTH Actor to function.
+68:Pot, drops two heart
+69:Pot (Side view)
+70:Pot (Side view), reveals switch\nRequires SWTH Actor to function.
+71:Pot (Side view), drops a heart
+72:Pot (Side view), reveals star switch\nRequires SWTH Actor to function.
+73:Pot (Side view), drops two heart
+74:Not traversable
+75:Traversable, digging not possible
+76:Not traversable
+77:Not traversable
+78:Fire jar
+79:Water jar
+80:Star switch\nRequires SWTH Actor to function.
+81:Star switch, Pressed
+82:Star switch (Side view)\nRequires SWTH Actor to function.
+83:Tall grass, not interactive
+85:Torch
+88:Bomb Flower, Don't use!
+89:Bomb Flower\nRequires HBMB Actor to function.
+104:Bush, reveals switch\nRequires SWTH Actor to function.
+105:Bush, reveals hole
+106:Bush, reveals star switch\nRequires SWTH Actor to function.
+107:Bush, drops two hearts
+112:Bush
+113:Sign\nRequires KNBN Actor to function.
+114:Rock
+115:Small boulder
+116:Tall grass
+117:Bush, drops one heart
+118:Stakes 
+119:Stakes, chopped
+122:Hole
+128:Key block\nRequires DOOR Actor to function.
+129:Fragile block
+130:Rock
+132:Bomb Flower, Don't use!
+133:Bomb Flower\nRequires HBMB Actor to function.
+139:Green tile
+140:Red tile
+141:Blue tile
+142:Purple tile
+153:Fire jar (Side view)
+154:Water jar (Side view)
+164:Conveyors, north
+165:Conveyors, south
+166:Conveyors, west
+167:Conveyors, east
+168:Blue switch block
+169:Red switch block
+170:Big Chests\nRequires DOOR Actor to function.
+171:Big Chests\nRequires DOOR Actor to function.
+172:Eyeball switch\nRequires MEDM Actor to function.
+174:Red switch\nRequires RDBL Actor to function.
+175:Blue switch\nRequires RDBL Actor to function.
+178:Big Chests, open
+179:Big Chests, open
+190:On switch\nRequires ONOF Actor to function.
+191:Off switch\nRequires ONOF Actor to function.
+220:Block, not movable
+432:Traversable
