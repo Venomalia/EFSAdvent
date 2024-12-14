@@ -2,7 +2,7 @@ PTMI (transparent NPC wall for links)
 An invisible wall blocking links from passing through.
 
 Variable 1a:
-Variable that activates the wall
+The local variable number that triggers or activates this actor.
 (0 = always active)
 
 Variable 3:

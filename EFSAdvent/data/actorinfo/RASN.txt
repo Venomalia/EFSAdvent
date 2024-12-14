@@ -2,7 +2,7 @@ RASN (spiral staircase)
 Passageway that loading a new area on the map.
 
 Variable 1a:
-Activated by variable X
+The local variable number that triggers or activates this actor.
 
 Variable 2:
 Vertical offset

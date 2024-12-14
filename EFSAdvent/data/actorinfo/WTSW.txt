@@ -2,10 +2,10 @@ WTSW (Wait switch)
 Activates a variable with time delay.
 
 Variable 1:
-Variable to be activated after the time has elapsed.
+The local variable number that is triggered or set by this actor after the time has elapsed.
 
 Variable 2:
-Variable that activates this actor.
+The local variable number that triggers or activates this actor.
 
 Variable 3:
 Strength of the earthquake effects

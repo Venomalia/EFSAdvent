@@ -1,15 +1,19 @@
 ONOF (On / Off switch)
 
 Variable 1a:
-Activated by variable X
+The local variable number that is triggered or set by this actor.
 
 Variable 1b:
 ?
+
+Variable 2:
+7 = ?
 
 Variable 3:
 0 = Permanent
 16 = On / Off
 32 = Time
+160 = ?
 
 Variable 4:
 Time the switch remains active.

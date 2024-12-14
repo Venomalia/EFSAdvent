@@ -1,7 +1,8 @@
 YAJI (Arrow symbol)
 
 Variable 1a:
-Enabled variable X
+The local variable number that triggers or activates this actor.
+(0 = always active)
 
 Variable 4:
 0 = East

@@ -2,7 +2,7 @@ BLCK (block)
 Movable stone block.
 
 Variable 1:
-Enabled variable X
+The local variable number that is triggered or set by this actor after it was moved.
 
 Variable 4:
 0 = 1x1 block

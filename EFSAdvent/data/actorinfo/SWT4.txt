@@ -20,6 +20,7 @@ Packed Variable 6:
 Switch settings
 0 = Default
 1 = Remains active
+5 = ?
 
 Packed data is composed as follows:
 11111222 22333334 44445555 56666666

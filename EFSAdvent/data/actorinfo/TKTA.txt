@@ -3,6 +3,7 @@ TKTA (tektite)
 Variable 4:
 0 = Red
 1 = Blue
+2 = Hidden
 
 life: 4
 atcp: 2

@@ -1,12 +1,21 @@
 SWNP (switch-related NPC)
 
 Variable 1a:
-Activated by variable X
+The local variable number that triggers or activates this actor.
+
+Variable 1b:
+0 = No special effect
+4 = Dust particles
 
 Variable 2:
+If V4 is Play SE
 0 = Secret SE
 4 = ?
 20 = Aapproach SE
+
+If V4 is Item stand
+0 = Pegasus boots
+1 = Magic Hammer
 
 Variable 4:
 0 = Chest

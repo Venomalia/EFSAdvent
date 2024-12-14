@@ -1,6 +1,10 @@
 TOMI (transparent NPC wall)
 An invisible wall blocking actors from passing through.
 
+Variable 1a:
+The local variable number that triggers or activates this actor.
+(0 = always active)
+
 Variable 3:
 Horizontal length
 

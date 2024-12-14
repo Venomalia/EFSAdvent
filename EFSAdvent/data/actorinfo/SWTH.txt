@@ -2,8 +2,7 @@ SWTH (switch)
 One person switch
 
 Variable 1a:
-Enabled variable X
-
+The local variable number that is triggered or set by this actor.
 
 Variable 2a:
 Horizontal trigger area length

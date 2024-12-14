@@ -1,7 +1,7 @@
 HBB2 (Keese Swarm)
 
 Variable 1a:
-Activated by variable X
+The local variable number that triggers or activates this actor.
 
 life: 16
 atcp: 2

@@ -2,7 +2,8 @@ KEY0 (Key)
 A key item which is required to progress.
 
 Variable 1a:
-Variable that triggers this actor (Flag must be set).
+The local variable number that triggers or activates this actor.
+(Flag must be set).
 
 Variable 1b:
 0 = ?

@@ -2,4 +2,4 @@ ZOMO (Zoom Out NPC)
 Zoom out when active
 
 Variable 1a:
-Variable that activates this actor.
+Local variable that activates this actor.

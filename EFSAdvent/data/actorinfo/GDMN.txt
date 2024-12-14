@@ -1,5 +1,12 @@
 GDMN (Geldman)
 
+Variable 1a:
+Local variable number
+
+Variable 3:
+0 = Default
+1 = Activated by local variable?
+
 life: 8
 atcp: 2
 atcn: 0

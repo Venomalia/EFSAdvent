@@ -2,7 +2,7 @@ DOOR (door)
 A doorway.
 
 Variable 1:
-Opened by variable X
+Opened by this local variable
 
 Variable 3:
 2 = Closes when the room is entered?
@@ -15,13 +15,14 @@ Variable 4:
 Variable 5:
 0 = South 
 1 = North
+2 = West
 3 = East
-4 = West
 
 Variable 6:
 0 = Closed door
 1 = Key door
-2 = Bomb
+2 = Bombable Wall
+4 = Bombable Wall
 5 = 1x1 Key block
 7 = Locked Big chest
 8 = Vines

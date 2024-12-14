@@ -1,13 +1,14 @@
 SWOR (OR switch check)
+Sets the local variable specified in V1 if any of the local variables specified in V2 or V3 are set.
 
 Variable 1:
-Variable that is set if one of the checked variables is set.
+The local variable number that is triggered or set by this actor.
 
 Variable 2:
-Variable that is checked.
+A local variable number that is checked by this actor.
 
 Variable 3:
-Variable that is checked.
+A local variable number that is checked by this actor.
 
 Packed data is composed as follows:
 11111222 22333334 44445555 56666666

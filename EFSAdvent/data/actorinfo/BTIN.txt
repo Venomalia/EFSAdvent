@@ -2,7 +2,8 @@ BTIN (BTI NPC)
 Displays a bti object
 
 Variable 1:
-Activated by variable X?
+The local variable number that triggers or activates this actor.
+(0 = always active)
 
 Variable 2:
 1 = ?

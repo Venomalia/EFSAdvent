@@ -1,7 +1,7 @@
 RUPY (rupee)
 
 Variable 1:
-Activated by this lokal variable if Variable 2 indicates this.
+The local variable number that triggers or activates this actor if Variable 2 indicates this.
 
 Variable 2:
 1 = Not ineractable

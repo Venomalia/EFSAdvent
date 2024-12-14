@@ -1,7 +1,7 @@
 TOOI (thief cage NPC)
 
 Variable 1a:
-Enabled this variable when all the thieves have been caught.
+The local variable number that is triggered or set by this actor when all the thieves have been caught.
 
 Variable 1b:
 2 = ?

@@ -2,6 +2,7 @@ GOMA (Gohma)
 
 Variable 4:
 0 = Default
+1 = Walking sideways
 3 = Boss
 
 life: 12

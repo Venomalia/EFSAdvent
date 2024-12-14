@@ -1,7 +1,8 @@
 CNON (Flying cannon)
 
 Variable 1:
-Activated by variable X
+The local variable number that triggers or activates this actor.
+(0 = always active)
 
 Variable 3:
 Width of vertical movement

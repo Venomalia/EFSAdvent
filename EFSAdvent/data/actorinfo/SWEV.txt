@@ -1,7 +1,7 @@
 SWEV (environmental switch control)
 
 Variable 1:
-Activated by variable X
+The local variable number that triggers or activates this actor.
 
 Variable 2:
 [Flags]

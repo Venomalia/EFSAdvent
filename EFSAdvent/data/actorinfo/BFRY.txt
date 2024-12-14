@@ -2,7 +2,7 @@ BFRY (Great Fairy)
 Big Fairy
 
 Variable 1:
-Activated by variable X?
+The local variable number that triggers or activates this actor.
 
 Variable 4:
 0 = Heal

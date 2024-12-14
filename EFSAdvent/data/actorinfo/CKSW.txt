@@ -1,19 +1,20 @@
 CKSW (check switch)
 
 Variable 1:
-Variable that activates this actor.
+The local variable number that triggers or activates this actor.
+(0 = always active)
 
 Variable 2:
-Variable that is checked.
+A local variable number that is checked by this actor.
 
 Variable 3:
-Variable that is checked.
+A local variable number that is checked by this actor.
 
 Variable 4:
-Variable that is checked.
+A local variable number that is checked by this actor.
 
 Variable 5:
-Variable that is checked.
+A local variable number that is checked by this actor.
 
 Variable 6:
 0 = Sets a random variable.

@@ -2,7 +2,7 @@ CIRC (Magic circle)
 Appearing magic circle warp
 
 Variable 1a:
-Activated by variable X
+The local variable number that triggers or activates this actor.
 
 Variable 1b:
 0 = Back To TV

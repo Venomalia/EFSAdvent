@@ -1,1 +1,10 @@
 RBPN (Switching colored floor)
+
+Variable 2:
+Interval?
+
+Variable 5:
+0 = Green
+1 = Red
+2 = Blue
+3 = Purple

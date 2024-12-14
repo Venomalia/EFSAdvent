@@ -1,7 +1,7 @@
 SKUL (Bubble)
 
 Variable 1:
-Activated by variable X ?
+The local variable number that triggers or activates this actor.
 
 Variable 3:
 1 = Stay on walls, move down

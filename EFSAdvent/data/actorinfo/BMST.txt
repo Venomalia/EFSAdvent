@@ -1,5 +1,8 @@
 BMST (Beamos)
 
+Variable 1a:
+The local variable number that deactivates this actor.
+
 Variable 4:
 Range
 

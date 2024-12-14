@@ -13,3 +13,4 @@ Variable 4:
 9 = Shovel
 10 = Slingshot
 11 = Four Sword (unused)
+[Flag] = Under a rock

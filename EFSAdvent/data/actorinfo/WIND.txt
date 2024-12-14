@@ -2,7 +2,7 @@ WIND (Wind environment)
 Strong wind blowing across screen.
 
 Variable 1a:
-Variable that activates the wind.
+The local variable number that triggers or activates this actor.
 
 Variable 4:
 Wind direction
