@@ -21,8 +21,9 @@ Variable 5:
 Variable 6:
 0 = Closed door
 1 = Key door
-2 = Bombable Wall
-4 = Bombable Wall
+2 = Bombable wall
+3 = Key door (House)
+4 = Bombable wall (House)
 5 = 1x1 Key block
 7 = Locked Big chest
 8 = Vines
