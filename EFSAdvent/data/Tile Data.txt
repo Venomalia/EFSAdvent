@@ -1,7 +1,7 @@
 0:Walkable
 1:Fragile block (Side view)
 2:Abyss
-3:Background (Side view)
+3:Water background (Side view)
 4:Shallow water
 5:Deep water, whirlpool
 6:Walkable
@@ -106,4 +106,195 @@
 190:On switch\nRequires ONOF Actor to function.
 191:Off switch\nRequires ONOF Actor to function.
 220:Block, not movable
+250:Tree trunk
 432:Traversable
+
+736:Closed 1x1 door (north)
+737:Closed 1x1 door (north)
+738:Closed 1x1 door (west)
+739:Closed 1x1 door (east)
+740:Door frame ceiling (north)\nShould be placed on the top layer.
+741:Door frame ceiling (north)\nShould be placed on the top layer.
+742:Door frame ceiling (north)\nShould be placed on the top layer.
+743:Door frame ceiling (west)\nShould be placed on the top layer.
+744:Door frame ceiling (west)\nShould be placed on the top layer.
+745:Door frame ceiling (west)\nShould be placed on the top layer.
+746:Door frame (north)
+747:Door frame (north)
+748:Door frame (west)
+749:Door frame (east)
+750:Doorway (north)
+751:Doorway (west)
+752:Closed 1x1 door (north)
+753:Closed 1x1 door (north)
+754:Closed 1x1 door (west)
+755:Closed 1x1 door (east)
+756:Door frame ceiling (south)\nShould be placed on the top layer.
+757:Door frame ceiling (south)\nShould be placed on the top layer.
+758:Door frame ceiling (south)\nShould be placed on the top layer.
+759:Door frame ceiling (east)\nShould be placed on the top layer.
+760:Door frame ceiling (east)\nShould be placed on the top layer.
+761:Door frame ceiling (east)\nShould be placed on the top layer.
+762:Door frame (south)
+763:Door frame (south)
+764:Door frame (west)
+765:Door frame (east)
+766:Doorway (south)
+767:Doorway (east)
+768:Closed door (north)
+769:Closed door (north)
+770:Closed door (west)
+771:Closed door (east)
+772:Locked door (north)
+773:Locked door (north)
+774:Locked door (west)
+775:Locked door (east)
+776:Closed door (north)
+777:Closed door (west)
+778:Closed door frame (north)\nPlace DOOR Actor here.\nUse type 0 (Closed door) or 1 (Key door)
+779:Closed door frame (north)
+780:Closed door frame (west)\nPlace DOOR Actor here.\nUse type 0 (Closed door) or 1 (Key door)
+781:Closed door frame (east)\nPlace DOOR Actor here.\nUse type 0 (Closed door) or 1 (Key door)
+782:Wide cracked wall (north)
+783:Wide cracked wall (west)
+784:Closed door (south)
+785:Closed door (south)
+786:Closed door (west)
+787:Closed door (east)
+788:Locked door(south)
+789:Locked door (south)
+790:Locked door (west)
+791:Locked door (east)
+792:Closed door (south)
+793:Closed door (east)
+794:Closed door frame (south)\nPlace DOOR Actor here.\nUse type 0 (Closed door) or 1 (Key door)
+795:Closed door frame (south)
+796:Closed door frame (west)
+797:Closed door frame (east)
+798:Wide cracked wall (south)
+799:Wide cracked wall (east)
+800:Cracked wall ceiling (north)\nShould be placed on the top layer.
+801:Cracked wall ceiling (north)\nShould be placed on the top layer.
+802:Cracked wall (south)\nPlace DOOR Actor here.\nUse type 2 (Bombable wall)
+803:Cracked wall (south)
+804:Cracked wall ceiling (west)\nShould be placed on the top layer.
+805:Cracked wall (west)\nPlace DOOR Actor here.\nUse type 2 (Bombable wall)
+806:Cracked wall (east)\nPlace DOOR Actor here.\nUse type 2 (Bombable wall)
+807:Cracked wall ceiling (east)\nShould be placed on the top layer.
+808:Broken wall ceiling (north)\nShould be placed on the top layer.
+809:Broken wall ceiling (north)\nShould be placed on the top layer.
+810:Broken wall (south)
+811:Broken wall (south)
+812:Broken wall ceiling (west)\nShould be placed on the top layer.
+813:Broken wall (west)
+814:Broken wall (east)
+815:Broken wall ceiling (east)\nShould be placed on the top layer.
+816:Cracked wall (north)\nPlace DOOR Actor here.\nUse type 2 (Bombable wall)
+817:Cracked wall (north)
+818:Cracked wall ceiling (south)\nShould be placed on the top layer.
+819:Cracked wall ceiling (south)\nShould be placed on the top layer.
+820:Cracked wall ceiling (west)\nShould be placed on the top layer.
+821:Cracked wall (west)
+822:Cracked wall (east)
+823:Cracked wall ceiling (east)\nShould be placed on the top layer.
+824:Broken wall (north)
+825:Broken wall (north)
+826:Broken wall ceiling (south)\nShould be placed on the top layer.
+827:Broken wall ceiling (south)\nShould be placed on the top layer.
+828:Broken wall ceiling (west)\nShould be placed on the top layer.
+829:Broken wall (west)
+830:Broken wall (east)
+831:Broken wall ceiling (east)\nShould be placed on the top layer.
+832:1x1 door ceiling (north)\nShould be placed on the top layer.
+833:1x1 door ceiling (north)\nShould be placed on the top layer.
+834:1x1 door (south)
+835:1x1 door (south)
+836:1x1 door ceiling (west)\nShould be placed on the top layer.
+837:1x1 door (west)
+838:1x1 door (east)
+839:1x1 door ceiling (east)\nShould be placed on the top layer.
+840:1x1 locked door (north)
+841:1x1 locked door (north)
+842:1x1 locked door (west)
+843:1x1 locked door (east)
+
+848:1x1 door (north)
+849:1x1 door (north)
+850:1x1 door ceiling (south)\nShould be placed on the top layer.
+851:1x1 door ceiling (south)\nShould be placed on the top layer.
+852:1x1 door ceiling (west)\nShould be placed on the top layer.
+853:1x1 door (west)
+854:1x1 door (east)
+855:1x1 door ceiling (east)\nShould be placed on the top layer.
+856:1x1 locked door (south)
+857:1x1 locked door (south)
+858:1x1 locked door (west)
+859:1x1 locked door (east)
+
+896:Cracked wall ceiling (north)\nShould be placed on the top layer.
+897:Cracked wall ceiling (north)\nShould be placed on the top layer.
+898:Cracked wall (south)\nPlace DOOR Actor here.\nUse type 4 (Bombable wall (House))
+899:Cracked wall (south)
+900:Cracked wall ceiling (west)\nShould be placed on the top layer.
+901:Cracked wall (west)\nPlace DOOR Actor here.\nUse type 4 (Bombable wall (House))
+902:Cracked wall (east)\nPlace DOOR Actor here.\nUse type 4 (Bombable wall (House))
+903:Cracked wall ceiling (east)\nShould be placed on the top layer.
+904:Broken wall ceiling (north)\nShould be placed on the top layer.
+905:Broken wall ceiling (north)\nShould be placed on the top layer.
+906:Broken wall (south)
+907:Broken wall (south)
+908:Broken wall ceiling (west)\nShould be placed on the top layer.
+909:Broken wall (west)
+910:Broken wall (east)
+911:Broken wall ceiling (east)\nShould be placed on the top layer.
+912:Cracked wall (north)\nPlace DOOR Actor here.\nUse type 4 (Bombable wall (House))
+913:Cracked wall (north)
+914:Cracked wall ceiling (south)\nShould be placed on the top layer.
+915:Cracked wall ceiling (south)\nShould be placed on the top layer.
+916:Cracked wall ceiling (west)\nShould be placed on the top layer.
+917:Cracked wall (west)
+918:Cracked wall (east)
+919:Cracked wall ceiling (east)\nShould be placed on the top layer.
+920:Broken wall (north)
+921:Broken wall (north)
+922:Broken wall ceiling (south)\nShould be placed on the top layer.
+923:Broken wall ceiling (south)\nShould be placed on the top layer.
+924:Broken wall ceiling (west)\nShould be placed on the top layer.
+925:Broken wall (west)
+926:Broken wall (east)
+927:Broken wall ceiling (east)\nShould be placed on the top layer.
+928:1x1 door ceiling (north)\nShould be placed on the top layer.
+929:1x1 door ceiling (north)\nShould be placed on the top layer.
+930:1x1 door (south)
+931:1x1 door (south)
+932:1x1 door ceiling (west)\nShould be placed on the top layer.
+933:1x1 door (west)
+934:1x1 door (east)
+935:1x1 door ceiling (east)\nShould be placed on the top layer.
+936:1x1 locked door (north)\nPlace DOOR Actor here.\nUse type 3 (Key door (House)) or 8 (Vines)
+937:1x1 locked door (north)
+938:1x1 locked door (west)\nPlace DOOR Actor here.\nUse type 3 (Key door (House)) or 8 (Vines)
+939:1x1 locked door (east)\nPlace DOOR Actor here.\nUse type 3 (Key door (House)) or 8 (Vines)
+
+944:1x1 door (north)
+945:1x1 door (north)
+946:1x1 door ceiling (south)\nShould be placed on the top layer.
+947:1x1 door ceiling (south)\nShould be placed on the top layer.
+948:1x1 door ceiling (west)\nShould be placed on the top layer.
+949:1x1 door (west)
+950:1x1 door (east)
+951:1x1 door ceiling (east)\nShould be placed on the top layer.
+952:1x1 locked door (south)\nPlace DOOR Actor here.\nUse type 3 (Key door (House)) or 8 (Vines)
+953:1x1 locked door (south)
+954:1x1 locked door (west)
+955:1x1 locked door (east)
+
+976:Deep water (Side view)\nShould be placed on the top layer.
+977:Deep water (Side view)\nShould be placed on the top layer.
+992:Background (Side view)
+993:Stalactite Background (Side view)
+994:Stalactite Background (Side view)
+999:Door frame (Side view)
+1000:Door frame (Side view)
+1001:Door frame (Side view)
+1002:Door frame (Side view)
