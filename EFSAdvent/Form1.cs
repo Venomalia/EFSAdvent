@@ -493,7 +493,6 @@ namespace EFSAdvent
 
         private void SelectMapRoom(object sender, MouseEventArgs e)
         {
-            _logger.Clear();
 
             int roomWidthInPixels = mapPictureBox.Width / _level.Map.XDimension;
             int roomHeightInPixels = mapPictureBox.Height / _level.Map.YDimension;
@@ -504,8 +503,8 @@ namespace EFSAdvent
             MapRoomRemoveButton.Enabled = roomValue != Map.EMPTY_ROOM_VALUE;
             MapRoomNewButton.Enabled = true;
 
-            _logger.AppendText($"Map coordinates: x{selectedRoomCoordinates.x} y{selectedRoomCoordinates.y}");
-
+            CoridinatesTextBox.Clear();
+            CoridinatesTextBox.AppendText($"Map coordinates: x{selectedRoomCoordinates.x} y{selectedRoomCoordinates.y}");
             DrawMapWithSelectedRoomHighlighted();
         }
 
@@ -761,8 +760,8 @@ namespace EFSAdvent
             void SetMouseDownActor()
             {
                 lastActorCoordinates = (scaledEvent.X / ACTOR_PIXELS_PER_COORDINATE, scaledEvent.Y / ACTOR_PIXELS_PER_COORDINATE);
-                _logger.Clear();
-                _logger.AppendText($"Actor coordinates: x{lastActorCoordinates.x} y{lastActorCoordinates.y}");
+                CoridinatesTextBox.Clear();
+                CoridinatesTextBox.AppendText($"Actor coordinates: x{lastActorCoordinates.x} y{lastActorCoordinates.y}");
 
                 if (e.Button != MouseButtons.Left)
                 {
@@ -816,8 +815,8 @@ namespace EFSAdvent
             {
                 return;
             }
-            _logger.Clear();
-            _logger.AppendText($"Tile coordinates: x{eventX} y{eventY}");
+            CoridinatesTextBox.Clear();
+            CoridinatesTextBox.AppendText($"Tile coordinates: x{eventX} y{eventY}");
 
             //If right click set the brush tile to the clicked tile
             if (scaledEvent.Button == MouseButtons.Right)

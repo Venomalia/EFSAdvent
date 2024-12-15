@@ -71,6 +71,7 @@ namespace EFSAdvent
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightSideGroupBox = new System.Windows.Forms.GroupBox();
             this.updateLayersButton = new System.Windows.Forms.Button();
             this.buttonSaveLayers = new System.Windows.Forms.Button();
@@ -190,7 +191,8 @@ namespace EFSAdvent
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
-            this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.CoridinatesTextBox = new System.Windows.Forms.TextBox();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -357,12 +359,12 @@ namespace EFSAdvent
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.loggerTextBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.loggerTextBox.Location = new System.Drawing.Point(6, 207);
+            this.loggerTextBox.Location = new System.Drawing.Point(7, 207);
             this.loggerTextBox.Multiline = true;
             this.loggerTextBox.Name = "loggerTextBox";
             this.loggerTextBox.ReadOnly = true;
             this.loggerTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.loggerTextBox.Size = new System.Drawing.Size(151, 333);
+            this.loggerTextBox.Size = new System.Drawing.Size(150, 312);
             this.loggerTextBox.TabIndex = 22;
             // 
             // menuStrip1
@@ -605,20 +607,28 @@ namespace EFSAdvent
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // wikiToolStripMenuItem
             // 
             this.wikiToolStripMenuItem.Name = "wikiToolStripMenuItem";
-            this.wikiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wikiToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.wikiToolStripMenuItem.Text = "Wiki";
             this.wikiToolStripMenuItem.Click += new System.EventHandler(this.wikiToolStripMenuItem_Click);
+            // 
+            // sourceCodeToolStripMenuItem
+            // 
+            this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
+            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.sourceCodeToolStripMenuItem.Text = "Source code";
+            this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.sourceCodeToolStripMenuItem_Click);
             // 
             // rightSideGroupBox
             // 
             this.rightSideGroupBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.rightSideGroupBox.Controls.Add(this.CoridinatesTextBox);
             this.rightSideGroupBox.Controls.Add(this.updateLayersButton);
             this.rightSideGroupBox.Controls.Add(this.buttonSaveLayers);
             this.rightSideGroupBox.Controls.Add(this.layersCheckList);
@@ -2088,12 +2098,19 @@ namespace EFSAdvent
             this.BottomGroupBox.TabIndex = 24;
             this.BottomGroupBox.TabStop = false;
             // 
-            // sourceCodeToolStripMenuItem
+            // contextMenuStrip1
             // 
-            this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
-            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sourceCodeToolStripMenuItem.Text = "Source code";
-            this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.sourceCodeToolStripMenuItem_Click);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // CoridinatesTextBox
+            // 
+            this.CoridinatesTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.CoridinatesTextBox.Location = new System.Drawing.Point(7, 525);
+            this.CoridinatesTextBox.Name = "CoridinatesTextBox";
+            this.CoridinatesTextBox.ReadOnly = true;
+            this.CoridinatesTextBox.Size = new System.Drawing.Size(150, 20);
+            this.CoridinatesTextBox.TabIndex = 23;
             // 
             // Form1
             // 
@@ -2353,6 +2370,8 @@ namespace EFSAdvent
         private CheckBox ActorVariable4FlagCheckBox;
         private ToolStripMenuItem wikiToolStripMenuItem;
         private ToolStripMenuItem sourceCodeToolStripMenuItem;
+        private TextBox CoridinatesTextBox;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }
 
