@@ -1,4 +1,4 @@
-SLMN (Slime Manager)
+SLMN (Slime Manager) No GBA sprite
 Four slimes
 
 Variable 3:

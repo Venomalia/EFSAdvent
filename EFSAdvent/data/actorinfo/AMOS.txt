@@ -1,4 +1,4 @@
-AMOS (Armos Knight)
+AMOS (Armos Knight) Has GBA sprite
 
 Variable 3:
 Rail ID

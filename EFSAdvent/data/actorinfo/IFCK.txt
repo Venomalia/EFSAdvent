@@ -1,4 +1,4 @@
-IFCK (Ice Sheet Check NPC)
+IFCK (Ice Sheet Check NPC) No GBA sprite?
 Event which is executed when the flor tile is destroyed.
 
 Variable 1a:

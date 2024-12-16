@@ -1,4 +1,4 @@
-LTZR (Lily pad Zora)
+LTZR (Lily pad Zora) No GBA sprite
 
 life: 1
 atcp: 0

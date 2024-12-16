@@ -1,4 +1,4 @@
-PAME (Terrorpin)
+PAME (Terrorpin) No GBA sprite
 
 Variable 4:
 1 = Big

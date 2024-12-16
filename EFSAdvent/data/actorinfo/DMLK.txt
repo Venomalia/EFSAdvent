@@ -1,2 +1,2 @@
-DMLK (Cutscene shadow link)
+DMLK (Cutscene shadow link) No GBA sprite
 Shadow Link, disappears

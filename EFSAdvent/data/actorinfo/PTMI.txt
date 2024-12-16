@@ -1,4 +1,4 @@
-PTMI (transparent NPC wall for links)
+PTMI (transparent NPC wall for links) No GBA sprite
 An invisible wall blocking links from passing through.
 
 Variable 1a:

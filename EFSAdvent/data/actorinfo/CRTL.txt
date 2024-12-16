@@ -1,4 +1,4 @@
-CRTL (Crystal ball)
+CRTL (Crystal ball) Has GBA sprite
 
 Variable 4:
 0 = Default

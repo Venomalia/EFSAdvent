@@ -1,4 +1,4 @@
-THCL (attack judgment when player is thrown)
+THCL (attack judgment when player is thrown) No GBA sprite
 
 
 

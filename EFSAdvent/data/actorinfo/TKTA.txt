@@ -1,4 +1,4 @@
-TKTA (tektite)
+TKTA (tektite) No GBA sprite
 
 Variable 4:
 0 = Red

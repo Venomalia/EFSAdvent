@@ -1,2 +1,2 @@
-FAZR (Escort Zora)
+FAZR (Escort Zora) Has GBA sprite
 NPC that follows you

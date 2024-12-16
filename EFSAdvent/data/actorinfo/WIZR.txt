@@ -1,4 +1,4 @@
-WIZR (Wizrobe)
+WIZR (Wizrobe) No GBA sprite
 
 Variable 1:
 Trigger by variable X

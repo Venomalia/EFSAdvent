@@ -1,4 +1,4 @@
-DCR2 (Crystal for 5-4 and 6-4 for cutscene)
+DCR2 (Crystal for 5-4 and 6-4 for cutscene) No GBA sprite
 Trapped maiden 5-3 & 6-3 cutscene.
 
 Variable 1:

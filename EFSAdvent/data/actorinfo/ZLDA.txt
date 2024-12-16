@@ -1,4 +1,4 @@
-ZLDA (Princess Zelda)
+ZLDA (Princess Zelda) Blonde girl GBA sprite
 
 life: 1
 atcp: 0

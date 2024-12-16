@@ -1,1 +1,1 @@
-WPWL (warp entrance wall)
+WPWL (warp entrance wall) No GBA sprite

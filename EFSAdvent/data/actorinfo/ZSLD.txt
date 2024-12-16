@@ -1,4 +1,4 @@
-ZSLD (Easy Shadow Link (Dashing))
+ZSLD (Easy Shadow Link (Dashing)) Has GBA sprite
 
 Variable 4a:
 0 = ?

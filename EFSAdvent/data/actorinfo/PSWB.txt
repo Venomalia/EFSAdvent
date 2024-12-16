@@ -1,4 +1,4 @@
-PSWB (4-person pull switch Bti version)
+PSWB (4-person pull switch Bti version) No GBA sprite
 
 Variable 1a:
 Variable that will be set when this actor is triggered.

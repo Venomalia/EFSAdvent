@@ -1,4 +1,4 @@
-FOBE (Flying bee formation)
+FOBE (Flying bee formation) No GBA sprite
 
 Red bee thing that flies away
 

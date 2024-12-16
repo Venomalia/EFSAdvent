@@ -1,2 +1,2 @@
-GFBS (Vaati Buster)
+GFBS (Vaati Buster) No GBA sprite
 Prevents Vaati from appearing in this area.

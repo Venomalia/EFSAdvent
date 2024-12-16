@@ -1,4 +1,4 @@
-ZSLF (Easy Shadow Link (Fire))
+ZSLF (Easy Shadow Link (Fire)) Has GBA sprite
 
 Variable 4a:
 0 = ?

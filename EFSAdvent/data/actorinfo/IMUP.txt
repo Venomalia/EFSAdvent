@@ -1,2 +1,2 @@
-IMUP (Lifting Items)
+IMUP (Lifting Items) Has GBA sprite
 Item held above the head

@@ -1,4 +1,4 @@
-BCK2 (color block for 1 person)
+BCK2 (color block for 1 person) Has GBA sprite
 
 Variable 1:
 Opened by variable X

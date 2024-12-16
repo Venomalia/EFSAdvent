@@ -1,4 +1,4 @@
-IWAG (Tumbling boulder spawner)
+IWAG (Tumbling boulder spawner) No GBA sprite
 
 Variable 1:
 8 = ?

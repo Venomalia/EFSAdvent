@@ -1,4 +1,4 @@
-YNSW (4-seater switch)
+YNSW (4-seater switch) Has GBA sprite
 Four person switch
 
 Variable 1a:

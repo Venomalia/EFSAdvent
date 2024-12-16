@@ -1,4 +1,4 @@
-FGN2 (Phantom Ganon 2)
+FGN2 (Phantom Ganon 2) No GBA sprite
 Boss fight against the Phantom Ganon 2,
 Requires “fganon” Bti resources to function!
 

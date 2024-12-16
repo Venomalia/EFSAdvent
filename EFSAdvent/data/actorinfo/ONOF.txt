@@ -1,4 +1,4 @@
-ONOF (On / Off switch)
+ONOF (On / Off switch) Has GBA sprite
 
 Variable 1a:
 The local variable number that is triggered or set by this actor.

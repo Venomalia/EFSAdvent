@@ -1,4 +1,4 @@
-OSIN (Stone Elevator)
+OSIN (Stone Elevator) Has GBA sprite
 
 life: 1
 atcp: 0

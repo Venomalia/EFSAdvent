@@ -1,5 +1,5 @@
-OKAM (Unused Enemy Aruki)
-An enemy that has to be defeated with several players.
+OKAM (Unused Enemy Aruki) No GBA sprite
+An enemy that has to be defeated with several players. 
 
 Variable 3:
 Replacement enemie in single player

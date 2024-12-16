@@ -1,4 +1,4 @@
-TZOK (thief)
+TZOK (thief) Has GBA sprite
 
 Variable 1:
 40 = Red bandana

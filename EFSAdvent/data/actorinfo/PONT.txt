@@ -1,6 +1,6 @@
-PONT (point check NPC)
+PONT (point check NPC) No GBA sprite
 
-Is triggered when the tiele changes
+Is triggered when the tile changes
 
 Variable 1:
 Enabled variable X

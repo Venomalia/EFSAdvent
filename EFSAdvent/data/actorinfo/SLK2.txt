@@ -1,4 +1,4 @@
-SLK2 (Shadow Link 2)
+SLK2 (Shadow Link 2) Has GBA sprite
 Mini boss fight against Shadow Link
 
 Variable 2a:

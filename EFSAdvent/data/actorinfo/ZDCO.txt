@@ -1,1 +1,1 @@
-ZDCO (Zelda action OBJ cutscene)
+ZDCO (Zelda action OBJ cutscene) No GBA sprite

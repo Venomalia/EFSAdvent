@@ -1,1 +1,1 @@
-ARSH (Small fireball)
+ARSH (Small fireball) Has GBA sprite

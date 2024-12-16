@@ -1,4 +1,4 @@
-WDRY (wooden rupees)
+WDRY (wooden rupees) Has GBA sprite
 Force kristal that can be revealed with the fire rod.
 
 Variable 2:

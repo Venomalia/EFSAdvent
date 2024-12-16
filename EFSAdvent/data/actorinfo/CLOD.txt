@@ -1,4 +1,4 @@
-CLOD (clouds)
+CLOD (clouds) No GBA sprite
 Moving cloud
 
 Variable 2:

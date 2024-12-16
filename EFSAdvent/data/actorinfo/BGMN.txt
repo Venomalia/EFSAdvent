@@ -1,4 +1,4 @@
-BGMN (BGM change NPC)
+BGMN (BGM change NPC) No GBA sprite
 Changes BG music.
 
 Variable 1:

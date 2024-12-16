@@ -1,4 +1,5 @@
-SWEV (environmental switch control)
+SWEV (environmental switch control) No GBA sprite
+
 
 Variable 1:
 The local variable number that triggers or activates this actor.

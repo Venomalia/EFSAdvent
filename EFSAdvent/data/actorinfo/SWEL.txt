@@ -1,4 +1,5 @@
-SWEL (hammer bulge)
+SWEL (hammer bulge) No GBA sprite
+
 Item in the ground that can be hammered out.
 
 Variable 1a:

@@ -1,1 +1,1 @@
-ICOB (ice sheet check NPC monitoring)
+ICOB (ice sheet check NPC monitoring) No GBA sprite

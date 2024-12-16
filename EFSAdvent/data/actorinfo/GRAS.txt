@@ -1,4 +1,4 @@
-GRAS (grass)
+GRAS (grass) has GBA sprite
 
 
 

@@ -1,4 +1,4 @@
-POPO (Popo)
+POPO (Popo) No GBA sprite
 
 Variable 4:
 0 = ?

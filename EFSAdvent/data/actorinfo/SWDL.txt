@@ -1,1 +1,1 @@
-SWDL (Player Sword Level Check NPC)
+SWDL (Player Sword Level Check NPC) No GBA sprite

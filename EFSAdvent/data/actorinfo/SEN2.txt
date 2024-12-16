@@ -1,1 +1,1 @@
-SEN2 (Play the specified SE)
+SEN2 (Play the specified SE) No GBA sprite

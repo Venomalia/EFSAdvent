@@ -1,4 +1,4 @@
-TOOI (thief cage NPC)
+TOOI (thief cage NPC) No GBA sprite
 
 Variable 1a:
 The local variable number that is triggered or set by this actor when all the thieves have been caught.

@@ -1,4 +1,4 @@
-FOBR (Formation bird)
+FOBR (Formation bird) No GBA sprite
 
 life: 1
 atcp: 1

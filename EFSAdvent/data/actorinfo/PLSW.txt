@@ -1,4 +1,4 @@
-PLSW (Pull switch)
+PLSW (Pull switch) Has GBA sprite
 
 Variable 1:
 Enabled variable X

@@ -1,4 +1,4 @@
-SNBL (Snowball)
+SNBL (Snowball) No GBA sprite
 A large snowball that attacks the player.
 
 Variable 3:

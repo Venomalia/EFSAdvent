@@ -1,4 +1,4 @@
-NIWA (Cucco)
+NIWA (Cucco) Has GBA sprite
 
 Variable 3:
 0 = Default

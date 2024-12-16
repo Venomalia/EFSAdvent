@@ -1,4 +1,4 @@
-EETC (Other characters for ending cutscene)
+EETC (Other characters for ending cutscene) No GBA sprite
 Four ladies from start of game who change formation
 
 life: 1

@@ -1,4 +1,4 @@
-LPLK (Force Like)
+LPLK (Force Like) Glitched GBA sprite
 
 Variable 4:
 0 = Green

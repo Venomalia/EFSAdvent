@@ -1,4 +1,4 @@
-FARY (fairy)
+FARY (fairy) Has GBA sprite
 A force fairy
 
 Variable 1a:

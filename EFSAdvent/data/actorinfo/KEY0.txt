@@ -1,4 +1,4 @@
-KEY0 (Key)
+KEY0 (Key)  All have GBA sprites
 A key item which is required to progress.
 
 Variable 1a:

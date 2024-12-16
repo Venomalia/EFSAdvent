@@ -1,4 +1,4 @@
-HBMB (Bomb)
+HBMB (Bomb) Has GBA sprite
 
 Variable 3:
 1 = ?

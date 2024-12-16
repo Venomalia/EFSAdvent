@@ -1,4 +1,4 @@
-HINO (Hinox)
+HINO (Hinox) No GBA sprite
 
 life: 48
 atcp: 2

@@ -1,4 +1,4 @@
-PSSW (push switch)
+PSSW (push switch) No GBA sprite
 Activates a variable when pressed against a wall.
 
 Variable 1:

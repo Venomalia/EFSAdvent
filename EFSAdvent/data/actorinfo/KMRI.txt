@@ -1,4 +1,4 @@
-KMRI (smoke when cracking a jar)
+KMRI (smoke when cracking a jar) Has GBA sprite
 
 Pot breaking smoke
 

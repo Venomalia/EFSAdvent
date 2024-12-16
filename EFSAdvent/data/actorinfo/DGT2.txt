@@ -1,4 +1,4 @@
-DGT2 (Mini-moldorm)
+DGT2 (Mini-moldorm) No GBA sprite
 
 life: 12
 atcp: 2

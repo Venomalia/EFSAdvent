@@ -1,4 +1,4 @@
-TKYU (iron ball (manager))
+TKYU (iron ball (manager)) Has GBA sprite
 
 Variable 1a:
 Variable which stops the iron balls

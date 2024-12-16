@@ -1,4 +1,4 @@
-BWRT (Boss: Wart)
+BWRT (Boss: Wart) No GBA sprite
 Boss fight against the Stone Arrghus,
 Requires “wart” Bti resources to function!
 

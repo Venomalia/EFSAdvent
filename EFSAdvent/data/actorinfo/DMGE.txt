@@ -1,4 +1,4 @@
-DMGE (Damage NPC)
+DMGE (Damage NPC) No GBA sprite
 
 life: 1
 atcp: 0

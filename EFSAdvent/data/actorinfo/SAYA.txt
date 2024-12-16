@@ -1,4 +1,4 @@
-SAYA (Fish hungry zora)
+SAYA (Fish hungry zora) No GBA sprite
 
 Variable 1:
 Enabled variable X

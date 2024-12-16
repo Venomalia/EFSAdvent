@@ -1,4 +1,4 @@
-RBPN (Switching colored floor)
+RBPN (Switching colored floor) No GBA sprite
 
 Variable 2:
 Interval?

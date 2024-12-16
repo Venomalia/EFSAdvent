@@ -1,4 +1,4 @@
-ICWL (Ice Wall)
+ICWL (Ice Wall) Glitched GBA sprite
 Ice block can be melted with fire.
 
 Variable 3:

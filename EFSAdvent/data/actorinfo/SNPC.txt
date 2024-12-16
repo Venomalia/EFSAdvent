@@ -1,4 +1,4 @@
-SNPC (Special Conversation NPC)
+SNPC (Special Conversation NPC) Has GBA sprite
 
 Variable 2: Actor Sprite
 5 = Old Man

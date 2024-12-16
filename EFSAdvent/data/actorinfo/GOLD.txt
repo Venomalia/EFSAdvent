@@ -1,4 +1,4 @@
-GOLD (Outpouring (Rupees))
+GOLD (Outpouring (Rupees)) No GBA sprite
 
 Variable 2:
 0 = Force hole

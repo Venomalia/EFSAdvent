@@ -1,4 +1,4 @@
-BTIN (BTI NPC)
+BTIN (BTI NPC) No GBA sprite
 Displays a bti object
 
 Variable 1:

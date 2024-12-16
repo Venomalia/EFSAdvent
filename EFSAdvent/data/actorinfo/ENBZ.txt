@@ -1,4 +1,4 @@
-ENBZ (Enemy area generator)
+ENBZ (Enemy area generator) No GBA sprite
 
 life: 1
 atcp: 0

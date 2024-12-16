@@ -1,1 +1,1 @@
-SVGT (side view gate display NPC)
+SVGT (side view gate display NPC) No GBA sprite

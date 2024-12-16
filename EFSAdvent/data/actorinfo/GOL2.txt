@@ -1,4 +1,4 @@
-GOL2 (goal 2)
+GOL2 (goal 2) No GBA sprite
 Evil imprisoning field
 
 Variable 1:

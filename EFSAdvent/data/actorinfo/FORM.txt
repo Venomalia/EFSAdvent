@@ -1,1 +1,1 @@
-FORM (Formation menu)
+FORM (Formation menu) Has GBA sprite

@@ -1,2 +1,2 @@
-INFR (Invincible Fairy)
+INFR (Invincible Fairy) Has GBA sprite
 Fairy that mounts everyone on a horse

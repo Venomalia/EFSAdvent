@@ -1,1 +1,1 @@
-STGN (Stage Information NPC)
+STGN (Stage Information NPC) No GBA sprite

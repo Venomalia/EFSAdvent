@@ -1,4 +1,4 @@
-KETH (Keese)
+KETH (Keese) Has GBA sprite
 
 Variable 4:
 0 = Default

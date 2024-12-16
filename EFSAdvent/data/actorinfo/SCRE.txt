@@ -1,1 +1,1 @@
-SCRE (score counter)
+SCRE (score counter) No GBA sprite

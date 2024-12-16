@@ -1,4 +1,4 @@
-TINB (Tingle Buster)
+TINB (Tingle Buster) No GBA sprite
 Prevents Tingle from appearing in this area and stealing force crystals.
 
 life: 1

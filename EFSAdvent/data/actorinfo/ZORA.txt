@@ -1,4 +1,4 @@
-ZORA (Zora)
+ZORA (Zora) No GBA sprite
 
 life: 4
 atcp: 2

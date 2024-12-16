@@ -1,4 +1,4 @@
-BLZ2 (indelible flame)
+BLZ2 (indelible flame) No GBA sprite
 
 Variable 1:
 Extinguished by variable X

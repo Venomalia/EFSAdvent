@@ -1,4 +1,4 @@
-GNON (Ganon)
+GNON (Ganon) No GBA sprite
 
 life: 1
 atcp: 2

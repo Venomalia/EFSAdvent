@@ -1,4 +1,4 @@
-GMBL (Gambling Shop)
+GMBL (Gambling Shop) Has GBA sprite
 Requires 3 GMTB to function.
 
 Variable 1a:

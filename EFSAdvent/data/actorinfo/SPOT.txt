@@ -1,4 +1,4 @@
-SPOT (Spotlight)
+SPOT (Spotlight) No GBA sprite
 
 Packed data is composed as follows:
 11111222 22333334 44440000 00000000

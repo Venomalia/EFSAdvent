@@ -1,1 +1,1 @@
-RINS (Npc ride switch)
+RINS (Npc ride switch) No GBA sprite

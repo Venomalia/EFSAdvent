@@ -1,1 +1,1 @@
-DMTK (dummy Talk)
+DMTK (dummy Talk) No GBA sprite

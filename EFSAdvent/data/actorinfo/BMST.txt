@@ -1,4 +1,4 @@
-BMST (Beamos)
+BMST (Beamos) No GBA sprite
 
 Variable 1a:
 The local variable number that deactivates this actor.

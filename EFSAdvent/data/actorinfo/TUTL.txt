@@ -1,2 +1,2 @@
-TUTL (TimeUp Tingle)
+TUTL (TimeUp Tingle) No GBA sprite
 Tingle with a rupee

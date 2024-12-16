@@ -1,4 +1,4 @@
-SLR3 (Ball and chain soldier)
+SLR3 (Ball and chain soldier) No GBA sprite
 
 Variable 1:
 The local variable number that triggers or activates this actor.

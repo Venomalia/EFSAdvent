@@ -1,4 +1,4 @@
-LSTI (Dropped Items)
+LSTI (Dropped Items) Has GBA sprite
 
 Items player dropped
 

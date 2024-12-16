@@ -1,1 +1,1 @@
-ARRW (player arrow)
+ARRW (player arrow) Has GBA sprite

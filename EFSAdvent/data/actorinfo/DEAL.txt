@@ -1,1 +1,1 @@
-DEAL (Shopkeeper)
+DEAL (Shopkeeper) Has GBA sprite

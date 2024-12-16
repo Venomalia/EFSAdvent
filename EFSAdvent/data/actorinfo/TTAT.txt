@@ -1,4 +1,4 @@
-TTAT (Manhandla)
+TTAT (Manhandla) No GBA sprite
 
 Variable 4:
 0 = Dafault

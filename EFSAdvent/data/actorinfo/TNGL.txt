@@ -1,1 +1,1 @@
-TNGL (Tingle)
+TNGL (Tingle) Has GBA sprite

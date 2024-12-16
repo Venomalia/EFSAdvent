@@ -1,4 +1,4 @@
-AGBW (AGB window control)
+AGBW (AGB window control) No GBA sprite
 Controls the gba TV window.
 
 Variable 1b:

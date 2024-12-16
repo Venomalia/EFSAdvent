@@ -1,4 +1,4 @@
-FBMR (Rotating fireball (Manager))
+FBMR (Rotating fireball (Manager)) No GBA sprite
 
 Variable 1a:
 Change of direction by variable X?

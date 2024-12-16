@@ -1,4 +1,4 @@
-SITM (Goods)
+SITM (Goods) Has GBA sprites
 
 Variable 4:
 0 = 300 for mysterious ball

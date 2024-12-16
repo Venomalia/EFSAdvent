@@ -1,4 +1,4 @@
-HART (small heart)
+HART (small heart) Has GBA sprite
 
 Variable 4:
 0 = Drops

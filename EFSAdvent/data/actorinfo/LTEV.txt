@@ -1,4 +1,4 @@
-LTEV (light environment control)
+LTEV (light environment control) No GBA sprite
 lets you adjust the brightness of the room.
 
 Variable 4:

@@ -6,84 +6,84 @@ Variable to set after the conversation.
 
 Variable 2: Actor Sprite
 Always available:
-0 = Old man in green shirt.
-1 = Fortune Teller.
-2 = Princess Zelda.
-7 = Zora in water.
-14 = Thief
-17 = Crying goron child
-32 = Talon
-33 = Malon
-34 = Thin man with red hair
-35 = Tingel
-36 = Maiden 1
-37 = Maiden 2
-38 = Maiden 3 
-39 = Maiden 4
-40 = Maiden 5
-41 = Maiden 6
-42 = Old woman
-50 = Blue man
-51 = Green man
-52 = Green woman
-53 = Blue woman
+0 = Old man in green shirt. Has GBA sprite
+1 = Fortune Teller. Has GBA sprite
+2 = Princess Zelda. Glitched GBA sprite
+7 = Zora in water.  No GBA sprite
+14 = Thief    Has GBA sprite
+17 = Crying goron child   No GBA sprite
+32 = Talon  No GBA sprite
+33 = Malon  Glitched GBA sprite
+34 = Thin man with red hair  Has GBA sprite
+35 = Tingel  Has GBA sprite. (Glitched back facing sprite
+36 = Maiden 1  No GBA sprite
+37 = Maiden 2  No GBA sprite
+38 = Maiden 3  No GBA sprite
+39 = Maiden 4  No GBA sprite
+40 = Maiden 5  No GBA sprite
+41 = Maiden 6  No GBA sprite
+42 = Old woman Has GBA sprite
+50 = Blue man  No GBA sprite
+51 = Green man  No GBA sprite
+52 = Green woman No GBA sprite
+53 = Blue woman  No GBA sprite
 
 NPC Sheet 1:
-16 = Boris
-18 = Ghost old woman
-19 = Ghost old man
-20 = Ghost child
+16 = Dampe  Has GBA sprite
+18 = Ghost old woman  No GBA sprite
+19 = Ghost old man  No GBA sprite
+20 = Ghost child   No GBA sprite
 
 NPC Sheet 8:
-3 = Man with blue tufty hair
-4 = Little girl
-5 = Woman in blue and red
-6 = Fat woman in purple
-15 = Blonde girl
-22 = Man with blue tufty hair B
-23 = Little girl B
-24 = Woman in blue and red B
+3 = Man with blue tufty hair  Has GBA sprite
+4 = Little girl  Has GBA sprite (unused)
+5 = Woman in blue and red  Has GBA sprite
+6 = Fat woman in purple  Has GBA sprite
+15 = Blonde girl  Has GBA sprite (unused)
+22 = Man with blue tufty hair Has GBA sprite
+23 = Little girl B  Has GBA sprite (unused)
+24 = Woman in blue and red B  Has GBA sprite
 
 NPC Sheet 9:
-8 = Crying boy
-9 = Cowering boy
-10 = Boy with glasses
-15 = Blonde girl.
+8 = Crying boy  Has GBA sprite (unused)
+9 = Cowering boy  Has GBA sprite (unused)
+10 = Boy with glasses  Has GBA sprite (unused)
+15 = Blonde girl.  Has GBA sprite (unused)
 
 NPC Sheet 10:
-11 = Goron
-12 = Goron child
+11 = Goron  Has GBA sprite
+12 = Goron child  Has GBA sprite
 
 NPC Sheet 11:
-3 = Man with blue tufty hair.
-4 = Little girl.
-5 = Woman in blue and red.
-13 = Deku scrub
-22 = Man with blue tufty hair B
-23 = Little girl B
-24 = Woman in blue and red B
-26 = Boy with tears in his eyes
-27 = Cooking woman in green (unused)
+3 = Man with blue tufty hair.  Has GBA sprite
+4 = Little girl.  Has GBA sprite
+5 = Woman in blue and red.  Has GBA sprite
+13 = Deku scrub  Has GBA sprite
+22 = Man with blue tufty hair B  Has GBA sprite
+23 = Little girl B  Has GBA sprite
+24 = Woman in blue and red B  Has GBA sprite
+26 = Boy with tears in his eyes  Has GBA sprite
+27 = Cooking woman in green (unused)  Has GBA sprite
 
 NPC Sheet 12:
-28 = Gerudo
-29 = Zuna blue
-30 = Zuna red
-31 = Elder
-49 = Odd Zuna(unused or bug?)
+28 = Gerudo  Has GBA sprite
+29 = Zuna blue  Has GBA sprite
+30 = Zuna red  Has GBA sprite
+31 = Elder  Has GBA sprite
+49 = Odd Zuna(unused or bug?)  Has GBA sprite
 
 NPC Sheet 13:
-43 = Leader with eye patch
-44 = Secret Agent green
-45 = Secret Agent red
-46 = Secret Agent blue
-47 = Secret Agent purple
-48 = Boy with blue hair
-49 = Crouching little girl
+43 = Leader with eye patch  Has GBA sprite
+44 = Secret Agent green  Has GBA sprite (unused)
+45 = Secret Agent red  Has GBA sprite (unused)
+46 = Secret Agent blue  Has GBA sprite (unused)
+47 = Secret Agent purple  Has GBA sprite
+48 = Boy with blue hair  Has GBA sprite
+49 = Crouching little girl  Has GBA sprite
 
 NPC Sheet 14:
-13 = Deku scrub
-25 = Fat woman in blue (unused)
+13 = Deku scrub  Has GBA sprite
+25 = Fat woman in blue (unused) Has GBA sprite
 
 Variable 3+4:
 What text actor says?

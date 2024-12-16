@@ -1,4 +1,4 @@
-ZSLA (small fish shadow link (bow and arrow))
+ZSLA (small fish shadow link (bow and arrow)) Has GBA sprite
 
 Variable 4a:
 0 = ?

@@ -1,4 +1,4 @@
-SDSM (sandstorm)
+SDSM (sandstorm) No GBA sprite
 Gerudo desert sandstorm moves the player to another map if he uses the wrong exit.
 
 Variable 3a:

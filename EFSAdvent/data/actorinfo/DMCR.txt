@@ -1,4 +1,4 @@
-DMCR (Cutscene Crystal)
+DMCR (Cutscene Crystal) No GBA sprite
 Trapped maiden.
 
 Variable 1:

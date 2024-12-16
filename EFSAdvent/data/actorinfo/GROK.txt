@@ -1,4 +1,4 @@
-GROK (Helmaroc king)
+GROK (Helmaroc king) Has a GBA sprite
 Boss fight against the Helmaroc king,
 Requires “grock” Bti resources to function!
 

@@ -1,4 +1,4 @@
-BPOH (Big Poe)
+BPOH (Big Poe) No GBA sprite
 Boss fight against the Big Poe,
 Requires “bpoh” Bti resources to function!
 

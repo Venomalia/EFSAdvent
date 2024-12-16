@@ -1,4 +1,4 @@
-GRVE (Gravestone)
+GRVE (Gravestone) Has GBA sprite
 
 Variable 4:
 0 = Empty

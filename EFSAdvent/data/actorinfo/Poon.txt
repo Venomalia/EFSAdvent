@@ -1,4 +1,4 @@
-Poon (Hardhat beetle)
+Poon (Hardhat beetle) No GBA sprite
 
 life: 16
 atcp: 2

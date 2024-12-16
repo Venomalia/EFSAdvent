@@ -1,1 +1,1 @@
-ENPC (Enemy for ending control)
+ENPC (Enemy for ending control) No GBA sprite

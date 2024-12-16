@@ -1,1 +1,1 @@
-SWBM (Sword beam)
+SWBM (Sword beam) Has GBA sprite

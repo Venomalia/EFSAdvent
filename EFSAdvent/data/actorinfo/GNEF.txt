@@ -1,2 +1,2 @@
-GNEF (Giant Generator Effect)
+GNEF (Giant Generator Effect) No GBA sprite
 Links are sucked into a GBA portal

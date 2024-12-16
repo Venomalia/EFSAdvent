@@ -1,4 +1,4 @@
-BFRY (Great Fairy)
+BFRY (Great Fairy) Has GBA sprite (plays GBA fairy fountain theme)
 Big Fairy
 
 Variable 1:

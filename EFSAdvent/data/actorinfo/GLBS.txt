@@ -1,4 +1,4 @@
-GLBS (Global Switch)
+GLBS (Global Switch) No GBA sprite
 Sets a global variable when a local variable has been triggered.
 
 Variable 1:

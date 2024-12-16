@@ -1,4 +1,4 @@
-OCFR (Fire (Manager))
+OCFR (Fire (Manager)) No GBA sprite
 
 Variable 1a:
 Variable which stops the iron balls

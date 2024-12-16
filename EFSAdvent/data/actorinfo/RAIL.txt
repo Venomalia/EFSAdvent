@@ -1,4 +1,4 @@
-RAIL (Rail data)
+RAIL (Rail data) No GBA sprite
 Actor rail paht data
 
 Variable 1:

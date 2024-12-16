@@ -1,4 +1,4 @@
-BRMN (Bird Manager)
+BRMN (Bird Manager) No GBA sprite
 
 life: 1
 atcp: 0

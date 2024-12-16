@@ -1,4 +1,4 @@
-PLAS (Set player starting coordinates)
+PLAS (Set player starting coordinates) No GBA sprite
 
 Variable 3b:
 0 = Standing

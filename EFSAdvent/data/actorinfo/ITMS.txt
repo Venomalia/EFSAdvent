@@ -1,1 +1,1 @@
-ITMS (Item pedestal)
+ITMS (Item pedestal) Has GBA sprite

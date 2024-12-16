@@ -1,1 +1,1 @@
-BHRT (Heart container)
+BHRT (Heart container) Has GBA sprite

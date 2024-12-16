@@ -1,4 +1,4 @@
-BBSL (Giant Bomb Shadowlink)
+BBSL (Giant Bomb Shadowlink) No GBA sprite
 
 life: 1
 atcp: 0

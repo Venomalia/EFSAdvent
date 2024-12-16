@@ -1,1 +1,1 @@
-FBAL (Fireball)
+FBAL (Fireball) Has GBA sprite

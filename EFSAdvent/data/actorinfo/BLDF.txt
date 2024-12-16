@@ -1,4 +1,4 @@
-BLDF (Blindfold)
+BLDF (Blindfold) No GBA sprite
 
 
 Variable 1b:

@@ -1,4 +1,4 @@
-WARP (Warp)
+WARP (Warp) No GBA sprite
 
 Variable 1a:
 Variable that activates this actor.

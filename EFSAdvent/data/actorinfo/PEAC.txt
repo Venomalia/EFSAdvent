@@ -1,4 +1,4 @@
-PEAC (Crab)
+PEAC (Crab) No GBA sprite
 
 life: 4
 atcp: 2

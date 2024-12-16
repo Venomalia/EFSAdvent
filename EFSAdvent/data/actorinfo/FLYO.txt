@@ -1,4 +1,4 @@
-FLYO (Floor floor tile)
+FLYO (Floor floor tile) No GBA sprite
 
 Flying floor tile
 

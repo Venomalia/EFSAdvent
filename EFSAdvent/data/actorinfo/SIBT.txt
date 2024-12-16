@@ -1,4 +1,4 @@
-SIBT (Temple Bti Display)
+SIBT (Temple Bti Display) No GBA sprite
 
 Variable 3:
 0 = Closed

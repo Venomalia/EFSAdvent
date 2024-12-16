@@ -1,4 +1,4 @@
-FOSL (Formation Slime)
+FOSL (Formation Slime) No GBA sprite
 
 life: 1
 atcp: 1

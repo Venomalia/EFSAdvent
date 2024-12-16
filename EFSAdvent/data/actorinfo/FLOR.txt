@@ -1,4 +1,4 @@
-FLOR (Floor Master)
+FLOR (Floor Master) Has GBA sprite
 
 life: 1
 atcp: 0

@@ -1,4 +1,4 @@
-WTSW (Wait switch)
+WTSW (Wait switch) No GBA sprite
 Activates a variable with time delay.
 
 Variable 1:

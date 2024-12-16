@@ -1,4 +1,4 @@
-STON (Stone)
+STON (Stone) Has GBA sprite
 
 
 

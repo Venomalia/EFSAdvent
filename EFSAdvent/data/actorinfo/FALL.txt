@@ -1,4 +1,4 @@
-FALL (Wallmaster)
+FALL (Wallmaster) Has GBA sprite
 
 life: 1
 atcp: 2

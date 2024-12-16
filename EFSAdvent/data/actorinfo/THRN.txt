@@ -1,4 +1,4 @@
-THRN (thorn floor check)
+THRN (thorn floor check) No GBA sprite
 
 Variable 1a:
 Variable that deactivates the thorn floor.

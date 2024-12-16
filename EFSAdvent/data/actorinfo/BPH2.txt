@@ -1,4 +1,4 @@
-BPH2 (Big Poe 2)
+BPH2 (Big Poe 2) No GBA sprite
 Boss fight against the Big Poe second form,
 Requires “bigpoo” Bti resources to function!
 

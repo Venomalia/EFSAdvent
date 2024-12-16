@@ -1,1 +1,1 @@
-BGWC (BG rewriting check switch)
+BGWC (BG rewriting check switch) No GBA sprite

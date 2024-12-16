@@ -1,4 +1,4 @@
-DETH (Vaati Reaper)
+DETH (Vaati Reaper) No GBA sprite
 
 life: 1
 atcp: 255

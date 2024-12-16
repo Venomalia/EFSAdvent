@@ -1,2 +1,2 @@
-WPPA (post-warp processing with warp pillars)
+WPPA (post-warp processing with warp pillars) No GBA sprite
 Efeckt that is triggered after the warp with the warp piller.

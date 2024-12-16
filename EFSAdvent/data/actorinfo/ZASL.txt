@@ -1,4 +1,4 @@
-ZASL (Zol slime)
+ZASL (Zol slime) No GBA sprite
 
 Variable 4:
 16 = Under a 2 person lifting rock

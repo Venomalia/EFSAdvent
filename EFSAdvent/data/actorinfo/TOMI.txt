@@ -1,4 +1,4 @@
-TOMI (transparent NPC wall)
+TOMI (transparent NPC wall) No GBA sprite
 An invisible wall blocking actors from passing through.
 
 Variable 1a:
