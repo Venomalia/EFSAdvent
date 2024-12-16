@@ -1,4 +1,4 @@
-SHTR (shutter door) Has GBA sprite
+SHTR (shutter door)
 
 Variable 1:
 Variable that activate it.

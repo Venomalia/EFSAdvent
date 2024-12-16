@@ -1,1 +1,1 @@
-PLAY (Player) Has GBA sprite
+PLAY (Player)

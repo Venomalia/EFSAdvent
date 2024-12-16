@@ -1,4 +1,4 @@
-HNRY (Hovering rupee) Has GBA sprite
+HNRY (Hovering rupee)
 
 Variable 1:
 2 = unk

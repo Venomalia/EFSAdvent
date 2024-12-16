@@ -1,4 +1,4 @@
-RUPY (rupee) Has GBA sprite
+RUPY (rupee)
 
 Variable 1:
 The local variable number that triggers or activates this actor if Variable 2 indicates this.

@@ -1,4 +1,4 @@
-CKSW (check switch) No GBA sprite
+CKSW (check switch)
 
 Variable 1:
 The local variable number that triggers or activates this actor.

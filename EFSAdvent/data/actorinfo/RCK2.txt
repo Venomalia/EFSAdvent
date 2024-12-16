@@ -1,4 +1,4 @@
-RCK2 (2 person lifting rock) Has GBA sprite
+RCK2 (2 person lifting rock)
 
 Variable 1:
 Enabled variable X

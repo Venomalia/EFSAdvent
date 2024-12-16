@@ -1,4 +1,4 @@
-GENE (Enemy Generator) No GBA sprite
+GENE (Enemy Generator)
 
 Variable 1:
 &0xF8 = Trigger by variable X

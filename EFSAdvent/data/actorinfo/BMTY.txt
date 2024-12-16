@@ -1,4 +1,4 @@
-BMTY (Real Bombchu) Has GBA sprite
+BMTY (Real Bombchu)
 
 life: 1
 atcp: 0

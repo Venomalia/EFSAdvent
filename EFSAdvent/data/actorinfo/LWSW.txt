@@ -1,4 +1,4 @@
-LWSW (Candle check switch) No GBA sprite
+LWSW (Candle check switch)
 Is triggered when a torch is lit.
 
 Variable 1:

@@ -1,4 +1,4 @@
-EXPL (explosion) Has GBA sprite
+EXPL (explosion)
 
 
 

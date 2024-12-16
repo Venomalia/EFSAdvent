@@ -1,4 +1,4 @@
-WPCN (Warp Cannon) Has GBA sprite
+WPCN (Warp Cannon)
 Warp Cannon that teleports from one map to another.
 Target map requires 4 players start coordinates “PLAS”.
 

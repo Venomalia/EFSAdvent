@@ -1,4 +1,4 @@
-ICCL (Icicle) Has GBA sprite
+ICCL (Icicle)
 
 life: 1
 atcp: 0

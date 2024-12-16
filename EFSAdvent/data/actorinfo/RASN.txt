@@ -1,4 +1,4 @@
-RASN (spiral staircase) No GBA sprite
+RASN (spiral staircase)
 Passageway that loading a new area on the map.
 
 Variable 1a:

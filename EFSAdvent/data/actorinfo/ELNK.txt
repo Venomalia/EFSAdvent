@@ -1,2 +1,2 @@
-ELNK (End level link formation) No GBA sprite
+ELNK (End level link formation)
 Links are teleported around

@@ -1,4 +1,4 @@
-LCLS (Local switch) No GBA sprite
+LCLS (Local switch)
 Sets a local variable when a global variable has been triggered.
 
 Variable 1:

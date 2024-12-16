@@ -1,1 +1,1 @@
-BOTS (BOSS display test NPC) No GBA sprite
+BOTS (BOSS display test NPC)

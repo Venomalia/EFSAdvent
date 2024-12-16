@@ -1,4 +1,4 @@
-SWTH (switch) Has GBA sprite
+SWTH (switch)
 One person switch
 
 Variable 1a:

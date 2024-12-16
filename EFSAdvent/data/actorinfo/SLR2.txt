@@ -9,7 +9,7 @@ Variable 2:
 
 Variable 4:
 0 = With bow
-2 = With bomb 
+2 = With bomb
 3 = With bow, hidden in grass
 
 life: 12

@@ -1,4 +1,4 @@
-ZOMO (Zoom Out NPC) No GBA sprite
+ZOMO (Zoom Out NPC)
 Zoom out when active
 
 Variable 1a:

@@ -1,1 +1,1 @@
-DWAP (Debug Warp Settings) No GBA sprite
+DWAP (Debug Warp Settings)

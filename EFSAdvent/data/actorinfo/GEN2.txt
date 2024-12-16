@@ -1,1 +1,1 @@
-GEN2 (Enemy generator 2) No GBA sprite
+GEN2 (Enemy generator 2)

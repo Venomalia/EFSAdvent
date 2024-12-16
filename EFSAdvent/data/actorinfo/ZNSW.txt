@@ -1,4 +1,4 @@
-ZNSW (Enemy annihilation switch) No GBA sprite
+ZNSW (Enemy annihilation switch)
 Triggers when all enemies are defeated.
 
 Variable 1a:

@@ -1,4 +1,4 @@
-TRAP (Blade trap) Has GBA sprite
+TRAP (Blade trap)
 
 Variable 3:
 0 = On approach

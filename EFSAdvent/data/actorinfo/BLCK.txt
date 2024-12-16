@@ -1,4 +1,4 @@
-BLCK (block) Has GBA sprite
+BLCK (block)
 Movable stone block.
 
 Variable 1:

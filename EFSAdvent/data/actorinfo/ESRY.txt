@@ -1,4 +1,4 @@
-ESRY (escaping rupee) Has GBA sprite
+ESRY (escaping rupee)
 
 Variable 1:
 The local variable number that triggers or activates this actor.

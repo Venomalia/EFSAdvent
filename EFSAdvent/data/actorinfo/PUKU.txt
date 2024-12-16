@@ -1,4 +1,4 @@
-PUKU (Cheep-Cheep) Has GBA sprite
+PUKU (Cheep-Cheep)
 
 Variable 4:
 0 = Default

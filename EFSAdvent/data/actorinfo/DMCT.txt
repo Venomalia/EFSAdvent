@@ -1,1 +1,1 @@
-DMCT (Story cutscene control NPC) No GBA sprite
+DMCT (Story cutscene control NPC)

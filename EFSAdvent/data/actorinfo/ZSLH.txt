@@ -1,4 +1,4 @@
-ZSLH (Easy Shadow Link (Hammer)) Has GBA sprite
+ZSLH (Easy Shadow Link (Hammer))
 
 Variable 4a:
 0 = ?

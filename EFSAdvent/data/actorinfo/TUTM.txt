@@ -1,2 +1,2 @@
-TUTM (TimeUp Tingle Manager) No GBA sprite
+TUTM (TimeUp Tingle Manager)
 Cutscene: A swarm of Tingles carrying rupees

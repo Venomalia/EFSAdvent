@@ -1,4 +1,4 @@
-TUBO (jar) Has GBA sprite
+TUBO (jar)
 
 
 

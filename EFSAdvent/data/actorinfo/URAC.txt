@@ -1,2 +1,2 @@
-URAC (back color) Has GBA sprite
+URAC (back color)
 GBA moon pearl effect

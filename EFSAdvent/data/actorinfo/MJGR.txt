@@ -1,4 +1,4 @@
-MJGR (Magic circle generator) No GBA sprite
+MJGR (Magic circle generator)
 Consumes a moon pearl to create a magic circle warp.
 
 Variable 1b:

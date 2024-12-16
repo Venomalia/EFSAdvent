@@ -1,4 +1,4 @@
-RYRN (Rupee drop) Has GBA sprite
+RYRN (Rupee drop)
 
 Variable 1:
 The local variable number that triggers or activates this actor.

@@ -1,1 +1,1 @@
-FIRE (Player fire rod fire) Has GBA sprite
+FIRE (Player fire rod fire)

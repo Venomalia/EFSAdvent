@@ -1,4 +1,4 @@
-STAL (Stalfoss) Has GBA sprite
+STAL (Stalfoss)
 
 Variable 4:
 0 = Default

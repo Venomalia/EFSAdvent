@@ -1,4 +1,4 @@
-TKRA (Treasure chest) Has GBA sprite
+TKRA (Treasure chest)
 
 Variable 4:
 1 = Small green (1)

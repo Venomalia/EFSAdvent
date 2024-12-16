@@ -1,2 +1,2 @@
-DTLK (Dummy conversation) No GBA sprite
+DTLK (Dummy conversation)
 Links don't come onscreen

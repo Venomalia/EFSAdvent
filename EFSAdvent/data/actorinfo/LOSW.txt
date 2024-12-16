@@ -1,4 +1,4 @@
-LOSW (logical switch control) No GBA sprite
+LOSW (logical switch control)
 
 Variable 1:
 Variable that will be set when this actor is triggered.

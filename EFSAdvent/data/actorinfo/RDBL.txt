@@ -1,1 +1,1 @@
-RDBL (Red / Blue switch (red / blue floor panel rewriting)) Has GBA sprite
+RDBL (Red / Blue switch (red / blue floor panel rewriting))

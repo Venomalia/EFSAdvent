@@ -1,4 +1,4 @@
-ZLD2 (Ganon Battle Zelda) No GBA sprite
+ZLD2 (Ganon Battle Zelda)
 Cutscene with Zelda and Ganon.
 
 life: 1

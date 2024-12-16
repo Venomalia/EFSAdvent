@@ -1,3 +1,3 @@
-RY02 (Floating rupee 2) Has GBA sprite
+RY02 (Floating rupee 2)
 
 Floating rupee

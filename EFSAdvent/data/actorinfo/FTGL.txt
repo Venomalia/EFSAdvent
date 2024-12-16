@@ -1,2 +1,2 @@
-FTGL (First appearance tingle) Has GBA sprite
+FTGL (First appearance tingle)
 Tingle, talks then floats away

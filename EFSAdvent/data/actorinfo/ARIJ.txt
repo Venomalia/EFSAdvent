@@ -1,5 +1,5 @@
 ARIJ (Devalant)
-Cannot be called up directly. Has GBA sprite?
+Cannot be called up directly.
 
 life: 4
 atcp: 2

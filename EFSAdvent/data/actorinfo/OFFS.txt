@@ -1,4 +1,4 @@
-OFFS (OFF switch) No GBA sprite
+OFFS (OFF switch)
 When activated, switches off a variable.
 
 Variable 1:

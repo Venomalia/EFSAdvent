@@ -1,4 +1,4 @@
-WIND (Wind environment) No GBA sprite
+WIND (Wind environment)
 Strong wind blowing across screen.
 
 Variable 1a:

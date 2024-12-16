@@ -1,4 +1,4 @@
-ROCK (rock) Has GBA sprite
+ROCK (rock)
 
 4 Tile stone
 

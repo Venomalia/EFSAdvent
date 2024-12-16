@@ -1,4 +1,4 @@
-NULL (none) No GBA sprite
+NULL (none)
 
 
 

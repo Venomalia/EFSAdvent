@@ -1,4 +1,4 @@
-KNBN (talking sign) Has GBA sprite
+KNBN (talking sign)
 
 Variable 3+4:
 Text ID

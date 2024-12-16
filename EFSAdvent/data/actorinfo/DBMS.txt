@@ -1,1 +1,1 @@
-DBMS (message confirmation NPC) Has GBA sprite (doesn't move)
+DBMS (message confirmation NPC)

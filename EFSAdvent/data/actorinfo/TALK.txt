@@ -1,2 +1,2 @@
-TALK (Talking NPC) No GBA sprite
+TALK (Talking NPC)
 Brings up a dialog box

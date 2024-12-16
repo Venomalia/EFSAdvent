@@ -1,4 +1,4 @@
-HBB2 (Keese Swarm) Has unused GBA sprite
+HBB2 (Keese Swarm)
 
 Variable 1a:
 The local variable number that triggers or activates this actor.

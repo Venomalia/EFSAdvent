@@ -1,4 +1,4 @@
-CIRC (Magic circle) Has GBA sprite
+CIRC (Magic circle)
 Appearing magic circle warp
 
 Variable 1a:

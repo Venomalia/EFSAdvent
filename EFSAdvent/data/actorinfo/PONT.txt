@@ -1,4 +1,4 @@
-PONT (point check NPC) No GBA sprite
+PONT (point check NPC)
 
 Is triggered when the tile changes
 

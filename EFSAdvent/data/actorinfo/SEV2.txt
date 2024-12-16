@@ -1,4 +1,4 @@
-SEV2 (Environmental control 2) No GBA sprite
+SEV2 (Environmental control 2)
 
 Variable 1b:
 [Flags]

@@ -1,2 +1,2 @@
-STPN (StopNPC) No GBA sprite
+STPN (StopNPC)
 All NPCs frozen still, can't leave area

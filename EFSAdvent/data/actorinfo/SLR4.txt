@@ -1,4 +1,4 @@
-SLR4 (Chief Soldier) Has GBA sprite
+SLR4 (Chief Soldier)
 
 Variable 1b:
 Chief Soldier ID

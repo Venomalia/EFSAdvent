@@ -1,4 +1,4 @@
-GEN3 (enemy generator 3) No GBA sprite
+GEN3 (enemy generator 3)
 
 Variable 1a:
 Variable that activates this actor

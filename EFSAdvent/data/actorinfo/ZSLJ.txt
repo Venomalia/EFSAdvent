@@ -1,4 +1,4 @@
-ZSLJ (Easy Shadow Link (Jump)) Has GBA sprite
+ZSLJ (Easy Shadow Link (Jump))
 
 Variable 4a:
 0 = ?

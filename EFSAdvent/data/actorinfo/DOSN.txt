@@ -1,4 +1,4 @@
-DOSN (Thwomp Switch) No GBA sprite
+DOSN (Thwomp Switch)
 Activated when the tile is bumped against with the Pegasus Boots
 
 Variable 1:

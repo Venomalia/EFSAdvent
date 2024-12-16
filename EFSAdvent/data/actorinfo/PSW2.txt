@@ -1,2 +1,2 @@
-PSW2 (Four-person pull switch) Has GBA sprite
+PSW2 (Four-person pull switch)
 Four pullable switches

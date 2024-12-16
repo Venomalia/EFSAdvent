@@ -1,4 +1,4 @@
-MEDM (eyeball switch) Has GBA sprite
+MEDM (eyeball switch)
 
 Variable 1a:
 Trigger by variable X

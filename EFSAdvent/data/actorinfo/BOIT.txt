@@ -1,4 +1,4 @@
-BOIT (Tail of the ice boss) Has GBA sprite
+BOIT (Tail of the ice boss)
 
 life: 1
 atcp: 0

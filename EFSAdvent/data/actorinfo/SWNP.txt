@@ -1,5 +1,4 @@
-SWNP (switch-related NPC) No GBA sprite
-
+SWNP (switch-related NPC)
 
 Variable 1a:
 The local variable number that triggers or activates this actor.

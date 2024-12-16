@@ -1,4 +1,4 @@
-PNPC (Panel rewriting NPC) Has GBA sprite
+PNPC (Panel rewriting NPC)
 Causes a tile to be changed to a different tile.
 
 Variable 1a:

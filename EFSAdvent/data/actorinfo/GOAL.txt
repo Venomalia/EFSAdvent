@@ -1,2 +1,2 @@
-GOAL (Level ende) No GBA sprite
+GOAL (Level ende)
 Stops you from leaving the area(4 End of level warps/goals with 00 variables)

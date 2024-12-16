@@ -1,4 +1,4 @@
-SKIL (number-specific enemy annihilation check) No GBA sprite
+SKIL (number-specific enemy annihilation check)
 Is triggered when a certain number of enemies have been defeated.
 
 Variable 1a:

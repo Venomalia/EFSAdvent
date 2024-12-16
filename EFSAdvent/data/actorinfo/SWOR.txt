@@ -1,5 +1,4 @@
-SWOR (OR switch check) No GBA sprite
-
+SWOR (OR switch check)
 Sets the local variable specified in V1 if any of the local variables specified in V2 or V3 are set.
 
 Variable 1:

@@ -1,2 +1,2 @@
-LIMT (life meter) Has GBA sprite
+LIMT (life meter)
 Small heart

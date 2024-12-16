@@ -1,2 +1,2 @@
-TSNO (2 Sword Motion) No GBA sprite
+TSNO (2 Sword Motion)
 Links don't come onscreen, can't control

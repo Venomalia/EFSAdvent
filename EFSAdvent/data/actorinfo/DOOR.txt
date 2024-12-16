@@ -1,4 +1,4 @@
-DOOR (door) Has GBA sprite
+DOOR (door)
 A doorway.
 
 Variable 1:

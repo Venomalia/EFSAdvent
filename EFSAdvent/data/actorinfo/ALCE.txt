@@ -1,4 +1,4 @@
-ALCE (annihilation of enemies) No GBA sprite
+ALCE (annihilation of enemies)
 Annihilat enemies and zooms out to view entire area.
 
 Variable 1a:

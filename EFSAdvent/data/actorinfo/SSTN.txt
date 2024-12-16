@@ -1,4 +1,4 @@
-SSTN (NPCs disguised as stones) No GBA sprite
+SSTN (NPCs disguised as stones)
 Small stone, jumps then breaks.
 
 life: 1

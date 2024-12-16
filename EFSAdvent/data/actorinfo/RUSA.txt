@@ -1,4 +1,4 @@
-RUSA (Quicksand) Has GBA sprite
+RUSA (Quicksand)
 
 Variable 3a:
 Rail to use

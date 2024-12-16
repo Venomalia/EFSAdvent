@@ -1,4 +1,4 @@
-GLWP (Goal Warp) No GBA sprite
+GLWP (Goal Warp)
 travel back through the level if not enough force crystals
 
 Variable 4a:

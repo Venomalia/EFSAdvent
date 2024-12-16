@@ -1,4 +1,4 @@
-STBL (Odd block) Has GBA sprite
+STBL (Odd block)
 Movable block
 
 

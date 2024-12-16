@@ -1,4 +1,4 @@
-BORD (Signboard) Has GBA sprite
+BORD (Signboard)
 
 
 

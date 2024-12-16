@@ -1,4 +1,4 @@
-TRCH (Torch) Has GBA sprite
+TRCH (Torch)
 
 Variable 1:
 Lights up by variable X

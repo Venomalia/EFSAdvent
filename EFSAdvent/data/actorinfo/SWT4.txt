@@ -1,4 +1,4 @@
-SWT4 (4 switch monitoring) No GBA sprite
+SWT4 (4 switch monitoring)
 A switch that needs up to 4 variables to activate itself
 
 Packed Variable 1:

@@ -1,4 +1,4 @@
-NNJN (carrot) Has GBA sprite
+NNJN (carrot)
 
 Variable 1:
 8 = ?

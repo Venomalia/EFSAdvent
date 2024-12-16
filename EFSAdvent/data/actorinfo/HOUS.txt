@@ -1,4 +1,4 @@
-HOUS (Movable house) No GBA sprite?
+HOUS (Movable house)
 A house that can be moved by several links.
 
 Variable 1:

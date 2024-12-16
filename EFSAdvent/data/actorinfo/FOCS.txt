@@ -1,4 +1,4 @@
-FOCS (Focus NPC) No GBA sprite
+FOCS (Focus NPC)
 Focuses an area on the TV when active.
 
 Variable 1:
