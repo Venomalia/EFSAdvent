@@ -1,1 +1,1 @@
-HRMN (Horse racing minigame)
+HRMN (Horse racing minigame) No GBA sprite

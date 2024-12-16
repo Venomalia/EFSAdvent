@@ -1,1 +1,1 @@
-SLGE (Shadowlink Generator)
+SLGE (Shadowlink Generator) No GBA sprite

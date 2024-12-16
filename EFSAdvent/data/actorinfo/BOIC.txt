@@ -1,4 +1,4 @@
-BOIC (Ice Boss)
+BOIC (Ice Boss) No GBA sprite
 Spawns flying samurais?
 
 life: 1

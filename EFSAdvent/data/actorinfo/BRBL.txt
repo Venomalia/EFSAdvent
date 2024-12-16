@@ -1,4 +1,4 @@
-BRBL (Burning block (wooden box))
+BRBL (Burning block (wooden box)) No GBA sprite
 A movable wooden box.
 
 

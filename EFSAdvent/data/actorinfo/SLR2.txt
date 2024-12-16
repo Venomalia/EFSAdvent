@@ -1,4 +1,4 @@
-SLR2 (Bow Soldier)
+SLR2 (Bow Soldier) No GBA sprite
 Soldier with bow or bombs
 
 Variable 1b:

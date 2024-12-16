@@ -1,4 +1,4 @@
-GOMA (Gohma)
+GOMA (Gohma) No GBA sprite
 
 Variable 4:
 0 = Default

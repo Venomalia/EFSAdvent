@@ -1,4 +1,4 @@
-WOOD (liftable tree)
+WOOD (liftable tree) No GBA sprite
 loot for destroyed trees
 
 Variable 2:

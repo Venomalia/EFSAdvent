@@ -1,4 +1,4 @@
-BEMN (Bee Manager)
+BEMN (Bee Manager) No GBA sprite
 
 Circle of red bees
 

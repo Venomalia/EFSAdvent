@@ -1,4 +1,4 @@
-FAGN (Pengator)
+FAGN (Pengator) No GBA sprite
 
 life: 8
 atcp: 2

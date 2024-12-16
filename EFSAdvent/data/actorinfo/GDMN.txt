@@ -1,4 +1,4 @@
-GDMN (Geldman)
+GDMN (Geldman) No GBA sprite
 
 Variable 1a:
 Local variable number

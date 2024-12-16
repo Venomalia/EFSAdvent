@@ -1,4 +1,4 @@
-DDRK (Deadlock)
+DDRK (Deadlock) No GBA sprite
 Deadlock enemie
 
 life: 16

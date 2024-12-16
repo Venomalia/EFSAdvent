@@ -1,4 +1,4 @@
-BEEE (bee)
+BEEE (bee) No GBA sprite 
 
 life: 1
 atcp: 2

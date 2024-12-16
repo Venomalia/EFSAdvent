@@ -1,5 +1,5 @@
 BFRY (Great Fairy)
-Big Fairy
+Big Fairy and plays GBA fairy fountain theme.
 
 Variable 1:
 The local variable number that triggers or activates this actor.

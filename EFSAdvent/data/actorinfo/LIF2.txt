@@ -1,4 +1,4 @@
-LIF2 (telescopic lift)
+LIF2 (telescopic lift) No GBA sprite
 Lift folds up from below
 
 Variable 1:

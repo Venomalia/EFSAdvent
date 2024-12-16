@@ -1,4 +1,4 @@
-OKTA (Octorok)
+OKTA (Octorok) Glitched GBA sprite
 
 Variable 4:
 0 = Red

@@ -1,4 +1,4 @@
-MOZO (Ropa)
+MOZO (Ropa) No GBA sprite
 
 Variable 4:
 0 = ?

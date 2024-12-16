@@ -1,4 +1,4 @@
-SEGE (Shadow Enemy Generator)
+SEGE (Shadow Enemy Generator) No GBA sprite
 
 life: 1
 atcp: 0

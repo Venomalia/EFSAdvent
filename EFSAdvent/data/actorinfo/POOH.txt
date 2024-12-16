@@ -1,4 +1,4 @@
-POOH (Ghini)
+POOH (Ghini) No GBA sprite
 
 Variable 4:
 0 = Default

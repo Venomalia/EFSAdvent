@@ -1,4 +1,4 @@
-PRTC (ParticleNPC)
+PRTC (ParticleNPC) No GBA sprite
 
 Variable 2:
 1 = ?

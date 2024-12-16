@@ -1,1 +1,1 @@
-ENDR (horse race end range)
+ENDR (horse race end range) No GBA sprite

@@ -1,4 +1,4 @@
-LIFT (lift)
+LIFT (lift) No GBA sprite 
 Movable 6x6 wooden platform 
 
 Variable 2:

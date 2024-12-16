@@ -1,4 +1,4 @@
-EGOL (Eyegore)
+EGOL (Eyegore) No GBA sprite
 
 life: 16
 atcp: 3

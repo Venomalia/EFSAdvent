@@ -1,4 +1,4 @@
-WNWN (Chain chomp)
+WNWN (Chain chomp) No GBA sprite
 
 life: 4
 atcp: 2

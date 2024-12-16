@@ -1,1 +1,1 @@
-NWOK (chicken search drive NPC)
+NWOK (chicken search drive NPC) No GBA sprite

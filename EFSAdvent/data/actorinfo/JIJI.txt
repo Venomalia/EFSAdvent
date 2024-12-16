@@ -6,33 +6,33 @@ Variable to set after the conversation.
 
 Variable 2: Actor Sprite
 Always available:
-0 = Old man in green shirt.
-1 = Fortune Teller.
-2 = Princess Zelda.
-7 = Zora in water.
+0 = Old man in green shirt
+1 = Fortune Teller
+2 = Princess Zelda (Glitched GBA sprite)
+7 = Zora in water (No GBA sprite)
 14 = Thief
-17 = Crying goron child
-32 = Talon
-33 = Malon
+17 = Crying goron child (No GBA sprite)
+32 = Talon (No GBA sprite)
+33 = Malon (Glitched GBA sprite)
 34 = Thin man with red hair
-35 = Tingel
-36 = Maiden 1
-37 = Maiden 2
-38 = Maiden 3 
-39 = Maiden 4
-40 = Maiden 5
-41 = Maiden 6
+35 = Tingel (Has GBA sprite. Glitched back facing sprite)
+36 = Maiden 1 (No GBA sprite)
+37 = Maiden 2 (No GBA sprite)
+38 = Maiden 3 (No GBA sprite)
+39 = Maiden 4 (No GBA sprite)
+40 = Maiden 5 (No GBA sprite)
+41 = Maiden 6 (No GBA sprite)
 42 = Old woman
-50 = Blue man
-51 = Green man
-52 = Green woman
-53 = Blue woman
+50 = Blue man (No GBA sprite)
+51 = Green man (No GBA sprite)
+52 = Green woman (No GBA sprite)
+53 = Blue woman (No GBA sprite)
 
 NPC Sheet 1:
-16 = Boris
-18 = Ghost old woman
-19 = Ghost old man
-20 = Ghost child
+16 = Dampe
+18 = Ghost old woman (No GBA sprite)
+19 = Ghost old man (No GBA sprite)
+20 = Ghost child (No GBA sprite)
 
 NPC Sheet 8:
 3 = Man with blue tufty hair

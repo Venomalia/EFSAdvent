@@ -1,4 +1,4 @@
-SPBG (special BG drawing Obj)
+SPBG (special BG drawing Obj) No GBA sprite
 
 Variable 1a:
 Variable that activates this actor.

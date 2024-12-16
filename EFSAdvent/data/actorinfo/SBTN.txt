@@ -1,4 +1,4 @@
-SBTN (Cactus)
+SBTN (Cactus) No GBA sprite
 
 life: 1
 atcp: 0

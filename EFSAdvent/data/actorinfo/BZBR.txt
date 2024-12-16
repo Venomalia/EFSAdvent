@@ -1,4 +1,4 @@
-BZBR (Buzz Blob)
+BZBR (Buzz Blob) No GBA sprite
 Electric jelly enemie
 
 life: 4

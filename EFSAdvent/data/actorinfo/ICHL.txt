@@ -1,4 +1,4 @@
-ICHL (Frosteye)
+ICHL (Frosteye) Has Glitched GBA sprite
 Ice Boss Child
 
 life: 4

@@ -1,4 +1,4 @@
-LOTS (Lily pad)
+LOTS (Lily pad) No GBA sprite
 
 Variable 1:
 Variable which makes the Lily pad appear

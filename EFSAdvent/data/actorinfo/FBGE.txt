@@ -1,1 +1,1 @@
-FBGE (Fireball Generator)
+FBGE (Fireball Generator) No GBA sprite

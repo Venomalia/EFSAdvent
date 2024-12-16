@@ -1,4 +1,4 @@
-BALL (iron ball)
+BALL (iron ball) No GBA sprite
 
 
 

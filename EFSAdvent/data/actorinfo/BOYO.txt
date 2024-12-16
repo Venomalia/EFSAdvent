@@ -1,4 +1,4 @@
-BOYO (Bumper Block)
+BOYO (Bumper Block) No GBA sprite
 
 Variable 3:
 Start positon

@@ -1,4 +1,4 @@
-FLME (Flame)
+FLME (Flame) No GBA sprite
 
 Variable 1:
 Trigger by variable X

@@ -1,2 +1,2 @@
-SYKY (Shooting Minigame)
+SYKY (Shooting Minigame) Has GBA sprite
 Fortune teller

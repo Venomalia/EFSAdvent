@@ -1,4 +1,4 @@
-RIVR (Leever)
+RIVR (Leever) No GBA sprite
 
 Variable 4:
 0 = Green

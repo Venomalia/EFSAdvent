@@ -1,4 +1,4 @@
-WPPR (Warp Pillar)
+WPPR (Warp Pillar) No GBA sprite
 Light beam that teleports from one map to another.
 Target map requires “WPPA” actor and 4 players start coordinates “PLAS”.
 

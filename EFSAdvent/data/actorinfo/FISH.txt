@@ -1,1 +1,1 @@
-FISH (fish)
+FISH (fish) No GBA sprite

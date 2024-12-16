@@ -1,4 +1,4 @@
-MRTA (Tree log)
+MRTA (Tree log) No GBA sprite
 
 Variable 3:
 0 = Log

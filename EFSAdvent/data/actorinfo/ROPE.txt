@@ -1,4 +1,4 @@
-ROPE (Rope)
+ROPE (Rope) No GBA sprite
 
 life: 8
 atcp: 2

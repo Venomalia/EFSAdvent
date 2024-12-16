@@ -1,4 +1,4 @@
-FGAN (Phantom Ganon)
+FGAN (Phantom Ganon) No GBA sprite
 Boss fight against the Phantom Ganon,
 Requires “fganon” Bti resources to function!
 

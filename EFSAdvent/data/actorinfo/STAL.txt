@@ -1,4 +1,4 @@
-STAL (Starfoss)
+STAL (Stalfoss)
 
 Variable 4:
 0 = Default

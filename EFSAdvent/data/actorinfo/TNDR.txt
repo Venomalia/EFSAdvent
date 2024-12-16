@@ -1,4 +1,4 @@
-TNDR (Vulture)
+TNDR (Vulture) No GBA sprite
 
 Variable 4:
 4 = ?

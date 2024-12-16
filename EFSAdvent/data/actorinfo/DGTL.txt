@@ -1,4 +1,4 @@
-DGTL (Big Moldorm)
+DGTL (Big Moldorm) No GBA sprite
 Boss fight against the Big Moldorm,
 Requires “degtail” Bti resources to function!
 
