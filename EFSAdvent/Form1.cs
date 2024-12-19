@@ -1033,13 +1033,21 @@ namespace EFSAdvent
 
         private void ChangeTileSheet(int tileSheetIndex)
         {
-            currentTileSheetComboBox.SelectedIndex = tileSheetIndex;
-            var tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {currentTileSheetComboBox.SelectedIndex:D2}.PNG");
-            var tileSheet = new Bitmap(tileSheetPath);
-            var graphics = Graphics.FromImage(tileSheetBitmap);
-            graphics.Clear(Color.FromArgb(00000000));
-            graphics.DrawImage(tileSheet, 0, 0);
-            tileSheetPictureBox.Image = tileSheetBitmap;
+            var tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {tileSheetIndex:D2}.PNG");
+
+            if (File.Exists(tileSheetPath))
+            {
+                currentTileSheetComboBox.SelectedIndex = tileSheetIndex;
+
+                using (var tileSheet = new Bitmap(tileSheetPath))
+                using (var graphics = Graphics.FromImage(tileSheetBitmap))
+                {
+                    graphics.Clear(Color.FromArgb(0));
+                    graphics.DrawImage(tileSheet, 0, 0);
+                }
+
+                tileSheetPictureBox.Image = tileSheetBitmap;
+            }
         }
 
         private void buttonSaveLayers_Click(object sender, EventArgs e)
