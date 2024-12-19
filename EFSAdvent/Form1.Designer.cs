@@ -781,6 +781,7 @@ namespace EFSAdvent
             this.MapVariableMusicComboBox.Name = "MapVariableMusicComboBox";
             this.MapVariableMusicComboBox.Size = new System.Drawing.Size(177, 21);
             this.MapVariableMusicComboBox.TabIndex = 32;
+            this.MapVariableMusicComboBox.SelectedIndexChanged += new System.EventHandler(this.UpdateMapVariables);
             // 
             // RoomLayoutgroupBox1
             // 
