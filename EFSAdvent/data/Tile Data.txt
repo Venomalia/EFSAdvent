@@ -8,7 +8,7 @@
 7:Deep water
 8:Ceiling, not walkable
 9:Ceiling, not walkable
-10:Ceiling, not walkable
+10:Ceiling Shadow\nShould be placed on the top layer.
 11:Ceiling, not walkable\nGBA dividing wall
 12:Abyss
 13:Abyss, does damage

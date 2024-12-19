@@ -737,13 +737,25 @@ namespace EFSAdvent
                 byte* dstRow = (byte*)lockedLayersBitmap.Scan0 + (py * lockedLayersBitmap.Stride);
                 for (int px = 0; px < lockedLayersBitmap.Width; px++)
                 {
-                    if (srcRow[px * 4] > 0)
+                    byte srcAlpha = srcRow[(px * 4) + 3];
+                    if (srcAlpha == 255)
                     {
                         dstRow[px * 4] = srcRow[px * 4];
                         dstRow[(px * 4) + 1] = srcRow[(px * 4) + 1];
                         dstRow[(px * 4) + 2] = srcRow[(px * 4) + 2];
-                        dstRow[(px * 4) + 3] = srcRow[(px * 4) + 3];
+                        dstRow[(px * 4) + 3] = srcAlpha;
                     }
+                    else if (srcAlpha > 0)
+                    {
+                        float srcAlphaNorm = srcAlpha / 255f;
+                        float invAlpha = 1 - srcAlphaNorm;
+
+                        dstRow[px * 4] = (byte)(srcRow[px * 4] * srcAlphaNorm + dstRow[px * 4] * invAlpha);
+                        dstRow[(px * 4) + 1] = (byte)(srcRow[(px * 4) + 1] * srcAlphaNorm + dstRow[(px * 4) + 1] * invAlpha);
+                        dstRow[(px * 4) + 2] = (byte)(srcRow[(px * 4) + 2] * srcAlphaNorm + dstRow[(px * 4) + 2] * invAlpha);
+                        dstRow[(px * 4) + 3] = (byte)(srcAlpha + dstRow[(px * 4) + 3] * invAlpha);
+                    }
+
                 }
             }
             tileSheetBitmap.UnlockBits(tileSource);
