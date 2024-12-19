@@ -264,7 +264,6 @@ namespace EFSAdvent
             _level = new Level(mapPath, _logger);
             _level.LoadMap();
             LoadMapVariable();
-            DrawMap();
 
             //Get a string which is just the root bossxxx filepath for loading other files
             RootFolderPathTextBox.Text = mapPath.Remove(mapPath.LastIndexOf("\\map\\") + 1);
@@ -591,22 +590,41 @@ namespace EFSAdvent
 
         private void UpdateMapVariables(object sender, EventArgs e)
         {
-            if (_ignoreMapVariableUpdates)
+            if (sender is Control csender)
             {
-                return;
+                if (!_ignoreMapVariableUpdates)
+                {
+                    _level.Map.SetVariables(
+                        (int)MapVariableStartX.Value,
+                        (int)MapVariableStartY.Value,
+                        (int)MapVariableMusicComboBox.SelectedIndex,
+                        (int)MapVariableE3Banner.Value,
+                        (int)MapVariableTileSheet.Value,
+                        (int)MapVariableNPCSheetID.Value,
+                        (int)MapVariableOverlay.Value,
+                        (int)MapVariableUnknown2.Value,
+                        (int)MapVariableDisallowTingle.Value
+                    );
+                }
+                switch (csender.Name)
+                {
+                    case "MapVariableStartY":
+                    case "MapVariableStartX":
+                        DrawMap();
+                        break;
+                    case "MapVariableTileSheet":
+                        ChangeTileSheet((int)MapVariableTileSheet.Value);
+                        currentTileSheetComboBox.SelectedIndex = (int)MapVariableTileSheet.Value;
+                        if (_level.Room != null)
+                            UpdateView(false);
+                        break;
+                    case "currentTileSheetComboBox":
+                        MapVariableTileSheet.Value = currentTileSheetComboBox.SelectedIndex;
+                        break;
+                    default:
+                        break;
+                }
             }
-            _level.Map.SetVariables(
-                (int)MapVariableStartX.Value,
-                (int)MapVariableStartY.Value,
-                (int)MapVariableMusicComboBox.SelectedIndex,
-                (int)MapVariableE3Banner.Value,
-                (int)MapVariableTileSheet.Value,
-                (int)MapVariableNPCSheetID.Value,
-                (int)MapVariableOverlay.Value,
-                (int)MapVariableUnknown2.Value,
-                (int)MapVariableDisallowTingle.Value
-            );
-            DrawMap();
         }
 
         #endregion Map
@@ -980,7 +998,7 @@ namespace EFSAdvent
             }
 
             _logger.Clear();
-            if (TILE_INFO.TryGetValue(tileID,out string info))
+            if (TILE_INFO.TryGetValue(tileID, out string info))
             {
                 _logger.AppendText(info);
             }
@@ -1022,23 +1040,12 @@ namespace EFSAdvent
             layersCheckList.SelectedIndex = -1;
         }
 
-        private void currentTileSheetComboBox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            int newTileSheetId = ((ComboBox)sender).SelectedIndex;
-            ChangeTileSheet(newTileSheetId);
-            MapVariableTileSheet.Value = newTileSheetId;
-            UpdateView(false);
-            UpdateMapVariables(null, null);
-        }
-
         private void ChangeTileSheet(int tileSheetIndex)
         {
             var tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {tileSheetIndex:D2}.PNG");
 
             if (File.Exists(tileSheetPath))
             {
-                currentTileSheetComboBox.SelectedIndex = tileSheetIndex;
-
                 using (var tileSheet = new Bitmap(tileSheetPath))
                 using (var graphics = Graphics.FromImage(tileSheetBitmap))
                 {
