@@ -25,7 +25,7 @@ namespace EFSAdvent
         const int MAP_ROOM_DIMENSION_IN_PIXELS = 20;
         const int TILE_DIMENSION_IN_PIXELS = 16;
 
-        Bitmap mapBitmap, tileSheetBitmap, roomLayerBitmap, brushTileBitmap, actorLayerBitmap, currentActorBitmap;
+        Bitmap mapBitmap, tileSheetBitmap, roomLayerBitmap, brushTileBitmap, actorLayerBitmap, currentActorBitmap, overlayBitmap;
         Graphics mapGraphics, roomLayerGraphics, actorLayerGraphics;
 
         ushort brushTileValue;
@@ -77,6 +77,8 @@ namespace EFSAdvent
             string SheetPath = Path.Combine(dataDirectory, "Tile Sheet 00.PNG");
             tileSheetBitmap = new Bitmap(SheetPath);
             tileSheetPictureBox.Image = tileSheetBitmap;
+
+            ChangeOverlay(0);
 
             brushTileBitmap = new Bitmap(16, 16, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
             BrushTilePictureBox.Image = brushTileBitmap;
@@ -453,14 +455,33 @@ namespace EFSAdvent
 
         private void UpdateView(bool actorLayerChanged, int? layer = null)
         {
+            if (_level?.Room == null)
+                return;
+
             roomLayerGraphics.Clear(Color.Transparent);
             for (int i = 0; i < 8; i++)
             {
+                // Draw Layer
                 for (int n = 0; n <= 8; n += 8)
                 {
                     if ((layer == null && layersCheckList.GetItemChecked(i + n)) || (i + n) == layer)
                     {
                         DrawLayer(i + n);
+                    }
+                }
+
+                // Draw Overlay
+                if (displayOverlayToolStripMenuItem.Checked && i == 0)
+                {
+                    using (var graphics = Graphics.FromImage(roomLayerBitmap))
+                    {
+                        for (int x = 0; x < roomLayerBitmap.Width; x += overlayBitmap.Width)
+                        {
+                            for (int y = 0; y < roomLayerBitmap.Height - 128; y += overlayBitmap.Height)
+                            {
+                                graphics.DrawImage(overlayBitmap, x, y);
+                            }
+                        }
                     }
                 }
             }
@@ -608,6 +629,10 @@ namespace EFSAdvent
                 }
                 switch (csender.Name)
                 {
+                    case "MapVariableOverlay":
+                        ChangeOverlay((int)MapVariableOverlay.Value);
+                        UpdateView(false);
+                        break;
                     case "MapVariableStartY":
                     case "MapVariableStartX":
                         DrawMap();
@@ -615,8 +640,7 @@ namespace EFSAdvent
                     case "MapVariableTileSheet":
                         ChangeTileSheet((int)MapVariableTileSheet.Value);
                         currentTileSheetComboBox.SelectedIndex = (int)MapVariableTileSheet.Value;
-                        if (_level.Room != null)
-                            UpdateView(false);
+                        UpdateView(false);
                         break;
                     case "currentTileSheetComboBox":
                         MapVariableTileSheet.Value = currentTileSheetComboBox.SelectedIndex;
@@ -1056,6 +1080,19 @@ namespace EFSAdvent
                 tileSheetPictureBox.Image = tileSheetBitmap;
             }
         }
+
+        private void ChangeOverlay(int overlayIndex)
+        {
+            var tileSheetPath = Path.Combine(dataDirectory, $"Overlays\\filter{overlayIndex}.png");
+
+            if (File.Exists(tileSheetPath))
+            {
+                overlayBitmap?.Dispose();
+                overlayBitmap = new Bitmap(tileSheetPath);
+            }
+        }
+
+        private void displayOverlayToolStripMenuItem_Click(object sender, EventArgs e) => UpdateView(false);
 
         private void buttonSaveLayers_Click(object sender, EventArgs e)
         {

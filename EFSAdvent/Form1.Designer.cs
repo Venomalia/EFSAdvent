@@ -50,6 +50,7 @@ namespace EFSAdvent
             this.SaveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.levelAsArcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roomAstsxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +65,7 @@ namespace EFSAdvent
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.displayOverlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textureFilterModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bilinearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bicubicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +75,7 @@ namespace EFSAdvent
             this.wikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightSideGroupBox = new System.Windows.Forms.GroupBox();
+            this.CoridinatesTextBox = new System.Windows.Forms.TextBox();
             this.updateLayersButton = new System.Windows.Forms.Button();
             this.buttonSaveLayers = new System.Windows.Forms.Button();
             this.layersCheckList = new EFSAdvent.CheckedListBoxColorable();
@@ -192,7 +195,6 @@ namespace EFSAdvent
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.CoridinatesTextBox = new System.Windows.Forms.TextBox();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -450,14 +452,14 @@ namespace EFSAdvent
             // viewAspngToolStripMenuItem
             // 
             this.viewAspngToolStripMenuItem.Name = "viewAspngToolStripMenuItem";
-            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.viewAspngToolStripMenuItem.Text = "View as .png";
             this.viewAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportViewAsPng);
             // 
             // mapAspngToolStripMenuItem
             // 
             this.mapAspngToolStripMenuItem.Name = "mapAspngToolStripMenuItem";
-            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.mapAspngToolStripMenuItem.Text = "Map as .png";
             this.mapAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
             // 
@@ -542,6 +544,7 @@ namespace EFSAdvent
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xSizeToolStripMenuItem,
             this.xSizeToolStripMenuItem1,
+            this.displayOverlayToolStripMenuItem,
             this.textureFilterModeToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -550,16 +553,26 @@ namespace EFSAdvent
             // xSizeToolStripMenuItem
             // 
             this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
-            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xSizeToolStripMenuItem.Text = "1x size";
             this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.oneXSizeToolStripMenuItem_Click);
             // 
             // xSizeToolStripMenuItem1
             // 
             this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
-            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
             this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
+            // 
+            // displayOverlayToolStripMenuItem
+            // 
+            this.displayOverlayToolStripMenuItem.Checked = true;
+            this.displayOverlayToolStripMenuItem.CheckOnClick = true;
+            this.displayOverlayToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.displayOverlayToolStripMenuItem.Name = "displayOverlayToolStripMenuItem";
+            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.displayOverlayToolStripMenuItem.Text = "Display overlay";
+            this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.displayOverlayToolStripMenuItem_Click);
             // 
             // textureFilterModeToolStripMenuItem
             // 
@@ -568,7 +581,7 @@ namespace EFSAdvent
             this.bicubicToolStripMenuItem,
             this.nearestNeighborToolStripMenuItem});
             this.textureFilterModeToolStripMenuItem.Name = "textureFilterModeToolStripMenuItem";
-            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.textureFilterModeToolStripMenuItem.Text = "Filter mode";
             // 
             // bilinearToolStripMenuItem
@@ -641,6 +654,15 @@ namespace EFSAdvent
             this.rightSideGroupBox.TabIndex = 7;
             this.rightSideGroupBox.TabStop = false;
             this.rightSideGroupBox.Text = "Layers";
+            // 
+            // CoridinatesTextBox
+            // 
+            this.CoridinatesTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.CoridinatesTextBox.Location = new System.Drawing.Point(7, 525);
+            this.CoridinatesTextBox.Name = "CoridinatesTextBox";
+            this.CoridinatesTextBox.ReadOnly = true;
+            this.CoridinatesTextBox.Size = new System.Drawing.Size(150, 20);
+            this.CoridinatesTextBox.TabIndex = 23;
             // 
             // updateLayersButton
             // 
@@ -1169,7 +1191,7 @@ namespace EFSAdvent
             this.currentTileSheetComboBox.Name = "currentTileSheetComboBox";
             this.currentTileSheetComboBox.Size = new System.Drawing.Size(93, 21);
             this.currentTileSheetComboBox.TabIndex = 3;
-            this.currentTileSheetComboBox.SelectionChangeCommitted += new System.EventHandler(this.currentTileSheetComboBox_SelectionChangeCommitted);
+            this.currentTileSheetComboBox.SelectionChangeCommitted += new System.EventHandler(this.UpdateMapVariables);
             // 
             // label2
             // 
@@ -2103,15 +2125,6 @@ namespace EFSAdvent
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // CoridinatesTextBox
-            // 
-            this.CoridinatesTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.CoridinatesTextBox.Location = new System.Drawing.Point(7, 525);
-            this.CoridinatesTextBox.Name = "CoridinatesTextBox";
-            this.CoridinatesTextBox.ReadOnly = true;
-            this.CoridinatesTextBox.Size = new System.Drawing.Size(150, 20);
-            this.CoridinatesTextBox.TabIndex = 23;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2372,6 +2385,8 @@ namespace EFSAdvent
         private ToolStripMenuItem sourceCodeToolStripMenuItem;
         private TextBox CoridinatesTextBox;
         private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem roomAstsxToolStripMenuItem;
+        private ToolStripMenuItem displayOverlayToolStripMenuItem;
     }
 }
 
