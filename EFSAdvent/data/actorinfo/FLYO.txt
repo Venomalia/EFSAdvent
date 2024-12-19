@@ -10,7 +10,7 @@ Variable 2:
 1 = Bush
 2 = ?
 3 = ?
-4 = ?
+4 = Gravestone
 5 = Pot
 6 = Statue
 7 = Chest

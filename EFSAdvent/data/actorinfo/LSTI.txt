@@ -5,6 +5,7 @@ Items player dropped
 Variable 4:
 1 = Pegasus boots
 2 = Lantern
+3 = Boomerang
 4 = Bow
 5 = Hammer
 6 = Fire Rod
@@ -13,4 +14,4 @@ Variable 4:
 9 = Shovel
 10 = Slingshot
 11 = Four Sword (unused)
-[Flag] = Under a rock
+[Flag] = Under a rock?

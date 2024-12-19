@@ -1,5 +1,8 @@
 KETH (Keese)
 
+Variable 1a:
+Specify which local variables activate this actor.
+
 Variable 4:
 0 = Default
 3 = Flies back and forth

@@ -1,0 +1,8 @@
+Force Gem;RUPY, L:0, X:0, Y:0, V:0,0,0,1.
+Escaping Force Gem;ESRY, L:0, X:0, Y:0, V:0,0,0,0.
+Hovering Force Gem;HNRY, L:0, X:0, Y:0, V:0,0,16,0.
+Wooden Force Gem;WDRY, L:0, X:0, Y:0, V:0,0,0,0.
+Ice Force Gem;WDRY, L:0, X:0, Y:0, V:0,1,0,0.
+Buried Force Gem;BRRY, L:0, X:0, Y:0, V:0,0,0,0.
+Key;KEY0, L:0, X:0, Y:0, V:0,0,0,0.
+Moon Perl;KEY0, L:0, X:0, Y:0, V:0,0,0,6.

@@ -1,0 +1,8 @@
+Warp;WARP, L:0, X:0, Y:0, V:5,32,32,25.
+Magic Circle Generator;MJGR, L:0, X:0, Y:0, V:193,0,0,0.
+Magic Circle;CIRC, L:0, X:0, Y:0, V:0,0,0,0.
+Spiral Staircase;RASN, L:0, X:0, Y:0, V:0,0,0,144.
+Warp Pillar;WPPR, L:0, X:0, Y:0, V:0,0,1,16.
+Warp Pillar Post Processing;WPPA, L:0, X:0, Y:0, V:0,0,0,0.
+Warp Cannon;WPCN, L:0, X:0, Y:0, V:0,1,1,0.
+Room Warp;FDWP, L:0, X:0, Y:0, V:0,0,17,0.

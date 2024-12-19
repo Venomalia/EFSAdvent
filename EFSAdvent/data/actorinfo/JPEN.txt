@@ -1,1 +1,2 @@
 JPEN (NPC flying in Thwomp)
+Requires NPC sheet 8 or 11.

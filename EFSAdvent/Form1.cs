@@ -110,6 +110,37 @@ namespace EFSAdvent
                 ACTOR_SPRITES.Add(spritePath.Split(Path.DirectorySeparatorChar).Last().Split('.')[0], sprite);
             }
 
+            // Load Actor Templates
+            string templatesFolder = Path.Combine(dataDirectory, "actortemplates");
+            if (Directory.Exists(templatesFolder))
+            {
+                foreach (var filePath in Directory.GetFiles(templatesFolder, "*.txt"))
+                {
+                    string categoryName = Path.GetFileNameWithoutExtension(filePath);
+                    ToolStripMenuItem categoryItem = new ToolStripMenuItem(categoryName);
+
+                    foreach (var line in File.ReadLines(filePath))
+                    {
+                        if (string.IsNullOrWhiteSpace(line))
+                            continue;
+
+                        var parts = line.Split(';');
+                        if (parts.Length < 2)
+                            continue;
+
+                        string actorName = parts[0].Trim();
+                        string actorCode = parts[1].Trim();
+
+                        ToolStripMenuItem actorItem = new ToolStripMenuItem(actorName);
+                        actorItem.Tag = actorCode;
+                        actorItem.Click += AddActorStripMenuItem_Click;
+                        categoryItem.DropDownItems.Add(actorItem);
+                    }
+
+                    actorContextMenuStrip.Items.Add(categoryItem);
+                }
+            }
+
             // Load Actor Namelist
             string ActorNameListPath = Path.Combine(dataDirectory, "FSA Actor Namelist.txt");
             if (File.Exists(ActorNameListPath))
@@ -1787,9 +1818,18 @@ namespace EFSAdvent
         }
 
         private void pastToolStripMenuItem_Click(object sender, EventArgs e)
+            => AddNewActorFromCode(System.Windows.Forms.Clipboard.GetText());
+
+        private void AddActorStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string code = (sender as ToolStripMenuItem)?.Tag as string;
+            AddNewActorFromCode(code);
+        }
+
+        private void AddNewActorFromCode(string code)
         {
             Actor actor = new Actor();
-            if (actor.PasteFromString(System.Windows.Forms.Clipboard.GetText()))
+            if (actor.PasteFromString(code))
             {
                 int? activeLayer = GetHighestActiveLayerIndex();
                 int baseLayer = activeLayer.HasValue

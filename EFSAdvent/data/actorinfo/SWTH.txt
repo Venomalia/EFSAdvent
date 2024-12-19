@@ -13,7 +13,7 @@ Vertical trigger area length
 Variable 4:
 0 = Default
 1 = Remains active
-2 = ?
-3 = ?
+2 = Two click sounds
+3 = Two click sounds, Remains active
 4 = Invisible trigger
 7 = Invisible trigger area, use V2 as range.

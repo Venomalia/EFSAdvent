@@ -1,7 +1,7 @@
 SWNP (switch-related NPC)
 
 Variable 1a:
-The local variable number that triggers or activates this actor.
+Specify which local variables are set by this actor.
 
 Variable 1b:
 0 = No special effect
@@ -14,8 +14,15 @@ If V4 is Play SE
 20 = Aapproach SE
 
 If V4 is Item stand
-0 = Pegasus boots
-1 = Magic Hammer
+Pegasus boots = v2 0 & v3 0
+Lantern = v2 0 & v3 64
+Boomerang = v2 0 & v3 128
+Bow = v2 0 & v3 192
+Hammer = V2 1 & v3 0
+Fire Rod = V2 1 & v3 64
+Roc's Feather = V2 1 & v3 128
+Bombs = V2 1 & v3 192
+Shovel = v2 2 & v3 0
 
 Variable 4:
 0 = Chest

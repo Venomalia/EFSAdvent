@@ -1,0 +1,10 @@
+Player Start Position;PLAS, L:0, X:0, Y:0, V:0,0,0,0.
+Evil Imprisoning Field;GOL2, L:0, X:0, Y:0, V:0,0,0,2.
+Goal Warp;GLWP, L:0, X:0, Y:0, V:0,0,0,17.
+Environmental Control;SWEV, L:0, X:0, Y:0, V:0,40,0,0.
+Environmental control 2;SEV2, L:0, X:0, Y:0, V:0,32,0,0.
+Light Control;LTEV, L:0, X:0, Y:0, V:0,0,0,3.
+BGM change;BGMN, L:0, X:0, Y:0, V:0,0,32,159.
+Play SE;SWNP, L:0, X:0, Y:0, V:8,0,0,3.
+Tingle Buster;TINB, L:0, X:0, Y:0, V:0,0,0,0.
+Vaati Buster;GFBS, L:0, X:0, Y:0, V:0,0,0,0.

@@ -1,1 +1,12 @@
-TLWP (Tingle tower (warp) Glitched GBA sprite
+TLWP (Tingle tower (warp)) Glitched GBA sprite
+Requires at least 2 players, send the players to one of the minigame maps.
+
+Variable 4:
+0 = Load map boss200.arc and Tingle tower lights.
+1 = Load map boss201.arc
+2 = Load map boss202.arc
+3 = Load map boss203.arc
+4 = Load map boss204.arc
+5 = Load map boss205.arc
+6 = Load map boss206.arc
+7 = Load map boss208.arc

@@ -1,0 +1,15 @@
+Treasure chest;TKRA, L:0, X:0, Y:0, V:0,0,0,4.
+Torch Flame;TRCH, L:0, X:0, Y:0, V:0,0,0,0.
+Bomb Flower;HBMB, L:0, X:0, Y:0, V:0,0,0,1.
+2 Person Lifting Rock;RCK2, L:0, X:0, Y:0, V:0,0,0,0.
+Door;DOOR, L:0, X:0, Y:0, V:0,0,64,128.
+Flying Cannon;CNON, L:0, X:0, Y:0, V:0,0,0,0.
+Flame;BLZ2, L:0, X:0, Y:0, V:0,0,0,0.
+Item Stand;SWNP, L:0, X:0, Y:0, V:12,0,192,2.
+Movable Block;BLCK, L:0, X:0, Y:0, V:0,0,12,1.
+Movable 6x6 Platform;LIFT, L:0, X:0, Y:0, V:0,16,0,6.
+Lily Pad;LOTS, L:0, X:0, Y:0, V:0,0,0,2.
+Lily Pad Zora;LTZR, L:0, X:0, Y:0, V:0,0,0,0.
+Liftable Tree;WOOD, L:0, X:0, Y:0, V:0,0,0,0.
+Cactus;SBTN, L:0, X:0, Y:0, V:0,0,0,0.
+Castle Barrier;BARI, L:0, X:32, Y:22, V:12,64,0,2.

@@ -1,0 +1,35 @@
+Octorok;OKTA, L:0, X:0, Y:0, V:0,0,0,0.
+Sword Soldier;SLR1, L:0, X:0, Y:0, V:0,0,0,0.
+Bow Soldier;SLR2, L:0, X:0, Y:0, V:0,0,0,0.
+Bomb Soldier;SLR2, L:0, X:0, Y:0, V:0,0,0,2.
+Force Soldier;SLR1, L:0, X:0, Y:0, V:0,16,0,0.
+Stalfoss;STAL, L:0, X:0, Y:0, V:0,0,0,0.
+Keese;KETH, L:0, X:0, Y:0, V:0,0,0,0.
+Keese Swarm;HBB2, L:0, X:0, Y:0, V:0,0,0,0.
+Beamos;BMST, L:0, X:0, Y:0, V:0,0,0,7.
+Buzz Blob;BZBR, L:0, X:0, Y:0, V:0,0,0,0.
+Bubble;SKUL, L:0, X:0, Y:0, V:0,0,17,0.
+Crab;PEAC, L:0, X:0, Y:0, V:0,0,0,0.
+Deadlock;DDRK, L:0, X:0, Y:0, V:0,0,0,0.
+Devalant;RUSA, L:0, X:0, Y:0, V:0,0,16,17.
+Eyegore;EGOL, L:0, X:26, Y:7, V:0,0,0,0.
+Floor Master;FLOR, L:0, X:0, Y:0, V:0,0,0,0.
+Geldman;GDMN, L:0, X:0, Y:0, V:0,0,0,0.
+Gibdo;MIRA, L:0, X:0, Y:0, V:0,0,0,0.
+Ghini;POOH, L:0, X:0, Y:0, V:0,0,0,0.
+Hardhat Beetle;Poon, L:0, X:0, Y:0, V:0,0,0,0.
+Hinox;HINO, L:0, X:0, Y:0, V:0,0,0,0.
+Leever;RIVR, L:0, X:0, Y:0, V:0,0,0,0.
+Tektite;TKTA, L:0, X:0, Y:0, V:0,0,0,0.
+Rat;NZMI, L:0, X:0, Y:0, V:0,0,0,0.
+Ropa;MOZO, L:0, X:0, Y:0, V:0,0,0,0.
+Rope;ROPE, L:0, X:0, Y:0, V:0,0,0,0.
+Mini-Moldorm;DGT2, L:0, X:0, Y:0, V:0,0,0,0.
+Thwomp;DSIN, L:0, X:0, Y:0, V:0,0,0,0.
+Terrorpin;PAME, L:0, X:0, Y:0, V:0,0,0,0.
+Zora;ZORA, L:0, X:0, Y:0, V:0,0,0,0.
+Armos Knight;AMOS, L:0, X:0, Y:0, V:0,0,0,0.
+Blade Trap;TRAP, L:0, X:0, Y:0, V:0,0,0,4.
+Vulture;TNDR, L:0, X:0, Y:0, V:0,0,0,6.
+Wizrobe;WIZR, L:0, X:0, Y:0, V:0,0,0,1.
+Zol Slime;ZASL, L:0, X:0, Y:0, V:0,0,0,0.
