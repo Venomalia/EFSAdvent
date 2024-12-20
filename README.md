@@ -7,17 +7,20 @@ A level editor for the Nintendo GameCube game Four Swords Adventures.
 This branch is an unoficial update based on the [source code](https://bitbucket.org/jaytheham/efsadvent/src/main/) of Jay(theHam) Harland.
 
 ## Main Changes
-- A bunch of bug fixes.
-- Start room is highlighted and loaded when a level is opened.
-- Different views of the actor variables.
-- Allows the copying and pasting of actor data via clipboard.
-- Simple adding and deleting of rooms.
-- Import rooms and actors from other levels.
-- Preview which tiles will be changed by PNPC and PNP2 actors.
-- Detailed documentation for a significant number of actors.
-- Shadow Battle Map vaules will be loaded and can be edited.
-- Highlights used layers.
-- Export Level as .png.
+- Fixed multiple bugs to enhance stability.
+- Start room is now highlighted and auto-loaded when a level is opened.
+- Actor variables are now displayed and editable in their correct format.
+- Enabled copying and pasting actor data via clipboard.
+- Simplified adding and deleting rooms.
+- Enabled importing rooms and actors from other levels.
+- Added a preview to show which tiles will be altered by PNPC and PNP2 actors.
+- Expanded detailed documentation for numerous actors.
+- Shadow Battle Map values can now be loaded and edited.
+- Highlights which layers are in use.
+- Added the ability to export levels as .png files.
+- Enabled export and import of room tiles to Tiled TMX files.
+- Added functionality to load actors from templates.
+- Added visualization of Overlay filter effects.
 
 ## Goals
 Fully document all actor variables and their behavior.

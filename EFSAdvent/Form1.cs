@@ -14,7 +14,7 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.5";
+        private const string VERSION = "1.6";
         private const string BaseTitel = "EFSAdvent " + VERSION + " [Venomalia]";
         private const string WikiUrl = "https://github.com/Venomalia/EFSAdvent/wiki";
         private const string SourceCodeUrl = "https://github.com/Venomalia/EFSAdvent";
@@ -385,19 +385,14 @@ namespace EFSAdvent
                         }
                     }
                 }
-                RefreshLayersCheckList();
+                for (int i = 0; i < 16; i++)
+                {
+                    Color color = _level.Room.IsLayerEmpty(i) ? Color.Gray : Color.Black;
+                    layersCheckList.Colors[$"Layer {(i < 8 ? 1 : 2)}-{i % 8}"] = color;
+                }
+                layersCheckList.Refresh();
                 UpdateView(false);
             }
-        }
-
-        private void RefreshLayersCheckList()
-        {
-            for (int i = 0; i < 16; i++)
-            {
-                Color color = _level.Room.IsLayerEmpty(i) ? Color.Gray : Color.Black;
-                layersCheckList.Colors[$"Layer {(i < 8 ? 1 : 2)}-{i % 8}"] = color;
-            }
-            layersCheckList.Refresh();
         }
 
         private void RemoveRoom(object sender, EventArgs e)
@@ -1151,6 +1146,9 @@ namespace EFSAdvent
 
         private void ExportRoomAsTmx_Click(object sender, EventArgs e)
         {
+            if (ShowSaveChangesDialog(true, "Save all data before exporting?"))
+                return;
+
             var saveTmx = new SaveFileDialog
             {
                 DefaultExt = ".tmx",
@@ -1163,9 +1161,8 @@ namespace EFSAdvent
             {
                 string tilesetSource = $"Tile Sheet {currentTileSheetComboBox.SelectedIndex:D2}.tsx";
                 string tsxFilePath = Path.Combine(Path.GetDirectoryName(saveTmx.FileName), tilesetSource);
-                string overlaySource = Path.Combine(dataDirectory, $"Overlays\\filter{(int)MapVariableOverlay.Value}.png");
                 ExportMapTilesetAsTsx(tsxFilePath);
-                _level.Room.ExportAsTMX(saveTmx.FileName, tilesetSource, overlaySource);
+                _level.Room.ExportAsTMX(saveTmx.FileName, tilesetSource);
             }
         }
 
@@ -1175,13 +1172,12 @@ namespace EFSAdvent
             {
                 DefaultExt = ".tmx",
                 Filter = "Tiled map files|*.tmx;*.xml",
-                FileName = $"boss{_level.Map.Number}_Room{_level.Room.RoomNumber}"
+                FileName = $"boss{_level.Map.Number}_Room{_level.Room.RoomNumber}.tmx"
             };
 
             if (openTmx.ShowDialog() == DialogResult.OK)
             {
                 _level.Room.ImportRoomFromTMX(openTmx.FileName);
-                RefreshLayersCheckList();
                 UpdateView(false);
             }
         }
