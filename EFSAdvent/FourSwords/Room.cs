@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -301,6 +303,89 @@ namespace EFSAdvent.FourSwords
             ActorsAreDirty = false;
 
             return binary;
+        }
+
+        public void ExportAsTMX(string filePath, string tilesetSource, string tvFilterSource = null)
+        {
+            List<Tiled.ILayer> layerGroup = new List<Tiled.ILayer>();
+            List<string> layerGroupNames = new List<string>() {
+                "TV Layer",
+                "GBA Layer 1 (Dark World)",
+                "GBA Layer 2",
+                "GBA Layer 3",
+                "GBA Layer 4",
+                "GBA Layer 5",
+                "GBA Layer 6",
+                "GBA Layer 7",
+            };
+
+            int layerID = 1;
+            for (int y = 0; y < _layers.GetLength(0); y++)
+            {
+                var group = new Tiled.Group(){
+                    ID = y + 20,
+                    Name = layerGroupNames[y],
+                    Visible = y == 0,
+                    Layers = new List<Tiled.ILayer>()
+                };
+                layerGroup.Add(group);
+
+                for (int x = 0; x < _layers.GetLength(1); x++)
+                {
+                    group.Layers.Add(new Tiled.Layer(){
+                        ID = layerID++,
+                        Name = $"Layer {y} {(x == 0 ? "Base" : "Top")}",
+                        Data = _layers[y, x].GetLayerData(),
+                        Size = y == 0 ? new Size(32, 24) : new Size(32, 32),
+
+                    });
+                }
+
+                if (y == 0 && !string.IsNullOrEmpty(tvFilterSource))
+                {
+                    group.Layers.Add(new Tiled.Imagelayer()
+                    {
+                        ID = 18,
+                        Name = "Overlay Filter",
+                        RepeatX = true,
+                        RepeatY = true,
+                        ImageSize = new Size(128, 128),
+                        ImageSource = tvFilterSource
+                    });
+                }
+            }
+            Tiled.ExportAsTMX(filePath, new Size(32, 32), layerGroup, tilesetSource);
+        }
+
+        public void ImportRoomFromTMX(string filePath)
+        {
+            try
+            {
+                List<Tiled.Layer> layers = Tiled.ReadLayersFromTMX(filePath);
+
+                LayersAreDirty = true;
+                foreach (var layer in layers)
+                {
+                    if (layer.Size.Width > Layer.DIMENSION || layer.Size.Height > Layer.DIMENSION)
+                    {
+                        _logger.AppendLine($"Error: Layer ID {layer.ID} exceeds allowed dimensions. Layer Size: {layer.Size.Width}x{layer.Size.Height}, Max: {Layer.DIMENSION}x{Layer.DIMENSION}");
+                        continue;
+                    }
+                    int layerID = layer.ID - 1;
+
+                    int yIndex = layerID / _layers.GetLength(1);
+                    int xIndex = layerID % _layers.GetLength(1);
+
+                    if (yIndex < _layers.GetLength(0) && xIndex < _layers.GetLength(1))
+                        Array.Copy(layer.Data, _layers[yIndex, xIndex].GetLayerData(), layer.Data.Length);
+                    else
+                        _logger.AppendLine($"Layer ID {layer.ID} is out of bounds.");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.AppendLine($"Critical error during TMX import: {ex.Message}");
+            }
         }
     }
 }

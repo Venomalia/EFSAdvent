@@ -100,5 +100,7 @@ namespace EFSAdvent.FourSwords
 
             return szsFormatLayer;
         }
+
+        internal ushort[] GetLayerData() => _data;
     }
 }

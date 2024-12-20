@@ -385,14 +385,19 @@ namespace EFSAdvent
                         }
                     }
                 }
-                for (int i = 0; i < 16; i++)
-                {
-                    Color color = _level.Room.IsLayerEmpty(i) ? Color.Gray : Color.Black;
-                    layersCheckList.Colors[$"Layer {(i < 8 ? 1 : 2)}-{i % 8}"] = color;
-                }
-                layersCheckList.Refresh();
+                RefreshLayersCheckList();
                 UpdateView(false);
             }
+        }
+
+        private void RefreshLayersCheckList()
+        {
+            for (int i = 0; i < 16; i++)
+            {
+                Color color = _level.Room.IsLayerEmpty(i) ? Color.Gray : Color.Black;
+                layersCheckList.Colors[$"Layer {(i < 8 ? 1 : 2)}-{i % 8}"] = color;
+            }
+            layersCheckList.Refresh();
         }
 
         private void RemoveRoom(object sender, EventArgs e)
@@ -1142,6 +1147,50 @@ namespace EFSAdvent
                 var packer = new RarcPacker();
                 packer.CreateRarc(path, saveRarc.FileName);
             }
+        }
+
+        private void ExportRoomAsTmx_Click(object sender, EventArgs e)
+        {
+            var saveTmx = new SaveFileDialog
+            {
+                DefaultExt = ".tmx",
+                AddExtension = true,
+                Filter = "Tiled map files|*.tmx;*.xml",
+                FileName = $"boss{_level.Map.Number}_Room{_level.Room.RoomNumber}"
+            };
+
+            if (saveTmx.ShowDialog() == DialogResult.OK)
+            {
+                string tilesetSource = $"Tile Sheet {currentTileSheetComboBox.SelectedIndex:D2}.tsx";
+                string tsxFilePath = Path.Combine(Path.GetDirectoryName(saveTmx.FileName), tilesetSource);
+                string overlaySource = Path.Combine(dataDirectory, $"Overlays\\filter{(int)MapVariableOverlay.Value}.png");
+                ExportMapTilesetAsTsx(tsxFilePath);
+                _level.Room.ExportAsTMX(saveTmx.FileName, tilesetSource, overlaySource);
+            }
+        }
+
+        private void ImportRoomFromTmx_Click(object sender, EventArgs e)
+        {
+            var openTmx = new OpenFileDialog
+            {
+                DefaultExt = ".tmx",
+                Filter = "Tiled map files|*.tmx;*.xml",
+                FileName = $"boss{_level.Map.Number}_Room{_level.Room.RoomNumber}"
+            };
+
+            if (openTmx.ShowDialog() == DialogResult.OK)
+            {
+                _level.Room.ImportRoomFromTMX(openTmx.FileName);
+                RefreshLayersCheckList();
+                UpdateView(false);
+            }
+        }
+
+        private void ExportMapTilesetAsTsx(string savePath)
+        {
+            string tiledBaseSheet = Path.Combine(dataDirectory, "TiledBaseSheet.xml");
+            string tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {currentTileSheetComboBox.SelectedIndex:D2}.PNG");
+            Tiled.UpdateTilesetImage(tiledBaseSheet, tileSheetPath, savePath);
         }
 
         private void ExportViewAsPng(object sender, EventArgs e)

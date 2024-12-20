@@ -54,6 +54,7 @@ namespace EFSAdvent
             this.viewAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ImportRoomFromTmx = new System.Windows.Forms.ToolStripMenuItem();
             this.roomImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actorsImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -435,6 +436,7 @@ namespace EFSAdvent
             // 
             this.ExportMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.levelAsArcToolStripMenuItem,
+            this.roomAstsxToolStripMenuItem,
             this.viewAspngToolStripMenuItem,
             this.mapAspngToolStripMenuItem});
             this.ExportMenuItem.Enabled = false;
@@ -445,27 +447,37 @@ namespace EFSAdvent
             // levelAsArcToolStripMenuItem
             // 
             this.levelAsArcToolStripMenuItem.Name = "levelAsArcToolStripMenuItem";
-            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.levelAsArcToolStripMenuItem.Text = "Level as .arc";
+            this.levelAsArcToolStripMenuItem.ToolTipText = "Export as FSA Level Archive.";
             this.levelAsArcToolStripMenuItem.Click += new System.EventHandler(this.ExportLevel);
+            // 
+            // roomAstsxToolStripMenuItem
+            // 
+            this.roomAstsxToolStripMenuItem.Name = "roomAstsxToolStripMenuItem";
+            this.roomAstsxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.roomAstsxToolStripMenuItem.Text = "Room as .tmx";
+            this.roomAstsxToolStripMenuItem.ToolTipText = "Export as Tiled map files.";
+            this.roomAstsxToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomAsTmx_Click);
             // 
             // viewAspngToolStripMenuItem
             // 
             this.viewAspngToolStripMenuItem.Name = "viewAspngToolStripMenuItem";
-            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewAspngToolStripMenuItem.Text = "View as .png";
             this.viewAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportViewAsPng);
             // 
             // mapAspngToolStripMenuItem
             // 
             this.mapAspngToolStripMenuItem.Name = "mapAspngToolStripMenuItem";
-            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mapAspngToolStripMenuItem.Text = "Map as .png";
             this.mapAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ImportRoomFromTmx,
             this.roomImportToolStripMenuItem,
             this.actorsImportToolStripMenuItem});
             this.importToolStripMenuItem.Enabled = false;
@@ -473,10 +485,18 @@ namespace EFSAdvent
             this.importToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.importToolStripMenuItem.Text = "Import";
             // 
+            // ImportRoomFromTmx
+            // 
+            this.ImportRoomFromTmx.Name = "ImportRoomFromTmx";
+            this.ImportRoomFromTmx.Size = new System.Drawing.Size(180, 22);
+            this.ImportRoomFromTmx.Text = "Room from .tmx";
+            this.ImportRoomFromTmx.ToolTipText = "Import from Tiled map files";
+            this.ImportRoomFromTmx.Click += new System.EventHandler(this.ImportRoomFromTmx_Click);
+            // 
             // roomImportToolStripMenuItem
             // 
             this.roomImportToolStripMenuItem.Name = "roomImportToolStripMenuItem";
-            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.roomImportToolStripMenuItem.Text = "Room";
             this.roomImportToolStripMenuItem.ToolTipText = "Imports a room from another map file.";
             this.roomImportToolStripMenuItem.Click += new System.EventHandler(this.roomImportToolStripMenuItem_Click);
@@ -484,7 +504,7 @@ namespace EFSAdvent
             // actorsImportToolStripMenuItem
             // 
             this.actorsImportToolStripMenuItem.Name = "actorsImportToolStripMenuItem";
-            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.actorsImportToolStripMenuItem.Text = "Actors";
             this.actorsImportToolStripMenuItem.ToolTipText = "Imports actors from another room file to the current room.";
             this.actorsImportToolStripMenuItem.Click += new System.EventHandler(this.actorsImportToolStripMenuItem_Click);
@@ -553,14 +573,14 @@ namespace EFSAdvent
             // xSizeToolStripMenuItem
             // 
             this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
-            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.xSizeToolStripMenuItem.Text = "1x size";
             this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.oneXSizeToolStripMenuItem_Click);
             // 
             // xSizeToolStripMenuItem1
             // 
             this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
-            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
             this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
             // 
@@ -570,7 +590,7 @@ namespace EFSAdvent
             this.displayOverlayToolStripMenuItem.CheckOnClick = true;
             this.displayOverlayToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.displayOverlayToolStripMenuItem.Name = "displayOverlayToolStripMenuItem";
-            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.displayOverlayToolStripMenuItem.Text = "Display overlay";
             this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.displayOverlayToolStripMenuItem_Click);
             // 
@@ -581,7 +601,7 @@ namespace EFSAdvent
             this.bicubicToolStripMenuItem,
             this.nearestNeighborToolStripMenuItem});
             this.textureFilterModeToolStripMenuItem.Name = "textureFilterModeToolStripMenuItem";
-            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.textureFilterModeToolStripMenuItem.Text = "Filter mode";
             // 
             // bilinearToolStripMenuItem
@@ -2388,6 +2408,7 @@ namespace EFSAdvent
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem roomAstsxToolStripMenuItem;
         private ToolStripMenuItem displayOverlayToolStripMenuItem;
+        private ToolStripMenuItem ImportRoomFromTmx;
     }
 }
 
