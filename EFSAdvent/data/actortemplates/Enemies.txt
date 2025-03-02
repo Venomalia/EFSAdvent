@@ -33,3 +33,4 @@ Blade Trap;TRAP, L:0, X:0, Y:0, V:0,0,0,4.
 Vulture;TNDR, L:0, X:0, Y:0, V:0,0,0,6.
 Wizrobe;WIZR, L:0, X:0, Y:0, V:0,0,0,1.
 Zol Slime;ZASL, L:0, X:0, Y:0, V:0,0,0,0.
+Aruki (unused); OKAM, L:0, X:0, Y:0, V:0,0,0,0.
