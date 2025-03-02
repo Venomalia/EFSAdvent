@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace EFSAdvent
         const int MAP_ROOM_DIMENSION_IN_PIXELS = 20;
         const int TILE_DIMENSION_IN_PIXELS = 16;
 
-        Bitmap mapBitmap, tileSheetBitmap, roomLayerBitmap, brushTileBitmap, actorLayerBitmap, currentActorBitmap, overlayBitmap;
+        Bitmap mapBitmap, tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap, actorLayerBitmap, currentActorBitmap, overlayBitmap;
         Graphics mapGraphics, roomLayerGraphics, actorLayerGraphics;
 
         ushort brushTileValue;
@@ -76,6 +77,7 @@ namespace EFSAdvent
 
             string SheetPath = Path.Combine(dataDirectory, "Tile Sheet 00.PNG");
             tileSheetBitmap = new Bitmap(SheetPath);
+            tileSheetBitmapGBA = new Bitmap(SheetPath);
             tileSheetPictureBox.Image = tileSheetBitmap;
 
             ChangeOverlay(0);
@@ -752,32 +754,39 @@ namespace EFSAdvent
 
         private void DrawLayer(int layer)
         {
+            // Is TV layer or GBA?
+            Bitmap tileSheet = (layer == 0 || layer == 8) ? tileSheetBitmap : tileSheetBitmapGBA;
+
             ushort tile;
-            foreach (int y in Enumerable.Range(0, Layer.DIMENSION))
+            for (int y = 0; y < Layer.DIMENSION; y++)
             {
-                foreach (int x in Enumerable.Range(0, Layer.DIMENSION))
+                for (int x = 0; x < Layer.DIMENSION; x++)
                 {
                     tile = _level.Room.GetLayerTile(layer, x, y).Value;
-                    DrawTile(x, y, tile);
+
+                    // Only used tiles must be drawn.
+                    if (tile != 0)
+                    {
+                        DrawTile(roomLayerBitmap, tileSheet, x, y, tile);
+                    }
                 }
             }
         }
 
-        private unsafe void DrawTile(int x, int y, int tileNo)
+        private static unsafe void DrawTile(Bitmap roomLayer, Bitmap tileSheet, int x, int y, int tileNo)
         {
-            int srcX, srcY, dstX, dstY;
-            srcX = (tileNo % TILE_DIMENSION_IN_PIXELS) * TILE_DIMENSION_IN_PIXELS;
-            srcY = (tileNo / TILE_DIMENSION_IN_PIXELS) * TILE_DIMENSION_IN_PIXELS;
-            dstY = y * TILE_DIMENSION_IN_PIXELS;
-            dstX = x * TILE_DIMENSION_IN_PIXELS;
+            int srcX = (tileNo % TILE_DIMENSION_IN_PIXELS) * TILE_DIMENSION_IN_PIXELS;
+            int srcY = (tileNo / TILE_DIMENSION_IN_PIXELS) * TILE_DIMENSION_IN_PIXELS;
+            int dstY = y * TILE_DIMENSION_IN_PIXELS;
+            int dstX = x * TILE_DIMENSION_IN_PIXELS;
 
-            var tileSource = tileSheetBitmap.LockBits(new Rectangle(srcX, srcY, 16, 16), System.Drawing.Imaging.ImageLockMode.ReadOnly, tileSheetBitmap.PixelFormat);
-            var lockedLayersBitmap = roomLayerBitmap.LockBits(new Rectangle(dstX, dstY, 16, 16), System.Drawing.Imaging.ImageLockMode.WriteOnly, roomLayerBitmap.PixelFormat);
-            for (int py = 0; py < tileSource.Height; py++)
+            BitmapData lockedTileSheet = tileSheet.LockBits(new Rectangle(srcX, srcY, 16, 16), System.Drawing.Imaging.ImageLockMode.ReadOnly, tileSheet.PixelFormat);
+            BitmapData lockedRoomLayer = roomLayer.LockBits(new Rectangle(dstX, dstY, 16, 16), System.Drawing.Imaging.ImageLockMode.WriteOnly, roomLayer.PixelFormat);
+            for (int py = 0; py < lockedTileSheet.Height; py++)
             {
-                byte* srcRow = (byte*)tileSource.Scan0 + (py * tileSource.Stride);
-                byte* dstRow = (byte*)lockedLayersBitmap.Scan0 + (py * lockedLayersBitmap.Stride);
-                for (int px = 0; px < lockedLayersBitmap.Width; px++)
+                byte* srcRow = (byte*)lockedTileSheet.Scan0 + (py * lockedTileSheet.Stride);
+                byte* dstRow = (byte*)lockedRoomLayer.Scan0 + (py * lockedRoomLayer.Stride);
+                for (int px = 0; px < lockedRoomLayer.Width; px++)
                 {
                     byte srcAlpha = srcRow[(px * 4) + 3];
                     if (srcAlpha == 255)
@@ -800,8 +809,8 @@ namespace EFSAdvent
 
                 }
             }
-            tileSheetBitmap.UnlockBits(tileSource);
-            roomLayerBitmap.UnlockBits(lockedLayersBitmap);
+            tileSheet.UnlockBits(lockedTileSheet);
+            roomLayer.UnlockBits(lockedRoomLayer);
         }
 
         private void layersPictureBox_MouseDown(object sender, MouseEventArgs e)
@@ -1012,11 +1021,12 @@ namespace EFSAdvent
             BrushTileLabel.Text = Convert.ToString(brushTileValue);
             int brushTileX = ((brushTileValue % 16) * 16);
             int brushTileY = ((brushTileValue / 16) * 16);
+            Bitmap currentTileSheet = (Bitmap)tileSheetPictureBox.Image;
             for (int px = 0; px < 16; px++)
             {
                 for (int py = 0; py < 16; py++)
                 {
-                    Color color = tileSheetBitmap.GetPixel(brushTileX + px, brushTileY + py);
+                    Color color = currentTileSheet.GetPixel(brushTileX + px, brushTileY + py);
                     brushTileBitmap.SetPixel(px, py, color);
                 }
             }
@@ -1060,25 +1070,45 @@ namespace EFSAdvent
         private void LayersCheckList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             // Need to delay redraw because right now the newly checked layer won't have checked=true
-            this.BeginInvoke((MethodInvoker)(() => UpdateView(false)));
+            this.BeginInvoke((MethodInvoker)(() =>
+            {
+                UpdateView(false);
+                UpdateTileSheetPictureBox();
+            }
+            ));
             layersCheckList.SelectedIndex = -1;
         }
 
         private void ChangeTileSheet(int tileSheetIndex)
         {
-            var tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {tileSheetIndex:D2}.PNG");
+            string tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {tileSheetIndex:D2}.PNG");
+            string tileSheetPathGBA = Path.Combine(dataDirectory, $"Tile Sheet {tileSheetIndex:D2}_GBA.PNG");
 
-            if (File.Exists(tileSheetPath))
+            if (RedrawImage(tileSheetPath, tileSheetBitmap))
             {
-                using (var tileSheet = new Bitmap(tileSheetPath))
-                using (var graphics = Graphics.FromImage(tileSheetBitmap))
-                {
-                    graphics.Clear(Color.FromArgb(0));
-                    graphics.DrawImage(tileSheet, 0, 0);
-                }
+                if (File.Exists(tileSheetPathGBA))
+                    RedrawImage(tileSheetPathGBA, tileSheetBitmapGBA);
+                else
+                    RedrawImage(tileSheetPath, tileSheetBitmapGBA);
 
-                tileSheetPictureBox.Image = tileSheetBitmap;
+                UpdateTileSheetPictureBox();
             }
+        }
+        private void UpdateTileSheetPictureBox()
+            => tileSheetPictureBox.Image = GetHighestActiveLayerIndex() % 8 == 0 ? tileSheetBitmap : tileSheetBitmapGBA;
+
+        private static bool RedrawImage(string path, Bitmap bitmap)
+        {
+            if (!File.Exists(path))
+                return false;
+
+            using (var newBitmap = new Bitmap(path))
+            using (var graphics = Graphics.FromImage(bitmap))
+            {
+                graphics.Clear(Color.FromArgb(0));
+                graphics.DrawImage(newBitmap, 0, 0);
+            }
+            return true;
         }
 
         private void ChangeOverlay(int overlayIndex)
