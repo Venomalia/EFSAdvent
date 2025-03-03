@@ -15,7 +15,7 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.6";
+        private const string VERSION = "1.7";
         private const string BaseTitel = "EFSAdvent " + VERSION + " [Venomalia]";
         private const string WikiUrl = "https://github.com/Venomalia/EFSAdvent/wiki";
         private const string SourceCodeUrl = "https://github.com/Venomalia/EFSAdvent";
@@ -649,10 +649,6 @@ namespace EFSAdvent
                             break;
                         case MouseButtons.Right:
                             UpdateClipboardSelection();
-                            return;
-                        case MouseButtons.Middle:
-                        case MouseButtons.XButton1:
-                        case MouseButtons.XButton2:
                             return;
                         case MouseButtons.None:
                             Rectangle position = new Rectangle(

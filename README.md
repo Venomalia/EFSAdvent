@@ -3,8 +3,8 @@
 [![Wiki](https://img.shields.io/badge/Wiki-Documentation-white)](https://github.com/Venomalia/EFSAdvent/wiki)
 [![Discord](https://img.shields.io/badge/Discord-Four_Swords_Plus-blue?logo=Discord&logoColor=fff)](https://discord.gg/G2FhAdf5pR)
 
-A level editor for the Nintendo GameCube game Four Swords Adventures.
-This branch is an unoficial update based on the [source code](https://bitbucket.org/jaytheham/efsadvent/src/main/) of Jay(theHam) Harland.
+A level editor for the Nintendo GameCube game Four Swords Adventures.  
+This branch is an unofficial update, made with permission, based on the [source code](https://bitbucket.org/jaytheham/efsadvent/src/main/) of Jay(theHam) Harland.
 
 ## Main Changes
 - Fixed multiple bugs to enhance stability.
@@ -21,6 +21,8 @@ This branch is an unoficial update based on the [source code](https://bitbucket.
 - Enabled export and import of room tiles to Tiled TMX files.
 - Added functionality to load actors from templates.
 - Added visualization of Overlay filter effects.
+- Hyrule Castle GBA levels are displayed correctly.
+- Modern tile brush for easy editing.
 
 ## Goals
 Fully document all actor variables and their behavior.

@@ -32,7 +32,7 @@
 39:Block, movable south
 48:Chest\nRequires TKRA Actor to function.
 49:Abyss, does damage
-43:Eyeball on switch\nRequires MEDM Actor to function.
+53:Eyeball on switch\nRequires MEDM Actor to function.
 54:Block, movable west
 55:Block, movable east
 56:Thorn blockade\nRequires THRN Actor to function.
