@@ -61,8 +61,6 @@ namespace EFSAdvent
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyTilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteTilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,8 +108,6 @@ namespace EFSAdvent
             this.label16 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.clipboardRadioButton = new System.Windows.Forms.RadioButton();
-            this.brushRadioButton = new System.Windows.Forms.RadioButton();
             this.BrushSizeLabel = new System.Windows.Forms.Label();
             this.BrushSizeComboBox = new System.Windows.Forms.ComboBox();
             this.BrushTileLabel = new System.Windows.Forms.Label();
@@ -309,6 +305,7 @@ namespace EFSAdvent
             this.layerPictureBox.TabIndex = 0;
             this.layerPictureBox.TabStop = false;
             this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
+            this.layerPictureBox.MouseLeave += new System.EventHandler(this.layerPictureBox_MouseLeave);
             this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
             this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
             // 
@@ -447,7 +444,7 @@ namespace EFSAdvent
             // levelAsArcToolStripMenuItem
             // 
             this.levelAsArcToolStripMenuItem.Name = "levelAsArcToolStripMenuItem";
-            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.levelAsArcToolStripMenuItem.Text = "Level as .arc";
             this.levelAsArcToolStripMenuItem.ToolTipText = "Export as FSA Level Archive.";
             this.levelAsArcToolStripMenuItem.Click += new System.EventHandler(this.ExportLevel);
@@ -455,7 +452,7 @@ namespace EFSAdvent
             // roomAstsxToolStripMenuItem
             // 
             this.roomAstsxToolStripMenuItem.Name = "roomAstsxToolStripMenuItem";
-            this.roomAstsxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.roomAstsxToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.roomAstsxToolStripMenuItem.Text = "Room as .tmx";
             this.roomAstsxToolStripMenuItem.ToolTipText = "Export as Tiled map files.";
             this.roomAstsxToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomAsTmx_Click);
@@ -463,14 +460,14 @@ namespace EFSAdvent
             // viewAspngToolStripMenuItem
             // 
             this.viewAspngToolStripMenuItem.Name = "viewAspngToolStripMenuItem";
-            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.viewAspngToolStripMenuItem.Text = "View as .png";
             this.viewAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportViewAsPng);
             // 
             // mapAspngToolStripMenuItem
             // 
             this.mapAspngToolStripMenuItem.Name = "mapAspngToolStripMenuItem";
-            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.mapAspngToolStripMenuItem.Text = "Map as .png";
             this.mapAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
             // 
@@ -488,7 +485,7 @@ namespace EFSAdvent
             // ImportRoomFromTmx
             // 
             this.ImportRoomFromTmx.Name = "ImportRoomFromTmx";
-            this.ImportRoomFromTmx.Size = new System.Drawing.Size(180, 22);
+            this.ImportRoomFromTmx.Size = new System.Drawing.Size(162, 22);
             this.ImportRoomFromTmx.Text = "Room from .tmx";
             this.ImportRoomFromTmx.ToolTipText = "Import from Tiled map files";
             this.ImportRoomFromTmx.Click += new System.EventHandler(this.ImportRoomFromTmx_Click);
@@ -496,7 +493,7 @@ namespace EFSAdvent
             // roomImportToolStripMenuItem
             // 
             this.roomImportToolStripMenuItem.Name = "roomImportToolStripMenuItem";
-            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.roomImportToolStripMenuItem.Text = "Room";
             this.roomImportToolStripMenuItem.ToolTipText = "Imports a room from another map file.";
             this.roomImportToolStripMenuItem.Click += new System.EventHandler(this.roomImportToolStripMenuItem_Click);
@@ -504,7 +501,7 @@ namespace EFSAdvent
             // actorsImportToolStripMenuItem
             // 
             this.actorsImportToolStripMenuItem.Name = "actorsImportToolStripMenuItem";
-            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.actorsImportToolStripMenuItem.Text = "Actors";
             this.actorsImportToolStripMenuItem.ToolTipText = "Imports actors from another room file to the current room.";
             this.actorsImportToolStripMenuItem.Click += new System.EventHandler(this.actorsImportToolStripMenuItem_Click);
@@ -520,9 +517,7 @@ namespace EFSAdvent
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoToolStripMenuItem,
-            this.redoToolStripMenuItem,
-            this.copyTilesToolStripMenuItem,
-            this.pasteTilesToolStripMenuItem});
+            this.redoToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -542,22 +537,6 @@ namespace EFSAdvent
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.redoToolStripMenuItem.Text = "Redo Tile Change";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
-            // 
-            // copyTilesToolStripMenuItem
-            // 
-            this.copyTilesToolStripMenuItem.Name = "copyTilesToolStripMenuItem";
-            this.copyTilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyTilesToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.copyTilesToolStripMenuItem.Text = "Copy Tiles";
-            this.copyTilesToolStripMenuItem.Click += new System.EventHandler(this.copyTilesToolStripMenuItem_Click);
-            // 
-            // pasteTilesToolStripMenuItem
-            // 
-            this.pasteTilesToolStripMenuItem.Name = "pasteTilesToolStripMenuItem";
-            this.pasteTilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteTilesToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.pasteTilesToolStripMenuItem.Text = "Paste Tiles";
-            this.pasteTilesToolStripMenuItem.Click += new System.EventHandler(this.pasteTilesToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -1089,8 +1068,6 @@ namespace EFSAdvent
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage2.Controls.Add(this.clipboardRadioButton);
-            this.tabPage2.Controls.Add(this.brushRadioButton);
             this.tabPage2.Controls.Add(this.BrushSizeLabel);
             this.tabPage2.Controls.Add(this.BrushSizeComboBox);
             this.tabPage2.Controls.Add(this.BrushTileLabel);
@@ -1104,28 +1081,6 @@ namespace EFSAdvent
             this.tabPage2.Size = new System.Drawing.Size(273, 526);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tile Sheet";
-            // 
-            // clipboardRadioButton
-            // 
-            this.clipboardRadioButton.AutoSize = true;
-            this.clipboardRadioButton.Location = new System.Drawing.Point(186, 35);
-            this.clipboardRadioButton.Name = "clipboardRadioButton";
-            this.clipboardRadioButton.Size = new System.Drawing.Size(81, 17);
-            this.clipboardRadioButton.TabIndex = 9;
-            this.clipboardRadioButton.Text = "Copy/Paste";
-            this.clipboardRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // brushRadioButton
-            // 
-            this.brushRadioButton.AutoSize = true;
-            this.brushRadioButton.Checked = true;
-            this.brushRadioButton.Location = new System.Drawing.Point(128, 35);
-            this.brushRadioButton.Name = "brushRadioButton";
-            this.brushRadioButton.Size = new System.Drawing.Size(52, 17);
-            this.brushRadioButton.TabIndex = 8;
-            this.brushRadioButton.TabStop = true;
-            this.brushRadioButton.Text = "Brush";
-            this.brushRadioButton.UseVisualStyleBackColor = true;
             // 
             // BrushSizeLabel
             // 
@@ -1152,8 +1107,9 @@ namespace EFSAdvent
             "9"});
             this.BrushSizeComboBox.Location = new System.Drawing.Point(84, 34);
             this.BrushSizeComboBox.Name = "BrushSizeComboBox";
-            this.BrushSizeComboBox.Size = new System.Drawing.Size(38, 21);
+            this.BrushSizeComboBox.Size = new System.Drawing.Size(49, 21);
             this.BrushSizeComboBox.TabIndex = 6;
+            this.BrushSizeComboBox.SelectionChangeCommitted += new System.EventHandler(this.BrushSizeComboBox_SelectionChangeCommitted);
             // 
             // BrushTileLabel
             // 
@@ -2309,7 +2265,6 @@ namespace EFSAdvent
 		private System.Windows.Forms.Label label18;
 		private System.Windows.Forms.Label label17;
 		private System.Windows.Forms.GroupBox BottomGroupBox;
-		private System.Windows.Forms.Label BrushSizeLabel;
 		private System.Windows.Forms.ComboBox BrushSizeComboBox;
 		private System.Windows.Forms.NumericUpDown MapRoomNumberInput;
 		private System.Windows.Forms.NumericUpDown MapVariableNPCSheetID;
@@ -2327,10 +2282,6 @@ namespace EFSAdvent
 		private System.Windows.Forms.NumericUpDown ActorYCoordInput;
 		private System.Windows.Forms.NumericUpDown ActorXCoordInput;
 		private System.Windows.Forms.NumericUpDown ActorLayerInput;
-		private System.Windows.Forms.RadioButton clipboardRadioButton;
-		private System.Windows.Forms.RadioButton brushRadioButton;
-		private System.Windows.Forms.ToolStripMenuItem copyTilesToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem pasteTilesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem xSizeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem xSizeToolStripMenuItem1;
@@ -2409,6 +2360,7 @@ namespace EFSAdvent
         private ToolStripMenuItem roomAstsxToolStripMenuItem;
         private ToolStripMenuItem displayOverlayToolStripMenuItem;
         private ToolStripMenuItem ImportRoomFromTmx;
+        private Label BrushSizeLabel;
     }
 }
 

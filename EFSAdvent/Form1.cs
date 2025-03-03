@@ -29,11 +29,9 @@ namespace EFSAdvent
         Bitmap mapBitmap, tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap, actorLayerBitmap, currentActorBitmap, overlayBitmap;
         Graphics mapGraphics, roomLayerGraphics, actorLayerGraphics;
 
-        ushort brushTileValue;
-
         private Level _level;
         private History _history;
-        private Clipboard _clipboard;
+        private TileBrush _tileBrush;
         private Rectangle _tileSelection;
         private (int x, int y) _tileSelectionOrigin;
         private bool _ignoreMapVariableUpdates = false;
@@ -59,7 +57,7 @@ namespace EFSAdvent
         {
             InitializeComponent();
             this.Text = BaseTitel;
-
+            _tileSelection.Width = _tileSelection.Height = 1;
             dataDirectory = "data";
             if (!Directory.Exists(dataDirectory))
             {
@@ -103,7 +101,7 @@ namespace EFSAdvent
             ActorInfoPictureBox.Image = currentActorBitmap;
 
             _history = new History(500);
-            _clipboard = new Clipboard(_history);
+            _tileBrush = new TileBrush(_history);
             _logger = new Logger(loggerTextBox);
 
             string spriteFolder = Path.Combine(dataDirectory, "actorsprites");
@@ -426,35 +424,6 @@ namespace EFSAdvent
 
         }
 
-        private void SaveActionToHistory(int layer, int x, int y, int brushWidth)
-        {
-            var oldValues = new List<ushort>();
-            var newValues = new List<ushort>();
-            var coordinates = new List<(int x, int y)>();
-            bool tileChanged = false;
-            for (int testY = y; testY < y + brushWidth; testY++)
-            {
-                for (int testX = x; testX < x + brushWidth; testX++)
-                {
-                    var currentTile = _level.Room.GetLayerTile(layer, testX, testY);
-                    if (currentTile.HasValue)
-                    {
-                        tileChanged |= currentTile != this.brushTileValue;
-                        coordinates.Add((testX, testY));
-                        oldValues.Add(currentTile.Value);
-                        newValues.Add(this.brushTileValue);
-                    }
-                }
-            }
-
-            if (!tileChanged)
-            {
-                return;
-            }
-
-            _history.StoreTileChange(coordinates.ToArray(), oldValues.ToArray(), newValues.ToArray(), layer);
-        }
-
         private void UpdateView(bool actorLayerChanged, int? layer = null)
         {
             if (_level?.Room == null)
@@ -669,30 +638,59 @@ namespace EFSAdvent
 
         private void layersPictureBox_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.None)
-            {
-                return;
-            }
-
             MouseEventArgs scaledEvent = ScaleEventToLayerRealSize(e);
             switch (tabControl.SelectedTab.TabIndex)
             {
                 case 1: // Tile tab
-                    if (brushRadioButton.Checked)
+                    switch (e.Button)
                     {
-                        DoTileAction(scaledEvent);
-                    }
-                    else if (clipboardRadioButton.Checked)
-                    {
-                        UpdateClipboardSelection();
+                        case MouseButtons.Left:
+                            DoTileAction(scaledEvent);
+                            break;
+                        case MouseButtons.Right:
+                            UpdateClipboardSelection();
+                            return;
+                        case MouseButtons.Middle:
+                        case MouseButtons.XButton1:
+                        case MouseButtons.XButton2:
+                            return;
+                        case MouseButtons.None:
+                            Rectangle position = new Rectangle(
+                                scaledEvent.X / TILE_DIMENSION_IN_PIXELS * TILE_DIMENSION_IN_PIXELS,
+                                scaledEvent.Y / TILE_DIMENSION_IN_PIXELS * TILE_DIMENSION_IN_PIXELS,
+                                _tileBrush.Width * TILE_DIMENSION_IN_PIXELS,
+                                _tileBrush.Height * TILE_DIMENSION_IN_PIXELS
+                                );
+
+                            if (_tileSelection.X != position.X || _tileSelection.Y != position.Y)
+                            {
+                                UpdateView(false);
+                                if (position.X >= 0 && position.Y >= 0)
+                                {
+                                    DrawTileSelection(Color.White, position);
+                                    _tileSelection.X = position.X;
+                                    _tileSelection.Y = position.Y;
+                                }
+                                else
+                                {
+                                    _tileSelection.X = _tileSelection.Y = -1;
+                                }
+                            }
+                            return;
+                        default:
+                            return;
                     }
                     break;
                 case 2: // Actor tab
+                    if (e.Button == MouseButtons.None)
+                    {
+                        return;
+                    }
                     MoveActor();
-                    break;
+                    return;
                 default:
 
-                    break;
+                    return;
             }
 
             void MoveActor()
@@ -722,6 +720,11 @@ namespace EFSAdvent
 
             void UpdateClipboardSelection()
             {
+                if (e.Button != MouseButtons.Right)
+                {
+                    return;
+                }
+
                 int eventX = (int)Math.Ceiling(scaledEvent.X / (float)TILE_DIMENSION_IN_PIXELS);
                 int eventY = (int)Math.Ceiling(scaledEvent.Y / (float)TILE_DIMENSION_IN_PIXELS);
                 int width = eventX - _tileSelectionOrigin.x;
@@ -748,7 +751,14 @@ namespace EFSAdvent
                     _tileSelection.Height = height;
                 }
 
-                DrawLayerWithTileSelection();
+                UpdateView(false);
+                Rectangle position = new Rectangle(
+                    _tileSelection.X * TILE_DIMENSION_IN_PIXELS,
+                    _tileSelection.Y * TILE_DIMENSION_IN_PIXELS,
+                    _tileSelection.Width * TILE_DIMENSION_IN_PIXELS,
+                    _tileSelection.Height * TILE_DIMENSION_IN_PIXELS
+                    );
+                DrawTileSelection(Color.Blue, position);
             }
         }
 
@@ -820,14 +830,7 @@ namespace EFSAdvent
             switch (tabControl.SelectedTab.TabIndex)
             {
                 case 1: // Tile tab
-                    if (brushRadioButton.Checked)
-                    {
-                        DoTileAction(scaledEvent);
-                    }
-                    else if (clipboardRadioButton.Checked)
-                    {
-                        SetClipboardOrigin();
-                    }
+                    DoTileAction(scaledEvent);
                     break;
                 case 2: // Actor tab
                     SetMouseDownActor();
@@ -835,20 +838,6 @@ namespace EFSAdvent
                 default:
 
                     break;
-            }
-
-            void SetClipboardOrigin()
-            {
-                if (e.Button != MouseButtons.Left)
-                {
-                    return;
-                }
-
-                _tileSelection.X = _tileSelectionOrigin.x = scaledEvent.X / TILE_DIMENSION_IN_PIXELS;
-                _tileSelection.Y = _tileSelectionOrigin.y = scaledEvent.Y / TILE_DIMENSION_IN_PIXELS;
-                _tileSelection.Width = 1;
-                _tileSelection.Height = 1;
-                DrawLayerWithTileSelection();
             }
 
             void SetMouseDownActor()
@@ -886,12 +875,35 @@ namespace EFSAdvent
             {
                 actorMouseDownOnIndex = null;
             }
-
-            Thread.Sleep(400);
-            UpdateView(false);
-            if (clipboardRadioButton.Checked)
+            else if (tabControl.SelectedTab.TabIndex == 1)
             {
-                DrawTileSelection();
+                int? layer = GetHighestActiveLayerIndex();
+                switch (e.Button)
+                {
+                    case MouseButtons.Left:
+                        if (layer.HasValue) UpdateLayerCheckListColor(layer.Value);
+                        break;
+                    case MouseButtons.Right:
+                        if (layer.HasValue)
+                        {
+                            _tileBrush.Copy(_tileSelection, _level, layer.Value);
+                            UpdateBrushTileBitmap();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            //Thread.Sleep(400);
+            UpdateView(false);
+        }
+
+        private void layerPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            if (_tileSelection.X != -1 || _tileSelection.Y != -1)
+            {
+                UpdateView(false);
+                _tileSelection.X = _tileSelection.Y = -1;
             }
         }
 
@@ -909,29 +921,30 @@ namespace EFSAdvent
             {
                 return;
             }
-            CoridinatesTextBox.Clear();
-            CoridinatesTextBox.AppendText($"Tile coordinates: x{eventX} y{eventY}");
 
             //If right click set the brush tile to the clicked tile
-            if (scaledEvent.Button == MouseButtons.Right)
+            switch (scaledEvent.Button)
             {
-                //Write the value into the brush tile label and update the brush tile image
-                UpdateBrushTileBitmap(_level.Room.GetLayerTile(layer.Value, eventX, eventY).Value);
-            }
-            else if (scaledEvent.Button == MouseButtons.Left) //If left button is pressed change the tile
-            {
-                int brushWidth = BrushSizeComboBox.SelectedIndex + 1;
-
-                SaveActionToHistory(layer.Value, eventX, eventY, brushWidth);
-                for (int y = eventY; y < eventY + brushWidth; y++)
-                {
-                    for (int x = eventX; x < eventX + brushWidth; x++)
+                case MouseButtons.Left: //Change tiles
+                    if (_tileBrush.Draw(_level, layer.Value, eventX, eventY))
                     {
-                        ChangeTile(layer.Value, x, y, brushTileValue);
+                        UpdateView(false, layer);
+                        buttonSaveLayers.Enabled = true;
                     }
-                }
-                UpdateView(false, layer);
+                    break;
+                case MouseButtons.Right: //Copy tiles
+                    _tileSelection.X = _tileSelectionOrigin.x = eventX;
+                    _tileSelection.Y = _tileSelectionOrigin.y = eventY;
+                    _tileSelection.Height = _tileSelection.Width = 1;
+
+                    //Gives the user some time to release the button
+                    Thread.Sleep(100);
+                    break;
+                default:
+                    return;
             }
+            CoridinatesTextBox.Clear();
+            CoridinatesTextBox.AppendText($"Tile coordinates: x{eventX} y{eventY}");
         }
 
         private int? GetHighestActiveLayerIndex()
@@ -951,57 +964,20 @@ namespace EFSAdvent
             return null;
         }
 
-        private void DrawLayerWithTileSelection()
+        private void DrawTileSelection(Color brushColor, Rectangle position)
         {
-            int? layer = GetHighestActiveLayerIndex();
-            if (layer == null)
-            {
-                return;
-            }
-
-            UpdateView(false, layer.Value);
-            DrawTileSelection();
-        }
-
-        private void DrawTileSelection()
-        {
-            var brush = new SolidBrush(Color.FromArgb(50, 255, 255, 255));
-            roomLayerGraphics.FillRectangle(
-                brush,
-                _tileSelection.X * TILE_DIMENSION_IN_PIXELS,
-                _tileSelection.Y * TILE_DIMENSION_IN_PIXELS,
-                _tileSelection.Width * TILE_DIMENSION_IN_PIXELS,
-                _tileSelection.Height * TILE_DIMENSION_IN_PIXELS);
-            var pen = new Pen(Color.White, 1f)
-            {
-                DashStyle = System.Drawing.Drawing2D.DashStyle.Dash
-            };
-            roomLayerGraphics.DrawRectangle(
-                pen,
-                _tileSelection.X * TILE_DIMENSION_IN_PIXELS,
-                _tileSelection.Y * TILE_DIMENSION_IN_PIXELS,
-                _tileSelection.Width * TILE_DIMENSION_IN_PIXELS,
-                _tileSelection.Height * TILE_DIMENSION_IN_PIXELS);
+            var brush = new SolidBrush(Color.FromArgb(30, brushColor));
+            var pen = new Pen(brushColor, 1f) { DashStyle = DashStyle.Dash };
+            roomLayerGraphics.FillRectangle(brush, position);
+            roomLayerGraphics.DrawRectangle(pen, position);
             layersPanel.Refresh();
         }
 
-        private void ChangeTile(int layer, int x, int y, ushort newTileValue)
+        private void UpdateLayerCheckListColor(int layer)
         {
-            if (_level.Room.SetLayerTile(layer, x, y, newTileValue))
-            {
-                buttonSaveLayers.Enabled = true;
-
-                if (newTileValue != 0)
-                {
-                    layersCheckList.Colors[$"Layer {(layer < 8 ? 1 : 2)}-{layer % 8}"] = Color.Black;
-                    layersCheckList.Refresh();
-                }
-                else if (newTileValue == 0 && _level.Room.IsLayerEmpty(layer))
-                {
-                    layersCheckList.Colors[$"Layer {(layer < 8 ? 1 : 2)}-{layer % 8}"] = Color.Gray;
-                    layersCheckList.Refresh();
-                }
-            }
+            Color color = _level.Room.IsLayerEmpty(layer) ? Color.Gray : Color.Black;
+            layersCheckList.Colors[$"Layer {(layer < 8 ? 1 : 2)}-{layer % 8}"] = color;
+            layersCheckList.Refresh();
         }
 
         private void tilePictureBox_MouseClick(object sender, MouseEventArgs e)
@@ -1017,10 +993,18 @@ namespace EFSAdvent
                 return;
             }
 
-            brushTileValue = tileID;
-            BrushTileLabel.Text = Convert.ToString(brushTileValue);
-            int brushTileX = ((brushTileValue % 16) * 16);
-            int brushTileY = ((brushTileValue / 16) * 16);
+            int brushWidth = BrushSizeComboBox.SelectedIndex + 1;
+            _tileBrush.Set(tileID, brushWidth, brushWidth);
+
+            UpdateBrushTileBitmap();
+        }
+
+        private void UpdateBrushTileBitmap()
+        {
+            BrushTileLabel.Text = Convert.ToString(_tileBrush.TileValue);
+            int brushTileX = ((_tileBrush.TileValue % 16) * 16);
+            int brushTileY = ((_tileBrush.TileValue / 16) * 16);
+
             Bitmap currentTileSheet = (Bitmap)tileSheetPictureBox.Image;
             for (int px = 0; px < 16; px++)
             {
@@ -1032,7 +1016,7 @@ namespace EFSAdvent
             }
 
             _logger.Clear();
-            if (TILE_INFO.TryGetValue(tileID, out string info))
+            if (TILE_INFO.TryGetValue(_tileBrush.TileValue, out string info))
             {
                 _logger.AppendText(info);
             }
@@ -1040,32 +1024,9 @@ namespace EFSAdvent
             BrushTilePictureBox.Refresh();
         }
 
-        private void updateLayersButton_Click(object sender, EventArgs e)
-        {
-            UpdateView(false);
-        }
+        private void BrushSizeComboBox_SelectionChangeCommitted(object sender, EventArgs e) => UpdateBrushTileBitmap(_tileBrush.TileValue);
 
-        private void copyTilesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int? layer = GetHighestActiveLayerIndex();
-
-            if (layer.HasValue)
-            {
-                _clipboard.Copy(_tileSelection, _level, layer.Value);
-            }
-
-        }
-
-        private void pasteTilesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int? layer = GetHighestActiveLayerIndex();
-
-            if (layer.HasValue)
-            {
-                _clipboard.Paste(_tileSelection, _level, layer.Value);
-                UpdateView(false);
-            }
-        }
+        private void updateLayersButton_Click(object sender, EventArgs e) => UpdateView(false);
 
         private void LayersCheckList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
@@ -1094,6 +1055,7 @@ namespace EFSAdvent
                 UpdateTileSheetPictureBox();
             }
         }
+
         private void UpdateTileSheetPictureBox()
             => tileSheetPictureBox.Image = GetHighestActiveLayerIndex() % 8 == 0 ? tileSheetBitmap : tileSheetBitmapGBA;
 
@@ -1138,7 +1100,6 @@ namespace EFSAdvent
         #endregion Layers
 
         #region Menu/Form
-
 
         private void oneXSizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1386,7 +1347,9 @@ namespace EFSAdvent
             {
                 foreach (var tile in action.Tiles)
                 {
-                    ChangeTile(action.Layer, tile.x, tile.y, tile.oldValue);
+                    _level.Room.SetLayerTile(action.Layer, tile.x, tile.y, tile.oldValue);
+                    UpdateLayerCheckListColor(action.Layer);
+                    buttonSaveLayers.Enabled = true;
                 }
                 UpdateView(false);
             }
@@ -1398,7 +1361,9 @@ namespace EFSAdvent
             {
                 foreach (var tile in action.Tiles)
                 {
-                    ChangeTile(action.Layer, tile.x, tile.y, tile.oldValue);
+                    _level.Room.SetLayerTile(action.Layer, tile.x, tile.y, tile.oldValue);
+                    UpdateLayerCheckListColor(action.Layer);
+                    buttonSaveLayers.Enabled = true;
                 }
                 UpdateView(false);
             }

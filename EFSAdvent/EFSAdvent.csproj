@@ -95,7 +95,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Clipboard.cs" />
+    <Compile Include="TileBrush.cs" />
     <Compile Include="Tiled.cs" />
     <Compile Include="Yaz0.cs" />
     <EmbeddedResource Include="Form1.resx">
