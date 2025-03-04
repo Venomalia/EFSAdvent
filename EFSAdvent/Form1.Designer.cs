@@ -656,6 +656,7 @@ namespace EFSAdvent
             // 
             // CoridinatesTextBox
             // 
+            this.CoridinatesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CoridinatesTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.CoridinatesTextBox.Location = new System.Drawing.Point(7, 525);
             this.CoridinatesTextBox.Name = "CoridinatesTextBox";
