@@ -1,7 +1,20 @@
 RUSA (Quicksand)
+requires: sandfall00.bmd and sandfall00.btk
+
+Variable 1a:
+The local variable number that triggers this actor.
+neat 3a to by 3.
+
+Variable 1b:
+0 = Gets a little bigger and smaller
+2 = Consistent
+4 = ?
 
 Variable 3a:
-Rail to use
+Rail to use?
+
+Variable 3a:
+3 = use local variable
 
 Variable 4a:
 0 = Default

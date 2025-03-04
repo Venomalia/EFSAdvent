@@ -1,8 +1,19 @@
 Force Gem;RUPY, L:0, X:0, Y:0, V:0,0,0,1.
+Buried Force Gem;BRRY, L:0, X:0, Y:0, V:0,0,0,0.
 Escaping Force Gem;ESRY, L:0, X:0, Y:0, V:0,0,0,0.
 Hovering Force Gem;HNRY, L:0, X:0, Y:0, V:0,0,16,0.
 Wooden Force Gem;WDRY, L:0, X:0, Y:0, V:0,0,0,0.
 Ice Force Gem;WDRY, L:0, X:0, Y:0, V:0,1,0,0.
-Buried Force Gem;BRRY, L:0, X:0, Y:0, V:0,0,0,0.
+Force Lucke Hole;PONT, L:0, X:0, Y:0, V:0,0,0,0.
+Force Lucke Stone;GOLD, L:0, X:0, Y:0, V:0,2,0,0.
+Force Fairy (Hidden);PONT, L:0, X:0, Y:0, V:0,0,0,9.
+Force Fairy;FARY, L:0, X:0, Y:8, V:132,64,0,0.
 Key;KEY0, L:0, X:0, Y:0, V:0,0,0,0.
+Big Key;KEY0, L:0, X:0, Y:0, V:0,0,0,1.
+Power Bracelet;KEY0, L:0, X:0, Y:0, V:0,0,0,3.
+Heart Container;KEY0, L:0, X:0, Y:0, V:0,0,0,4.
+Blue Bracelet, L:0, X:0, Y:0, V:0,0,0,5.
 Moon Perl;KEY0, L:0, X:0, Y:0, V:0,0,0,6.
+Bombos Medallion, L:0, X:0, Y:0, V:0,0,0,7.
+Quake Medallion, L:0, X:0, Y:0, V:0,0,0,8.
+Carrot;NNJN, L:0, X:0, Y:0, V:8,34,128,0.

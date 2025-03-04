@@ -8,7 +8,7 @@ Variable which should be triggered when this tile is destroyed.
 Variable 2:
 0 = Floor tile
 1 = Bush
-2 = ?
+2 = Tree
 3 = ?
 4 = Gravestone
 5 = Pot

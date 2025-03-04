@@ -1,0 +1,25 @@
+Old Man;JIJI, L:0, X:0, Y:0, V:0,0,0,0.
+Kepora Gebora;KEPO, L:0, X:0, Y:0, V:226,80,0,14.
+Navi;NAVI, L:0, X:0, Y:0, V:131,241,0,35.
+Thief;TZOK, L:0, X:0, Y:0, V:40,9,8,0.
+Thief Cage;TOOI, L:0, X:0, Y:0, V:130,71,8,10.
+Cucco;NIWA, L:0, X:0, Y:0, V:0,0,0,6.
+Gambling NPC;GMBL, L:0, X:0, Y:0, V:3,0,35,20.
+Gambling Shop Treasure Chest;GMTB, L:0, X:0, Y:0, V:0,0,0,0.
+Item Shopkeeper (unused);DEAL, L:0, X:0, Y:0, V:0,0,0,0.
+Shop Item (unused);SITM, L:0, X:0, Y:0, V:0,0,0,5.
+Malon;OPGL, L:0, X:0, Y:0, V:253,0,0,1.
+Malon (Arrival Point);OPGA, L:0, X:0, Y:0, V:167,128,0,0.
+Talon;OPGA, L:0, X:0, Y:0, V:0,0,0,1.
+Escort Zora;FAZR, L:0, X:0, Y:0, V:152,4,2,0.
+Escort Zora (Arrival Point);FZRA, L:0, X:0, Y:0, V:132,128,3,1.
+Hungry Zora;SAYA, L:0, X:0, Y:0, V:8,0,0,0.
+Fish;FISH, L:0, X:0, Y:0, V:0,0,0,0.
+Shooting Minigame NPC;SYKY, L:0, X:0, Y:0, V:128,0,0,0.
+Horse Racing Minigame NPC;HRMN, L:0, X:0, Y:0, V:128,0,0,0.
+Cucco Minigame NPC;NWOK, L:0, X:0, Y:0, V:128,0,1,64.
+Hammer Minigame NPC;HAYA, L:0, X:0, Y:0, V:252,0,0,0.
+Tennis Minigame NPC;TENN, L:0, X:0, Y:0, V:136,0,0,0.
+Whac-A-Mole Minigame NPC;MGYA, L:0, X:0, Y:0, V:248,0,0,0.
+Digging Minigame NPC (unused);ANHO, L:0, X:0, Y:0, V:248,0,0,0.
+Digging Treasure Hunt;SVTG, L:0, X:0, Y:0, V:0,0,0,0.
