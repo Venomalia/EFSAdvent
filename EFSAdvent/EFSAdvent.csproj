@@ -88,6 +88,7 @@
     <Compile Include="FourSwords\Level.cs" />
     <Compile Include="FourSwords\Map.cs" />
     <Compile Include="FourSwords\Layer.cs" />
+    <Compile Include="GraphicsEX.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="PictureBoxWithInterpolationMode.cs">
