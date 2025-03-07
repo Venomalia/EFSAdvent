@@ -998,18 +998,8 @@ namespace EFSAdvent
         private void UpdateBrushTileBitmap()
         {
             BrushTileLabel.Text = Convert.ToString(_tileBrush.TileValue);
-            int brushTileX = ((_tileBrush.TileValue % 16) * 16);
-            int brushTileY = ((_tileBrush.TileValue / 16) * 16);
-
             Bitmap currentTileSheet = (Bitmap)tileSheetPictureBox.Image;
-            for (int px = 0; px < 16; px++)
-            {
-                for (int py = 0; py < 16; py++)
-                {
-                    Color color = currentTileSheet.GetPixel(brushTileX + px, brushTileY + py);
-                    brushTileBitmap.SetPixel(px, py, color);
-                }
-            }
+            DrawTile(brushTileBitmap, currentTileSheet, 0, 0, _tileBrush.TileValue);
 
             _logger.Clear();
             if (TILE_INFO.TryGetValue(_tileBrush.TileValue, out string info))
@@ -1778,6 +1768,11 @@ namespace EFSAdvent
 
         private void DrawActor(Actor actor)
         {
+            if (actor.Name == "PNPC")
+            {
+                DrawTile(actorLayerBitmap, tileSheetBitmap, actor.XCoord / 2, actor.YCoord / 2, (ushort)((actor.Variable3 & 0x3) << 8 | actor.Variable4));
+            }
+
             Bitmap actorSprite = GetActorSpriteOrDefault(actor.Name, actor.Variable4);
 
             int destinationX = (actor.XCoord * ACTOR_PIXELS_PER_COORDINATE) - (actorSprite.Width / 2);
