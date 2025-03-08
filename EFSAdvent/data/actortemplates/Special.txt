@@ -1,16 +1,24 @@
 Player Start Position;PLAS, L:0, X:0, Y:0, V:0,0,0,0.
 Evil Imprisoning Field;GOL2, L:0, X:0, Y:0, V:0,0,0,2.
 Goal Warp;GLWP, L:0, X:0, Y:0, V:0,0,0,17.
+Goal;GOAL, L:0, X:0, Y:0, V:0,0,0,0.
+
 Environmental Control;SWEV, L:0, X:0, Y:0, V:0,40,0,0.
 Environmental Control 2;SEV2, L:0, X:0, Y:0, V:0,32,0,0.
 Light Control;LTEV, L:0, X:0, Y:0, V:0,0,0,3.
+Tingle Buster;TINB, L:0, X:0, Y:0, V:0,0,0,0.
+Vaati Buster;GFBS, L:0, X:0, Y:0, V:0,0,0,0.
 BGM change;BGMN, L:0, X:0, Y:0, V:0,0,32,159.
 Play SE;SWNP, L:0, X:0, Y:0, V:8,0,0,3.
 Play Warning SE;SENP, L:0, X:0, Y:0, V:1,128,0,2.
-Tingle Buster;TINB, L:0, X:0, Y:0, V:0,0,0,0.
-Vaati Buster;GFBS, L:0, X:0, Y:0, V:0,0,0,0.
+
 Arrow Symbol;YAJI, L:0, X:0, Y:0, V:0,0,0,0.
 Treasure Mark;TKRM, L:0, X:0, Y:0, V:0,0,0,0.
 Blindfold;BLDF, L:0, X:0, Y:0, V:2,16,16,0.
+
+Zoom;ZOOM, L:0, X:0, Y:0, V:0,0,0,0.
+Zoom Out;ZOMO, L:0, X:0, Y:0, V:8,0,0,0.
+Focus;FOCS, L:0, X:0, Y:0, V:0,64,0,0.
+
 Tile Rewriter;PNPC, L:0, X:0, Y:0, V:12,0,0,48.
 Tile Mass Rewriter;PNP2, L:0, X:0, Y:0, V:12,0,0,48.

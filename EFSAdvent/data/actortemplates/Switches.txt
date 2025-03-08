@@ -1,4 +1,5 @@
 Switch;SWTH, L:0, X:0, Y:0, V:8,0,0,0.
+Invisible Trigger Area;SWTH, L:0, X:0, Y:0, V:8,34,0,7.
 Tile Change Switch;PONT, L:0, X:0, Y:0, V:8,0,0,3.
 4 Person Switch;YNSW, L:0, X:0, Y:0, V:8,0,0,1.
 On / Off Switch;ONOF, L:0, X:0, Y:0, V:8,0,0,0.
@@ -9,10 +10,12 @@ Chain Pull Switch;PSWK, L:0, X:0, Y:0, V:8,0,0,0.
 BTI Pull Switch;PSWB, L:0, X:0, Y:0, V:8,0,0,0.
 Enemy Annihilation Switch; ZNSW, L:0, X:0, Y:0, V:1,0,0,0.
 Number Of Enemy Annihilation Switch;SKIL, L:0, X:0, Y:0, V:8,0,0,3.
+Thwomp Switch;DOSN, L:0, X:0, Y:0, V:8,0,0,0.
+Focus Switch;FOCS, L:0, X:0, Y:0, V:16,64,0,0.
+
 Local switch;LCLS, L:0, X:0, Y:0, V:8,64,0,0.
 Global Switch;GLBS, L:0, X:0, Y:0, V:8,64,0,0.
 4 Switch Monitoring;SWT4, L:0, X:0, Y:0, V:128,68,50,1.
 Wait Switch;WTSW, L:0, X:0, Y:0, V:16,64,0,128.
 OFF Switch;OFFS, L:0, X:0, Y:0, V:16,64,0,2.
 Check Switch;CKSW, L:0, X:0, Y:0, V:0,66,16,128.
-Focus Switch;FOCS, L:0, X:0, Y:0, V:16,64,0,0.

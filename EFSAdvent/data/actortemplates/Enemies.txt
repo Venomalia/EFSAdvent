@@ -37,6 +37,7 @@ Wizrobe;WIZR, L:0, X:0, Y:0, V:0,0,0,1.
 Zol Slime;ZASL, L:0, X:0, Y:0, V:0,0,0,0.
 Zora;ZORA, L:0, X:0, Y:0, V:0,0,0,0.
 Aruki (unused); OKAM, L:0, X:0, Y:0, V:0,0,0,0.
+
 Enemy Soldier Generator;GENE, L:0, X:0, Y:0, V:11,156,224,4.
 Enemy Generator 2;GEN2, L:0, X:0, Y:0, V:8,1,0,0.
 Enemy Type Generator;GEN3, L:0, X:0, Y:0, V:8,1,0,0.

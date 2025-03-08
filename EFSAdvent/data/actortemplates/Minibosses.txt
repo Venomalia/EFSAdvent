@@ -3,9 +3,11 @@ Ball & Chain Soldie;SLR3, L:0, X:0, Y:0, V:0,0,0,0.
 Manhandla;TTAT, L:0, X:0, Y:0, V:0,0,0,0.
 Dodongo;DDGO, L:0, X:0, Y:0, V:0,0,0,2.
 Gohma;GOMA, L:0, X:0, Y:0, V:0,0,0,0.
+
 Shadow Link (Jump);ZSLJ, L:0, X:0, Y:0, V:0,0,0,48.
 Shadow Link (Dashing);ZSLD, L:0, X:0, Y:0, V:0,0,0,48.
 Shadow Link (Hammer);ZSLH, L:0, X:0, Y:0, V:0,0,0,16.
 Shadow Link (Fire);ZSLF, L:0, X:0, Y:0, V:0,0,0,48.
 Shadow Link;SLK2, L:0, X:0, Y:0, V:0,0,1,3.
+
 Rail Data;RAIL, L:0, X:0, Y:0, V:0,1,1,0.

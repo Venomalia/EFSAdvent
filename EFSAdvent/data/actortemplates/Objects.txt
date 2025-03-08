@@ -21,5 +21,6 @@ Liftable Tree;WOOD, L:0, X:0, Y:0, V:0,0,0,0.
 Chasing Iron Ball;SBAL, L:0, X:0, Y:0, V:128,0,0,17.
 Iron Ball (Manager);TKYU, L:0, X:0, Y:0, V:0,88,88,1.
 Rotating fireball (Manager)l;FBMR, L:0, X:0, Y:0, V:12,0,0,3.
+
 Invisible NPC wall;TOMI, L:0, X:0, Y:0, V:0,0,0,0.
 Invisible Player Wall;PTMI, L:0, X:0, Y:0, V:0,0,0,0.

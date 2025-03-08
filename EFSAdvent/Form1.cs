@@ -124,7 +124,10 @@ namespace EFSAdvent
                     foreach (var line in File.ReadLines(filePath))
                     {
                         if (string.IsNullOrWhiteSpace(line))
+                        {
+                            categoryItem.DropDownItems.Add(new ToolStripSeparator());
                             continue;
+                        }
 
                         var parts = line.Split(';');
                         if (parts.Length < 2)
@@ -1856,8 +1859,8 @@ namespace EFSAdvent
                     case "SWTH":
                         if (isOnCurrentLayer && actor.Variable4 == 7)
                         {
-                            width = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable2 >> 4);
-                            height = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable2 & 0xF);
+                            width = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + (actor.Variable2 >> 4));
+                            height = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + (actor.Variable2 & 0xF));
                             actorLayerGraphics.DrawRectangleWithDropShadow(Color.White,
                                 actorPixelPosition.X - (width / 2),
                                 actorPixelPosition.Y - (height / 2),

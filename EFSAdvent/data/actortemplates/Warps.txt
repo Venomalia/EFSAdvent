@@ -1,6 +1,18 @@
-Warp;WARP, L:0, X:0, Y:0, V:5,32,32,25.
+Entrance North;WARP, L:0, X:0, Y:0, V:0,31,22,25.
+Entrance South ;WARP, L:0, X:0, Y:0, V:0,31,22,26.
+Entrance East;WARP, L:0, X:0, Y:0, V:0,31,22,27.
+Entrance West;WARP, L:0, X:0, Y:0, V:0,31,22,28.
+
+Falling Down Hole;WARP, L:0, X:21, Y:23, V:0,31,22,4.
+Walking Down Stairs;WARP, L:0, X:21, Y:23, V:0,31,22,2.
+Walking Up Stairs;WARP, L:0, X:21, Y:23, V:0,31,22,3.
+Whirlpoo;WARP, L:0, X:0, Y:0, V:0,31,22,14.
+Emerge From Water;WARP, L:0, X:0, Y:0, V:0,31,22,15.
+Falling Down Layer;WARP, L:0, X:0, Y:0, V:0,31,22,8.
+
 Magic Circle Generator;MJGR, L:0, X:0, Y:0, V:193,0,0,0.
 Magic Circle;CIRC, L:0, X:0, Y:0, V:0,0,0,0.
+
 Spiral Staircase;RASN, L:0, X:0, Y:0, V:0,0,0,144.
 Warp Pillar;WPPR, L:0, X:0, Y:0, V:0,0,1,16.
 Warp Pillar Post Processing;WPPA, L:0, X:0, Y:0, V:0,0,0,0.
