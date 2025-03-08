@@ -15,7 +15,7 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.7";
+        private const string VERSION = "1.8";
         private const string BaseTitel = "EFSAdvent " + VERSION + " [Venomalia]";
         private const string WikiUrl = "https://github.com/Venomalia/EFSAdvent/wiki";
         private const string SourceCodeUrl = "https://github.com/Venomalia/EFSAdvent";
@@ -868,7 +868,7 @@ namespace EFSAdvent
                     {
                         var actor = _level.Room.GetActor(i);
                         bool isVisible = alwaysShowActorsToolStripMenuItem.Checked || GetHighestActiveLayerIndex() % 8 == actor.Layer || IsSelectedActor(actor);
-                        if (isVisible && actor.XCoord == lastActorCoordinates.x && actor.YCoord == lastActorCoordinates.y )
+                        if (isVisible && actor.XCoord == lastActorCoordinates.x && actor.YCoord == lastActorCoordinates.y)
                         {
                             actorMouseDownOnIndex = i;
                             actorsCheckListBox.SelectedIndex = i;
@@ -1751,11 +1751,14 @@ namespace EFSAdvent
 
         private void actorLayerComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            SelectLayerActors(actorLayerComboBox.SelectedIndex == 0, actorLayerComboBox.SelectedIndex - 1);
+            if (actorLayerComboBox.SelectedIndex <= 8)
+                SelectLayerActors(actorLayerComboBox.SelectedIndex == 0, actorLayerComboBox.SelectedIndex - 1);
+            else
+                SelectActorsByVariables(actorLayerComboBox.SelectedIndex - 8);
             UpdateView();
         }
 
-        private void SelectLayerActors(bool selectAll,int selectLayer)
+        private void SelectLayerActors(bool selectAll, int selectLayer)
         {
             _ignoreActorCheckbox = true;
 
@@ -1763,6 +1766,32 @@ namespace EFSAdvent
             {
                 var actor = _level.Room.GetActor(i);
                 bool isChecked = selectAll || actor.Layer == selectLayer;
+                actorsCheckListBox.SetItemChecked(i, isChecked);
+            }
+            _ignoreActorCheckbox = false;
+        }
+
+        private void SelectActorsByVariables(int variable)
+        {
+            _ignoreActorCheckbox = true;
+
+            for (int i = 0; i < _level.Room.GetActorCount(); i++)
+            {
+                var actor = _level.Room.GetActor(i);
+                bool isChecked = actor.Variable1 >> 3 == variable;
+
+                if (!isChecked && V6ACTORS.Contains(actor.Name))
+                {
+                    if (((actor.Variable1 & 0x7) << 2 | actor.Variable2 >> 6) == variable)// V2
+                        isChecked = true;
+                    else if (((actor.Variable2 >> 1) & 0x1F) == variable)// V3
+                        isChecked = true;
+                    else if (((actor.Variable2 & 0x1) << 4 | actor.Variable3 >> 4) == variable)// V4
+                        isChecked = true;
+                    else if (((actor.Variable3 & 0xF) << 1 | actor.Variable4 >> 7) == variable)// V5
+                        isChecked = true;
+                }
+
                 actorsCheckListBox.SetItemChecked(i, isChecked);
             }
             _ignoreActorCheckbox = false;
@@ -1851,7 +1880,7 @@ namespace EFSAdvent
                         if ((actor.Variable1 & 7) == 4)
                         {
                             Color color = isSelectedActor ? Color.LightCoral : Color.White;
-                                actorLayerGraphics.DrawRectangleWithDropShadow(color, actorPixelPosition.X, actorPixelPosition.Y, 7, 7);
+                            actorLayerGraphics.DrawRectangleWithDropShadow(color, actorPixelPosition.X, actorPixelPosition.Y, 7, 7);
                             return;
                         }
                         break;
