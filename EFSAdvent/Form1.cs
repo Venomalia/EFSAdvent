@@ -853,7 +853,8 @@ namespace EFSAdvent
                     if (actorsCheckListBox.GetItemChecked(i) == true)
                     {
                         var actor = _level.Room.GetActor(i);
-                        if (actor.XCoord == lastActorCoordinates.x && actor.YCoord == lastActorCoordinates.y)
+                        bool isVisible = alwaysShowActorsToolStripMenuItem.Checked || GetHighestActiveLayerIndex() % 8 == actor.Layer || IsSelectedActor(actor);
+                        if (isVisible && actor.XCoord == lastActorCoordinates.x && actor.YCoord == lastActorCoordinates.y )
                         {
                             actorMouseDownOnIndex = i;
                             actorsCheckListBox.SelectedIndex = i;
