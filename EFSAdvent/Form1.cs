@@ -999,6 +999,7 @@ namespace EFSAdvent
         {
             BrushTileLabel.Text = Convert.ToString(_tileBrush.TileValue);
             Bitmap currentTileSheet = (Bitmap)tileSheetPictureBox.Image;
+            brushTileBitmap.Clear(Color.White);
             DrawTile(brushTileBitmap, currentTileSheet, 0, 0, _tileBrush.TileValue);
 
             _logger.Clear();

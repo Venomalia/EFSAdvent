@@ -40,6 +40,14 @@ namespace EFSAdvent
             graphics.DrawEllipse(DefaultPen, center.X - size, center.Y - size, size * 2, size * 2);
         }
 
+        public static void Clear(this Bitmap bitmap, Color color)
+        {
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                g.Clear(color);
+            }
+        }
+
         public static Point MovePointInDirection(this Point source, Direction direction, int width)
         {
             switch (direction)
