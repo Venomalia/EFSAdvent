@@ -388,7 +388,7 @@ namespace EFSAdvent
                 for (int i = 0; i < 16; i++)
                 {
                     Color color = _level.Room.IsLayerEmpty(i) ? Color.Gray : Color.Black;
-                    layersCheckList.Colors[$"Layer {(i < 8 ? 1 : 2)}-{i % 8}"] = color;
+                    layersCheckList.SetItemColor(i, color);
                 }
                 layersCheckList.Refresh();
 
@@ -984,7 +984,7 @@ namespace EFSAdvent
         private void UpdateLayerCheckListColor(int layer)
         {
             Color color = _level.Room.IsLayerEmpty(layer) ? Color.Gray : Color.Black;
-            layersCheckList.Colors[$"Layer {(layer < 8 ? 1 : 2)}-{layer % 8}"] = color;
+            layersCheckList.SetItemColor(layer, color);
             layersCheckList.Refresh();
         }
 
@@ -1796,12 +1796,15 @@ namespace EFSAdvent
                     int layer = actor.Variable1 & 0x7;
                     if (actor.Name == "CIRC" && layer != 0)
                         layer = 1;
+                    bool isZero = actor.Variable2 == 0 && actor.Variable3 == 0;
+                    int x = isZero ? actorPixelPosition.X : actor.Variable2 * ACTOR_PIXELS_PER_COORDINATE;
+                    int y = isZero ? actorPixelPosition.Y : actor.Variable3 * ACTOR_PIXELS_PER_COORDINATE;
                     if (currentLayer == layer)
                     {
                         Color color = isSelectedActor ? Color.Red : Color.White;
                         actorLayerGraphics.DrawRectangleWithDropShadow(color,
-                            actor.Variable2 * ACTOR_PIXELS_PER_COORDINATE,
-                            actor.Variable3 * ACTOR_PIXELS_PER_COORDINATE,
+                            x,
+                            y,
                             ACTOR_PIXELS_PER_COORDINATE * 2,
                             ACTOR_PIXELS_PER_COORDINATE * 2);
                     }

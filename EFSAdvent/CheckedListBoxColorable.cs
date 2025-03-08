@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace EFSAdvent
@@ -26,6 +28,16 @@ namespace EFSAdvent
 
             var tweakedEventArgs = new DrawItemEventArgs(e.Graphics, e.Font, e.Bounds, e.Index, e.State, foreColor, e.BackColor);
             base.OnDrawItem(tweakedEventArgs);
+        }
+
+        public void SetItemColor(int index, Color color)
+        {
+            if (index < 0 || index >= Items.Count)
+            {
+                throw new ArgumentOutOfRangeException("index");
+            }
+
+            Colors[Items[index]] = color;
         }
 
     }
