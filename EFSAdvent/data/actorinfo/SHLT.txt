@@ -3,9 +3,11 @@ SHLT (Searchlight) No GBA sprite
 Variable 2:
 Rail ID
 
-Variable 3:
-& 0xF = X position of the area to which the player should be moved.
->> 4 = Y position of the area to which the player should be moved.
+Variable 3a:
+Y position of the area to which the player should be moved.
+
+Variable 3b:
+X position of the area to which the player should be moved.
 
 Variable 4:
 4 = Circles clockwise
