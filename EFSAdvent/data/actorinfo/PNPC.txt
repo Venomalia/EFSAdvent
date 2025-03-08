@@ -3,6 +3,7 @@ Causes a tile to be changed to a different tile.
 
 Variable 1a:
 Variable that activates the tile to be changed.
+0 = is activated when the player is near range.
 
 Variable 1b:
 0 = No special effect
