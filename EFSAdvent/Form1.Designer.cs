@@ -64,6 +64,7 @@ namespace EFSAdvent
             this.xSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.displayOverlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alwaysShowActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textureFilterModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bilinearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bicubicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -534,6 +535,7 @@ namespace EFSAdvent
             this.xSizeToolStripMenuItem,
             this.xSizeToolStripMenuItem1,
             this.displayOverlayToolStripMenuItem,
+            this.alwaysShowActorsToolStripMenuItem,
             this.textureFilterModeToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -561,7 +563,15 @@ namespace EFSAdvent
             this.displayOverlayToolStripMenuItem.Name = "displayOverlayToolStripMenuItem";
             this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.displayOverlayToolStripMenuItem.Text = "Display overlay";
-            this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.displayOverlayToolStripMenuItem_Click);
+            this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
+            // 
+            // alwaysShowActorsToolStripMenuItem
+            // 
+            this.alwaysShowActorsToolStripMenuItem.CheckOnClick = true;
+            this.alwaysShowActorsToolStripMenuItem.Name = "alwaysShowActorsToolStripMenuItem";
+            this.alwaysShowActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alwaysShowActorsToolStripMenuItem.Text = "Always Show Actors";
+            this.alwaysShowActorsToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
             // 
             // textureFilterModeToolStripMenuItem
             // 
@@ -662,7 +672,7 @@ namespace EFSAdvent
             this.updateLayersButton.TabIndex = 20;
             this.updateLayersButton.Text = "Update view";
             this.updateLayersButton.UseVisualStyleBackColor = true;
-            this.updateLayersButton.Click += new System.EventHandler(this.updateLayersButton_Click);
+            this.updateLayersButton.Click += new System.EventHandler(this.updateView_Click);
             // 
             // buttonSaveLayers
             // 
@@ -2353,6 +2363,7 @@ namespace EFSAdvent
         private ToolStripMenuItem displayOverlayToolStripMenuItem;
         private ToolStripMenuItem ImportRoomFromTmx;
         private Label BrushSizeLabel;
+        private ToolStripMenuItem alwaysShowActorsToolStripMenuItem;
     }
 }
 

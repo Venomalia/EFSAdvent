@@ -1769,45 +1769,24 @@ namespace EFSAdvent
 
         private void DrawActor(Actor actor)
         {
-            Point actorPixelPosition = new Point(actor.XCoord * ACTOR_PIXELS_PER_COORDINATE, actor.YCoord * ACTOR_PIXELS_PER_COORDINATE);
             int width, height;
+            int? currentLayer = GetHighestActiveLayerIndex() % 8;
+            bool isOnCurrentLayer = currentLayer == actor.Layer;
+            bool isSelectedActor = IsSelectedActor(actor);
+            Point actorPixelPosition = new Point(actor.XCoord * ACTOR_PIXELS_PER_COORDINATE, actor.YCoord * ACTOR_PIXELS_PER_COORDINATE);
+
+            // Are always checked
             switch (actor.Name)
             {
-                case "PNPC":
-                    DrawTile(actorLayerBitmap, tileSheetBitmap, actor.XCoord / 2, actor.YCoord / 2, (ushort)((actor.Variable3 & 0x3) << 8 | actor.Variable4));
-                    break;
-                case "PTMI":
-                    actorLayerGraphics.DrawRectangleWithDropShadow(Color.LightCyan,
-                        actorPixelPosition.X,
-                        actorPixelPosition.Y,
-                        ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable4),
-                        ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable3));
-                    break;
-                case "TOMI":
-                    actorLayerGraphics.DrawRectangleWithDropShadow(Color.LightPink,
-                        actorPixelPosition.X,
-                        actorPixelPosition.Y,
-                        ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable4),
-                        ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable3));
-                    break;
-                case "BLDF":
-                    width = ACTOR_PIXELS_PER_COORDINATE * (1 + actor.Variable3);
-                    height = ACTOR_PIXELS_PER_COORDINATE * (1 + actor.Variable2);
-                    actorLayerGraphics.DrawRectangleWithDropShadow(Color.Black,
-                        actorPixelPosition.X - (width / 2),
-                        actorPixelPosition.Y - (height / 2),
-                        width,
-                        height);
-                    break;
                 case "WARP":
                 case "MJGR":
                 case "CIRC":
                     int layer = actor.Variable1 & 0x7;
                     if (actor.Name == "CIRC" && layer != 0)
                         layer = 1;
-                    if (layersCheckList.GetItemChecked(layer))
+                    if (currentLayer == layer)
                     {
-                        Color color = IsSelectedActor(actor) ? Color.Red : Color.White;
+                        Color color = isSelectedActor ? Color.Red : Color.White;
                         actorLayerGraphics.DrawRectangleWithDropShadow(color,
                             actor.Variable2 * ACTOR_PIXELS_PER_COORDINATE,
                             actor.Variable3 * ACTOR_PIXELS_PER_COORDINATE,
@@ -1815,62 +1794,102 @@ namespace EFSAdvent
                             ACTOR_PIXELS_PER_COORDINATE * 2);
                     }
                     break;
-                case "SWTH":
-                    if (actor.Variable4 == 7)
-                    {
-                        width = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable2 >> 4);
-                        height = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable2 & 0xF);
-                        actorLayerGraphics.DrawRectangleWithDropShadow(Color.White,
+                default:
+                    break;
+            }
+
+            // Only if on current layer
+            if (alwaysShowActorsToolStripMenuItem.Checked || isOnCurrentLayer)
+            {
+                switch (actor.Name)
+                {
+                    case "PNPC":
+                        if (isOnCurrentLayer)
+                            DrawTile(actorLayerBitmap, tileSheetBitmap, actor.XCoord / 2, actor.YCoord / 2, (ushort)((actor.Variable3 & 0x3) << 8 | actor.Variable4));
+                        break;
+                    case "PTMI":
+                        actorLayerGraphics.DrawRectangleWithDropShadow(Color.LightCyan,
+                            actorPixelPosition.X,
+                            actorPixelPosition.Y,
+                            ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable4),
+                            ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable3));
+                        break;
+                    case "TOMI":
+                        actorLayerGraphics.DrawRectangleWithDropShadow(Color.LightPink,
+                            actorPixelPosition.X,
+                            actorPixelPosition.Y,
+                            ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable4),
+                            ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable3));
+                        break;
+                    case "BLDF":
+                        width = ACTOR_PIXELS_PER_COORDINATE * (1 + actor.Variable3);
+                        height = ACTOR_PIXELS_PER_COORDINATE * (1 + actor.Variable2);
+                        actorLayerGraphics.DrawRectangleWithDropShadow(Color.Black,
                             actorPixelPosition.X - (width / 2),
                             actorPixelPosition.Y - (height / 2),
                             width,
                             height);
-                    }
-                    break;
-                case "LOTS":
-                    width = ((actor.Variable3 >> 4) + (actor.Variable2 & 0xF) * 16) * ACTOR_PIXELS_PER_COORDINATE * 2;
-                    if (width != 0)
-                    {
-                        GraphicsEX.Direction direction = (GraphicsEX.Direction)(actor.Variable3 & 0xF);
-                        Point targetPosition = actorPixelPosition.MovePointInDirection(direction, width);
-                        actorLayerGraphics.DrawLineWithDropShadow(Color.Aquamarine, actorPixelPosition, targetPosition);
-                    }
-                    break;
-                case "RUSA":
-                    switch (actor.Variable4 & 0xF)
-                    {
-                        case 0:
-                            width = 2 * ACTOR_PIXELS_PER_COORDINATE;
-                            break;
-                        case 1:
-                            width = 4 * ACTOR_PIXELS_PER_COORDINATE;
-                            break;
-                        default:
-                            width = 8 * ACTOR_PIXELS_PER_COORDINATE;
-                            break;
-                    }
-                    actorLayerGraphics.DrawCircleWithDropShadow(Color.Honeydew, actorPixelPosition, width);
-                    break;
-                case "BMST":
-                    if (actor.Variable4 != 0)
-                    {
-                        Color color = IsSelectedActor(actor) ? Color.LightPink : Color.DarkRed;
-                        width = Math.Min(actor.Variable4, (byte)15) * ACTOR_PIXELS_PER_COORDINATE * 2 - ACTOR_PIXELS_PER_COORDINATE;
-                        actorLayerGraphics.DrawCircleWithDropShadow(color, actorPixelPosition, width);
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+
+                    case "SWTH":
+                        if (isOnCurrentLayer && actor.Variable4 == 7)
+                        {
+                            width = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable2 >> 4);
+                            height = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.Variable2 & 0xF);
+                            actorLayerGraphics.DrawRectangleWithDropShadow(Color.White,
+                                actorPixelPosition.X - (width / 2),
+                                actorPixelPosition.Y - (height / 2),
+                                width,
+                                height);
+                        }
+                        break;
+                    case "LOTS":
+                        width = ((actor.Variable3 >> 4) + (actor.Variable2 & 0xF) * 16) * ACTOR_PIXELS_PER_COORDINATE * 2;
+                        if (width != 0)
+                        {
+                            GraphicsEX.Direction direction = (GraphicsEX.Direction)(actor.Variable3 & 0xF);
+                            Point targetPosition = actorPixelPosition.MovePointInDirection(direction, width);
+                            actorLayerGraphics.DrawLineWithDropShadow(Color.Aquamarine, actorPixelPosition, targetPosition);
+                        }
+                        break;
+                    case "RUSA":
+                        switch (actor.Variable4 & 0xF)
+                        {
+                            case 0:
+                                width = 2 * ACTOR_PIXELS_PER_COORDINATE;
+                                break;
+                            case 1:
+                                width = 4 * ACTOR_PIXELS_PER_COORDINATE;
+                                break;
+                            default:
+                                width = 8 * ACTOR_PIXELS_PER_COORDINATE;
+                                break;
+                        }
+                        actorLayerGraphics.DrawCircleWithDropShadow(Color.Honeydew, actorPixelPosition, width);
+                        break;
+                    case "BMST":
+                        if (actor.Variable4 != 0)
+                        {
+                            Color color = isSelectedActor ? Color.LightPink : Color.DarkRed;
+                            width = Math.Min(actor.Variable4, (byte)15) * ACTOR_PIXELS_PER_COORDINATE * 2 - ACTOR_PIXELS_PER_COORDINATE;
+                            actorLayerGraphics.DrawCircleWithDropShadow(color, actorPixelPosition, width);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                Bitmap actorSprite = GetActorSpriteOrDefault(actor.Name, actor.Variable4);
+
+                actorLayerGraphics.DrawImage(actorSprite,
+                    actorPixelPosition.X - (actorSprite.Width / 2),
+                    actorPixelPosition.Y - (actorSprite.Height / 2),
+                    actorSprite.Width,
+                    actorSprite.Height);
             }
-            Bitmap actorSprite = GetActorSpriteOrDefault(actor.Name, actor.Variable4);
 
-            actorLayerGraphics.DrawImage(actorSprite,
-                actorPixelPosition.X - (actorSprite.Width / 2),
-                actorPixelPosition.Y - (actorSprite.Height / 2),
-                actorSprite.Width,
-                actorSprite.Height);
-
-            if (IsSelectedActor(actor))
+            // Always highlights selected Actor
+            if (isSelectedActor)
             {
                 actorLayerGraphics.DrawRectangleWithDropShadow(Color.LightCoral, actorPixelPosition.X, actorPixelPosition.Y, 7, 7);
             }
