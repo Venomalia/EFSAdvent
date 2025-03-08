@@ -1844,6 +1844,13 @@ namespace EFSAdvent
                             actorPixelPosition.Y - (height / 2),
                             width,
                             height);
+
+                        if ((actor.Variable1 & 7) == 4)
+                        {
+                            Color color = isSelectedActor ? Color.LightCoral : Color.White;
+                                actorLayerGraphics.DrawRectangleWithDropShadow(color, actorPixelPosition.X, actorPixelPosition.Y, 7, 7);
+                            return;
+                        }
                         break;
 
                     case "SWTH":
