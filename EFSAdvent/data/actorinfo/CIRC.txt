@@ -26,3 +26,4 @@ Variable 4:
 5 = 10 seconds
 7 = Cactus
 8 = Glitter effect
+16 = Disappears after all players have used it.
