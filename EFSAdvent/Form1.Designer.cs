@@ -37,7 +37,6 @@ namespace EFSAdvent
             this.layersPanel = new System.Windows.Forms.Panel();
             this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addNewActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MapPanel = new System.Windows.Forms.Panel();
             this.mapPictureBox = new System.Windows.Forms.PictureBox();
@@ -313,19 +312,10 @@ namespace EFSAdvent
             // 
             this.actorContextMenuStrip.DropShadowEnabled = false;
             this.actorContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewActorsToolStripMenuItem,
             this.pastToolStripMenuItem});
             this.actorContextMenuStrip.Name = "actorContextMenuStrip";
             this.actorContextMenuStrip.Size = new System.Drawing.Size(156, 48);
             this.actorContextMenuStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.actorContextMenuStrip_Paint);
-            // 
-            // addNewActorsToolStripMenuItem
-            // 
-            this.addNewActorsToolStripMenuItem.Name = "addNewActorsToolStripMenuItem";
-            this.addNewActorsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.addNewActorsToolStripMenuItem.Text = "Add New Actor";
-            this.addNewActorsToolStripMenuItem.ToolTipText = "Adds a new AGBW actor to the highest active layer";
-            this.addNewActorsToolStripMenuItem.Click += new System.EventHandler(this.actorsAddNewButton_Click);
             // 
             // pastToolStripMenuItem
             // 

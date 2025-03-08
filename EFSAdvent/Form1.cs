@@ -1883,21 +1883,6 @@ namespace EFSAdvent
             MessageBox.Show("Changes Saved");
         }
 
-        private void actorsAddNewButton_Click(object sender, EventArgs e)
-        {
-            int? activeLayer = GetHighestActiveLayerIndex();
-            int baseLayer = activeLayer.HasValue
-                ? (activeLayer > 7 ? activeLayer - 8 : activeLayer).Value
-                : 0;
-
-            Actor actor = _level.Room.AddActor(ACTOR_NAMES[0], (byte)baseLayer, (byte)lastActorCoordinates.x, (byte)lastActorCoordinates.y);
-
-            BuildLayerActorList(true);
-            DrawActors(true);
-            SelectedActor(actor);
-
-        }
-
         private void bilinearToolStripMenuItem_Click(object sender, EventArgs e) => SetInterpolationMode(InterpolationMode.Bilinear);
 
         private void bicubicToolStripMenuItem_Click(object sender, EventArgs e) => SetInterpolationMode(InterpolationMode.Bicubic);
