@@ -1870,6 +1870,10 @@ namespace EFSAdvent
                 actorSprite.Width,
                 actorSprite.Height);
 
+            if (IsSelectedActor(actor))
+            {
+                actorLayerGraphics.DrawRectangleWithDropShadow(Color.LightCoral, actorPixelPosition.X, actorPixelPosition.Y, 7, 7);
+            }
         }
 
         private void actorsSaveButton_Click(object sender, EventArgs e)
