@@ -1201,6 +1201,7 @@ namespace EFSAdvent
             this.actorLayerComboBox.Enabled = false;
             this.actorLayerComboBox.FormattingEnabled = true;
             this.actorLayerComboBox.Items.AddRange(new object[] {
+            "All Actors",
             "Layer 0",
             "Layer 1",
             "Layer 2",

@@ -391,7 +391,7 @@ namespace EFSAdvent
                     layersCheckList.Colors[$"Layer {(i < 8 ? 1 : 2)}-{i % 8}"] = color;
                 }
                 layersCheckList.Refresh();
-                UpdateView(false);
+                UpdateView();
             }
         }
 
@@ -424,7 +424,7 @@ namespace EFSAdvent
 
         }
 
-        private void UpdateView(bool actorLayerChanged, int? layer = null)
+        private void UpdateView(int? layer = null)
         {
             if (_level?.Room == null)
                 return;
@@ -456,7 +456,7 @@ namespace EFSAdvent
                     }
                 }
             }
-            DrawActors(actorLayerChanged);
+            DrawActors();
         }
 
         #region Map
@@ -602,7 +602,7 @@ namespace EFSAdvent
                 {
                     case "MapVariableOverlay":
                         ChangeOverlay((int)MapVariableOverlay.Value);
-                        UpdateView(false);
+                        UpdateView();
                         break;
                     case "MapVariableStartY":
                     case "MapVariableStartX":
@@ -611,7 +611,7 @@ namespace EFSAdvent
                     case "MapVariableTileSheet":
                         ChangeTileSheet((int)MapVariableTileSheet.Value);
                         currentTileSheetComboBox.SelectedIndex = (int)MapVariableTileSheet.Value;
-                        UpdateView(false);
+                        UpdateView();
                         break;
                     case "currentTileSheetComboBox":
                         MapVariableTileSheet.Value = currentTileSheetComboBox.SelectedIndex;
@@ -660,7 +660,7 @@ namespace EFSAdvent
 
                             if (_tileSelection.X != position.X || _tileSelection.Y != position.Y)
                             {
-                                UpdateView(false);
+                                UpdateView();
                                 if (position.X >= 0 && position.Y >= 0)
                                 {
                                     DrawTileSelection(Color.White, position);
@@ -711,7 +711,7 @@ namespace EFSAdvent
                 ActorYCoordInput.Value = newActorYCoord;
                 _ignoreActorChanges = false;
 
-                UpdateView(false);
+                UpdateView();
             }
 
             void UpdateClipboardSelection()
@@ -747,7 +747,7 @@ namespace EFSAdvent
                     _tileSelection.Height = height;
                 }
 
-                UpdateView(false);
+                UpdateView();
                 Rectangle position = new Rectangle(
                     _tileSelection.X * TILE_DIMENSION_IN_PIXELS,
                     _tileSelection.Y * TILE_DIMENSION_IN_PIXELS,
@@ -891,14 +891,14 @@ namespace EFSAdvent
                 }
             }
             //Thread.Sleep(400);
-            UpdateView(false);
+            UpdateView();
         }
 
         private void layerPictureBox_MouseLeave(object sender, EventArgs e)
         {
             if (_tileSelection.X != -1 || _tileSelection.Y != -1)
             {
-                UpdateView(false);
+                UpdateView();
                 _tileSelection.X = _tileSelection.Y = -1;
             }
         }
@@ -924,7 +924,7 @@ namespace EFSAdvent
                 case MouseButtons.Left: //Change tiles
                     if (_tileBrush.Draw(_level, layer.Value, eventX, eventY))
                     {
-                        UpdateView(false, layer);
+                        UpdateView(layer);
                         buttonSaveLayers.Enabled = true;
                     }
                     break;
@@ -1013,14 +1013,14 @@ namespace EFSAdvent
 
         private void BrushSizeComboBox_SelectionChangeCommitted(object sender, EventArgs e) => UpdateBrushTileBitmap(_tileBrush.TileValue);
 
-        private void updateLayersButton_Click(object sender, EventArgs e) => UpdateView(false);
+        private void updateLayersButton_Click(object sender, EventArgs e) => UpdateView();
 
         private void LayersCheckList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             // Need to delay redraw because right now the newly checked layer won't have checked=true
             this.BeginInvoke((MethodInvoker)(() =>
             {
-                UpdateView(false);
+                UpdateView();
                 UpdateTileSheetPictureBox();
             }
             ));
@@ -1071,7 +1071,7 @@ namespace EFSAdvent
             }
         }
 
-        private void displayOverlayToolStripMenuItem_Click(object sender, EventArgs e) => UpdateView(false);
+        private void updateView_Click(object sender, EventArgs e) => UpdateView();
 
         private void buttonSaveLayers_Click(object sender, EventArgs e)
         {
@@ -1156,7 +1156,7 @@ namespace EFSAdvent
             if (openTmx.ShowDialog() == DialogResult.OK)
             {
                 _level.Room.ImportRoomFromTMX(openTmx.FileName);
-                UpdateView(false);
+                UpdateView();
             }
         }
 
@@ -1338,7 +1338,7 @@ namespace EFSAdvent
                     UpdateLayerCheckListColor(action.Layer);
                     buttonSaveLayers.Enabled = true;
                 }
-                UpdateView(false);
+                UpdateView();
             }
         }
 
@@ -1352,7 +1352,7 @@ namespace EFSAdvent
                     UpdateLayerCheckListColor(action.Layer);
                     buttonSaveLayers.Enabled = true;
                 }
-                UpdateView(false);
+                UpdateView();
             }
         }
 
@@ -1544,7 +1544,7 @@ namespace EFSAdvent
                 ActorInfoPictureBox.Refresh();
             }
 
-            UpdateView(false);
+            UpdateView();
         }
 
         private void ReloadActors()
@@ -1716,30 +1716,16 @@ namespace EFSAdvent
         // We don't want checking actors during DrawActors to call DrawActors...
         private bool _ignoreActorCheckbox = false;
 
-        private void DrawActors(bool onlyDrawActorLayerActors)
+        private void DrawActors()
         {
             _ignoreActorCheckbox = true;
             actorLayerGraphics.Clear(Color.Transparent);
 
             for (int i = 0; i < _level.Room.GetActorCount(); i++)
             {
-                var actor = _level.Room.GetActor(i);
-                //If we are here because the layer box has been changed then only draw actors of that layer
-                if (onlyDrawActorLayerActors)
+                if (actorsCheckListBox.GetItemChecked(i) == true)
                 {
-                    if (actor.Layer == actorLayerComboBox.SelectedIndex)
-                    {
-                        //Check boxes of all actors that are being drawn
-                        actorsCheckListBox.SetItemChecked(i, true);
-                        DrawActor(actor);
-                    }
-                    else
-                    {
-                        actorsCheckListBox.SetItemChecked(i, false);
-                    }
-                }
-                else if (actorsCheckListBox.GetItemChecked(i) == true)
-                {
+                    var actor = _level.Room.GetActor(i);
                     DrawActor(actor);
                 }
             }
@@ -1750,7 +1736,21 @@ namespace EFSAdvent
 
         private void actorLayerComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            UpdateView(true);
+            SelectLayerActors(actorLayerComboBox.SelectedIndex == 0, actorLayerComboBox.SelectedIndex - 1);
+            UpdateView();
+        }
+
+        private void SelectLayerActors(bool selectAll,int selectLayer)
+        {
+            _ignoreActorCheckbox = true;
+
+            for (int i = 0; i < _level.Room.GetActorCount(); i++)
+            {
+                var actor = _level.Room.GetActor(i);
+                bool isChecked = selectAll || actor.Layer == selectLayer;
+                actorsCheckListBox.SetItemChecked(i, isChecked);
+            }
+            _ignoreActorCheckbox = false;
         }
 
         private void tabControl_TabIndexChanged(object sender, EventArgs e)
@@ -1962,7 +1962,7 @@ namespace EFSAdvent
             List<Actor> actors = Room.ReadActors(openDialog.FileName);
             _level.Room.AddActors(actors);
             BuildLayerActorList(true);
-            DrawActors(true);
+            DrawActors();
 
             MessageBox.Show($"{actors.Count} actors have been successfully added to the current room.");
         }
@@ -2015,7 +2015,7 @@ namespace EFSAdvent
                 actor.Update((byte)baseLayer, (byte)lastActorCoordinates.x, (byte)lastActorCoordinates.y);
                 _level.Room.AddActor(actor);
                 BuildLayerActorList(true);
-                DrawActors(true);
+                DrawActors();
                 SelectedActor(actor);
             }
         }
@@ -2029,7 +2029,7 @@ namespace EFSAdvent
                 {
                     actorsCheckListBox.SetSelected(0, true);
                 }
-                UpdateView(false);
+                UpdateView();
             }
         }
 
@@ -2040,15 +2040,18 @@ namespace EFSAdvent
                 return;
             }
             // Need to delay redraw because right now the newly checked actor won't have checked=true
-            this.BeginInvoke((MethodInvoker)(() => UpdateView(false)));
+            this.BeginInvoke((MethodInvoker)(() => UpdateView()));
         }
 
         private void buttonActorsSelectNone_Click(object sender, EventArgs e)
         {
+            _ignoreActorCheckbox = true;
             for (int i = 0; i < actorsCheckListBox.Items.Count; i++)
             {
                 actorsCheckListBox.SetItemChecked(i, false);
             }
+            _ignoreActorCheckbox = false;
+            UpdateView();
         }
 
         private void actorsCheckListBox_KeyUp(object sender, KeyEventArgs e)
@@ -2060,7 +2063,7 @@ namespace EFSAdvent
                 {
                     actorsCheckListBox.SetSelected(0, true);
                 }
-                UpdateView(false);
+                UpdateView();
             }
         }
 
