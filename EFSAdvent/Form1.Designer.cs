@@ -64,11 +64,13 @@ namespace EFSAdvent
             this.xSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.displayOverlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alwaysShowActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textureFilterModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bilinearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bicubicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nearestNeighborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoSelectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alwaysShowActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -315,13 +317,13 @@ namespace EFSAdvent
             this.actorContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pastToolStripMenuItem});
             this.actorContextMenuStrip.Name = "actorContextMenuStrip";
-            this.actorContextMenuStrip.Size = new System.Drawing.Size(156, 48);
+            this.actorContextMenuStrip.Size = new System.Drawing.Size(131, 26);
             this.actorContextMenuStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.actorContextMenuStrip_Paint);
             // 
             // pastToolStripMenuItem
             // 
             this.pastToolStripMenuItem.Name = "pastToolStripMenuItem";
-            this.pastToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.pastToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.pastToolStripMenuItem.Text = "Paste Here";
             this.pastToolStripMenuItem.Click += new System.EventHandler(this.pastToolStripMenuItem_Click);
             // 
@@ -535,8 +537,8 @@ namespace EFSAdvent
             this.xSizeToolStripMenuItem,
             this.xSizeToolStripMenuItem1,
             this.displayOverlayToolStripMenuItem,
-            this.alwaysShowActorsToolStripMenuItem,
-            this.textureFilterModeToolStripMenuItem});
+            this.textureFilterModeToolStripMenuItem,
+            this.actorsToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -544,14 +546,14 @@ namespace EFSAdvent
             // xSizeToolStripMenuItem
             // 
             this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
-            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xSizeToolStripMenuItem.Text = "1x size";
             this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.oneXSizeToolStripMenuItem_Click);
             // 
             // xSizeToolStripMenuItem1
             // 
             this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
-            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
             this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
             // 
@@ -561,17 +563,9 @@ namespace EFSAdvent
             this.displayOverlayToolStripMenuItem.CheckOnClick = true;
             this.displayOverlayToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.displayOverlayToolStripMenuItem.Name = "displayOverlayToolStripMenuItem";
-            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.displayOverlayToolStripMenuItem.Text = "Display overlay";
             this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
-            // 
-            // alwaysShowActorsToolStripMenuItem
-            // 
-            this.alwaysShowActorsToolStripMenuItem.CheckOnClick = true;
-            this.alwaysShowActorsToolStripMenuItem.Name = "alwaysShowActorsToolStripMenuItem";
-            this.alwaysShowActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.alwaysShowActorsToolStripMenuItem.Text = "Always Show Actors";
-            this.alwaysShowActorsToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
             // 
             // textureFilterModeToolStripMenuItem
             // 
@@ -580,7 +574,7 @@ namespace EFSAdvent
             this.bicubicToolStripMenuItem,
             this.nearestNeighborToolStripMenuItem});
             this.textureFilterModeToolStripMenuItem.Name = "textureFilterModeToolStripMenuItem";
-            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.textureFilterModeToolStripMenuItem.Text = "Filter mode";
             // 
             // bilinearToolStripMenuItem
@@ -605,6 +599,34 @@ namespace EFSAdvent
             this.nearestNeighborToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.nearestNeighborToolStripMenuItem.Text = "Nearest Neighbor";
             this.nearestNeighborToolStripMenuItem.Click += new System.EventHandler(this.nearestNeighborToolStripMenuItem_Click);
+            // 
+            // actorsToolStripMenuItem
+            // 
+            this.actorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.autoSelectToolStripMenuItem,
+            this.alwaysShowActorsToolStripMenuItem});
+            this.actorsToolStripMenuItem.Name = "actorsToolStripMenuItem";
+            this.actorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.actorsToolStripMenuItem.Text = "Actors";
+            // 
+            // autoSelectToolStripMenuItem
+            // 
+            this.autoSelectToolStripMenuItem.Checked = true;
+            this.autoSelectToolStripMenuItem.CheckOnClick = true;
+            this.autoSelectToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoSelectToolStripMenuItem.Name = "autoSelectToolStripMenuItem";
+            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.autoSelectToolStripMenuItem.Text = "Auto select";
+            this.autoSelectToolStripMenuItem.ToolTipText = "Auto load actor on room change.";
+            // 
+            // alwaysShowActorsToolStripMenuItem
+            // 
+            this.alwaysShowActorsToolStripMenuItem.CheckOnClick = true;
+            this.alwaysShowActorsToolStripMenuItem.Name = "alwaysShowActorsToolStripMenuItem";
+            this.alwaysShowActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alwaysShowActorsToolStripMenuItem.Text = "Show Always";
+            this.alwaysShowActorsToolStripMenuItem.ToolTipText = "Displays actors regardless of the current layer.";
+            this.alwaysShowActorsToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -2363,6 +2385,8 @@ namespace EFSAdvent
         private ToolStripMenuItem displayOverlayToolStripMenuItem;
         private ToolStripMenuItem ImportRoomFromTmx;
         private Label BrushSizeLabel;
+        private ToolStripMenuItem actorsToolStripMenuItem;
+        private ToolStripMenuItem autoSelectToolStripMenuItem;
         private ToolStripMenuItem alwaysShowActorsToolStripMenuItem;
     }
 }

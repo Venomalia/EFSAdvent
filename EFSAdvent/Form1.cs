@@ -391,6 +391,17 @@ namespace EFSAdvent
                     layersCheckList.Colors[$"Layer {(i < 8 ? 1 : 2)}-{i % 8}"] = color;
                 }
                 layersCheckList.Refresh();
+
+                if (autoSelectToolStripMenuItem.Checked)
+                {
+                    SelectLayerActors(true, 0);
+                    actorLayerComboBox.SelectedIndex = 0;
+                }
+                else
+                {
+                    actorLayerComboBox.SelectedIndex = -1;
+                }
+
                 UpdateView();
             }
         }
@@ -2065,6 +2076,7 @@ namespace EFSAdvent
 
         private void buttonActorsSelectNone_Click(object sender, EventArgs e)
         {
+            actorLayerComboBox.SelectedIndex = -1;
             _ignoreActorCheckbox = true;
             for (int i = 0; i < actorsCheckListBox.Items.Count; i++)
             {
