@@ -1851,6 +1851,14 @@ namespace EFSAdvent
                     }
                     actorLayerGraphics.DrawCircleWithDropShadow(Color.Honeydew, actorPixelPosition, width);
                     break;
+                case "BMST":
+                    if (actor.Variable4 != 0)
+                    {
+                        Color color = IsSelectedActor(actor) ? Color.LightPink : Color.DarkRed;
+                        width = Math.Min(actor.Variable4, (byte)15) * ACTOR_PIXELS_PER_COORDINATE * 2 - ACTOR_PIXELS_PER_COORDINATE;
+                        actorLayerGraphics.DrawCircleWithDropShadow(color, actorPixelPosition, width);
+                    }
+                    break;
                 default:
                     break;
             }
