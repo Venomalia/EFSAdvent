@@ -357,12 +357,12 @@ namespace EFSAdvent
             byte newRoomNumber = newRoom ? (_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value) ? (byte)_level.GetNextFreeRoom() : (byte)MapRoomNumberInput.Value) : (byte)MapRoomNumberInput.Value;
             if (_level.LoadRoom(newRoomNumber, newRoom))
             {
-                if (_level.Map.IsShadowBattle)
-                    LoadMapVariable();
-
                 currentRoomNumber = newRoomNumber;
                 _history.Reset();
                 BuildLayerActorList(false);
+
+                if (_level.Map.IsShadowBattle)
+                    LoadMapVariable();
 
                 //Enable all the actor buttons now that data to work with exists
                 actorDeleteButton.Enabled = true;
