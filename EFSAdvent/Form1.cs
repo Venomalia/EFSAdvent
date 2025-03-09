@@ -269,6 +269,7 @@ namespace EFSAdvent
             _level = new Level(mapPath, _logger);
             _level.LoadMap();
             LoadMapVariable();
+            DrawMap();
 
             //Get a string which is just the root bossxxx filepath for loading other files
             RootFolderPathTextBox.Text = mapPath.Remove(mapPath.LastIndexOf("\\map\\") + 1);
