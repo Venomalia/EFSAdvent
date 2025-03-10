@@ -1713,20 +1713,35 @@ namespace EFSAdvent
             }
             else
             {
-                ActorInfoPictureBox.Image = GetActorSpriteOrDefault(actorName, newActor.Variable4);
+                ActorInfoPictureBox.Image = GetActorSpriteOrDefault(newActor);
             }
         }
 
-        private Bitmap GetActorSpriteOrDefault(string actorName, byte type)
+        private Bitmap GetActorSpriteOrDefault(Actor actor)
         {
-            string specificActorName = $"{actorName}_{type & 0x7F}";
+            string type;
+            switch (actor.Name)
+            {
+                case "DOOR":
+                    int doorType = actor.Variable4 & 0x7F;
+                    if (doorType == 5 || doorType == 7)
+                        goto default;
+                    else
+                        type = $"{(actor.Variable3 & 0xf) << 1 | actor.Variable4 >> 7}_{actor.Variable3 >> 4}";
+                    break;
+                default:
+                    type = $"{actor.Variable4 & 0x7F}";
+                    break;
+            }
+
+            string specificActorName = $"{actor.Name}_{type}";
             if (ACTOR_SPRITES.ContainsKey(specificActorName))
             {
                 return ACTOR_SPRITES[specificActorName];
             }
-            else if (ACTOR_SPRITES.ContainsKey(actorName))
+            else if (ACTOR_SPRITES.ContainsKey(actor.Name))
             {
-                return ACTOR_SPRITES[actorName];
+                return ACTOR_SPRITES[actor.Name];
             }
             else
             {
@@ -1939,7 +1954,7 @@ namespace EFSAdvent
                         break;
                 }
 
-                Bitmap actorSprite = GetActorSpriteOrDefault(actor.Name, actor.Variable4);
+                Bitmap actorSprite = GetActorSpriteOrDefault(actor);
 
                 actorLayerGraphics.DrawImage(actorSprite,
                     actorPixelPosition.X - (actorSprite.Width / 2),
