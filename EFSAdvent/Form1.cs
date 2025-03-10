@@ -1214,7 +1214,10 @@ namespace EFSAdvent
 
             if (savePng.ShowDialog() == DialogResult.OK)
             {
+
+                bool autoLoadActors = autoSelectToolStripMenuItem.Checked;
                 byte lastRoom = currentRoomNumber;
+                autoSelectToolStripMenuItem.Checked = sender is ToolStripItem csender && csender.Name == "mapAndAAspngToolStripMenuItem";
 
                 int roomWidth = 512, roomHeight = 384; // Maße eines Raums
                 int mapWidth = roomWidth * _level.Map.XDimension; // Gesamtbreite
@@ -1248,6 +1251,8 @@ namespace EFSAdvent
                 }
 
                 MapRoomNumberInput.Value = currentRoomNumber = lastRoom;
+                autoSelectToolStripMenuItem.Checked = autoLoadActors;
+                LoadRoom(false);
             }
         }
 

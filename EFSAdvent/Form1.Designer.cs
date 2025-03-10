@@ -47,6 +47,7 @@ namespace EFSAdvent
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ExportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.levelAsArcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomAstsxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +57,7 @@ namespace EFSAdvent
             this.ImportRoomFromTmx = new System.Windows.Forms.ToolStripMenuItem();
             this.roomImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actorsImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -194,6 +196,11 @@ namespace EFSAdvent
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mapAndAAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -381,8 +388,10 @@ namespace EFSAdvent
             this.openToolStripMenuItem,
             this.SaveMenuItem,
             this.SaveAsMenuItem,
+            this.toolStripSeparator2,
             this.ExportMenuItem,
             this.importToolStripMenuItem,
+            this.toolStripSeparator1,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -422,13 +431,21 @@ namespace EFSAdvent
             this.SaveAsMenuItem.Text = "Save as ...";
             this.SaveAsMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(246, 6);
+            // 
             // ExportMenuItem
             // 
             this.ExportMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.levelAsArcToolStripMenuItem,
+            this.toolStripSeparator4,
             this.roomAstsxToolStripMenuItem,
+            this.toolStripSeparator3,
             this.viewAspngToolStripMenuItem,
-            this.mapAspngToolStripMenuItem});
+            this.mapAspngToolStripMenuItem,
+            this.mapAndAAspngToolStripMenuItem});
             this.ExportMenuItem.Enabled = false;
             this.ExportMenuItem.Name = "ExportMenuItem";
             this.ExportMenuItem.Size = new System.Drawing.Size(249, 22);
@@ -437,7 +454,7 @@ namespace EFSAdvent
             // levelAsArcToolStripMenuItem
             // 
             this.levelAsArcToolStripMenuItem.Name = "levelAsArcToolStripMenuItem";
-            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.levelAsArcToolStripMenuItem.Text = "Level as .arc";
             this.levelAsArcToolStripMenuItem.ToolTipText = "Export as FSA Level Archive.";
             this.levelAsArcToolStripMenuItem.Click += new System.EventHandler(this.ExportLevel);
@@ -445,7 +462,7 @@ namespace EFSAdvent
             // roomAstsxToolStripMenuItem
             // 
             this.roomAstsxToolStripMenuItem.Name = "roomAstsxToolStripMenuItem";
-            this.roomAstsxToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.roomAstsxToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.roomAstsxToolStripMenuItem.Text = "Room as .tmx";
             this.roomAstsxToolStripMenuItem.ToolTipText = "Export as Tiled map files.";
             this.roomAstsxToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomAsTmx_Click);
@@ -453,14 +470,14 @@ namespace EFSAdvent
             // viewAspngToolStripMenuItem
             // 
             this.viewAspngToolStripMenuItem.Name = "viewAspngToolStripMenuItem";
-            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.viewAspngToolStripMenuItem.Text = "View as .png";
             this.viewAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportViewAsPng);
             // 
             // mapAspngToolStripMenuItem
             // 
             this.mapAspngToolStripMenuItem.Name = "mapAspngToolStripMenuItem";
-            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.mapAspngToolStripMenuItem.Text = "Map as .png";
             this.mapAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
             // 
@@ -468,6 +485,7 @@ namespace EFSAdvent
             // 
             this.importToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ImportRoomFromTmx,
+            this.toolStripSeparator5,
             this.roomImportToolStripMenuItem,
             this.actorsImportToolStripMenuItem});
             this.importToolStripMenuItem.Enabled = false;
@@ -478,7 +496,7 @@ namespace EFSAdvent
             // ImportRoomFromTmx
             // 
             this.ImportRoomFromTmx.Name = "ImportRoomFromTmx";
-            this.ImportRoomFromTmx.Size = new System.Drawing.Size(162, 22);
+            this.ImportRoomFromTmx.Size = new System.Drawing.Size(180, 22);
             this.ImportRoomFromTmx.Text = "Room from .tmx";
             this.ImportRoomFromTmx.ToolTipText = "Import from Tiled map files";
             this.ImportRoomFromTmx.Click += new System.EventHandler(this.ImportRoomFromTmx_Click);
@@ -486,7 +504,7 @@ namespace EFSAdvent
             // roomImportToolStripMenuItem
             // 
             this.roomImportToolStripMenuItem.Name = "roomImportToolStripMenuItem";
-            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.roomImportToolStripMenuItem.Text = "Room";
             this.roomImportToolStripMenuItem.ToolTipText = "Imports a room from another map file.";
             this.roomImportToolStripMenuItem.Click += new System.EventHandler(this.roomImportToolStripMenuItem_Click);
@@ -494,10 +512,15 @@ namespace EFSAdvent
             // actorsImportToolStripMenuItem
             // 
             this.actorsImportToolStripMenuItem.Name = "actorsImportToolStripMenuItem";
-            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.actorsImportToolStripMenuItem.Text = "Actors";
             this.actorsImportToolStripMenuItem.ToolTipText = "Imports actors from another room file to the current room.";
             this.actorsImportToolStripMenuItem.Click += new System.EventHandler(this.actorsImportToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
             // 
             // quitToolStripMenuItem
             // 
@@ -536,6 +559,7 @@ namespace EFSAdvent
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xSizeToolStripMenuItem,
             this.xSizeToolStripMenuItem1,
+            this.toolStripSeparator6,
             this.displayOverlayToolStripMenuItem,
             this.textureFilterModeToolStripMenuItem,
             this.actorsToolStripMenuItem});
@@ -1272,8 +1296,7 @@ namespace EFSAdvent
             "Variable 28",
             "Variable 29",
             "Variable 30",
-            "Variable 31",
-            });
+            "Variable 31"});
             this.actorLayerComboBox.Location = new System.Drawing.Point(7, 6);
             this.actorLayerComboBox.Name = "actorLayerComboBox";
             this.actorLayerComboBox.Size = new System.Drawing.Size(74, 21);
@@ -2158,6 +2181,33 @@ namespace EFSAdvent
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // mapAndToolStripMenuItem
+            // 
+            this.mapAndAAspngToolStripMenuItem.Name = "mapAndToolStripMenuItem";
+            this.mapAndAAspngToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.mapAndAAspngToolStripMenuItem.Text = "Map and Actors as .png ";
+            this.mapAndAAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(199, 6);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2420,6 +2470,13 @@ namespace EFSAdvent
         private ToolStripMenuItem actorsToolStripMenuItem;
         private ToolStripMenuItem autoSelectToolStripMenuItem;
         private ToolStripMenuItem alwaysShowActorsToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem mapAndAAspngToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripSeparator toolStripSeparator6;
     }
 }
 
