@@ -6,3 +6,5 @@ Variable 3:
 Type
 6 = Shopkeeper
 48 = Royal throne
+64 = Pyramide
+97 = Pile of barrels
