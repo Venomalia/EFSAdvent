@@ -317,6 +317,7 @@ namespace EFSAdvent
             this.layerPictureBox.MouseLeave += new System.EventHandler(this.layerPictureBox_MouseLeave);
             this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
             this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
+            this.layerPictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.layerPictureBox_MouseWheel);
             // 
             // actorContextMenuStrip
             // 

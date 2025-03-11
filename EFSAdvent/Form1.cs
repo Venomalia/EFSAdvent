@@ -920,6 +920,76 @@ namespace EFSAdvent
             }
         }
 
+        private void layerPictureBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            int? layerPosition = GetHighestActiveLayerIndex();
+            if (!layerPosition.HasValue)
+                layerPosition = -1;
+
+            if (tabControl.SelectedTab.TabIndex == 2)
+            {
+                if (e.Delta < 0 && layerPosition != 15 && layerPosition != 7) // up
+                {
+                    if (layerPosition == -1)
+                    {
+                        layersCheckList.SetItemChecked(0, true);
+                        layersCheckList.SetItemChecked(8, true);
+                    }
+                    else
+                    {
+                        layerPosition++;
+                        layersCheckList.SetItemChecked(layerPosition.Value, true);
+
+                        layerPosition = layerPosition < 8 ? layerPosition + 8 : layerPosition % 8;
+                        if (!layersCheckList.GetItemChecked(layerPosition.Value))
+                            layersCheckList.SetItemChecked(layerPosition.Value, true);
+                    }
+                }
+                else if (e.Delta > 0 && layerPosition > 0 && layerPosition != 8)
+                {
+                    layersCheckList.SetItemChecked(layerPosition.Value, false);
+                    layerPosition %= 8;
+                    if (layersCheckList.GetItemChecked(layerPosition.Value))
+                        layersCheckList.SetItemChecked(layerPosition.Value, false);
+
+                    if (layerPosition == 0)
+                        return;
+
+                    layerPosition--;
+                    if (!layersCheckList.GetItemChecked(layerPosition.Value))
+                        layersCheckList.SetItemChecked(layerPosition.Value, true);
+                    layerPosition += 8;
+                    if (!layersCheckList.GetItemChecked(layerPosition.Value))
+                        layersCheckList.SetItemChecked(layerPosition.Value, true);
+                }
+            }
+            else
+            {
+                if (e.Delta < 0 && layerPosition != 15) // up
+                {
+                    if (layerPosition == -1)
+                    {
+                        layersCheckList.SetItemChecked(0, true);
+                    }
+                    else
+                    {
+                        layerPosition = layerPosition < 8 ? layerPosition + 8 : layerPosition % 8 + 1;
+                        layersCheckList.SetItemChecked(layerPosition.Value, true);
+                    }
+                }
+                else if (e.Delta > 0 && layerPosition > 0)
+                {
+                    layersCheckList.SetItemChecked(layerPosition.Value, false);
+                    if (layerPosition == 0)
+                        return;
+
+                    layerPosition = layerPosition < 8 ? layerPosition + 7 : layerPosition % 8;
+                    if (!layersCheckList.GetItemChecked(layerPosition.Value))
+                        layersCheckList.SetItemChecked(layerPosition.Value, true);
+                }
+            }
+        }
+
         private void DoTileAction(MouseEventArgs scaledEvent)
         {
             int eventX = scaledEvent.X / TILE_DIMENSION_IN_PIXELS;
