@@ -1,5 +1,8 @@
 SNPC (Special Conversation NPC)
 
 Variable 2: Actor Sprite
+3 = Sweetie
+4 = Sweetie (Rescued)
 5 = Old Man
 6 = Iris
+7 = Red And Blue Girl

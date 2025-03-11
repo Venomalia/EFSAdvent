@@ -1722,6 +1722,10 @@ namespace EFSAdvent
             string type;
             switch (actor.Name)
             {
+                case "SNPC":
+                case "JIJI":
+                    type = $"{actor.Variable2 & 0x7F}";
+                    break;
                 case "DOOR":
                     int doorType = actor.Variable4 & 0x7F;
                     if (doorType == 5 || doorType == 7)
