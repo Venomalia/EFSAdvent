@@ -355,6 +355,7 @@ namespace EFSAdvent
             if (ShowSaveChangesDialog(_level.Map.IsShadowBattle))
                 return;
 
+            actorAttributesgroupBox.Enabled = false;
             byte newRoomNumber = newRoom ? (_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value) ? (byte)_level.GetNextFreeRoom() : (byte)MapRoomNumberInput.Value) : (byte)MapRoomNumberInput.Value;
             if (_level.LoadRoom(newRoomNumber, newRoom))
             {
@@ -872,7 +873,7 @@ namespace EFSAdvent
                         if (isVisible && actor.XCoord == lastActorCoordinates.x && actor.YCoord == lastActorCoordinates.y)
                         {
                             actorMouseDownOnIndex = i;
-                            actorsCheckListBox.SelectedIndex = i;
+                            SelectedActor(i);
                             return;
                         }
                     }
@@ -1614,15 +1615,7 @@ namespace EFSAdvent
 
         private void actorsCheckListBox_Click(object sender, EventArgs e)
         {
-            if (actorsCheckListBox.SelectedIndex == -1)
-            {
-                return;
-            }
-
-            if (!actorsCheckListBox.GetItemChecked(actorsCheckListBox.SelectedIndex))
-            {
-                actorsCheckListBox.SetItemChecked(actorsCheckListBox.SelectedIndex, true);
-            }
+            SelectedActor(actorsCheckListBox.SelectedIndex);
         }
 
         private void UpdateActorPackedVariables()
@@ -1725,6 +1718,9 @@ namespace EFSAdvent
                 case "SNPC":
                 case "JIJI":
                     type = $"{actor.Variable2 & 0x7F}";
+                    break;
+                case "BRRY":
+                    type = $"{actor.Variable2 & 0x7F}_{actor.Variable4 & 0x7F}";
                     break;
                 case "DOOR":
                     int doorType = actor.Variable4 & 0x7F;
@@ -2074,8 +2070,23 @@ namespace EFSAdvent
         private void SelectedActor(Actor actor)
         {
             int index = _level.Room.IndexOf(actor);
-            actorsCheckListBox.SetItemChecked(index, true);
-            actorsCheckListBox.SelectedIndex = index;
+            SelectedActor(index);
+        }
+
+        private void SelectedActor(int index)
+        {
+            if (index < 0)
+            {
+                actorsCheckListBox.SelectedIndex = -1;
+                actorAttributesgroupBox.Enabled = false;
+            }
+            else
+            {
+                actorsCheckListBox.SetItemChecked(index, true);
+                actorsCheckListBox.SelectedIndex = index;
+                actorAttributesgroupBox.Enabled = true;
+            }
+            UpdateView();
         }
 
         private bool IsSelectedActor(Actor actor)

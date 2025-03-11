@@ -50,11 +50,15 @@ namespace EFSAdvent
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ExportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.levelAsArcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.roomAstsxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.viewAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mapAndAAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ImportRoomFromTmx = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.roomImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actorsImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -65,6 +69,7 @@ namespace EFSAdvent
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.displayOverlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textureFilterModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bilinearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,7 +126,7 @@ namespace EFSAdvent
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonActorsSelectNone = new System.Windows.Forms.Button();
             this.actorLayerComboBox = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.actorAttributesgroupBox = new System.Windows.Forms.GroupBox();
             this.VariablesTabControl = new System.Windows.Forms.TabControl();
             this.Variables4TabPage = new System.Windows.Forms.TabPage();
             this.label_V4_4 = new System.Windows.Forms.Label();
@@ -196,11 +201,6 @@ namespace EFSAdvent
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mapAndAAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -226,7 +226,7 @@ namespace EFSAdvent
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).BeginInit();
             this.tabPage1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.actorAttributesgroupBox.SuspendLayout();
             this.VariablesTabControl.SuspendLayout();
             this.Variables4TabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1Input)).BeginInit();
@@ -459,6 +459,11 @@ namespace EFSAdvent
             this.levelAsArcToolStripMenuItem.ToolTipText = "Export as FSA Level Archive.";
             this.levelAsArcToolStripMenuItem.Click += new System.EventHandler(this.ExportLevel);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(199, 6);
+            // 
             // roomAstsxToolStripMenuItem
             // 
             this.roomAstsxToolStripMenuItem.Name = "roomAstsxToolStripMenuItem";
@@ -466,6 +471,11 @@ namespace EFSAdvent
             this.roomAstsxToolStripMenuItem.Text = "Room as .tmx";
             this.roomAstsxToolStripMenuItem.ToolTipText = "Export as Tiled map files.";
             this.roomAstsxToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomAsTmx_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
             // 
             // viewAspngToolStripMenuItem
             // 
@@ -480,6 +490,13 @@ namespace EFSAdvent
             this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.mapAspngToolStripMenuItem.Text = "Map as .png";
             this.mapAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
+            // 
+            // mapAndAAspngToolStripMenuItem
+            // 
+            this.mapAndAAspngToolStripMenuItem.Name = "mapAndAAspngToolStripMenuItem";
+            this.mapAndAAspngToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.mapAndAAspngToolStripMenuItem.Text = "Map and Actors as .png ";
+            this.mapAndAAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
             // 
             // importToolStripMenuItem
             // 
@@ -496,15 +513,20 @@ namespace EFSAdvent
             // ImportRoomFromTmx
             // 
             this.ImportRoomFromTmx.Name = "ImportRoomFromTmx";
-            this.ImportRoomFromTmx.Size = new System.Drawing.Size(180, 22);
+            this.ImportRoomFromTmx.Size = new System.Drawing.Size(162, 22);
             this.ImportRoomFromTmx.Text = "Room from .tmx";
             this.ImportRoomFromTmx.ToolTipText = "Import from Tiled map files";
             this.ImportRoomFromTmx.Click += new System.EventHandler(this.ImportRoomFromTmx_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(159, 6);
+            // 
             // roomImportToolStripMenuItem
             // 
             this.roomImportToolStripMenuItem.Name = "roomImportToolStripMenuItem";
-            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.roomImportToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.roomImportToolStripMenuItem.Text = "Room";
             this.roomImportToolStripMenuItem.ToolTipText = "Imports a room from another map file.";
             this.roomImportToolStripMenuItem.Click += new System.EventHandler(this.roomImportToolStripMenuItem_Click);
@@ -512,7 +534,7 @@ namespace EFSAdvent
             // actorsImportToolStripMenuItem
             // 
             this.actorsImportToolStripMenuItem.Name = "actorsImportToolStripMenuItem";
-            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.actorsImportToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.actorsImportToolStripMenuItem.Text = "Actors";
             this.actorsImportToolStripMenuItem.ToolTipText = "Imports actors from another room file to the current room.";
             this.actorsImportToolStripMenuItem.Click += new System.EventHandler(this.actorsImportToolStripMenuItem_Click);
@@ -570,16 +592,21 @@ namespace EFSAdvent
             // xSizeToolStripMenuItem
             // 
             this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
-            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.xSizeToolStripMenuItem.Text = "1x size";
             this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.oneXSizeToolStripMenuItem_Click);
             // 
             // xSizeToolStripMenuItem1
             // 
             this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
-            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
             this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(150, 6);
             // 
             // displayOverlayToolStripMenuItem
             // 
@@ -587,7 +614,7 @@ namespace EFSAdvent
             this.displayOverlayToolStripMenuItem.CheckOnClick = true;
             this.displayOverlayToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.displayOverlayToolStripMenuItem.Name = "displayOverlayToolStripMenuItem";
-            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.displayOverlayToolStripMenuItem.Text = "Display overlay";
             this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
             // 
@@ -598,7 +625,7 @@ namespace EFSAdvent
             this.bicubicToolStripMenuItem,
             this.nearestNeighborToolStripMenuItem});
             this.textureFilterModeToolStripMenuItem.Name = "textureFilterModeToolStripMenuItem";
-            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.textureFilterModeToolStripMenuItem.Text = "Filter mode";
             // 
             // bilinearToolStripMenuItem
@@ -630,7 +657,7 @@ namespace EFSAdvent
             this.autoSelectToolStripMenuItem,
             this.alwaysShowActorsToolStripMenuItem});
             this.actorsToolStripMenuItem.Name = "actorsToolStripMenuItem";
-            this.actorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.actorsToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.actorsToolStripMenuItem.Text = "Actors";
             // 
             // autoSelectToolStripMenuItem
@@ -639,7 +666,7 @@ namespace EFSAdvent
             this.autoSelectToolStripMenuItem.CheckOnClick = true;
             this.autoSelectToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.autoSelectToolStripMenuItem.Name = "autoSelectToolStripMenuItem";
-            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.autoSelectToolStripMenuItem.Text = "Auto select";
             this.autoSelectToolStripMenuItem.ToolTipText = "Auto load actor on room change.";
             // 
@@ -647,7 +674,7 @@ namespace EFSAdvent
             // 
             this.alwaysShowActorsToolStripMenuItem.CheckOnClick = true;
             this.alwaysShowActorsToolStripMenuItem.Name = "alwaysShowActorsToolStripMenuItem";
-            this.alwaysShowActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alwaysShowActorsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.alwaysShowActorsToolStripMenuItem.Text = "Show Always";
             this.alwaysShowActorsToolStripMenuItem.ToolTipText = "Displays actors regardless of the current layer.";
             this.alwaysShowActorsToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
@@ -1230,7 +1257,7 @@ namespace EFSAdvent
             // 
             this.tabPage1.Controls.Add(this.buttonActorsSelectNone);
             this.tabPage1.Controls.Add(this.actorLayerComboBox);
-            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.actorAttributesgroupBox);
             this.tabPage1.Controls.Add(this.actorsCheckListBox);
             this.tabPage1.Controls.Add(this.actorInfoBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -1303,22 +1330,23 @@ namespace EFSAdvent
             this.actorLayerComboBox.TabIndex = 0;
             this.actorLayerComboBox.SelectionChangeCommitted += new System.EventHandler(this.actorLayerComboBox_SelectionChangeCommitted);
             // 
-            // groupBox2
+            // actorAttributesgroupBox
             // 
-            this.groupBox2.Controls.Add(this.VariablesTabControl);
-            this.groupBox2.Controls.Add(this.groupBoxCoridinate);
-            this.groupBox2.Controls.Add(this.cloneButton);
-            this.groupBox2.Controls.Add(this.actorDeleteButton);
-            this.groupBox2.Controls.Add(this.ActorLayerInput);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.ActorNameComboBox);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(87, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(180, 291);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Actor Attributes";
+            this.actorAttributesgroupBox.Controls.Add(this.VariablesTabControl);
+            this.actorAttributesgroupBox.Controls.Add(this.groupBoxCoridinate);
+            this.actorAttributesgroupBox.Controls.Add(this.cloneButton);
+            this.actorAttributesgroupBox.Controls.Add(this.actorDeleteButton);
+            this.actorAttributesgroupBox.Controls.Add(this.ActorLayerInput);
+            this.actorAttributesgroupBox.Controls.Add(this.label12);
+            this.actorAttributesgroupBox.Controls.Add(this.ActorNameComboBox);
+            this.actorAttributesgroupBox.Controls.Add(this.label6);
+            this.actorAttributesgroupBox.Enabled = false;
+            this.actorAttributesgroupBox.Location = new System.Drawing.Point(87, 6);
+            this.actorAttributesgroupBox.Name = "actorAttributesgroupBox";
+            this.actorAttributesgroupBox.Size = new System.Drawing.Size(180, 291);
+            this.actorAttributesgroupBox.TabIndex = 5;
+            this.actorAttributesgroupBox.TabStop = false;
+            this.actorAttributesgroupBox.Text = "Actor Attributes";
             // 
             // VariablesTabControl
             // 
@@ -2181,33 +2209,6 @@ namespace EFSAdvent
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // mapAndToolStripMenuItem
-            // 
-            this.mapAndAAspngToolStripMenuItem.Name = "mapAndToolStripMenuItem";
-            this.mapAndAAspngToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.mapAndAAspngToolStripMenuItem.Text = "Map and Actors as .png ";
-            this.mapAndAAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(199, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2256,8 +2257,8 @@ namespace EFSAdvent
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.actorAttributesgroupBox.ResumeLayout(false);
+            this.actorAttributesgroupBox.PerformLayout();
             this.VariablesTabControl.ResumeLayout(false);
             this.Variables4TabPage.ResumeLayout(false);
             this.Variables4TabPage.PerformLayout();
@@ -2343,7 +2344,7 @@ namespace EFSAdvent
         private System.Windows.Forms.ToolTip ActorAttributesTip;
         private System.Windows.Forms.CheckedListBox actorsCheckListBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox actorAttributesgroupBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label_V4_2;
