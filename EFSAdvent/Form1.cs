@@ -1733,6 +1733,9 @@ namespace EFSAdvent
                     else
                         type = $"{(actor.Variable3 & 0xf) << 1 | actor.Variable4 >> 7}_{actor.Variable3 >> 4}";
                     break;
+                case "RBPN":
+                    type = $"{(actor.Variable3 & 0xf) << 1 | actor.Variable4 >> 7}";
+                    break;
                 default:
                     type = $"{actor.Variable4 & 0x7F}";
                     break;
