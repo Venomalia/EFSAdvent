@@ -40,5 +40,15 @@ namespace EFSAdvent
             Colors[Items[index]] = color;
         }
 
+        public Color GetItemColor(int index)
+        {
+            if (index < 0 || index >= Items.Count)
+            {
+                throw new ArgumentOutOfRangeException("index");
+            }
+
+            return Colors[Items[index]];
+        }
+
     }
 }

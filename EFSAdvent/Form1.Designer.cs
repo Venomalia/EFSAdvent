@@ -56,6 +56,7 @@ namespace EFSAdvent
             this.viewAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapAndAAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allRoomsAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ImportRoomFromTmx = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -201,6 +202,7 @@ namespace EFSAdvent
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.allRoomsAndActorsAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -446,7 +448,9 @@ namespace EFSAdvent
             this.toolStripSeparator3,
             this.viewAspngToolStripMenuItem,
             this.mapAspngToolStripMenuItem,
-            this.mapAndAAspngToolStripMenuItem});
+            this.mapAndAAspngToolStripMenuItem,
+            this.allRoomsAspngToolStripMenuItem,
+            this.allRoomsAndActorsAspngToolStripMenuItem});
             this.ExportMenuItem.Enabled = false;
             this.ExportMenuItem.Name = "ExportMenuItem";
             this.ExportMenuItem.Size = new System.Drawing.Size(249, 22);
@@ -455,7 +459,7 @@ namespace EFSAdvent
             // levelAsArcToolStripMenuItem
             // 
             this.levelAsArcToolStripMenuItem.Name = "levelAsArcToolStripMenuItem";
-            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.levelAsArcToolStripMenuItem.Text = "Level as .arc";
             this.levelAsArcToolStripMenuItem.ToolTipText = "Export as FSA Level Archive.";
             this.levelAsArcToolStripMenuItem.Click += new System.EventHandler(this.ExportLevel);
@@ -463,12 +467,12 @@ namespace EFSAdvent
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(226, 6);
             // 
             // roomAstsxToolStripMenuItem
             // 
             this.roomAstsxToolStripMenuItem.Name = "roomAstsxToolStripMenuItem";
-            this.roomAstsxToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.roomAstsxToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.roomAstsxToolStripMenuItem.Text = "Room as .tmx";
             this.roomAstsxToolStripMenuItem.ToolTipText = "Export as Tiled map files.";
             this.roomAstsxToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomAsTmx_Click);
@@ -476,28 +480,35 @@ namespace EFSAdvent
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
             // 
             // viewAspngToolStripMenuItem
             // 
             this.viewAspngToolStripMenuItem.Name = "viewAspngToolStripMenuItem";
-            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.viewAspngToolStripMenuItem.Text = "View as .png";
             this.viewAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportViewAsPng);
             // 
             // mapAspngToolStripMenuItem
             // 
             this.mapAspngToolStripMenuItem.Name = "mapAspngToolStripMenuItem";
-            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.mapAspngToolStripMenuItem.Text = "Map as .png";
             this.mapAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
             // 
             // mapAndAAspngToolStripMenuItem
             // 
             this.mapAndAAspngToolStripMenuItem.Name = "mapAndAAspngToolStripMenuItem";
-            this.mapAndAAspngToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.mapAndAAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.mapAndAAspngToolStripMenuItem.Text = "Map and Actors as .png ";
             this.mapAndAAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
+            // 
+            // allRoomsAspngToolStripMenuItem
+            // 
+            this.allRoomsAspngToolStripMenuItem.Name = "allRoomsAspngToolStripMenuItem";
+            this.allRoomsAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.allRoomsAspngToolStripMenuItem.Text = "All Rooms as .png";
+            this.allRoomsAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomsAsPng);
             // 
             // importToolStripMenuItem
             // 
@@ -2210,6 +2221,13 @@ namespace EFSAdvent
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // allRoomsAndActorsAspngToolStripMenuItem
+            // 
+            this.allRoomsAndActorsAspngToolStripMenuItem.Name = "allRoomsAndActorsAspngToolStripMenuItem";
+            this.allRoomsAndActorsAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.allRoomsAndActorsAspngToolStripMenuItem.Text = "All Rooms and Actors as .png";
+            this.allRoomsAndActorsAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomsAsPng);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2479,6 +2497,8 @@ namespace EFSAdvent
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripSeparator toolStripSeparator6;
+        private ToolStripMenuItem allRoomsAspngToolStripMenuItem;
+        private ToolStripMenuItem allRoomsAndActorsAspngToolStripMenuItem;
     }
 }
 

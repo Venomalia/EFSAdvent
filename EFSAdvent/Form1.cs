@@ -1327,6 +1327,68 @@ namespace EFSAdvent
             }
         }
 
+        private void ExportRoomsAsPng(object sender, EventArgs e)
+        {
+            if (ShowSaveChangesDialog())
+                return;
+
+            using (var folderDialog = new FolderBrowserDialog())
+            {
+                folderDialog.Description = "Select a save location for the images.";
+                folderDialog.ShowNewFolderButton = true;
+
+                if (folderDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                bool autoLoadActors = autoSelectToolStripMenuItem.Checked;
+                bool overlay = displayOverlayToolStripMenuItem.Checked;
+                byte lastRoom = currentRoomNumber;
+                autoSelectToolStripMenuItem.Checked = sender is ToolStripItem csender && csender.Name == "allRoomsAndActorsAspngToolStripMenuItem";
+                displayOverlayToolStripMenuItem.Checked = false;
+
+                for (int room = 0; room < byte.MaxValue; room++)
+                {
+                    if (_level.RoomExists((byte)room))
+                    {
+                        MapRoomNumberInput.Value = room;
+                        LoadRoom(false);
+                        string baseFileName = $"boss{_level.Map.Number}_room{currentRoomNumber}";
+
+                        for (int layer = 0; layer < 8; layer++)
+                        {
+                            if (layersCheckList.GetItemColor(layer) == Color.Black)
+                            {
+                                layersCheckList.SetItemChecked(layer, true);
+                                layersCheckList.SetItemChecked(layer + 8, true);
+
+                                UpdateView();
+                                string path = Path.Combine(folderDialog.SelectedPath, $"{baseFileName}_layer{layer}.png");
+                                if (layer == 0)
+                                {
+                                    using (Bitmap baselayer = roomLayerBitmap.Clone(new Rectangle(0,0,512,384), roomLayerBitmap.PixelFormat))
+                                    {
+                                        baselayer.Save(path, System.Drawing.Imaging.ImageFormat.Png);
+                                    }
+                                }
+                                else
+                                {
+                                    roomLayerBitmap.Save(path, System.Drawing.Imaging.ImageFormat.Png);
+                                }
+
+                                layersCheckList.SetItemChecked(layer, false);
+                                layersCheckList.SetItemChecked(layer + 8, false);
+                            }
+                        }
+                    }
+                }
+
+                MapRoomNumberInput.Value = currentRoomNumber = lastRoom;
+                autoSelectToolStripMenuItem.Checked = autoLoadActors;
+                displayOverlayToolStripMenuItem.Checked = overlay;
+                LoadRoom(false);
+            }
+        }
+
         private void EnsureAllLayersAreEncoded(string path)
         {
             string layersPath = Path.Combine(path, "szs", $"m{_level.Map.Number}");
