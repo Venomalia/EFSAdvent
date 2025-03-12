@@ -926,9 +926,9 @@ namespace EFSAdvent
             if (!layerPosition.HasValue)
                 layerPosition = -1;
 
-            if (tabControl.SelectedTab.TabIndex == 2)
+            if (tabControl.SelectedTab.TabIndex != 1)
             {
-                if (e.Delta < 0 && layerPosition != 15 && layerPosition != 7) // up
+                if (e.Delta < 0) // up
                 {
                     if (layerPosition == -1)
                     {
@@ -937,10 +937,17 @@ namespace EFSAdvent
                     }
                     else
                     {
-                        layerPosition++;
+                        layerPosition %= 8;
+                        do
+                        {
+                            layerPosition++;
+                            if (layerPosition == 8)
+                                return;
+                        } while (layersCheckList.GetItemColor(layerPosition.Value) == Color.Gray);
+
                         layersCheckList.SetItemChecked(layerPosition.Value, true);
 
-                        layerPosition = layerPosition < 8 ? layerPosition + 8 : layerPosition % 8;
+                        layerPosition += 8;
                         if (!layersCheckList.GetItemChecked(layerPosition.Value))
                             layersCheckList.SetItemChecked(layerPosition.Value, true);
                     }
@@ -952,10 +959,13 @@ namespace EFSAdvent
                     if (layersCheckList.GetItemChecked(layerPosition.Value))
                         layersCheckList.SetItemChecked(layerPosition.Value, false);
 
-                    if (layerPosition == 0)
-                        return;
+                    do
+                    {
+                        layerPosition--;
+                        if (layerPosition == 0)
+                            return;
+                    } while (layersCheckList.GetItemColor(layerPosition.Value) == Color.Gray);
 
-                    layerPosition--;
                     if (!layersCheckList.GetItemChecked(layerPosition.Value))
                         layersCheckList.SetItemChecked(layerPosition.Value, true);
                     layerPosition += 8;
@@ -1365,7 +1375,7 @@ namespace EFSAdvent
                                 string path = Path.Combine(folderDialog.SelectedPath, $"{baseFileName}_layer{layer}.png");
                                 if (layer == 0)
                                 {
-                                    using (Bitmap baselayer = roomLayerBitmap.Clone(new Rectangle(0,0,512,384), roomLayerBitmap.PixelFormat))
+                                    using (Bitmap baselayer = roomLayerBitmap.Clone(new Rectangle(0, 0, 512, 384), roomLayerBitmap.PixelFormat))
                                     {
                                         baselayer.Save(path, System.Drawing.Imaging.ImageFormat.Png);
                                     }
