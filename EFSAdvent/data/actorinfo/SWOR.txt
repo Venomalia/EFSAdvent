@@ -10,5 +10,13 @@ A local variable number that is checked by this actor.
 Variable 3:
 A local variable number that is checked by this actor.
 
+Variable 4:
+A local variable number that is checked by this actor.
+
+Variable 5:
+A local variable number that is checked by this actor.
+
+Variable 6:
+4 = ? Triggers when v2, v3, v4 or v5 is used.
 Packed data is composed as follows:
 11111222 22333334 44445555 56666666

@@ -3,9 +3,21 @@ FBMR (Rotating fireball (Manager)) No GBA sprite
 Variable 1a:
 Change of direction by variable X?
 
+Variable 1b:
+0 =?
+2 =?
+
 Variable 2:
 0 = counterclockwise
 1 = clockwise
+34 = ?
+
+Variable 2:
+Start position:
+0 = 0°
+1 = 180°
+2 = 90°
+3 = 270°
 
 Variable 4:
 Number of flames on each side

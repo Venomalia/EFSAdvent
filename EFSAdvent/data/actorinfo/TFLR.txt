@@ -1,1 +1,13 @@
 TFLR (Trapdoor floor)
+
+Variable 1a:
+The local variable number that triggers or activates this actor.
+
+Variable 1b:
+1 = ?
+
+Variable 3:
+1 = ?
+
+Variable 4:
+6 = ?

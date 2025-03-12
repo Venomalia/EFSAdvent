@@ -1,6 +1,5 @@
-SZSC (Zelda scroll prohibited NPC)
-
-Can't leave area
+SZSC (Room Scroll Blockade)
+Prevents the player from leaving the room until the locale variable defined in 1a is set.
 
 Variable 1:
 Switched off by variable X

@@ -1,8 +1,9 @@
 BLZ2 (indelible flame) No GBA sprite
 
 Variable 1:
-Extinguished by variable X
+Local variable that triggers this actor.
 
 Variable 4:
 option
-2 = 
+2 = Extinguished by Variable 1:
+19 = Activates flame by Variable 1:

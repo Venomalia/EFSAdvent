@@ -1,5 +1,10 @@
 BBSL (Giant Bomb Shadowlink) No GBA sprite
 
+Variable 1a:
+Local variable that triggers this actor.
+
+Variable 1a:
+2 = ?
 life: 1
 atcp: 0
 atcn: 0

@@ -10,6 +10,7 @@ Jet Flame;FLME, L:0, X:0, Y:0, V:0,0,0,0.
 Item Stand;SWNP, L:0, X:0, Y:0, V:12,0,192,2.
 Movable Block;BLCK, L:0, X:0, Y:0, V:0,0,12,1.
 Movable 6x6 Platform;LIFT, L:0, X:0, Y:0, V:0,16,0,6.
+Icicle;ICCL, L:0, X:0, Y:0, V:0,0,0,0.
 Cloud Platform;CLOD, L:0, X:0, Y:0, V:0,0,0,0.
 Lily Pad;LOTS, L:0, X:0, Y:0, V:0,0,0,2.
 Lily Pad Zora;LTZR, L:0, X:0, Y:0, V:0,0,0,0.

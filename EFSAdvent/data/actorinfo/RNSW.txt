@@ -1,1 +1,20 @@
 RNSW (random switch)
+
+Variable 1:
+The local variable number that triggers or activates this actor.
+
+Variable 2:
+A local variable number that can by set by this actor.
+
+Variable 3:
+A local variable number that is can by set by this actor.
+
+Variable 4:
+A local variable number that is can by set by this actor.
+
+Variable 5:
+A local variable number that is can by set by this actor.
+
+Variable 6:
+60 = ms Time?
+

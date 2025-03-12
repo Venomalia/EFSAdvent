@@ -8,6 +8,7 @@ Floor Block Switch;RDBL, L:0, X:0, Y:0, V:0,0,0,0.
 Candle Check Switch;LWSW, L:0, X:0, Y:0, V:8,0,0,0.
 Chain Pull Switch;PSWK, L:0, X:0, Y:0, V:8,0,0,0.
 BTI Pull Switch;PSWB, L:0, X:0, Y:0, V:8,0,0,0.
+
 Enemy Annihilation Switch; ZNSW, L:0, X:0, Y:0, V:1,0,0,0.
 Number Of Enemy Annihilation Switch;SKIL, L:0, X:0, Y:0, V:8,0,0,3.
 Thwomp Switch;DOSN, L:0, X:0, Y:0, V:8,0,0,0.
