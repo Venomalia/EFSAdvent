@@ -1499,10 +1499,10 @@ namespace EFSAdvent
                 foreach (var tile in action.Tiles)
                 {
                     _level.Room.SetLayerTile(action.Layer, tile.x, tile.y, tile.oldValue);
-                    UpdateLayerCheckListColor(action.Layer);
-                    buttonSaveLayers.Enabled = true;
                 }
-                UpdateView();
+                UpdateLayerCheckListColor(action.Layer);
+                buttonSaveLayers.Enabled = true;
+                UpdateView(action.Layer);
             }
         }
 
@@ -1513,10 +1513,10 @@ namespace EFSAdvent
                 foreach (var tile in action.Tiles)
                 {
                     _level.Room.SetLayerTile(action.Layer, tile.x, tile.y, tile.oldValue);
-                    UpdateLayerCheckListColor(action.Layer);
-                    buttonSaveLayers.Enabled = true;
                 }
-                UpdateView();
+                UpdateLayerCheckListColor(action.Layer);
+                buttonSaveLayers.Enabled = true;
+                UpdateView(action.Layer);
             }
         }
 
