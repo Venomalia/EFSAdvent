@@ -1877,6 +1877,12 @@ namespace EFSAdvent
                 case "STBL":
                     type = $"{actor.Variable3 & 0x7F}";
                     break;
+                case "BLCK":
+                    type = $"{actor.Variable4 & 0x3}";
+                    break;
+                case "BCK2":
+                    type = $"{(actor.Variable4 >> 2) & 7}";
+                    break;
                 default:
                     type = $"{actor.Variable4 & 0x7F}";
                     break;
