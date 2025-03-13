@@ -15,7 +15,7 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.8";
+        private const string VERSION = "1.9";
         private const string BaseTitel = "EFSAdvent " + VERSION + " [Venomalia]";
         private const string WikiUrl = "https://github.com/Venomalia/EFSAdvent/wiki";
         private const string SourceCodeUrl = "https://github.com/Venomalia/EFSAdvent";
