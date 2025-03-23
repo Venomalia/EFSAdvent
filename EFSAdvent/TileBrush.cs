@@ -38,7 +38,7 @@ namespace EFSAdvent
             Width = selection.Width;
             Height = selection.Height;
 
-            ushort? tile = level.Room.GetLayerTile(layer, selection.X, selection.Y);
+            ushort? tile = level.Room.Layers[layer][selection.X, selection.Y];
             if (tile.HasValue)
             {
                 TileValue = tile.Value;
@@ -50,7 +50,7 @@ namespace EFSAdvent
                 {
                     for (int x = selection.X; x < selection.X + selection.Width; x++)
                     {
-                        tile = level.Room.GetLayerTile(layer, x, y);
+                        tile = level.Room.Layers[layer][x, y];
                         if (tile.HasValue)
                         {
                             _clipboardTiles.Add(new ClipboardTile(x - selection.X, y - selection.Y, tile.Value));
@@ -82,7 +82,7 @@ namespace EFSAdvent
                 {
                     for (int x = posX; x < posX + Width; x++)
                     {
-                        level.Room.SetLayerTile(layer, x, y, TileValue);
+                        level.Room.Layers[layer][x, y] = TileValue;
                     }
                 }
                 return true;
@@ -96,7 +96,7 @@ namespace EFSAdvent
             {
                 foreach (ClipboardTile tile in _clipboardTiles)
                 {
-                    level.Room.SetLayerTile(layer, tile.xOffset + posX, tile.yOffset + posY, tile.value);
+                    level.Room.Layers[layer][tile.xOffset + posX, tile.yOffset + posY] = tile.value;
                 }
                 return true;
             }
@@ -112,14 +112,11 @@ namespace EFSAdvent
 
             foreach (var tile in _clipboardTiles)
             {
-                var currentTile = level.Room.GetLayerTile(layer, tile.xOffset + x, tile.yOffset + y);
-                if (currentTile.HasValue)
-                {
-                    tileChanged |= currentTile != tile.value;
-                    coordinates.Add((tile.xOffset + x, tile.yOffset + y));
-                    oldValues.Add(currentTile.Value);
-                    newValues.Add(tile.value);
-                }
+                var currentTile = level.Room.Layers[layer][tile.xOffset + x, tile.yOffset + y];
+                tileChanged |= currentTile != tile.value;
+                coordinates.Add((tile.xOffset + x, tile.yOffset + y));
+                oldValues.Add(currentTile);
+                newValues.Add(tile.value);
             }
 
             if (!tileChanged)
@@ -142,14 +139,11 @@ namespace EFSAdvent
             {
                 for (int testX = x; testX < x + Width; testX++)
                 {
-                    var currentTile = level.Room.GetLayerTile(layer, testX, testY);
-                    if (currentTile.HasValue)
-                    {
-                        tileChanged |= currentTile != TileValue;
-                        coordinates.Add((testX, testY));
-                        oldValues.Add(currentTile.Value);
-                        newValues.Add(TileValue);
-                    }
+                    var currentTile = level.Room.Layers[layer][testX, testY];
+                    tileChanged |= currentTile != TileValue;
+                    coordinates.Add((testX, testY));
+                    oldValues.Add(currentTile);
+                    newValues.Add(TileValue);
                 }
             }
 
