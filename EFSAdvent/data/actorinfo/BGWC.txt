@@ -1,1 +1,0 @@
-BGWC (BG rewriting check switch)

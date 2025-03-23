@@ -1,9 +1,0 @@
-ROPE (Rope) No GBA sprite
-
-life: 8
-atcp: 2
-atcn: 0
-dstr: 1
-dasu: 4
-efsz: 1
-voic: 0

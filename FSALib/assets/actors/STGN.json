@@ -1,0 +1,15 @@
+{
+  "name": "Stage Information NPC",
+  "description": "",
+  "InternalName": "Stage情報NPC",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Type",
+      "description": "",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

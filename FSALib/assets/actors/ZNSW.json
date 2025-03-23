@@ -1,0 +1,36 @@
+{
+  "name": "Enemy Annihilation Switch",
+  "description": "",
+  "InternalName": "敵全滅チェックスィッチ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Enabled Variable",
+      "description": "The local variable number that enables or triggers this actor when all enemies are defeated.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Additional Variable 1",
+      "description": "An additional variable for unspecified conditions.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Additional Variable 2",
+      "description": "Another variable for additional conditions or settings.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Additional Variable 3",
+      "description": "Another variable for additional conditions or settings.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

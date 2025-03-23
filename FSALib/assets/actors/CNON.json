@@ -1,0 +1,39 @@
+{
+  "name": "Flying Cannon",
+  "description": "A flying cannon that moves vertically and is triggered by a local variable.",
+  "InternalName": "大砲",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor. (0 = always active)",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Vertical Movement Width",
+      "description": "The width of the vertical movement of the cannon.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Movement Behavior",
+      "description": "Defines when the cannon starts moving.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "The cannon starts moving immediately."
+        },
+        "1": {
+          "name": "Only after first use",
+          "description": "The cannon starts moving only after it has been used once."
+        }
+      }
+    }
+  ]
+}

@@ -1,9 +1,0 @@
-TRCH (Torch)
-
-Variable 1:
-Lights up by variable X
-
-Variable 4:
-0 = On
-1 = Off
-4 = ?

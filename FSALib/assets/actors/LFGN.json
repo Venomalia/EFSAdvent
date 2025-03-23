@@ -1,0 +1,7 @@
+{
+  "name": "NPC generator for leaf effect generation",
+  "description": "",
+  "InternalName": "葉っぱエフェクト生成用ＮＰＣジェネレータ",
+  "category": "Intern",
+  "NoGBASprite": true
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Focus",
+  "description": "Focuses an area on the TV when active.",
+  "InternalName": "フォーカスＮＰＣ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Focus Variable",
+      "description": "The variable that is set as soon as in focus.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "The variable that causes the area to be focused.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

@@ -1,8 +1,0 @@
-RCK3 (1-1 Rocks dropped into the river) No GBA sprite
-
-Variable 4:
-Move to
-0 = East
-1 = West
-2 = South
-3 = North

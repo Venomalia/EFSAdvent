@@ -1,0 +1,63 @@
+{
+  "name": "Iron jar",
+  "description": "",
+  "InternalName": "鉄壺",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Iron Jar Index",
+      "description": "The index of the bomb.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Direction",
+      "description": "The direction the iron jar is facing.",
+      "bitOffset": 0,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "East",
+          "description": "Facing East"
+        },
+        "1": {
+          "name": "West",
+          "description": "Facing West"
+        }
+      }
+    },
+    {
+      "name": "Type",
+      "description": "The type of Iron Jar.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "32": {
+          "name": "Nothing",
+          "description": "The fuse is burning."
+        },
+        "64": {
+          "name": "Bomb Jar",
+          "description": "Explodes in a big explosion.",
+          "Resources": [ "timg/bakudan_left.bti", "timg/bakudan_right.bti", "timg/bakudan_top.bti", "timg/bakudan_under.bti" ]
+        },
+        "128": {
+          "name": "Force Jar",
+          "description": "Explodes in some force crystals.",
+          "Resources": [ "timg/atari_left.bti", "timg/atari_right.bti", "timg/atari_top.bti", "timg/atari_under.bti" ]
+        }
+      }
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 2,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

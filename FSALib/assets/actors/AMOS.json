@@ -1,0 +1,56 @@
+{
+  "name": "Armos Knight",
+  "description": "A statue enemy that comes to life under certain conditions.",
+  "InternalName": "アモス",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Rail ID",
+      "description": "Defines the movement rail ID for the Armos Knight.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Behavior",
+      "description": "Determines how the Armos Knight behaves.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "1": {
+          "name": "Fixed",
+          "description": "The Armos Knight stays in place."
+        },
+        "2": {
+          "name": "Pushable",
+          "description": "The Armos Knight can be pushed by the player."
+        },
+        "3": {
+          "name": "Large, Attacks from Behind",
+          "description": "A large Armos Knight that only attacks when approached from behind."
+        },
+        "4": {
+          "name": "Large, Pushable",
+          "description": "A large Armos Knight that can be pushed."
+        },
+        "5": {
+          "name": "Large, Activated",
+          "description": "A large Armos Knight that is activated upon interaction."
+        },
+        "6": {
+          "name": "Default",
+          "description": "The standard behavior for Armos Knights."
+        },
+        "7": {
+          "name": "Large, Fixed",
+          "description": "A large Armos Knight that remains stationary."
+        },
+        "16": {
+          "name": "Unknown",
+          "description": "An unidentified behavior mode."
+        }
+      }
+    }
+  ]
+}

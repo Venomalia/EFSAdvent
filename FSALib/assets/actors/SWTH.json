@@ -1,0 +1,62 @@
+{
+  "name": "Switch",
+  "description": "A one-person switch that triggers events when stepped on.",
+  "InternalName": "スイッチ",
+  "category": "TileObject",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that is triggered or set by this switch.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Horizontal Trigger Area",
+      "description": "Defines the horizontal length of the activation area.",
+      "bitOffset": 16,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Vertical Trigger Area",
+      "description": "Defines the vertical length of the activation area.",
+      "bitOffset": 20,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Switch Behavior",
+      "description": "Determines how the switch behaves after activation.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "The switch is activated normally."
+        },
+        "1": {
+          "name": "Remains Active",
+          "description": "The switch stays activated after being triggered."
+        },
+        "2": {
+          "name": "Two Click Sounds",
+          "description": "The switch makes two click sounds when activated."
+        },
+        "3": {
+          "name": "Two Click Sounds, Remains Active",
+          "description": "The switch makes two click sounds and stays activated."
+        },
+        "4": {
+          "name": "Invisible Trigger",
+          "description": "The switch is invisible but can be activated."
+        },
+        "7": {
+          "name": "Invisible Trigger Area",
+          "description": "The switch is invisible and uses Variable 2 as its range."
+        }
+      }
+    }
+  ]
+}

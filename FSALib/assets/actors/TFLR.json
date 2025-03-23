@@ -1,0 +1,39 @@
+{
+  "name": "Trapdoor Floor",
+  "description": "A floor that can open like a trapdoor when activated.",
+  "InternalName": "仕掛け床",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this trapdoor floor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable 1b",
+      "description": "Unknown purpose.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable 3",
+      "description": "Unknown purpose.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Trapdoor Type",
+      "description": "Defines a specific trapdoor behavior.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "6": { "name": "?", "description": "Unknown effect." }
+      }
+    }
+  ]
+}

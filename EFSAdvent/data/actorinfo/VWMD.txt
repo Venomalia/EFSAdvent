@@ -1,6 +1,0 @@
-VWMD (ViewMode)
-Switches the game to side view.
-
-Variable 3:
-8 = Top view
-16 = Side view

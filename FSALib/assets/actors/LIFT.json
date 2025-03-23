@@ -1,0 +1,35 @@
+{
+  "name": "Movable Lift",
+  "description": "A 6x6 wooden platform that can move in different patterns.",
+  "InternalName": "リフト",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Distance",
+      "description": "The distance the lift moves.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Movement Pattern",
+      "description": "The movement type of the lift.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Rotating",
+          "description": "The lift rotates in place."
+        },
+        "6": { "name": "West", "description": "The lift moves west." },
+        "7": { "name": "North", "description": "The lift moves north." },
+        "8": {
+          "name": "Circular",
+          "description": "The lift moves in a circular pattern."
+        }
+      }
+    }
+  ]
+}

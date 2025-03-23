@@ -1,0 +1,234 @@
+{
+  "name": "Old Man",
+  "description": "An NPC that can represent various characters, such as a fortune teller, Zelda, a thief, or others. The actor changes based on sprite and interaction.",
+  "InternalName": "爺",
+  "category": "NPC",
+  "fields": [
+    {
+      "name": "Actor Sprite",
+      "description": "The sprite associated with the NPC character.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Old man in green shirt",
+          "description": "Standard old man wearing a green shirt."
+        },
+        "1": {
+          "name": "Fortune Teller",
+          "description": "An NPC acting as a fortune teller."
+        },
+        "2": {
+          "name": "Princess Zelda (Glitched GBA sprite)",
+          "description": "Glitched version of Princess Zelda."
+        },
+        "3": {
+          "name": "Man with blue tufty hair (NPC Sheet 8)",
+          "description": "A man with blue tufty hair."
+        },
+        "4": {
+          "name": "Little girl (NPC Sheet 8)",
+          "description": "A little girl character."
+        },
+        "5": {
+          "name": "Woman in blue and red (NPC Sheet 8)",
+          "description": "A woman in blue and red clothing."
+        },
+        "6": {
+          "name": "Fat woman in purple (NPC Sheet 8)",
+          "description": "A fat woman in purple clothing."
+        },
+        "7": {
+          "name": "Zora in water (No GBA sprite)",
+          "description": "Zora character in water with no GBA sprite."
+        },
+        "8": {
+          "name": "Crying boy (NPC Sheet 9)",
+          "description": "A crying young boy."
+        },
+        "9": {
+          "name": "Cowering boy (NPC Sheet 9)",
+          "description": "A frightened young boy."
+        },
+        "10": {
+          "name": "Boy with glasses (NPC Sheet 9)",
+          "description": "A boy with glasses."
+        },
+        "11": { "name": "Goron (NPC Sheet 10)", "description": "A Goron NPC." },
+        "12": {
+          "name": "Goron child (NPC Sheet 10)",
+          "description": "A young Goron child."
+        },
+        "13": {
+          "name": "Deku scrub (NPC Sheet 11 or 14)",
+          "description": "A Deku Scrub NPC."
+        },
+        "14": {
+          "name": "Thief",
+          "description": "An NPC playing the role of a thief."
+        },
+        "15": {
+          "name": "Blonde girl (NPC Sheet 8 or 9)",
+          "description": "A blonde-haired girl."
+        },
+        "16": {
+          "name": "Dampe (NPC Sheet 1)",
+          "description": "Dampe, the gravekeeper NPC."
+        },
+        "17": {
+          "name": "Crying Goron child (No GBA sprite)",
+          "description": "A crying Goron child with no GBA sprite."
+        },
+        "18": {
+          "name": "Ghost old woman (NPC Sheet 1)",
+          "description": "A ghostly old woman with no GBA sprite."
+        },
+        "19": {
+          "name": "Ghost old man (NPC Sheet 1)",
+          "description": "A ghostly old man with no GBA sprite."
+        },
+        "20": {
+          "name": "Ghost child (NPC Sheet 1)",
+          "description": "A ghost child with no GBA sprite."
+        },
+        "22": {
+          "name": "Man with blue tufty hair B (NPC Sheet 8 & 11)",
+          "description": "Alternate version of the blue-haired man."
+        },
+        "23": {
+          "name": "Little girl B (NPC Sheet 8 & 11)",
+          "description": "Alternate version of the little girl."
+        },
+        "24": {
+          "name": "Woman in blue and red B (NPC Sheet 8 & 11)",
+          "description": "Alternate version of the woman in blue and red."
+        },
+        "25": {
+          "name": "Fat woman in blue (NPC Sheet 14, unused)",
+          "description": "An unused NPC."
+        },
+        "26": {
+          "name": "Boy with tears in his eyes (NPC Sheet 11)",
+          "description": "A sad young boy."
+        },
+        "27": {
+          "name": "Cooking woman in green (NPC Sheet 11, unused)",
+          "description": "An unused cooking woman."
+        },
+        "28": {
+          "name": "Gerudo (NPC Sheet 12)",
+          "description": "A Gerudo NPC."
+        },
+        "29": {
+          "name": "Zuna blue (NPC Sheet 12)",
+          "description": "A Zuna NPC dressed in blue."
+        },
+        "30": {
+          "name": "Zuna red (NPC Sheet 12)",
+          "description": "A Zuna NPC dressed in red."
+        },
+        "31": {
+          "name": "Elder (NPC Sheet 12)",
+          "description": "A village elder."
+        },
+        "32": {
+          "name": "Talon (No GBA sprite)",
+          "description": "Talon NPC with no GBA sprite."
+        },
+        "33": { "name": "Malon", "description": "Glitched version of Malon." },
+        "34": {
+          "name": "Thin man with red hair",
+          "description": "A thin man with red hair."
+        },
+        "35": {
+          "name": "Tingle (glitched back-facing sprite)",
+          "description": "Tingle character."
+        },
+        "36": {
+          "name": "Maiden 1 (No GBA sprite)",
+          "description": "First Maiden with no GBA sprite."
+        },
+        "37": {
+          "name": "Maiden 2 (No GBA sprite)",
+          "description": "Second Maiden with no GBA sprite."
+        },
+        "38": {
+          "name": "Maiden 3 (No GBA sprite)",
+          "description": "Third Maiden with no GBA sprite."
+        },
+        "39": {
+          "name": "Maiden 4 (No GBA sprite)",
+          "description": "Fourth Maiden with no GBA sprite."
+        },
+        "40": {
+          "name": "Maiden 5 (No GBA sprite)",
+          "description": "Fifth Maiden with no GBA sprite."
+        },
+        "41": {
+          "name": "Maiden 6 (No GBA sprite)",
+          "description": "Sixth Maiden with no GBA sprite."
+        },
+        "42": { "name": "Old woman", "description": "An old woman character." },
+        "43": {
+          "name": "Leader with eye patch (NPC Sheet 13)",
+          "description": "A leader NPC wearing an eye patch."
+        },
+        "44": {
+          "name": "Secret Agent green (NPC Sheet 13)",
+          "description": "A secret agent dressed in green."
+        },
+        "45": {
+          "name": "Secret Agent red (NPC Sheet 13)",
+          "description": "A secret agent dressed in red."
+        },
+        "46": {
+          "name": "Secret Agent blue (NPC Sheet 13)",
+          "description": "A secret agent dressed in blue."
+        },
+        "47": {
+          "name": "Secret Agent purple (NPC Sheet 13)",
+          "description": "A secret agent dressed in purple."
+        },
+        "48": {
+          "name": "Boy with blue hair (NPC Sheet 13)",
+          "description": "A boy with blue hair."
+        },
+        "49": {
+          "name": "Crouching little girl (NPC Sheet 13)",
+          "description": "A little girl crouching."
+        },
+        "50": {
+          "name": "Blue man (No GBA sprite)",
+          "description": "A blue man with no GBA sprite."
+        },
+        "51": {
+          "name": "Green man (No GBA sprite)",
+          "description": "A green man with no GBA sprite."
+        },
+        "52": {
+          "name": "Green woman (No GBA sprite)",
+          "description": "A green woman with no GBA sprite."
+        },
+        "53": {
+          "name": "Blue woman (No GBA sprite)",
+          "description": "A blue woman with no GBA sprite."
+        }
+      }
+    },
+    {
+      "name": "Text ID",
+      "description": "What text the actor says?",
+      "bitOffset": 0,
+      "bitSize": 16,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "The variable set after the conversation with this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

@@ -1,5 +1,0 @@
-IFCK (Ice Sheet Check NPC)
-Event which is executed when the flor tile is destroyed.
-
-Variable 1a:
-Variable that will be set when this actor is triggered.

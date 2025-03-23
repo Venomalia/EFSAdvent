@@ -1,0 +1,19 @@
+{
+  "name": "Gravestone",
+  "description": "A gravestone that can either be empty or have a hole.",
+  "InternalName": "墓石",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Gravestone State",
+      "description": "The current state of the gravestone.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Empty", "description": "The gravestone is empty." },
+        "1": { "name": "Hole", "description": "The gravestone has a hole." }
+      }
+    }
+  ]
+}

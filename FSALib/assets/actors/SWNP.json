@@ -1,0 +1,101 @@
+{
+  "name": "Switch-Related NPC",
+  "description": "An object related to switches, which can trigger effects, spawn items, or play sounds.",
+  "InternalName": "スィッチ関係ＮＰＣ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "Specifies which local variables are set by this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Special Effect",
+      "description": "Defines any special effects triggered.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "No Special Effect",
+          "description": "No additional effect."
+        },
+        "4": {
+          "name": "Dust Particles",
+          "description": "Dust particles appear when activated."
+        }
+      }
+    },
+    {
+      "name": "Item Stand Configuration",
+      "description": "Defines the item that appears or sound effect that is played.",
+      "bitOffset": 8,
+      "bitSize": 16,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Secret SE/Pegasus Boots",
+          "description": "Item stand contains Pegasus Boots."
+        },
+        "64": {
+          "name": "Lantern",
+          "description": "Item stand contains a Lantern."
+        },
+        "128": {
+          "name": "Boomerang",
+          "description": "Item stand contains a Boomerang."
+        },
+        "192": { "name": "Bow", "description": "Item stand contains a Bow." },
+        "256": {
+          "name": "Hammer",
+          "description": "Item stand contains a Hammer."
+        },
+        "320": {
+          "name": "Fire Rod",
+          "description": "Item stand contains a Fire Rod."
+        },
+        "384": {
+          "name": "Roc's Feather",
+          "description": "Item stand contains Roc's Feather."
+        },
+        "448": { "name": "Bombs", "description": "Item stand contains Bombs." },
+        "512": {
+          "name": "Shovel",
+          "description": "Item stand contains a Shovel."
+        },
+        "1024": { "name": "?", "description": "Unknown sound effect." },
+        "5120": {
+          "name": "Approach SE",
+          "description": "Plays a sound when the player approaches."
+        }
+      }
+    },
+    {
+      "name": "Interaction Type",
+      "description": "Defines the function of this NPC when interacted with.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Chest",
+          "description": "The NPC functions as a chest."
+        },
+        "1": {
+          "name": "Fixed Block",
+          "description": "The NPC is a fixed block."
+        },
+        "2": {
+          "name": "Item Stand",
+          "description": "The NPC serves as an item stand."
+        },
+        "3": {
+          "name": "Play SE",
+          "description": "The NPC plays a sound effect."
+        }
+      }
+    }
+  ]
+}

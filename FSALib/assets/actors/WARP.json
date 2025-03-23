@@ -1,0 +1,193 @@
+{
+  "name": "Warp",
+  "description": "Defines a warp point that transports players to a new position.",
+  "InternalName": "ワープ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Warp Type",
+      "description": "Defines the type of warp and how the player enters the new area.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Walking Up Stairs",
+          "description": "Player walks up stairs."
+        },
+        "1": {
+          "name": "Walking Down Stairs",
+          "description": "Player walks down stairs."
+        },
+        "2": {
+          "name": "Walking Down Stairs",
+          "description": "Player walks down stairs."
+        },
+        "3": {
+          "name": "Walking Up Stairs",
+          "description": "Player walks up stairs."
+        },
+        "4": {
+          "name": "Falling Down Hole",
+          "description": "Player falls into a hole."
+        },
+        "5": {
+          "name": "Sword Raise Smoke",
+          "description": "Link holds sword up and appears in smoke."
+        },
+        "6": {
+          "name": "Magic Circle",
+          "description": "Link spins in a magic circle with light deformation."
+        },
+        "7": {
+          "name": "Falling Down Map (Point)",
+          "description": "Player falls down the map at a specific point."
+        },
+        "8": {
+          "name": "Falling Down Map (Layer)",
+          "description": "Player falls down the map layer."
+        },
+        "9": {
+          "name": "Flickering Hole Fall",
+          "description": "Link falls down a hole with a flickering appearance."
+        },
+        "10": {
+          "name": "Unknown 1",
+          "description": ""
+        },
+        "11": {
+          "name": "Unknown 2",
+          "description": ""
+        },
+        "12": {
+          "name": "Unknown 3",
+          "description": ""
+        },
+        "13": {
+          "name": "Unknown 4",
+          "description": ""
+        },
+        "14": {
+          "name": "Whirlpool",
+          "description": "Water to side view transition via whirlpool."
+        },
+        "15": {
+          "name": "Emerge from Water",
+          "description": "Transition from side view to water surface."
+        },
+        "16": {
+          "name": "Unknown 5",
+          "description": ""
+        },
+        "17": {
+          "name": "Unknown 6",
+          "description": ""
+        },
+        "18": {
+          "name": "Unknown 7",
+          "description": ""
+        },
+        "19": {
+          "name": "Cannon Exit?",
+          "description": "Possibly used for flying cannons?"
+        },
+        "20": {
+          "name": "Unknown 8",
+          "description": ""
+        },
+        "21": {
+          "name": "North Entrance to Side View",
+          "description": "Entrance north changes to side view or side view exit."
+        },
+        "22": {
+          "name": "South Entrance to Side View",
+          "description": "Entrance south changes to side view or side view exit."
+        },
+        "23": {
+          "name": "East Entrance to Side View",
+          "description": "Entrance east changes to side view or side view exit."
+        },
+        "24": {
+          "name": "West Entrance to Side View",
+          "description": "Entrance west changes to side view or side view exit."
+        },
+        "25": {
+          "name": "Default North Entrance",
+          "description": "Default entrance from the north with auto return."
+        },
+        "26": {
+          "name": "Default South Entrance",
+          "description": "Default entrance from the south with auto return."
+        },
+        "27": {
+          "name": "Default East Entrance",
+          "description": "Default entrance from the east with auto return."
+        },
+        "28": {
+          "name": "Default West Entrance",
+          "description": "Default entrance from the west with auto return."
+        },
+        "29": {
+          "name": "Unknown 9",
+          "description": ""
+        },
+        "30": {
+          "name": "Unknown 10",
+          "description": ""
+        },
+        "31": {
+          "name": "Unknown 11",
+          "description": ""
+        },
+        "32": {
+          "name": "Desert Pit",
+          "description": "Player falls into a desert pit."
+        },
+        "33": {
+          "name": "Unknown 12",
+          "description": ""
+        },
+        "34": {
+          "name": "Unknown 13",
+          "description": ""
+        },
+        "35": {
+          "name": "Side View to Top View (North)",
+          "description": "Side view entrance transitioning to top view (north)."
+        },
+        "36": {
+          "name": "Freefall",
+          "description": "Player enters freefall."
+        }
+      }
+    },
+    {
+      "name": "Destination Y",
+      "description": "The Y coordinate where the players arrive.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Destination X",
+      "description": "The X coordinate where the players arrive.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Layer",
+      "description": "The layer where the players arrive.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The local variable that activates this warp. Always active if set to 0.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

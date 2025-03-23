@@ -1,0 +1,49 @@
+{
+  "name": "Thief Cage NPC",
+  "description": "A cage that tracks captured thieves and triggers an event when all required thieves are caught.",
+  "InternalName": "盗賊追い込みNPC",
+  "category": "NPC",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that is triggered or set by this actor when all thieves have been caught.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Value",
+      "description": "Purpose unclear, possibly related to cage behavior.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "2": { "name": "?", "description": "Unknown function." }
+      }
+    },
+    {
+      "name": "Unknown Variable",
+      "description": "Possibly related to special conditions.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "71": { "name": "?", "description": "Unknown function." }
+      }
+    },
+    {
+      "name": "Cage ID",
+      "description": "Identifies the specific thief cage.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Thieves to Catch",
+      "description": "Defines the number of thieves that need to be captured.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

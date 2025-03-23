@@ -1,0 +1,50 @@
+{
+  "name": "Logical Switch Control",
+  "description": "Controls logical operations based on the state of several variables.",
+  "InternalName": "論理スイッチ制御",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Variable that will be set when this actor is triggered",
+      "description": "The local variable that is set when this actor is triggered.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Variable 1 that is checked",
+      "description": "The first local variable that is checked by this actor.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Variable 2 that is checked",
+      "description": "The second local variable that is checked by this actor.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Variable 3 that is checked",
+      "description": "The third local variable that is checked by this actor.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Variable 4 that is checked",
+      "description": "The fourth local variable that is checked by this actor.",
+      "bitOffset": 7,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Logical to use?",
+      "description": "Determines whether the logical condition will be used in the check.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Integer"
+    }
+  ]
+}

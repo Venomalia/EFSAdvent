@@ -1,0 +1,29 @@
+{
+  "name": "Tile Mass Rewriter",
+  "description": "Causes a tile on the entire area to be converted into another tile.",
+  "InternalName": "パネル書換NPC2",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "New Tile Value",
+      "description": "The value of the tile that should replace another.",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Old Tile Value",
+      "description": "The value of the tile to be replaced.",
+      "bitOffset": 12,
+      "bitSize": 12,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The local variable that triggers or activates this tile change.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

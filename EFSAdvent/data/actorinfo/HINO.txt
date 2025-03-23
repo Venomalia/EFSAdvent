@@ -1,9 +1,0 @@
-HINO (Hinox) No GBA sprite
-
-life: 48
-atcp: 2
-atcn: 0
-dstr: 1
-dasu: 5
-efsz: 3
-voic: 8

@@ -1,3 +1,0 @@
-SVTG (old man shovel treasure hunt)
-Sets variable 16 after talking.
-Hidden a hole on a tile with value 432?

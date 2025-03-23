@@ -1,0 +1,20 @@
+{
+  "name": "Gibdo",
+  "description": "A Gibdo enemy, a mummified creature.",
+  "InternalName": "ミイラ",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Gibdo Type",
+      "description": "The type of Gibdo enemy.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Gibdo", "description": "A standard Gibdo enemy." },
+        "1": { "name": "Greer", "description": "A variant of the Gibdo enemy." }
+      }
+    }
+  ]
+}

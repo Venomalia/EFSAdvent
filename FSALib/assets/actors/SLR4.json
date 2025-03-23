@@ -1,0 +1,66 @@
+{
+  "name": "Chief Soldier",
+  "description": "A powerful soldier, acting as the leader with different colors and attributes.",
+  "InternalName": "隊長兵",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Chief Soldier ID",
+      "description": "The ID of the chief soldier, used to link this soldier to others.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Behavior Flags",
+      "description": "Flags that define the specific behaviors or states of the chief soldier.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "1": {
+          "name": "Big Stalfos Soldier?",
+          "description": "This flag may indicate the chief soldier is a large Stalfos soldier."
+        }
+      }
+    },
+    {
+      "name": "Unknown States",
+      "description": "Unknown states that influence the behavior or appearance of the chief soldier.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "102": { "name": "?", "description": "Unknown state." },
+        "119": { "name": "?", "description": "Unknown state." },
+        "136": { "name": "?", "description": "Unknown state." },
+        "240": { "name": "?", "description": "Unknown state." }
+      }
+    },
+    {
+      "name": "Type",
+      "description": "Defines the color or type of the chief soldier, affecting its appearance and role.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Blue", "description": "A blue-colored chief soldier." },
+        "1": { "name": "Blue", "description": "A blue-colored chief soldier." },
+        "2": {
+          "name": "Green",
+          "description": "A green-colored chief soldier."
+        },
+        "3": {
+          "name": "Green",
+          "description": "A green-colored chief soldier."
+        },
+        "4": { "name": "Red", "description": "A red-colored chief soldier." },
+        "5": { "name": "Red", "description": "A red-colored chief soldier." },
+        "6": {
+          "name": "Dark Green",
+          "description": "A dark green-colored chief soldier."
+        }
+      }
+    }
+  ]
+}

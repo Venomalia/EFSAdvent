@@ -1,0 +1,6 @@
+{
+  "name": "Attack judgment when player is thrown",
+  "description": "",
+  "InternalName": "プレイヤー投げられ時の攻撃判定",
+  "category": "Intern"
+}

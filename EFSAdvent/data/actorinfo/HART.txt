@@ -1,6 +1,0 @@
-HART (small heart)
-
-Variable 4:
-0 = Drops
-1 = Lies on the ground, does not despawn.
-3 = Drops, does not despawn.

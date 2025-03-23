@@ -1,0 +1,8 @@
+{
+  "name": "Ganon",
+  "description": "",
+  "InternalName": "ガノン",
+  "category": "Boss",
+  "Resources": ["ganon"],
+  "NoGBASprite": true
+}

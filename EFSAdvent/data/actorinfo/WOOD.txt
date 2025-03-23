@@ -1,5 +1,0 @@
-WOOD (liftable tree) No GBA sprite
-loot for destroyed trees
-
-Variable 2:
-64 = No drops?

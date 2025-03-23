@@ -1,0 +1,106 @@
+{
+  "name": "Temple Bti Display",
+  "description": "Displays various temple environments with different backgrounds and gates.",
+  "InternalName": "神殿Bti表示",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Gate Status",
+      "description": "Defines whether the gate is open or closed.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Closed", "description": "The gate is closed." },
+        "2": { "name": "Gate Opens", "description": "The gate is opened." }
+      }
+    },
+    {
+      "name": "Temple Type",
+      "description": "Defines which temple background is being used.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Tenkuu",
+          "description": "Displays the background for the Tenkuu temple.",
+          "resources": [
+            "bg_tenkuu.bti",
+            "bg_tenkuu_tobira.bti",
+            "bg_tenkuu_ue.bti"
+          ]
+        },
+        "1": {
+          "name": "Tenkuunotou",
+          "description": "Displays the background for the Tenkuunotou temple.",
+          "resources": [
+            "tenkuunotou.bti",
+            "tenkuunotou_tobira.bti",
+            "tenkuunotou_ue.bti"
+          ]
+        },
+        "2": {
+          "name": "Koorinoshinden",
+          "description": "Displays the background for the Koorinoshinden temple.",
+          "resources": [
+            "koorinoshinden.bti",
+            "koorinoshinden_tobira.bti",
+            "koorinoshinden_kabuse.bti"
+          ]
+        },
+        "3": {
+          "name": "Temple of Shadows",
+          "description": "Displays the background for the Temple of Shadows.",
+          "resources": [
+            "yaminosinden.bti",
+            "yaminosinden_tobira.bti",
+            "yaminosinden_ue.bti"
+          ]
+        },
+        "4": {
+          "name": "Tower of Fire",
+          "description": "Displays the background for the Tower of Fire.",
+          "resources": [
+            "honounotou.bti",
+            "honounotou_tobira.bti",
+            "honounotou_ue.bti"
+          ]
+        },
+        "5": {
+          "name": "Pyramid",
+          "description": "Displays the background for the Pyramid.",
+          "resources": [
+            "pyramid.bti",
+            "pyramid_tobira.bti",
+            "pyramid_kabuse.bti"
+          ]
+        },
+        "6": {
+          "name": "Sabaku Sinden",
+          "description": "Displays the background for the Sabaku Sinden temple.",
+          "resources": [
+            "sabaku_sinden_l.bti",
+            "sabaku_sinden_l_tobira.bti",
+            "sabaku_sinden_l_ue.bti"
+          ]
+        },
+        "7": {
+          "name": "Cave",
+          "description": "Displays the background for the Cave.",
+          "resources": ["ana.bti", "ana_tobira.bti", "ana_ue.bti"]
+        },
+        "8": {
+          "name": "Earth Temple",
+          "description": "Displays the background for the Earth Temple.",
+          "resources": [
+            "higasi_sinden.bti",
+            "higasi_sinden_tobira.bti",
+            "higasi_sinden_ue.bti"
+          ]
+        }
+      }
+    }
+  ]
+}

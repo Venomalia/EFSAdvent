@@ -1,0 +1,20 @@
+{
+  "name": "Leever",
+  "description": "An enemy that burrows into and emerges from the ground.",
+  "InternalName": "リーバ",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Color",
+      "description": "The color variant of the Leever.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Green", "description": "A green Leever." },
+        "1": { "name": "Red", "description": "A red Leever." }
+      }
+    }
+  ]
+}

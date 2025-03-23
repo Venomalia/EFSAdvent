@@ -1,0 +1,6 @@
+{
+  "name": "Level ende",
+  "description": "Stops you from leaving the area, 4 End of level warps/goals.",
+  "InternalName": "ゴール",
+  "category": "Property"
+}

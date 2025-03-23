@@ -1,7 +1,0 @@
-BBMB (Giant Bomb) No GBA sprite
-
-Variable 1:
-Trigger by variable X
-
-Variable 2:
-1 = ?

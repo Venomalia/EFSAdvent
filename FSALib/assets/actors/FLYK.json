@@ -1,0 +1,33 @@
+{
+  "name": "Falling Floor",
+  "description": "A falling floor that must be placed on specific tiles.",
+  "InternalName": "落ちる床",
+  "category": "TileObject",
+  "fields": [
+    {
+      "name": "Floor Type",
+      "description": "The type of floor behavior.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Falling Floor",
+          "description": "The floor that falls when triggered."
+        },
+        "1": {
+          "name": "Can be Destroyed by Bombs",
+          "description": "The floor can be destroyed by bombs."
+        },
+        "2": {
+          "name": "Can be Destroyed by Smash Blow",
+          "description": "The floor can be destroyed by a smash blow."
+        },
+        "3": {
+          "name": "Thorn Trap",
+          "description": "The floor is a thorn trap."
+        }
+      }
+    }
+  ]
+}

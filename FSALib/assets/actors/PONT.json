@@ -1,0 +1,54 @@
+{
+  "name": "Point Check",
+  "description": "Triggered when the tile changes.",
+  "InternalName": "ポイントチェックＮＰＣ",
+  "category": "TileObject",
+  "fields": [
+    {
+      "name": "Action Type",
+      "description": "Determines the action triggered when the tile changes.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Force Lucke Hole",
+          "description": "Triggers a lucke hole force."
+        },
+        "1": { "name": "Refresh Tile", "description": "Refreshes the tile." },
+        "2": { "name": "Unknown", "description": "Unknown action." },
+        "3": {
+          "name": "Use Enable Variable",
+          "description": "Uses variable 1 to enable variable X."
+        },
+        "4": {
+          "name": "Refresh Water Vase",
+          "description": "Refreshes the water vase."
+        },
+        "5": {
+          "name": "Force Lucke Hole",
+          "description": "Triggers a lucke hole force again."
+        },
+        "6": { "name": "Unknown", "description": "Unknown action." },
+        "7": { "name": "Heart", "description": "Triggers a heart." },
+        "8": { "name": "Unknown", "description": "Unknown action." },
+        "9": {
+          "name": "Force Fairy",
+          "description": "Triggers a force fairy."
+        },
+        "10": {
+          "name": "Force Lucke Hole (Re-Triggerable)",
+          "description": "Triggers a force lucke hole that can be triggered again."
+        },
+        "11": { "name": "Fire Vase", "description": "Triggers a fire vase." }
+      }
+    },
+    {
+      "name": "Enabled Variable",
+      "description": "The variable that is enabled when the tile changes.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

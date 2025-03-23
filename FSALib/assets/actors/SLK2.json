@@ -1,0 +1,73 @@
+{
+  "name": "Shadow Link 2",
+  "description": "A mini-boss fight against a powerful Shadow Link.",
+  "InternalName": "シャドウリンク２",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Unknown Behavior 1",
+      "description": "Unknown behavior or state that influences the fight.",
+      "bitOffset": 120,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "?", "description": "Unknown behavior." },
+        "5": { "name": "?", "description": "Unknown behavior." }
+      }
+    },
+    {
+      "name": "Unknown Behavior 2",
+      "description": "Additional flags that may affect the mini-boss encounter.",
+      "bitOffset": 16,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "?", "description": "Unknown behavior." },
+        "4": { "name": "?", "description": "Unknown behavior." }
+      }
+    },
+    {
+      "name": "Action States",
+      "description": "Different states or actions that Shadow Link can perform during the fight.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "?", "description": "Unknown action or state." },
+        "1": { "name": "?", "description": "Unknown action or state." },
+        "2": { "name": "?", "description": "Unknown action or state." },
+        "3": { "name": "?", "description": "Unknown action or state." },
+        "4": { "name": "?", "description": "Unknown action or state." }
+      }
+    },
+    {
+      "name": "Rail ID",
+      "description": "ID of the rail path used by Shadow Link during the fight.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Flag 1",
+      "description": "Additional flag that may control behavior in the fight.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "?", "description": "Unknown flag." },
+        "2": { "name": "?", "description": "Unknown flag." }
+      }
+    },
+    {
+      "name": "Unknown Flag 2",
+      "description": "Additional flag that may control behavior in the fight.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "?", "description": "Unknown flag." },
+        "3": { "name": "?", "description": "Unknown flag." }
+      }
+    }
+  ]
+}

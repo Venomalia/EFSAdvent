@@ -1,0 +1,473 @@
+{
+  "name": "BTI NPC",
+  "description": "Displays a BTI object that can be triggered by a local variable and has different behaviors based on the state and texture.",
+  "InternalName": "ＢＴＩNPC",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor. (0 = always active)",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "BTI Option",
+      "description": "Defines the different states for this BTI actor.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Option 0", "description": "Undefined option." },
+        "1": { "name": "Option 1", "description": "Undefined option." },
+        "2": { "name": "Option 2", "description": "Undefined option." },
+        "16": { "name": "Option 16", "description": "Undefined option." },
+        "32": { "name": "Option 32", "description": "Undefined option." }
+      }
+    },
+    {
+      "name": "Display Layer",
+      "description": "Defines the layer where the BTI object is displayed.",
+      "bitOffset": 16,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Background",
+          "description": "Displayed in the background."
+        },
+        "16": {
+          "name": "Foreground",
+          "description": "Displayed in the foreground."
+        },
+        "48": {
+          "name": "Background",
+          "description": "Displayed in the background."
+        },
+        "64": {
+          "name": "Background",
+          "description": "Displayed in the background."
+        },
+        "80": {
+          "name": "Foreground",
+          "description": "Displayed in the foreground."
+        }
+      }
+    },
+    {
+      "name": "BTI Texture",
+      "description": "Defines the texture or object to be used for the BTI NPC.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Temple entrance A",
+          "description": "",
+          "Resources": ["timg/d_iriguti_a.bti", "timg/d_iriguti_a_light.bti"]
+        },
+        "1": {
+          "name": "Yaminosinden",
+          "description": "",
+          "Resources": ["timg/yaminosinden.bti"]
+        },
+        "2": {
+          "name": "Koorinoshinden",
+          "description": "",
+          "Resources": ["timg/koorinoshinden.bti"]
+        },
+        "3": {
+          "name": "Tower of fire",
+          "description": "",
+          "Resources": ["timg/honounotou.bti"]
+        },
+        "4": {
+          "name": "Tenkuunotou",
+          "description": "",
+          "Resources": ["timg/tenkuunotou.bti"]
+        },
+        "5": {
+          "name": "Background Opening",
+          "description": "",
+          "Resources": ["timg/bg_opening.bti"]
+        },
+        "6": {
+          "name": "Background Tenkuu2",
+          "description": "",
+          "Resources": ["timg/bg_tenkuu2.bti"]
+        },
+        "7": {
+          "name": "Ana",
+          "description": "",
+          "Resources": ["timg/ana.bti"]
+        },
+        "8": {
+          "name": "Temple entrance B",
+          "description": "",
+          "Resources": ["timg/d_iriguti_b.bti", "timg/d_iriguti_b_light.bti"]
+        },
+        "9": {
+          "name": "Temple entrance D",
+          "description": "",
+          "Resources": ["timg/d_iriguti_d.bti", "timg/d_iriguti_d_light.bti"]
+        },
+        "10": {
+          "name": "Temple entrance F",
+          "description": "",
+          "Resources": ["timg/d_iriguti_f.bti", "timg/d_iriguti_f_light.bti"]
+        },
+        "11": {
+          "name": "Temple entrance G",
+          "description": "",
+          "Resources": ["timg/d_iriguti_g.bti", "timg/d_iriguti_g_light.bti"]
+        },
+        "12": {
+          "name": "Temple entrance H",
+          "description": "",
+          "Resources": ["timg/d_iriguti_h.bti", "timg/d_iriguti_h_light.bti"]
+        },
+        "13": {
+          "name": "Temple entrance I",
+          "description": "",
+          "Resources": ["timg/d_iriguti_i.bti", "timg/d_iriguti_i_light.bti"]
+        },
+        "14": {
+          "name": "Temple entrance K",
+          "description": "",
+          "Resources": ["timg/d_iriguti_k.bti", "timg/d_iriguti_k_light.bti"]
+        },
+        "15": {
+          "name": "Boss door plate D",
+          "description": "",
+          "Resources": ["timg/bti_boss_d.bti"]
+        },
+        "16": {
+          "name": "Boss door plate E",
+          "description": "",
+          "Resources": ["timg/bti_boss_e.bti"]
+        },
+        "17": {
+          "name": "Boss door plate F",
+          "description": "",
+          "Resources": ["timg/bti_boss_f.bti"]
+        },
+        "18": {
+          "name": "Boss door plate G",
+          "description": "",
+          "Resources": ["timg/bti_boss_g.bti"]
+        },
+        "19": {
+          "name": "Boss door plate H",
+          "description": "",
+          "Resources": ["timg/bti_boss_h.bti"]
+        },
+        "20": {
+          "name": "Boss door plate I",
+          "description": "",
+          "Resources": ["timg/bti_boss_i.bti"]
+        },
+        "21": {
+          "name": "Prison bars",
+          "description": "",
+          "Resources": ["timg/rouya.bti", "timg/rouya_a.bti"]
+        },
+        "22": {
+          "name": "Top of tower",
+          "description": "",
+          "Resources": ["timg/okujyo.bti"]
+        },
+        "23": {
+          "name": "Nakaniwa Left",
+          "description": "",
+          "Resources": ["timg/nakaniwa_l.bti"]
+        },
+        "24": {
+          "name": "Nakaniwa Right",
+          "description": "",
+          "Resources": ["timg/nakaniwa_r.bti"]
+        },
+        "25": {
+          "name": "Hyrule Mamorigami",
+          "description": "",
+          "Resources": ["timg/hyrule_mamorigami.bti"]
+        },
+        "26": {
+          "name": "Saidan",
+          "description": "",
+          "Resources": ["timg/saidan.bti"]
+        },
+        "27": {
+          "name": "Chijo E",
+          "description": "",
+          "Resources": ["timg/chijo_e.bti"]
+        },
+        "28": {
+          "name": "Chijo E",
+          "description": "",
+          "Resources": ["timg/chijo_e.bti"]
+        },
+        "29": {
+          "name": "Chijo E",
+          "description": "",
+          "Resources": ["timg/chijo_e.bti"]
+        },
+        "30": {
+          "name": "Chijo E",
+          "description": "",
+          "Resources": ["timg/chijo_e.bti"]
+        },
+        "31": {
+          "name": "Sekihi",
+          "description": "",
+          "Resources": ["timg/sekihi.bti"]
+        },
+        "32": {
+          "name": "Sabaku Ganon",
+          "description": "",
+          "Resources": ["timg/sabaku_ganon.bti"]
+        },
+        "33": {
+          "name": "Higasi Sinden",
+          "description": "",
+          "Resources": ["timg/higasi_sinden.bti"]
+        },
+        "34": {
+          "name": "Jen 8-3",
+          "description": "",
+          "Resources": ["timg/jen_8_3.bti"]
+        },
+        "35": {
+          "name": "Jen Blue",
+          "description": "",
+          "Resources": ["timg/jen_blue.bti"]
+        },
+        "36": {
+          "name": "Jen Green",
+          "description": "",
+          "Resources": ["timg/jen_green.bti"]
+        },
+        "37": {
+          "name": "Jen Purple",
+          "description": "",
+          "Resources": ["timg/jen_purple.bti"]
+        },
+        "38": {
+          "name": "Jen Red",
+          "description": "",
+          "Resources": ["timg/jen_red.bti"]
+        },
+        "39": {
+          "name": "Phantom Ganon 1 Room",
+          "description": "",
+          "Resources": ["timg/phantom_ganon.bti"]
+        },
+        "40": {
+          "name": "Stone Arrghus Room",
+          "description": "",
+          "Resources": ["timg/iwart.bti"]
+        },
+        "41": {
+          "name": "Helmaroc King Room",
+          "description": "",
+          "Resources": ["timg/jeek.bti"]
+        },
+        "42": {
+          "name": "Phantom Ganon 2",
+          "description": "",
+          "Resources": ["timg/phantom_ganon2.bti"]
+        },
+        "43": {
+          "name": "Degtail",
+          "description": "",
+          "Resources": ["timg/degtail.bti"]
+        },
+        "44": {
+          "name": "Phantom Ganon 1 Defeated Room",
+          "description": "",
+          "Resources": ["timg/phantom_ganon1_2.bti"]
+        },
+        "45": {
+          "name": "Big Poe Room",
+          "description": "",
+          "Resources": ["timg/big_poo.bti"]
+        },
+        "46": {
+          "name": "Big Poe Defeated Room",
+          "description": "",
+          "Resources": ["timg/big_poo_2.bti"]
+        },
+        "47": {
+          "name": "Ganon Room",
+          "description": "",
+          "Resources": ["timg/ganon.bti"]
+        },
+        "48": {
+          "name": "Gufu",
+          "description": "",
+          "Resources": ["timg/gufu.bti"]
+        },
+        "49": {
+          "name": "Zuna Tent",
+          "description": "",
+          "Resources": ["timg/tent.bti", "timg/tent_a.bti"]
+        },
+        "50": {
+          "name": "End Daiza",
+          "description": "",
+          "Resources": ["timg/end_daiza.bti"]
+        },
+        "51": {
+          "name": "Kairo",
+          "description": "",
+          "Resources": ["timg/kairo.bti", "timg/kairo_ue.bti"]
+        },
+        "52": {
+          "name": "Gerudo Tent",
+          "description": "",
+          "Resources": ["timg/naporu_tent.bti", "timg/naporu_tent_a.bti"]
+        },
+        "53": {
+          "name": "Top of the Tower of Wind Door",
+          "description": "",
+          "Resources": ["timg/okujyo_kabuse.bti"]
+        },
+        "54": {
+          "name": "Helmaroc King Room Cave Entrance Ceiling",
+          "description": "",
+          "Resources": ["timg/jeek_kabuse.bti"]
+        },
+        "55": {
+          "name": "Umaana 1 Hidari",
+          "description": "",
+          "Resources": ["timg/umaana_1_hidari.bti"]
+        },
+        "56": {
+          "name": "Umaana 1 Migi",
+          "description": "",
+          "Resources": ["timg/umaana_1_migi.bti"]
+        },
+        "57": {
+          "name": "Umaana 1 Mae",
+          "description": "",
+          "Resources": ["timg/umaana_1_mae.bti"]
+        },
+        "58": {
+          "name": "Boulder Hole",
+          "description": "",
+          "Resources": ["timg/ana_1.bti", "timg/ana_2.bti"]
+        },
+        "59": {
+          "name": "Boulder Hole Full",
+          "description": "",
+          "Resources": ["timg/ana_1.bti", "timg/ana_2.bti"]
+        },
+        "60": {
+          "name": "Helmaroc King Room Branch",
+          "description": "",
+          "Resources": ["timg/jeek_ki.bti"]
+        },
+        "61": {
+          "name": "Pyramide",
+          "description": "",
+          "Resources": ["timg/kazari_piramid.bti"]
+        },
+        "62": {
+          "name": "Pyramid with Entrance",
+          "description": "",
+          "Resources": ["timg/piramid_s.bti", "timg/piramid_s_kabuse.bti"]
+        },
+        "63": {
+          "name": "Shooting Gallery Sign",
+          "description": "",
+          "Resources": ["timg/kanban.bti"]
+        },
+        "64": {
+          "name": "Sabaku Sinden Left",
+          "description": "",
+          "Resources": ["timg/sabaku_sinden_l.bti"]
+        },
+        "65": {
+          "name": "Sabaku Sinden Small",
+          "description": "",
+          "Resources": ["timg/sabaku_sinden_s.bti"]
+        },
+        "66": {
+          "name": "House 1",
+          "description": "",
+          "Resources": ["timg/kanban_hidari_a.bti", "timg/kanban_hidari_b.bti"]
+        },
+        "67": {
+          "name": "House 2",
+          "description": "",
+          "Resources": ["timg/kanban_migi_a.bti", "timg/kanban_migi_b.bti"]
+        },
+        "68": {
+          "name": "Yaguraheya",
+          "description": "",
+          "Resources": ["timg/yaguraheya.bti"]
+        },
+        "69": {
+          "name": "Egrass",
+          "description": "",
+          "Resources": ["timg/egrass.bti"]
+        },
+        "70": {
+          "name": "Kakariko Gate",
+          "description": "",
+          "Resources": ["timg/ura_gate.bti"]
+        },
+        "71": {
+          "name": "Jen Blue Koware",
+          "description": "",
+          "Resources": ["timg/jen_blue_koware.bti"]
+        },
+        "72": {
+          "name": "Jen Green Koware",
+          "description": "",
+          "Resources": ["timg/jen_green_koware.bti"]
+        },
+        "73": {
+          "name": "Jen Purple Koware",
+          "description": "",
+          "Resources": ["timg/jen_purple_koware.bti"]
+        },
+        "74": {
+          "name": "Jen Red Koware",
+          "description": "",
+          "Resources": ["timg/jen_red_koware.bti"]
+        },
+        "75": {
+          "name": "Jen Blue Tsume",
+          "description": "",
+          "Resources": ["timg/jen_blue_tsume.bti"]
+        },
+        "76": {
+          "name": "Jen Green Tsume",
+          "description": "",
+          "Resources": ["timg/jen_green_tsume.bti"]
+        },
+        "77": {
+          "name": "Jen Purple Tsume",
+          "description": "",
+          "Resources": ["timg/jen_purple_tsume.bti"]
+        },
+        "78": {
+          "name": "Jen Red Tsume",
+          "description": "",
+          "Resources": ["timg/jen_red_tsume.bti"]
+        },
+        "79": {
+          "name": "Hiroba",
+          "description": "",
+          "Resources": ["timg/hiroba.bti"]
+        },
+        "80": {
+          "name": "Tower of Fire Lookout Point",
+          "description": "",
+          "Resources": ["timg/honoonotou_soto.bti", "timg/bg_mori.bti"]
+        }
+      }
+    }
+  ]
+}

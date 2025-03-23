@@ -1,0 +1,47 @@
+{
+  "name": "Unused Enemy Aruki",
+  "description": "An enemy that requires multiple players to defeat.",
+  "InternalName": "おカメさん",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Replacement Enemy in Single Player",
+      "description": "The enemy that replaces this one in single player mode.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Oktorok",
+          "description": "Replaces the enemy with Oktorok."
+        },
+        "1": {
+          "name": "Crab",
+          "description": "Replaces the enemy with a Crab."
+        },
+        "2": {
+          "name": "Stalfos (Jumps and Throws)",
+          "description": "Replaces the enemy with a Stalfos that jumps and throws."
+        }
+      }
+    },
+    {
+      "name": "Movement Direction",
+      "description": "The direction in which the enemy moves.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Horizontal",
+          "description": "The enemy moves horizontally."
+        },
+        "1": {
+          "name": "Vertical",
+          "description": "The enemy moves vertically."
+        }
+      }
+    }
+  ]
+}

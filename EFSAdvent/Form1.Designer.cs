@@ -35,7 +35,6 @@ namespace EFSAdvent
             this.tileSheetPanel = new System.Windows.Forms.Panel();
             this.tileSheetPictureBox = new System.Windows.Forms.PictureBox();
             this.layersPanel = new System.Windows.Forms.Panel();
-            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MapPanel = new System.Windows.Forms.Panel();
@@ -57,6 +56,7 @@ namespace EFSAdvent
             this.mapAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapAndAAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allRoomsAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allRoomsAndActorsAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ImportRoomFromTmx = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -87,7 +87,6 @@ namespace EFSAdvent
             this.CoridinatesTextBox = new System.Windows.Forms.TextBox();
             this.updateLayersButton = new System.Windows.Forms.Button();
             this.buttonSaveLayers = new System.Windows.Forms.Button();
-            this.layersCheckList = new EFSAdvent.CheckedListBoxColorable();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
@@ -128,85 +127,59 @@ namespace EFSAdvent
             this.buttonActorsSelectNone = new System.Windows.Forms.Button();
             this.actorLayerComboBox = new System.Windows.Forms.ComboBox();
             this.actorAttributesgroupBox = new System.Windows.Forms.GroupBox();
-            this.VariablesTabControl = new System.Windows.Forms.TabControl();
-            this.Variables4TabPage = new System.Windows.Forms.TabPage();
-            this.label_V4_4 = new System.Windows.Forms.Label();
-            this.label_V4_3 = new System.Windows.Forms.Label();
-            this.ActorVariable1Input = new System.Windows.Forms.NumericUpDown();
-            this.label_V4_1 = new System.Windows.Forms.Label();
-            this.label_V4_2 = new System.Windows.Forms.Label();
-            this.ActorVariable2Input = new System.Windows.Forms.NumericUpDown();
-            this.ActorVariable4Input = new System.Windows.Forms.NumericUpDown();
-            this.ActorVariable3Input = new System.Windows.Forms.NumericUpDown();
+            this.ActorInfoPictureBox = new System.Windows.Forms.PictureBox();
+            this.tabPageRawVariable = new System.Windows.Forms.TabControl();
             this.Variables5TabPage = new System.Windows.Forms.TabPage();
-            this.ActorVariable4FlagCheckBox = new System.Windows.Forms.CheckBox();
-            this.ActorVariable1AInput = new System.Windows.Forms.NumericUpDown();
-            this.ActorVariable1BInput = new System.Windows.Forms.NumericUpDown();
-            this.label_V5_4 = new System.Windows.Forms.Label();
+            this.tabControlRawVarType = new System.Windows.Forms.TabControl();
+            this.tabPageV5 = new System.Windows.Forms.TabPage();
             this.label_V5_3 = new System.Windows.Forms.Label();
+            this.label_V5_3a = new System.Windows.Forms.Label();
+            this.ActorVariable4AInput = new System.Windows.Forms.NumericUpDown();
+            this.ActorVariable1Input = new System.Windows.Forms.NumericUpDown();
+            this.label_V5_4 = new System.Windows.Forms.Label();
+            this.ActorVariable2Input = new System.Windows.Forms.NumericUpDown();
+            this.label_V5_1 = new System.Windows.Forms.Label();
+            this.ActorVariable4BInput = new System.Windows.Forms.NumericUpDown();
+            this.ActorVariable3Input = new System.Windows.Forms.NumericUpDown();
             this.label_V5_2 = new System.Windows.Forms.Label();
-            this.ActorVariable2Input2 = new System.Windows.Forms.NumericUpDown();
-            this.ActorVariable4Input2 = new System.Windows.Forms.NumericUpDown();
-            this.ActorVariable3Input2 = new System.Windows.Forms.NumericUpDown();
-            this.label_V5_1b = new System.Windows.Forms.Label();
-            this.label_V5_1a = new System.Windows.Forms.Label();
-            this.Variables6TabPage = new System.Windows.Forms.TabPage();
-            this.ActorV6Variable5Input = new System.Windows.Forms.NumericUpDown();
-            this.ActorV6Variable6Input = new System.Windows.Forms.NumericUpDown();
-            this.label_V6_6 = new System.Windows.Forms.Label();
-            this.label_V6_5 = new System.Windows.Forms.Label();
-            this.ActorV6Variable3Input = new System.Windows.Forms.NumericUpDown();
-            this.ActorV6Variable4Input = new System.Windows.Forms.NumericUpDown();
-            this.label_V6_4 = new System.Windows.Forms.Label();
-            this.label_V6_3 = new System.Windows.Forms.Label();
+            this.tabPageV6 = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ActorV6Variable2fInput = new System.Windows.Forms.NumericUpDown();
             this.ActorV6Variable1Input = new System.Windows.Forms.NumericUpDown();
-            this.ActorV6Variable2Input = new System.Windows.Forms.NumericUpDown();
-            this.label_V6_2 = new System.Windows.Forms.Label();
-            this.label_V6_1 = new System.Windows.Forms.Label();
-            this.Variables8TabPage = new System.Windows.Forms.TabPage();
-            this.ActorV8Variable4aInput = new System.Windows.Forms.NumericUpDown();
-            this.ActorV8Variable4bInput = new System.Windows.Forms.NumericUpDown();
-            this.label_V8_4b = new System.Windows.Forms.Label();
-            this.label_V8_4a = new System.Windows.Forms.Label();
-            this.ActorV8Variable3aInput = new System.Windows.Forms.NumericUpDown();
-            this.ActorV8Variable3bInput = new System.Windows.Forms.NumericUpDown();
-            this.label_V8_3b = new System.Windows.Forms.Label();
-            this.label_V8_3a = new System.Windows.Forms.Label();
-            this.ActorV8Variable2aInput = new System.Windows.Forms.NumericUpDown();
-            this.ActorV8Variable2bInput = new System.Windows.Forms.NumericUpDown();
-            this.label_V8_2b = new System.Windows.Forms.Label();
-            this.label_V8_2a = new System.Windows.Forms.Label();
-            this.ActorV8Variable1aInput = new System.Windows.Forms.NumericUpDown();
-            this.ActorV8Variable1bInput = new System.Windows.Forms.NumericUpDown();
-            this.label_V8_1b = new System.Windows.Forms.Label();
-            this.label_V8_1a = new System.Windows.Forms.Label();
+            this.ActorV6Variable4Input = new System.Windows.Forms.NumericUpDown();
+            this.ActorV6Variable3Input = new System.Windows.Forms.NumericUpDown();
+            this.ActorV6Variable6Input = new System.Windows.Forms.NumericUpDown();
+            this.ActorV6Variable5Input = new System.Windows.Forms.NumericUpDown();
+            this.groupBoxFullVariable = new System.Windows.Forms.GroupBox();
+            this.ActorVariableFullInput = new System.Windows.Forms.NumericUpDown();
+            this.tabPageFieldsVariable = new System.Windows.Forms.TabPage();
+            this.panelActorFields = new System.Windows.Forms.FlowLayoutPanel();
+            this.cloneButton = new System.Windows.Forms.Button();
+            this.actorDeleteButton = new System.Windows.Forms.Button();
             this.groupBoxCoridinate = new System.Windows.Forms.GroupBox();
             this.ActorXCoordInput = new System.Windows.Forms.NumericUpDown();
             this.ActorYCoordInput = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cloneButton = new System.Windows.Forms.Button();
-            this.actorDeleteButton = new System.Windows.Forms.Button();
             this.ActorLayerInput = new System.Windows.Forms.NumericUpDown();
-            this.label12 = new System.Windows.Forms.Label();
-            this.ActorNameComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.ActorNameComboBox = new System.Windows.Forms.ComboBox();
             this.actorsCheckListBox = new System.Windows.Forms.CheckedListBox();
-            this.actorInfoBox = new System.Windows.Forms.GroupBox();
-            this.ActorInfoPictureBox = new System.Windows.Forms.PictureBox();
-            this.ActorInfoTextBox = new System.Windows.Forms.TextBox();
-            this.actorsReloadButton = new System.Windows.Forms.Button();
-            this.actorsSaveButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.allRoomsAndActorsAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.layersCheckList = new EFSAdvent.CheckedListBoxColorable();
+            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.actorContextMenuStrip.SuspendLayout();
             this.MapPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
@@ -229,41 +202,32 @@ namespace EFSAdvent
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.actorAttributesgroupBox.SuspendLayout();
-            this.VariablesTabControl.SuspendLayout();
-            this.Variables4TabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).BeginInit();
+            this.tabPageRawVariable.SuspendLayout();
+            this.Variables5TabPage.SuspendLayout();
+            this.tabControlRawVarType.SuspendLayout();
+            this.tabPageV5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4AInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1Input)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4Input)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4BInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable3Input)).BeginInit();
-            this.Variables5TabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1AInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1BInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4Input2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable3Input2)).BeginInit();
-            this.Variables6TabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable5Input)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable6Input)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable3Input)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable4Input)).BeginInit();
+            this.tabPageV6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable2fInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable1Input)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable2Input)).BeginInit();
-            this.Variables8TabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable4aInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable4bInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable3aInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable3bInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable2aInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable2bInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable1aInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable1bInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable4Input)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable3Input)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable6Input)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable5Input)).BeginInit();
+            this.groupBoxFullVariable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariableFullInput)).BeginInit();
+            this.tabPageFieldsVariable.SuspendLayout();
             this.groupBoxCoridinate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorXCoordInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).BeginInit();
-            this.actorInfoBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).BeginInit();
             this.BottomGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tileSheetPanel
@@ -300,26 +264,6 @@ namespace EFSAdvent
             this.layersPanel.Name = "layersPanel";
             this.layersPanel.Size = new System.Drawing.Size(512, 516);
             this.layersPanel.TabIndex = 1;
-            // 
-            // layerPictureBox
-            // 
-            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.layerPictureBox.Enabled = false;
-            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
-            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.Name = "layerPictureBox";
-            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.layerPictureBox.TabIndex = 0;
-            this.layerPictureBox.TabStop = false;
-            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
-            this.layerPictureBox.MouseLeave += new System.EventHandler(this.layerPictureBox_MouseLeave);
-            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
-            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
-            this.layerPictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.layerPictureBox_MouseWheel);
             // 
             // actorContextMenuStrip
             // 
@@ -509,6 +453,13 @@ namespace EFSAdvent
             this.allRoomsAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.allRoomsAspngToolStripMenuItem.Text = "All Rooms as .png";
             this.allRoomsAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomsAsPng);
+            // 
+            // allRoomsAndActorsAspngToolStripMenuItem
+            // 
+            this.allRoomsAndActorsAspngToolStripMenuItem.Name = "allRoomsAndActorsAspngToolStripMenuItem";
+            this.allRoomsAndActorsAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.allRoomsAndActorsAspngToolStripMenuItem.Text = "All Rooms and Actors as .png";
+            this.allRoomsAndActorsAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomsAsPng);
             // 
             // importToolStripMenuItem
             // 
@@ -769,37 +720,6 @@ namespace EFSAdvent
             this.buttonSaveLayers.Text = "Save Layers";
             this.buttonSaveLayers.UseVisualStyleBackColor = true;
             this.buttonSaveLayers.Click += new System.EventHandler(this.buttonSaveLayers_Click);
-            // 
-            // layersCheckList
-            // 
-            this.layersCheckList.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.layersCheckList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.layersCheckList.CheckOnClick = true;
-            this.layersCheckList.ColumnWidth = 70;
-            this.layersCheckList.FormattingEnabled = true;
-            this.layersCheckList.Items.AddRange(new object[] {
-            "Layer 1-0",
-            "Layer 1-1",
-            "Layer 1-2",
-            "Layer 1-3",
-            "Layer 1-4",
-            "Layer 1-5",
-            "Layer 1-6",
-            "Layer 1-7",
-            "Layer 2-0",
-            "Layer 2-1",
-            "Layer 2-2",
-            "Layer 2-3",
-            "Layer 2-4",
-            "Layer 2-5",
-            "Layer 2-6",
-            "Layer 2-7"});
-            this.layersCheckList.Location = new System.Drawing.Point(6, 16);
-            this.layersCheckList.MultiColumn = true;
-            this.layersCheckList.Name = "layersCheckList";
-            this.layersCheckList.Size = new System.Drawing.Size(145, 120);
-            this.layersCheckList.TabIndex = 19;
-            this.layersCheckList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LayersCheckList_ItemCheck);
             // 
             // tabControl
             // 
@@ -1271,7 +1191,6 @@ namespace EFSAdvent
             this.tabPage1.Controls.Add(this.actorLayerComboBox);
             this.tabPage1.Controls.Add(this.actorAttributesgroupBox);
             this.tabPage1.Controls.Add(this.actorsCheckListBox);
-            this.tabPage1.Controls.Add(this.actorInfoBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -1282,7 +1201,7 @@ namespace EFSAdvent
             // 
             // buttonActorsSelectNone
             // 
-            this.buttonActorsSelectNone.Location = new System.Drawing.Point(7, 267);
+            this.buttonActorsSelectNone.Location = new System.Drawing.Point(7, 33);
             this.buttonActorsSelectNone.Name = "buttonActorsSelectNone";
             this.buttonActorsSelectNone.Size = new System.Drawing.Size(74, 23);
             this.buttonActorsSelectNone.TabIndex = 3;
@@ -1344,76 +1263,127 @@ namespace EFSAdvent
             // 
             // actorAttributesgroupBox
             // 
-            this.actorAttributesgroupBox.Controls.Add(this.VariablesTabControl);
-            this.actorAttributesgroupBox.Controls.Add(this.groupBoxCoridinate);
+            this.actorAttributesgroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.actorAttributesgroupBox.Controls.Add(this.ActorInfoPictureBox);
+            this.actorAttributesgroupBox.Controls.Add(this.tabPageRawVariable);
             this.actorAttributesgroupBox.Controls.Add(this.cloneButton);
             this.actorAttributesgroupBox.Controls.Add(this.actorDeleteButton);
-            this.actorAttributesgroupBox.Controls.Add(this.ActorLayerInput);
-            this.actorAttributesgroupBox.Controls.Add(this.label12);
+            this.actorAttributesgroupBox.Controls.Add(this.groupBoxCoridinate);
             this.actorAttributesgroupBox.Controls.Add(this.ActorNameComboBox);
-            this.actorAttributesgroupBox.Controls.Add(this.label6);
             this.actorAttributesgroupBox.Enabled = false;
             this.actorAttributesgroupBox.Location = new System.Drawing.Point(87, 6);
             this.actorAttributesgroupBox.Name = "actorAttributesgroupBox";
-            this.actorAttributesgroupBox.Size = new System.Drawing.Size(180, 291);
+            this.actorAttributesgroupBox.Size = new System.Drawing.Size(180, 512);
             this.actorAttributesgroupBox.TabIndex = 5;
             this.actorAttributesgroupBox.TabStop = false;
             this.actorAttributesgroupBox.Text = "Actor Attributes";
             // 
-            // VariablesTabControl
+            // ActorInfoPictureBox
             // 
-            this.VariablesTabControl.Controls.Add(this.Variables4TabPage);
-            this.VariablesTabControl.Controls.Add(this.Variables5TabPage);
-            this.VariablesTabControl.Controls.Add(this.Variables6TabPage);
-            this.VariablesTabControl.Controls.Add(this.Variables8TabPage);
-            this.VariablesTabControl.ItemSize = new System.Drawing.Size(20, 18);
-            this.VariablesTabControl.Location = new System.Drawing.Point(6, 119);
-            this.VariablesTabControl.Name = "VariablesTabControl";
-            this.VariablesTabControl.Padding = new System.Drawing.Point(3, 3);
-            this.VariablesTabControl.SelectedIndex = 1;
-            this.VariablesTabControl.Size = new System.Drawing.Size(170, 136);
-            this.VariablesTabControl.TabIndex = 33;
-            this.ActorAttributesTip.SetToolTip(this.VariablesTabControl, "Specify the view of the actor variables");
+            this.ActorInfoPictureBox.BackColor = System.Drawing.Color.DarkGray;
+            this.ActorInfoPictureBox.Location = new System.Drawing.Point(113, 56);
+            this.ActorInfoPictureBox.MaximumSize = new System.Drawing.Size(64, 64);
+            this.ActorInfoPictureBox.MinimumSize = new System.Drawing.Size(32, 32);
+            this.ActorInfoPictureBox.Name = "ActorInfoPictureBox";
+            this.ActorInfoPictureBox.Size = new System.Drawing.Size(61, 62);
+            this.ActorInfoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ActorInfoPictureBox.TabIndex = 1;
+            this.ActorInfoPictureBox.TabStop = false;
             // 
-            // Variables4TabPage
+            // tabPageRawVariable
             // 
-            this.Variables4TabPage.Controls.Add(this.label_V4_4);
-            this.Variables4TabPage.Controls.Add(this.label_V4_3);
-            this.Variables4TabPage.Controls.Add(this.ActorVariable1Input);
-            this.Variables4TabPage.Controls.Add(this.label_V4_1);
-            this.Variables4TabPage.Controls.Add(this.label_V4_2);
-            this.Variables4TabPage.Controls.Add(this.ActorVariable2Input);
-            this.Variables4TabPage.Controls.Add(this.ActorVariable4Input);
-            this.Variables4TabPage.Controls.Add(this.ActorVariable3Input);
-            this.Variables4TabPage.Location = new System.Drawing.Point(4, 22);
-            this.Variables4TabPage.Name = "Variables4TabPage";
-            this.Variables4TabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.Variables4TabPage.Size = new System.Drawing.Size(162, 110);
-            this.Variables4TabPage.TabIndex = 0;
-            this.Variables4TabPage.Text = "4V";
-            this.Variables4TabPage.UseVisualStyleBackColor = true;
+            this.tabPageRawVariable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tabPageRawVariable.Controls.Add(this.Variables5TabPage);
+            this.tabPageRawVariable.Controls.Add(this.tabPageFieldsVariable);
+            this.tabPageRawVariable.ItemSize = new System.Drawing.Size(20, 18);
+            this.tabPageRawVariable.Location = new System.Drawing.Point(6, 137);
+            this.tabPageRawVariable.Name = "tabPageRawVariable";
+            this.tabPageRawVariable.Padding = new System.Drawing.Point(3, 3);
+            this.tabPageRawVariable.SelectedIndex = 1;
+            this.tabPageRawVariable.Size = new System.Drawing.Size(170, 341);
+            this.tabPageRawVariable.TabIndex = 33;
+            this.ActorAttributesTip.SetToolTip(this.tabPageRawVariable, "Specify the view of the actor variables");
             // 
-            // label_V4_4
+            // Variables5TabPage
             // 
-            this.label_V4_4.AutoSize = true;
-            this.label_V4_4.Location = new System.Drawing.Point(2, 86);
-            this.label_V4_4.Name = "label_V4_4";
-            this.label_V4_4.Size = new System.Drawing.Size(57, 13);
-            this.label_V4_4.TabIndex = 32;
-            this.label_V4_4.Text = "Variable 4:";
+            this.Variables5TabPage.Controls.Add(this.tabControlRawVarType);
+            this.Variables5TabPage.Controls.Add(this.groupBoxFullVariable);
+            this.Variables5TabPage.Location = new System.Drawing.Point(4, 22);
+            this.Variables5TabPage.Name = "Variables5TabPage";
+            this.Variables5TabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.Variables5TabPage.Size = new System.Drawing.Size(162, 315);
+            this.Variables5TabPage.TabIndex = 1;
+            this.Variables5TabPage.Text = "Raw";
+            this.Variables5TabPage.UseVisualStyleBackColor = true;
             // 
-            // label_V4_3
+            // tabControlRawVarType
             // 
-            this.label_V4_3.AutoSize = true;
-            this.label_V4_3.Location = new System.Drawing.Point(2, 60);
-            this.label_V4_3.Name = "label_V4_3";
-            this.label_V4_3.Size = new System.Drawing.Size(57, 13);
-            this.label_V4_3.TabIndex = 31;
-            this.label_V4_3.Text = "Variable 3:";
+            this.tabControlRawVarType.Controls.Add(this.tabPageV5);
+            this.tabControlRawVarType.Controls.Add(this.tabPageV6);
+            this.tabControlRawVarType.Location = new System.Drawing.Point(6, 63);
+            this.tabControlRawVarType.Name = "tabControlRawVarType";
+            this.tabControlRawVarType.SelectedIndex = 0;
+            this.tabControlRawVarType.Size = new System.Drawing.Size(151, 246);
+            this.tabControlRawVarType.TabIndex = 48;
+            this.ActorAttributesTip.SetToolTip(this.tabControlRawVarType, "Divides the full variable into sections.");
+            // 
+            // tabPageV5
+            // 
+            this.tabPageV5.Controls.Add(this.label_V5_3);
+            this.tabPageV5.Controls.Add(this.label_V5_3a);
+            this.tabPageV5.Controls.Add(this.ActorVariable4AInput);
+            this.tabPageV5.Controls.Add(this.ActorVariable1Input);
+            this.tabPageV5.Controls.Add(this.label_V5_4);
+            this.tabPageV5.Controls.Add(this.ActorVariable2Input);
+            this.tabPageV5.Controls.Add(this.label_V5_1);
+            this.tabPageV5.Controls.Add(this.ActorVariable4BInput);
+            this.tabPageV5.Controls.Add(this.ActorVariable3Input);
+            this.tabPageV5.Controls.Add(this.label_V5_2);
+            this.tabPageV5.Location = new System.Drawing.Point(4, 22);
+            this.tabPageV5.Name = "tabPageV5";
+            this.tabPageV5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageV5.Size = new System.Drawing.Size(143, 220);
+            this.tabPageV5.TabIndex = 0;
+            this.tabPageV5.Text = "V5";
+            this.tabPageV5.UseVisualStyleBackColor = true;
+            // 
+            // label_V5_3
+            // 
+            this.label_V5_3.AutoSize = true;
+            this.label_V5_3.Location = new System.Drawing.Point(6, 86);
+            this.label_V5_3.Name = "label_V5_3";
+            this.label_V5_3.Size = new System.Drawing.Size(57, 13);
+            this.label_V5_3.TabIndex = 40;
+            this.label_V5_3.Text = "Variable 3:";
+            // 
+            // label_V5_3a
+            // 
+            this.label_V5_3a.AutoSize = true;
+            this.label_V5_3a.Location = new System.Drawing.Point(6, 112);
+            this.label_V5_3a.Name = "label_V5_3a";
+            this.label_V5_3a.Size = new System.Drawing.Size(43, 13);
+            this.label_V5_3a.TabIndex = 41;
+            this.label_V5_3a.Text = "Trigger:";
+            // 
+            // ActorVariable4AInput
+            // 
+            this.ActorVariable4AInput.Location = new System.Drawing.Point(86, 110);
+            this.ActorVariable4AInput.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.ActorVariable4AInput.Name = "ActorVariable4AInput";
+            this.ActorVariable4AInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorVariable4AInput.TabIndex = 40;
+            this.ActorAttributesTip.SetToolTip(this.ActorVariable4AInput, "The last 5 bits of the fifth byte.");
+            this.ActorVariable4AInput.ValueChanged += new System.EventHandler(this.ActorChanged);
             // 
             // ActorVariable1Input
             // 
-            this.ActorVariable1Input.Location = new System.Drawing.Point(109, 6);
+            this.ActorVariable1Input.Location = new System.Drawing.Point(86, 6);
             this.ActorVariable1Input.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1421,31 +1391,22 @@ namespace EFSAdvent
             0});
             this.ActorVariable1Input.Name = "ActorVariable1Input";
             this.ActorVariable1Input.Size = new System.Drawing.Size(51, 20);
-            this.ActorVariable1Input.TabIndex = 27;
+            this.ActorVariable1Input.TabIndex = 36;
+            this.ActorAttributesTip.SetToolTip(this.ActorVariable1Input, "The 8 bits of the first byte.");
             this.ActorVariable1Input.ValueChanged += new System.EventHandler(this.ActorChanged);
-            this.ActorVariable1Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
             // 
-            // label_V4_1
+            // label_V5_4
             // 
-            this.label_V4_1.AutoSize = true;
-            this.label_V4_1.Location = new System.Drawing.Point(2, 9);
-            this.label_V4_1.Name = "label_V4_1";
-            this.label_V4_1.Size = new System.Drawing.Size(57, 13);
-            this.label_V4_1.TabIndex = 8;
-            this.label_V4_1.Text = "Variable 1:";
-            // 
-            // label_V4_2
-            // 
-            this.label_V4_2.AutoSize = true;
-            this.label_V4_2.Location = new System.Drawing.Point(2, 34);
-            this.label_V4_2.Name = "label_V4_2";
-            this.label_V4_2.Size = new System.Drawing.Size(57, 13);
-            this.label_V4_2.TabIndex = 8;
-            this.label_V4_2.Text = "Variable 2:";
+            this.label_V5_4.AutoSize = true;
+            this.label_V5_4.Location = new System.Drawing.Point(6, 8);
+            this.label_V5_4.Name = "label_V5_4";
+            this.label_V5_4.Size = new System.Drawing.Size(34, 13);
+            this.label_V5_4.TabIndex = 38;
+            this.label_V5_4.Text = "Type:";
             // 
             // ActorVariable2Input
             // 
-            this.ActorVariable2Input.Location = new System.Drawing.Point(109, 32);
+            this.ActorVariable2Input.Location = new System.Drawing.Point(86, 32);
             this.ActorVariable2Input.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1453,27 +1414,36 @@ namespace EFSAdvent
             0});
             this.ActorVariable2Input.Name = "ActorVariable2Input";
             this.ActorVariable2Input.Size = new System.Drawing.Size(51, 20);
-            this.ActorVariable2Input.TabIndex = 28;
+            this.ActorVariable2Input.TabIndex = 35;
+            this.ActorAttributesTip.SetToolTip(this.ActorVariable2Input, "The second byte.");
             this.ActorVariable2Input.ValueChanged += new System.EventHandler(this.ActorChanged);
-            this.ActorVariable2Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
             // 
-            // ActorVariable4Input
+            // label_V5_1
             // 
-            this.ActorVariable4Input.Location = new System.Drawing.Point(109, 84);
-            this.ActorVariable4Input.Maximum = new decimal(new int[] {
-            255,
+            this.label_V5_1.AutoSize = true;
+            this.label_V5_1.Location = new System.Drawing.Point(6, 34);
+            this.label_V5_1.Name = "label_V5_1";
+            this.label_V5_1.Size = new System.Drawing.Size(57, 13);
+            this.label_V5_1.TabIndex = 37;
+            this.label_V5_1.Text = "Variable 1:";
+            // 
+            // ActorVariable4BInput
+            // 
+            this.ActorVariable4BInput.Location = new System.Drawing.Point(86, 84);
+            this.ActorVariable4BInput.Maximum = new decimal(new int[] {
+            7,
             0,
             0,
             0});
-            this.ActorVariable4Input.Name = "ActorVariable4Input";
-            this.ActorVariable4Input.Size = new System.Drawing.Size(51, 20);
-            this.ActorVariable4Input.TabIndex = 30;
-            this.ActorVariable4Input.ValueChanged += new System.EventHandler(this.ActorChanged);
-            this.ActorVariable4Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
+            this.ActorVariable4BInput.Name = "ActorVariable4BInput";
+            this.ActorVariable4BInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorVariable4BInput.TabIndex = 39;
+            this.ActorAttributesTip.SetToolTip(this.ActorVariable4BInput, "The first 3 bits of the fifth byte.");
+            this.ActorVariable4BInput.ValueChanged += new System.EventHandler(this.ActorChanged);
             // 
             // ActorVariable3Input
             // 
-            this.ActorVariable3Input.Location = new System.Drawing.Point(109, 58);
+            this.ActorVariable3Input.Location = new System.Drawing.Point(86, 58);
             this.ActorVariable3Input.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1481,234 +1451,124 @@ namespace EFSAdvent
             0});
             this.ActorVariable3Input.Name = "ActorVariable3Input";
             this.ActorVariable3Input.Size = new System.Drawing.Size(51, 20);
-            this.ActorVariable3Input.TabIndex = 29;
+            this.ActorVariable3Input.TabIndex = 34;
+            this.ActorAttributesTip.SetToolTip(this.ActorVariable3Input, "The third byte.");
             this.ActorVariable3Input.ValueChanged += new System.EventHandler(this.ActorChanged);
-            this.ActorVariable3Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
-            // 
-            // Variables5TabPage
-            // 
-            this.Variables5TabPage.Controls.Add(this.ActorVariable4FlagCheckBox);
-            this.Variables5TabPage.Controls.Add(this.ActorVariable1AInput);
-            this.Variables5TabPage.Controls.Add(this.ActorVariable1BInput);
-            this.Variables5TabPage.Controls.Add(this.label_V5_4);
-            this.Variables5TabPage.Controls.Add(this.label_V5_3);
-            this.Variables5TabPage.Controls.Add(this.label_V5_2);
-            this.Variables5TabPage.Controls.Add(this.ActorVariable2Input2);
-            this.Variables5TabPage.Controls.Add(this.ActorVariable4Input2);
-            this.Variables5TabPage.Controls.Add(this.ActorVariable3Input2);
-            this.Variables5TabPage.Controls.Add(this.label_V5_1b);
-            this.Variables5TabPage.Controls.Add(this.label_V5_1a);
-            this.Variables5TabPage.Location = new System.Drawing.Point(4, 22);
-            this.Variables5TabPage.Name = "Variables5TabPage";
-            this.Variables5TabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.Variables5TabPage.Size = new System.Drawing.Size(162, 110);
-            this.Variables5TabPage.TabIndex = 1;
-            this.Variables5TabPage.Text = "5V";
-            this.Variables5TabPage.UseVisualStyleBackColor = true;
-            // 
-            // ActorVariable4FlagCheckBox
-            // 
-            this.ActorVariable4FlagCheckBox.AutoSize = true;
-            this.ActorVariable4FlagCheckBox.Location = new System.Drawing.Point(57, 85);
-            this.ActorVariable4FlagCheckBox.Name = "ActorVariable4FlagCheckBox";
-            this.ActorVariable4FlagCheckBox.Size = new System.Drawing.Size(46, 17);
-            this.ActorVariable4FlagCheckBox.TabIndex = 43;
-            this.ActorVariable4FlagCheckBox.Text = "Flag";
-            this.ActorVariable4FlagCheckBox.UseVisualStyleBackColor = true;
-            this.ActorVariable4FlagCheckBox.CheckedChanged += new System.EventHandler(this.ActorChangedV5);
-            // 
-            // ActorVariable1AInput
-            // 
-            this.ActorVariable1AInput.Location = new System.Drawing.Point(29, 7);
-            this.ActorVariable1AInput.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.ActorVariable1AInput.Name = "ActorVariable1AInput";
-            this.ActorVariable1AInput.Size = new System.Drawing.Size(51, 20);
-            this.ActorVariable1AInput.TabIndex = 40;
-            this.ActorVariable1AInput.ValueChanged += new System.EventHandler(this.ActorChangedV5);
-            // 
-            // ActorVariable1BInput
-            // 
-            this.ActorVariable1BInput.Location = new System.Drawing.Point(109, 6);
-            this.ActorVariable1BInput.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-            this.ActorVariable1BInput.Name = "ActorVariable1BInput";
-            this.ActorVariable1BInput.Size = new System.Drawing.Size(51, 20);
-            this.ActorVariable1BInput.TabIndex = 39;
-            this.ActorVariable1BInput.ValueChanged += new System.EventHandler(this.ActorChangedV5);
-            // 
-            // label_V5_4
-            // 
-            this.label_V5_4.AutoSize = true;
-            this.label_V5_4.Location = new System.Drawing.Point(2, 86);
-            this.label_V5_4.Name = "label_V5_4";
-            this.label_V5_4.Size = new System.Drawing.Size(57, 13);
-            this.label_V5_4.TabIndex = 38;
-            this.label_V5_4.Text = "Variable 4:";
-            // 
-            // label_V5_3
-            // 
-            this.label_V5_3.AutoSize = true;
-            this.label_V5_3.Location = new System.Drawing.Point(2, 60);
-            this.label_V5_3.Name = "label_V5_3";
-            this.label_V5_3.Size = new System.Drawing.Size(57, 13);
-            this.label_V5_3.TabIndex = 37;
-            this.label_V5_3.Text = "Variable 3:";
             // 
             // label_V5_2
             // 
             this.label_V5_2.AutoSize = true;
-            this.label_V5_2.Location = new System.Drawing.Point(2, 34);
+            this.label_V5_2.Location = new System.Drawing.Point(6, 60);
             this.label_V5_2.Name = "label_V5_2";
             this.label_V5_2.Size = new System.Drawing.Size(57, 13);
             this.label_V5_2.TabIndex = 33;
             this.label_V5_2.Text = "Variable 2:";
             // 
-            // ActorVariable2Input2
+            // tabPageV6
             // 
-            this.ActorVariable2Input2.Location = new System.Drawing.Point(109, 32);
-            this.ActorVariable2Input2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.ActorVariable2Input2.Name = "ActorVariable2Input2";
-            this.ActorVariable2Input2.Size = new System.Drawing.Size(51, 20);
-            this.ActorVariable2Input2.TabIndex = 34;
-            this.ActorVariable2Input2.ValueChanged += new System.EventHandler(this.ActorChangedV5);
+            this.tabPageV6.Controls.Add(this.label21);
+            this.tabPageV6.Controls.Add(this.label15);
+            this.tabPageV6.Controls.Add(this.label14);
+            this.tabPageV6.Controls.Add(this.label13);
+            this.tabPageV6.Controls.Add(this.label12);
+            this.tabPageV6.Controls.Add(this.label9);
+            this.tabPageV6.Controls.Add(this.ActorV6Variable2fInput);
+            this.tabPageV6.Controls.Add(this.ActorV6Variable1Input);
+            this.tabPageV6.Controls.Add(this.ActorV6Variable4Input);
+            this.tabPageV6.Controls.Add(this.ActorV6Variable3Input);
+            this.tabPageV6.Controls.Add(this.ActorV6Variable6Input);
+            this.tabPageV6.Controls.Add(this.ActorV6Variable5Input);
+            this.tabPageV6.Location = new System.Drawing.Point(4, 22);
+            this.tabPageV6.Name = "tabPageV6";
+            this.tabPageV6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageV6.Size = new System.Drawing.Size(143, 220);
+            this.tabPageV6.TabIndex = 1;
+            this.tabPageV6.Text = "V6";
+            this.tabPageV6.UseVisualStyleBackColor = true;
             // 
-            // ActorVariable4Input2
+            // label21
             // 
-            this.ActorVariable4Input2.Location = new System.Drawing.Point(109, 84);
-            this.ActorVariable4Input2.Maximum = new decimal(new int[] {
-            127,
-            0,
-            0,
-            0});
-            this.ActorVariable4Input2.Name = "ActorVariable4Input2";
-            this.ActorVariable4Input2.Size = new System.Drawing.Size(51, 20);
-            this.ActorVariable4Input2.TabIndex = 36;
-            this.ActorVariable4Input2.ValueChanged += new System.EventHandler(this.ActorChangedV5);
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 34);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(57, 13);
+            this.label21.TabIndex = 70;
+            this.label21.Text = "Variable 1:";
             // 
-            // ActorVariable3Input2
+            // label15
             // 
-            this.ActorVariable3Input2.Location = new System.Drawing.Point(109, 58);
-            this.ActorVariable3Input2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.ActorVariable3Input2.Name = "ActorVariable3Input2";
-            this.ActorVariable3Input2.Size = new System.Drawing.Size(51, 20);
-            this.ActorVariable3Input2.TabIndex = 35;
-            this.ActorVariable3Input2.ValueChanged += new System.EventHandler(this.ActorChangedV5);
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 60);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(57, 13);
+            this.label15.TabIndex = 69;
+            this.label15.Text = "Variable 2:";
             // 
-            // label_V5_1b
+            // label14
             // 
-            this.label_V5_1b.AutoSize = true;
-            this.label_V5_1b.Location = new System.Drawing.Point(80, 9);
-            this.label_V5_1b.Name = "label_V5_1b";
-            this.label_V5_1b.Size = new System.Drawing.Size(29, 13);
-            this.label_V5_1b.TabIndex = 42;
-            this.label_V5_1b.Text = "V1b:";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 86);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 13);
+            this.label14.TabIndex = 68;
+            this.label14.Text = "Variable 3:";
             // 
-            // label_V5_1a
+            // label13
             // 
-            this.label_V5_1a.AutoSize = true;
-            this.label_V5_1a.Location = new System.Drawing.Point(2, 9);
-            this.label_V5_1a.Name = "label_V5_1a";
-            this.label_V5_1a.Size = new System.Drawing.Size(29, 13);
-            this.label_V5_1a.TabIndex = 41;
-            this.label_V5_1a.Text = "V1a:";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 112);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 13);
+            this.label13.TabIndex = 67;
+            this.label13.Text = "Variable 4:";
             // 
-            // Variables6TabPage
+            // label12
             // 
-            this.Variables6TabPage.Controls.Add(this.ActorV6Variable5Input);
-            this.Variables6TabPage.Controls.Add(this.ActorV6Variable6Input);
-            this.Variables6TabPage.Controls.Add(this.label_V6_6);
-            this.Variables6TabPage.Controls.Add(this.label_V6_5);
-            this.Variables6TabPage.Controls.Add(this.ActorV6Variable3Input);
-            this.Variables6TabPage.Controls.Add(this.ActorV6Variable4Input);
-            this.Variables6TabPage.Controls.Add(this.label_V6_4);
-            this.Variables6TabPage.Controls.Add(this.label_V6_3);
-            this.Variables6TabPage.Controls.Add(this.ActorV6Variable1Input);
-            this.Variables6TabPage.Controls.Add(this.ActorV6Variable2Input);
-            this.Variables6TabPage.Controls.Add(this.label_V6_2);
-            this.Variables6TabPage.Controls.Add(this.label_V6_1);
-            this.Variables6TabPage.Location = new System.Drawing.Point(4, 22);
-            this.Variables6TabPage.Name = "Variables6TabPage";
-            this.Variables6TabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.Variables6TabPage.Size = new System.Drawing.Size(162, 110);
-            this.Variables6TabPage.TabIndex = 2;
-            this.Variables6TabPage.Text = "6V";
-            this.Variables6TabPage.UseVisualStyleBackColor = true;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 138);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(43, 13);
+            this.label12.TabIndex = 66;
+            this.label12.Text = "Trigger:";
             // 
-            // ActorV6Variable5Input
+            // label9
             // 
-            this.ActorV6Variable5Input.Location = new System.Drawing.Point(29, 59);
-            this.ActorV6Variable5Input.Maximum = new decimal(new int[] {
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 8);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(34, 13);
+            this.label9.TabIndex = 65;
+            this.label9.Text = "Type:";
+            // 
+            // ActorV6Variable2fInput
+            // 
+            this.ActorV6Variable2fInput.Location = new System.Drawing.Point(86, 32);
+            this.ActorV6Variable2fInput.Maximum = new decimal(new int[] {
             31,
             0,
             0,
             0});
-            this.ActorV6Variable5Input.Name = "ActorV6Variable5Input";
-            this.ActorV6Variable5Input.Size = new System.Drawing.Size(51, 20);
-            this.ActorV6Variable5Input.TabIndex = 52;
-            this.ActorV6Variable5Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            this.ActorV6Variable2fInput.Name = "ActorV6Variable2fInput";
+            this.ActorV6Variable2fInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable2fInput.TabIndex = 64;
+            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable2fInput, "The next 5 bits.");
             // 
-            // ActorV6Variable6Input
+            // ActorV6Variable1Input
             // 
-            this.ActorV6Variable6Input.Location = new System.Drawing.Point(109, 58);
-            this.ActorV6Variable6Input.Maximum = new decimal(new int[] {
+            this.ActorV6Variable1Input.Location = new System.Drawing.Point(86, 6);
+            this.ActorV6Variable1Input.Maximum = new decimal(new int[] {
             127,
             0,
             0,
             0});
-            this.ActorV6Variable6Input.Name = "ActorV6Variable6Input";
-            this.ActorV6Variable6Input.Size = new System.Drawing.Size(51, 20);
-            this.ActorV6Variable6Input.TabIndex = 51;
-            this.ActorV6Variable6Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
-            // 
-            // label_V6_6
-            // 
-            this.label_V6_6.AutoSize = true;
-            this.label_V6_6.Location = new System.Drawing.Point(80, 61);
-            this.label_V6_6.Name = "label_V6_6";
-            this.label_V6_6.Size = new System.Drawing.Size(23, 13);
-            this.label_V6_6.TabIndex = 54;
-            this.label_V6_6.Text = "V6:";
-            // 
-            // label_V6_5
-            // 
-            this.label_V6_5.AutoSize = true;
-            this.label_V6_5.Location = new System.Drawing.Point(2, 61);
-            this.label_V6_5.Name = "label_V6_5";
-            this.label_V6_5.Size = new System.Drawing.Size(23, 13);
-            this.label_V6_5.TabIndex = 53;
-            this.label_V6_5.Text = "V5:";
-            // 
-            // ActorV6Variable3Input
-            // 
-            this.ActorV6Variable3Input.Location = new System.Drawing.Point(29, 33);
-            this.ActorV6Variable3Input.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.ActorV6Variable3Input.Name = "ActorV6Variable3Input";
-            this.ActorV6Variable3Input.Size = new System.Drawing.Size(51, 20);
-            this.ActorV6Variable3Input.TabIndex = 48;
-            this.ActorV6Variable3Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            this.ActorV6Variable1Input.Name = "ActorV6Variable1Input";
+            this.ActorV6Variable1Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable1Input.TabIndex = 63;
+            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable1Input, "The first 7 bits of the first byte.");
             // 
             // ActorV6Variable4Input
             // 
-            this.ActorV6Variable4Input.Location = new System.Drawing.Point(109, 32);
+            this.ActorV6Variable4Input.Location = new System.Drawing.Point(86, 84);
             this.ActorV6Variable4Input.Maximum = new decimal(new int[] {
             31,
             0,
@@ -1716,272 +1576,120 @@ namespace EFSAdvent
             0});
             this.ActorV6Variable4Input.Name = "ActorV6Variable4Input";
             this.ActorV6Variable4Input.Size = new System.Drawing.Size(51, 20);
-            this.ActorV6Variable4Input.TabIndex = 47;
-            this.ActorV6Variable4Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            this.ActorV6Variable4Input.TabIndex = 60;
+            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable4Input, "The next 5 bits.");
             // 
-            // label_V6_4
+            // ActorV6Variable3Input
             // 
-            this.label_V6_4.AutoSize = true;
-            this.label_V6_4.Location = new System.Drawing.Point(80, 35);
-            this.label_V6_4.Name = "label_V6_4";
-            this.label_V6_4.Size = new System.Drawing.Size(23, 13);
-            this.label_V6_4.TabIndex = 50;
-            this.label_V6_4.Text = "V4:";
-            // 
-            // label_V6_3
-            // 
-            this.label_V6_3.AutoSize = true;
-            this.label_V6_3.Location = new System.Drawing.Point(2, 35);
-            this.label_V6_3.Name = "label_V6_3";
-            this.label_V6_3.Size = new System.Drawing.Size(23, 13);
-            this.label_V6_3.TabIndex = 49;
-            this.label_V6_3.Text = "V3:";
-            // 
-            // ActorV6Variable1Input
-            // 
-            this.ActorV6Variable1Input.Location = new System.Drawing.Point(29, 7);
-            this.ActorV6Variable1Input.Maximum = new decimal(new int[] {
+            this.ActorV6Variable3Input.Location = new System.Drawing.Point(86, 58);
+            this.ActorV6Variable3Input.Maximum = new decimal(new int[] {
             31,
             0,
             0,
             0});
-            this.ActorV6Variable1Input.Name = "ActorV6Variable1Input";
-            this.ActorV6Variable1Input.Size = new System.Drawing.Size(51, 20);
-            this.ActorV6Variable1Input.TabIndex = 44;
-            this.ActorV6Variable1Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            this.ActorV6Variable3Input.Name = "ActorV6Variable3Input";
+            this.ActorV6Variable3Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable3Input.TabIndex = 59;
+            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable3Input, "The next 5 bits.");
             // 
-            // ActorV6Variable2Input
+            // ActorV6Variable6Input
             // 
-            this.ActorV6Variable2Input.Location = new System.Drawing.Point(109, 6);
-            this.ActorV6Variable2Input.Maximum = new decimal(new int[] {
+            this.ActorV6Variable6Input.Location = new System.Drawing.Point(86, 136);
+            this.ActorV6Variable6Input.Maximum = new decimal(new int[] {
             31,
             0,
             0,
             0});
-            this.ActorV6Variable2Input.Name = "ActorV6Variable2Input";
-            this.ActorV6Variable2Input.Size = new System.Drawing.Size(51, 20);
-            this.ActorV6Variable2Input.TabIndex = 43;
-            this.ActorV6Variable2Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
+            this.ActorV6Variable6Input.Name = "ActorV6Variable6Input";
+            this.ActorV6Variable6Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable6Input.TabIndex = 56;
+            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable6Input, "The last 5 bits of the fifth byte.");
             // 
-            // label_V6_2
+            // ActorV6Variable5Input
             // 
-            this.label_V6_2.AutoSize = true;
-            this.label_V6_2.Location = new System.Drawing.Point(80, 9);
-            this.label_V6_2.Name = "label_V6_2";
-            this.label_V6_2.Size = new System.Drawing.Size(23, 13);
-            this.label_V6_2.TabIndex = 46;
-            this.label_V6_2.Text = "V2:";
-            // 
-            // label_V6_1
-            // 
-            this.label_V6_1.AutoSize = true;
-            this.label_V6_1.Location = new System.Drawing.Point(2, 9);
-            this.label_V6_1.Name = "label_V6_1";
-            this.label_V6_1.Size = new System.Drawing.Size(23, 13);
-            this.label_V6_1.TabIndex = 45;
-            this.label_V6_1.Text = "V1:";
-            // 
-            // Variables8TabPage
-            // 
-            this.Variables8TabPage.Controls.Add(this.ActorV8Variable4aInput);
-            this.Variables8TabPage.Controls.Add(this.ActorV8Variable4bInput);
-            this.Variables8TabPage.Controls.Add(this.label_V8_4b);
-            this.Variables8TabPage.Controls.Add(this.label_V8_4a);
-            this.Variables8TabPage.Controls.Add(this.ActorV8Variable3aInput);
-            this.Variables8TabPage.Controls.Add(this.ActorV8Variable3bInput);
-            this.Variables8TabPage.Controls.Add(this.label_V8_3b);
-            this.Variables8TabPage.Controls.Add(this.label_V8_3a);
-            this.Variables8TabPage.Controls.Add(this.ActorV8Variable2aInput);
-            this.Variables8TabPage.Controls.Add(this.ActorV8Variable2bInput);
-            this.Variables8TabPage.Controls.Add(this.label_V8_2b);
-            this.Variables8TabPage.Controls.Add(this.label_V8_2a);
-            this.Variables8TabPage.Controls.Add(this.ActorV8Variable1aInput);
-            this.Variables8TabPage.Controls.Add(this.ActorV8Variable1bInput);
-            this.Variables8TabPage.Controls.Add(this.label_V8_1b);
-            this.Variables8TabPage.Controls.Add(this.label_V8_1a);
-            this.Variables8TabPage.Location = new System.Drawing.Point(4, 22);
-            this.Variables8TabPage.Name = "Variables8TabPage";
-            this.Variables8TabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.Variables8TabPage.Size = new System.Drawing.Size(162, 110);
-            this.Variables8TabPage.TabIndex = 3;
-            this.Variables8TabPage.Text = "V8";
-            this.Variables8TabPage.UseVisualStyleBackColor = true;
-            // 
-            // ActorV8Variable4aInput
-            // 
-            this.ActorV8Variable4aInput.Location = new System.Drawing.Point(29, 84);
-            this.ActorV8Variable4aInput.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.ActorV8Variable4aInput.Name = "ActorV8Variable4aInput";
-            this.ActorV8Variable4aInput.Size = new System.Drawing.Size(51, 20);
-            this.ActorV8Variable4aInput.TabIndex = 68;
-            this.ActorV8Variable4aInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
-            // 
-            // ActorV8Variable4bInput
-            // 
-            this.ActorV8Variable4bInput.Location = new System.Drawing.Point(109, 84);
-            this.ActorV8Variable4bInput.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.ActorV8Variable4bInput.Name = "ActorV8Variable4bInput";
-            this.ActorV8Variable4bInput.Size = new System.Drawing.Size(51, 20);
-            this.ActorV8Variable4bInput.TabIndex = 67;
-            this.ActorV8Variable4bInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
-            // 
-            // label_V8_4b
-            // 
-            this.label_V8_4b.AutoSize = true;
-            this.label_V8_4b.Location = new System.Drawing.Point(80, 86);
-            this.label_V8_4b.Name = "label_V8_4b";
-            this.label_V8_4b.Size = new System.Drawing.Size(29, 13);
-            this.label_V8_4b.TabIndex = 70;
-            this.label_V8_4b.Text = "V4b:";
-            // 
-            // label_V8_4a
-            // 
-            this.label_V8_4a.AutoSize = true;
-            this.label_V8_4a.Location = new System.Drawing.Point(2, 86);
-            this.label_V8_4a.Name = "label_V8_4a";
-            this.label_V8_4a.Size = new System.Drawing.Size(29, 13);
-            this.label_V8_4a.TabIndex = 69;
-            this.label_V8_4a.Text = "V4a:";
-            // 
-            // ActorV8Variable3aInput
-            // 
-            this.ActorV8Variable3aInput.Location = new System.Drawing.Point(29, 59);
-            this.ActorV8Variable3aInput.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.ActorV8Variable3aInput.Name = "ActorV8Variable3aInput";
-            this.ActorV8Variable3aInput.Size = new System.Drawing.Size(51, 20);
-            this.ActorV8Variable3aInput.TabIndex = 64;
-            this.ActorV8Variable3aInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
-            // 
-            // ActorV8Variable3bInput
-            // 
-            this.ActorV8Variable3bInput.Location = new System.Drawing.Point(109, 58);
-            this.ActorV8Variable3bInput.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.ActorV8Variable3bInput.Name = "ActorV8Variable3bInput";
-            this.ActorV8Variable3bInput.Size = new System.Drawing.Size(51, 20);
-            this.ActorV8Variable3bInput.TabIndex = 63;
-            this.ActorV8Variable3bInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
-            // 
-            // label_V8_3b
-            // 
-            this.label_V8_3b.AutoSize = true;
-            this.label_V8_3b.Location = new System.Drawing.Point(80, 61);
-            this.label_V8_3b.Name = "label_V8_3b";
-            this.label_V8_3b.Size = new System.Drawing.Size(29, 13);
-            this.label_V8_3b.TabIndex = 66;
-            this.label_V8_3b.Text = "V3b:";
-            // 
-            // label_V8_3a
-            // 
-            this.label_V8_3a.AutoSize = true;
-            this.label_V8_3a.Location = new System.Drawing.Point(2, 61);
-            this.label_V8_3a.Name = "label_V8_3a";
-            this.label_V8_3a.Size = new System.Drawing.Size(29, 13);
-            this.label_V8_3a.TabIndex = 65;
-            this.label_V8_3a.Text = "V3a:";
-            // 
-            // ActorV8Variable2aInput
-            // 
-            this.ActorV8Variable2aInput.Location = new System.Drawing.Point(29, 33);
-            this.ActorV8Variable2aInput.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.ActorV8Variable2aInput.Name = "ActorV8Variable2aInput";
-            this.ActorV8Variable2aInput.Size = new System.Drawing.Size(51, 20);
-            this.ActorV8Variable2aInput.TabIndex = 60;
-            this.ActorV8Variable2aInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
-            // 
-            // ActorV8Variable2bInput
-            // 
-            this.ActorV8Variable2bInput.Location = new System.Drawing.Point(109, 32);
-            this.ActorV8Variable2bInput.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.ActorV8Variable2bInput.Name = "ActorV8Variable2bInput";
-            this.ActorV8Variable2bInput.Size = new System.Drawing.Size(51, 20);
-            this.ActorV8Variable2bInput.TabIndex = 59;
-            this.ActorV8Variable2bInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
-            // 
-            // label_V8_2b
-            // 
-            this.label_V8_2b.AutoSize = true;
-            this.label_V8_2b.Location = new System.Drawing.Point(80, 35);
-            this.label_V8_2b.Name = "label_V8_2b";
-            this.label_V8_2b.Size = new System.Drawing.Size(29, 13);
-            this.label_V8_2b.TabIndex = 62;
-            this.label_V8_2b.Text = "V2b:";
-            // 
-            // label_V8_2a
-            // 
-            this.label_V8_2a.AutoSize = true;
-            this.label_V8_2a.Location = new System.Drawing.Point(2, 35);
-            this.label_V8_2a.Name = "label_V8_2a";
-            this.label_V8_2a.Size = new System.Drawing.Size(29, 13);
-            this.label_V8_2a.TabIndex = 61;
-            this.label_V8_2a.Text = "V2a:";
-            // 
-            // ActorV8Variable1aInput
-            // 
-            this.ActorV8Variable1aInput.Location = new System.Drawing.Point(29, 7);
-            this.ActorV8Variable1aInput.Maximum = new decimal(new int[] {
+            this.ActorV6Variable5Input.Location = new System.Drawing.Point(86, 110);
+            this.ActorV6Variable5Input.Maximum = new decimal(new int[] {
             31,
             0,
             0,
             0});
-            this.ActorV8Variable1aInput.Name = "ActorV8Variable1aInput";
-            this.ActorV8Variable1aInput.Size = new System.Drawing.Size(51, 20);
-            this.ActorV8Variable1aInput.TabIndex = 56;
-            this.ActorV8Variable1aInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
+            this.ActorV6Variable5Input.Name = "ActorV6Variable5Input";
+            this.ActorV6Variable5Input.Size = new System.Drawing.Size(51, 20);
+            this.ActorV6Variable5Input.TabIndex = 55;
+            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable5Input, "The next 5 bits.");
             // 
-            // ActorV8Variable1bInput
+            // groupBoxFullVariable
             // 
-            this.ActorV8Variable1bInput.Location = new System.Drawing.Point(109, 6);
-            this.ActorV8Variable1bInput.Maximum = new decimal(new int[] {
-            7,
+            this.groupBoxFullVariable.Controls.Add(this.ActorVariableFullInput);
+            this.groupBoxFullVariable.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxFullVariable.Name = "groupBoxFullVariable";
+            this.groupBoxFullVariable.Size = new System.Drawing.Size(151, 51);
+            this.groupBoxFullVariable.TabIndex = 47;
+            this.groupBoxFullVariable.TabStop = false;
+            this.groupBoxFullVariable.Text = "Full Variable";
+            // 
+            // ActorVariableFullInput
+            // 
+            this.ActorVariableFullInput.Enabled = false;
+            this.ActorVariableFullInput.Location = new System.Drawing.Point(6, 19);
+            this.ActorVariableFullInput.Maximum = new decimal(new int[] {
+            -1,
             0,
             0,
             0});
-            this.ActorV8Variable1bInput.Name = "ActorV8Variable1bInput";
-            this.ActorV8Variable1bInput.Size = new System.Drawing.Size(51, 20);
-            this.ActorV8Variable1bInput.TabIndex = 55;
-            this.ActorV8Variable1bInput.ValueChanged += new System.EventHandler(this.ActorChangedV8);
+            this.ActorVariableFullInput.Name = "ActorVariableFullInput";
+            this.ActorVariableFullInput.ReadOnly = true;
+            this.ActorVariableFullInput.Size = new System.Drawing.Size(139, 20);
+            this.ActorVariableFullInput.TabIndex = 46;
+            this.ActorAttributesTip.SetToolTip(this.ActorVariableFullInput, "The 32bit value of the actor variable.");
             // 
-            // label_V8_1b
+            // tabPageFieldsVariable
             // 
-            this.label_V8_1b.AutoSize = true;
-            this.label_V8_1b.Location = new System.Drawing.Point(80, 9);
-            this.label_V8_1b.Name = "label_V8_1b";
-            this.label_V8_1b.Size = new System.Drawing.Size(29, 13);
-            this.label_V8_1b.TabIndex = 58;
-            this.label_V8_1b.Text = "V1b:";
+            this.tabPageFieldsVariable.Controls.Add(this.panelActorFields);
+            this.tabPageFieldsVariable.Location = new System.Drawing.Point(4, 22);
+            this.tabPageFieldsVariable.Name = "tabPageFieldsVariable";
+            this.tabPageFieldsVariable.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageFieldsVariable.Size = new System.Drawing.Size(162, 315);
+            this.tabPageFieldsVariable.TabIndex = 3;
+            this.tabPageFieldsVariable.Text = "Fields";
+            this.tabPageFieldsVariable.UseVisualStyleBackColor = true;
             // 
-            // label_V8_1a
+            // panelActorFields
             // 
-            this.label_V8_1a.AutoSize = true;
-            this.label_V8_1a.Location = new System.Drawing.Point(2, 9);
-            this.label_V8_1a.Name = "label_V8_1a";
-            this.label_V8_1a.Size = new System.Drawing.Size(29, 13);
-            this.label_V8_1a.TabIndex = 57;
-            this.label_V8_1a.Text = "V1a:";
+            this.panelActorFields.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelActorFields.AutoScroll = true;
+            this.panelActorFields.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.panelActorFields.Location = new System.Drawing.Point(0, 0);
+            this.panelActorFields.Name = "panelActorFields";
+            this.panelActorFields.Size = new System.Drawing.Size(162, 315);
+            this.panelActorFields.TabIndex = 0;
+            this.panelActorFields.WrapContents = false;
+            // 
+            // cloneButton
+            // 
+            this.cloneButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cloneButton.Location = new System.Drawing.Point(94, 484);
+            this.cloneButton.Name = "cloneButton";
+            this.cloneButton.Size = new System.Drawing.Size(80, 22);
+            this.cloneButton.TabIndex = 31;
+            this.cloneButton.Text = "Copy";
+            this.ActorAttributesTip.SetToolTip(this.cloneButton, "Copies the currently selected actor to the clipboard.");
+            this.cloneButton.UseVisualStyleBackColor = true;
+            this.cloneButton.Click += new System.EventHandler(this.CopyActorToClipboard);
+            // 
+            // actorDeleteButton
+            // 
+            this.actorDeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.actorDeleteButton.Enabled = false;
+            this.actorDeleteButton.Location = new System.Drawing.Point(6, 484);
+            this.actorDeleteButton.Name = "actorDeleteButton";
+            this.actorDeleteButton.Size = new System.Drawing.Size(80, 22);
+            this.actorDeleteButton.TabIndex = 4;
+            this.actorDeleteButton.Text = "Delete";
+            this.actorDeleteButton.UseVisualStyleBackColor = true;
+            this.actorDeleteButton.Click += new System.EventHandler(this.actorDeleteButton_Click);
             // 
             // groupBoxCoridinate
             // 
@@ -1989,16 +1697,18 @@ namespace EFSAdvent
             this.groupBoxCoridinate.Controls.Add(this.ActorYCoordInput);
             this.groupBoxCoridinate.Controls.Add(this.label8);
             this.groupBoxCoridinate.Controls.Add(this.label7);
-            this.groupBoxCoridinate.Location = new System.Drawing.Point(6, 72);
+            this.groupBoxCoridinate.Controls.Add(this.ActorLayerInput);
+            this.groupBoxCoridinate.Controls.Add(this.label6);
+            this.groupBoxCoridinate.Location = new System.Drawing.Point(6, 46);
             this.groupBoxCoridinate.Name = "groupBoxCoridinate";
-            this.groupBoxCoridinate.Size = new System.Drawing.Size(170, 42);
+            this.groupBoxCoridinate.Size = new System.Drawing.Size(101, 90);
             this.groupBoxCoridinate.TabIndex = 32;
             this.groupBoxCoridinate.TabStop = false;
             this.groupBoxCoridinate.Text = "Coridinate";
             // 
             // ActorXCoordInput
             // 
-            this.ActorXCoordInput.Location = new System.Drawing.Point(33, 16);
+            this.ActorXCoordInput.Location = new System.Drawing.Point(33, 43);
             this.ActorXCoordInput.Maximum = new decimal(new int[] {
             63,
             0,
@@ -2012,7 +1722,7 @@ namespace EFSAdvent
             // 
             // ActorYCoordInput
             // 
-            this.ActorYCoordInput.Location = new System.Drawing.Point(113, 16);
+            this.ActorYCoordInput.Location = new System.Drawing.Point(33, 69);
             this.ActorYCoordInput.Maximum = new decimal(new int[] {
             63,
             0,
@@ -2027,7 +1737,7 @@ namespace EFSAdvent
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(84, 18);
+            this.label8.Location = new System.Drawing.Point(10, 71);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(17, 13);
             this.label8.TabIndex = 7;
@@ -2036,37 +1746,15 @@ namespace EFSAdvent
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 18);
+            this.label7.Location = new System.Drawing.Point(10, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(17, 13);
             this.label7.TabIndex = 7;
             this.label7.Text = "X:";
             // 
-            // cloneButton
-            // 
-            this.cloneButton.Location = new System.Drawing.Point(96, 261);
-            this.cloneButton.Name = "cloneButton";
-            this.cloneButton.Size = new System.Drawing.Size(80, 23);
-            this.cloneButton.TabIndex = 31;
-            this.cloneButton.Text = "Copy";
-            this.ActorAttributesTip.SetToolTip(this.cloneButton, "Copies the currently selected actor to the clipboard.");
-            this.cloneButton.UseVisualStyleBackColor = true;
-            this.cloneButton.Click += new System.EventHandler(this.CopyActorToClipboard);
-            // 
-            // actorDeleteButton
-            // 
-            this.actorDeleteButton.Enabled = false;
-            this.actorDeleteButton.Location = new System.Drawing.Point(6, 261);
-            this.actorDeleteButton.Name = "actorDeleteButton";
-            this.actorDeleteButton.Size = new System.Drawing.Size(80, 22);
-            this.actorDeleteButton.TabIndex = 4;
-            this.actorDeleteButton.Text = "Delete";
-            this.actorDeleteButton.UseVisualStyleBackColor = true;
-            this.actorDeleteButton.Click += new System.EventHandler(this.actorDeleteButton_Click);
-            // 
             // ActorLayerInput
             // 
-            this.ActorLayerInput.Location = new System.Drawing.Point(119, 46);
+            this.ActorLayerInput.Location = new System.Drawing.Point(33, 17);
             this.ActorLayerInput.Maximum = new decimal(new int[] {
             7,
             0,
@@ -2077,108 +1765,40 @@ namespace EFSAdvent
             this.ActorLayerInput.TabIndex = 24;
             this.ActorLayerInput.ValueChanged += new System.EventHandler(this.ActorChanged);
             // 
-            // label12
+            // label6
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 23);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(35, 13);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Actor:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(0, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Layer:";
+            this.ActorAttributesTip.SetToolTip(this.label6, "A number between 0 and 7 which selects\r\nthe layer this actor appears on.");
             // 
             // ActorNameComboBox
             // 
             this.ActorNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ActorNameComboBox.FormattingEnabled = true;
-            this.ActorNameComboBox.Location = new System.Drawing.Point(104, 15);
+            this.ActorNameComboBox.Location = new System.Drawing.Point(6, 19);
             this.ActorNameComboBox.MaxDropDownItems = 14;
             this.ActorNameComboBox.Name = "ActorNameComboBox";
-            this.ActorNameComboBox.Size = new System.Drawing.Size(66, 21);
+            this.ActorNameComboBox.Size = new System.Drawing.Size(168, 21);
             this.ActorNameComboBox.TabIndex = 5;
             this.ActorNameComboBox.SelectionChangeCommitted += new System.EventHandler(this.ActorChanged);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 48);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Appear on Layer:";
-            this.ActorAttributesTip.SetToolTip(this.label6, "A number between 0 and 7 which selects\r\nthe layer this actor appears on.");
-            // 
             // actorsCheckListBox
             // 
+            this.actorsCheckListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.actorsCheckListBox.FormattingEnabled = true;
-            this.actorsCheckListBox.Location = new System.Drawing.Point(7, 29);
+            this.actorsCheckListBox.Location = new System.Drawing.Point(7, 62);
             this.actorsCheckListBox.Name = "actorsCheckListBox";
-            this.actorsCheckListBox.Size = new System.Drawing.Size(74, 229);
+            this.actorsCheckListBox.Size = new System.Drawing.Size(74, 454);
             this.actorsCheckListBox.TabIndex = 2;
             this.actorsCheckListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.actorsCheckListBox_ItemCheck);
             this.actorsCheckListBox.Click += new System.EventHandler(this.actorsCheckListBox_Click);
-            this.actorsCheckListBox.SelectedIndexChanged += new System.EventHandler(this.actorsCheckListBox_SelectedIndexChanged);
+            this.actorsCheckListBox.SelectedIndexChanged += new System.EventHandler(this.ActorsCheckListBox_SelectedIndexChanged);
             this.actorsCheckListBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.actorsCheckListBox_KeyUp);
-            // 
-            // actorInfoBox
-            // 
-            this.actorInfoBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.actorInfoBox.Controls.Add(this.ActorInfoPictureBox);
-            this.actorInfoBox.Controls.Add(this.ActorInfoTextBox);
-            this.actorInfoBox.Controls.Add(this.actorsReloadButton);
-            this.actorInfoBox.Controls.Add(this.actorsSaveButton);
-            this.actorInfoBox.Location = new System.Drawing.Point(7, 303);
-            this.actorInfoBox.Name = "actorInfoBox";
-            this.actorInfoBox.Size = new System.Drawing.Size(260, 217);
-            this.actorInfoBox.TabIndex = 0;
-            this.actorInfoBox.TabStop = false;
-            this.actorInfoBox.Text = "Actor Information";
-            // 
-            // ActorInfoPictureBox
-            // 
-            this.ActorInfoPictureBox.BackColor = System.Drawing.Color.DarkGray;
-            this.ActorInfoPictureBox.Location = new System.Drawing.Point(190, 15);
-            this.ActorInfoPictureBox.MaximumSize = new System.Drawing.Size(64, 64);
-            this.ActorInfoPictureBox.MinimumSize = new System.Drawing.Size(32, 32);
-            this.ActorInfoPictureBox.Name = "ActorInfoPictureBox";
-            this.ActorInfoPictureBox.Size = new System.Drawing.Size(64, 64);
-            this.ActorInfoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ActorInfoPictureBox.TabIndex = 1;
-            this.ActorInfoPictureBox.TabStop = false;
-            // 
-            // ActorInfoTextBox
-            // 
-            this.ActorInfoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ActorInfoTextBox.Location = new System.Drawing.Point(7, 15);
-            this.ActorInfoTextBox.Multiline = true;
-            this.ActorInfoTextBox.Name = "ActorInfoTextBox";
-            this.ActorInfoTextBox.ReadOnly = true;
-            this.ActorInfoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ActorInfoTextBox.Size = new System.Drawing.Size(177, 196);
-            this.ActorInfoTextBox.TabIndex = 0;
-            // 
-            // actorsReloadButton
-            // 
-            this.actorsReloadButton.Enabled = false;
-            this.actorsReloadButton.Location = new System.Drawing.Point(190, 159);
-            this.actorsReloadButton.Name = "actorsReloadButton";
-            this.actorsReloadButton.Size = new System.Drawing.Size(64, 23);
-            this.actorsReloadButton.TabIndex = 13;
-            this.actorsReloadButton.Text = "Reload All";
-            this.ActorAttributesTip.SetToolTip(this.actorsReloadButton, "Discard all unsaved changes and reload all original actor data from disk");
-            this.actorsReloadButton.UseVisualStyleBackColor = true;
-            this.actorsReloadButton.Click += new System.EventHandler(this.actorsReloadButton_Click);
-            // 
-            // actorsSaveButton
-            // 
-            this.actorsSaveButton.Enabled = false;
-            this.actorsSaveButton.Location = new System.Drawing.Point(190, 188);
-            this.actorsSaveButton.Name = "actorsSaveButton";
-            this.actorsSaveButton.Size = new System.Drawing.Size(64, 23);
-            this.actorsSaveButton.TabIndex = 16;
-            this.actorsSaveButton.Text = "Save All";
-            this.ActorAttributesTip.SetToolTip(this.actorsSaveButton, "Save all changed actor data to disk");
-            this.actorsSaveButton.UseVisualStyleBackColor = true;
-            this.actorsSaveButton.Click += new System.EventHandler(this.actorsSaveButton_Click);
             // 
             // label1
             // 
@@ -2221,12 +1841,56 @@ namespace EFSAdvent
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // allRoomsAndActorsAspngToolStripMenuItem
+            // layersCheckList
             // 
-            this.allRoomsAndActorsAspngToolStripMenuItem.Name = "allRoomsAndActorsAspngToolStripMenuItem";
-            this.allRoomsAndActorsAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.allRoomsAndActorsAspngToolStripMenuItem.Text = "All Rooms and Actors as .png";
-            this.allRoomsAndActorsAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomsAsPng);
+            this.layersCheckList.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.layersCheckList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.layersCheckList.CheckOnClick = true;
+            this.layersCheckList.ColumnWidth = 70;
+            this.layersCheckList.FormattingEnabled = true;
+            this.layersCheckList.Items.AddRange(new object[] {
+            "Layer 1-0",
+            "Layer 1-1",
+            "Layer 1-2",
+            "Layer 1-3",
+            "Layer 1-4",
+            "Layer 1-5",
+            "Layer 1-6",
+            "Layer 1-7",
+            "Layer 2-0",
+            "Layer 2-1",
+            "Layer 2-2",
+            "Layer 2-3",
+            "Layer 2-4",
+            "Layer 2-5",
+            "Layer 2-6",
+            "Layer 2-7"});
+            this.layersCheckList.Location = new System.Drawing.Point(6, 16);
+            this.layersCheckList.MultiColumn = true;
+            this.layersCheckList.Name = "layersCheckList";
+            this.layersCheckList.Size = new System.Drawing.Size(145, 120);
+            this.layersCheckList.TabIndex = 19;
+            this.layersCheckList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LayersCheckList_ItemCheck);
+            // 
+            // layerPictureBox
+            // 
+            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layerPictureBox.Enabled = false;
+            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
+            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.Name = "layerPictureBox";
+            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.layerPictureBox.TabIndex = 0;
+            this.layerPictureBox.TabStop = false;
+            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
+            this.layerPictureBox.MouseLeave += new System.EventHandler(this.layerPictureBox_MouseLeave);
+            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
+            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
+            this.layerPictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.layerPictureBox_MouseWheel);
             // 
             // Form1
             // 
@@ -2249,7 +1913,6 @@ namespace EFSAdvent
             this.tileSheetPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).EndInit();
             this.layersPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.actorContextMenuStrip.ResumeLayout(false);
             this.MapPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).EndInit();
@@ -2277,49 +1940,36 @@ namespace EFSAdvent
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.actorAttributesgroupBox.ResumeLayout(false);
-            this.actorAttributesgroupBox.PerformLayout();
-            this.VariablesTabControl.ResumeLayout(false);
-            this.Variables4TabPage.ResumeLayout(false);
-            this.Variables4TabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).EndInit();
+            this.tabPageRawVariable.ResumeLayout(false);
+            this.Variables5TabPage.ResumeLayout(false);
+            this.tabControlRawVarType.ResumeLayout(false);
+            this.tabPageV5.ResumeLayout(false);
+            this.tabPageV5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4AInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1Input)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4Input)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4BInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorVariable3Input)).EndInit();
-            this.Variables5TabPage.ResumeLayout(false);
-            this.Variables5TabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1AInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable1BInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable2Input2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable4Input2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorVariable3Input2)).EndInit();
-            this.Variables6TabPage.ResumeLayout(false);
-            this.Variables6TabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable5Input)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable6Input)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable3Input)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable4Input)).EndInit();
+            this.tabPageV6.ResumeLayout(false);
+            this.tabPageV6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable2fInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable1Input)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable2Input)).EndInit();
-            this.Variables8TabPage.ResumeLayout(false);
-            this.Variables8TabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable4aInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable4bInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable3aInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable3bInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable2aInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable2bInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable1aInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorV8Variable1bInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable4Input)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable3Input)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable6Input)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ActorV6Variable5Input)).EndInit();
+            this.groupBoxFullVariable.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ActorVariableFullInput)).EndInit();
+            this.tabPageFieldsVariable.ResumeLayout(false);
             this.groupBoxCoridinate.ResumeLayout(false);
             this.groupBoxCoridinate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorXCoordInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).EndInit();
-            this.actorInfoBox.ResumeLayout(false);
-            this.actorInfoBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActorInfoPictureBox)).EndInit();
             this.BottomGroupBox.ResumeLayout(false);
             this.BottomGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2357,26 +2007,19 @@ namespace EFSAdvent
         private System.Windows.Forms.TextBox RootFolderPathTextBox;
         private System.Windows.Forms.GroupBox MapVariablesGroupBox;
         private System.Windows.Forms.Button updateLayersButton;
-        private System.Windows.Forms.GroupBox actorInfoBox;
-        private System.Windows.Forms.Button actorsSaveButton;
-        private System.Windows.Forms.Button actorsReloadButton;
         private System.Windows.Forms.ToolTip ActorAttributesTip;
         private System.Windows.Forms.CheckedListBox actorsCheckListBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox actorAttributesgroupBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label_V4_2;
         private System.Windows.Forms.ComboBox actorLayerComboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox ActorNameComboBox;
-        private System.Windows.Forms.TextBox ActorInfoTextBox;
         private System.Windows.Forms.PictureBox ActorInfoPictureBox;
         private System.Windows.Forms.Button actorDeleteButton;
         private System.Windows.Forms.Button MapSaveButton;
-        private System.Windows.Forms.Label label_V4_1;
         private System.Windows.Forms.Button buttonActorsSelectNone;
         private System.Windows.Forms.Button buttonSaveLayers;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
@@ -2401,10 +2044,6 @@ namespace EFSAdvent
 		private System.Windows.Forms.NumericUpDown MapVariableE3Banner;
 		private System.Windows.Forms.NumericUpDown MapVariableStartY;
 		private System.Windows.Forms.NumericUpDown MapVariableStartX;
-		private System.Windows.Forms.NumericUpDown ActorVariable4Input;
-		private System.Windows.Forms.NumericUpDown ActorVariable3Input;
-		private System.Windows.Forms.NumericUpDown ActorVariable2Input;
-		private System.Windows.Forms.NumericUpDown ActorVariable1Input;
 		private System.Windows.Forms.NumericUpDown ActorYCoordInput;
 		private System.Windows.Forms.NumericUpDown ActorXCoordInput;
 		private System.Windows.Forms.NumericUpDown ActorLayerInput;
@@ -2415,34 +2054,6 @@ namespace EFSAdvent
 		private System.Windows.Forms.Button cloneButton;
 		private System.Windows.Forms.ToolStripMenuItem SaveAsMenuItem;
         private System.Windows.Forms.GroupBox groupBoxCoridinate;
-        private System.Windows.Forms.TabControl VariablesTabControl;
-        private System.Windows.Forms.TabPage Variables4TabPage;
-        private System.Windows.Forms.TabPage Variables5TabPage;
-        private System.Windows.Forms.TabPage Variables6TabPage;
-        private System.Windows.Forms.Label label_V4_4;
-        private System.Windows.Forms.Label label_V4_3;
-        private System.Windows.Forms.Label label_V5_4;
-        private System.Windows.Forms.Label label_V5_3;
-        private System.Windows.Forms.Label label_V5_2;
-        private System.Windows.Forms.NumericUpDown ActorVariable2Input2;
-        private System.Windows.Forms.NumericUpDown ActorVariable4Input2;
-        private System.Windows.Forms.NumericUpDown ActorVariable3Input2;
-        private System.Windows.Forms.NumericUpDown ActorVariable1BInput;
-        private System.Windows.Forms.NumericUpDown ActorVariable1AInput;
-        private System.Windows.Forms.Label label_V5_1b;
-        private System.Windows.Forms.Label label_V5_1a;
-        private System.Windows.Forms.NumericUpDown ActorV6Variable3Input;
-        private System.Windows.Forms.NumericUpDown ActorV6Variable4Input;
-        private System.Windows.Forms.Label label_V6_4;
-        private System.Windows.Forms.Label label_V6_3;
-        private System.Windows.Forms.NumericUpDown ActorV6Variable1Input;
-        private System.Windows.Forms.NumericUpDown ActorV6Variable2Input;
-        private System.Windows.Forms.Label label_V6_2;
-        private System.Windows.Forms.Label label_V6_1;
-        private System.Windows.Forms.NumericUpDown ActorV6Variable5Input;
-        private System.Windows.Forms.NumericUpDown ActorV6Variable6Input;
-        private System.Windows.Forms.Label label_V6_6;
-        private System.Windows.Forms.Label label_V6_5;
         private System.Windows.Forms.ContextMenuStrip actorContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem pastToolStripMenuItem;
         private System.Windows.Forms.Button MapRoomNewButton;
@@ -2452,23 +2063,6 @@ namespace EFSAdvent
         private System.Windows.Forms.ToolStripMenuItem bilinearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bicubicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nearestNeighborToolStripMenuItem;
-        private System.Windows.Forms.TabPage Variables8TabPage;
-        private System.Windows.Forms.NumericUpDown ActorV8Variable4aInput;
-        private System.Windows.Forms.NumericUpDown ActorV8Variable4bInput;
-        private System.Windows.Forms.Label label_V8_4b;
-        private System.Windows.Forms.Label label_V8_4a;
-        private System.Windows.Forms.NumericUpDown ActorV8Variable3aInput;
-        private System.Windows.Forms.NumericUpDown ActorV8Variable3bInput;
-        private System.Windows.Forms.Label label_V8_3b;
-        private System.Windows.Forms.Label label_V8_3a;
-        private System.Windows.Forms.NumericUpDown ActorV8Variable2aInput;
-        private System.Windows.Forms.NumericUpDown ActorV8Variable2bInput;
-        private System.Windows.Forms.Label label_V8_2b;
-        private System.Windows.Forms.Label label_V8_2a;
-        private System.Windows.Forms.NumericUpDown ActorV8Variable1aInput;
-        private System.Windows.Forms.NumericUpDown ActorV8Variable1bInput;
-        private System.Windows.Forms.Label label_V8_1b;
-        private System.Windows.Forms.Label label_V8_1a;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roomImportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actorsImportToolStripMenuItem;
@@ -2477,7 +2071,6 @@ namespace EFSAdvent
         private ToolStripMenuItem viewAspngToolStripMenuItem;
         private ToolStripMenuItem mapAspngToolStripMenuItem;
         private ToolStripMenuItem levelAsArcToolStripMenuItem;
-        private CheckBox ActorVariable4FlagCheckBox;
         private ToolStripMenuItem wikiToolStripMenuItem;
         private ToolStripMenuItem sourceCodeToolStripMenuItem;
         private TextBox CoridinatesTextBox;
@@ -2498,6 +2091,37 @@ namespace EFSAdvent
         private ToolStripSeparator toolStripSeparator6;
         private ToolStripMenuItem allRoomsAspngToolStripMenuItem;
         private ToolStripMenuItem allRoomsAndActorsAspngToolStripMenuItem;
+        private TabControl tabPageRawVariable;
+        private TabPage Variables5TabPage;
+        private NumericUpDown ActorVariable4AInput;
+        private NumericUpDown ActorVariable4BInput;
+        private Label label_V5_4;
+        private Label label_V5_1;
+        private Label label_V5_2;
+        private NumericUpDown ActorVariable3Input;
+        private NumericUpDown ActorVariable1Input;
+        private NumericUpDown ActorVariable2Input;
+        private Label label_V5_3a;
+        private TabPage tabPageFieldsVariable;
+        private GroupBox groupBoxFullVariable;
+        private NumericUpDown ActorVariableFullInput;
+        private TabControl tabControlRawVarType;
+        private TabPage tabPageV5;
+        private TabPage tabPageV6;
+        private Label label_V5_3;
+        private NumericUpDown ActorV6Variable2fInput;
+        private NumericUpDown ActorV6Variable1Input;
+        private NumericUpDown ActorV6Variable4Input;
+        private NumericUpDown ActorV6Variable3Input;
+        private NumericUpDown ActorV6Variable6Input;
+        private NumericUpDown ActorV6Variable5Input;
+        private Label label9;
+        private Label label21;
+        private Label label15;
+        private Label label14;
+        private Label label13;
+        private Label label12;
+        private FlowLayoutPanel panelActorFields;
     }
 }
 

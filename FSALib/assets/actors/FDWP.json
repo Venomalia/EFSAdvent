@@ -1,0 +1,22 @@
+{
+  "name": "Room Warp for L7-2",
+  "description": "Makes the screen black and immediately warps you to another room.",
+  "InternalName": "L7-2用部屋ワープ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Map Y Coordinate",
+      "description": "The Y coordinate on the map for the warp location.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Map X Coordinate",
+      "description": "The X coordinate on the map for the warp location.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Integer"
+    }
+  ]
+}

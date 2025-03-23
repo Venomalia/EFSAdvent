@@ -1,0 +1,33 @@
+{
+  "name": "Odd Block",
+  "description": "A movable block with different types.",
+  "InternalName": "変なブロック",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Type",
+      "description": "Defines the type or usage of the odd block.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "6": {
+          "name": "Shopkeeper",
+          "description": "The block is used as a shopkeeper's block."
+        },
+        "48": {
+          "name": "Royal Throne",
+          "description": "The block is part of a royal throne."
+        },
+        "64": {
+          "name": "Pyramide",
+          "description": "The block is part of a pyramid structure."
+        },
+        "97": {
+          "name": "Pile of Barrels",
+          "description": "The block is a pile of barrels."
+        }
+      }
+    }
+  ]
+}

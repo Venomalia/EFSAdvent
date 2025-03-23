@@ -1,0 +1,96 @@
+{
+  "name": "Key",
+  "description": "A key item which is required to progress.",
+  "InternalName": "カギ",
+  "category": "Item",
+  "fields": [
+    {
+      "name": "Item Type",
+      "description": "Specifies what type of item this object represents.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Key", "description": "A small key." },
+        "1": {
+          "name": "Big Key",
+          "description": "A large key used for special doors."
+        },
+        "2": { "name": "Letter", "description": "A letter for a quest event." },
+        "3": {
+          "name": "Power Bracelet",
+          "description": "A bracelet that increases strength."
+        },
+        "4": {
+          "name": "Heart Container",
+          "description": "Increases the player's maximum health."
+        },
+        "5": {
+          "name": "Blue Bracelet",
+          "description": "A protective bracelet."
+        },
+        "6": {
+          "name": "Moon Pearl",
+          "description": "Prevents transformation in the Dark World."
+        },
+        "7": {
+          "name": "Bombos Medallion",
+          "description": "A magical medallion with fire-based effects."
+        },
+        "8": {
+          "name": "Quake Medallion",
+          "description": "A magical medallion that causes earthquakes."
+        },
+        "9": { "name": "Book", "description": "A book required for an event." },
+        "10": {
+          "name": "Key (Duplicate)",
+          "description": "A duplicate key entry."
+        }
+      }
+    },
+    {
+      "name": "Activated by Variable",
+      "description": "The local variable that triggers or activates this actor (Flag must be set).",
+      "bitOffset": 7,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The local variable that triggers or activates this actor (Activated by Variable must be set).",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable",
+      "description": "An unknown value related to this item.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Unknown 0", "description": "Unknown effect." },
+        "4": { "name": "Unknown 4", "description": "Unknown effect." }
+      }
+    },
+    {
+      "name": "Appearance Type",
+      "description": "Determines how the key appears in the game.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Appears", "description": "Appears normally." },
+        "2": {
+          "name": "Falls from Above",
+          "description": "Falls from the sky."
+        },
+        "4": { "name": "Unknown 4", "description": "Unknown effect." },
+        "72": {
+          "name": "Activated with Pegasus Boots",
+          "description": "Can be activated by dashing into it."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Wart",
+  "description": "Boss fight against the Stone Arrghus.",
+  "InternalName": "ボス：ワート",
+  "category": "Boss",
+  "Resources": ["wart"],
+  "NoGBASprite": true
+}

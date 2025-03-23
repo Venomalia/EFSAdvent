@@ -1,0 +1,17 @@
+{
+  "name": "Pyramid push switch",
+  "description": "",
+  "InternalName": "ピラミッドで押すスイッチ",
+  "category": "Object",
+  "NoGBASprite": true,
+  "Resources": [ "timg/kabe_switch_0.bti", "timg/kabe_switch_1.bti", "timg/kabe_switch_2.bti", "timg/kabe_switch_3.bti" ],
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

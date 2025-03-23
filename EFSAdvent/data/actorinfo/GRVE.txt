@@ -1,5 +1,0 @@
-GRVE (Gravestone)
-
-Variable 4:
-0 = Empty
-1 = Hole

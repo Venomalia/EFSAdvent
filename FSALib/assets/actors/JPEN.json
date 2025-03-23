@@ -1,0 +1,7 @@
+{
+  "name": "NPC flying in Thwomp",
+  "description": "Requires NPC sheet 8 or 11.",
+  "InternalName": "ドッスンで飛ぶNPC",
+  "category": "NPC",
+  "NoGBASprite": true
+}

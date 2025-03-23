@@ -1,0 +1,28 @@
+{
+  "name": "Annihilation of Enemies",
+  "description": "Annihilates enemies and zooms out to view the entire area.",
+  "InternalName": "敵全滅",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable that triggers or activates this actor to annihilate enemies.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Effect",
+      "description": "Determines what happens to the enemies upon annihilation.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "7": {
+          "name": "Transform into Force Crystals",
+          "description": "Defeated enemies are transformed into force crystals."
+        }
+      }
+    }
+  ]
+}

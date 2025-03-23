@@ -1,0 +1,63 @@
+{
+  "name": "Flame",
+  "description": "A flame that triggers based on the specified conditions.",
+  "InternalName": "炎",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Trigger Variable",
+      "description": "The local variable number that triggers or activates this flame.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Direction",
+      "description": "The direction of the flame.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "East", "description": "The flame faces east." },
+        "1": { "name": "West", "description": "The flame faces west." },
+        "2": { "name": "North", "description": "The flame faces north." },
+        "3": { "name": "South", "description": "The flame faces south." }
+      }
+    },
+    {
+      "name": "Flame Type",
+      "description": "The type of flame behavior.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Jet of Fire", "description": "A jet of fire." },
+        "1": {
+          "name": "Jet of Fire (Off)",
+          "description": "A jet of fire, but it is turned off."
+        },
+        "2": {
+          "name": "Jet of Fire (When Approaching)",
+          "description": "A jet of fire that activates when approaching."
+        },
+        "3": {
+          "name": "Jet of Fire (Time-based)",
+          "description": "A jet of fire that activates based on a time cycle."
+        },
+        "4": {
+          "name": "Small Ring of Fire",
+          "description": "A small ring of fire."
+        },
+        "5": {
+          "name": "Ring of Fire",
+          "description": "A larger ring of fire."
+        },
+        "6": {
+          "name": "Jet of Fire (Extinguish When Disabled)",
+          "description": "A jet of fire that goes out completely when disabled."
+        }
+      }
+    }
+  ]
+}

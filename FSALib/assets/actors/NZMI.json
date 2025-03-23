@@ -1,0 +1,20 @@
+{
+  "name": "Rat",
+  "description": "",
+  "InternalName": "ネズミ",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Type?",
+      "description": "The type of Rat enemy.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "?", "description": "" },
+        "1": { "name": "?", "description": "" }
+      }
+    }
+  ]
+}

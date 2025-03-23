@@ -1,0 +1,28 @@
+{
+  "name": "Switching Colored Floor",
+  "description": "A floor that changes color at intervals.",
+  "InternalName": "色付き床切り替え",
+  "category": "TileObject",
+  "fields": [
+    {
+      "name": "Interval",
+      "description": "The interval at which the floor changes color.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Color of the floor",
+      "description": "The current color of the floor.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Integer",
+      "enumValues": {
+        "0": { "name": "Green", "description": "The floor is green." },
+        "1": { "name": "Red", "description": "The floor is red." },
+        "2": { "name": "Blue", "description": "The floor is blue." },
+        "3": { "name": "Purple", "description": "The floor is purple." }
+      }
+    }
+  ]
+}

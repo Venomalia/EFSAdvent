@@ -1,0 +1,25 @@
+{
+  "name": "Terrorpin",
+  "description": "A large Terrorpin with various color variations.",
+  "InternalName": "パメット",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Size and Color",
+      "description": "Defines the size and color of the Terrorpin.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "1": { "name": "Big", "description": "A large Terrorpin." },
+        "3": {
+          "name": "Big, Green",
+          "description": "A large, green Terrorpin."
+        },
+        "5": { "name": "Big, Red", "description": "A large, red Terrorpin." },
+        "8": { "name": "Big, Blue", "description": "A large, blue Terrorpin." }
+      }
+    }
+  ]
+}

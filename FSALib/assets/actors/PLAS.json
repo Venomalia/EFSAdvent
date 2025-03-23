@@ -1,0 +1,45 @@
+{
+  "name": "Player Start",
+  "description": "Defines the starting position of a player.",
+  "InternalName": "プレイヤーのスタート座標設定",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Player Color",
+      "description": "The color of the player.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Green", "description": "Green player" },
+        "1": { "name": "Red", "description": "Red player" },
+        "2": { "name": "Blue", "description": "Blue player" },
+        "3": { "name": "Purple", "description": "Purple player" }
+      }
+    },
+    {
+      "name": "Direction",
+      "description": "The direction the player is facing at the start.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "South", "description": "Facing South" },
+        "1": { "name": "North", "description": "Facing North" },
+        "2": { "name": "East", "description": "Facing East" },
+        "3": { "name": "West", "description": "Facing West" }
+      }
+    },
+    {
+      "name": "Player State",
+      "description": "The initial state of the player.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Standing", "description": "Player is standing" },
+        "1": { "name": "Lying", "description": "Player is lying on the ground" }
+      }
+    }
+  ]
+}

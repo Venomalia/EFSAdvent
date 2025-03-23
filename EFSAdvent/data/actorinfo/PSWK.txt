@@ -1,4 +1,0 @@
-PSWK (4-person pull switch chain version) No GBA sprite
-
-Variable 1a:
-Specify which local variables are set by this actor.

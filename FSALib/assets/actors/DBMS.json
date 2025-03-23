@@ -1,0 +1,6 @@
+{
+  "name": "Message confirmation NPC",
+  "description": "Cannot be called up directly.",
+  "InternalName": "メッセージ確認用NPC",
+  "category": "Intern"
+}

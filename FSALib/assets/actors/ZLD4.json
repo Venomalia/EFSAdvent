@@ -1,0 +1,7 @@
+{
+  "name": "Escape zelda cutscene",
+  "description": "",
+  "InternalName": "脱出ゼルダ生成",
+  "category": "Cutscene",
+  "NoGBASprite": true
+}

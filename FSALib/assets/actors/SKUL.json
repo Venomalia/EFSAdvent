@@ -1,0 +1,65 @@
+{
+  "name": "Bubble",
+  "description": "A bubble enemy that moves along walls or freely through the room, depending on the configuration.",
+  "InternalName": "回転ドクロ",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Movement Type",
+      "description": "Defines the movement behavior of the bubble enemy.",
+      "bitOffset": 7,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Very Large Circle",
+          "description": "The bubble moves in a very large circle."
+        },
+        "1": {
+          "name": "Moves Through the Room",
+          "description": "The bubble moves freely through the room."
+        },
+        "2": {
+          "name": "Stay on Walls, Move Down",
+          "description": "The bubble stays on the wall and moves downward."
+        },
+        "34": {
+          "name": "Stay on Wall, Move Up",
+          "description": "The bubble stays on the wall and moves upward."
+        }
+      }
+    },
+    {
+      "name": "Starting Wall",
+      "description": "Defines which wall the bubble will start from.",
+      "bitOffset": 8,
+      "bitSize": 7,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "East Wall",
+          "description": "The bubble starts at the east wall."
+        },
+        "1": {
+          "name": "West Wall",
+          "description": "The bubble starts at the west wall."
+        },
+        "2": {
+          "name": "South Wall",
+          "description": "The bubble starts at the south wall."
+        },
+        "3": {
+          "name": "North Wall",
+          "description": "The bubble starts at the north wall."
+        }
+      }
+    }
+  ]
+}

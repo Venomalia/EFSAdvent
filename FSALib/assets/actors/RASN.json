@@ -1,0 +1,69 @@
+{
+  "name": "Spiral Staircase",
+  "description": "A passageway that loads a new area on the map.",
+  "InternalName": "螺旋階段",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Stair Type",
+      "description": "Defines whether this is a staircase or a passage.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Stairs Up",
+          "description": "Leads to the next map in the north direction."
+        },
+        "1": {
+          "name": "Stairs Down",
+          "description": "Leads to the next map in the south direction."
+        },
+        "4": {
+          "name": "Passage North",
+          "description": "Uses packed variables 2 & 3 for movement."
+        },
+        "5": {
+          "name": "Passage South",
+          "description": "Uses packed variables 2 & 3 for movement."
+        },
+        "6": {
+          "name": "Passage East",
+          "description": "Uses packed variables 2 & 3 for movement."
+        },
+        "7": {
+          "name": "Passage West",
+          "description": "Uses packed variables 2 & 3 for movement."
+        }
+      }
+    },
+    {
+      "name": "Floor Number",
+      "description": "Defines the floor level for staircases. If set to 8, displays the level name for passages.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Vertical Offset",
+      "description": "Defines the vertical movement direction. If greater than 128, moves west; otherwise, moves east.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Horizontal Offset",
+      "description": "Defines the horizontal movement direction. If greater than 128, moves north; otherwise, moves south.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The local variable that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

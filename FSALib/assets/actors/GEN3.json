@@ -1,0 +1,164 @@
+{
+  "name": "Enemy Generator 3",
+  "description": "An enemy generator that spawns various types of enemies.",
+  "InternalName": "敵ジェネレータ３",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "Variable that activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Amount?",
+      "description": "Amount of enemies to be spawned by this generator.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Enemy Type",
+      "description": "The type of enemy to be generated.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Stalfos", "description": "A skeletal warrior." },
+        "1": { "name": "Keese", "description": "A bat-like creature." },
+        "2": {
+          "name": "Force Soldier",
+          "description": "A Force soldier enemy."
+        },
+        "3": { "name": "Blue Soldier", "description": "A Blue soldier enemy." },
+        "4": {
+          "name": "Dodongo",
+          "description": "A large dinosaur-like enemy."
+        },
+        "5": { "name": "Goma", "description": "A giant spider-like enemy." },
+        "6": { "name": "Deadrock", "description": "A large, immobile enemy." },
+        "7": {
+          "name": "Buzz Blob",
+          "description": "A floating jellyfish-like enemy."
+        },
+        "8": {
+          "name": "Bow Soldier",
+          "description": "A soldier equipped with a bow."
+        },
+        "9": {
+          "name": "Terrorpin",
+          "description": "A small turtle-like enemy."
+        },
+        "10": { "name": "Force Like", "description": "A force-based enemy." },
+        "11": { "name": "Gibdo", "description": "A mummy-like enemy." },
+        "12": {
+          "name": "Blue Chief Soldier",
+          "description": "A stronger chief soldier."
+        },
+        "13": {
+          "name": "Green Leever",
+          "description": "A leever enemy in green."
+        },
+        "14": { "name": "Geldman", "description": "A money-based enemy." },
+        "15": {
+          "name": "Ropa",
+          "description": "A small enemy that jumps and attacks."
+        },
+        "16": { "name": "Crab", "description": "A crab-like enemy." },
+        "17": { "name": "Red Rope", "description": "A rope enemy in red." },
+        "18": { "name": "Rat", "description": "A small rodent-like enemy." },
+        "19": {
+          "name": "Red Octorok",
+          "description": "A red variant of the Octorok."
+        },
+        "20": { "name": "Pengator", "description": "A penguin-like enemy." },
+        "21": {
+          "name": "Ball and Chain Soldiers",
+          "description": "Soldiers armed with a ball and chain."
+        },
+        "22": { "name": "Bomb", "description": "A bomb enemy." },
+        "23": {
+          "name": "Real Bombchu",
+          "description": "A bombchu, a type of real bomb."
+        },
+        "24": {
+          "name": "Real Bombchu",
+          "description": "Another type of real Bombchu."
+        },
+        "25": { "name": "Hinox", "description": "A large cyclopean enemy." },
+        "26": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "27": {
+          "name": "Black Soldier",
+          "description": "A black variant of the soldier."
+        },
+        "28": {
+          "name": "Bow Soldier",
+          "description": "A soldier equipped with a bow."
+        },
+        "29": {
+          "name": "Blue Chief Soldier",
+          "description": "A stronger variant of the Chief Soldier."
+        },
+        "30": {
+          "name": "Hardhat Beetle",
+          "description": "A beetle with a hard hat."
+        },
+        "31": {
+          "name": "Ice Wizzrobe",
+          "description": "A Wizzrobe that uses ice magic."
+        },
+        "32": { "name": "Zol", "description": "A jelly-like enemy." },
+        "33": {
+          "name": "Fire Ball and Chain Soldiers",
+          "description": "Soldiers armed with a fire-infused ball and chain."
+        },
+        "34": {
+          "name": "Green Soldier",
+          "description": "A green variant of the soldier."
+        },
+        "35": {
+          "name": "Zora",
+          "description": "An aquatic enemy resembling a fish person."
+        },
+        "36": {
+          "name": "Big Yellow Soldier",
+          "description": "A large yellow soldier."
+        },
+        "37": {
+          "name": "Fire Wizzrobe",
+          "description": "A Wizzrobe that uses fire magic."
+        },
+        "38": {
+          "name": "Big Green Terrorpin",
+          "description": "A large green Terrorpin."
+        },
+        "39": {
+          "name": "Big Red Terrorpin",
+          "description": "A large red Terrorpin."
+        },
+        "40": {
+          "name": "Big Blue Terrorpin",
+          "description": "A large blue Terrorpin."
+        },
+        "41": {
+          "name": "Big Purple Terrorpin",
+          "description": "A large purple Terrorpin."
+        },
+        "42": { "name": "Big Terrorpin", "description": "A large Terrorpin." },
+        "43": { "name": "Heart", "description": "A drop heart." },
+        "44": {
+          "name": "Blue Dodongo",
+          "description": "A blue variant of the Dodongo. Required: .bti"
+        },
+        "45": {
+          "name": "Keese (Flying back and forth)",
+          "description": "A Keese that flies back and forth."
+        }
+      }
+    }
+  ]
+}

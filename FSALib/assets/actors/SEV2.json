@@ -1,0 +1,147 @@
+{
+  "name": "Environmental Control 2",
+  "description": "Controls environmental effects such as weather, lighting, and filters.",
+  "InternalName": "環境制御2",
+  "category": "Property",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Weather Flags",
+      "description": "Defines cloud cover and waterfall effects.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "Cloud Cover",
+          "description": "Adds cloud cover to the environment."
+        },
+        "2": {
+          "name": "Waterfall with Rainbow",
+          "description": "Adds a waterfall with a rainbow.",
+          "Resources": [
+            "j3d/niji_a.bmd",
+            "j3d/taki_a.bmd",
+            "j3d/taki_a.btk",
+            "j3d/taki_b.bmd",
+            "j3d/taki_b.btk"
+          ]
+        },
+        "4": {
+          "name": "Long Waterfall with Rainbow",
+          "description": "Adds a longer waterfall with a rainbow.",
+          "Resources": [
+            "j3d/niji_a.bmd",
+            "j3d/taki_a.bmd",
+            "j3d/taki_a.btk",
+            "j3d/taki_b.bmd",
+            "j3d/taki_b.btk"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Atmospheric Flags",
+      "description": "Controls light rays, forest effects, and environmental conditions.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Flags",
+      "enumValues": {
+        "4": {
+          "name": "Rays of Light (East)",
+          "description": "Adds light rays from the east.",
+          "Resources": [
+            "j3d/morninglight00.bmd",
+            "j3d/morninglight00.brk",
+            "j3d/morninglight00.btk"
+          ]
+        },
+        "8": {
+          "name": "Lost Forest Filter",
+          "description": "Applies the Lost Forest filter.",
+          "Resources": [
+            "j3d/forestfilter00.bmd",
+            "j3d/forestfilter00.brk",
+            "j3d/forestfilter00.btk"
+          ]
+        },
+        "9": {
+          "name": "Above the Clouds",
+          "description": "Changes the background to an above-the-clouds effect.",
+          "Resources": ["timg/enkei_dark.bti"]
+        },
+        "16": {
+          "name": "Swamp Water",
+          "description": "Changes the water to swampy terrain."
+        },
+        "32": {
+          "name": "Heat",
+          "description": "Adds a heatwave effect."
+        },
+        "64": {
+          "name": "Many Clouds",
+          "description": "Adds thick clouds that cast strong shadows."
+        },
+        "128": {
+          "name": "Thick Clouds",
+          "description": "Adds very dense clouds that cast noticeable shadows."
+        }
+      }
+    },
+    {
+      "name": "Special Effects Flags",
+      "description": "Defines additional environmental effects.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Flags",
+      "enumValues": {
+        "8": {
+          "name": "Lost Forest Filter",
+          "description": "Applies the Lost Forest filter.",
+          "Resources": [
+            "j3d/forestfilter00.bmd",
+            "j3d/forestfilter00.brk",
+            "j3d/forestfilter00.btk"
+          ]
+        },
+        "16": {
+          "name": "Crash",
+          "description": "Causes a crash (bug or unused feature)."
+        },
+        "32": {
+          "name": "Light Thunder",
+          "description": "Adds light thunder and background lightning."
+        },
+        "64": {
+          "name": "Red Fog",
+          "description": "Applies a red fog effect."
+        },
+        "128": {
+          "name": "Crash",
+          "description": "Another crash-inducing flag (possibly unused or bugged)."
+        }
+      }
+    },
+    {
+      "name": "Waterfall Control",
+      "description": "Controls the waterfall animation.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Waterfall Start",
+          "description": "Starts the waterfall animation."
+        },
+        "1": {
+          "name": "Waterfall End",
+          "description": "Ends the waterfall animation."
+        },
+        "2": {
+          "name": "?",
+          "description": "Unknown effect."
+        }
+      }
+    }
+  ]
+}

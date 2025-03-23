@@ -1,0 +1,30 @@
+{
+  "name": "Torch",
+  "description": "A torch that can be lit or extinguished based on certain conditions.",
+  "InternalName": "たいまつ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor to light the torch.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Torch State",
+      "description": "Defines whether the torch is on or off.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "On", "description": "The torch is lit." },
+        "1": { "name": "Off", "description": "The torch is unlit." },
+        "4": {
+          "name": "?",
+          "description": "Unknown state, possibly related to other mechanics or effects."
+        }
+      }
+    }
+  ]
+}

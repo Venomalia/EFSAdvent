@@ -1,0 +1,7 @@
+{
+  "name": "Rope",
+  "description": "",
+  "InternalName": "ロープ（蛇）",
+  "category": "Enemy",
+  "NoGBASprite": true
+}

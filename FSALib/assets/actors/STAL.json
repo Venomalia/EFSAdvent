@@ -1,0 +1,30 @@
+{
+  "name": "Stalfoss",
+  "description": "A type of skeletal enemy with different movement behaviors.",
+  "InternalName": "スタルフォス",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Type",
+      "description": "Defines the behavior or type of the Stalfoss.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "The default behavior of the Stalfoss."
+        },
+        "1": {
+          "name": "Jumps",
+          "description": "The Stalfoss jumps during its movement."
+        },
+        "2": { "name": "?", "description": "Unknown behavior." },
+        "30": {
+          "name": "Big",
+          "description": "The Stalfoss is a large variant."
+        }
+      }
+    }
+  ]
+}

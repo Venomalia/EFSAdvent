@@ -1,0 +1,23 @@
+{
+  "name": "Ghini",
+  "description": "A Ghini enemy that appears in the game.",
+  "NoGBASprite": true,
+  "InternalName": "ポー",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Size",
+      "description": "Determines the size of the Ghini.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "The default size of the Ghini."
+        },
+        "3": { "name": "Big", "description": "A larger version of the Ghini." }
+      }
+    }
+  ]
+}

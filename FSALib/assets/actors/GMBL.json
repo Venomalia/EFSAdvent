@@ -1,0 +1,40 @@
+{
+  "name": "Gambling Shop",
+  "description": "Requires 3 GMTB to function. Allows the player to gamble for rewards.",
+  "InternalName": "ギャンブル屋",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Cost",
+      "description": "The cost to play the gambling game.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "100", "description": "Costs 100" },
+        "17": { "name": "300", "description": "Costs 300" }
+      }
+    },
+    {
+      "name": "Playable Rounds",
+      "description": "The number of playable rounds in the gambling game.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable 3",
+      "description": "Unknown value related to the gambling shop.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable 4",
+      "description": "Another unknown value related to the gambling shop.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

@@ -1,9 +1,0 @@
-LIF2 (telescopic lift) No GBA sprite
-Lift folds up from below
-
-Variable 1:
-Variable that activates the lift.
-
-?
-LIF2, L:0, X:54, Y:16, V:128,8,49,129.
-LIF2, L:0, X:46, Y:4, V:128,10,17,129.

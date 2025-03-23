@@ -1,2 +1,0 @@
-TALK (Talking NPC)
-Brings up a dialog box

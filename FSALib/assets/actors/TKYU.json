@@ -1,0 +1,100 @@
+{
+  "name": "Iron Ball Manager",
+  "description": "Controls the spawning and behavior of iron balls.",
+  "InternalName": "鉄球（マネージャー）",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Stop Variable",
+      "description": "The local variable that stops the iron balls.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spawn Behavior",
+      "description": "Defines the spawning pattern and disappearance behavior of the iron balls.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Alternating Left-Right",
+          "description": "Iron balls alternate between left and right."
+        },
+        "1": {
+          "name": "Always Centered",
+          "description": "Iron balls always spawn in the center."
+        },
+        "2": {
+          "name": "Alternating Left-Right (Disappear)",
+          "description": "Iron balls alternate and disappear after activation."
+        },
+        "3": {
+          "name": "Always Centered (Disappear)",
+          "description": "Iron balls always spawn in the center and disappear after activation."
+        }
+      }
+    },
+    {
+      "name": "Random Delay",
+      "description": "Random delay before the next ball appears.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Fixed Delay",
+      "description": "Fixed delay before the next ball appears.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spawn Direction",
+      "description": "Determines the direction the iron balls spawn from.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "South",
+          "description": "Iron balls spawn from the south."
+        },
+        "1": {
+          "name": "North",
+          "description": "Iron balls spawn from the north."
+        },
+        "2": {
+          "name": "East",
+          "description": "Iron balls spawn from the east."
+        },
+        "3": {
+          "name": "West",
+          "description": "Iron balls spawn from the west."
+        }
+      }
+    },
+    {
+      "name": "Ball Size",
+      "description": "Determines the size of the spawned iron balls.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Small Balls",
+          "description": "Only small iron balls are spawned."
+        },
+        "1": {
+          "name": "Small and Big Balls",
+          "description": "Both small and big iron balls are spawned."
+        },
+        "2": {
+          "name": "Big Balls",
+          "description": "Only big iron balls are spawned."
+        }
+      }
+    }
+  ]
+}

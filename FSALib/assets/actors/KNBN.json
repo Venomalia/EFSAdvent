@@ -1,0 +1,15 @@
+{
+  "name": "Sign",
+  "description": "A sign that displays a message when interacted with.",
+  "InternalName": "しゃべる看板",
+  "category": "TileObject",
+  "fields": [
+    {
+      "name": "Text ID",
+      "description": "The ID of the text displayed when the sign is read.",
+      "bitOffset": 0,
+      "bitSize": 16,
+      "valueType": "Integer"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Keese",
+  "description": "A bat-like enemy that flies around.",
+  "InternalName": "キース",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable that activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Keese Type",
+      "description": "Determines the movement and size of the Keese.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Default", "description": "A normal Keese." },
+        "3": {
+          "name": "Flies Back and Forth",
+          "description": "A Keese that moves between two points."
+        },
+        "16": {
+          "name": "Big Keese",
+          "description": "A larger version of Keese."
+        }
+      }
+    }
+  ]
+}

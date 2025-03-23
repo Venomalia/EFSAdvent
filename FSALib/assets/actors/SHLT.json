@@ -1,0 +1,51 @@
+{
+  "name": "Searchlight",
+  "description": "A searchlight that moves in circles and teleports the player when found.",
+  "InternalName": "サーチライト",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Rail ID",
+      "description": "The rail ID that defines the searchlight's path.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Y Position",
+      "description": "The Y position of the area to which the player should be moved when the searchlight finds them.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "X Position",
+      "description": "The X position of the area to which the player should be moved when the searchlight finds them.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Movement Direction",
+      "description": "The direction in which the searchlight moves.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "4": {
+          "name": "Circles Clockwise",
+          "description": "The searchlight moves in a clockwise circular motion."
+        },
+        "10": {
+          "name": "Circles Counterclockwise",
+          "description": "The searchlight moves in a counterclockwise circular motion."
+        },
+        "28": {
+          "name": "Use Rail and Teleport",
+          "description": "The searchlight follows a rail and teleports the player when they are found."
+        }
+      }
+    }
+  ]
+}

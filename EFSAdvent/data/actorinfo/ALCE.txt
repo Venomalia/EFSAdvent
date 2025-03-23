@@ -1,8 +1,0 @@
-ALCE (annihilation of enemies)
-Annihilat enemies and zooms out to view entire area.
-
-Variable 1a:
-The local variable number that triggers or activates this actor to annihilat enemies.
-
-Variable 1b:
-7 = Transform into force crystals

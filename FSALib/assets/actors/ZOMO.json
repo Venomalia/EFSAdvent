@@ -1,0 +1,15 @@
+{
+  "name": "Zoom Out",
+  "description": "An Object that triggers a zoom-out effect when activated.",
+  "InternalName": "ズームアウトＮＰＣ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that activates this actor, triggering the zoom-out effect.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

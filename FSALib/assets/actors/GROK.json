@@ -1,0 +1,43 @@
+{
+  "name": "Helmaroc King",
+  "description": "Boss fight against the Helmaroc king.",
+  "InternalName": "ジークロック",
+  "category": "Boss",
+  "Resources": ["grock"],
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Helmaroc King State",
+      "description": "The state or position of the Helmaroc King during the boss fight.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Helmaroc King",
+          "description": "Helmaroc King is active."
+        },
+        "2": {
+          "name": "Stuck in Left Stone",
+          "description": "Helmaroc King is stuck in the left stone."
+        },
+        "3": {
+          "name": "Stuck in Right Stone",
+          "description": "Helmaroc King is stuck in the right stone."
+        },
+        "4": {
+          "name": "Point in GBA Left Stone",
+          "description": "Helmaroc King is in the left stone at a certain point in GBA."
+        },
+        "5": {
+          "name": "Point in GBA Right Stone",
+          "description": "Helmaroc King is in the right stone at a certain point in GBA."
+        },
+        "7": {
+          "name": "Flies Across Screen",
+          "description": "Helmaroc King flies across the screen once."
+        }
+      }
+    }
+  ]
+}

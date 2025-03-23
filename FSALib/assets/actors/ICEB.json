@@ -1,0 +1,8 @@
+{
+  "name": "Ice melted by 4 people",
+  "description": "",
+  "InternalName": "４人で溶かす氷",
+  "category": "Object",
+  "NoGBASprite": true,
+  "Resources": [ "timg/yukikabe.bti" ]
+}

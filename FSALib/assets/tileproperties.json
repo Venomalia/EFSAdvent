@@ -1,0 +1,916 @@
+{
+  "0": {
+    "Name": "Void, Walkable",
+    "Description": ""
+  },
+  "1": {
+    "Name": "Fragile block (Side view)",
+    "Description": ""
+  },
+  "2": {
+    "Name": "Abyss",
+    "Description": "Links and enemies fall into the abyss."
+  },
+  "3": {
+    "Name": "Water background (Side view)",
+    "Description": ""
+  },
+  "4": {
+    "Name": "Shallow water",
+    "Description": ""
+  },
+  "5": {
+    "Name": "Deep water, whirlpool",
+    "Description": ""
+  },
+  "6": {
+    "Name": "Void, Walkable",
+    "Description": ""
+  },
+  "7": {
+    "Name": "Deep water",
+    "Description": ""
+  },
+  "8": {
+    "Name": "Ceiling, not walkable",
+    "Description": ""
+  },
+  "9": {
+    "Name": "Ceiling, not walkable",
+    "Description": ""
+  },
+  "10": {
+    "Name": "Ceiling Shadow",
+    "Description": "Should be placed on the top layer.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "11": {
+    "Name": "Ceiling, not walkable",
+    "Description": "GBA dividing wall"
+  },
+  "12": {
+    "Name": "Abyss",
+    "Description": "Links and enemies fall into the abyss."
+  },
+  "13": {
+    "Name": "Abyss, does damage",
+    "Description": "Links and enemies fall into the abyss."
+  },
+  "14": {
+    "Name": "Void, Not walkable",
+    "Description": ""
+  },
+  "15": {
+    "Name": "Void, Not walkable",
+    "Description": ""
+  },
+  "16": {
+    "Name": "Chest, open",
+    "Description": "An empty chest that has already been opened."
+  },
+  "17": {
+    "Name": "Plate",
+    "Description": ""
+  },
+  "18": {
+    "Name": "Switch",
+    "Description": "A floor switch that can be triggered by standing on it.",
+    "RequiredActorID": "SWTH"
+  },
+  "19": {
+    "Name": "Switch, Pressed",
+    "Description": "A floor switch that is triggered and pressed down."
+  },
+  "20": {
+    "Name": "Switch (Side view)",
+    "Description": "A floor switch that can be triggered by standing on it.",
+    "RequiredActorID": "SWTH"
+  },
+  "21": {
+    "Name": "Switch, Pressed (Side view)",
+    "Description": "A floor switch that is triggered and pressed down."
+  },
+  "22": {
+    "Name": "Item pedestal (Side view)",
+    "Description": "Can hold an item on the top layer."
+  },
+  "23": {
+    "Name": "Item pedestal",
+    "Description": "Can hold an item on the top layer."
+  },
+  "24": {
+    "Name": "Pegasus Boots, top",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "25": {
+    "Name": "Lamp, top",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "26": {
+    "Name": "Boomerang, top",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "27": {
+    "Name": "Bow, top",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "28": {
+    "Name": "Magic Hammer, top",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "29": {
+    "Name": "Fire Rod, top",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "30": {
+    "Name": "Roc's Feather, top",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "31": {
+    "Name": "Bomb, top",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "32": {
+    "Name": "Block, not movable",
+    "Description": "Cannot be moved."
+  },
+  "33": {
+    "Name": "Block, movable",
+    "Description": "Can be moved in any direction."
+  },
+  "34": {
+    "Name": "Green block, movable",
+    "Description": "Can be moved from Green to any direction."
+  },
+  "35": {
+    "Name": "Red block, movable",
+    "Description": "Can be moved from Red to any direction"
+  },
+  "36": {
+    "Name": "Blue block, movable",
+    "Description": "Can be moved from Blue to any direction"
+  },
+  "37": {
+    "Name": "Purple block, movable",
+    "Description": "Can be moved from Purple to any direction"
+  },
+  "38": {
+    "Name": "Block, movable north",
+    "Description": "Can be moved to the north."
+  },
+  "39": {
+    "Name": "Block, movable south",
+    "Description": "Can be moved to the south."
+  },
+  "40": {
+    "Name": "Pegasus Boots",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "41": {
+    "Name": "Lamp",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "42": {
+    "Name": "Boomerang",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "43": {
+    "Name": "Bow",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "44": {
+    "Name": "Magic Hammer",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "45": {
+    "Name": "Fire Rod",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "46": {
+    "Name": "Roc's Feather",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "47": {
+    "Name": "Bomb",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "48": {
+    "Name": "Chest",
+    "Description": "A chest that can hold an item.",
+    "RequiredActorID": "TKRA"
+  },
+  "49": {
+    "Name": "Abyss, does damage",
+    "Description": "Links and enemies fall into the abyss."
+  },
+  "53": {
+    "Name": "Eyeball on switch",
+    "Description": "Can be activated with bow and arrow.",
+    "RequiredActorID": "MEDM"
+  },
+  "54": {
+    "Name": "Block, movable west",
+    "Description": "Can be moved to the west."
+  },
+  "55": {
+    "Name": "Block, movable east",
+    "Description": "Can be moved to the east."
+  },
+  "56": {
+    "Name": "Thorn blockade",
+    "Description": "Can be controlled with the help of a THRN Actor."
+  },
+  "57": {
+    "Name": "Thorn blockade, top",
+    "Description": "Not required!",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "58": {
+    "Name": "Mole tile",
+    "Description": "Can be hammered into the ground."
+  },
+  "59": {
+    "Name": "Mole tile, chopped",
+    "Description": "Hammered into the ground."
+  },
+  "60": {
+    "Name": "Stone tablet",
+    "Description": "Stone tablet text actor.",
+    "RequiredActorID": "KNBN"
+  },
+  "61": {
+    "Name": "Torch",
+    "Description": "A torch that produces light, can be lighted with a LWSW Actor.",
+    "RequiredActorID": "TRCH"
+  },
+  "62": {
+    "Name": "Spiked floor, retracted",
+    "Description": ""
+  },
+  "63": {
+    "Name": "Spiked floor trap",
+    "Description": "Don't use! Use FLYK Actor.",
+    "RequiredActorID": "FLYK",
+    "ActorValue": 3
+  },
+  "64": {
+    "Name": "Pot",
+    "Description": "A pot that can be broken by the player."
+  },
+  "65": {
+    "Name": "Pot, reveals switch",
+    "Description": "A pot that can be broken by the player to reveal a switch.",
+    "RequiredActorID": "SWTH"
+  },
+  "66": {
+    "Name": "Pot, drops a heart",
+    "Description": "A pot that can be broken by the player to drop a heart."
+  },
+  "67": {
+    "Name": "Pot, reveals star switch",
+    "Description": "A pot that can be broken by the player to reveal a star switch.",
+    "RequiredActorID": "SWTH"
+  },
+  "68": {
+    "Name": "Pot, drops two heart",
+    "Description": "A pot that can be broken by the player to drop two heart."
+  },
+  "69": {
+    "Name": "Pot (Side view)",
+    "Description": "A pot that can be broken by the player."
+  },
+  "70": {
+    "Name": "Pot (Side view), reveals switch",
+    "Description": "A pot that can be broken by the player to reveal a switch.",
+    "RequiredActorID": "SWTH"
+  },
+  "71": {
+    "Name": "Pot (Side view), drops a heart",
+    "Description": "A pot that can be broken by the player to drop a heart."
+  },
+  "72": {
+    "Name": "Pot (Side view), reveals star switch",
+    "Description": "A pot that can be broken by the player to reveal a star switch.",
+    "RequiredActorID": "SWTH"
+  },
+  "73": {
+    "Name": "Pot (Side view), drops two heart",
+    "Description": "A pot that can be broken by the player to drop two heart."
+  },
+  "74": {
+    "Name": "Ground",
+    "Description": "Not traversable!"
+  },
+  "75": {
+    "Name": "Ground",
+    "Description": "Traversable, digging not possible"
+  },
+  "76": {
+    "Name": "Ground",
+    "Description": "Not traversable!"
+  },
+  "77": {
+    "Name": "Ground",
+    "Description": "Not traversable!"
+  },
+  "78": {
+    "Name": "Fire jar",
+    "Description": "Can be thrown."
+  },
+  "79": {
+    "Name": "Water jar",
+    "Description": "Can be thrown."
+  },
+  "80": {
+    "Name": "Star switch",
+    "Description": "A floor switch that can be triggered by standing on it.",
+    "RequiredActorID": "SWTH"
+  },
+  "81": {
+    "Name": "Star switch, Pressed",
+    "Description": "A floor switch that is triggered and pressed down."
+  },
+  "82": {
+    "Name": "Star switch (Side view)",
+    "Description": "A floor switch that can be triggered by standing on it.",
+    "RequiredActorID": "SWTH"
+  },
+  "83": {
+    "Name": "Tall grass",
+    "Description": "Not interactive?"
+  },
+  "85": {
+    "Name": "Torch",
+    "Description": "A torch that produces light, can be lighted with a LWSW Actor.",
+    "RequiredActorID": "TRCH"
+  },
+  "88": {
+    "Name": "Bomb Flower",
+    "Description": "Don't use!"
+  },
+  "89": {
+    "Name": "Bomb Flower",
+    "Description": "Produces bombs.",
+    "RequiredActorID": "HBMB",
+    "ActorValue": 1
+  },
+  "90": {
+    "Name": "Destroyed grass",
+    "Description": ""
+  },
+  "91": {
+    "Name": "Magic circle gate",
+    "Description": ""
+  },
+  "92": {
+    "Name": "Magic circle gate",
+    "Description": ""
+  },
+  "93": {
+    "Name": "Magic circle gate",
+    "Description": ""
+  },
+  "94": {
+    "Name": "Magic circle gate",
+    "Description": ""
+  },
+  "95": {
+    "Name": "Coconut",
+    "Description": "Can be thrown."
+  },
+  "96": {
+    "Name": "Lifting rock soil",
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+  },
+  "97": {
+    "Name": "Lifting rock soil",
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+  },
+  "98": {
+    "Name": "Lifting rock soil",
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+  },
+  "99": {
+    "Name": "Lifting rock soil",
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+  },
+  "100": {
+    "Name": "Hidden staircase",
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "RequiredActorID": "WARP",
+    "ActorValue": 26
+  },
+  "101": {
+    "Name": "Hidden staircase",
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+  },
+  "102": {
+    "Name": "Hidden staircase",
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+  },
+  "103": {
+    "Name": "Hidden staircase",
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+  },
+  "104": {
+    "Name": "Bush, reveals switch",
+    "Description": "A Bush that can be destroyed by the player to reveal a switch.",
+    "RequiredActorID": "SWTH"
+  },
+  "105": {
+    "Name": "Bush, reveals hole",
+    "Description": "A Bush that can be destroyed by the player to reveal a hole."
+  },
+  "106": {
+    "Name": "Bush, reveals star switch",
+    "Description": "A Bush that can be destroyed by the player to reveal a star switch.",
+    "RequiredActorID": "SWTH"
+  },
+  "107": {
+    "Name": "Bush, drops two heart",
+    "Description": "A Bush that can be destroyed by the player to drop two heart."
+  },
+  "108": {
+    "Name": "Cave entrance ceiling, top layer",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "109": {
+    "Name": "Cave entrance ceiling, top layer",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "110": {
+    "Name": "Cave entrance ceiling",
+    "Description": ""
+  },
+  "111": {
+    "Name": "Cave entrance ceiling",
+    "Description": ""
+  },
+  "112": {
+    "Name": "Bush",
+    "Description": "A Bush that can be destroyed by the player."
+  },
+  "113": {
+    "Name": "Sign",
+    "Description": "Sign text actor.",
+    "RequiredActorID": "KNBN"
+  },
+  "114": {
+    "Name": "Small Rock (Grass)",
+    "Description": "Can be thrown."
+  },
+  "115": {
+    "Name": "Small boulder (Grass)",
+    "Description": ""
+  },
+  "116": {
+    "Name": "Tall grass",
+    "Description": "Can be cut with the sword."
+  },
+  "117": {
+    "Name": "Bush, drops a heart",
+    "Description": "A Bush that can be destroyed by the player to drop a heart."
+  },
+  "118": {
+    "Name": "Stakes",
+    "Description": "Can be hammered into the ground."
+  },
+  "119": {
+    "Name": "Stakes, chopped",
+    "Description": "Hammered into the ground."
+  },
+  "122": {
+    "Name": "Hole",
+    "Description": ""
+  },
+  "128": {
+    "Name": "Key block",
+    "Description": "Can be removed with a small key.",
+    "RequiredActorID": "DOOR",
+    "ActorValue": 5
+  },
+  "129": {
+    "Name": "Fragile block",
+    "Description": "Can be removed with a bomb."
+  },
+  "130": {
+    "Name": "Small Rock (Earth)",
+    "Description": "Can be thrown."
+  },
+  "131": {
+    "Name": "Small boulder (Earth)",
+    "Description": ""
+  },
+  "132": {
+    "Name": "Bomb Flower",
+    "Description": "Don't use!"
+  },
+  "133": {
+    "Name": "Bomb Flower",
+    "Description": "Produces bombs.",
+    "RequiredActorID": "HBMB",
+    "ActorValue": 1
+  },
+  "139": {
+    "Name": "Green tile",
+    "Description": "Only the green link can run over the tile.",
+    "RequiredActorID": "RBPN",
+    "ActorValue": 0
+  },
+  "140": {
+    "Name": "Red tile",
+    "Description": "Only the red link can run over the tile.",
+    "RequiredActorID": "RBPN",
+    "ActorValue": 128
+  },
+  "141": {
+    "Name": "Blue tile",
+    "Description": "Only the blue link can run over the tile.",
+    "RequiredActorID": "RBPN",
+    "ActorValue": 256
+  },
+  "142": {
+    "Name": "Purple tile",
+    "Description": "Only the purple link can run over the tile.",
+    "RequiredActorID": "RBPN",
+    "ActorValue": 384
+  },
+  "153": {
+    "Name": "Fire jar (Side view)",
+    "Description": "Can be thrown."
+  },
+  "154": {
+    "Name": "Water jar (Side view)",
+    "Description": "Can be thrown."
+  },
+  "127": {
+    "Name": "Destroyed fragile block",
+    "Description": ""
+  },
+  "160": {
+    "Name": "Shovel, top",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "161": {
+    "Name": "Slingshot, top",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "164": {
+    "Name": "Conveyors, north",
+    "Description": "Move the player."
+  },
+  "165": {
+    "Name": "Conveyors, south",
+    "Description": "Move the player."
+  },
+  "166": {
+    "Name": "Conveyors, west",
+    "Description": "Move the player."
+  },
+  "167": {
+    "Name": "Conveyors, east",
+    "Description": "Move the player."
+  },
+  "168": {
+    "Name": "Blue switch block",
+    "Description": "Can be raised and lowered with the Blue/Red switch."
+  },
+  "169": {
+    "Name": "Red switch block",
+    "Description": "Can be raised and lowered with the Blue/Red switch."
+  },
+  "170": {
+    "Name": "Big Chests",
+    "Description": "Can be opened with a large key and gives 1000 force crystals.",
+    "RequiredActorID": "DOOR",
+    "ActorValue": 7
+  },
+  "171": {
+    "Name": "Big Chests",
+    "Description": "Can be opened with a large key and gives 1000 force crystals."
+  },
+  "172": {
+    "Name": "Eyeball switch",
+    "Description": "",
+    "RequiredActorID": "MEDM"
+  },
+  "174": {
+    "Name": "Red switch",
+    "Description": "Can raise and lower red/blue switch block..",
+    "RequiredActorID": "RDBL"
+  },
+  "175": {
+    "Name": "Blue switch",
+    "Description": "Can raise and lower red/blue switch block..",
+    "RequiredActorID": "RDBL"
+  },
+  "176": {
+    "Name": "Shovel",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "177": {
+    "Name": "Slingshot",
+    "Description": "Place on a pedestal.",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "178": {
+    "Name": "Big Chests, open",
+    "Description": ""
+  },
+  "179": {
+    "Name": "Big Chests, open",
+    "Description": ""
+  },
+  "190": {
+    "Name": "On switch",
+    "Description": "",
+    "RequiredActorID": "ONOF"
+  },
+  "191": {
+    "Name": "Off switch",
+    "Description": "",
+    "RequiredActorID": "ONOF"
+  },
+  "216": {
+    "Name": "Magic circle gate",
+    "Description": ""
+  },
+  "217": {
+    "Name": "Magic circle gate",
+    "Description": ""
+  },
+  "218": {
+    "Name": "Magic circle gate",
+    "Description": ""
+  },
+  "219": {
+    "Name": "Magic circle gate",
+    "Description": ""
+  },
+  "220": {
+    "Name": "Block",
+    "Description": "Not movable"
+  },
+  "250": {
+    "Name": "Tree trunk"
+  },
+  "432": {
+    "Name": "Ground",
+    "Description": "Default, Traversable."
+  },
+  "736": {
+    "Name": "Closed 1x1 door (north)"
+  },
+  "737": {
+    "Name": "Closed 1x1 door (north)"
+  },
+  "738": {
+    "Name": "Closed 1x1 door (west)"
+  },
+  "739": {
+    "Name": "Closed 1x1 door (east)"
+  },
+  "740": {
+    "Name": "Door frame ceiling (north)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "741": {
+    "Name": "Door frame ceiling (north)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "742": {
+    "Name": "Door frame ceiling (north)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "743": {
+    "Name": "Door frame ceiling (west)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "744": {
+    "Name": "Door frame ceiling (west)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "745": {
+    "Name": "Door frame ceiling (west)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "746": {
+    "Name": "Door frame (north)"
+  },
+  "747": {
+    "Name": "Door frame (north)"
+  },
+  "748": {
+    "Name": "Door frame (west)"
+  },
+  "749": {
+    "Name": "Door frame (east)"
+  },
+  "750": {
+    "Name": "Doorway (north)"
+  },
+  "751": {
+    "Name": "Doorway (west)"
+  },
+  "752": {
+    "Name": "Closed 1x1 door (north)"
+  },
+  "753": {
+    "Name": "Closed 1x1 door (north)"
+  },
+  "754": {
+    "Name": "Closed 1x1 door (west)"
+  },
+  "755": {
+    "Name": "Closed 1x1 door (east)"
+  },
+  "756": {
+    "Name": "Door frame ceiling (south)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "757": {
+    "Name": "Door frame ceiling (south)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "758": {
+    "Name": "Door frame ceiling (south)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "759": {
+    "Name": "Door frame ceiling (east)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "760": {
+    "Name": "Door frame ceiling (east)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "761": {
+    "Name": "Door frame ceiling (east)",
+    "Description": "",
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "762": {
+    "Name": "Door frame (south)"
+  },
+  "763": {
+    "Name": "Door frame (south)"
+  },
+  "764": {
+    "Name": "Door frame (west)"
+  },
+  "765": {
+    "Name": "Door frame (east)"
+  },
+  "766": {
+    "Name": "Doorway (south)"
+  },
+  "767": {
+    "Name": "Doorway (east)"
+  },
+  "768": {
+    "Name": "Closed door (north)"
+  },
+  "769": {
+    "Name": "Closed door (north)"
+  },
+  "770": {
+    "Name": "Closed door (west)"
+  },
+  "771": {
+    "Name": "Closed door (east)"
+  },
+  "772": {
+    "Name": "Locked door (north)"
+  },
+  "773": {
+    "Name": "Locked door (north)"
+  },
+  "774": {
+    "Name": "Locked door (west)"
+  },
+  "775": {
+    "Name": "Locked door (east)"
+  },
+  "776": {
+    "Name": "Closed door (north)"
+  },
+  "777": {
+    "Name": "Closed door (west)"
+  },
+  "778": {
+    "Name": "Closed door frame (north)",
+    "Description": "Place DOOR Actor here. Use type 0 (Closed door) or 1 (Key door).",
+    "RequiredActorID": "DOOR",
+    "ActorValue": 8320
+  },
+  "779": {
+    "Name": "Closed door frame (north)"
+  },
+  "780": {
+    "Name": "Closed door frame (west)",
+    "Description": "Place DOOR Actor here. Use type 0 (Closed door) or 1 (Key door).",
+    "RequiredActorID": "DOOR",
+    "ActorValue": 8448
+  },
+  "781": {
+    "Name": "Closed door frame (east)",
+    "Description": "Place DOOR Actor here. Use type 0 (Closed door) or 1 (Key door).",
+    "RequiredActorID": "DOOR",
+    "ActorValue": 8576
+  },
+  "782": {
+    "Name": "Wide cracked wall (north)"
+  },
+  "783": {
+    "Name": "Wide cracked wall (west)"
+  },
+  "784": {
+    "Name": "Closed door (south)"
+  },
+  "785": {
+    "Name": "Closed door (south)"
+  },
+  "786": {
+    "Name": "Closed door (west)"
+  },
+  "787": {
+    "Name": "Closed door (east)"
+  },
+  "788": {
+    "Name": "Locked door (south)"
+  },
+  "789": {
+    "Name": "Locked door (south)"
+  },
+  "790": {
+    "Name": "Locked door (west)"
+  },
+  "791": {
+    "Name": "Locked door (east)"
+  },
+  "792": {
+    "Name": "Closed door (south)"
+  },
+  "793": {
+    "Name": "Closed door (east)"
+  },
+  "794": {
+    "Name": "Closed door frame (south)",
+    "Description": "Place DOOR Actor here. Use type 0 (Closed door) or 1 (Key door).",
+    "RequiredActorID": "DOOR",
+    "ActorValue": 8192
+  },
+  "795": {
+    "Name": "Closed door frame (south)"
+  },
+  "996": {
+    "Name": "Stalactite Background (Side view)"
+  },
+  "997": {
+    "Name": "Stalactite Background (Side view)"
+  },
+  "999": {
+    "Name": "Door frame (Side view)"
+  },
+  "1000": {
+    "Name": "Door frame (Side view)"
+  },
+  "1001": {
+    "Name": "Door frame (Side view)"
+  },
+  "1002": {
+    "Name": "Door frame (Side view)"
+  }
+}

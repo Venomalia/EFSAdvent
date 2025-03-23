@@ -1,0 +1,70 @@
+{
+  "name": "ParticleNPC",
+  "description": "An NPC that handles various particle effects.",
+  "InternalName": "ParticleNPC",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Unknown Variable 2",
+      "description": "Unknown variable that likely determines specific particle behavior.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Unknown", "description": "Unknown particle effect." },
+        "1": { "name": "Unknown", "description": "Unknown particle effect." }
+      }
+    },
+    {
+      "name": "Particle Effect",
+      "description": "The type of particle effect the NPC will display.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Waterfall Splashing",
+          "description": "The effect of a waterfall splashing."
+        },
+        "1": {
+          "name": "Small Waterfall Splashing",
+          "description": "A smaller waterfall splashing effect."
+        },
+        "2": { "name": "Dark Swirl", "description": "A dark swirl effect." },
+        "3": {
+          "name": "Light Pillar Upwards",
+          "description": "A light pillar effect moving upwards."
+        },
+        "4": {
+          "name": "Light Pillar Downwards",
+          "description": "A light pillar effect moving downwards."
+        },
+        "5": {
+          "name": "Light Pillar West",
+          "description": "A light pillar effect moving towards the West."
+        },
+        "6": {
+          "name": "Light Pillar East",
+          "description": "A light pillar effect moving towards the East."
+        },
+        "7": {
+          "name": "Falling Stones",
+          "description": "The effect of stones falling."
+        },
+        "8": {
+          "name": "Glitter Rain",
+          "description": "A glittery rain effect."
+        },
+        "9": {
+          "name": "Ice Waterfall Splashing",
+          "description": "An ice waterfall splashing effect."
+        },
+        "10": {
+          "name": "Ash Rain",
+          "description": "The effect of ash raining down."
+        }
+      }
+    }
+  ]
+}

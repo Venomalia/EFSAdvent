@@ -1,0 +1,45 @@
+{
+  "name": "AGB Window Control",
+  "description": "Controls the GBA TV window.",
+  "InternalName": "AGBウィンドウ制御",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Window Position",
+      "description": "Determines where the GBA window is positioned on the screen.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Centered",
+          "description": "The GBA window is centered on the screen."
+        },
+        "4": {
+          "name": "Left Centered",
+          "description": "The GBA window is aligned to the left center."
+        },
+        "8": {
+          "name": "Bottom Right",
+          "description": "The GBA window is placed in the bottom-right corner."
+        },
+        "12": {
+          "name": "Top Right",
+          "description": "The GBA window is placed in the top-right corner."
+        },
+        "16": {
+          "name": "Bottom Centered",
+          "description": "The GBA window is aligned to the bottom center."
+        },
+        "20": {
+          "name": "Slightly Left",
+          "description": "The GBA window is slightly shifted to the left."
+        },
+        "24": {
+          "name": "Slightly Right",
+          "description": "The GBA window is slightly shifted to the right."
+        }
+      }
+    }
+  ]
+}

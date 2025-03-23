@@ -1,0 +1,43 @@
+{
+  "name": "Snowball",
+  "description": "A large snowball.",
+  "InternalName": "雪球",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Item Drop",
+      "description": "Defines the item dropped by the snowball upon destruction.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Force Crystals",
+          "description": "The snowball drops Force crystals."
+        },
+        "1": { "name": "Key", "description": "The snowball drops a key." }
+      }
+    },
+    {
+      "name": "Uses Rail",
+      "description": "Indicates whether the snowball uses a rail path for movement.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "16": {
+          "name": "Use Rail",
+          "description": "The snowball uses a rail path."
+        }
+      }
+    },
+    {
+      "name": "Rail ID",
+      "description": "The ID of the rail path used by the snowball.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

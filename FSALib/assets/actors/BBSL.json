@@ -1,0 +1,32 @@
+{
+  "name": "Giant Bomb Shadowlink",
+  "description": "A massive bomb associated with Shadowlink, triggered by a local variable.",
+  "InternalName": "巨大爆弾シャドウリンク",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Trigger Variable",
+      "description": "The local variable that activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Parameter",
+      "description": "An unidentified parameter affecting the bomb's behavior.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Unknown 0",
+          "description": "Effect is unclear."
+        },
+        "2": {
+          "name": "Unknown 2",
+          "description": "Effect is unclear."
+        }
+      }
+    }
+  ]
+}

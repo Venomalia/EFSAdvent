@@ -1,0 +1,41 @@
+{
+  "name": "OFF Switch",
+  "description": "Deactivates a specified variable when activated.",
+  "InternalName": "ＯＦＦスィッチ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Variable that activates this actor",
+      "description": "The local variable that triggers this OFF switch.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Variable to be deactivated",
+      "description": "The local variable that will be deactivated when this OFF switch is triggered.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Logic of the OFF switch",
+      "description": "Defines the behavior of the OFF switch.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Integer",
+      "enumValues": {
+        "0": { "name": "Unknown", "description": "Unknown behavior." },
+        "1": { "name": "Unknown", "description": "Unknown behavior." },
+        "2": {
+          "name": "On / off switch",
+          "description": "The switch toggles the state of the variable."
+        },
+        "3": {
+          "name": "Active variable until triggered",
+          "description": "The variable remains active until it is triggered by an event."
+        }
+      }
+    }
+  ]
+}

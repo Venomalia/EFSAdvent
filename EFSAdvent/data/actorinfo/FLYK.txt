@@ -1,8 +1,0 @@
-FLYK (falling floor)
-Must be placed on specific tiles.
-
-Variable 4:
-0 = Falling floor
-1 = Can be destroyed by bombs.
-2 = Can be destroyed by smash blow.
-3 = Thorn trap.

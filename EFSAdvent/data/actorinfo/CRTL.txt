@@ -1,7 +1,0 @@
-CRTL (Crystal ball)
-
-Variable 4:
-0 = Default
-1 = Held state
-2 = Bug
-3 = Held state, Carrot

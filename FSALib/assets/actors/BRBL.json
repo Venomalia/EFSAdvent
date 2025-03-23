@@ -1,0 +1,23 @@
+{
+  "name": "Burning Block (Wooden Box)",
+  "description": "A movable wooden box.",
+  "InternalName": "燃えるブロック（木箱）",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Item Drop Option",
+      "description": "Defines the item that drops from the box.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Nothing", "description": "The box drops nothing." },
+        "1": {
+          "name": "Red Force Gem",
+          "description": "The box drops a Red Force Gem."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Shopkeeper",
+  "description": "Cannot be called up directly.",
+  "InternalName": "商人",
+  "category": "NPC"
+}

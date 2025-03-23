@@ -1,0 +1,36 @@
+{
+  "name": "Number-Specific Enemy Annihilation Check",
+  "description": "This actor is triggered when a certain number of enemies have been defeated.",
+  "InternalName": "敵の数指定全滅チェック",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers this actor when the condition is met.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Flag Values",
+      "description": "Indicates the type of condition or behavior for the actor based on these values.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "?", "description": "Unknown behavior." },
+        "32": {
+          "name": "?",
+          "description": "Unknown behavior or additional condition."
+        }
+      }
+    },
+    {
+      "name": "Enemy Defeat Threshold",
+      "description": "The number of enemies that need to be defeated to trigger the event.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

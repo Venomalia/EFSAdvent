@@ -1,2 +1,0 @@
-STPN (StopNPC)
-All NPCs frozen still, can't leave area

@@ -1,0 +1,25 @@
+{
+  "name": "Cheep-Cheep",
+  "description": "A fish enemy that moves in water.",
+  "InternalName": "プクプク",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Size",
+      "description": "Determines the size of the Cheep-Cheep.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "A normal-sized Cheep-Cheep."
+        },
+        "1": {
+          "name": "Big",
+          "description": "A larger version of the Cheep-Cheep."
+        }
+      }
+    }
+  ]
+}

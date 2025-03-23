@@ -1,0 +1,7 @@
+{
+  "name": "Enemy for ending control",
+  "description": "",
+  "InternalName": "エンディング制御用の敵",
+  "category": "NPC",
+  "NoGBASprite": true
+}

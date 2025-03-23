@@ -1,0 +1,53 @@
+{
+  "name": "Bumper Block",
+  "description": "A bumper block that can move in different patterns and starts at a specified position.",
+  "InternalName": "ぼよよんブロック",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Start Position",
+      "description": "Defines the starting position of the bumper block.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "0%", "description": "Starts at 0% position." },
+        "1": { "name": "25%", "description": "Starts at 25% position." },
+        "2": { "name": "50%", "description": "Starts at 50% position." },
+        "3": { "name": "75%", "description": "Starts at 75% position." }
+      }
+    },
+    {
+      "name": "Movement Type",
+      "description": "Defines the movement pattern of the bumper block.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Spins in place",
+          "description": "The bumper block spins in place."
+        },
+        "1": {
+          "name": "Moves from west to east",
+          "description": "The bumper block moves from west to east."
+        },
+        "2": {
+          "name": "Moves in a small circle",
+          "description": "The bumper block moves in a small circular pattern."
+        },
+        "3": {
+          "name": "Moves in a circle",
+          "description": "The bumper block moves in a circular pattern."
+        },
+        "4": {
+          "name": "Moves in a big circle",
+          "description": "The bumper block moves in a large circular pattern."
+        },
+        "5": { "name": "?", "description": "Unknown movement pattern." },
+        "6": { "name": "?", "description": "Unknown movement pattern." }
+      }
+    }
+  ]
+}

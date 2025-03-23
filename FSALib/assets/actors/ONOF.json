@@ -1,0 +1,47 @@
+{
+  "name": "On / Off Switch",
+  "description": "A switch that can be turned on or off, with configurable behaviors.",
+  "InternalName": "Ｏｎ／Ｏｆｆスィッチ",
+  "category": "TileObject",
+  "fields": [
+    {
+      "name": "Triggered Variable",
+      "description": "The local variable number that is triggered or set by this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Switch Behavior",
+      "description": "Defines the behavior of the switch (permanent, timed, on/off, etc.).",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Permanent",
+          "description": "The switch remains permanently active."
+        },
+        "16": {
+          "name": "On / Off",
+          "description": "The switch can be toggled on or off."
+        },
+        "32": {
+          "name": "Time",
+          "description": "The switch is active for a set amount of time."
+        },
+        "160": {
+          "name": "Unknown",
+          "description": "An unknown switch behavior."
+        }
+      }
+    },
+    {
+      "name": "Active Duration",
+      "description": "The time duration that the switch remains active (only applicable if Time behavior is selected).",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

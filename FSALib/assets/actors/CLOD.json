@@ -1,0 +1,27 @@
+{
+  "name": "Clouds",
+  "description": "A moving cloud.",
+  "InternalName": "雲",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Cloud Size",
+      "description": "The size of the cloud.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "2x2 Cloud", "description": "A 2x2 size cloud." },
+        "2": { "name": "4x4 Cloud", "description": "A 4x4 size cloud." }
+      }
+    },
+    {
+      "name": "Rail ID",
+      "description": "The Rail ID associated with the cloud's movement.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

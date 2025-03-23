@@ -1,9 +1,0 @@
-FALL (Wallmaster)
-
-life: 1
-atcp: 2
-atcn: 0
-dstr: 0
-dasu: 4
-efsz: 2
-voic: 0

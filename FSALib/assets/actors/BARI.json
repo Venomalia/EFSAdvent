@@ -1,0 +1,15 @@
+{
+  "name": "Hyrule Castle Barrier",
+  "description": "A blue electric field that prevents passage until deactivated.",
+  "InternalName": "ハイラル城結界",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Deactivation Variable",
+      "description": "The local variable that deactivates the barrier.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

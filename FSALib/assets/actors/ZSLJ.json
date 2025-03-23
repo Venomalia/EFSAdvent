@@ -1,0 +1,34 @@
+{
+  "name": "Easy Shadow Link (Jump)",
+  "description": "An easy version of Shadow Link equipped with jumping abilities, capable of jumping in various directions.",
+  "InternalName": "雑魚シャドウリンク（ジャンプ）",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Unknown Variable 4a",
+      "description": "Defines some unknown behavior or state for the actor when using jumping abilities.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Integer",
+      "enumValues": {
+        "0": { "name": "?", "description": "Unknown state." },
+        "1": { "name": "?", "description": "Unknown state." },
+        "2": { "name": "?", "description": "Unknown state." },
+        "3": { "name": "?", "description": "Unknown state." }
+      }
+    },
+    {
+      "name": "Direction",
+      "description": "The direction the actor is facing or moving when jumping.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "East", "description": "The actor is facing East." },
+        "1": { "name": "West", "description": "The actor is facing West." },
+        "2": { "name": "South", "description": "The actor is facing South." },
+        "3": { "name": "North", "description": "The actor is facing North." }
+      }
+    }
+  ]
+}

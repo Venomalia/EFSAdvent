@@ -1,0 +1,7 @@
+{
+  "name": "Flying bee formation",
+  "description": "Red bee that flies away",
+  "InternalName": "フォーメーション蜂",
+  "category": "Enemy",
+  "NoGBASprite": true
+}
