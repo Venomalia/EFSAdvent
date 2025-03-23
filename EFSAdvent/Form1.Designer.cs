@@ -2444,7 +2444,6 @@ namespace EFSAdvent
         private System.Windows.Forms.Label label_V6_6;
         private System.Windows.Forms.Label label_V6_5;
         private System.Windows.Forms.ContextMenuStrip actorContextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem addNewActorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pastToolStripMenuItem;
         private System.Windows.Forms.Button MapRoomNewButton;
         private System.Windows.Forms.Button MapRoomRemoveButton;
