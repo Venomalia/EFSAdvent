@@ -1,4 +1,6 @@
 ﻿using EFSAdvent.FourSwords;
+using FSALib;
+using FSALib.Schema;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,7 +17,7 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.9";
+        private const string VERSION = "2.0";
         private const string BaseTitel = "EFSAdvent " + VERSION + " [Venomalia]";
         private const string WikiUrl = "https://github.com/Venomalia/EFSAdvent/wiki";
         private const string SourceCodeUrl = "https://github.com/Venomalia/EFSAdvent";
@@ -37,7 +39,7 @@ namespace EFSAdvent
         private bool _ignoreMapVariableUpdates = false;
         private Logger _logger;
 
-        byte currentRoomNumber;
+        int currentRoomNumber;
         (int x, int y) selectedRoomCoordinates;
         (int x, int y) lastActorCoordinates;
 
@@ -45,7 +47,6 @@ namespace EFSAdvent
 
         private readonly string[] ACTOR_NAMES;
         private readonly Dictionary<string, Bitmap> ACTOR_SPRITES = new Dictionary<string, Bitmap>();
-        private readonly Dictionary<int, string> TILE_INFO = new Dictionary<int, string>();
 
         private readonly HashSet<string> V4ACTORS = new HashSet<string>();
         private readonly HashSet<string> V6ACTORS = new HashSet<string>();
@@ -179,38 +180,18 @@ namespace EFSAdvent
                 V8ACTORS = new HashSet<string>(names.Select(n => n.Trim()));
             }
 
-            string TileInfoListPath = Path.Combine(dataDirectory, "Tile Data.txt");
-            if (File.Exists(TileInfoListPath))
+            int songindex = 0;
+            foreach (var song in Assets.Songs)
             {
-                foreach (var line in File.ReadLines(TileInfoListPath))
+                if (songindex == song.Key)
                 {
-                    if (string.IsNullOrWhiteSpace(line))
-                        continue;
-
-                    var parts = line.Split(':');
-                    if (int.TryParse(parts[0], out int key))
-                    {
-                        TILE_INFO[key] = parts[1].Trim().Replace("\\n", Environment.NewLine);
-                    }
+                    MapVariableMusicComboBox.Items.Add(song.Value);
                 }
-            }
-
-
-            string musicListPath = Path.Combine(dataDirectory, "Music Name List.txt");
-            if (File.Exists(musicListPath))
-            {
-                var names = File.ReadLines(musicListPath);
-                foreach (var item in names.Select(n => n.Trim()))
+                else
                 {
-                    MapVariableMusicComboBox.Items.Add(item);
+                    MapVariableMusicComboBox.Items.Add(songindex);
                 }
-            }
-            else
-            {
-                for (int i = 0; i < 40; i++)
-                {
-                    MapVariableMusicComboBox.Items.Add(i);
-                }
+                songindex++;
             }
             ResetVarsForNewLevel();
         }
@@ -273,7 +254,7 @@ namespace EFSAdvent
 
             //Get a string which is just the root bossxxx filepath for loading other files
             RootFolderPathTextBox.Text = mapPath.Remove(mapPath.LastIndexOf("\\map\\") + 1);
-            this.Text = $"{BaseTitel} - {_level.Map.Name} - {(mapPath.EndsWith("_1.csv") ? "single " : "multi")}player map";
+            this.Text = $"{BaseTitel} - Map{_level.Map.Index} - {(mapPath.EndsWith("_1.csv") ? "single " : "multi")}player map";
             layerPictureBox.Refresh();
 
             MapRoomLoadButton.Enabled = false;
@@ -300,7 +281,7 @@ namespace EFSAdvent
             MapVariableStartX.Enabled = !_level.Map.IsShadowBattle;
             MapVariableStartY.Enabled = !_level.Map.IsShadowBattle;
 
-            MapRoomNumberInput.Value = _level.Map.GetRoomValue(_level.Map.StartX, _level.Map.StartY);
+            MapRoomNumberInput.Value = _level.Map[_level.Map.StartX, _level.Map.StartY];
             LoadRoom(false);
 
         }
@@ -308,17 +289,21 @@ namespace EFSAdvent
         private void LoadMapVariable()
         {
             _ignoreMapVariableUpdates = true;
+
+            var properties = _level.Map.GetRoomProperties(currentRoomNumber);
+
             SetMapVariableInput(MapVariableStartX, _level.Map.StartX);
             SetMapVariableInput(MapVariableStartY, _level.Map.StartY);
-            MapVariableMusicComboBox.SelectedIndex = _level.Map.BackgroundMusicId;
-            SetMapVariableInput(MapVariableE3Banner, _level.Map.ShowE3Banner);
-            SetMapVariableInput(MapVariableOverlay, _level.Map.OverlayTextureId);
-            SetMapVariableInput(MapVariableTileSheet, _level.Map.TileSheetId);
-            SetMapVariableInput(MapVariableNPCSheetID, _level.Map.NPCSheetID);
-            SetMapVariableInput(MapVariableUnknown2, _level.Map.Unknown2);
-            SetMapVariableInput(MapVariableDisallowTingle, _level.Map.DisallowTingle);
-            MapVariablesGroupBox.Text = _level.Map.Name;
-            ChangeTileSheet(_level.TileSheetId);
+            MapVariableMusicComboBox.SelectedIndex = properties.BackgroundMusicId;
+            SetMapVariableInput(MapVariableE3Banner, properties.ShowE3Banner);
+            SetMapVariableInput(MapVariableOverlay, properties.OverlayTextureId);
+            SetMapVariableInput(MapVariableTileSheet, properties.TileSheetId);
+            SetMapVariableInput(MapVariableNPCSheetID, properties.NPCSheetID);
+            SetMapVariableInput(MapVariableUnknown2, properties.Unknown);
+            SetMapVariableInput(MapVariableDisallowTingle, properties.DisallowTingle);
+
+            MapVariablesGroupBox.Text = $"Map{_level.Map.Index}";
+            ChangeTileSheet((int)MapVariableTileSheet.Value);
             _ignoreMapVariableUpdates = false;
 
             void SetMapVariableInput(NumericUpDown input, int value)
@@ -382,17 +367,18 @@ namespace EFSAdvent
                 {
                     MapRoomNumberInput.Value = newRoomNumber;
                     UpdateMapRoomNumber(newRoomNumber);
+                    var baseLayer = _level.Room.Layers[0];
                     for (int y = 0; y < 24; y++)
                     {
                         for (int x = 0; x < Layer.DIMENSION; x++)
                         {
-                            _level.Room.SetLayerTile(0, x, y, 432);
+                            baseLayer[x, y] = 432;
                         }
                     }
                 }
                 for (int i = 0; i < 16; i++)
                 {
-                    Color color = _level.Room.IsLayerEmpty(i) ? Color.Gray : Color.Black;
+                    Color color = _level.Room.Layers[i].IsEmpty ? Color.Gray : Color.Black;
                     layersCheckList.SetItemColor(i, color);
                 }
                 layersCheckList.Refresh();
@@ -413,13 +399,13 @@ namespace EFSAdvent
 
         private void RemoveRoom(object sender, EventArgs e)
         {
-            byte selectedRoom = _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y);
+            int selectedRoom = _level.Map[selectedRoomCoordinates.x, selectedRoomCoordinates.y];
 
             if (MapRoomNumberInput.Value == selectedRoom)
             {
                 UpdateMapRoomNumber(Map.EMPTY_ROOM_VALUE);
             }
-            if (!_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value) && _level.RoomExists((byte)MapRoomNumberInput.Value) && _level.Room.RoomNumber != selectedRoom)
+            if (!_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value) && _level.RoomExists((byte)MapRoomNumberInput.Value) && _level.Room.Index != selectedRoom)
             {
                 var result = MessageBox.Show($"The room {MapRoomNumberInput.Value} is not used in this level map should it be deleted completely? This cannot be undone!",
                                              $"Deleted room {MapRoomNumberInput.Value}?",
@@ -427,11 +413,11 @@ namespace EFSAdvent
                                              MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    File.Delete(Room.GetActorFilePath(RootFolderPathTextBox.Text, _level.Map.Number, (byte)MapRoomNumberInput.Value));
+                    File.Delete(ActorList.GetFilePath(RootFolderPathTextBox.Text, _level.Map.Index, (byte)MapRoomNumberInput.Value));
                     for (int layer = 0; layer < 8; layer++)
                     {
-                        File.Delete(Room.GetLayerFilePath(RootFolderPathTextBox.Text, _level.Map.Number, (byte)MapRoomNumberInput.Value, 1, layer));
-                        File.Delete(Room.GetLayerFilePath(RootFolderPathTextBox.Text, _level.Map.Number, (byte)MapRoomNumberInput.Value, 2, layer));
+                        File.Delete(Layer.GetFilePath(RootFolderPathTextBox.Text, _level.Map.Index, (byte)MapRoomNumberInput.Value, 1, layer));
+                        File.Delete(Layer.GetFilePath(RootFolderPathTextBox.Text, _level.Map.Index, (byte)MapRoomNumberInput.Value, 2, layer));
                     }
                 }
             }
@@ -485,7 +471,7 @@ namespace EFSAdvent
                 System.Drawing.Imaging.ImageLockMode.WriteOnly,
                 mapBitmap.PixelFormat);
 
-            byte roomValue;
+            int roomValue;
             int roomWidthInPixels = mapPictureBox.Width / _level.Map.XDimension;
             int roomHeightInPixels = mapPictureBox.Height / _level.Map.YDimension;
 
@@ -493,7 +479,7 @@ namespace EFSAdvent
             {
                 for (int x = 0; x < _level.Map.XDimension * roomWidthInPixels; x += roomWidthInPixels)
                 {
-                    roomValue = _level.Map.GetRoomValue(x / roomWidthInPixels, y / roomHeightInPixels);
+                    roomValue = _level.Map[x / roomWidthInPixels, y / roomHeightInPixels];
                     roomColour = (byte)(roomValue == Map.EMPTY_ROOM_VALUE ? 0xFF : 0x00);
                     for (int px = 0; px < roomWidthInPixels; px++)
                     {
@@ -514,7 +500,7 @@ namespace EFSAdvent
             {
                 for (int x = 0; x < _level.Map.XDimension * roomWidthInPixels; x += roomWidthInPixels)
                 {
-                    roomValue = _level.Map.GetRoomValue(x / roomWidthInPixels, y / roomHeightInPixels);
+                    roomValue = _level.Map[x / roomWidthInPixels, y / roomHeightInPixels];
                     if (roomValue != Map.EMPTY_ROOM_VALUE)
                     {
                         //Draw the room number over the top of the room for clarity
@@ -522,8 +508,7 @@ namespace EFSAdvent
                     }
                 }
             }
-
-            roomValue = _level.Map.GetRoomValue(_level.Map.StartX, _level.Map.StartY);
+            roomValue = _level.Map[_level.Map.StartX, _level.Map.StartY];
             mapGraphics.DrawString(Convert.ToString(roomValue), serif, Brushes.Crimson, _level.Map.StartX * roomWidthInPixels, _level.Map.StartY * roomHeightInPixels);
 
             MapPanel.Refresh();
@@ -536,7 +521,7 @@ namespace EFSAdvent
             int roomHeightInPixels = mapPictureBox.Height / _level.Map.YDimension;
             //When the user clicks in the map load the value of the clicked room into the edit box
             selectedRoomCoordinates = (e.X / roomWidthInPixels, e.Y / roomHeightInPixels);
-            byte roomValue = _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y);
+            int roomValue = _level.Map[selectedRoomCoordinates.x, selectedRoomCoordinates.y];
             MapRoomNumberInput.Value = roomValue;
             MapRoomRemoveButton.Enabled = roomValue != Map.EMPTY_ROOM_VALUE;
             MapRoomNewButton.Enabled = true;
@@ -549,7 +534,7 @@ namespace EFSAdvent
         private void SelectRoomNumber(object sender, EventArgs e)
         {
             bool roomExists = MapRoomLoadButton.Enabled = _level.RoomExists((byte)MapRoomNumberInput.Value);
-            byte selectedRoom = _level.Map.GetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y);
+            int selectedRoom = _level.Map[selectedRoomCoordinates.x, selectedRoomCoordinates.y];
 
             if (roomExists && MapRoomNumberInput.Value != selectedRoom)
             {
@@ -583,9 +568,9 @@ namespace EFSAdvent
 
         private void UpdateMapRoomNumber(object sender, EventArgs e) => UpdateMapRoomNumber((byte)MapRoomNumberInput.Value);
 
-        private void UpdateMapRoomNumber(byte roomID)
+        private void UpdateMapRoomNumber(int roomID)
         {
-            _level.Map.SetRoomValue(selectedRoomCoordinates.x, selectedRoomCoordinates.y, roomID);
+            _level.Map[selectedRoomCoordinates.x, selectedRoomCoordinates.y] = roomID;
             MapRoomRemoveButton.Enabled = roomID != Map.EMPTY_ROOM_VALUE;
             DrawMap();
             DrawMapWithSelectedRoomHighlighted();
@@ -602,17 +587,19 @@ namespace EFSAdvent
             {
                 if (!_ignoreMapVariableUpdates)
                 {
-                    _level.Map.SetVariables(
-                        (int)MapVariableStartX.Value,
-                        (int)MapVariableStartY.Value,
-                        (int)MapVariableMusicComboBox.SelectedIndex,
-                        (int)MapVariableE3Banner.Value,
-                        (int)MapVariableTileSheet.Value,
-                        (int)MapVariableNPCSheetID.Value,
-                        (int)MapVariableOverlay.Value,
-                        (int)MapVariableUnknown2.Value,
-                        (int)MapVariableDisallowTingle.Value
-                    );
+                    if (!_level.Map.IsShadowBattle)
+                    {
+                        _level.Map.StartX = (int)MapVariableStartX.Value;
+                        _level.Map.StartY = (int)MapVariableStartY.Value;
+                        _level.Map.BackgroundMusicId = (int)MapVariableMusicComboBox.SelectedIndex;
+                        _level.Map.ShowE3Banner = (int)MapVariableE3Banner.Value;
+                        _level.Map.TileSheetId = (int)MapVariableTileSheet.Value;
+                        _level.Map.NPCSheetID = (int)MapVariableNPCSheetID.Value;
+                        _level.Map.OverlayTextureId = (int)MapVariableOverlay.Value;
+                        _level.Map.Unknown = (int)MapVariableUnknown2.Value;
+                        _level.Map.DisallowTingle = (int)MapVariableDisallowTingle.Value;
+                    }
+
                 }
                 switch (csender.Name)
                 {
@@ -720,7 +707,10 @@ namespace EFSAdvent
                 if (newActorXCoord > ActorXCoordInput.Maximum) newActorXCoord = (int)ActorXCoordInput.Maximum;
                 if (newActorYCoord > ActorYCoordInput.Maximum) newActorYCoord = (int)ActorYCoordInput.Maximum;
 
-                _level.Room.SetActorLocation(actorMouseDownOnIndex.Value, newActorXCoord, newActorYCoord);
+                var actor = _level.Room.Actors[actorMouseDownOnIndex.Value];
+                actor.XCoord = (byte)newActorXCoord;
+                actor.YCoord = (byte)newActorYCoord;
+                actorMouseDownOnIndex = actorsCheckListBox.SelectedIndex = UpdateActor(actorMouseDownOnIndex.Value, actor);
 
                 _ignoreActorChanges = true;
                 ActorXCoordInput.Value = newActorXCoord;
@@ -784,7 +774,7 @@ namespace EFSAdvent
             {
                 for (int x = 0; x < Layer.DIMENSION; x++)
                 {
-                    tile = _level.Room.GetLayerTile(layer, x, y).Value;
+                    tile = _level.Room.Layers[layer][x, y];
 
                     // Only used tiles must be drawn.
                     if (tile != 0)
@@ -868,7 +858,7 @@ namespace EFSAdvent
                 {
                     if (actorsCheckListBox.GetItemChecked(i) == true)
                     {
-                        var actor = _level.Room.GetActor(i);
+                        var actor = _level.Room.Actors[i];
                         bool isVisible = alwaysShowActorsToolStripMenuItem.Checked || GetHighestActiveLayerIndex() % 8 == actor.Layer || IsSelectedActor(actor);
                         if (isVisible && actor.XCoord == lastActorCoordinates.x && actor.YCoord == lastActorCoordinates.y)
                         {
@@ -1068,7 +1058,7 @@ namespace EFSAdvent
 
         private void UpdateLayerCheckListColor(int layer)
         {
-            Color color = _level.Room.IsLayerEmpty(layer) ? Color.Gray : Color.Black;
+            Color color = _level.Room.Layers[layer].IsEmpty ? Color.Gray : Color.Black;
             layersCheckList.SetItemColor(layer, color);
             layersCheckList.Refresh();
         }
@@ -1100,9 +1090,16 @@ namespace EFSAdvent
             DrawTile(brushTileBitmap, currentTileSheet, 0, 0, _tileBrush.TileValue);
 
             _logger.Clear();
-            if (TILE_INFO.TryGetValue(_tileBrush.TileValue, out string info))
+            if (Assets.TileProperties.TryGetValue(_tileBrush.TileValue, out TilePropertie propertie))
             {
-                _logger.AppendText(info);
+                _logger.AppendLine(propertie.Name);
+                _logger.AppendLine(string.Empty);
+                _logger.AppendLine(propertie.Description);
+                _logger.AppendLine(string.Empty);
+                if (propertie.RequiredActorID.HasValue)
+                {
+                    _logger.AppendLine($"Required Actor: '{propertie.RequiredActorID}'");
+                }
             }
 
             BrushTilePictureBox.Refresh();
@@ -1205,15 +1202,12 @@ namespace EFSAdvent
                 DefaultExt = ".arc",
                 AddExtension = true,
                 Filter = "RARC files|*.arc",
-                FileName = $"boss{_level.Map.Number}"
+                FileName = $"boss{_level.Map.Index:D3}"
             };
 
             if (saveRarc.ShowDialog() == DialogResult.OK)
             {
                 string path = RootFolderPathTextBox.Text.Remove(RootFolderPathTextBox.Text.Length - 1);
-
-                EnsureAllLayersAreEncoded(path);
-
                 var packer = new RarcPacker();
                 packer.CreateRarc(path, saveRarc.FileName);
             }
@@ -1229,7 +1223,7 @@ namespace EFSAdvent
                 DefaultExt = ".tmx",
                 AddExtension = true,
                 Filter = "Tiled map files|*.tmx;*.xml",
-                FileName = $"boss{_level.Map.Number}_Room{_level.Room.RoomNumber}"
+                FileName = $"boss{_level.Map.Index:D3}_Room{_level.Room.Index}"
             };
 
             if (saveTmx.ShowDialog() == DialogResult.OK)
@@ -1237,7 +1231,7 @@ namespace EFSAdvent
                 string tilesetSource = $"Tile Sheet {currentTileSheetComboBox.SelectedIndex:D2}.tsx";
                 string tsxFilePath = Path.Combine(Path.GetDirectoryName(saveTmx.FileName), tilesetSource);
                 ExportMapTilesetAsTsx(tsxFilePath);
-                _level.Room.ExportAsTMX(saveTmx.FileName, tilesetSource);
+                _level.ExportAsTMX(saveTmx.FileName, tilesetSource);
             }
         }
 
@@ -1247,12 +1241,12 @@ namespace EFSAdvent
             {
                 DefaultExt = ".tmx",
                 Filter = "Tiled map files|*.tmx;*.xml",
-                FileName = $"boss{_level.Map.Number}_Room{_level.Room.RoomNumber}.tmx"
+                FileName = $"boss{_level.Map.Index:D3}_Room{_level.Room.Index}.tmx"
             };
 
             if (openTmx.ShowDialog() == DialogResult.OK)
             {
-                _level.Room.ImportRoomFromTMX(openTmx.FileName);
+                _level.ImportRoomFromTMX(openTmx.FileName);
                 UpdateView();
             }
         }
@@ -1271,7 +1265,7 @@ namespace EFSAdvent
                 DefaultExt = ".png",
                 AddExtension = true,
                 Filter = "Portable Network Graphics|*.png",
-                FileName = $"boss{_level.Map.Number}_{currentRoomNumber}"
+                FileName = $"boss{_level.Map.Index:D3}_{currentRoomNumber}"
             };
 
             if (savePng.ShowDialog() == DialogResult.OK)
@@ -1290,14 +1284,14 @@ namespace EFSAdvent
                 DefaultExt = ".png",
                 AddExtension = true,
                 Filter = "Portable Network Graphics|*.png",
-                FileName = $"boss{_level.Map.Number}"
+                FileName = $"boss{_level.Map.Index:D3}"
             };
 
             if (savePng.ShowDialog() == DialogResult.OK)
             {
 
                 bool autoLoadActors = autoSelectToolStripMenuItem.Checked;
-                byte lastRoom = currentRoomNumber;
+                int lastRoom = currentRoomNumber;
                 autoSelectToolStripMenuItem.Checked = sender is ToolStripItem csender && csender.Name == "mapAndAAspngToolStripMenuItem";
 
                 int roomWidth = 512, roomHeight = 384; // Maße eines Raums
@@ -1311,7 +1305,7 @@ namespace EFSAdvent
                     {
                         for (int x = 0; x < _level.Map.XDimension; x++)
                         {
-                            byte roomValue = _level.Map.GetRoomValue(x, y);
+                            int roomValue = _level.Map[x, y];
 
                             if (roomValue != Map.EMPTY_ROOM_VALUE)
                             {
@@ -1352,7 +1346,7 @@ namespace EFSAdvent
 
                 bool autoLoadActors = autoSelectToolStripMenuItem.Checked;
                 bool overlay = displayOverlayToolStripMenuItem.Checked;
-                byte lastRoom = currentRoomNumber;
+                int lastRoom = currentRoomNumber;
                 autoSelectToolStripMenuItem.Checked = sender is ToolStripItem csender && csender.Name == "allRoomsAndActorsAspngToolStripMenuItem";
                 displayOverlayToolStripMenuItem.Checked = false;
 
@@ -1362,7 +1356,7 @@ namespace EFSAdvent
                     {
                         MapRoomNumberInput.Value = room;
                         LoadRoom(false);
-                        string baseFileName = $"boss{_level.Map.Number}_room{currentRoomNumber}";
+                        string baseFileName = $"boss{_level.Map.Index:D3}_room{currentRoomNumber}";
 
                         for (int layer = 0; layer < 8; layer++)
                         {
@@ -1396,20 +1390,6 @@ namespace EFSAdvent
                 autoSelectToolStripMenuItem.Checked = autoLoadActors;
                 displayOverlayToolStripMenuItem.Checked = overlay;
                 LoadRoom(false);
-            }
-        }
-
-        private void EnsureAllLayersAreEncoded(string path)
-        {
-            string layersPath = Path.Combine(path, "szs", $"m{_level.Map.Number}");
-            foreach (var filePath in Directory.EnumerateFiles(layersPath))
-            {
-                if (!Yaz0.IsYaz0(filePath))
-                {
-                    var bytes = File.ReadAllBytes(filePath);
-                    var encodedBytes = Yaz0.Encode(bytes);
-                    File.WriteAllBytes(filePath, encodedBytes);
-                }
             }
         }
 
@@ -1478,7 +1458,7 @@ namespace EFSAdvent
                         _level.SaveLayers();
                         if (saveMap)
                         {
-                            _level.Map.Save();
+                            _level.SaveMap();
                         }
                         break;
 
@@ -1498,7 +1478,7 @@ namespace EFSAdvent
             {
                 foreach (var tile in action.Tiles)
                 {
-                    _level.Room.SetLayerTile(action.Layer, tile.x, tile.y, tile.oldValue);
+                    _level.Room.Layers[action.Layer][tile.x, tile.y] = tile.oldValue;
                 }
                 UpdateLayerCheckListColor(action.Layer);
                 buttonSaveLayers.Enabled = true;
@@ -1512,7 +1492,7 @@ namespace EFSAdvent
             {
                 foreach (var tile in action.Tiles)
                 {
-                    _level.Room.SetLayerTile(action.Layer, tile.x, tile.y, tile.oldValue);
+                    _level.Room.Layers[action.Layer][tile.x, tile.y] = tile.oldValue;
                 }
                 UpdateLayerCheckListColor(action.Layer);
                 buttonSaveLayers.Enabled = true;
@@ -1533,7 +1513,7 @@ namespace EFSAdvent
                         _level.SaveActors();
                         BuildLayerActorList(true);
                         _level.SaveLayers();
-                        _level.Map.Save();
+                        _level.SaveMap();
                         break;
 
                     case DialogResult.No:
@@ -1547,7 +1527,7 @@ namespace EFSAdvent
             var saveDialog = new SaveFileDialog
             {
                 AddExtension = false,
-                FileName = $"boss{_level.Map.Number}",
+                FileName = $"boss{_level.Map.Index:D3}",
                 Title = "Save as different level number e.g. bossXXX"
             };
 
@@ -1564,7 +1544,7 @@ namespace EFSAdvent
 
                 string savedFileNumber = new string(savedFile.Skip(4).Take(3).ToArray());
 
-                CopyDirectory(RootFolderPathTextBox.Text, RootFolderPathTextBox.Text, _level.Map.Number, savedFileNumber);
+                CopyDirectory(RootFolderPathTextBox.Text, RootFolderPathTextBox.Text, $"{_level.Map.Index:D3}", savedFileNumber);
             }
         }
 
@@ -1629,7 +1609,7 @@ namespace EFSAdvent
 
         private void CopyActorToClipboard(object sender, EventArgs e)
         {
-            string actor = _level.Room.GetActor(actorsCheckListBox.SelectedIndex).CopyToString();
+            string actor = _level.Room.Actors[actorsCheckListBox.SelectedIndex].ToStringCode();
             System.Windows.Forms.Clipboard.SetText(actor);
         }
 
@@ -1686,21 +1666,19 @@ namespace EFSAdvent
                 return;
             }
 
-            UpdateActorPackedVariables();
-            bool RefreshActorList = _level.Room.UpdateActor(actorsCheckListBox.SelectedIndex,
-                ACTOR_NAMES[ActorNameComboBox.SelectedIndex],
-                (byte)ActorLayerInput.Value,
-                (byte)ActorXCoordInput.Value,
-                (byte)ActorYCoordInput.Value,
-                (byte)ActorVariable1Input.Value,
-                (byte)ActorVariable2Input.Value,
-                (byte)ActorVariable3Input.Value,
-                (byte)ActorVariable4Input.Value);
-
-            if (RefreshActorList)
+            Actor actor = new Actor()
             {
-                BuildLayerActorList(true);
-            }
+                Name = ACTOR_NAMES[ActorNameComboBox.SelectedIndex],
+                Layer = (byte)ActorLayerInput.Value,
+                XCoord = (byte)ActorXCoordInput.Value,
+                YCoord = (byte)ActorYCoordInput.Value,
+                Variable1 = (byte)ActorVariable1Input.Value,
+                Variable2 = (byte)ActorVariable2Input.Value,
+                Variable3 = (byte)ActorVariable3Input.Value,
+                Variable4 = (byte)ActorVariable4Input.Value
+            };
+
+            actorsCheckListBox.SelectedIndex = UpdateActor(actorsCheckListBox.SelectedIndex, actor);
 
             if (ACTOR_NAMES[ActorNameComboBox.SelectedIndex] == "PNPC" || ACTOR_NAMES[ActorNameComboBox.SelectedIndex] == "PNP2")
             {
@@ -1709,6 +1687,21 @@ namespace EFSAdvent
             }
 
             UpdateView();
+        }
+
+
+        private int UpdateActor(int index, Actor actor)
+        {
+            _level.Room.Actors[index] = actor;
+            int newIndex = _level.Room.Actors.IndexOf(actor);
+            if (newIndex != index)
+            {
+                bool isChecked = actorsCheckListBox.GetItemChecked(index);
+                actorsCheckListBox.Items.RemoveAt(index);
+                actorsCheckListBox.Items.Insert(newIndex, actor);
+                actorsCheckListBox.SetItemChecked(newIndex, isChecked);
+            }
+            return newIndex;
         }
 
         private void ReloadActors()
@@ -1729,7 +1722,10 @@ namespace EFSAdvent
                 return;
             }
 
-            actorsCheckListBox.Items.AddRange(_level.Room.GetActors().ToArray());
+            for (int i = 0; i < _level.Room.Actors.Count; i++)
+            {
+                actorsCheckListBox.Items.Add(_level.Room.Actors[i]);
+            }
 
             if (keepState)
             {
@@ -1791,11 +1787,10 @@ namespace EFSAdvent
 
         private void NewActorSelected()
         {
-            var newActor = _level.Room.GetActor(actorsCheckListBox.SelectedIndex);
-            if (newActor == null)
-            {
+            if (actorsCheckListBox.SelectedIndex == -1)
                 return;
-            }
+
+            var newActor = _level.Room.Actors[actorsCheckListBox.SelectedIndex];
 
             _ignoreActorChanges = true;
             ActorNameComboBox.SelectedIndex = Array.IndexOf(ACTOR_NAMES, newActor.Name);
@@ -1911,11 +1906,11 @@ namespace EFSAdvent
             _ignoreActorCheckbox = true;
             actorLayerGraphics.Clear(Color.Transparent);
 
-            for (int i = 0; i < _level.Room.GetActorCount(); i++)
+            for (int i = 0; i < _level.Room.Actors.Count; i++)
             {
                 if (actorsCheckListBox.GetItemChecked(i) == true)
                 {
-                    var actor = _level.Room.GetActor(i);
+                    var actor = _level.Room.Actors[i];
                     DrawActor(actor);
                 }
             }
@@ -1937,9 +1932,9 @@ namespace EFSAdvent
         {
             _ignoreActorCheckbox = true;
 
-            for (int i = 0; i < _level.Room.GetActorCount(); i++)
+            for (int i = 0; i < _level.Room.Actors.Count; i++)
             {
-                var actor = _level.Room.GetActor(i);
+                var actor = _level.Room.Actors[i];
                 bool isChecked = selectAll || actor.Layer == selectLayer;
                 actorsCheckListBox.SetItemChecked(i, isChecked);
             }
@@ -1950,9 +1945,9 @@ namespace EFSAdvent
         {
             _ignoreActorCheckbox = true;
 
-            for (int i = 0; i < _level.Room.GetActorCount(); i++)
+            for (int i = 0; i < _level.Room.Actors.Count; i++)
             {
-                var actor = _level.Room.GetActor(i);
+                var actor = _level.Room.Actors[i];
                 bool isChecked = actor.Variable1 >> 3 == variable;
 
                 if (!isChecked && V6ACTORS.Contains(actor.Name))
@@ -2165,21 +2160,21 @@ namespace EFSAdvent
             }
 
             string name = Path.GetFileName(openDialog.FileName);
-            string mapNr = name.Substring(11, 3);
+            int mapNr = int.Parse(name.Substring(11, 3));
             int RoomNR = int.Parse(name.Substring(15, 2));
             string basePath = openDialog.FileName.Remove(openDialog.FileName.LastIndexOf("bin" + Path.DirectorySeparatorChar));
             int freeRoomNr = _level.GetNextFreeRoom();
 
-            string actors = Room.GetActorFilePath(basePath, mapNr, RoomNR);
-            string newActors = Room.GetActorFilePath(RootFolderPathTextBox.Text, _level.Map.Number, freeRoomNr);
+            string actors = ActorList.GetFilePath(basePath, mapNr, RoomNR);
+            string newActors = ActorList.GetFilePath(RootFolderPathTextBox.Text, _level.Map.Index, freeRoomNr);
             File.Copy(actors, newActors);
 
             for (int la = 0; la < 8; la++)
             {
                 for (int lv = 1; lv <= 2; lv++)
                 {
-                    string layer = Room.GetLayerFilePath(basePath, mapNr, RoomNR, lv, la);
-                    string newLayer = Room.GetLayerFilePath(RootFolderPathTextBox.Text, _level.Map.Number, freeRoomNr, lv, la);
+                    string layer = Layer.GetFilePath(basePath, mapNr, RoomNR, lv, la);
+                    string newLayer = Layer.GetFilePath(RootFolderPathTextBox.Text, _level.Map.Index, freeRoomNr, lv, la);
                     File.Copy(layer, newLayer);
                 }
             }
@@ -2207,17 +2202,26 @@ namespace EFSAdvent
                 return;
             }
 
-            List<Actor> actors = Room.ReadActors(openDialog.FileName);
-            _level.Room.AddActors(actors);
-            BuildLayerActorList(true);
-            DrawActors();
+            if (!File.Exists(openDialog.FileName))
+            {
+                MessageBox.Show($"File not found: {openDialog.FileName}");
+            }
+            else
+            {
+                using (FileStream actorListStream = File.Open(openDialog.FileName, FileMode.Open))
+                {
+                    _level.Room.Actors.BinaryDeserialize(actorListStream);
+                }
+                BuildLayerActorList(true);
+                DrawActors();
 
-            MessageBox.Show($"{actors.Count} actors have been successfully added to the current room.");
+                MessageBox.Show($"{_level.Room.Actors.Count} actors have been successfully added to the current room.");
+            }
         }
 
         private void SelectedActor(Actor actor)
         {
-            int index = _level.Room.IndexOf(actor);
+            int index = _level.Room.Actors.IndexOf(actor);
             SelectedActor(index);
         }
 
@@ -2239,7 +2243,7 @@ namespace EFSAdvent
 
         private bool IsSelectedActor(Actor actor)
         {
-            int index = _level.Room.IndexOf(actor);
+            int index = _level.Room.Actors.IndexOf(actor);
             return actorsCheckListBox.SelectedIndex == index;
         }
 
@@ -2267,31 +2271,30 @@ namespace EFSAdvent
 
         private void AddNewActorFromCode(string code)
         {
-            Actor actor = new Actor();
-            if (actor.PasteFromString(code))
+            if (Actor.PasteFromString(code, out Actor actor))
             {
                 int? activeLayer = GetHighestActiveLayerIndex();
                 int baseLayer = activeLayer.HasValue
                     ? (activeLayer > 7 ? activeLayer - 8 : activeLayer).Value
                     : 0;
 
-                actor.Update((byte)baseLayer, (byte)lastActorCoordinates.x, (byte)lastActorCoordinates.y);
-                _level.Room.AddActor(actor);
-                BuildLayerActorList(true);
-                DrawActors();
-                SelectedActor(actor);
+                actor.Layer = (byte)baseLayer;
+                actor.XCoord = (byte)lastActorCoordinates.x;
+                actor.YCoord = (byte)lastActorCoordinates.y;
+                _level.Room.Actors.Add(actor);
+                int newIndex = _level.Room.Actors.IndexOf(actor);
+                actorsCheckListBox.Items.Insert(newIndex, actor);
+                SelectedActor(newIndex);
             }
         }
 
         private void actorDeleteButton_Click(object sender, EventArgs e)
         {
-            if (_level.Room.RemoveActorAt(actorsCheckListBox.SelectedIndex))
+            if (_level.Room.Actors.Count > actorsCheckListBox.SelectedIndex && actorsCheckListBox.SelectedIndex > -1)
             {
-                BuildLayerActorList(true);
-                if (actorsCheckListBox.Items.Count > 0)
-                {
-                    actorsCheckListBox.SetSelected(0, true);
-                }
+                _level.Room.Actors.RemoveAt(actorsCheckListBox.SelectedIndex);
+                actorsCheckListBox.Items.RemoveAt(actorsCheckListBox.SelectedIndex);
+                actorsCheckListBox.SelectedIndex = 0;
                 UpdateView();
             }
         }
@@ -2320,8 +2323,9 @@ namespace EFSAdvent
 
         private void actorsCheckListBox_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete && _level.Room.RemoveActorAt(actorsCheckListBox.SelectedIndex))
+            if (e.KeyCode == Keys.Delete && _level.Room.Actors.Count <= actorsCheckListBox.SelectedIndex || actorsCheckListBox.SelectedIndex < 0)
             {
+                _level.Room.Actors.RemoveAt(actorsCheckListBox.SelectedIndex);
                 BuildLayerActorList(true);
                 if (actorsCheckListBox.Items.Count > 0)
                 {

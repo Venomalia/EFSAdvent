@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>net8.0;net6.0;netstandard2.0;netstandard2.1;net48;net472;</TargetFrameworks>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <NETFrameworks>|netstandard2.0|net481|net48|net472|NET471|NET47|NET462|NET461|</NETFrameworks>
+	  <GenerateDocumentationFile>False</GenerateDocumentationFile>
+  </PropertyGroup>
+	
+	<PropertyGroup Condition="$(NETFrameworks.Contains('|$(TargetFramework)|'))">
+		<LangVersion>8.0</LangVersion>
+	</PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472' OR '$(TargetFramework)' == 'net48' OR '$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1'">
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <PackageReference Include="AuroraLib.Compression" Version="1.5.0" />
+	</ItemGroup>
+	
+<ItemGroup>
+  <None Include="assets\**" CopyToOutputDirectory="Always" Pack="true" PackagePath="contentFiles\any\any\assets" />
+</ItemGroup>
+
+</Project>
