@@ -1,0 +1,146 @@
+{
+  "name": "Environmental Switch Control",
+  "description": "A control system for environmental effects triggered by specific switches.",
+  "InternalName": "環境スィッチ制御",
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Special BG",
+      "description": "determine the special BG.",
+      "bitOffset": 16,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Off",
+          "description": "No special background."
+        },
+        "1": {
+          "name": "Map BG 1",
+          "description": "A special background effect 1.",
+          "Resources": ["timg/enkei.bti"]
+        },
+        "2": {
+          "name": "Special BG 2",
+          "description": "A special background effect 2.",
+          "Resources": ["timg/bg_mori.bti"]
+        },
+        "3": {
+          "name": "Special BG 3",
+          "description": "A special background effect 3."
+        }
+      }
+    },
+    {
+      "name": "Environmental Flags 1",
+      "description": "Flags that determine various environmental effects, like background changes and visual effects.",
+      "bitOffset": 18,
+      "bitSize": 6,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "Water looks like lava, heat distortion",
+          "description": "Water is displayed as lava with heat distortion."
+        },
+        "2": {
+          "name": "Water BG",
+          "description": "Water background."
+        },
+        "4": {
+          "name": "Fog",
+          "description": "Fog effect."
+        },
+        "8": {
+          "name": "Clouds that cast shadows",
+          "description": "Clouds with shadow effects."
+        },
+        "32": {
+          "name": "Height",
+          "description": "Height-related visual effects."
+        }
+      }
+    },
+    {
+      "name": "Environmental Flags 2",
+      "description": "Additional flags for further environmental effects.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Flags",
+      "enumValues": {
+        "2": {
+          "name": "Tower BG",
+          "description": "Tower of wind in the background.",
+          "Resources": ["timg/sky.bti", "timg/wall.bti"]
+        },
+        "4": {
+          "name": "Snowstorm",
+          "description": "Snowstorm effect."
+        },
+        "8": {
+          "name": "Falling Snow",
+          "description": "Falling snow effect."
+        },
+        "16": {
+          "name": "?",
+          "description": "?"
+        },
+        "32": {
+          "name": "Rain",
+          "description": "Rain effect."
+        },
+        "64": {
+          "name": "Rain (2)",
+          "description": "Another rain effect."
+        },
+        "128": {
+          "name": "Cloud Mist",
+          "description": "Mist effect from clouds."
+        }
+      }
+    },
+    {
+      "name": "Screen Brightness",
+      "description": "Controls for the screen's brightness and music or sound effects.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Bright Screen",
+          "description": "The screen is bright."
+        },
+        "1": {
+          "name": "Dark Screen",
+          "description": "The screen is dark."
+        },
+        "2": {
+          "name": "?",
+          "description": "Unknown screen setting."
+        },
+        "3": {
+          "name": "Cave Noises",
+          "description": "Cave-like noises are heard."
+        },
+        "4": {
+          "name": "Dark Screen, Boss Music",
+          "description": "The screen is dark and boss music plays."
+        },
+        "13": {
+          "name": "?",
+          "description": "Unknown setting."
+        },
+        "14": {
+          "name": "?",
+          "description": "Unknown setting."
+        }
+      }
+    }
+  ]
+}

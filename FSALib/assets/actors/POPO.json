@@ -1,0 +1,23 @@
+{
+  "name": "Popo",
+  "description": "A Popo enemy that appears in the game.",
+  "InternalName": "ポポ",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "State",
+      "description": "Determines the state or form of the Popo.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "The default form of the Popo."
+        },
+        "1": { "name": "Unknown", "description": "An unknown form or state." }
+      }
+    }
+  ]
+}

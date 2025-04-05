@@ -1,0 +1,37 @@
+{
+  "name": "Cucco",
+  "description": "A Cucco that reacts to player actions.",
+  "InternalName": "鶏",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Cucco Size",
+      "description": "The size of the Cucco.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Default", "description": "Standard-sized Cucco." },
+        "16": { "name": "Large Cucco", "description": "A larger Cucco." },
+        "32": { "name": "Unknown", "description": "An unknown." }
+      }
+    },
+    {
+      "name": "Fleeing Status",
+      "description": "Determines whether the Cucco fled from the player.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Did not flee",
+          "description": "The Cucco did not flee from the player."
+        },
+        "6": {
+          "name": "Fled from player",
+          "description": "The Cucco fled from the player."
+        }
+      }
+    }
+  ]
+}

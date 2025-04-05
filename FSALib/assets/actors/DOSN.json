@@ -1,0 +1,15 @@
+{
+  "name": "Thwomp Switch",
+  "description": "Activated when the tile is bumped against with the Pegasus Boots.",
+  "InternalName": "ドッスンスィッチ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Trigger Variable",
+      "description": "Local variable that will be set when this actor is triggered.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "name": "Big Poe 2",
+  "description": "Boss fight against the Big Poe second form.",
+  "InternalName": "ビックポウ２",
+  "category": "Boss",
+  "Resources": ["bigpoo"],
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Spotlight 1 trigger Variable",
+      "description": "Triggers the first spotlight for the boss fight.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spotlight 2 trigger Variable",
+      "description": "Triggers the second spotlight for the boss fight.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spotlight 3 trigger Variable",
+      "description": "Triggers the third spotlight for the boss fight.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spotlight 4 trigger Variable",
+      "description": "Triggers the fourth spotlight for the boss fight.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Poe Type",
+      "description": "Defines the type of Poe in the fight.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Big Poe",
+          "description": "The second form of Big Poe."
+        },
+        "1": {
+          "name": "Inner Poe",
+          "description": "A phase or form related to the inner Poe."
+        }
+      }
+    }
+  ]
+}

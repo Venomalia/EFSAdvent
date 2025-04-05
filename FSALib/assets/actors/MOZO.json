@@ -1,0 +1,20 @@
+{
+  "name": "Ropa",
+  "description": "A Ropa.",
+  "InternalName": "もじゃもじゃ",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "State",
+      "description": "Determines the state of the Ropa actor.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "State 0", "description": "Unknown state." },
+        "1": { "name": "State 1", "description": "Unknown state." }
+      }
+    }
+  ]
+}

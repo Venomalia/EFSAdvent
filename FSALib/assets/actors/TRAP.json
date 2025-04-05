@@ -1,0 +1,62 @@
+{
+  "name": "Blade Trap",
+  "description": "A trap that activates based on certain conditions, such as proximity or other triggers.",
+  "InternalName": "トラップ",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Activation Type",
+      "description": "Defines how the blade trap is activated.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "On Approach",
+          "description": "The trap activates when the player approaches."
+        },
+        "1": {
+          "name": "Sea Urchin",
+          "description": "The trap is a sea urchin."
+        },
+        "16": {
+          "name": "Permanent",
+          "description": "The trap remains active permanently."
+        }
+      }
+    },
+    {
+      "name": "Trap Direction",
+      "description": "Defines the direction(s) in which the blade trap is oriented.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "East",
+          "description": "The trap is oriented to the east."
+        },
+        "1": {
+          "name": "West",
+          "description": "The trap is oriented to the west."
+        },
+        "2": {
+          "name": "North",
+          "description": "The trap is oriented to the north."
+        },
+        "3": {
+          "name": "South",
+          "description": "The trap is oriented to the south."
+        },
+        "4": {
+          "name": "4 Directions",
+          "description": "The trap is oriented in all four directions."
+        },
+        "30": {
+          "name": "Big, 4 Directions",
+          "description": "A larger trap oriented in all four directions."
+        }
+      }
+    }
+  ]
+}

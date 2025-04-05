@@ -1,0 +1,32 @@
+{
+  "name": "Fairy",
+  "description": "A force fairy.",
+  "InternalName": "妖精",
+  "category": "Item",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Despawning State",
+      "description": "Determines whether the fairy despawns or not.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Despawns",
+          "description": "The fairy despawns."
+        },
+        "16": {
+          "name": "Does not despawn",
+          "description": "The fairy does not despawn."
+        }
+      }
+    }
+  ]
+}

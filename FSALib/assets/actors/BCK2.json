@@ -1,0 +1,80 @@
+{
+  "name": "Color Block (1 Player)",
+  "description": "A block that can be moved in a specific direction by a Link of the same color.",
+  "InternalName": "カラーブロック１人用",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable that triggers the activation after the block is moved.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Movement Direction",
+      "description": "Determines the movement direction of the block.",
+      "bitOffset": 0,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Movable East", "description": "Can be pushed east." },
+        "1": { "name": "Movable West", "description": "Can be pushed west." },
+        "2": { "name": "Movable South", "description": "Can be pushed south." },
+        "3": { "name": "Movable North", "description": "Can be pushed north." }
+      }
+    },
+    {
+      "name": "Block Type",
+      "description": "Defines the block's color and its state. The block can only be moved by a Link of the same color.",
+      "bitOffset": 2,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Standard Block",
+          "description": "A standard block without color."
+        },
+        "1": {
+          "name": "Green",
+          "description": "Green block. Can only be moved by Green Link."
+        },
+        "2": {
+          "name": "Red",
+          "description": "Red block. Can only be moved by Red Link."
+        },
+        "3": {
+          "name": "Blue",
+          "description": "Blue block. Can only be moved by Blue Link."
+        },
+        "4": {
+          "name": "Purple",
+          "description": "Purple block. Can only be moved by Purple Link."
+        },
+        "5": {
+          "name": "Random Color",
+          "description": "Block with a random color."
+        },
+        "6": {
+          "name": "Broken Texture (1)",
+          "description": "Block with a broken texture type 1."
+        },
+        "7": {
+          "name": "Broken Texture (2)",
+          "description": "Block with a broken texture type 2."
+        }
+      }
+    },
+    {
+      "name": "Property Unknown",
+      "description": "An additional property for unknown purposes.",
+      "bitOffset": 5,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "?", "description": "Unknown property." },
+        "1": { "name": "?", "description": "Unknown property." }
+      }
+    }
+  ]
+}

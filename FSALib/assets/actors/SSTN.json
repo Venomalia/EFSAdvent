@@ -1,0 +1,6 @@
+{
+  "name": "NPCs disguised as stones",
+  "description": "Small stone, jumps then breaks.",
+  "InternalName": "石に化けているＮＰＣ",
+  "category": "TileObject"
+}

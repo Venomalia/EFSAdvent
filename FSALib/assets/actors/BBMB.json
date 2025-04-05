@@ -1,0 +1,32 @@
+{
+  "name": "Giant Bomb",
+  "description": "A massive bomb that can be triggered by a variable.",
+  "InternalName": "巨大爆弾",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Trigger Variable",
+      "description": "The local variable that triggers the explosion of the giant bomb.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Parameter",
+      "description": "An unidentified parameter that affects the bomb's behavior.",
+      "bitOffset": 16,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Unknown 0",
+          "description": "Effect is unclear."
+        },
+        "1": {
+          "name": "Unknown 1",
+          "description": "Effect is unclear."
+        }
+      }
+    }
+  ]
+}

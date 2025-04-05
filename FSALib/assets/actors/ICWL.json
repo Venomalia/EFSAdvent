@@ -1,0 +1,48 @@
+{
+  "name": "Ice Wall",
+  "description": "An ice block that can be melted with fire.",
+  "InternalName": "氷の壁",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Unknown Variable 3",
+      "description": "An unknown value related to the ice wall.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "2": {
+          "name": "Green Force Crystal (100)",
+          "description": "A green force crystal with a value of 100."
+        },
+        "4": { "name": "Pengator", "description": "A pengator." },
+        "5": { "name": "Force Fairy", "description": "A force fairy." },
+        "7": {
+          "name": "Force Luck Hole",
+          "description": "A hole that triggers a force luck event."
+        },
+        "8": { "name": "Heart", "description": "A heart item." }
+      }
+    },
+    {
+      "name": "Ice Wall Size",
+      "description": "The size of the ice wall.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Big", "description": "A big ice wall." },
+        "1": { "name": "Small", "description": "A small ice wall." },
+        "16": {
+          "name": "Big, Unknown",
+          "description": "A big ice wall with an unknown effect."
+        },
+        "96": {
+          "name": "Big, Pengator",
+          "description": "A big ice wall with a pengator."
+        }
+      }
+    }
+  ]
+}

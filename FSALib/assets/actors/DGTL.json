@@ -1,0 +1,8 @@
+{
+  "name": "Big Moldorm",
+  "description": "Boss fight against the Big Moldorm.",
+  "InternalName": "デグテール",
+  "category": "Boss",
+  "Resources": ["degtail"],
+  "NoGBASprite": true
+}

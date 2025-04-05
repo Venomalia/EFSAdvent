@@ -1,0 +1,7 @@
+{
+  "name": "Whac-A-Mole minigame",
+  "description": "",
+  "InternalName": "もぐら叩き屋",
+  "category": "NPC",
+  "NoGBASprite": true
+}

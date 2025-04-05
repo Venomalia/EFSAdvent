@@ -1,9 +1,0 @@
-CLOD (clouds) No GBA sprite
-Moving cloud
-
-Variable 2:
-0 = 2x2 cloud
-2 = 4x4 cloud
-
-Variable 4:
-Rail ID

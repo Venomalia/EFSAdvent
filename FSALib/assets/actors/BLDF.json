@@ -1,0 +1,48 @@
+{
+  "name": "Blindfold",
+  "description": "The blindfold actor can change its visibility.",
+  "InternalName": "目隠し",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Visibility State",
+      "description": "Defines the visibility behavior of the blindfold based on proximity.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Always visible",
+          "description": "The blindfold is always visible."
+        },
+        "1": {
+          "name": "Disappears completely when near",
+          "description": "The blindfold disappears when the player is near."
+        },
+        "2": {
+          "name": "Becomes transparent when near",
+          "description": "The blindfold becomes transparent when the player is near."
+        },
+        "4": {
+          "name": "Darkens the background",
+          "description": "The blindfold darkens the background."
+        }
+      }
+    },
+    {
+      "name": "Size in X Axis",
+      "description": "Size of the blindfold in the X axis.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Size in Y Axis",
+      "description": "Size of the blindfold in the Y axis.",
+      "bitOffset": 16,
+      "bitSize": 3,
+      "valueType": "Integer"
+    }
+  ]
+}

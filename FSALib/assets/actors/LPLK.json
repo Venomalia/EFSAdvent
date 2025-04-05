@@ -1,0 +1,26 @@
+{
+  "name": "Force Like",
+  "description": "A creature resembling a Like Like, with different color variations.",
+  "InternalName": "ルピーライク",
+  "category": "Enemy",
+  "GlitchedGBASprite": true,
+  "fields": [
+    {
+      "name": "Color Variant",
+      "description": "Determines the color of the Force Like.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Green", "description": "A green Force Like." },
+        "1": { "name": "Red", "description": "A red Force Like." },
+        "2": { "name": "Blue", "description": "A blue Force Like." },
+        "3": { "name": "Purple", "description": "A purple Force Like." },
+        "4": {
+          "name": "Zelda (Bug?)",
+          "description": "A glitched variant resembling Zelda."
+        }
+      }
+    }
+  ]
+}

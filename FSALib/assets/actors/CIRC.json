@@ -1,0 +1,79 @@
+{
+  "name": "Magic Circle",
+  "description": "Appearing magic circle warp.",
+  "InternalName": "魔法陣",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Trigger Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Shaking and Transition Effect",
+      "description": "The effect and transition associated with the magic circle.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Back To TV", "description": "Returns to TV." },
+        "1": {
+          "name": "Slight Shaking, Pixelation, Music Distortion",
+          "description": "Slight shaking with pixelation transition and music distortion."
+        },
+        "2": {
+          "name": "Heavy Shaking",
+          "description": "Heavy shaking effect."
+        },
+        "3": {
+          "name": "Slight Shaking",
+          "description": "Slight shaking without further effects."
+        },
+        "4": { "name": "No Shaking", "description": "No shaking effect." }
+      }
+    },
+    {
+      "name": "Arrival X Coordinate",
+      "description": "The X coordinate where players arrive after the warp.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Arrival Y Coordinate",
+      "description": "The Y coordinate where players arrive after the warp.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Magic Circle Type",
+      "description": "The type of magic circle effect.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Default", "description": "Default magic circle." },
+        "1": { "name": "Green", "description": "Green magic circle." },
+        "2": { "name": "Red", "description": "Red magic circle." },
+        "3": { "name": "Blue", "description": "Blue magic circle." },
+        "4": { "name": "Purple", "description": "Purple magic circle." },
+        "5": {
+          "name": "10 Seconds",
+          "description": "Magic circle disappears after 10 seconds."
+        },
+        "7": { "name": "Cactus", "description": "Cactus effect." },
+        "8": {
+          "name": "Glitter Effect",
+          "description": "Magic circle has a glitter effect."
+        },
+        "16": {
+          "name": "Disappears After All Players Use",
+          "description": "The magic circle disappears after all players have used it."
+        }
+      }
+    }
+  ]
+}

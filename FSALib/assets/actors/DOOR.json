@@ -1,0 +1,107 @@
+{
+  "name": "Door",
+  "description": "A doorway that can be opened by a local variable.",
+  "InternalName": "ドア",
+  "category": "TileObject",
+  "fields": [
+    {
+      "name": "Opened by this local variable",
+      "description": "The local variable that triggers the opening of the door.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Closes when room entered",
+      "description": "Determines if the door closes when the room is entered.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Does not close",
+          "description": "The door remains open when the room is entered."
+        },
+        "2": {
+          "name": "Closes when room entered",
+          "description": "The door closes when the room is entered."
+        }
+      }
+    },
+    {
+      "name": "Door Width",
+      "description": "The width of the door.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "One person wide",
+          "description": "A door that is 1 unit wide."
+        },
+        "1": {
+          "name": "Two persons wide",
+          "description": "A door that is 2 units wide."
+        },
+        "2": {
+          "name": "Four person wide",
+          "description": "A door that is 4 units wide."
+        }
+      }
+    },
+    {
+      "name": "Direction",
+      "description": "The direction the door faces.",
+      "bitOffset": 7,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "South", "description": "The door faces the south." },
+        "1": { "name": "North", "description": "The door faces the north." },
+        "2": { "name": "West", "description": "The door faces the west." },
+        "3": { "name": "East", "description": "The door faces the east." }
+      }
+    },
+    {
+      "name": "Door Type",
+      "description": "The type of the door.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Closed door",
+          "description": "A door that is closed and cannot be opened without action."
+        },
+        "1": {
+          "name": "Key door",
+          "description": "A door that requires a key to open."
+        },
+        "2": {
+          "name": "Bombable wall",
+          "description": "A wall that can be bombed to reveal a door."
+        },
+        "3": {
+          "name": "Key door (House)",
+          "description": "A key door specific to a house area."
+        },
+        "4": {
+          "name": "Bombable wall (House)",
+          "description": "A bombable wall specific to a house area."
+        },
+        "5": {
+          "name": "1x1 Key block",
+          "description": "A 1x1 block that requires a key to unlock."
+        },
+        "7": {
+          "name": "Locked Big chest",
+          "description": "A large chest that is locked and requires a key to open."
+        },
+        "8": {
+          "name": "Vines",
+          "description": "A door covered by vines that may require action to remove or open."
+        }
+      }
+    }
+  ]
+}

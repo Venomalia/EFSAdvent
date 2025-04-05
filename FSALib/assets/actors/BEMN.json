@@ -1,0 +1,7 @@
+{
+  "name": "Bee Manager",
+  "description": "Circle of red bees",
+  "InternalName": "蜂マネージャー",
+  "category": "Enemy",
+  "NoGBASprite": true
+}

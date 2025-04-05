@@ -1,0 +1,7 @@
+{
+  "name": "Cutscene shadow link",
+  "description": "Shadow Link, disappears.",
+  "InternalName": "デモ用シャドウリンク",
+  "category": "Cutscene",
+  "NoGBASprite": true
+}

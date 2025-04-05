@@ -1,0 +1,52 @@
+{
+  "name": "Big Poe",
+  "description": "Boss fight against the Big Poe.",
+  "InternalName": "ビックポウ",
+  "category": "Boss",
+  "Resources": ["bpoh"],
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Spotlight 1 Trigger Variable",
+      "description": "The local variable that triggers the first spotlight in the Big Poe fight.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spotlight 2 Trigger Variable",
+      "description": "The local variable that triggers the second spotlight in the Big Poe fight.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spotlight 3 Trigger Variable",
+      "description": "The local variable that triggers the third spotlight in the Big Poe fight.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spotlight 4 Trigger Variable",
+      "description": "The local variable that triggers the fourth spotlight in the Big Poe fight.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Low Life Difficulty Variable",
+      "description": "The variable to be set when Big Poe has low life to increase the difficulty of the fight.",
+      "bitOffset": 7,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable 6",
+      "description": "An unknown variable that is set to 124 in specific conditions.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Integer"
+    }
+  ]
+}

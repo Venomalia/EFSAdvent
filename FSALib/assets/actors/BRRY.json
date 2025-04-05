@@ -1,0 +1,58 @@
+{
+  "name": "Buried Force Gem",
+  "description": "A buried Force Gem.",
+  "InternalName": "埋まりルピー",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor. (0 = always active)",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Buried State",
+      "description": "Defines the buried state of the Force Gem.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Buried Visible",
+          "description": "The Force Gem is buried but visible."
+        },
+        "1": {
+          "name": "Buried Deep",
+          "description": "The Force Gem is buried deeply and not visible."
+        },
+        "2": {
+          "name": "Buried Visible, Requires Active Variable",
+          "description": "The Force Gem is buried but visible and requires the activation of a local variable to appear."
+        },
+        "3": {
+          "name": "Buried Deep, Requires Active Variable",
+          "description": "The Force Gem is buried deeply and requires the activation of a local variable to appear."
+        },
+        "4": { "name": "Secret SE", "description": "Plays secret(SE)." },
+        "5": {
+          "name": "Secret SE, Requires Active Variable",
+          "description": "Plays secret(SE), requires the activation of a local variable."
+        }
+      }
+    },
+    {
+      "name": "Force Gem Type",
+      "description": "Defines the type of the buried Force Gem.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Green", "description": "The Force Gem is green." },
+        "1": { "name": "Blue", "description": "The Force Gem is blue." },
+        "2": { "name": "Red", "description": "The Force Gem is red." },
+        "3": { "name": "Purple", "description": "The Force Gem is purple." }
+      }
+    }
+  ]
+}

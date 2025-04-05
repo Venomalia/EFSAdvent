@@ -1,5 +1,0 @@
-LTEV (light environment control)
-lets you adjust the brightness of the room.
-
-Variable 4:
-brightness

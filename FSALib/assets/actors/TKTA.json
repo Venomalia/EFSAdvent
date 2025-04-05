@@ -1,0 +1,24 @@
+{
+  "name": "Tektite",
+  "description": "A jumping spider-like enemy.",
+  "InternalName": "テクタイト",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Type",
+      "description": "Defines the color and behavior of the Tektite.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Red", "description": "A red Tektite." },
+        "1": { "name": "Blue", "description": "A blue Tektite." },
+        "2": {
+          "name": "Red, Hidden in Bush",
+          "description": "A red Tektite hidden in a bush."
+        }
+      }
+    }
+  ]
+}

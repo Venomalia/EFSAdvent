@@ -1,0 +1,47 @@
+{
+  "name": "Flying Floor Tile",
+  "description": "A flying floor tile that can be destroyed or triggered.",
+  "InternalName": "床ビュン",
+  "category": "TileObject",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Trigger Variable",
+      "description": "The variable that should be triggered when this tile is destroyed.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Tile Type",
+      "description": "The type of the floor tile.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Floor Tile", "description": "A regular floor tile." },
+        "1": { "name": "Bush", "description": "A bush tile." },
+        "2": { "name": "Tree", "description": "A tree tile." },
+        "3": { "name": "Unknown", "description": "An unknown tile type." },
+        "4": { "name": "Gravestone", "description": "A gravestone tile." },
+        "5": { "name": "Pot", "description": "A pot tile." },
+        "6": { "name": "Statue", "description": "A statue tile." },
+        "7": { "name": "Chest", "description": "A chest tile." },
+        "8": {
+          "name": "Floor Tile with Hole",
+          "description": "A floor tile that leaves a hole when destroyed."
+        },
+        "9": { "name": "Statue Red", "description": "A red statue tile." },
+        "17": { "name": "Red Bush", "description": "A red bush tile." },
+        "28": { "name": "Eye Statue", "description": "An eye statue tile." }
+      }
+    },
+    {
+      "name": "Index Number",
+      "description": "An index number associated with this tile.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

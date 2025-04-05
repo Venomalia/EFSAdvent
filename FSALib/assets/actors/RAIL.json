@@ -1,0 +1,43 @@
+{
+  "name": "Rail Data",
+  "description": "Defines movement paths for actors. Units move sequentially between rail points and loop back to the start.",
+  "InternalName": "レールデータ",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Rail ID",
+      "description": "Identifier for the rail path to which this point belongs.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Index",
+      "description": "The index of this rail point in the sequence.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Rail Behavior",
+      "description": "Defines specific behaviors for movement along the rail.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Default", "description": "" },
+        "1": { "name": "Unknown", "description": "Unidentified behavior." },
+        "8": {
+          "name": "Jumps",
+          "description": "The actor jumps while following the rail."
+        },
+        "16": { "name": "Unknown", "description": "Unidentified behavior." },
+        "17": {
+          "name": "Jumps",
+          "description": "The actor jumps while following the rail."
+        },
+        "24": { "name": "Unknown", "description": "Unidentified behavior." }
+      }
+    }
+  ]
+}

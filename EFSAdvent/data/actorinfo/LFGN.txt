@@ -1,1 +1,0 @@
-LFGN (NPC generator for leaf effect generation) No GBA sprite

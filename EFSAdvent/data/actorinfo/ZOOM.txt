@@ -1,4 +1,0 @@
-ZOOM (ZOOM)
-
-Packed data is composed as follows:
-11111222 22333334 44445555 56666666

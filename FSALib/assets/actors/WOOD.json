@@ -1,0 +1,26 @@
+{
+  "name": "Liftable Tree",
+  "description": "A tree that can be lifted by the player, potentially dropping loot when destroyed.",
+  "InternalName": "持ち上げ木",
+  "category": "TileObject",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Loot Type",
+      "description": "Defines what, if anything, is dropped when the tree is destroyed.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Force Gems",
+          "description": "The tree drops Force Gems when destroyed."
+        },
+        "64": {
+          "name": "No Drops",
+          "description": "The tree does not drop any items when destroyed."
+        }
+      }
+    }
+  ]
+}

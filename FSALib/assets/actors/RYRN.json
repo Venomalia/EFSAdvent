@@ -1,0 +1,91 @@
+{
+  "name": "Rupee Drop",
+  "description": "Triggers a drop of Force Gems or enemies under specific conditions.",
+  "InternalName": "ルピー降らし",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Drop Condition",
+      "description": "Determines the condition under which Force Gems or enemies will be dropped.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Sub Option",
+      "description": "Can influence the range and quantity of the dropped Force Gems or enemies.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Drop Pattern",
+      "description": "Determines how the Force Gems or enemies will be dropped.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Force Screen",
+          "description": "Drops Force Gems across the screen."
+        },
+        "1": {
+          "name": "Bombs Screen",
+          "description": "Drops bombs across the screen."
+        },
+        "2": {
+          "name": "Bomb Circle",
+          "description": "Drops bombs in a circular pattern."
+        },
+        "3": {
+          "name": "Force Screen (Immediate Drop)",
+          "description": "Drops Force Gems across the screen immediately."
+        },
+        "4": {
+          "name": "Green Soldier Circle",
+          "description": "Spawns a circle of Green Soldiers."
+        },
+        "5": {
+          "name": "Popo Screen",
+          "description": "Spawns Popo enemies while dropping Force Gems."
+        },
+        "6": {
+          "name": "Force Square",
+          "description": "Drops Force Gems in a square formation."
+        },
+        "7": {
+          "name": "Force Like Square",
+          "description": "Drops Force Gems and spawns a Force Like-Like."
+        },
+        "8": { "name": "2x Hinox", "description": "Spawns two Hinox enemies." },
+        "9": {
+          "name": "Stalfos Circle",
+          "description": "Spawns a circle of Stalfos enemies."
+        },
+        "10": {
+          "name": "Blue Soldier",
+          "description": "Spawns a Blue Soldier enemy."
+        },
+        "11": {
+          "name": "Rope Square",
+          "description": "Spawns a square formation of Rope enemies."
+        },
+        "12": {
+          "name": "Force Square (Fast Despawn)",
+          "description": "Drops Force Gems immediately in a square but despawns quickly."
+        },
+        "13": {
+          "name": "Rope Square (No SE)",
+          "description": "Spawns Rope enemies in a square formation without sound effects."
+        }
+      }
+    }
+  ]
+}

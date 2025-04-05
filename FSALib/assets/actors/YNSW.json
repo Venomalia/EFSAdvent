@@ -1,0 +1,32 @@
+{
+  "name": "4-Seater Switch",
+  "description": "A switch that requires four players to activate.",
+  "InternalName": "4人乗りスイッチ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Enabled Variable",
+      "description": "The local variable number that enables or triggers this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Switch State",
+      "description": "Defines the state of the switch.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "The switch is in its default state."
+        },
+        "1": {
+          "name": "Remains Pressed",
+          "description": "The switch remains pressed after being activated."
+        }
+      }
+    }
+  ]
+}

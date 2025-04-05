@@ -1,0 +1,77 @@
+{
+  "name": "BGM Change",
+  "description": "Changes the background music when triggered by a local variable.",
+  "InternalName": "ＢＧＭチェンジＮＰＣ",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Trigger Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable 4",
+      "description": "Defines some unknown behavior or state.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable 5",
+      "description": "Further unknown state, needs clarification.",
+      "bitOffset": 7,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Music to be Played",
+      "description": "Defines the music to be played, corresponding to various locations or events.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Aboveground" },
+        "1": { "name": "Temple" },
+        "2": { "name": "Field" },
+        "3": { "name": "Plain" },
+        "4": { "name": "Village" },
+        "5": { "name": "Hyrule Castle" },
+        "6": { "name": "Tower of Flames" },
+        "7": { "name": "Dungeon" },
+        "8": { "name": "Graveyard" },
+        "9": { "name": "Desert" },
+        "10": { "name": "Woods" },
+        "11": { "name": "Snow" },
+        "12": { "name": "Hidden Dungeon" },
+        "13": { "name": "Heavens" },
+        "14": { "name": "Palace of Winds" },
+        "15": { "name": "Ganon Battle" },
+        "16": { "name": "Boss Battle" },
+        "17": { "name": "null" },
+        "18": { "name": "Ending" },
+        "19": { "name": "Maiden Rescue" },
+        "20": { "name": "Fanfare?" },
+        "21": { "name": "Tingle Tower" },
+        "22": { "name": "Guessing" },
+        "23": { "name": "Fortune-Telling" },
+        "24": { "name": "Mini Boss Battle" },
+        "25": { "name": "Invincibility(bug)" },
+        "26": { "name": "Jewel" },
+        "27": { "name": "Item Fanfare" },
+        "28": { "name": "Shadow Link Battle" },
+        "29": { "name": "Graveyard" },
+        "30": { "name": "Clear Fanfare" },
+        "31": { "name": "Inside a House" },
+        "32": { "name": "Dungeon" },
+        "33": { "name": "Crystal Room" },
+        "34": { "name": "Hidden Dungeon" },
+        "35": { "name": "Tower of Flames" },
+        "36": { "name": "Goddess" },
+        "37": { "name": "Inside a House (Dark)" },
+        "38": { "name": "Village (unsolved)" }
+      }
+    }
+  ]
+}

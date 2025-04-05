@@ -1,0 +1,81 @@
+{
+  "name": "Sword Soldier",
+  "description": "A soldier that is part of a force or group, with different types of behavior and characteristics.",
+  "InternalName": "剣兵士",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Chief Soldier ID",
+      "description": "The ID of the chief soldier that this sword soldier is associated with.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Behavior Flags",
+      "description": "Flags that determine the behavior and characteristics of the sword soldier.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "1": {
+          "name": "Moves Faster",
+          "description": "The soldier moves at a faster speed."
+        },
+        "4": { "name": "?", "description": "Unknown behavior." },
+        "8": {
+          "name": "Linked to Chief",
+          "description": "This soldier is linked to the chief soldier."
+        },
+        "9": { "name": "?", "description": "Unknown behavior." },
+        "16": {
+          "name": "Force Soldier",
+          "description": "This soldier is a force soldier."
+        }
+      }
+    },
+    {
+      "name": "Action States",
+      "description": "States or actions that the sword soldier can perform.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "1": { "name": "?", "description": "Unknown action or state." },
+        "17": { "name": "?", "description": "Unknown action or state." }
+      }
+    },
+    {
+      "name": "Type",
+      "description": "Defines the color or type of the sword soldier, affecting its appearance and behavior.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Green",
+          "description": "A green-colored sword soldier."
+        },
+        "1": { "name": "Red", "description": "A red-colored sword soldier." },
+        "2": { "name": "Blue", "description": "A blue-colored sword soldier." },
+        "3": {
+          "name": "Red, Linked to Captain",
+          "description": "A red-colored sword soldier linked to the captain."
+        },
+        "4": {
+          "name": "Black",
+          "description": "A black-colored sword soldier."
+        },
+        "5": { "name": "?", "description": "Unknown color/type." },
+        "6": {
+          "name": "Big Yellow",
+          "description": "A large yellow-colored sword soldier."
+        },
+        "7": {
+          "name": "Yellow Corrupted (Bug?)",
+          "description": "A corrupted yellow sword soldier, potentially a bug."
+        }
+      }
+    }
+  ]
+}

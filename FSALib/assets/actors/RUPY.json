@@ -1,0 +1,172 @@
+{
+  "name": "Force Gem",
+  "description": "A collectible item used for various effects in the game.",
+  "InternalName": "ルピー",
+  "category": "Item",
+  "fields": [
+    {
+      "name": "Gem Type",
+      "description": "Defines the type and value of the Force Gem.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Small Green",
+          "description": "A small green Force Gem worth 1."
+        },
+        "1": {
+          "name": "Small Blue",
+          "description": "A small blue Force Gem worth 5."
+        },
+        "2": {
+          "name": "Small Red",
+          "description": "A small red Force Gem worth 20."
+        },
+        "3": {
+          "name": "Small Purple",
+          "description": "A small purple Force Gem worth 50."
+        },
+        "4": { "name": "Green", "description": "A green Force Gem worth 100." },
+        "5": { "name": "Blue", "description": "A blue Force Gem worth 150." },
+        "6": { "name": "Red", "description": "A red Force Gem worth 200." },
+        "7": {
+          "name": "Purple",
+          "description": "A purple Force Gem worth 300."
+        },
+        "8": {
+          "name": "Big Green",
+          "description": "A big green Force Gem worth 1000."
+        },
+        "9": {
+          "name": "Big Blue",
+          "description": "A big blue Force Gem worth 1500."
+        },
+        "10": {
+          "name": "Big Red",
+          "description": "A big red Force Gem worth 2000."
+        },
+        "11": {
+          "name": "Big Purple",
+          "description": "A big purple Force Gem worth 3000."
+        },
+        "16": {
+          "name": "Key Invisible (bug)",
+          "description": "A key invisible Force Gem, possibly a bug."
+        },
+        "17": {
+          "name": "Big Key Invisible (bug)",
+          "description": "A big key invisible Force Gem, possibly a bug."
+        },
+        "18": {
+          "name": "Letter Invisible (bug)",
+          "description": "An invisible letter Force Gem, possibly a bug."
+        }
+      }
+    },
+    {
+      "name": "Interaction Type",
+      "description": "Defines how the Force Gem behaves when interacted with.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "1": {
+          "name": "Not Interactable",
+          "description": "The Force Gem is not interactable."
+        },
+        "2": { "name": "?", "description": "Undefined behavior." },
+        "3": {
+          "name": "Does not Despawn",
+          "description": "The Force Gem does not despawn."
+        },
+        "4": {
+          "name": "Pegasus Boots (West)",
+          "description": "Can be activated with Pegasus Boots in the west direction."
+        },
+        "5": {
+          "name": "Pegasus Boots (East)",
+          "description": "Can be activated with Pegasus Boots in the east direction."
+        },
+        "6": {
+          "name": "Pegasus Boots (South)",
+          "description": "Can be activated with Pegasus Boots in the south direction."
+        },
+        "7": {
+          "name": "Pegasus Boots (North)",
+          "description": "Can be activated with Pegasus Boots in the north direction."
+        },
+        "8": {
+          "name": "Pegasus Boots (West)",
+          "description": "Can be triggered again using Pegasus Boots in the west direction."
+        },
+        "9": {
+          "name": "Pegasus Boots (East)",
+          "description": "Can be triggered again using Pegasus Boots in the east direction."
+        },
+        "10": {
+          "name": "Pegasus Boots (South)",
+          "description": "Can be triggered again using Pegasus Boots in the south direction."
+        },
+        "11": {
+          "name": "Pegasus Boots (North)",
+          "description": "Can be triggered again using Pegasus Boots in the north direction."
+        },
+        "12": {
+          "name": "Must be activated by variable, then falls from the sky",
+          "description": "Requires a specific variable to trigger the Force Gem falling from the sky."
+        },
+        "13": {
+          "name": "Must be activated by variable, then appears",
+          "description": "Requires a specific variable to trigger the Force Gem's appearance."
+        },
+        "14": {
+          "name": "Falls from the sky",
+          "description": "The Force Gem falls from the sky when triggered."
+        },
+        "15": {
+          "name": "Pegasus Boots (Any Direction)",
+          "description": "Can be triggered by using Pegasus Boots in any direction."
+        },
+        "16": {
+          "name": "Falls from the sky, activated by variable",
+          "description": "Must be activated by variable and then falls from the sky."
+        },
+        "26": {
+          "name": "Appears, activated by variable",
+          "description": "Must be activated by variable and then appears."
+        },
+        "28": {
+          "name": "Falls from the sky.",
+          "description": "Falls from the sky."
+        },
+        "29": {
+          "name": "Pegasus Boots.",
+          "description": "Falls from the sky."
+        },
+        "35": {
+          "name": "Under Water",
+          "description": "The Force Gem can be interacted with while underwater."
+        },
+        "36": {
+          "name": "Invisible",
+          "description": "The Force Gem is invisible."
+        }
+      }
+    },
+    {
+      "name": "Frames to Appear",
+      "description": "The number of frames it takes for the Force Gem to appear.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor if Variable 2 indicates this.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

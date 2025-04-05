@@ -1,8 +1,0 @@
-GLWP (Goal Warp)
-travel back through the level if not enough force crystals
-
-Variable 4a:
-Map Y coridinate 
-
-Variable 4b:
-Map X coridinate 

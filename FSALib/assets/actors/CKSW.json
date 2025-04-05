@@ -1,0 +1,57 @@
+{
+  "name": "Check Switch",
+  "description": "A switch that checks multiple local variables and can set random variables under certain conditions.",
+  "InternalName": "チェックスィッチ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Trigger Variable",
+      "description": "The local variable number that triggers or activates this actor. (0 = always active)",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Checked Variable 1",
+      "description": "A local variable number that is checked by this actor.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Checked Variable 2",
+      "description": "A local variable number that is checked by this actor.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Checked Variable 3",
+      "description": "A local variable number that is checked by this actor.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Checked Variable 4",
+      "description": "A local variable number that is checked by this actor.",
+      "bitOffset": 7,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Action Control",
+      "description": "Controls the random variable actions.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Sets a random variable" },
+        "1": {
+          "name": "Sets a random variable, can be triggered multiple times"
+        },
+        "46": { "name": "Sets all variables" }
+      }
+    }
+  ]
+}

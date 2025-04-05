@@ -1,2 +1,0 @@
-BLZD (snowstorm) No GBA sprite
-Triggers a blizzard when you walk onto it

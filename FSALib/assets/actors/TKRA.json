@@ -1,0 +1,121 @@
+{
+  "name": "Treasure Chest",
+  "description": "A chest that contains various items or rewards.",
+  "InternalName": "宝箱",
+  "category": "TileObject",
+  "fields": [
+    {
+      "name": "Contained Item",
+      "description": "Defines the item inside the chest.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Small Green Force Gem",
+          "description": "1 Force Gem"
+        },
+        "1": {
+          "name": "Small Blue Force Gem",
+          "description": "5 Force Gems"
+        },
+        "2": {
+          "name": "Small Red Force Gem",
+          "description": "20 Force Gems"
+        },
+        "3": {
+          "name": "Small Purple Force Gem",
+          "description": "50 Force Gems"
+        },
+        "4": {
+          "name": "Green Force Gem",
+          "description": "100 Force Gems"
+        },
+        "5": {
+          "name": "Blue Force Gem",
+          "description": "150 Force Gems"
+        },
+        "6": {
+          "name": "Red Force Gem",
+          "description": "200 Force Gems"
+        },
+        "7": {
+          "name": "Purple Force Gem",
+          "description": "300 Force Gems"
+        },
+        "8": {
+          "name": "Big Green Force Gem",
+          "description": "1000 Force Gems"
+        },
+        "9": {
+          "name": "Big Blue Force Gem",
+          "description": "1500 Force Gems"
+        },
+        "10": {
+          "name": "Big Red Force Gem",
+          "description": "2000 Force Gems"
+        },
+        "11": {
+          "name": "Big Purple Force Gem",
+          "description": "3000 Force Gems"
+        },
+        "16": {
+          "name": "Key",
+          "description": "A regular key."
+        },
+        "17": {
+          "name": "Big Key",
+          "description": "A key for big chest."
+        },
+        "18": {
+          "name": "Letter",
+          "description": "A special letter."
+        },
+        "19": {
+          "name": "Power Bracelet",
+          "description": "With its power, Link can lift objects, such as Trees."
+        },
+        "20": {
+          "name": "Heart Container",
+          "description": "Increases max health."
+        },
+        "21": {
+          "name": "Blue Bracelet",
+          "description": "Cuts all damage receives in half."
+        },
+        "22": {
+          "name": "Moon Pearl",
+          "description": "Used to activate Moon Gates."
+        },
+        "23": {
+          "name": "Bombos Medallion",
+          "description": "Triggers a rain of fire which defeats every enemy on the screen."
+        },
+        "24": {
+          "name": "Quake Medallion",
+          "description": "Triggers an earthquake that turns enemies into Zols."
+        },
+        "25": {
+          "name": "Book (text error)",
+          "description": "An item with a text issue."
+        },
+        "32": {
+          "name": "Item Crystal (text error)",
+          "description": "An item with a text issue."
+        },
+        "46": {
+          "name": "Nova Bomb",
+          "description": "A powerful explosive."
+        },
+        "47": {
+          "name": "Empty",
+          "description": "The chest contains nothing."
+        },
+        "74": {
+          "name": "Lv2 sword",
+          "description": "The sword has full power."
+        }
+      }
+    }
+  ]
+}

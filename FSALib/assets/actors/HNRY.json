@@ -1,0 +1,82 @@
+{
+  "name": "Hovering Force Gem",
+  "description": "A hovering force gem with various movement and appearance effects.",
+  "InternalName": "羽根ルピー",
+  "category": "Item",
+  "fields": [
+    {
+      "name": "Unknown Variable 1",
+      "description": "An unknown value related to the hovering force gem.",
+      "bitOffset": 24,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Movement Type",
+      "description": "The movement behavior of the hovering force gem.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Fixed", "description": "Does not move." },
+        "1": { "name": "Moves Vertical", "description": "Moves vertically." },
+        "2": {
+          "name": "Moves Horizontal",
+          "description": "Moves horizontally."
+        },
+        "3": {
+          "name": "Clockwise",
+          "description": "Moves in a clockwise direction."
+        },
+        "4": {
+          "name": "Counterclockwise",
+          "description": "Moves in a counterclockwise direction."
+        },
+        "5": { "name": "Unknown", "description": "An unknown movement type." },
+        "6": {
+          "name": "Moves Vertical, Centered",
+          "description": "Moves vertically, centered."
+        },
+        "7": {
+          "name": "Moves Horizontal, Centered",
+          "description": "Moves horizontally, centered."
+        }
+      }
+    },
+    {
+      "name": "Flag Effects",
+      "description": "Various flag effects associated with the hovering force gem.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": { "name": "Appear effect", "description": "" },
+        "4": { "name": "Hovers high when close", "description": "" },
+        "16": { "name": "Hovers low", "description": "" }
+      }
+    },
+    {
+      "name": "Force Gem",
+      "description": "The type of the force gem.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Green", "description": "Green force gem" },
+        "1": { "name": "Blue", "description": "Blue force gem" },
+        "2": { "name": "Red", "description": "Red force gem" },
+        "3": { "name": "Purple", "description": "Purple force gem" },
+        "4": {
+          "name": "Green Flashing Purple",
+          "description": "Green flashing purple force gem"
+        },
+        "5": { "name": "Small Red", "description": "Small red force gem" },
+        "6": {
+          "name": "Small Purple",
+          "description": "Small purple force gem"
+        },
+        "7": { "name": "Small Blue", "description": "Small blue force gem" }
+      }
+    }
+  ]
+}

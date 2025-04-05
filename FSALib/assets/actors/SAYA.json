@@ -1,0 +1,29 @@
+{
+  "name": "Hungry Zora",
+  "description": "A Zora that reacts based on interactions, potentially giving a reward.",
+  "InternalName": "魚追い込みゾーラ",
+  "category": "NPC",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this Zora.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Behavior",
+      "description": "Determines the Zora's reaction or reward.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Zora", "description": "Acts as a hungry Zora." },
+        "2": {
+          "name": "Reward Green Force Gem (100)",
+          "description": "Gives a Green Force Gem worth 100 when interacted with."
+        }
+      }
+    }
+  ]
+}

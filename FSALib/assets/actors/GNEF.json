@@ -1,0 +1,7 @@
+{
+  "name": "Giant Generator Effect",
+  "description": "Links are sucked into a GBA portal.",
+  "InternalName": "巨大ジェネレーターエフェクト",
+  "category": "Object",
+  "NoGBASprite": true
+}

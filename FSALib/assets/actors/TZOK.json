@@ -1,0 +1,49 @@
+{
+  "name": "Thief",
+  "description": "A thief that can be of various types, such as different characters or individuals with specific roles.",
+  "InternalName": "盗賊",
+  "category": "NPC",
+  "fields": [
+    {
+      "name": "Thief Type",
+      "description": "Defines the specific type or identity of the thief.",
+      "bitOffset": 24,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "40": {
+          "name": "Red Bandana",
+          "description": "The thief wearing a red bandana."
+        },
+        "41": { "name": "Old Man", "description": "The thief is an old man." },
+        "42": {
+          "name": "Little Girl",
+          "description": "The thief is a little girl."
+        },
+        "43": { "name": "Woman", "description": "The thief is a woman." }
+      }
+    },
+    {
+      "name": "Variable 2",
+      "description": "Unknown variable that is associated with the thief, possibly related to the thief's behavior or other conditions.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer",
+      "value": 9
+    },
+    {
+      "name": "Cage ID",
+      "description": "The ID of the cage where the thief might be contained or related to.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Thief Number",
+      "description": "Defines a unique identifier or number associated with the thief.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

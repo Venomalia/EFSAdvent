@@ -1,0 +1,98 @@
+{
+  "name": "Fire Manager",
+  "description": "Controls the behavior of fire balls in the game.",
+  "InternalName": "ファイア(マネージャー)",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Stop Variable",
+      "description": "The variable that stops the fire balls.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Fire Behavior",
+      "description": "Defines the movement pattern of the fire.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Alternating Left/Right",
+          "description": "The fire alternates between left and right."
+        },
+        "1": {
+          "name": "Always Centered",
+          "description": "The fire stays centered at all times."
+        },
+        "2": {
+          "name": "Alternating Left/Right (Disappears After Activation)",
+          "description": "The fire alternates between left and right and disappears after activating the variable."
+        },
+        "3": {
+          "name": "Always Centered (Disappears After Activation)",
+          "description": "The fire stays centered and disappears after activation."
+        }
+      }
+    },
+    {
+      "name": "Random Delay",
+      "description": "A random delay before the next flame appears.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Delay",
+      "description": "A fixed delay before the next flame appears.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Direction",
+      "description": "The direction the flame will travel.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "South",
+          "description": "The flame travels to the South."
+        },
+        "1": {
+          "name": "North",
+          "description": "The flame travels to the North."
+        },
+        "2": {
+          "name": "East",
+          "description": "The flame travels to the East."
+        },
+        "3": { "name": "West", "description": "The flame travels to the West." }
+      }
+    },
+    {
+      "name": "Flame Speed",
+      "description": "The speed at which the flame travels.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Fast Flying",
+          "description": "The flame travels fast."
+        },
+        "4": {
+          "name": "Slow Flying",
+          "description": "The flame travels slowly."
+        },
+        "8": {
+          "name": "Faster Flying (Hits Only Enemies)",
+          "description": "The flame travels faster and hits only enemies."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Sandstorm",
+  "description": "A sandstorm in Gerudo Desert that moves the player to another map if they use the wrong exit.",
+  "InternalName": "砂嵐",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Warp Target Y",
+      "description": "The Y position of the area to which the player should be warped.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Warp Target X",
+      "description": "The X position of the area to which the player should be warped.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Exit Conditions",
+      "description": "Defines the possible exits and their behavior.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+name: Format and Validate JSON Files
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  format-and-validate-json:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Install Prettier
+        run: npm install --global prettier
+
+      - name: Format JSON Files
+        run: npx prettier --write "**/*.json"
+
+      - name: Validate JSON Files
+        run: |
+          for file in $(find . -name "*.json" -not -path "./node_modules/*"); do
+            echo "Validating $file"
+            jq empty "$file" || exit 1
+          done
+
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-formatted JSON files"
+          branch: ${{ github.head_ref }}
+
+      - name: Commit and Push Changes (main branch)
+        if: github.event_name == 'push'
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git add .
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-formatted JSON files"
+          git push origin $BRANCH_NAME || true

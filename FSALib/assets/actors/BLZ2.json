@@ -1,0 +1,34 @@
+{
+  "name": "Indelible Flame",
+  "description": "A flame actor that can be triggered by a local variable and has different behaviors based on its state.",
+  "InternalName": "消えない炎",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Flame Option",
+      "description": "Defines the flame's behavior based on the local variable state.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Option 0", "description": "Undefined option." },
+        "1": { "name": "Option 1", "description": "Undefined option." },
+        "2": {
+          "name": "Extinguished by Variable 1",
+          "description": "The flame is extinguished by the local variable."
+        },
+        "19": {
+          "name": "Activates Flame by Variable 1",
+          "description": "The flame is activated by the local variable."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "name": "Rotating Fireball Manager",
+  "description": "Manages the rotation of fireballs in the game. No GBA sprite.",
+  "InternalName": "ファイアーバー（マネージャー）",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Change of Direction by Variable X",
+      "description": "Indicates if the direction of the fireballs changes based on a variable.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable 1b",
+      "description": "An unknown value related to the fireball's behavior.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Unknown", "description": "Undefined state." },
+        "2": { "name": "Unknown", "description": "Undefined state." }
+      }
+    },
+    {
+      "name": "Rotation Direction",
+      "description": "The direction in which the fireballs rotate.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Counterclockwise",
+          "description": "Fireballs rotate counterclockwise."
+        },
+        "1": {
+          "name": "Clockwise",
+          "description": "Fireballs rotate clockwise."
+        },
+        "34": { "name": "Unknown", "description": "Undefined state." }
+      }
+    },
+    {
+      "name": "Start Position",
+      "description": "The starting position for the rotation of the fireballs.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "0°", "description": "Start position at 0 degrees." },
+        "1": {
+          "name": "180°",
+          "description": "Start position at 180 degrees."
+        },
+        "2": { "name": "90°", "description": "Start position at 90 degrees." },
+        "3": { "name": "270°", "description": "Start position at 270 degrees." }
+      }
+    },
+    {
+      "name": "Number of Flames on Each Side",
+      "description": "The number of flames that appear on each side of the rotating fireball.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "ViewMode",
+  "description": "Switches the game to side view.",
+  "InternalName": "ＶｉｅｗＭｏｄｅ",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "View Mode",
+      "description": "Determines whether the game is in top view or side view.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "8": {
+          "name": "Top view",
+          "description": "The standard top-down perspective."
+        },
+        "16": {
+          "name": "Side view",
+          "description": "The game switches to a side-scrolling perspective."
+        }
+      }
+    }
+  ]
+}

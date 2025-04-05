@@ -1,0 +1,62 @@
+{
+  "name": "Special BG Drawing Object",
+  "description": "A special background drawing object with different activation and appearance conditions.",
+  "InternalName": "特殊BG描画Obj",
+  "category": "Intern",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The variable that activates this special background object.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Flags 1",
+      "description": "Flags that define unknown behaviors for this background object.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "?", "description": "Unknown flag." },
+        "4": { "name": "?", "description": "Unknown flag." },
+        "6": { "name": "?", "description": "Unknown flag." }
+      }
+    },
+    {
+      "name": "Unknown Flag 2",
+      "description": "An additional flag for an unknown state or condition.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "64": { "name": "?", "description": "Unknown flag." }
+      }
+    },
+    {
+      "name": "Background Type",
+      "description": "Defines which background drawing object is used for the scene.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Hyrule Castle Gate",
+          "description": "The background is the Hyrule Castle gate.",
+          "Resources": ["j3d/osiro_mon.bmd ", "j3d/osiro_mon.btk"]
+        },
+        "1": {
+          "name": "Hyrule Castle Door",
+          "description": "The background is the Hyrule Castle door.",
+          "Resources": ["j3d/osiro_tobira.bmd ", "j3d/osiro_tobira.btk"]
+        },
+        "2": {
+          "name": "Hyrule Castle Windows",
+          "description": "The background is the Hyrule Castle windows.",
+          "Resources": ["j3d/osiro_mado.bmd ", "j3d/osiro_mado.btk"]
+        }
+      }
+    }
+  ]
+}

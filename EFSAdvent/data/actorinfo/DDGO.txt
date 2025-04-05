@@ -1,9 +1,0 @@
-DDGO (Dodongo) No GBA sprite
-
-life: 8
-atcp: 4
-atcn: 0
-dstr: 1
-dasu: 5
-efsz: 2
-voic: 0

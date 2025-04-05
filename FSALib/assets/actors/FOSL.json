@@ -1,0 +1,7 @@
+{
+  "name": "Formation Slime",
+  "description": "",
+  "InternalName": "フォーメーションスライム",
+  "category": "Enemy",
+  "NoGBASprite": true
+}

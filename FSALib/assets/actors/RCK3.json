@@ -1,0 +1,22 @@
+{
+  "name": "1-1 Rocks Dropped into the River",
+  "description": "A rock that falls into the river after moves in a specified direction.",
+  "InternalName": "1-1川に落とす岩",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Movement Direction",
+      "description": "The direction in which the rock moves after being dropped into the river.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "East", "description": "The rock moves to the east." },
+        "1": { "name": "West", "description": "The rock moves to the west." },
+        "2": { "name": "South", "description": "The rock moves to the south." },
+        "3": { "name": "North", "description": "The rock moves to the north." }
+      }
+    }
+  ]
+}

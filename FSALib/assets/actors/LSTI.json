@@ -1,0 +1,43 @@
+{
+  "name": "Dropped Items",
+  "description": "Dropped item, which may be hidden under a rock.",
+  "category": "Item",
+  "fields": [
+    {
+      "name": "Dropped Item Type",
+      "description": "Specifies the type of item that was dropped.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Enum",
+      "enumValues": {
+        "1": {
+          "name": "Pegasus Boots",
+          "description": "The Pegasus Boots item."
+        },
+        "2": { "name": "Lantern", "description": "The Lantern item." },
+        "3": { "name": "Boomerang", "description": "The Boomerang item." },
+        "4": { "name": "Bow", "description": "The Bow item." },
+        "5": { "name": "Hammer", "description": "The Hammer item." },
+        "6": { "name": "Fire Rod", "description": "The Fire Rod item." },
+        "7": {
+          "name": "Roc's Feather",
+          "description": "The Roc's Feather item."
+        },
+        "8": { "name": "Bombs", "description": "The Bombs item." },
+        "9": { "name": "Shovel", "description": "The Shovel item." },
+        "10": { "name": "Slingshot", "description": "The Slingshot item." },
+        "11": {
+          "name": "Four Sword (Unused)",
+          "description": "An unused Four Sword item."
+        }
+      }
+    },
+    {
+      "name": "Hidden Under Rock",
+      "description": "Indicates if the dropped item is hidden under a rock.",
+      "bitOffset": 7,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    }
+  ]
+}

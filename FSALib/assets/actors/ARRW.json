@@ -1,0 +1,6 @@
+{
+  "name": "Arrow projectile",
+  "description": "Cannot be called up directly.",
+  "InternalName": "プレイヤー用矢",
+  "category": "Intern"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "post-warp processing with warp pillars",
+  "description": "Efeckt that is triggered after the warp with the warp piller.",
+  "InternalName": "ワープ柱でワープ後の処理",
+  "category": "Property"
+}

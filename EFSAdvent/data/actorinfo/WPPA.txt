@@ -1,2 +1,0 @@
-WPPA (post-warp processing with warp pillars)
-Efeckt that is triggered after the warp with the warp piller.

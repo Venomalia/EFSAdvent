@@ -1,0 +1,26 @@
+{
+  "name": "Zol Slime",
+  "description": "A slime enemy that can appear in different states, including under a lifting rock.",
+  "InternalName": "ザコスライム",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Zol Slime State",
+      "description": "Defines the state or situation of the Zol Slime.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "The Zol Slime is in its default state."
+        },
+        "16": {
+          "name": "Under a 2-Person Lifting Rock",
+          "description": "The Zol Slime is located under a rock that requires two people to lift."
+        }
+      }
+    }
+  ]
+}

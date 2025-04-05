@@ -1,9 +1,0 @@
-ZORA (Zora) No GBA sprite
-
-life: 4
-atcp: 2
-atcn: 0
-dstr: 1
-dasu: 1
-efsz: 2
-voic: 0

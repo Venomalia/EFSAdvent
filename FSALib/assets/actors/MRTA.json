@@ -1,0 +1,36 @@
+{
+  "name": "Tree Log",
+  "description": "A tree log that can be either horizontal or vertical, with variations in size.",
+  "InternalName": "丸太",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Type",
+      "description": "Determines the type of the log or actor.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Tree Log", "description": "A normal tree log." },
+        "1": { "name": "Armos Knight", "description": "An Armos Knight actor." }
+      }
+    },
+    {
+      "name": "Orientation",
+      "description": "The orientation of the tree log or object.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Horizontal", "description": "The log is horizontal." },
+        "1": { "name": "Vertical", "description": "The log is vertical." },
+        "16": {
+          "name": "Big, Horizontal",
+          "description": "A big horizontal log."
+        },
+        "17": { "name": "Big, Vertical", "description": "A big vertical log." }
+      }
+    }
+  ]
+}

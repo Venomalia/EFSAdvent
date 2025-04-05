@@ -1,0 +1,30 @@
+{
+  "name": "Recovery Heart",
+  "description": "A small Heart that refill your Heart Meter a little.",
+  "InternalName": "小さいハート",
+  "category": "Item",
+  "fields": [
+    {
+      "name": "Heart State",
+      "description": "The current state or behavior of the small heart.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Drops", "description": "The heart drops." },
+        "1": {
+          "name": "Lies on the Ground and Does Not Despawn",
+          "description": "The heart lies on the ground and does not despawn."
+        },
+        "2": {
+          "name": "Unknown State",
+          "description": "An unknown state for the small heart."
+        },
+        "3": {
+          "name": "Drops and Does Not Despawn",
+          "description": "The heart drops and does not despawn."
+        }
+      }
+    }
+  ]
+}

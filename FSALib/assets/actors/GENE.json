@@ -1,0 +1,36 @@
+{
+  "name": "Enemy Generator",
+  "description": "Generates enemies when triggered.",
+  "InternalName": "湧き出し",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Trigger Variable",
+      "description": "The variable that triggers this actor, masked by &0xF8.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable 2",
+      "description": "An unknown variable with value 156.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable 3",
+      "description": "An unknown variable with value 224.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Amount",
+      "description": "The amount of enemies to be generated.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

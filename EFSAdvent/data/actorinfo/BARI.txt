@@ -1,5 +1,0 @@
-BARI (Hyrule Castle Barrier) No GBA sprite
-Blue electric field
-
-Variable 1a:
-Variable which deactivates the barrier

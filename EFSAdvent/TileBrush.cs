@@ -1,4 +1,6 @@
 ﻿using EFSAdvent.FourSwords;
+using FSALib;
+using FSALib.Schema;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -38,11 +40,8 @@ namespace EFSAdvent
             Width = selection.Width;
             Height = selection.Height;
 
-            ushort? tile = level.Room.GetLayerTile(layer, selection.X, selection.Y);
-            if (tile.HasValue)
-            {
-                TileValue = tile.Value;
-            }
+            ushort tile = level.Room.Layers[layer][selection.X, selection.Y];
+            TileValue = tile;
 
             if ((selection.Width | selection.Height) != 1)
             {
@@ -50,14 +49,10 @@ namespace EFSAdvent
                 {
                     for (int x = selection.X; x < selection.X + selection.Width; x++)
                     {
-                        tile = level.Room.GetLayerTile(layer, x, y);
-                        if (tile.HasValue)
-                        {
-                            _clipboardTiles.Add(new ClipboardTile(x - selection.X, y - selection.Y, tile.Value));
-                        }
+                        tile = level.Room.Layers[layer][x, y];
+                        _clipboardTiles.Add(new ClipboardTile(x - selection.X, y - selection.Y, tile));
                     }
                 }
-
             }
         }
 
@@ -76,13 +71,28 @@ namespace EFSAdvent
 
         private bool DrawTiles(Level level, int layer, int posX, int posY)
         {
+            bool hasPropertie = Assets.TileProperties.TryGetValue(TileValue, out TilePropertie propertie);
+            if (hasPropertie &&  propertie.PlaceAlwaysOnTopLayer && layer < 8)
+            {
+                layer += 8;
+            }
+
             if (SaveActionToHistory(level, layer, posX, posY))
             {
                 for (int y = posY; y < posY + Height; y++)
                 {
                     for (int x = posX; x < posX + Width; x++)
                     {
-                        level.Room.SetLayerTile(layer, x, y, TileValue);
+                        level.Room.Layers[layer][x, y] = TileValue;
+
+                        if (hasPropertie && propertie.RequiredActorID.HasValue)
+                        {
+                            var tileActor = new Actor(propertie.RequiredActorID.Value, (byte)(layer % 8), (byte)(x * 2), (byte)(y * 2), propertie.ActorValue);
+                            if (!level.Room.Actors.TrySearch(tileActor.Layer, tileActor.XCoord, tileActor.YCoord, tileActor.ID, out Actor _))
+                            {
+                                level.Room.Actors.Add(tileActor);
+                            }
+                        }
                     }
                 }
                 return true;
@@ -96,7 +106,7 @@ namespace EFSAdvent
             {
                 foreach (ClipboardTile tile in _clipboardTiles)
                 {
-                    level.Room.SetLayerTile(layer, tile.xOffset + posX, tile.yOffset + posY, tile.value);
+                    level.Room.Layers[layer][tile.xOffset + posX, tile.yOffset + posY] = tile.value;
                 }
                 return true;
             }
@@ -112,14 +122,11 @@ namespace EFSAdvent
 
             foreach (var tile in _clipboardTiles)
             {
-                var currentTile = level.Room.GetLayerTile(layer, tile.xOffset + x, tile.yOffset + y);
-                if (currentTile.HasValue)
-                {
-                    tileChanged |= currentTile != tile.value;
-                    coordinates.Add((tile.xOffset + x, tile.yOffset + y));
-                    oldValues.Add(currentTile.Value);
-                    newValues.Add(tile.value);
-                }
+                var currentTile = level.Room.Layers[layer][tile.xOffset + x, tile.yOffset + y];
+                tileChanged |= currentTile != tile.value;
+                coordinates.Add((tile.xOffset + x, tile.yOffset + y));
+                oldValues.Add(currentTile);
+                newValues.Add(tile.value);
             }
 
             if (!tileChanged)
@@ -142,14 +149,11 @@ namespace EFSAdvent
             {
                 for (int testX = x; testX < x + Width; testX++)
                 {
-                    var currentTile = level.Room.GetLayerTile(layer, testX, testY);
-                    if (currentTile.HasValue)
-                    {
-                        tileChanged |= currentTile != TileValue;
-                        coordinates.Add((testX, testY));
-                        oldValues.Add(currentTile.Value);
-                        newValues.Add(TileValue);
-                    }
+                    var currentTile = level.Room.Layers[layer][testX, testY];
+                    tileChanged |= currentTile != TileValue;
+                    coordinates.Add((testX, testY));
+                    oldValues.Add(currentTile);
+                    newValues.Add(TileValue);
                 }
             }
 

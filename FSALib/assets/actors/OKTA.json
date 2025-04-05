@@ -1,0 +1,28 @@
+{
+  "name": "Octorok",
+  "description": "An Octorok with various color and behavior configurations.",
+  "InternalName": "オクタロック",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Color and Behavior",
+      "description": "Defines the color and behavior of the Octorok.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Red", "description": "A red Octorok." },
+        "1": { "name": "Blue", "description": "A blue Octorok." },
+        "2": { "name": "Pink", "description": "A pink Octorok." },
+        "3": {
+          "name": "Red (Does not shoot)",
+          "description": "A red Octorok that does not shoot."
+        },
+        "4": {
+          "name": "Red (Shoots in all 4 directions)",
+          "description": "A red Octorok that shoots in all 4 directions."
+        }
+      }
+    }
+  ]
+}

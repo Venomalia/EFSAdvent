@@ -1,0 +1,60 @@
+{
+  "name": "Movable House",
+  "description": "A house that can be moved by several links.",
+  "InternalName": "動く家",
+  "category": "TileObject",
+  "fields": [
+    {
+      "name": "Move to North Trigger",
+      "description": "Activates this variable when the house is moved to the north.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Move to South Trigger",
+      "description": "Activates this variable when the house is moved to the south.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Move to West Trigger",
+      "description": "Activates this variable when the house is moved to the west.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Move to East Trigger",
+      "description": "Activates this variable when the house is moved to the east.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Variable",
+      "description": "Unknown functionality or behavior.",
+      "bitOffset": 7,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "House Type",
+      "description": "The type of the house.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Integer",
+      "enumValues": {
+        "0": {
+          "name": "Normal house 6x6",
+          "description": "A normal 6x6 house."
+        },
+        "2": {
+          "name": "Fire thrower house 6x6",
+          "description": "A 6x6 house with fire throwers."
+        }
+      }
+    }
+  ]
+}

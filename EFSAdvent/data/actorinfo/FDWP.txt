@@ -1,8 +1,0 @@
-FDWP (Room Warp for L7-2)
-Makes the screen black and immediately warps you to another room.
-
-Variable 3a:
-Map Y coridinate 
-
-Variable 3b:
-Map X coridinate 

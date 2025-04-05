@@ -1,0 +1,22 @@
+{
+  "name": "Local Switch",
+  "description": "Sets a local variable when a global variable has been triggered.",
+  "InternalName": "Localスィッチ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Local Variable to be Set",
+      "description": "The local variable that is set when the global variable triggers this event.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Global Variable that Triggers Event",
+      "description": "The global variable that triggers the event and sets the local variable.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

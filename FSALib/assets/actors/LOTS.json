@@ -1,0 +1,54 @@
+{
+  "name": "Lily Pad",
+  "description": "A floating lily pad that moves based on set parameters.",
+  "InternalName": "蓮",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Appearance Variable",
+      "description": "The variable that makes the lily pad appear.",
+      "bitOffset": 26,
+      "bitSize": 6,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Tile Distance",
+      "description": "The basic tile distance the lily pad moves.",
+      "bitOffset": 12,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Direction",
+      "description": "The direction the lily pad moves.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "East", "description": "Moves to the right." },
+        "1": { "name": "West", "description": "Moves to the left." },
+        "2": { "name": "North", "description": "Moves upward." },
+        "3": { "name": "South", "description": "Moves downward." }
+      }
+    },
+    {
+      "name": "Swim Speed",
+      "description": "The speed at which the lily pad moves.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Lily Pad Size",
+      "description": "The size of the lily pad.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "1": { "name": "Small", "description": "A small lily pad." },
+        "2": { "name": "Big", "description": "A big lily pad." }
+      }
+    }
+  ]
+}

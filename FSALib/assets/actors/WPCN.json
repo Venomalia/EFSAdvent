@@ -1,0 +1,22 @@
+{
+  "name": "Warp Cannon",
+  "description": "A cannon that teleports the player from one map to another. The target map requires 4 players to start at the given coordinates.",
+  "InternalName": "ワープ大砲",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Map X Coordinate",
+      "description": "The X-coordinate on the target map where the player will appear after teleportation.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Map Y Coordinate",
+      "description": "The Y-coordinate on the target map where the player will appear after teleportation.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

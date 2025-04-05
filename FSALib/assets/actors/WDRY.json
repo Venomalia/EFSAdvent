@@ -1,0 +1,45 @@
+{
+  "name": "Wooden Force Gem",
+  "description": "Force gems that can be revealed with the Fire Rod, with different types and sizes.",
+  "InternalName": "木製ルピー",
+  "category": "Item",
+  "fields": [
+    {
+      "name": "Gem Type",
+      "description": "Defines the type of force gem, either wooden or ice.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Wooden",
+          "description": "The force gem is of the wooden type."
+        },
+        "1": {
+          "name": "Ice",
+          "description": "The force gem is of the ice type."
+        }
+      }
+    },
+    {
+      "name": "Gem Color/Size",
+      "description": "Defines the color and size of the force gem, each representing a different value.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Green", "description": "A green force gem." },
+        "1": { "name": "Blue", "description": "A blue force gem." },
+        "2": { "name": "Red", "description": "A red force gem." },
+        "3": { "name": "Purple", "description": "A purple force gem." },
+        "4": {
+          "name": "Small Green",
+          "description": "A small green force gem."
+        },
+        "5": { "name": "Small Blue", "description": "A small blue force gem." },
+        "6": { "name": "Big Red", "description": "A big red force gem." },
+        "7": { "name": "Big Purple", "description": "A big purple force gem." }
+      }
+    }
+  ]
+}

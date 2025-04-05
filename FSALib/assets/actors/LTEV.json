@@ -1,0 +1,15 @@
+{
+  "name": "Light Environment Control",
+  "description": "Allows adjustment of the brightness level in the room.",
+  "InternalName": "ライト環境制御",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Brightness",
+      "description": "Controls the brightness level of the room.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

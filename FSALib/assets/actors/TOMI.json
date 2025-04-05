@@ -1,0 +1,29 @@
+{
+  "name": "Transparent NPC Wall",
+  "description": "An invisible wall that blocks NPCs and other actors from passing through.",
+  "InternalName": "透明NPC壁",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor. (0 = always active)",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Horizontal Length",
+      "description": "Defines the width of the invisible wall.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Vertical Length",
+      "description": "Defines the height of the invisible wall.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

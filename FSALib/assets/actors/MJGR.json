@@ -1,0 +1,29 @@
+{
+  "name": "Magic Circle Generator",
+  "description": "Consumes a Moon Pearl to create a magic circle warp.",
+  "InternalName": "魔方陣ジェネレータ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Layer",
+      "description": "The layer where the players arrive.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "X Coordinate",
+      "description": "The X coordinate players arrive at.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Y Coordinate",
+      "description": "The Y coordinate players arrive at.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

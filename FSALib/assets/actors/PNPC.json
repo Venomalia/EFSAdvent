@@ -1,0 +1,76 @@
+{
+  "name": "Tile Rewriter",
+  "description": "Causes a tile to be changed to a different tile.",
+  "InternalName": "パネル書換NPC",
+  "category": "TileObject",
+  "fields": [
+    {
+      "name": "Tile Value",
+      "description": "The value of the tile that will appear.",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Tile Layer",
+      "description": "Determines which layer the new tile appears on.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Base Layer",
+          "description": "Changes the base layer tile."
+        },
+        "1": {
+          "name": "Top Layer",
+          "description": "Changes the top layer tile."
+        },
+        "16": {
+          "name": "Unknown (GBA?) Base Layer",
+          "description": "Potentially another layer type."
+        },
+        "32": {
+          "name": "Unknown (GBA?) Top Layer",
+          "description": "Potentially another layer type."
+        }
+      }
+    },
+    {
+      "name": "Special Effect",
+      "description": "Defines whether a special effect is applied.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "None",
+          "description": "No special effect."
+        },
+        "1": {
+          "name": "Unknown 1",
+          "description": ""
+        },
+        "2": {
+          "name": "Unknown 2",
+          "description": ""
+        },
+        "3": {
+          "name": "Unknown 3",
+          "description": ""
+        },
+        "4": {
+          "name": "Dust Particles",
+          "description": "Shows dust particles when activated."
+        }
+      }
+    },
+    {
+      "name": "Activation Variable",
+      "description": "Variable that activates the tile change. Activated when player is nearby if set to 0.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
+}

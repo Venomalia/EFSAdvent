@@ -1,0 +1,40 @@
+{
+  "name": "Wind Environment",
+  "description": "Strong wind blowing across the screen, affecting the movement of objects or characters.",
+  "InternalName": "風環境",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates the wind effect.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Wind Direction",
+      "description": "Defines the direction in which the wind is blowing.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "East",
+          "description": "The wind is blowing to the east."
+        },
+        "1": {
+          "name": "West",
+          "description": "The wind is blowing to the west."
+        },
+        "2": {
+          "name": "South",
+          "description": "The wind is blowing to the south."
+        },
+        "3": {
+          "name": "North",
+          "description": "The wind is blowing to the north."
+        }
+      }
+    }
+  ]
+}

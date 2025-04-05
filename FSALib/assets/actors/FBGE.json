@@ -1,0 +1,7 @@
+{
+  "name": "Fireball Generator",
+  "description": "",
+  "InternalName": "火の玉ジェネレーター",
+  "category": "Object",
+  "NoGBASprite": true
+}

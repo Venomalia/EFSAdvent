@@ -1,0 +1,60 @@
+{
+  "name": "OR Switch Check",
+  "description": "Sets the local variable specified in V1 if any of the local variables specified in V2, V3, V4, or V5 are set.",
+  "InternalName": "スィッチＯＲ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Triggered Local Variable",
+      "description": "The local variable number that is triggered or set by this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Checked Local Variable 1",
+      "description": "A local variable number that is checked by this actor.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Checked Local Variable 2",
+      "description": "A local variable number that is checked by this actor.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Checked Local Variable 3",
+      "description": "A local variable number that is checked by this actor.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Checked Local Variable 4",
+      "description": "A local variable number that is checked by this actor.",
+      "bitOffset": 7,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Trigger Option",
+      "description": "Controls additional triggering conditions.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Integer",
+      "enumValues": {
+        "0": { "name": "Default", "description": "Standard trigger behavior." },
+        "1": { "name": "Another option?", "description": "" },
+        "2": { "name": "Another option?", "description": "" },
+        "3": { "name": "Another option?", "description": "" },
+        "4": {
+          "name": "Trigger when v2, v3, v4, or v5 is set",
+          "description": "Trigger occurs when any of V2, V3, V4, or V5 is set."
+        }
+      }
+    }
+  ]
+}

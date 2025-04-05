@@ -1,0 +1,88 @@
+{
+  "name": "Cutscene Crystal",
+  "description": "Represents a trapped maiden in a cutscene. No GBA sprite.",
+  "InternalName": "デモ用クリスタル",
+  "category": "Cutscene",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Unknown Variable 1",
+      "description": "Unknown value related to the cutscene crystal.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Maiden Type",
+      "description": "Defines the type of maiden associated with the crystal.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Maiden 1",
+          "description": "",
+          "Resources": [
+            "j3d/suisyo_2.bmd",
+            "j3d/suisyo_2.brk",
+            "j3d/suisyo_2.btk"
+          ]
+        },
+        "1": {
+          "name": "Maiden 2",
+          "description": "",
+          "Resources": [
+            "j3d/suisyo_5.bmd",
+            "j3d/suisyo_5.brk",
+            "j3d/suisyo_5.btk"
+          ]
+        },
+        "2": {
+          "name": "Maiden 3",
+          "description": "",
+          "Resources": [
+            "j3d/suisyo_1.bmd",
+            "j3d/suisyo_1.brk",
+            "j3d/suisyo_1.btk"
+          ]
+        },
+        "3": {
+          "name": "Maiden 4",
+          "description": "",
+          "Resources": [
+            "j3d/suisyo_6.bmd",
+            "j3d/suisyo_6.brk",
+            "j3d/suisyo_6.btk"
+          ]
+        },
+        "4": {
+          "name": "Maiden 5 (Not used, use DCR2)",
+          "description": "Not used, use DCR2",
+          "Resources": [
+            "j3d/suisyo_4.bmd",
+            "j3d/suisyo_4.brk",
+            "j3d/suisyo_4.btk"
+          ]
+        },
+        "5": {
+          "name": "Maiden 6 (Not used, use DCR2)",
+          "description": "Not used, use DCR2",
+          "Resources": [
+            "j3d/suisyo_3.bmd",
+            "j3d/suisyo_3.brk",
+            "j3d/suisyo_3.btk"
+          ]
+        },
+        "6": {
+          "name": "Zelda",
+          "description": "",
+          "Resources": [
+            "j3d/suisyo_7.bmd",
+            "j3d/suisyo_7.brk",
+            "j3d/suisyo_7.btk"
+          ]
+        }
+      }
+    }
+  ]
+}

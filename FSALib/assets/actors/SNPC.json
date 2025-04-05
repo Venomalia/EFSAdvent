@@ -1,0 +1,31 @@
+{
+  "name": "Special Conversation NPC",
+  "description": "A non-playable character that triggers special conversations.",
+  "InternalName": "特殊会話ＮＰＣ",
+  "category": "NPC",
+  "fields": [
+    {
+      "name": "Actor Sprite",
+      "description": "Defines the sprite of the NPC, which determines its appearance.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "?", "description": "Unknown sprite." },
+        "1": { "name": "?", "description": "Unknown sprite." },
+        "2": { "name": "?", "description": "Unknown sprite." },
+        "3": { "name": "Sweetie", "description": "The NPC is Sweetie." },
+        "4": {
+          "name": "Sweetie (Rescued)",
+          "description": "The NPC is Sweetie, rescued."
+        },
+        "5": { "name": "Old Man", "description": "The NPC is the Old Man." },
+        "6": { "name": "Iris", "description": "The NPC is Iris." },
+        "7": {
+          "name": "Red And Blue Girl",
+          "description": "The NPC is the Red and Blue Girl."
+        }
+      }
+    }
+  ]
+}

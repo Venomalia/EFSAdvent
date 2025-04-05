@@ -1,0 +1,29 @@
+{
+  "name": "Tingle Tower Warp",
+  "description": "A warp point that requires at least 2 players and sends them to a minigame map.",
+  "InternalName": "チンクル砦（ワープ）",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Destination Map",
+      "description": "Determines which minigame map is loaded.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Boss200",
+          "description": "Loads map boss200.arc and Tingle Tower lights."
+        },
+        "1": { "name": "Boss201", "description": "Loads map boss201.arc." },
+        "2": { "name": "Boss202", "description": "Loads map boss202.arc." },
+        "3": { "name": "Boss203", "description": "Loads map boss203.arc." },
+        "4": { "name": "Boss204", "description": "Loads map boss204.arc." },
+        "5": { "name": "Boss205", "description": "Loads map boss205.arc." },
+        "6": { "name": "Boss206", "description": "Loads map boss206.arc." },
+        "7": { "name": "Boss208", "description": "Loads map boss208.arc." }
+      }
+    }
+  ]
+}

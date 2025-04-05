@@ -1,0 +1,22 @@
+{
+  "name": "Goal Warp",
+  "description": "Allows the player to travel back through the level if not enough force crystals are collected.",
+  "InternalName": "ゴールワープ",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Map X Coordinate",
+      "description": "The X coordinate on the map for the goal warp location.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Map Y Coordinate",
+      "description": "The Y coordinate on the map for the goal warp location.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Integer"
+    }
+  ]
+}

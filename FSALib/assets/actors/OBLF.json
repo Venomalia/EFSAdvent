@@ -1,0 +1,140 @@
+{
+  "name": "OBJ Lift",
+  "description": "A lift object with various configurations and movement types.",
+  "InternalName": "OBJリフト",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The variable that activates this lift.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Type",
+      "description": "The type of the lift plate.",
+      "bitOffset": 20,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Default", "description": "Standard lift type." },
+        "1": {
+          "name": "Alternative V4 Types",
+          "description": "An alternative variant of the lift types."
+        }
+      }
+    },
+    {
+      "name": "Activation Requirement",
+      "description": "Defines the condition required to activate the lift.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "2": {
+          "name": "Must be activated by variable",
+          "description": "Requires a specific variable to activate."
+        }
+      }
+    },
+    {
+      "name": "Direction",
+      "description": "The direction the lift will move in.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "East", "description": "Moves to the East." },
+        "1": { "name": "West", "description": "Moves to the West." },
+        "2": { "name": "South", "description": "Moves South." },
+        "3": { "name": "North", "description": "Moves North." }
+      }
+    },
+    {
+      "name": "Lift Type",
+      "description": "The type of the lift (movable or static).",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Static Lift?",
+          "description": "A fixed lift (not movable)."
+        },
+        "1": { "name": "Movable Lift", "description": "A lift that can move." },
+        "2": { "name": "?", "description": "" }
+      }
+    },
+    {
+      "name": "Lift Plate Type",
+      "description": "The type of the lift plate.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "4x4 Gray Lift Plate",
+          "description": "A 4x4 gray lift plate."
+        },
+        "1": {
+          "name": "2x2 Gray Lift Plate",
+          "description": "A 2x2 gray lift plate."
+        },
+        "2": {
+          "name": "2x4 Gray Lift Plate",
+          "description": "A 2x4 gray lift plate."
+        },
+        "3": {
+          "name": "4x2 Gray Lift Plate",
+          "description": "A 4x2 gray lift plate."
+        },
+        "4": {
+          "name": "2x2 Gray O Lift Plate",
+          "description": "A 2x2 gray O lift plate."
+        },
+        "5": {
+          "name": "5x5 Gray Lift Plate with 4 Switches",
+          "description": "A 5x5 gray lift plate with four switches."
+        },
+        "6": {
+          "name": "1x1 Green Lift Plate",
+          "description": "A 1x1 green lift plate."
+        },
+        "7": {
+          "name": "1x1 Red Lift Plate",
+          "description": "A 1x1 red lift plate."
+        },
+        "8": {
+          "name": "1x1 Blue Lift Plate",
+          "description": "A 1x1 blue lift plate."
+        },
+        "9": {
+          "name": "1x1 Purple Lift Plate",
+          "description": "A 1x1 purple lift plate."
+        },
+        "11": {
+          "name": "Fire Rod Lv2 Platform Generator",
+          "description": "A lift platform generator related to the Fire Rod Lv2."
+        },
+        "12": {
+          "name": "3x3 Appearing Yellow Lift Plate with a Switch",
+          "description": "A 3x3 yellow lift plate with a switch that appears."
+        },
+        "13": {
+          "name": "4 Plates Turned Z",
+          "description": "Four plates arranged in a Z shape."
+        },
+        "14": {
+          "name": "4 Plates Upside Down L",
+          "description": "Four plates arranged in an upside-down L shape."
+        },
+        "15": {
+          "name": "4 Plates Z",
+          "description": "Four plates arranged in a Z shape."
+        }
+      }
+    }
+  ]
+}

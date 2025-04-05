@@ -1,0 +1,7 @@
+{
+  "name": "Other characters for ending cutscene",
+  "description": "Four ladies from start of game who change formation",
+  "InternalName": "エンディング用その他キャラ",
+  "category": "Cutscene",
+  "NoGBASprite": true
+}

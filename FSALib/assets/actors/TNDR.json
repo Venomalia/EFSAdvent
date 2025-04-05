@@ -1,0 +1,16 @@
+{
+  "name": "Vulture",
+  "description": "A vulture enemy that flies around the area.",
+  "InternalName": "トンドル",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Behavior Type",
+      "description": "Defines the vulture's behavior or properties.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

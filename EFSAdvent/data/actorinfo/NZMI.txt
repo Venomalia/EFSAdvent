@@ -1,9 +1,0 @@
-NZMI (Rat) No GBA sprite
-
-life: 1
-atcp: 2
-atcn: 0
-dstr: 1
-dasu: 3
-efsz: 1
-voic: 2

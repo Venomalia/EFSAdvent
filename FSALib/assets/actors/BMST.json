@@ -1,0 +1,22 @@
+{
+  "name": "Beamos",
+  "description": "A Beamos actor that can be deactivated by a local variable and has a defined range.",
+  "InternalName": "ビーム石像",
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Deactivation Variable",
+      "description": "The local variable number that deactivates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Range",
+      "description": "The range of the Beamos' firing or detection range.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Integer"
+    }
+  ]
+}

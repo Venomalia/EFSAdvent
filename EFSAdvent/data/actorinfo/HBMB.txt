@@ -1,8 +1,0 @@
-HBMB (Bomb)
-
-Variable 3:
-1 = ?
-
-Variable 4:
-0 = Bomb
-1 = Bomb Flower

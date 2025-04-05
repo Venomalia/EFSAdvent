@@ -1,0 +1,50 @@
+{
+  "name": "Bow Soldier",
+  "description": "A soldier armed with a bow or bombs, and can be linked to a chief soldier.",
+  "InternalName": "弓兵士",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Chief Soldier ID",
+      "description": "The ID of the chief soldier that this bow soldier is associated with.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Behavior Flags",
+      "description": "Flags that define the soldier's behavior and characteristics.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "8": {
+          "name": "Linked to Chief",
+          "description": "This soldier is linked to the chief soldier."
+        }
+      }
+    },
+    {
+      "name": "Type",
+      "description": "Defines the type of weapon this soldier is using.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "With Bow",
+          "description": "The soldier is armed with a bow."
+        },
+        "2": {
+          "name": "With Bomb",
+          "description": "The soldier is armed with a bomb."
+        },
+        "3": {
+          "name": "With Bow, Hidden in Grass",
+          "description": "The soldier is armed with a bow and hidden in the grass."
+        }
+      }
+    }
+  ]
+}

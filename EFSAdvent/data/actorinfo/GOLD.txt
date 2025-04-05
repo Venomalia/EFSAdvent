@@ -1,5 +1,0 @@
-GOLD (Outpouring (Rupees))
-
-Variable 2:
-0 = Force hole
-2 = Force stone

@@ -1,0 +1,29 @@
+{
+  "name": "Slime Manager",
+  "description": "A manager that controls the spawning and behavior of four slimes.",
+  "InternalName": "スライムマネージャー",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Unknown Behavior 1",
+      "description": "An unknown behavior or state associated with the slimes' actions.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "6": { "name": "?", "description": "Unknown behavior." }
+      }
+    },
+    {
+      "name": "Unknown Flag 1",
+      "description": "An unknown flag that affects the slimes' behavior.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "16": { "name": "?", "description": "Unknown flag." }
+      }
+    }
+  ]
+}

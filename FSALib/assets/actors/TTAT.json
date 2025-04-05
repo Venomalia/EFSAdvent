@@ -1,0 +1,26 @@
+{
+  "name": "Manhandla",
+  "description": "A large, plant-like enemy that appears in various forms.",
+  "InternalName": "テスチタート",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "State",
+      "description": "Defines the state or type of Manhandla.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "The default state of Manhandla."
+        },
+        "5": {
+          "name": "?",
+          "description": "An unknown state, possibly related to certain game events."
+        }
+      }
+    }
+  ]
+}

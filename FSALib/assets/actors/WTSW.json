@@ -1,0 +1,36 @@
+{
+  "name": "Wait Switch",
+  "description": "Activates a local variable after a specified time delay.",
+  "InternalName": "Ｗａｉｔスィッチ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Triggered Local Variable",
+      "description": "The local variable number that is triggered or set by this actor after the time has elapsed.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activating Local Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Earthquake Strength",
+      "description": "The strength of the earthquake effects triggered by this actor.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Time Until Triggering",
+      "description": "The total time delay until triggering, consisting of three parts.",
+      "bitOffset": 0,
+      "bitSize": 17,
+      "valueType": "Integer"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Ball and Chain Soldier",
+  "description": "A soldier armed with a ball and chain, with various possible colors and behaviors.",
+  "InternalName": "鉄球兵",
+  "category": "Enemy",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Type",
+      "description": "Defines the color or type of the ball and chain soldier, affecting its appearance and behavior.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Yellow",
+          "description": "A yellow-colored ball and chain soldier."
+        },
+        "1": {
+          "name": "Blue",
+          "description": "A blue-colored ball and chain soldier."
+        },
+        "2": {
+          "name": "Green",
+          "description": "A green-colored ball and chain soldier."
+        },
+        "3": {
+          "name": "Black",
+          "description": "A black-colored ball and chain soldier."
+        },
+        "4": {
+          "name": "Red, Fire Ball",
+          "description": "A red-colored ball and chain soldier with a fire ball."
+        }
+      }
+    }
+  ]
+}

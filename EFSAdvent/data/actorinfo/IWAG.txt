@@ -1,9 +1,0 @@
-IWAG (Tumbling boulder spawner)
-
-Variable 1:
-8 = ?
-
-Variable 4:
-0 = spawner, few
-2 = One stone, can be rolled
-3 = spawner

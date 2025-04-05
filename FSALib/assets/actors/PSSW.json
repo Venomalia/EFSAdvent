@@ -1,0 +1,39 @@
+{
+  "name": "Push Switch",
+  "description": "Activates a variable when pressed against a wall.",
+  "InternalName": "押しスイッチ",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Enabled Variable",
+      "description": "The variable that gets activated when the push switch is pressed against a wall.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Direction",
+      "description": "The direction the switch is pressed towards.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "2": {
+          "name": "West",
+          "description": "The switch is pressed towards the West."
+        },
+        "6": {
+          "name": "North",
+          "description": "The switch is pressed towards the North."
+        }
+      }
+    },
+    {
+      "name": "Duration",
+      "description": "The duration for which the switch remains active once pressed.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

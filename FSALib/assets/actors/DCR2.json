@@ -1,0 +1,94 @@
+{
+  "name": "Crystal for 5-4 and 6-4 for Cutscene",
+  "description": "A crystal used in the cutscenes for trapped maidens in levels 5-3 and 6-3.",
+  "InternalName": "デモ用クリスタル５-４、６-４用",
+  "category": "Cutscene",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Unknown Variable 1",
+      "description": "An unknown value related to the crystal.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "4": {
+          "name": "?",
+          "description": "Unknown effect or usage."
+        }
+      }
+    },
+    {
+      "name": "Maiden Type",
+      "description": "Defines the type of maiden associated with the crystal.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Maiden 1 (Not used, use DMCR)",
+          "description": "Not used, use DMCR.",
+          "Resources": [
+            "j3d/suisyo_2.bmd",
+            "j3d/suisyo_2.brk",
+            "j3d/suisyo_2.btk"
+          ]
+        },
+        "1": {
+          "name": "Maiden 2 (Not used, use DMCR)",
+          "description": "Not used, use DMCR.",
+          "Resources": [
+            "j3d/suisyo_5.bmd",
+            "j3d/suisyo_5.brk",
+            "j3d/suisyo_5.btk"
+          ]
+        },
+        "2": {
+          "name": "Maiden 3 (Not used, use DMCR)",
+          "description": "Not used, use DMCR.",
+          "Resources": [
+            "j3d/suisyo_1.bmd",
+            "j3d/suisyo_1.brk",
+            "j3d/suisyo_1.btk"
+          ]
+        },
+        "3": {
+          "name": "Maiden 4 (Not used, use DMCR)",
+          "description": "Not used, use DMCR.",
+          "Resources": [
+            "j3d/suisyo_6.bmd",
+            "j3d/suisyo_6.brk",
+            "j3d/suisyo_6.btk"
+          ]
+        },
+        "4": {
+          "name": "Maiden 5",
+          "description": "",
+          "Resources": [
+            "j3d/suisyo_4.bmd",
+            "j3d/suisyo_4.brk",
+            "j3d/suisyo_4.btk"
+          ]
+        },
+        "5": {
+          "name": "Maiden 6",
+          "description": "",
+          "Resources": [
+            "j3d/suisyo_3.bmd",
+            "j3d/suisyo_3.brk",
+            "j3d/suisyo_3.btk"
+          ]
+        },
+        "6": {
+          "name": "Zelda (Not used, use DMCR)",
+          "description": "Not used, use DMCR.",
+          "Resources": [
+            "j3d/suisyo_7.bmd",
+            "j3d/suisyo_7.brk",
+            "j3d/suisyo_7.btk"
+          ]
+        }
+      }
+    }
+  ]
+}

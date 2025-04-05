@@ -1,0 +1,26 @@
+{
+  "name": "Tumbling Boulder Spawner",
+  "description": "Spawns tumbling boulders, which can fall and roll.",
+  "InternalName": "岩石わきだし",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Boulder Behavior",
+      "description": "Defines the behavior of the boulders spawned by the spawner.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Spawner, Few",
+          "description": "Spawner that spawns a few boulders."
+        },
+        "2": {
+          "name": "One Stone, Can be Rolled",
+          "description": "One stone that can be rolled."
+        },
+        "3": { "name": "Spawner", "description": "A general boulder spawner." }
+      }
+    }
+  ]
+}

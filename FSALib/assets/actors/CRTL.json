@@ -1,0 +1,33 @@
+{
+  "name": "Crystal Ball",
+  "description": "A crystal ball with different states.",
+  "InternalName": "水晶玉",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "State",
+      "description": "Defines the current state of the crystal ball.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "The default state of the crystal ball."
+        },
+        "1": {
+          "name": "Held State",
+          "description": "The crystal ball is being held."
+        },
+        "2": {
+          "name": "Bug",
+          "description": "The crystal ball is in a bugged state."
+        },
+        "3": {
+          "name": "Held State, Carrot",
+          "description": "The crystal ball is held and contains a carrot."
+        }
+      }
+    }
+  ]
+}

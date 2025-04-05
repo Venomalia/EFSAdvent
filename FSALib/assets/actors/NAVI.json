@@ -1,0 +1,7 @@
+{
+  "name": "Navi",
+  "description": "A fairy that appears and gives the player information.",
+  "InternalName": "ナビィ",
+  "category": "NPC",
+  "NoGBASprite": true
+}

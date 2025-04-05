@@ -1,1 +1,0 @@
-LEAF (NPC for leaf effect generation) No GBA sprite

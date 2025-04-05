@@ -1,0 +1,34 @@
+{
+  "name": "Great Fairy",
+  "description": "Great Fairy.",
+  "InternalName": "大妖精",
+  "category": "NPC",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Fairy Type",
+      "description": "Determines the type of effect the Great Fairy has.",
+      "bitOffset": 0,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Heal",
+          "description": "Restores health to the player."
+        },
+        "1": {
+          "name": "Item Upgrader",
+          "description": "Upgrades an item for the player."
+        },
+        "2": { "name": "Item (Internal)", "description": "Don't use." },
+        "3": { "name": "Item Drop (Internal)", "description": "Don't use." }
+      }
+    }
+  ]
+}

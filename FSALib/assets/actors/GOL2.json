@@ -1,0 +1,56 @@
+{
+  "name": "Goal 2",
+  "description": "An evil imprisoning field with various configurations.",
+  "InternalName": "ゴール２",
+  "category": "Object",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Unknown Variable 1",
+      "description": "An unknown value related to the goal field.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Goal Shape",
+      "description": "The shape or arrangement of the imprisoning field.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Square",
+          "description": "The imprisoning field is in a square shape."
+        },
+        "1": {
+          "name": "Diamond",
+          "description": "The imprisoning field is in a diamond shape."
+        },
+        "2": {
+          "name": "Horizontal Row",
+          "description": "The imprisoning field is arranged in a horizontal row."
+        },
+        "3": {
+          "name": "Vertical Row",
+          "description": "The imprisoning field is arranged in a vertical row."
+        },
+        "4": {
+          "name": "Semicircle",
+          "description": "The imprisoning field is in a semicircular shape."
+        },
+        "5": {
+          "name": "Maid",
+          "description": "The imprisoning field has a maid shape (specific context unknown)."
+        }
+      }
+    },
+    {
+      "name": "Unknown Flag",
+      "description": "A special flag indicating a unique state, details unknown.",
+      "bitOffset": 4,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
+}

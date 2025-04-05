@@ -1,0 +1,49 @@
+{
+  "name": "Goods",
+  "description": "Items available for purchase.",
+  "InternalName": "商品",
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Item Type",
+      "description": "Defines which item is being bought and its cost.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Mysterious Ball (300)",
+          "description": "Cost: 300, for mysterious ball."
+        },
+        "1": {
+          "name": "Chicken (100)",
+          "description": "Cost: 100, gives 1 Force Gem."
+        },
+        "2": {
+          "name": "Hearts (100 Force Gem)",
+          "description": "Cost: 100 Force Gem, gives 4 hearts."
+        },
+        "3": {
+          "name": "Heart Container (300)",
+          "description": "Cost: 300, gives a Heart Container."
+        },
+        "4": {
+          "name": "Shovel (200)",
+          "description": "Cost: 200, gives 1000 Force Gem."
+        },
+        "5": {
+          "name": "Bow (300)",
+          "description": "Cost: 300, gives 50 Force Gem."
+        },
+        "6": {
+          "name": "Boomerang (600)",
+          "description": "Cost: 600, gives 20 Force Gem."
+        },
+        "7": {
+          "name": "Fire Rod (900)",
+          "description": "Cost: 900, gives 150 Force Gem."
+        }
+      }
+    }
+  ]
+}
