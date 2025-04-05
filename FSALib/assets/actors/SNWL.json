@@ -4,5 +4,5 @@
   "InternalName": "雪の壁",
   "category": "Object",
   "NoGBASprite": true,
-  "Resources": [ "timg/yuki_l.bti" ]
+  "Resources": ["timg/yuki_l.bti"]
 }

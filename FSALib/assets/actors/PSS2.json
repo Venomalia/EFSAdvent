@@ -4,7 +4,12 @@
   "InternalName": "ピラミッドで押すスイッチ",
   "category": "Object",
   "NoGBASprite": true,
-  "Resources": [ "timg/kabe_switch_0.bti", "timg/kabe_switch_1.bti", "timg/kabe_switch_2.bti", "timg/kabe_switch_3.bti" ],
+  "Resources": [
+    "timg/kabe_switch_0.bti",
+    "timg/kabe_switch_1.bti",
+    "timg/kabe_switch_2.bti",
+    "timg/kabe_switch_3.bti"
+  ],
   "fields": [
     {
       "name": "Activation Variable",

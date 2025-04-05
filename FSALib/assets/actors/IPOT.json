@@ -43,12 +43,22 @@
         "64": {
           "name": "Bomb Jar",
           "description": "Explodes in a big explosion.",
-          "Resources": [ "timg/bakudan_left.bti", "timg/bakudan_right.bti", "timg/bakudan_top.bti", "timg/bakudan_under.bti" ]
+          "Resources": [
+            "timg/bakudan_left.bti",
+            "timg/bakudan_right.bti",
+            "timg/bakudan_top.bti",
+            "timg/bakudan_under.bti"
+          ]
         },
         "128": {
           "name": "Force Jar",
           "description": "Explodes in some force crystals.",
-          "Resources": [ "timg/atari_left.bti", "timg/atari_right.bti", "timg/atari_top.bti", "timg/atari_under.bti" ]
+          "Resources": [
+            "timg/atari_left.bti",
+            "timg/atari_right.bti",
+            "timg/atari_top.bti",
+            "timg/atari_under.bti"
+          ]
         }
       }
     },

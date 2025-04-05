@@ -25,12 +25,12 @@
         "1": {
           "name": "Map BG 1",
           "description": "A special background effect 1.",
-          "Resources": [ "timg/enkei.bti" ]
+          "Resources": ["timg/enkei.bti"]
         },
         "2": {
           "name": "Special BG 2",
           "description": "A special background effect 2.",
-          "Resources": [ "timg/bg_mori.bti" ]
+          "Resources": ["timg/bg_mori.bti"]
         },
         "3": {
           "name": "Special BG 3",
@@ -77,7 +77,7 @@
         "2": {
           "name": "Tower BG",
           "description": "Tower of wind in the background.",
-          "Resources": [ "timg/sky.bti", "timg/wall.bti" ]
+          "Resources": ["timg/sky.bti", "timg/wall.bti"]
         },
         "4": {
           "name": "Snowstorm",

@@ -4,5 +4,5 @@
   "InternalName": "４人で溶かす氷",
   "category": "Object",
   "NoGBASprite": true,
-  "Resources": [ "timg/yukikabe.bti" ]
+  "Resources": ["timg/yukikabe.bti"]
 }
