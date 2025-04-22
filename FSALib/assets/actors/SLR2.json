@@ -17,7 +17,7 @@
       "description": "Flags that define the soldier's behavior and characteristics.",
       "bitOffset": 16,
       "bitSize": 8,
-      "valueType": "Enum",
+      "valueType": "Flags",
       "enumValues": {
         "8": {
           "name": "Linked to Chief",

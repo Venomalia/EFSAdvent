@@ -30,45 +30,77 @@
     },
     {
       "name": "Item Stand Configuration",
-      "description": "Defines the item that appears or sound effect that is played.",
-      "bitOffset": 8,
-      "bitSize": 16,
+      "description": "Defines the item that appears.",
+      "bitOffset": 14,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "Secret SE/Pegasus Boots",
+          "name": "Pegasus Boots",
           "description": "Item stand contains Pegasus Boots."
         },
-        "64": {
+        "1": {
           "name": "Lantern",
           "description": "Item stand contains a Lantern."
         },
-        "128": {
+        "2": {
           "name": "Boomerang",
           "description": "Item stand contains a Boomerang."
         },
-        "192": { "name": "Bow", "description": "Item stand contains a Bow." },
-        "256": {
+        "3": { "name": "Bow", "description": "Item stand contains a Bow." },
+        "4": {
           "name": "Hammer",
           "description": "Item stand contains a Hammer."
         },
-        "320": {
+        "5": {
           "name": "Fire Rod",
           "description": "Item stand contains a Fire Rod."
         },
-        "384": {
+        "6": {
           "name": "Roc's Feather",
           "description": "Item stand contains Roc's Feather."
         },
-        "448": { "name": "Bombs", "description": "Item stand contains Bombs." },
-        "512": {
+        "7": { "name": "Bombs", "description": "Item stand contains Bombs." },
+        "8": {
           "name": "Shovel",
           "description": "Item stand contains a Shovel."
         },
-        "1024": { "name": "?", "description": "Unknown sound effect." },
-        "5120": {
+        "9": {
+          "name": "Slingshot",
+          "description": "Item stand contains a Slingshot."
+        },
+        "10": {
+          "name": "u",
+          "description": "Item stand contains a Slingshot."
+        },
+        "11": {
+          "name": "u",
+          "description": "Item stand contains a Slingshot."
+        },
+        "12": {
+          "name": "u",
+          "description": "Item stand contains a Slingshot."
+        }
+      }
+    },
+    {
+      "name": "Sound Configuration",
+      "description": "Defines the sound effect that is played.",
+      "bitOffset": 18,
+      "bitSize": 6,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Secret SE",
+          "description": "Plays the secret SE."
+        },
+        "1": { "name": "?", "description": "Unknown sound effect." },
+        "2": { "name": "?", "description": "Unknown sound effect." },
+        "3": { "name": "?", "description": "Unknown sound effect." },
+        "4": { "name": "?", "description": "Unknown sound effect." },
+        "5": {
           "name": "Approach SE",
-          "description": "Plays a sound when the player approaches."
+          "description": "Plays the approach SE."
         }
       }
     },
@@ -76,24 +108,24 @@
       "name": "Interaction Type",
       "description": "Defines the function of this NPC when interacted with.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "Chest",
-          "description": "The NPC functions as a chest."
+          "name": "Chest (Unused)",
+          "description": "The actor functions as a chest."
         },
         "1": {
-          "name": "Fixed Block",
-          "description": "The NPC is a fixed block."
+          "name": "Fixed Block (Unused)",
+          "description": "The actor is a fixed block."
         },
         "2": {
           "name": "Item Stand",
-          "description": "The NPC serves as an item stand."
+          "description": "The actor serves as an item stand."
         },
         "3": {
           "name": "Play SE",
-          "description": "The NPC plays a sound effect."
+          "description": "The actor plays a sound effect."
         }
       }
     }

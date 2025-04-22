@@ -5,29 +5,55 @@
   "category": "Object",
   "fields": [
     {
+      "name": "Activation Variable",
+      "description": "Specifies which local variables are set by this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
       "name": "Type",
       "description": "Defines the type or usage of the odd block.",
-      "bitOffset": 8,
-      "bitSize": 8,
+      "bitOffset": 12,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
-        "6": {
-          "name": "Shopkeeper",
-          "description": "The block is used as a shopkeeper's block."
+        "0": {
+          "name": "Shopkeeper (NPC Sheet 13)",
+          "description": ""
         },
-        "48": {
-          "name": "Royal Throne",
-          "description": "The block is part of a royal throne."
+        "1": {
+          "name": "Royal Throne (NPC Sheet 15, Unused)",
+          "description": ""
         },
-        "64": {
+        "2": {
+          "name": "4 Fat woman (NPC Sheet 8, Unused)",
+          "description": "(NPC Sheet 8)"
+        },
+        "3": {
+          "name": "Big Royal Throne (NPC Sheet 15)",
+          "description": ""
+        },
+        "4": {
           "name": "Pyramide",
-          "description": "The block is part of a pyramid structure."
+          "description": ""
         },
-        "97": {
-          "name": "Pile of Barrels",
-          "description": "The block is a pile of barrels."
+        "5": {
+          "name": "Barrel (NPC Sheet 13, Unused)",
+          "description": ""
+        },
+        "6": {
+          "name": "Pile of Barrels (NPC Sheet 13)",
+          "description": ""
         }
       }
+    },
+    {
+      "name": "Text ID",
+      "description": "What text the actor says?",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Integer"
     }
   ]
 }

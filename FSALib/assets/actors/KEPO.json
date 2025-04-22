@@ -3,5 +3,14 @@
   "description": "",
   "InternalName": "ケポラ・ゲボラ",
   "category": "NPC",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Text ID",
+      "description": "What text the actor says?",
+      "bitOffset": 0,
+      "bitSize": 16,
+      "valueType": "Integer"
+    }
+  ]
 }

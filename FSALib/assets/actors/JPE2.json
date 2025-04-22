@@ -1,6 +1,83 @@
 {
   "name": "Thwomp NPC2",
-  "description": "",
+  "description": "Requires NPC sheet 8 or 11.",
   "InternalName": "ドッスンで飛ぶNPC2",
-  "category": "NPC"
+  "category": "NPC",
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Actor Sprite",
+      "description": "The sprite associated with the NPC character.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Old Man Red",
+          "description": ""
+        },
+        "1": {
+          "name": "Man Red Bandana",
+          "description": ""
+        },
+        "2": {
+          "name": "Man Orange Bandana",
+          "description": ""
+        },
+        "3": {
+          "name": "Woman Green Dress",
+          "description": ""
+        },
+        "4": {
+          "name": "Woman Blue Dress",
+          "description": ""
+        },
+        "5": {
+          "name": "Child Red Bandana",
+          "description": ""
+        },
+        "6": {
+          "name": "Gambling Guy",
+          "description": ""
+        },
+        "7": {
+          "name": "Crouching little girl",
+          "description": ""
+        },
+        "8": {
+          "name": "Iris",
+          "description": ""
+        },
+        "9": {
+          "name": "Secret Agent One",
+          "description": ""
+        },
+        "10": {
+          "name": "Old Man Green",
+          "description": ""
+        }
+      }
+    },
+    {
+      "name": "Text ID",
+      "description": "What text the actor says?",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Integer"
+    },
+    {
+      "name": "?",
+      "description": "",
+      "bitOffset": 16,
+      "bitSize": 11,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "The variable set after the conversation with this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
 }

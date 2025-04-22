@@ -44,7 +44,7 @@
       "description": "Controls additional behavior of the switch.",
       "bitOffset": 0,
       "bitSize": 7,
-      "valueType": "Integer",
+      "valueType": "Enum",
       "enumValues": {
         "0": { "name": "Default", "description": "Standard behavior." },
         "1": {

@@ -16,7 +16,7 @@
       "description": "Flags that define the specific behaviors or states of the chief soldier.",
       "bitOffset": 16,
       "bitSize": 8,
-      "valueType": "Enum",
+      "valueType": "Flags",
       "enumValues": {
         "1": {
           "name": "Big Stalfos Soldier?",

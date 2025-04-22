@@ -97,11 +97,27 @@
         },
         "25": {
           "name": "Book (text error)",
-          "description": "An item with a text issue."
+          "description": "Text issue."
         },
         "32": {
           "name": "Item Crystal (text error)",
-          "description": "An item with a text issue."
+          "description": "Text issue."
+        },
+        "42": {
+          "name": "Blue Royal Jewel",
+          "description": "Text issue."
+        },
+        "43": {
+          "name": "Green Royal Jewel",
+          "description": "Text issue."
+        },
+        "44": {
+          "name": "Red Royal Jewel",
+          "description": "Text issue."
+        },
+        "45": {
+          "name": "Purple Royal Jewel",
+          "description": "Text issue."
         },
         "46": {
           "name": "Nova Bomb",
@@ -111,8 +127,92 @@
           "name": "Empty",
           "description": "The chest contains nothing."
         },
+        "48": {
+          "name": "Pegasus Boots",
+          "description": ""
+        },
+        "49": {
+          "name": "Lamp",
+          "description": ""
+        },
+        "50": {
+          "name": "Boomerang",
+          "description": ""
+        },
+        "51": {
+          "name": "Bow",
+          "description": ""
+        },
+        "52": {
+          "name": "Magic Hammer",
+          "description": ""
+        },
+        "53": {
+          "name": "Fire Rod",
+          "description": ""
+        },
+        "54": {
+          "name": "Roc's Feather",
+          "description": ""
+        },
+        "55": {
+          "name": "Bombs",
+          "description": ""
+        },
+        "56": {
+          "name": "Shovel",
+          "description": ""
+        },
+        "57": {
+          "name": "Slingshot",
+          "description": ""
+        },
+        "58": {
+          "name": "Sword (Unused)",
+          "description": ""
+        },
+        "64": {
+          "name": "Lv2 Pegasus Boots",
+          "description": ""
+        },
+        "65": {
+          "name": "Lv2 Lamp (Unused)",
+          "description": "Turns into a normal one."
+        },
+        "66": {
+          "name": "Lv2 Boomerang",
+          "description": ""
+        },
+        "67": {
+          "name": "Lv2 Bow",
+          "description": ""
+        },
+        "68": {
+          "name": "Lv2 Magic Hammer",
+          "description": ""
+        },
+        "69": {
+          "name": "Lv2 Fire Rod",
+          "description": ""
+        },
+        "70": {
+          "name": "Lv2 Roc's Feather",
+          "description": ""
+        },
+        "71": {
+          "name": "Lv2 Bombs",
+          "description": ""
+        },
+        "72": {
+          "name": "Lv2 Shovel",
+          "description": ""
+        },
+        "73": {
+          "name": "Lv2 Slingshot",
+          "description": ""
+        },
         "74": {
-          "name": "Lv2 sword",
+          "name": "Lv2 Sword (Unused)",
           "description": "The sword has full power."
         }
       }

@@ -18,31 +18,31 @@
       "bitSize": 8,
       "valueType": "Enum",
       "enumValues": {
-        "1": {
+        "0": {
           "name": "Fixed",
           "description": "The Armos Knight stays in place."
         },
-        "2": {
+        "1": {
           "name": "Pushable",
           "description": "The Armos Knight can be pushed by the player."
         },
-        "3": {
+        "2": {
           "name": "Large, Attacks from Behind",
           "description": "A large Armos Knight that only attacks when approached from behind."
         },
-        "4": {
+        "3": {
           "name": "Large, Pushable",
           "description": "A large Armos Knight that can be pushed."
         },
-        "5": {
+        "4": {
           "name": "Large, Activated",
           "description": "A large Armos Knight that is activated upon interaction."
         },
-        "6": {
+        "5": {
           "name": "Default",
           "description": "The standard behavior for Armos Knights."
         },
-        "7": {
+        "6": {
           "name": "Large, Fixed",
           "description": "A large Armos Knight that remains stationary."
         },

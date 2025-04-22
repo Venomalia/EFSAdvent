@@ -33,6 +33,7 @@
       "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
+        "0": { "name": "Default", "description": "Standard lift type." },
         "2": {
           "name": "Must be activated by variable",
           "description": "Requires a specific variable to activate."

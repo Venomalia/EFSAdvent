@@ -16,18 +16,20 @@
       "description": "Flags that determine the behavior and characteristics of the sword soldier.",
       "bitOffset": 16,
       "bitSize": 8,
-      "valueType": "Enum",
+      "valueType": "Flags",
       "enumValues": {
         "1": {
           "name": "Moves Faster",
           "description": "The soldier moves at a faster speed."
         },
-        "4": { "name": "?", "description": "Unknown behavior." },
+        "4": {
+          "name": "?",
+          "description": "Unknown behavior."
+        },
         "8": {
           "name": "Linked to Chief",
           "description": "This soldier is linked to the chief soldier."
         },
-        "9": { "name": "?", "description": "Unknown behavior." },
         "16": {
           "name": "Force Soldier",
           "description": "This soldier is a force soldier."

@@ -2,5 +2,21 @@
   "name": "Debug Warp Settings",
   "description": "",
   "InternalName": "デバッグ用ワープ設定",
-  "category": "Property"
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Map X Coordinate",
+      "description": "The X-coordinate on the target map where the player will appear after teleportation.",
+      "bitOffset": 16,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Map Y Coordinate",
+      "description": "The Y-coordinate on the target map where the player will appear after teleportation.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Integer"
+    }
+  ]
 }

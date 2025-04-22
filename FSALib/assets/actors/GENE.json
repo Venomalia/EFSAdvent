@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "Trigger Variable",
-      "description": "The variable that triggers this actor, masked by &0xF8.",
+      "description": "The variable that triggers this actor.",
       "bitOffset": 27,
       "bitSize": 5,
       "valueType": "Integer"

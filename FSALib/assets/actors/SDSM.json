@@ -20,11 +20,54 @@
       "valueType": "Integer"
     },
     {
-      "name": "Exit Conditions",
-      "description": "Defines the possible exits and their behavior.",
+      "name": "Possible Save Exits",
+      "description": "The directions in which the player can go.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "East",
+          "description": ""
+        },
+        "2": {
+          "name": "West",
+          "description": ""
+        },
+        "4": {
+          "name": "South",
+          "description": ""
+        },
+        "8": {
+          "name": "North",
+          "description": ""
+        }
+      }
+    },
+    {
+      "name": "Wind Direction",
+      "description": "In which direction the sand is flying.",
       "bitOffset": 0,
-      "bitSize": 8,
-      "valueType": "Integer"
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "1": {
+          "name": "East",
+          "description": ""
+        },
+        "2": {
+          "name": "West",
+          "description": ""
+        },
+        "4": {
+          "name": "South",
+          "description": ""
+        },
+        "8": {
+          "name": "North",
+          "description": ""
+        }
+      }
     }
   ]
 }

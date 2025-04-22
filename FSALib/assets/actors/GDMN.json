@@ -28,6 +28,23 @@
           "description": "The Geldman is activated by a local variable."
         }
       }
+    },
+    {
+      "name": "Type",
+      "description": "",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "The Geldman is in its default state."
+        },
+        "1": {
+          "name": "?",
+          "description": ""
+        }
+      }
     }
   ]
 }

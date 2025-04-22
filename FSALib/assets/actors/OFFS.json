@@ -23,7 +23,7 @@
       "description": "Defines the behavior of the OFF switch.",
       "bitOffset": 0,
       "bitSize": 7,
-      "valueType": "Integer",
+      "valueType": "Enum",
       "enumValues": {
         "0": { "name": "Unknown", "description": "Unknown behavior." },
         "1": { "name": "Unknown", "description": "Unknown behavior." },

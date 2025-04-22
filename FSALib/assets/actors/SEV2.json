@@ -56,15 +56,6 @@
             "j3d/morninglight00.btk"
           ]
         },
-        "8": {
-          "name": "Lost Forest Filter",
-          "description": "Applies the Lost Forest filter.",
-          "Resources": [
-            "j3d/forestfilter00.bmd",
-            "j3d/forestfilter00.brk",
-            "j3d/forestfilter00.btk"
-          ]
-        },
         "9": {
           "name": "Above the Clouds",
           "description": "Changes the background to an above-the-clouds effect.",

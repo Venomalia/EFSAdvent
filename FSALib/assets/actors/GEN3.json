@@ -12,10 +12,17 @@
       "valueType": "Integer"
     },
     {
-      "name": "Amount?",
+      "name": "Amount",
       "description": "Amount of enemies to be spawned by this generator.",
       "bitOffset": 16,
-      "bitSize": 8,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "?",
+      "description": "",
+      "bitOffset": 20,
+      "bitSize": 4,
       "valueType": "Integer"
     },
     {
