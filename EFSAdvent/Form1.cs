@@ -946,30 +946,57 @@ namespace EFSAdvent
         private void RemoveRoom(object sender, EventArgs e)
         {
             int selectedRoom = _level.Map[selectedRoomCoordinates.x, selectedRoomCoordinates.y];
+            byte roomToRemove = (byte)MapRoomNumberInput.Value;
 
-            if (MapRoomNumberInput.Value == selectedRoom)
+            // Prevent deleting the currently loaded room
+            if (_level.Room.Index == selectedRoom)
             {
+                MessageBox.Show(
+                    "The currently loaded room cannot be deleted.",
+                    "Action Not Allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Prompt user before removing room from the map
+            if (roomToRemove == selectedRoom)
+            {
+                var result = MessageBox.Show(
+                    $"Do you want to remove room {roomToRemove} from the map?",
+                    $"Remove room {roomToRemove} from map?",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Question);
+
+                if (result != DialogResult.OK && result != DialogResult.Yes)
+                    return;
+
                 UpdateMapRoomNumber(Map.EMPTY_ROOM_VALUE);
             }
-            if (!_level.Map.IsRoomInUse((byte)MapRoomNumberInput.Value) && _level.RoomExists((byte)MapRoomNumberInput.Value) && _level.Room.Index != selectedRoom)
+
+            // If room exists and is not used in the map, offer to delete the actual room files
+            if (_level.RoomExists(roomToRemove) && !_level.Map.IsRoomInUse(roomToRemove))
             {
-                var result = MessageBox.Show($"The room {MapRoomNumberInput.Value} is not used in this level map should it be deleted completely? This cannot be undone!",
-                                             $"Deleted room {MapRoomNumberInput.Value}?",
-                                             MessageBoxButtons.YesNo,
-                                             MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                var result = MessageBox.Show(
+                    $"Room {roomToRemove} is not used anywhere in the level map.\n\n" +
+                    "Do you want to delete it completely? This action cannot be undone!",
+                    $"Delete room {roomToRemove} permanently?",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK || result == DialogResult.Yes)
                 {
-                    File.Delete(ActorList.GetFilePath(RootFolderPathTextBox.Text, _level.Map.Index, (byte)MapRoomNumberInput.Value));
+                    string root = RootFolderPathTextBox.Text;
+
+                    File.Delete(ActorList.GetFilePath(root, _level.Map.Index, roomToRemove));
+
                     for (int layer = 0; layer < 8; layer++)
                     {
-                        File.Delete(Layer.GetFilePath(RootFolderPathTextBox.Text, _level.Map.Index, (byte)MapRoomNumberInput.Value, 1, layer));
-                        File.Delete(Layer.GetFilePath(RootFolderPathTextBox.Text, _level.Map.Index, (byte)MapRoomNumberInput.Value, 2, layer));
+                        File.Delete(Layer.GetFilePath(root, _level.Map.Index, roomToRemove, 1, layer));
+                        File.Delete(Layer.GetFilePath(root, _level.Map.Index, roomToRemove, 2, layer));
                     }
                 }
             }
-            // update
-            MapRoomNumberInput.Value = MapRoomNumberInput.Value;
-
         }
 
         private unsafe void DrawMap()
