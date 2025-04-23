@@ -1326,7 +1326,7 @@ namespace EFSAdvent
             {
                 _level.Room.Actors.RemoveAt(actorsCheckListBox.SelectedIndex);
                 actorsCheckListBox.Items.RemoveAt(actorsCheckListBox.SelectedIndex);
-                actorsCheckListBox.SelectedIndex = 0;
+                actorsCheckListBox.SelectedIndex = -1;
                 UpdateView();
             }
         }
@@ -1425,10 +1425,12 @@ namespace EFSAdvent
             int newIndex = _level.Room.Actors.IndexOf(actor);
             if (newIndex != index)
             {
+                _ignoreActorChanges = true;
                 bool isChecked = actorsCheckListBox.GetItemChecked(index);
                 actorsCheckListBox.Items.RemoveAt(index);
                 actorsCheckListBox.Items.Insert(newIndex, actor);
                 actorsCheckListBox.SetItemChecked(newIndex, isChecked);
+                _ignoreActorChanges = false;
 
                 if (isSelected)
                 {
@@ -1441,19 +1443,17 @@ namespace EFSAdvent
         private void actorsCheckListBox_Click(object sender, EventArgs e)
             => SelectedActor(actorsCheckListBox.SelectedIndex);
 
-        private int actorsCheckListBox_OldSelectedIndex = -1;
         private void NewActorSelected()
         {
+            if (_ignoreActorChanges)
+                return;
+
             if (actorsCheckListBox.SelectedIndex == -1)
             {
-                actorsCheckListBox_OldSelectedIndex = actorsCheckListBox.SelectedIndex;
+                actorAttributesgroupBox.Enabled = false;
                 return;
             }
 
-            if (actorsCheckListBox_OldSelectedIndex == actorsCheckListBox.SelectedIndex)
-                return;
-
-            actorsCheckListBox_OldSelectedIndex = actorsCheckListBox.SelectedIndex;
             var newActor = _level.Room.Actors[actorsCheckListBox.SelectedIndex];
             UpdateSelectedActorUI(newActor);
             CreateSelectedActorFields(newActor);
