@@ -6,6 +6,7 @@ using System.Drawing;
 
 namespace EFSAdvent
 {
+    // TODO must be rewritten
     public class TileBrush
     {
         private readonly List<ClipboardTile> _clipboardTiles = new List<ClipboardTile>();
@@ -72,7 +73,7 @@ namespace EFSAdvent
         private bool DrawTiles(Level level, int layer, int posX, int posY)
         {
             bool hasPropertie = Assets.TileProperties.TryGetValue(TileValue, out TilePropertie propertie);
-            if (hasPropertie &&  propertie.PlaceAlwaysOnTopLayer && layer < 8)
+            if (hasPropertie && propertie.PlaceAlwaysOnTopLayer && layer < 8)
             {
                 layer += 8;
             }
@@ -83,6 +84,9 @@ namespace EFSAdvent
                 {
                     for (int x = posX; x < posX + Width; x++)
                     {
+                        if (x >= Layer.DIMENSION || y >= Layer.DIMENSION)
+                            continue;
+
                         level.Room.Layers[layer][x, y] = TileValue;
 
                         if (hasPropertie && propertie.RequiredActorID.HasValue)
@@ -106,7 +110,13 @@ namespace EFSAdvent
             {
                 foreach (ClipboardTile tile in _clipboardTiles)
                 {
-                    level.Room.Layers[layer][tile.xOffset + posX, tile.yOffset + posY] = tile.value;
+                    int targetX = tile.xOffset + posX;
+                    int targetY = tile.yOffset + posY;
+
+                    if (targetX >= Layer.DIMENSION || targetY >= Layer.DIMENSION)
+                        continue;
+
+                    level.Room.Layers[layer][targetX, targetY] = tile.value;
                 }
                 return true;
             }
@@ -122,9 +132,15 @@ namespace EFSAdvent
 
             foreach (var tile in _clipboardTiles)
             {
-                var currentTile = level.Room.Layers[layer][tile.xOffset + x, tile.yOffset + y];
+                int targetX = tile.xOffset + x;
+                int targetY = tile.yOffset + y;
+
+                if (targetX >= Layer.DIMENSION || targetY >= Layer.DIMENSION)
+                    continue;
+
+                var currentTile = level.Room.Layers[layer][targetX, targetY];
                 tileChanged |= currentTile != tile.value;
-                coordinates.Add((tile.xOffset + x, tile.yOffset + y));
+                coordinates.Add((targetX, targetY));
                 oldValues.Add(currentTile);
                 newValues.Add(tile.value);
             }
@@ -149,6 +165,9 @@ namespace EFSAdvent
             {
                 for (int testX = x; testX < x + Width; testX++)
                 {
+                    if (testX >= Layer.DIMENSION || testY >= Layer.DIMENSION)
+                        continue;
+
                     var currentTile = level.Room.Layers[layer][testX, testY];
                     tileChanged |= currentTile != TileValue;
                     coordinates.Add((testX, testY));
