@@ -35,6 +35,7 @@ namespace EFSAdvent
             this.tileSheetPanel = new System.Windows.Forms.Panel();
             this.tileSheetPictureBox = new System.Windows.Forms.PictureBox();
             this.layersPanel = new System.Windows.Forms.Panel();
+            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MapPanel = new System.Windows.Forms.Panel();
@@ -87,6 +88,7 @@ namespace EFSAdvent
             this.CoridinatesTextBox = new System.Windows.Forms.TextBox();
             this.updateLayersButton = new System.Windows.Forms.Button();
             this.buttonSaveLayers = new System.Windows.Forms.Button();
+            this.layersCheckList = new EFSAdvent.CheckedListBoxColorable();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
@@ -175,11 +177,10 @@ namespace EFSAdvent
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.layersCheckList = new EFSAdvent.CheckedListBoxColorable();
-            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.actorContextMenuStrip.SuspendLayout();
             this.MapPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
@@ -227,7 +228,6 @@ namespace EFSAdvent
             ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).BeginInit();
             this.BottomGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tileSheetPanel
@@ -264,6 +264,26 @@ namespace EFSAdvent
             this.layersPanel.Name = "layersPanel";
             this.layersPanel.Size = new System.Drawing.Size(512, 516);
             this.layersPanel.TabIndex = 1;
+            // 
+            // layerPictureBox
+            // 
+            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layerPictureBox.Enabled = false;
+            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
+            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.Name = "layerPictureBox";
+            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.layerPictureBox.TabIndex = 0;
+            this.layerPictureBox.TabStop = false;
+            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
+            this.layerPictureBox.MouseLeave += new System.EventHandler(this.layerPictureBox_MouseLeave);
+            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
+            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
+            this.layerPictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.layerPictureBox_MouseWheel);
             // 
             // actorContextMenuStrip
             // 
@@ -720,6 +740,37 @@ namespace EFSAdvent
             this.buttonSaveLayers.Text = "Save Layers";
             this.buttonSaveLayers.UseVisualStyleBackColor = true;
             this.buttonSaveLayers.Click += new System.EventHandler(this.buttonSaveLayers_Click);
+            // 
+            // layersCheckList
+            // 
+            this.layersCheckList.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.layersCheckList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.layersCheckList.CheckOnClick = true;
+            this.layersCheckList.ColumnWidth = 70;
+            this.layersCheckList.FormattingEnabled = true;
+            this.layersCheckList.Items.AddRange(new object[] {
+            "Layer 1-0",
+            "Layer 1-1",
+            "Layer 1-2",
+            "Layer 1-3",
+            "Layer 1-4",
+            "Layer 1-5",
+            "Layer 1-6",
+            "Layer 1-7",
+            "Layer 2-0",
+            "Layer 2-1",
+            "Layer 2-2",
+            "Layer 2-3",
+            "Layer 2-4",
+            "Layer 2-5",
+            "Layer 2-6",
+            "Layer 2-7"});
+            this.layersCheckList.Location = new System.Drawing.Point(6, 16);
+            this.layersCheckList.MultiColumn = true;
+            this.layersCheckList.Name = "layersCheckList";
+            this.layersCheckList.Size = new System.Drawing.Size(145, 120);
+            this.layersCheckList.TabIndex = 19;
+            this.layersCheckList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LayersCheckList_ItemCheck);
             // 
             // tabControl
             // 
@@ -1552,6 +1603,7 @@ namespace EFSAdvent
             this.ActorV6Variable2fInput.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable2fInput.TabIndex = 64;
             this.ActorAttributesTip.SetToolTip(this.ActorV6Variable2fInput, "The next 5 bits.");
+            this.ActorV6Variable2fInput.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // ActorV6Variable1Input
             // 
@@ -1565,6 +1617,7 @@ namespace EFSAdvent
             this.ActorV6Variable1Input.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable1Input.TabIndex = 63;
             this.ActorAttributesTip.SetToolTip(this.ActorV6Variable1Input, "The first 7 bits of the first byte.");
+            this.ActorV6Variable1Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // ActorV6Variable4Input
             // 
@@ -1578,6 +1631,7 @@ namespace EFSAdvent
             this.ActorV6Variable4Input.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable4Input.TabIndex = 60;
             this.ActorAttributesTip.SetToolTip(this.ActorV6Variable4Input, "The next 5 bits.");
+            this.ActorV6Variable4Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // ActorV6Variable3Input
             // 
@@ -1591,6 +1645,7 @@ namespace EFSAdvent
             this.ActorV6Variable3Input.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable3Input.TabIndex = 59;
             this.ActorAttributesTip.SetToolTip(this.ActorV6Variable3Input, "The next 5 bits.");
+            this.ActorV6Variable3Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // ActorV6Variable6Input
             // 
@@ -1604,6 +1659,7 @@ namespace EFSAdvent
             this.ActorV6Variable6Input.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable6Input.TabIndex = 56;
             this.ActorAttributesTip.SetToolTip(this.ActorV6Variable6Input, "The last 5 bits of the fifth byte.");
+            this.ActorV6Variable6Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // ActorV6Variable5Input
             // 
@@ -1617,6 +1673,7 @@ namespace EFSAdvent
             this.ActorV6Variable5Input.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable5Input.TabIndex = 55;
             this.ActorAttributesTip.SetToolTip(this.ActorV6Variable5Input, "The next 5 bits.");
+            this.ActorV6Variable5Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // groupBoxFullVariable
             // 
@@ -1630,7 +1687,14 @@ namespace EFSAdvent
             // 
             // ActorVariableFullInput
             // 
-            this.ActorVariableFullInput.Enabled = false;
+            this.ActorVariableFullInput.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ActorVariableFullInput.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.ActorVariableFullInput.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.ActorVariableFullInput.InterceptArrowKeys = false;
             this.ActorVariableFullInput.Location = new System.Drawing.Point(6, 19);
             this.ActorVariableFullInput.Maximum = new decimal(new int[] {
             -1,
@@ -1841,57 +1905,6 @@ namespace EFSAdvent
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // layersCheckList
-            // 
-            this.layersCheckList.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.layersCheckList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.layersCheckList.CheckOnClick = true;
-            this.layersCheckList.ColumnWidth = 70;
-            this.layersCheckList.FormattingEnabled = true;
-            this.layersCheckList.Items.AddRange(new object[] {
-            "Layer 1-0",
-            "Layer 1-1",
-            "Layer 1-2",
-            "Layer 1-3",
-            "Layer 1-4",
-            "Layer 1-5",
-            "Layer 1-6",
-            "Layer 1-7",
-            "Layer 2-0",
-            "Layer 2-1",
-            "Layer 2-2",
-            "Layer 2-3",
-            "Layer 2-4",
-            "Layer 2-5",
-            "Layer 2-6",
-            "Layer 2-7"});
-            this.layersCheckList.Location = new System.Drawing.Point(6, 16);
-            this.layersCheckList.MultiColumn = true;
-            this.layersCheckList.Name = "layersCheckList";
-            this.layersCheckList.Size = new System.Drawing.Size(145, 120);
-            this.layersCheckList.TabIndex = 19;
-            this.layersCheckList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LayersCheckList_ItemCheck);
-            // 
-            // layerPictureBox
-            // 
-            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.layerPictureBox.Enabled = false;
-            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
-            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.Name = "layerPictureBox";
-            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.layerPictureBox.TabIndex = 0;
-            this.layerPictureBox.TabStop = false;
-            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
-            this.layerPictureBox.MouseLeave += new System.EventHandler(this.layerPictureBox_MouseLeave);
-            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
-            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
-            this.layerPictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.layerPictureBox_MouseWheel);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1913,6 +1926,7 @@ namespace EFSAdvent
             this.tileSheetPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).EndInit();
             this.layersPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.actorContextMenuStrip.ResumeLayout(false);
             this.MapPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).EndInit();
@@ -1969,7 +1983,6 @@ namespace EFSAdvent
             ((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).EndInit();
             this.BottomGroupBox.ResumeLayout(false);
             this.BottomGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

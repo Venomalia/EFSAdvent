@@ -59,6 +59,7 @@ namespace EFSAdvent
         public Form1()
         {
             InitializeComponent();
+            ActorVariableFullInput.Controls[0].Visible = false;
             this.Text = BaseTitel;
             _tileSelection.Width = _tileSelection.Height = 1;
             dataDirectory = "data";
