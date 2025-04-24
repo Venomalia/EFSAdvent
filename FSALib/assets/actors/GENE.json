@@ -12,24 +12,275 @@
       "valueType": "Integer"
     },
     {
-      "name": "Unknown Variable 2",
-      "description": "An unknown variable with value 156.",
-      "bitOffset": 16,
-      "bitSize": 8,
-      "valueType": "Integer"
+      "name": "Enemy Type 1",
+      "description": "The type of enemy to be generated.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Hinox", "description": "A large cyclopean enemy." },
+        "1": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "2": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "3": {
+          "name": "Black Soldier",
+          "description": "A black variant of the soldier."
+        },
+        "4": {
+          "name": "Black Soldier",
+          "description": "A black variant of the soldier."
+        },
+        "5": {
+          "name": "Big Yellow Soldier",
+          "description": "A Yellow variant of the soldier."
+        },
+        "6": {
+          "name": "Small Purple Force Gem",
+          "description": "A small purple Force Gem worth 500."
+        },
+        "7": {
+          "name": "Green Force Gem",
+          "description": "A green Force Gem worth 100."
+        },
+        "8": {
+          "name": "Blue Force Gem",
+          "description": "A blue Force Gem worth 150."
+        },
+        "9": {
+          "name": "Red Force Gem",
+          "description": "A red Force Gem worth 200."
+        },
+        "10": {
+          "name": "Green Sword Soldier",
+          "description": "A green variant of the soldier."
+        },
+        "11": {
+          "name": "Green Sword Soldier",
+          "description": "A green variant of the soldier."
+        },
+        "12": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "13": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "14": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "15": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "16": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "17": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "18": {
+          "name": "Green Sword Soldier",
+          "description": "A green variant of the soldier."
+        },
+        "19": {
+          "name": "Small Blue Force Gem",
+          "description": "A small blue Force Gem worth 5."
+        }
+      }
     },
     {
-      "name": "Unknown Variable 3",
-      "description": "An unknown variable with value 224.",
-      "bitOffset": 8,
-      "bitSize": 8,
+      "name": "Enemy Type 2",
+      "description": "The type of enemy to be generated.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Hinox", "description": "A large cyclopean enemy." },
+        "1": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "2": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "3": {
+          "name": "Black Soldier",
+          "description": "A black variant of the soldier."
+        },
+        "4": {
+          "name": "Black Soldier",
+          "description": "A black variant of the soldier."
+        },
+        "5": {
+          "name": "Big Yellow Soldier",
+          "description": "A Yellow variant of the soldier."
+        },
+        "6": {
+          "name": "Small Purple Force Gem",
+          "description": "A small purple Force Gem worth 500."
+        },
+        "7": {
+          "name": "Green Force Gem",
+          "description": "A green Force Gem worth 100."
+        },
+        "8": {
+          "name": "Blue Force Gem",
+          "description": "A blue Force Gem worth 150."
+        },
+        "9": {
+          "name": "Red Force Gem",
+          "description": "A red Force Gem worth 200."
+        },
+        "10": {
+          "name": "Green Sword Soldier",
+          "description": "A green variant of the soldier."
+        },
+        "11": {
+          "name": "Green Sword Soldier",
+          "description": "A green variant of the soldier."
+        },
+        "12": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "13": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "14": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "15": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "16": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "17": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "18": {
+          "name": "Green Sword Soldier",
+          "description": "A green variant of the soldier."
+        },
+        "19": {
+          "name": "Small Blue Force Gem",
+          "description": "A small blue Force Gem worth 5."
+        }
+      }
+    },
+    {
+      "name": "Enemy Type 3",
+      "description": "The type of enemy to be generated.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Hinox", "description": "A large cyclopean enemy." },
+        "1": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "2": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "3": {
+          "name": "Black Soldier",
+          "description": "A black variant of the soldier."
+        },
+        "4": {
+          "name": "Black Soldier",
+          "description": "A black variant of the soldier."
+        },
+        "5": {
+          "name": "Big Yellow Soldier",
+          "description": "A Yellow variant of the soldier."
+        },
+        "6": {
+          "name": "Small Purple Force Gem",
+          "description": "A small purple Force Gem worth 500."
+        },
+        "7": {
+          "name": "Green Force Gem",
+          "description": "A green Force Gem worth 100."
+        },
+        "8": {
+          "name": "Blue Force Gem",
+          "description": "A blue Force Gem worth 150."
+        },
+        "9": {
+          "name": "Red Force Gem",
+          "description": "A red Force Gem worth 200."
+        },
+        "10": {
+          "name": "Green Sword Soldier",
+          "description": "A green variant of the soldier."
+        },
+        "11": {
+          "name": "Green Sword Soldier",
+          "description": "A green variant of the soldier."
+        },
+        "12": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "13": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "14": {
+          "name": "Blue Soldier",
+          "description": "A blue variant of the soldier."
+        },
+        "15": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "16": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "17": {
+          "name": "Real Bombchu",
+          "description": "A real Bombchu enemy."
+        },
+        "18": {
+          "name": "Green Sword Soldier",
+          "description": "A green variant of the soldier."
+        },
+        "19": {
+          "name": "Small Blue Force Gem",
+          "description": "A small blue Force Gem worth 5."
+        }
+      }
+    },
+    {
+      "name": "Interval",
+      "description": "The interval between the creation of new enemies.",
+      "bitOffset": 7,
+      "bitSize": 5,
       "valueType": "Integer"
     },
     {
       "name": "Amount",
       "description": "The amount of enemies to be generated.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 7,
       "valueType": "Integer"
     }
   ]

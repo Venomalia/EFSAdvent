@@ -6,19 +6,6 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Unknown Variable 1",
-      "description": "An unknown value related to the crystal.",
-      "bitOffset": 8,
-      "bitSize": 8,
-      "valueType": "Enum",
-      "enumValues": {
-        "4": {
-          "name": "?",
-          "description": "Unknown effect or usage."
-        }
-      }
-    },
-    {
       "name": "Maiden Type",
       "description": "Defines the type of maiden associated with the crystal.",
       "bitOffset": 0,
@@ -89,6 +76,20 @@
           ]
         }
       }
+    },
+    {
+      "name": "Set Variable",
+      "description": "The local variable number that is set or activate by this actor.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable?",
+      "description": "The local variable number that triggers or activates this actor if Variable 2 indicates this.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ]
 }

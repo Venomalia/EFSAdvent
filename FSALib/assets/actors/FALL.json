@@ -2,5 +2,37 @@
   "name": "Wallmaster",
   "description": "",
   "InternalName": "フォールマスター",
-  "category": "Enemy"
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Movement type",
+      "description": "Determines how the wallmaster behaves.",
+      "bitOffset": 0,
+      "bitSize": 1,
+      "valueType": "Flags",
+      "enumValues": {
+        "0": {
+          "name": "Falls from the ceiling.",
+          "description": "A large Armos Knight."
+        },
+        "1": {
+          "name": "Walks across the floor.",
+          "description": "A large Armos Knight."
+        }
+      }
+    },
+    {
+      "name": "Behavior",
+      "description": "Determines how the wallmaster behaves.",
+      "bitOffset": 1,
+      "bitSize": 7,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "?",
+          "description": "?"
+        }
+      }
+    }
+  ]
 }

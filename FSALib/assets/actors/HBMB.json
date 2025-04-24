@@ -5,10 +5,10 @@
   "category": "Item",
   "fields": [
     {
-      "name": "Unknown Variable 3",
+      "name": "Unknown Variable",
       "description": "An unknown value related to the bomb.",
-      "bitOffset": 16,
-      "bitSize": 8,
+      "bitOffset": 8,
+      "bitSize": 16,
       "valueType": "Integer"
     },
     {

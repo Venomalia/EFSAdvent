@@ -12,43 +12,56 @@
       "valueType": "Integer"
     },
     {
-      "name": "Behavior",
+      "name": "Type",
       "description": "Determines how the Armos Knight behaves.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "Fixed",
-          "description": "The Armos Knight stays in place."
+          "name": "Default",
+          "description": "The standard behavior for Armos Knights."
         },
         "1": {
           "name": "Pushable",
           "description": "The Armos Knight can be pushed by the player."
         },
         "2": {
+          "name": "Fixed",
+          "description": "The Armos Knight stays in place."
+        },
+        "3": {
           "name": "Large, Attacks from Behind",
           "description": "A large Armos Knight that only attacks when approached from behind."
         },
-        "3": {
+        "4": {
           "name": "Large, Pushable",
           "description": "A large Armos Knight that can be pushed."
         },
-        "4": {
+        "5": {
           "name": "Large, Activated",
           "description": "A large Armos Knight that is activated upon interaction."
         },
-        "5": {
-          "name": "Default",
-          "description": "The standard behavior for Armos Knights."
-        },
         "6": {
+          "name": "Fixed",
+          "description": "The Armos Knight stays in place."
+        },
+        "7": {
           "name": "Large, Fixed",
           "description": "A large Armos Knight that remains stationary."
-        },
-        "16": {
-          "name": "Unknown",
-          "description": "An unidentified behavior mode."
+        }
+      }
+    },
+    {
+      "name": "Type Flags",
+      "description": "Determines how the Armos Knight behaves.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "Big",
+          "description": "A large Armos Knight."
         }
       }
     }

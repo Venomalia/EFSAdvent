@@ -13,11 +13,11 @@
       "valueType": "Enum",
       "enumValues": {
         "0": { "name": "Maiden 1", "description": "" },
-        "2": { "name": "Maiden 2", "description": "" },
-        "3": { "name": "Maiden 3", "description": "" },
-        "4": { "name": "Maiden 4", "description": "" },
-        "5": { "name": "Maiden 5", "description": "" },
-        "6": { "name": "Maiden 6", "description": "" }
+        "1": { "name": "Maiden 2", "description": "" },
+        "2": { "name": "Maiden 3", "description": "" },
+        "3": { "name": "Maiden 4", "description": "" },
+        "4": { "name": "Maiden 5", "description": "" },
+        "5": { "name": "Maiden 6", "description": "" }
       }
     }
   ]

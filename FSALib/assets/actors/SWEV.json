@@ -42,7 +42,7 @@
       "name": "Environmental Flags 1",
       "description": "Flags that determine various environmental effects, like background changes and visual effects.",
       "bitOffset": 18,
-      "bitSize": 6,
+      "bitSize": 9,
       "valueType": "Flags",
       "enumValues": {
         "1": {
@@ -139,6 +139,15 @@
         "14": {
           "name": "?",
           "description": "Unknown setting."
+        },
+		"15": {
+          "name": "Lost Forest Filter",
+          "description": "Applies the Lost Forest filter.",
+          "Resources": [
+            "j3d/forestfilter00.bmd",
+            "j3d/forestfilter00.brk",
+            "j3d/forestfilter00.btk"
+          ]
         }
       }
     }

@@ -1,6 +1,15 @@
 {
   "name": "Ice sheet check NPC monitoring",
-  "description": "",
+  "description": "Sets a trigger when all ice plates have been destroyed.",
   "InternalName": "氷床チェックNPC監視",
-  "category": "Property"
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Trigger Variable",
+      "description": "Set the local variable number when trigger.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
 }

@@ -14,7 +14,7 @@
     {
       "name": "Vertical Movement Width",
       "description": "The width of the vertical movement of the cannon.",
-      "bitOffset": 16,
+      "bitOffset": 8,
       "bitSize": 8,
       "valueType": "Integer"
     },
@@ -23,15 +23,15 @@
       "description": "Defines when the cannon starts moving.",
       "bitOffset": 0,
       "bitSize": 8,
-      "valueType": "Enum",
+      "valueType": "Flags",
       "enumValues": {
-        "0": {
-          "name": "Default",
-          "description": "The cannon starts moving immediately."
-        },
         "1": {
-          "name": "Only after first use",
+          "name": "Moving after first use",
           "description": "The cannon starts moving only after it has been used once."
+        },
+        "16": {
+          "name": "?",
+          "description": ""
         }
       }
     }

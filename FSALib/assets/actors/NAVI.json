@@ -16,7 +16,7 @@
       "name": "Color",
       "description": "",
       "bitOffset": 16,
-      "bitSize": 4,
+      "bitSize": 3,
       "valueType": "Enum",
       "enumValues": {
         "0": { "name": "Green", "description": "" },
@@ -30,8 +30,8 @@
     {
       "name": "?",
       "description": "",
-      "bitOffset": 20,
-      "bitSize": 4,
+      "bitOffset": 19,
+      "bitSize": 8,
       "valueType": "Integer"
     },
     {

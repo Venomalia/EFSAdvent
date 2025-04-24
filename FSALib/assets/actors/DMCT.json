@@ -2,5 +2,59 @@
   "name": "Story cutscene control NPC",
   "description": "",
   "InternalName": "ストーリーデモ制御NPC",
-  "category": "Cutscene"
+  "category": "Cutscene",
+  "fields": [
+    {
+      "name": "Cutscene NR",
+      "description": "",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Game start",
+          "description": ""
+        },
+        "1": {
+          "name": "6 Maiden open portal",
+          "description": ""
+        },
+        "3": {
+          "name": "Free Maiden 1",
+          "description": ""
+        },
+        "4": {
+          "name": "Free Maiden 2",
+          "description": ""
+        },
+        "5": {
+          "name": "Free Maiden 3",
+          "description": ""
+        },
+        "6": {
+          "name": "Free Maiden 4",
+          "description": ""
+        },
+        "7": {
+          "name": "Free Maiden 5",
+          "description": ""
+        },
+        "8": {
+          "name": "Free Maiden 6",
+          "description": ""
+        },
+        "9": {
+          "name": "Free Zelda",
+          "description": ""
+        },
+      }
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
 }

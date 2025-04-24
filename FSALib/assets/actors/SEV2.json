@@ -87,17 +87,12 @@
       "valueType": "Flags",
       "enumValues": {
         "8": {
-          "name": "Lost Forest Filter",
-          "description": "Applies the Lost Forest filter.",
-          "Resources": [
-            "j3d/forestfilter00.bmd",
-            "j3d/forestfilter00.brk",
-            "j3d/forestfilter00.btk"
-          ]
+          "name": "Mystic Fog",
+          "description": "Applies a Mystic Fog effect."
         },
         "16": {
           "name": "Crash",
-          "description": "Causes a crash (bug or unused feature)."
+          "description": "Causes a crash (bug or unused feature?)."
         },
         "32": {
           "name": "Light Thunder",

@@ -68,18 +68,6 @@
         "9": {
           "name": "Slingshot",
           "description": "Item stand contains a Slingshot."
-        },
-        "10": {
-          "name": "u",
-          "description": "Item stand contains a Slingshot."
-        },
-        "11": {
-          "name": "u",
-          "description": "Item stand contains a Slingshot."
-        },
-        "12": {
-          "name": "u",
-          "description": "Item stand contains a Slingshot."
         }
       }
     },
@@ -94,14 +82,9 @@
           "name": "Secret SE",
           "description": "Plays the secret SE."
         },
-        "1": { "name": "?", "description": "Unknown sound effect." },
-        "2": { "name": "?", "description": "Unknown sound effect." },
-        "3": { "name": "?", "description": "Unknown sound effect." },
-        "4": { "name": "?", "description": "Unknown sound effect." },
-        "5": {
-          "name": "Approach SE",
-          "description": "Plays the approach SE."
-        }
+        "1": { "name": "Event SE", "description": "Plays the Event SE." },
+        "2": { "name": "Wrong SE", "description": "Plays the Wrong SE." },
+        "3": { "name": "Secret SE", "description": "Plays the secret SE." }
       }
     },
     {
