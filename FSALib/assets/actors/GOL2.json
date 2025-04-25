@@ -45,7 +45,7 @@
       "bitSize": 5,
       "valueType": "Integer"
     },
-	{
+    {
       "name": "Unknown Variable 2",
       "description": "An unknown value related to the goal field.",
       "bitOffset": 22,
