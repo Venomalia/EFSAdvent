@@ -2048,12 +2048,20 @@ namespace EFSAdvent
                     else
                     {
                         layerPosition %= 8;
+                        int lastLayer = layerPosition.Value;
+
                         do
                         {
                             layerPosition++;
                             if (layerPosition == 8)
                                 return;
                         } while (layersCheckList.GetItemColor(layerPosition.Value) == Color.Gray);
+
+                        if (lastLayer > 0)
+                        {
+                            layersCheckList.SetItemChecked(lastLayer, false);
+                            layersCheckList.SetItemChecked(lastLayer + 8, false);
+                        }
 
                         layersCheckList.SetItemChecked(layerPosition.Value, true);
 
@@ -2093,6 +2101,11 @@ namespace EFSAdvent
                     }
                     else
                     {
+                        if (layerPosition > 8)
+                        {
+                            layersCheckList.SetItemChecked(layerPosition.Value, false);
+                            layersCheckList.SetItemChecked(layerPosition.Value % 8, false);
+                        }
                         layerPosition = layerPosition < 8 ? layerPosition + 8 : layerPosition % 8 + 1;
                         layersCheckList.SetItemChecked(layerPosition.Value, true);
                     }
