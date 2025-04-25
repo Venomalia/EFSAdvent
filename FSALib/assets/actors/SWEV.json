@@ -140,7 +140,7 @@
           "name": "?",
           "description": "Unknown setting."
         },
-		"15": {
+        "15": {
           "name": "Lost Forest Filter",
           "description": "Applies the Lost Forest filter.",
           "Resources": [
