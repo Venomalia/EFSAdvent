@@ -33,9 +33,27 @@ namespace EFSAdvent
         public void Copy(Rectangle selection, Level level, int layer)
         {
             _clipboardTiles.Clear();
+            if (selection.X < 0)
+            {
+                selection.Width += selection.X;
+                selection.X = 0;
+            }
+            if (selection.Y < 0)
+            {
+                selection.Height += selection.Y;
+                selection.Y = 0;
+            }
             if (selection.Width < 1 || selection.Height < 1)
             {
                 return;
+            }
+            if (selection.X + selection.Width >= Layer.DIMENSION)
+            {
+                selection.Width = Layer.DIMENSION - selection.X;
+            }
+            if (selection.Y + selection.Height >= Layer.DIMENSION)
+            {
+                selection.Height = Layer.DIMENSION - selection.Y;
             }
 
             Width = selection.Width;
