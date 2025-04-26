@@ -19,11 +19,14 @@
       "valueType": "Enum",
       "enumValues": {
         "0": { "name": "Item Ball", "description": "An item in a ball." },
-        "1": { "name": "Random Ball", "description": "Can have various effects." },
+        "1": {
+          "name": "Random Ball",
+          "description": "Can have various effects."
+        },
         "2": { "name": "Item", "description": "An item lying on the floor." },
         "3": { "name": "Carrot", "description": "A super carrot." }
       }
-      },
+    },
     {
       "name": "Possible Items",
       "description": "Items that the generator can create.",

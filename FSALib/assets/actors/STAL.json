@@ -19,8 +19,11 @@
           "name": "Jumps",
           "description": "The Stalfoss jumps when it is attacked."
         },
-        "2": { "name": "Jumps And Throws", "description": "The Stalfoss jumps when attacked and throws a bone." }
+        "2": {
+          "name": "Jumps And Throws",
+          "description": "The Stalfoss jumps when attacked and throws a bone."
         }
+      }
     },
     {
       "name": "Options",
