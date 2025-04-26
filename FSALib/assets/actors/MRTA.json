@@ -17,19 +17,27 @@
       }
     },
     {
-      "name": "Orientation",
+      "name": "Log Orientation",
       "description": "The orientation of the tree log or object.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": { "name": "Horizontal", "description": "The log is horizontal." },
-        "1": { "name": "Vertical", "description": "The log is vertical." },
-        "16": {
-          "name": "Big, Horizontal",
-          "description": "A big horizontal log."
-        },
-        "17": { "name": "Big, Vertical", "description": "A big vertical log." }
+        "1": { "name": "Vertical", "description": "The log is vertical." }
+      }
+    },
+    {
+      "name": "Log Options",
+      "description": "The Options of the tree log or object.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "Big",
+          "description": "A big log."
+        }
       }
     }
   ]

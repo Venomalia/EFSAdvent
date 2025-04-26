@@ -17,6 +17,19 @@
       "bitOffset": 22,
       "bitSize": 5,
       "valueType": "Integer"
+    },
+    {
+      "name": "Options?",
+      "description": "",
+      "bitOffset": 7,
+      "bitSize": 10,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "?",
+          "description": ""
+        }
+      }
     }
   ]
 }

@@ -2,7 +2,7 @@
   "name": "4 Switch Monitoring",
   "description": "A switch that requires up to 4 variables to activate itself.",
   "InternalName": "４つのスィッチ監視",
-  "category": "Object",
+  "category": "Property",
   "fields": [
     {
       "name": "Triggered Local Variable",

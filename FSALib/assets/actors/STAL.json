@@ -8,7 +8,7 @@
       "name": "Type",
       "description": "Defines the behavior or type of the Stalfoss.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": {
@@ -17,12 +17,21 @@
         },
         "1": {
           "name": "Jumps",
-          "description": "The Stalfoss jumps during its movement."
+          "description": "The Stalfoss jumps when it is attacked."
         },
-        "2": { "name": "?", "description": "Unknown behavior." },
-        "30": {
+        "2": { "name": "Jumps And Throws", "description": "The Stalfoss jumps when attacked and throws a bone." }
+        }
+    },
+    {
+      "name": "Options",
+      "description": "The Options of the Stalfoss.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
           "name": "Big",
-          "description": "The Stalfoss is a large variant."
+          "description": "A big Stalfoss."
         }
       }
     }

@@ -19,11 +19,17 @@
       "valueType": "Integer"
     },
     {
-      "name": "?",
+      "name": "Options",
       "description": "",
       "bitOffset": 20,
       "bitSize": 4,
-      "valueType": "Integer"
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "Multi-use",
+          "description": "Can be switched on."
+        }
+      }
     },
     {
       "name": "Enemy Type",

@@ -9,18 +9,14 @@
       "name": "Gohma State",
       "description": "The current state or behavior of Gohma.",
       "bitOffset": 0,
-      "bitSize": 8,
-      "valueType": "Enum",
+      "bitSize": 2,
+      "valueType": "Flags",
       "enumValues": {
-        "0": {
-          "name": "Default",
-          "description": "The default state of Gohma."
-        },
         "1": {
           "name": "Walking Sideways",
           "description": "Gohma is walking sideways."
         },
-        "3": {
+        "2": {
           "name": "Miniboss",
           "description": "Gohma is in the Miniboss fight state."
         }

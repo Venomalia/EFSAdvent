@@ -15,7 +15,7 @@
       "name": "Tile Layer",
       "description": "Determines which layer the new tile appears on.",
       "bitOffset": 16,
-      "bitSize": 8,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": {
@@ -25,14 +25,27 @@
         "1": {
           "name": "Top Layer",
           "description": "Changes the top layer tile."
+        }
+      }
+    },
+    {
+      "name": "Options",
+      "description": "Determines Usages.",
+      "bitOffset": 20,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Single use",
+          "description": "Can be switched on."
         },
-        "16": {
-          "name": "Unknown (GBA?) Base Layer",
-          "description": "Potentially another layer type."
+        "1": {
+          "name": "On/ Off",
+          "description": "Can be switched on and off."
         },
-        "32": {
-          "name": "Unknown (GBA?) Top Layer",
-          "description": "Potentially another layer type."
+        "2": {
+          "name": "On/ Off",
+          "description": "Can be switched on and off."
         }
       }
     },
@@ -41,24 +54,8 @@
       "description": "Defines whether a special effect is applied.",
       "bitOffset": 24,
       "bitSize": 3,
-      "valueType": "Enum",
+      "valueType": "Flags",
       "enumValues": {
-        "0": {
-          "name": "None",
-          "description": "No special effect."
-        },
-        "1": {
-          "name": "Unknown 1",
-          "description": ""
-        },
-        "2": {
-          "name": "Unknown 2",
-          "description": ""
-        },
-        "3": {
-          "name": "Unknown 3",
-          "description": ""
-        },
         "4": {
           "name": "Dust Particles",
           "description": "Shows dust particles when activated."

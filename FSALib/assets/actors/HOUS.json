@@ -44,15 +44,23 @@
       "description": "The type of the house.",
       "bitOffset": 0,
       "bitSize": 7,
-      "valueType": "Integer",
+      "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "Normal house 6x6",
+          "name": "House 6x6",
           "description": "A normal 6x6 house."
         },
         "2": {
-          "name": "Fire thrower house 6x6",
+          "name": "Fire thrower 6x6",
           "description": "A 6x6 house with fire throwers."
+        },
+        "12": {
+          "name": "House 4 Exits 6x6",
+          "description": "A normal 6x6 house."
+        },
+        "12": {
+          "name": "Movable Pillar 6x6",
+          "description": "A normal 6x6 house."
         }
       }
     }

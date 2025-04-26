@@ -12,7 +12,7 @@
       "valueType": "Integer"
     },
     {
-      "name": "Behavior Flags",
+      "name": "Options",
       "description": "Flags that define the specific behaviors or states of the chief soldier.",
       "bitOffset": 16,
       "bitSize": 8,
@@ -20,12 +20,12 @@
       "enumValues": {
         "1": {
           "name": "Big Stalfos Soldier?",
-          "description": "This flag may indicate the chief soldier is a large Stalfos soldier."
+          "description": "Big Stalfos soldier."
         }
       }
     },
     {
-      "name": "Unknown States",
+      "name": "Behavior",
       "description": "Unknown states that influence the behavior or appearance of the chief soldier.",
       "bitOffset": 8,
       "bitSize": 8,

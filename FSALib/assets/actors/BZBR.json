@@ -2,5 +2,20 @@
   "name": "Buzz Blob",
   "description": "Electric jelly enemie.",
   "InternalName": "バズブロブ",
-  "category": "Enemy"
+  "category": "Enemy",
+  "fields": [
+    {
+      "name": "Options",
+      "description": "",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "Jumps towards player",
+          "description": "Jumps towards the player when he is near."
+        }
+      }
+    }
+  ]
 }

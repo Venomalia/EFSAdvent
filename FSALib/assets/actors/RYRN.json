@@ -12,17 +12,17 @@
       "valueType": "Integer"
     },
     {
-      "name": "Drop Condition",
-      "description": "Determines the condition under which Force Gems or enemies will be dropped.",
-      "bitOffset": 16,
+      "name": "Drop Amount",
+      "description": "The amount that is dropped. Or Default if 0.",
+      "bitOffset": 12,
       "bitSize": 8,
       "valueType": "Integer"
     },
     {
-      "name": "Sub Option",
-      "description": "Can influence the range and quantity of the dropped Force Gems or enemies.",
+      "name": "Size",
+      "description": "The diameter in parts where objects are dropped. Or Default(8) if 0.",
       "bitOffset": 8,
-      "bitSize": 8,
+      "bitSize": 4,
       "valueType": "Integer"
     },
     {

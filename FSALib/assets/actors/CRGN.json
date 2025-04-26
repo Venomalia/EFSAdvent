@@ -1,6 +1,6 @@
 {
   "name": "Crystal Ball Generator",
-  "description": "Generates crystal balls for use in the game.",
+  "description": "Generates crystal balls.",
   "InternalName": "水晶球ジェネレータ",
   "category": "Object",
   "fields": [
@@ -12,28 +12,36 @@
       "valueType": "Integer"
     },
     {
-      "name": "Unknown Variable",
-      "description": "Unknown values related to the generator.",
-      "bitOffset": 16,
-      "bitSize": 8,
-      "valueType": "Enum",
-      "enumValues": {
-        "17": { "name": "?", "description": "Unknown value." },
-        "8": { "name": "?", "description": "Unknown value." },
-        "1": { "name": "?", "description": "Unknown value." }
-      }
-    },
-    {
-      "name": "Unknown Variable",
+      "name": "Type",
       "description": "Another unknown value related to the generator.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 5,
       "valueType": "Enum",
       "enumValues": {
-        "1": { "name": "?", "description": "Unknown value." },
-        "130": { "name": "?", "description": "Unknown value." },
-        "162": { "name": "?", "description": "Unknown value." },
-        "226": { "name": "?", "description": "Unknown value." }
+        "0": { "name": "Item Ball", "description": "An item in a ball." },
+        "1": { "name": "Random Ball", "description": "Can have various effects." },
+        "2": { "name": "Item", "description": "An item lying on the floor." },
+        "3": { "name": "Carrot", "description": "A super carrot." }
+      }
+      },
+    {
+      "name": "Possible Items",
+      "description": "Items that the generator can create.",
+      "bitOffset": 5,
+      "bitSize": 11,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": { "name": "Slingshot", "description": "" },
+        "2": { "name": "Boomerang", "description": "" },
+        "4": { "name": "Bow", "description": "" },
+        "8": { "name": "Bombs", "description": "" },
+        "16": { "name": "Fire Rod", "description": "" },
+        "32": { "name": "Magic Hammer", "description": "" },
+        "64": { "name": "Roc's Feather", "description": "" },
+        "128": { "name": "Pegasus Boots", "description": "" },
+        "256": { "name": "Shovel", "description": "" },
+        "512": { "name": "Lamp", "description": "" },
+        "1024": { "name": "Lv2 Sword", "description": "" }
       }
     }
   ]
