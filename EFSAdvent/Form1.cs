@@ -147,6 +147,17 @@ namespace EFSAdvent
                 ACTOR_SPRITES.Add(spritePath.Split(Path.DirectorySeparatorChar).Last().Split('.')[0], sprite);
             }
 
+            // Load Stamps
+            string stampsFolder = Path.Combine(dataDirectory, "Stamps");
+            //TileStampFlowLayoutPanel
+            if (Directory.Exists(stampsFolder))
+            {
+                foreach (var filePath in Directory.GetFiles(stampsFolder, "*.bin"))
+                {
+                    TileStampFlowLayoutPanel.Add(filePath);
+                }
+            }
+
             // Load Actor Templates
             string templatesFolder = Path.Combine(dataDirectory, "actortemplates");
             if (Directory.Exists(templatesFolder))
@@ -1770,6 +1781,7 @@ namespace EFSAdvent
             switch (tabControl.SelectedIndex)
             {
                 case (int)TabControlIndex.Tile: // Tile tab
+                case (int)TabControlIndex.Stamp:
                     switch (e.Button)
                     {
                         case MouseButtons.Left:
@@ -1777,6 +1789,7 @@ namespace EFSAdvent
                             break;
                         case MouseButtons.Right:
                             UpdateClipboardSelection();
+                            TileStampFlowLayoutPanel.SelectedIndex = -1;
                             return;
                         case MouseButtons.None:
                             Rectangle position = new Rectangle(
@@ -1953,6 +1966,7 @@ namespace EFSAdvent
             switch (tabControl.SelectedIndex)
             {
                 case (int)TabControlIndex.Tile:
+                case (int)TabControlIndex.Stamp:
                     DoTileAction(scaledEvent);
                     break;
                 case (int)TabControlIndex.Actor:
@@ -1999,7 +2013,7 @@ namespace EFSAdvent
             {
                 actorMouseDownOnIndex = -1;
             }
-            else if (tabControl.SelectedIndex == (int)TabControlIndex.Tile)
+            else if (tabControl.SelectedIndex == (int)TabControlIndex.Tile || tabControl.SelectedIndex == (int)TabControlIndex.Stamp)
             {
                 int? layer = GetHighestActiveLayerIndex();
                 switch (e.Button)
@@ -2036,7 +2050,7 @@ namespace EFSAdvent
             if (!layerPosition.HasValue)
                 layerPosition = -1;
 
-            if (tabControl.SelectedIndex != (int)TabControlIndex.Tile)
+            if (tabControl.SelectedIndex != (int)TabControlIndex.Tile && tabControl.SelectedIndex != (int)TabControlIndex.Stamp)
             {
                 if (e.Delta < 0) // up
                 {
@@ -2264,17 +2278,77 @@ namespace EFSAdvent
             UpdateBrushTileBitmap();
         }
 
+        private void TileStampFlowLayoutPanel_SelectionChanged(object sender, EventArgs e)
+        {
+            if (TileStampFlowLayoutPanel.SelectedIndex != -1)
+            {
+                TileStampFlowLayoutPanel.Load(_tileBrush.Clipboard, TileStampFlowLayoutPanel.SelectedIndex);
+                UpdateBrushTileBitmap();
+                DeleteStampButton.Enabled = true;
+            }
+            else
+            {
+                DeleteStampButton.Enabled = false;
+            }
+        }
+
+        private void DeleteStampButton_Click(object sender, EventArgs e)
+        {
+            if (TileStampFlowLayoutPanel.SelectedIndex != -1)
+            {
+                TileStampFlowLayoutPanel.Delete(TileStampFlowLayoutPanel.SelectedIndex);
+            }
+        }
+
         private void buttonSaveLayers_Click(object sender, EventArgs e)
         {
             _level.SaveLayers();
             MessageBox.Show("Changes Saved");
         }
 
+        private void SaveStampButton_Click(object sender, EventArgs e)
+        {
+            string? name = InputDialog.Show("Create a new Tile Stamp", "Please enter a name for the stamp:");
+            if (name != null)
+            {
+                string path = Path.Combine(dataDirectory, "Stamps", name + ".bin");
+                if (File.Exists(path))
+                    throw new Exception();
+
+                using (FileStream stampData = new FileStream(path, FileMode.CreateNew))
+                {
+                    _tileBrush.Clipboard.BinarySerialize(stampData);
+                }
+                string icon = Path.ChangeExtension(path, ".png");
+                using (Bitmap iconData = new Bitmap(_tileBrush.Width * 16, _tileBrush.Height * 16))
+                {
+
+                    ReadOnlySpan<ushort> tiles = _tileBrush.Clipboard.Tiles;
+                    for (int y = 0; y < _tileBrush.Height; y++)
+                    {
+                        for (int x = 0; x < _tileBrush.Width; x++)
+                        {
+                            ushort tile = tiles[y * Layer.DIMENSION + x];
+
+                            // Only used tiles must be drawn.
+                            if (tile != 0)
+                            {
+                                DrawTile(iconData, tileSheetBitmap, x, y, tile);
+                            }
+                        }
+                    }
+
+                    iconData.Save(icon, ImageFormat.Png);
+                }
+
+                TileStampFlowLayoutPanel.Add(path);
+            }
+        }
+
         private void tileSheetPictureBox_MouseEnter(object sender, EventArgs e)
         {
             tileSheetPictureBox.Focus(); // So mousewheel can be used to scroll
         }
-
         #endregion Layers
 
         #region Actors
@@ -2491,6 +2565,7 @@ namespace EFSAdvent
         {
             Map = 0,
             Tile = 1,
+            Stamp = 2,
             Actor
         }
     }

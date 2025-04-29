@@ -35,7 +35,6 @@ namespace EFSAdvent
             this.tileSheetPanel = new System.Windows.Forms.Panel();
             this.tileSheetPictureBox = new System.Windows.Forms.PictureBox();
             this.layersPanel = new System.Windows.Forms.Panel();
-            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MapPanel = new System.Windows.Forms.Panel();
@@ -68,6 +67,7 @@ namespace EFSAdvent
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.automaticSetTileActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +88,6 @@ namespace EFSAdvent
             this.CoridinatesTextBox = new System.Windows.Forms.TextBox();
             this.updateLayersButton = new System.Windows.Forms.Button();
             this.buttonSaveLayers = new System.Windows.Forms.Button();
-            this.layersCheckList = new EFSAdvent.CheckedListBoxColorable();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
@@ -173,16 +172,21 @@ namespace EFSAdvent
             this.label6 = new System.Windows.Forms.Label();
             this.ActorNameComboBox = new System.Windows.Forms.ComboBox();
             this.actorsCheckListBox = new System.Windows.Forms.CheckedListBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.SaveStampButton = new System.Windows.Forms.Button();
+            this.MirrorStampButton = new System.Windows.Forms.Button();
+            this.DeleteStampButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.automaticSetTileActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TileStampFlowLayoutPanel = new EFSAdvent.TileStampFlowLayoutPanel();
+            this.layersCheckList = new EFSAdvent.CheckedListBoxColorable();
+            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.actorContextMenuStrip.SuspendLayout();
             this.MapPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
@@ -229,7 +233,9 @@ namespace EFSAdvent
             ((System.ComponentModel.ISupportInitialize)(this.ActorXCoordInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.BottomGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tileSheetPanel
@@ -266,26 +272,6 @@ namespace EFSAdvent
             this.layersPanel.Name = "layersPanel";
             this.layersPanel.Size = new System.Drawing.Size(512, 516);
             this.layersPanel.TabIndex = 1;
-            // 
-            // layerPictureBox
-            // 
-            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.layerPictureBox.Enabled = false;
-            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
-            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.Name = "layerPictureBox";
-            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.layerPictureBox.TabIndex = 0;
-            this.layerPictureBox.TabStop = false;
-            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
-            this.layerPictureBox.MouseLeave += new System.EventHandler(this.layerPictureBox_MouseLeave);
-            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
-            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
-            this.layerPictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.layerPictureBox_MouseWheel);
             // 
             // actorContextMenuStrip
             // 
@@ -562,6 +548,15 @@ namespace EFSAdvent
             this.redoToolStripMenuItem.Text = "Redo Tile Change";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
+            // automaticSetTileActorsToolStripMenuItem
+            // 
+            this.automaticSetTileActorsToolStripMenuItem.Checked = true;
+            this.automaticSetTileActorsToolStripMenuItem.CheckOnClick = true;
+            this.automaticSetTileActorsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.automaticSetTileActorsToolStripMenuItem.Name = "automaticSetTileActorsToolStripMenuItem";
+            this.automaticSetTileActorsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.automaticSetTileActorsToolStripMenuItem.Text = "Automatic set tile actors";
+            // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -578,21 +573,21 @@ namespace EFSAdvent
             // xSizeToolStripMenuItem
             // 
             this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
-            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.xSizeToolStripMenuItem.Text = "1x size";
             this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.oneXSizeToolStripMenuItem_Click);
             // 
             // xSizeToolStripMenuItem1
             // 
             this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
-            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
             this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(150, 6);
             // 
             // displayOverlayToolStripMenuItem
             // 
@@ -600,7 +595,7 @@ namespace EFSAdvent
             this.displayOverlayToolStripMenuItem.CheckOnClick = true;
             this.displayOverlayToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.displayOverlayToolStripMenuItem.Name = "displayOverlayToolStripMenuItem";
-            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.displayOverlayToolStripMenuItem.Text = "Display overlay";
             this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
             // 
@@ -611,7 +606,7 @@ namespace EFSAdvent
             this.bicubicToolStripMenuItem,
             this.nearestNeighborToolStripMenuItem});
             this.textureFilterModeToolStripMenuItem.Name = "textureFilterModeToolStripMenuItem";
-            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.textureFilterModeToolStripMenuItem.Text = "Filter mode";
             // 
             // bilinearToolStripMenuItem
@@ -643,7 +638,7 @@ namespace EFSAdvent
             this.autoSelectToolStripMenuItem,
             this.alwaysShowActorsToolStripMenuItem});
             this.actorsToolStripMenuItem.Name = "actorsToolStripMenuItem";
-            this.actorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.actorsToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.actorsToolStripMenuItem.Text = "Actors";
             // 
             // autoSelectToolStripMenuItem
@@ -652,7 +647,7 @@ namespace EFSAdvent
             this.autoSelectToolStripMenuItem.CheckOnClick = true;
             this.autoSelectToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.autoSelectToolStripMenuItem.Name = "autoSelectToolStripMenuItem";
-            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.autoSelectToolStripMenuItem.Text = "Auto select";
             this.autoSelectToolStripMenuItem.ToolTipText = "Auto load actor on room change.";
             // 
@@ -660,7 +655,7 @@ namespace EFSAdvent
             // 
             this.alwaysShowActorsToolStripMenuItem.CheckOnClick = true;
             this.alwaysShowActorsToolStripMenuItem.Name = "alwaysShowActorsToolStripMenuItem";
-            this.alwaysShowActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alwaysShowActorsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.alwaysShowActorsToolStripMenuItem.Text = "Show Always";
             this.alwaysShowActorsToolStripMenuItem.ToolTipText = "Displays actors regardless of the current layer.";
             this.alwaysShowActorsToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
@@ -744,41 +739,11 @@ namespace EFSAdvent
             this.buttonSaveLayers.UseVisualStyleBackColor = true;
             this.buttonSaveLayers.Click += new System.EventHandler(this.buttonSaveLayers_Click);
             // 
-            // layersCheckList
-            // 
-            this.layersCheckList.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.layersCheckList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.layersCheckList.CheckOnClick = true;
-            this.layersCheckList.ColumnWidth = 70;
-            this.layersCheckList.FormattingEnabled = true;
-            this.layersCheckList.Items.AddRange(new object[] {
-            "Layer 1-0",
-            "Layer 1-1",
-            "Layer 1-2",
-            "Layer 1-3",
-            "Layer 1-4",
-            "Layer 1-5",
-            "Layer 1-6",
-            "Layer 1-7",
-            "Layer 2-0",
-            "Layer 2-1",
-            "Layer 2-2",
-            "Layer 2-3",
-            "Layer 2-4",
-            "Layer 2-5",
-            "Layer 2-6",
-            "Layer 2-7"});
-            this.layersCheckList.Location = new System.Drawing.Point(6, 16);
-            this.layersCheckList.MultiColumn = true;
-            this.layersCheckList.Name = "layersCheckList";
-            this.layersCheckList.Size = new System.Drawing.Size(145, 120);
-            this.layersCheckList.TabIndex = 19;
-            this.layersCheckList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LayersCheckList_ItemCheck);
-            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabControl.Enabled = false;
@@ -1878,6 +1843,50 @@ namespace EFSAdvent
             this.actorsCheckListBox.SelectedIndexChanged += new System.EventHandler(this.ActorsCheckListBox_SelectedIndexChanged);
             this.actorsCheckListBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.actorsCheckListBox_KeyUp);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.SaveStampButton);
+            this.tabPage4.Controls.Add(this.MirrorStampButton);
+            this.tabPage4.Controls.Add(this.DeleteStampButton);
+            this.tabPage4.Controls.Add(this.TileStampFlowLayoutPanel);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(273, 526);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "Stamps";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // SaveStampButton
+            // 
+            this.SaveStampButton.Location = new System.Drawing.Point(6, 6);
+            this.SaveStampButton.Name = "SaveStampButton";
+            this.SaveStampButton.Size = new System.Drawing.Size(80, 22);
+            this.SaveStampButton.TabIndex = 10;
+            this.SaveStampButton.Text = "Save";
+            this.SaveStampButton.Click += new System.EventHandler(this.SaveStampButton_Click);
+            // 
+            // MirrorStampButton
+            // 
+            this.MirrorStampButton.Location = new System.Drawing.Point(187, 6);
+            this.MirrorStampButton.Name = "MirrorStampButton";
+            this.MirrorStampButton.Size = new System.Drawing.Size(80, 22);
+            this.MirrorStampButton.TabIndex = 9;
+            this.MirrorStampButton.Text = "Mirror";
+            this.MirrorStampButton.UseVisualStyleBackColor = true;
+            this.MirrorStampButton.Click += new System.EventHandler(this.MirrorBrushbutton_Click);
+            // 
+            // DeleteStampButton
+            // 
+            this.DeleteStampButton.Enabled = false;
+            this.DeleteStampButton.Location = new System.Drawing.Point(92, 6);
+            this.DeleteStampButton.Name = "DeleteStampButton";
+            this.DeleteStampButton.Size = new System.Drawing.Size(80, 22);
+            this.DeleteStampButton.TabIndex = 5;
+            this.DeleteStampButton.Text = "Delete";
+            this.DeleteStampButton.UseVisualStyleBackColor = true;
+            this.DeleteStampButton.Click += new System.EventHandler(this.DeleteStampButton_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -1919,14 +1928,68 @@ namespace EFSAdvent
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // automaticSetTileActorsToolStripMenuItem
+            // TileStampFlowLayoutPanel
             // 
-            this.automaticSetTileActorsToolStripMenuItem.Checked = true;
-            this.automaticSetTileActorsToolStripMenuItem.CheckOnClick = true;
-            this.automaticSetTileActorsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.automaticSetTileActorsToolStripMenuItem.Name = "automaticSetTileActorsToolStripMenuItem";
-            this.automaticSetTileActorsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.automaticSetTileActorsToolStripMenuItem.Text = "Automatic set tile actors";
+            this.TileStampFlowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.TileStampFlowLayoutPanel.AutoScroll = true;
+            this.TileStampFlowLayoutPanel.Location = new System.Drawing.Point(0, 34);
+            this.TileStampFlowLayoutPanel.Name = "TileStampFlowLayoutPanel";
+            this.TileStampFlowLayoutPanel.SelectedIndex = -1;
+            this.TileStampFlowLayoutPanel.Size = new System.Drawing.Size(273, 489);
+            this.TileStampFlowLayoutPanel.TabIndex = 0;
+            this.TileStampFlowLayoutPanel.SelectionChanged += new System.EventHandler(this.TileStampFlowLayoutPanel_SelectionChanged);
+            // 
+            // layersCheckList
+            // 
+            this.layersCheckList.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.layersCheckList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.layersCheckList.CheckOnClick = true;
+            this.layersCheckList.ColumnWidth = 70;
+            this.layersCheckList.FormattingEnabled = true;
+            this.layersCheckList.Items.AddRange(new object[] {
+            "Layer 1-0",
+            "Layer 1-1",
+            "Layer 1-2",
+            "Layer 1-3",
+            "Layer 1-4",
+            "Layer 1-5",
+            "Layer 1-6",
+            "Layer 1-7",
+            "Layer 2-0",
+            "Layer 2-1",
+            "Layer 2-2",
+            "Layer 2-3",
+            "Layer 2-4",
+            "Layer 2-5",
+            "Layer 2-6",
+            "Layer 2-7"});
+            this.layersCheckList.Location = new System.Drawing.Point(6, 16);
+            this.layersCheckList.MultiColumn = true;
+            this.layersCheckList.Name = "layersCheckList";
+            this.layersCheckList.Size = new System.Drawing.Size(145, 120);
+            this.layersCheckList.TabIndex = 19;
+            this.layersCheckList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LayersCheckList_ItemCheck);
+            // 
+            // layerPictureBox
+            // 
+            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layerPictureBox.Enabled = false;
+            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
+            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.Name = "layerPictureBox";
+            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.layerPictureBox.TabIndex = 0;
+            this.layerPictureBox.TabStop = false;
+            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
+            this.layerPictureBox.MouseLeave += new System.EventHandler(this.layerPictureBox_MouseLeave);
+            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
+            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
+            this.layerPictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.layerPictureBox_MouseWheel);
             // 
             // Form1
             // 
@@ -1949,7 +2012,6 @@ namespace EFSAdvent
             this.tileSheetPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).EndInit();
             this.layersPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.actorContextMenuStrip.ResumeLayout(false);
             this.MapPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).EndInit();
@@ -2004,8 +2066,10 @@ namespace EFSAdvent
             ((System.ComponentModel.ISupportInitialize)(this.ActorXCoordInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).EndInit();
+            this.tabPage4.ResumeLayout(false);
             this.BottomGroupBox.ResumeLayout(false);
             this.BottomGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2160,6 +2224,11 @@ namespace EFSAdvent
         private FlowLayoutPanel panelActorFields;
         private Button MirrorBrushbutton;
         private ToolStripMenuItem automaticSetTileActorsToolStripMenuItem;
+        private TabPage tabPage4;
+        private TileStampFlowLayoutPanel TileStampFlowLayoutPanel;
+        private Button DeleteStampButton;
+        private Button SaveStampButton;
+        private Button MirrorStampButton;
     }
 }
 

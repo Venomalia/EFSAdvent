@@ -103,6 +103,7 @@
     <Compile Include="FourSwords\Level.cs" />
     <Compile Include="GraphicsEX.cs" />
     <Compile Include="History.cs" />
+    <Compile Include="InputDialog.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="PictureBoxWithInterpolationMode.cs">
       <SubType>Component</SubType>
@@ -111,6 +112,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TileBrush.cs" />
     <Compile Include="Tiled.cs" />
+    <Compile Include="TileStampFlowLayoutPanel .cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

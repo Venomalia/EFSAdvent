@@ -412,45 +412,49 @@
   },
   "96": {
     "Name": "Lifting rock soil",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "Description": "",
     "MirrorTile": 97
   },
   "97": {
     "Name": "Lifting rock soil",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "Description": "",
     "MirrorTile": 96
   },
   "98": {
     "Name": "Lifting rock soil",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "Description": "",
     "MirrorTile": 99
   },
   "99": {
     "Name": "Lifting rock soil",
     "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
-    "MirrorTile": 98
+    "MirrorTile": 98,
+    "RequiredActorID": "RCK2",
+    "ActorValue": 0
   },
   "100": {
     "Name": "Hidden staircase",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "Description": "",
     "MirrorTile": 101,
     "RequiredActorID": "WARP",
     "ActorValue": 26
   },
   "101": {
     "Name": "Hidden staircase",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "Description": "",
     "MirrorTile": 100
   },
   "102": {
     "Name": "Hidden staircase",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "Description": "",
     "MirrorTile": 103
   },
   "103": {
     "Name": "Hidden staircase",
     "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
-    "MirrorTile": 102
+    "MirrorTile": 102,
+    "RequiredActorID": "RCK2",
+    "ActorValue": 0
   },
   "104": {
     "Name": "Bush, reveals switch",
@@ -1644,7 +1648,9 @@
   "412": {
     "Name": "House door",
     "Description": "",
-    "MirrorTile": 413
+    "MirrorTile": 413,
+    "RequiredActorID": "WARP",
+    "ActorValue": 33554457
   },
   "413": {
     "Name": "House door",
@@ -3001,7 +3007,9 @@
   },
   "736": {
     "Name": "Closed 1x1 door (north)",
-    "MirrorTile": 737
+    "MirrorTile": 737,
+    "RequiredActorID": "DOOR",
+    "ActorValue": 2147483776
   },
   "737": {
     "Name": "Closed 1x1 door (north)",
@@ -3009,11 +3017,15 @@
   },
   "738": {
     "Name": "Closed 1x1 door (west)",
-    "MirrorTile": 739
+    "MirrorTile": 739,
+    "RequiredActorID": "DOOR",
+    "ActorValue": 2147483904
   },
   "739": {
     "Name": "Closed 1x1 door (east)",
-    "MirrorTile": 738
+    "MirrorTile": 738,
+    "RequiredActorID": "DOOR",
+    "ActorValue": 2147484032
   },
   "740": {
     "Name": "Door frame ceiling (north)",
@@ -3069,7 +3081,9 @@
   },
   "752": {
     "Name": "Closed 1x1 door (north)",
-    "MirrorTile": 753
+    "MirrorTile": 753,
+    "RequiredActorID": "DOOR",
+    "ActorValue": 2147483648
   },
   "753": {
     "Name": "Closed 1x1 door (north)",
@@ -3404,11 +3418,11 @@
     "MirrorTile": 822
   },
   "834": {
-    "Name": "",
+    "Name": "Door (south)",
     "MirrorTile": 825
   },
   "835": {
-    "Name": "",
+    "Name": "Door (south)",
     "MirrorTile": 824
   },
   "836": {
@@ -3466,11 +3480,11 @@
     "MirrorTile": 846
   },
   "848": {
-    "Name": "",
+    "Name": "Door (north)",
     "MirrorTile": 849
   },
   "849": {
-    "Name": "",
+    "Name": "Door (north)",
     "MirrorTile": 848
   },
   "850": {
@@ -3482,37 +3496,37 @@
     "MirrorTile": 850
   },
   "852": {
-    "Name": "",
+    "Name": "Door (west)",
     "MirrorTile": 855
   },
   "853": {
-    "Name": "",
+    "Name": "Door (west)",
     "MirrorTile": 854
   },
   "854": {
-    "Name": "Locked door (south)",
-    "MirrorTile": 853,
-    "RequiredActorID": "DOOR",
-    "ActorValue": 1
+    "Name": "Door (east)",
+    "MirrorTile": 853
   },
   "855": {
-    "Name": "Locked door (south)",
+    "Name": "Door (east)",
     "MirrorTile": 852
   },
   "856": {
-    "Name": "Locked door (west)",
-    "MirrorTile": 857
+    "Name": "Locked door (south)",
+    "MirrorTile": 857,
+    "RequiredActorID": "DOOR",
+    "ActorValue": 1
   },
   "857": {
-    "Name": "Locked door (east)",
+    "Name": "Locked door (south)",
     "MirrorTile": 856
   },
   "858": {
-    "Name": "",
+    "Name": "Locked door (west)",
     "MirrorTile": 859
   },
   "859": {
-    "Name": "",
+    "Name": "Locked door (east)",
     "MirrorTile": 858
   },
   "860": {
@@ -3785,7 +3799,9 @@
   },
   "936": {
     "Name": "",
-    "MirrorTile": 937
+    "MirrorTile": 937,
+    "RequiredActorID": "DOOR",
+    "ActorValue": 131
   },
   "937": {
     "Name": "",
