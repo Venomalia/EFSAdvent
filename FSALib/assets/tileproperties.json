@@ -226,11 +226,13 @@
   },
   "54": {
     "Name": "Block, movable west",
-    "Description": "Can be moved to the west."
+    "Description": "Can be moved to the west.",
+    "MirrorTile": 55
   },
   "55": {
     "Name": "Block, movable east",
-    "Description": "Can be moved to the east."
+    "Description": "Can be moved to the east.",
+    "MirrorTile": 54
   },
   "56": {
     "Name": "Thorn blockade",
@@ -360,6 +362,16 @@
     "Description": "A torch that produces light, can be lighted with a LWSW Actor.",
     "RequiredActorID": "TRCH"
   },
+  "86": {
+    "Name": "Pillar",
+    "Description": "",
+    "MirrorTile": 87
+  },
+  "87": {
+    "Name": "Pillar",
+    "Description": "",
+    "MirrorTile": 86
+  },
   "88": {
     "Name": "Bomb Flower",
     "Description": "Don't use!"
@@ -376,19 +388,23 @@
   },
   "91": {
     "Name": "Magic circle gate",
-    "Description": ""
+    "Description": "",
+    "MirrorTile": 92
   },
   "92": {
     "Name": "Magic circle gate",
-    "Description": ""
+    "Description": "",
+    "MirrorTile": 91
   },
   "93": {
     "Name": "Magic circle gate",
-    "Description": ""
+    "Description": "",
+    "MirrorTile": 94
   },
   "94": {
     "Name": "Magic circle gate",
-    "Description": ""
+    "Description": "",
+    "MirrorTile": 93
   },
   "95": {
     "Name": "Coconut",
@@ -396,37 +412,45 @@
   },
   "96": {
     "Name": "Lifting rock soil",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "MirrorTile": 97
   },
   "97": {
     "Name": "Lifting rock soil",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "MirrorTile": 96
   },
   "98": {
     "Name": "Lifting rock soil",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "MirrorTile": 99
   },
   "99": {
     "Name": "Lifting rock soil",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "MirrorTile": 98
   },
   "100": {
     "Name": "Hidden staircase",
     "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "MirrorTile": 101,
     "RequiredActorID": "WARP",
     "ActorValue": 26
   },
   "101": {
     "Name": "Hidden staircase",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "MirrorTile": 100
   },
   "102": {
     "Name": "Hidden staircase",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "MirrorTile": 103
   },
   "103": {
     "Name": "Hidden staircase",
-    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here."
+    "Description": "Intended to platiren a 2 person lifting rock “RCK2” here.",
+    "MirrorTile": 102
   },
   "104": {
     "Name": "Bush, reveals switch",
@@ -449,20 +473,24 @@
   "108": {
     "Name": "Cave entrance ceiling, top layer",
     "Description": "",
+    "MirrorTile": 109,
     "PlaceAlwaysOnTopLayer": true
   },
   "109": {
     "Name": "Cave entrance ceiling, top layer",
     "Description": "",
+    "MirrorTile": 108,
     "PlaceAlwaysOnTopLayer": true
   },
   "110": {
     "Name": "Cave entrance ceiling",
-    "Description": ""
+    "Description": "",
+    "MirrorTile": 111
   },
   "111": {
     "Name": "Cave entrance ceiling",
-    "Description": ""
+    "Description": "",
+    "MirrorTile": 110
   },
   "112": {
     "Name": "Bush",
@@ -501,6 +529,30 @@
     "Name": "Hole",
     "Description": ""
   },
+  "123": {
+    "Name": "Small hole",
+    "Description": "Is left behind when a sign is pulled out of the ground."
+  },
+  "124": {
+    "Name": "Imprint in grass",
+    "Description": "Is left behind when a Small Rock is pulled out of the ground."
+  },
+  "125": {
+    "Name": "Cut grass",
+    "Description": ""
+  },
+  "126": {
+    "Name": "Cave entrance",
+    "Description": "",
+    "MirrorTile": 127,
+    "RequiredActorID": "WARP",
+    "ActorValue": 25
+  },
+  "127": {
+    "Name": "Cave entrance",
+    "Description": "",
+    "MirrorTile": 126
+  },
   "128": {
     "Name": "Key block",
     "Description": "Can be removed with a small key.",
@@ -529,6 +581,26 @@
     "RequiredActorID": "HBMB",
     "ActorValue": 1
   },
+  "134": {
+    "Name": "Shallow water",
+    "Description": "",
+    "MirrorTile": 135
+  },
+  "135": {
+    "Name": "Shallow water",
+    "Description": "",
+    "MirrorTile": 134
+  },
+  "136": {
+    "Name": "Shallow water",
+    "Description": "",
+    "MirrorTile": 137
+  },
+  "137": {
+    "Name": "Shallow water",
+    "Description": "",
+    "MirrorTile": 136
+  },
   "139": {
     "Name": "Green tile",
     "Description": "Only the green link can run over the tile.",
@@ -553,6 +625,24 @@
     "RequiredActorID": "RBPN",
     "ActorValue": 384
   },
+  "149": {
+    "Name": "Strong water current, South",
+    "Description": ""
+  },
+  "150": {
+    "Name": "Strong water current, North",
+    "Description": ""
+  },
+  "151": {
+    "Name": "Strong water current, West",
+    "Description": "",
+    "MirrorTile": 152
+  },
+  "152": {
+    "Name": "Strong water current, East",
+    "Description": "",
+    "MirrorTile": 151
+  },
   "153": {
     "Name": "Fire jar (Side view)",
     "Description": "Can be thrown."
@@ -561,7 +651,7 @@
     "Name": "Water jar (Side view)",
     "Description": "Can be thrown."
   },
-  "127": {
+  "157": {
     "Name": "Destroyed fragile block",
     "Description": ""
   },
@@ -575,6 +665,14 @@
     "Description": "Place on a pedestal.",
     "PlaceAlwaysOnTopLayer": true
   },
+  "162": {
+    "Name": "Shallow water",
+    "Description": ""
+  },
+  "163": {
+    "Name": "Shallow water",
+    "Description": ""
+  },
   "164": {
     "Name": "Conveyors, north",
     "Description": "Move the player."
@@ -585,11 +683,13 @@
   },
   "166": {
     "Name": "Conveyors, west",
-    "Description": "Move the player."
+    "Description": "Move the player.",
+    "MirrorTile": 167
   },
   "167": {
     "Name": "Conveyors, east",
-    "Description": "Move the player."
+    "Description": "Move the player.",
+    "MirrorTile": 166
   },
   "168": {
     "Name": "Blue switch block",
@@ -602,12 +702,14 @@
   "170": {
     "Name": "Big Chests",
     "Description": "Can be opened with a large key and gives 1000 force crystals.",
+    "MirrorTile": 171,
     "RequiredActorID": "DOOR",
     "ActorValue": 7
   },
   "171": {
     "Name": "Big Chests",
-    "Description": "Can be opened with a large key and gives 1000 force crystals."
+    "Description": "Can be opened with a large key and gives 1000 force crystals.",
+    "MirrorTile": 170
   },
   "172": {
     "Name": "Eyeball switch",
@@ -635,12 +737,42 @@
     "PlaceAlwaysOnTopLayer": true
   },
   "178": {
-    "Name": "Big Chests, open",
-    "Description": ""
+    "Name": "Shallow water",
+    "Description": "",
+    "MirrorTile": 179
   },
   "179": {
-    "Name": "Big Chests, open",
+    "Name": "Shallow water",
+    "Description": "",
+    "MirrorTile": 178
+  },
+  "180": {
+    "Name": "Water current, South",
     "Description": ""
+  },
+  "181": {
+    "Name": "Water current, North",
+    "Description": ""
+  },
+  "182": {
+    "Name": "Water current, West",
+    "Description": "",
+    "MirrorTile": 183
+  },
+  "183": {
+    "Name": "Water current, East",
+    "Description": "",
+    "MirrorTile": 182
+  },
+  "188": {
+    "Name": "Big Chests, opened",
+    "Description": "An empty big chest that has already been opened.",
+    "MirrorTile": 189
+  },
+  "189": {
+    "Name": "Big Chests, opened",
+    "Description": "An empty big chest that has already been opened.",
+    "MirrorTile": 188
   },
   "190": {
     "Name": "On switch",
@@ -652,201 +784,2415 @@
     "Description": "",
     "RequiredActorID": "ONOF"
   },
+  "192": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 194
+  },
+  "194": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 192
+  },
+  "195": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 197
+  },
+  "197": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 195
+  },
+  "198": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 200
+  },
+  "200": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 198
+  },
+  "201": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 203
+  },
+  "203": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 201
+  },
+  "204": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 113
+  },
+  "205": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 214
+  },
+  "206": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 215
+  },
+  "207": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 210
+  },
+  "208": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 211
+  },
+  "209": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 212
+  },
+  "210": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 207
+  },
+  "211": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 208
+  },
+  "212": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 209
+  },
+  "213": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 204
+  },
+  "214": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 205
+  },
+  "215": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 206
+  },
   "216": {
     "Name": "Magic circle gate",
-    "Description": ""
+    "Description": "",
+    "MirrorTile": 217
   },
   "217": {
     "Name": "Magic circle gate",
-    "Description": ""
+    "Description": "",
+    "MirrorTile": 216
   },
   "218": {
     "Name": "Magic circle gate",
-    "Description": ""
+    "Description": "",
+    "MirrorTile": 219
   },
   "219": {
     "Name": "Magic circle gate",
-    "Description": ""
+    "Description": "",
+    "MirrorTile": 218
   },
   "220": {
     "Name": "Block",
     "Description": "Not movable"
   },
+  "225": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 226
+  },
+  "226": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 225
+  },
+  "227": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 228
+  },
+  "228": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 227
+  },
+  "230": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 231
+  },
+  "231": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 230
+  },
+  "232": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 233
+  },
+  "233": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 232
+  },
+  "237": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 238
+  },
+  "238": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 237
+  },
+  "239": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 252
+  },
+  "240": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 242
+  },
+  "242": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 240
+  },
+  "243": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 245
+  },
+  "245": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 243
+  },
+  "246": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 248
+  },
+  "248": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 246
+  },
   "250": {
     "Name": "Tree trunk"
+  },
+  "252": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 239
+  },
+  "253": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 255
+  },
+  "255": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 253
+  },
+  "256": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 257
+  },
+  "257": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 256
+  },
+  "259": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 261
+  },
+  "261": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 259
+  },
+  "262": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 263
+  },
+  "263": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 262
+  },
+  "265": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 266
+  },
+  "266": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 265
+  },
+  "267": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 268
+  },
+  "268": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 267
+  },
+  "270": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 271
+  },
+  "271": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 270
+  },
+  "272": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 274
+  },
+  "274": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 272
+  },
+  "275": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 277
+  },
+  "277": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 275
+  },
+  "278": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 285
+  },
+  "279": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 284
+  },
+  "280": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 283
+  },
+  "281": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 282
+  },
+  "282": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 281
+  },
+  "283": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 280
+  },
+  "284": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 279
+  },
+  "285": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 278
+  },
+  "286": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 287
+  },
+  "287": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 286
+  },
+  "288": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 290
+  },
+  "290": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 288
+  },
+  "291": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 293
+  },
+  "293": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 291
+  },
+  "294": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 301
+  },
+  "295": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 300
+  },
+  "296": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 299
+  },
+  "297": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 298
+  },
+  "298": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 298
+  },
+  "299": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 296
+  },
+  "300": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 295
+  },
+  "301": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 294
+  },
+  "302": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 303
+  },
+  "303": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 302
+  },
+  "304": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 306
+  },
+  "306": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 304
+  },
+  "307": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 309
+  },
+  "309": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 307
+  },
+  "310": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 313
+  },
+  "311": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 312
+  },
+  "312": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 311
+  },
+  "313": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 310
+  },
+  "314": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 315
+  },
+  "315": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 314
+  },
+  "316": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 317
+  },
+  "317": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 316
+  },
+  "318": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 319
+  },
+  "319": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 318
+  },
+  "320": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 325
+  },
+  "321": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 324
+  },
+  "322": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 323
+  },
+  "323": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 322
+  },
+  "324": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 321
+  },
+  "325": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 320
+  },
+  "329": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 331
+  },
+  "331": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 329
+  },
+  "332": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 348
+  },
+  "333": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 334
+  },
+  "334": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 333
+  },
+  "336": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 341
+  },
+  "337": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 340
+  },
+  "338": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 339
+  },
+  "339": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 338
+  },
+  "340": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 337
+  },
+  "341": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 336
+  },
+  "342": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 344
+  },
+  "344": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 342
+  },
+  "348": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 332
+  },
+  "349": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 350
+  },
+  "350": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 349
+  },
+  "352": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 355
+  },
+  "353": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 354
+  },
+  "354": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 353
+  },
+  "355": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 352
+  },
+  "356": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 359
+  },
+  "357": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 358
+  },
+  "358": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 357
+  },
+  "359": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 356
+  },
+  "362": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 363
+  },
+  "363": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 362
+  },
+  "366": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 367
+  },
+  "367": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 366
+  },
+  "368": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 371
+  },
+  "369": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 370
+  },
+  "370": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 369
+  },
+  "371": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 368
+  },
+  "372": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 375
+  },
+  "373": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 374
+  },
+  "374": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 373
+  },
+  "375": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 372
+  },
+  "378": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 379
+  },
+  "379": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 378
+  },
+  "380": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 381
+  },
+  "381": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 380
+  },
+  "382": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 383
+  },
+  "383": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 382
+  },
+  "384": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 388
+  },
+  "385": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 387
+  },
+  "387": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 385
+  },
+  "388": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 384
+  },
+  "389": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 393
+  },
+  "390": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 392
+  },
+  "392": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 390
+  },
+  "393": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 389
+  },
+  "394": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 397
+  },
+  "395": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 396
+  },
+  "396": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 395
+  },
+  "397": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 394
+  },
+  "398": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 399
+  },
+  "399": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 398
+  },
+  "400": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 404
+  },
+  "401": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 403
+  },
+  "403": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 401
+  },
+  "404": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 400
+  },
+  "405": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 409
+  },
+  "407": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 408
+  },
+  "408": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 407
+  },
+  "409": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 405
+  },
+  "410": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 411
+  },
+  "411": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 410
+  },
+  "412": {
+    "Name": "House door",
+    "Description": "",
+    "MirrorTile": 413
+  },
+  "413": {
+    "Name": "House door",
+    "Description": "",
+    "MirrorTile": 412
+  },
+  "414": {
+    "Name": "House door, open",
+    "Description": "",
+    "MirrorTile": 415
+  },
+  "415": {
+    "Name": "House door, open",
+    "Description": "",
+    "MirrorTile": 414
+  },
+  "416": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 418
+  },
+  "418": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 416
+  },
+  "419": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 420
+  },
+  "420": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 419
+  },
+  "425": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 426
+  },
+  "426": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 425
+  },
+  "427": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 429
+  },
+  "429": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 427
+  },
+  "430": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 431
+  },
+  "431": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 430
   },
   "432": {
     "Name": "Ground",
     "Description": "Default, Traversable."
   },
+  "437": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 453
+  },
+  "439": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 442
+  },
+  "440": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 441
+  },
+  "441": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 440
+  },
+  "442": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 439
+  },
+  "446": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 447
+  },
+  "447": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 446
+  },
+  "453": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 437
+  },
+  "455": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 458
+  },
+  "456": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 457
+  },
+  "457": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 456
+  },
+  "458": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 455
+  },
+  "462": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 463
+  },
+  "463": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 462
+  },
+  "464": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 467,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "465": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 466,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "466": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 465,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "467": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 464,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "468": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 469,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "469": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 468,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "470": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 473,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "471": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 472
+  },
+  "472": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 471
+  },
+  "473": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 470,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "476": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 477
+  },
+  "477": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 476
+  },
+  "478": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 479
+  },
+  "479": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 478
+  },
+  "480": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 483,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "481": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 482,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "482": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 481,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "483": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 480,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "484": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 485
+  },
+  "485": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 484
+  },
+  "486": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 489
+  },
+  "487": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 488
+  },
+  "488": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 487
+  },
+  "489": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 486
+  },
+  "490": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 491
+  },
+  "491": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 490
+  },
+  "492": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 493
+  },
+  "493": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 492
+  },
+  "494": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 495
+  },
+  "495": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 494
+  },
+  "496": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 499,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "497": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 498,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "498": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 497,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "499": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 496,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "500": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 501
+  },
+  "501": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 500
+  },
+  "502": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 505
+  },
+  "503": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 504
+  },
+  "504": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 503
+  },
+  "505": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 502
+  },
+  "506": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 507
+  },
+  "507": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 506
+  },
+  "508": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 511
+  },
+  "509": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 510
+  },
+  "510": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 509
+  },
+  "511": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 508
+  },
+  "512": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 515,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "513": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 514,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "514": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 513,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "515": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 512,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "516": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 517,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "517": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 516,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "518": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 521,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "519": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 520
+  },
+  "520": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 519
+  },
+  "521": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 518,
+    "PlaceAlwaysOnTopLayer": true
+  },
+  "524": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 527
+  },
+  "525": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 526
+  },
+  "526": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 525
+  },
+  "527": {
+    "Name": "Tree",
+    "Description": "",
+    "MirrorTile": 524
+  },
+  "528": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 531
+  },
+  "529": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 530
+  },
+  "530": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 529
+  },
+  "531": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 528
+  },
+  "534": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 535
+  },
+  "535": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 534
+  },
+  "536": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 539
+  },
+  "537": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 538
+  },
+  "538": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 537
+  },
+  "539": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 536
+  },
+  "540": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 541
+  },
+  "541": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 540
+  },
+  "542": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 543
+  },
+  "543": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 542
+  },
+  "544": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 549
+  },
+  "545": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 548
+  },
+  "546": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 547
+  },
+  "547": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 546
+  },
+  "548": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 545
+  },
+  "549": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 544
+  },
+  "550": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 557
+  },
+  "551": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 556
+  },
+  "552": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 555
+  },
+  "553": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 554
+  },
+  "554": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 553
+  },
+  "555": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 552
+  },
+  "556": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 551
+  },
+  "557": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 555
+  },
+  "568": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 569
+  },
+  "569": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 568
+  },
+  "570": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 571
+  },
+  "571": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 570
+  },
+  "572": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 573
+  },
+  "573": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 572
+  },
+  "574": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 575
+  },
+  "575": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 574
+  },
+  "576": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 591
+  },
+  "577": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 590
+  },
+  "578": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 589
+  },
+  "579": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 588
+  },
+  "580": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 587
+  },
+  "581": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 586
+  },
+  "582": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 585
+  },
+  "583": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 584
+  },
+  "584": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 583
+  },
+  "585": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 582
+  },
+  "586": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 581
+  },
+  "587": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 580
+  },
+  "588": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 579
+  },
+  "589": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 578
+  },
+  "590": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 577
+  },
+  "591": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 576
+  },
+  "592": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 607
+  },
+  "593": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 606
+  },
+  "594": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 605
+  },
+  "595": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 604
+  },
+  "596": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 603
+  },
+  "597": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 602
+  },
+  "598": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 601
+  },
+  "599": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 600
+  },
+  "600": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 599
+  },
+  "601": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 598
+  },
+  "602": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 597
+  },
+  "603": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 596
+  },
+  "604": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 595
+  },
+  "605": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 594
+  },
+  "606": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 593
+  },
+  "607": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 592
+  },
+  "608": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 623
+  },
+  "609": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 622
+  },
+  "610": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 621
+  },
+  "611": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 620
+  },
+  "612": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 619
+  },
+  "613": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 618
+  },
+  "614": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 617
+  },
+  "615": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 616
+  },
+  "616": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 615
+  },
+  "617": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 614
+  },
+  "618": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 613
+  },
+  "619": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 612
+  },
+  "620": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 611
+  },
+  "621": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 610
+  },
+  "622": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 609
+  },
+  "623": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 608
+  },
+  "624": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 639
+  },
+  "625": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 638
+  },
+  "626": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 637
+  },
+  "627": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 636
+  },
+  "628": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 635
+  },
+  "629": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 634
+  },
+  "630": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 633
+  },
+  "631": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 632
+  },
+  "632": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 631
+  },
+  "633": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 630
+  },
+  "634": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 629
+  },
+  "635": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 628
+  },
+  "636": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 627
+  },
+  "637": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 626
+  },
+  "638": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 625
+  },
+  "639": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 624
+  },
+  "640": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 641
+  },
+  "641": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 640
+  },
+  "642": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 643
+  },
+  "643": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 642
+  },
+  "644": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 645
+  },
+  "645": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 644
+  },
+  "646": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 647
+  },
+  "647": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 646
+  },
+  "648": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 655
+  },
+  "649": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 654
+  },
+  "650": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 653
+  },
+  "651": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 652
+  },
+  "652": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 651
+  },
+  "653": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 650
+  },
+  "654": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 649
+  },
+  "655": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 648
+  },
+  "656": {
+    "Name": "Statue",
+    "Description": "",
+    "MirrorTile": 657
+  },
+  "657": {
+    "Name": "Statue",
+    "Description": "",
+    "MirrorTile": 656
+  },
+  "658": {
+    "Name": "Statue",
+    "Description": "",
+    "MirrorTile": 659
+  },
+  "659": {
+    "Name": "Statue",
+    "Description": "",
+    "MirrorTile": 658
+  },
+  "666": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 671
+  },
+  "667": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 670
+  },
+  "668": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 669
+  },
+  "669": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 668
+  },
+  "670": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 667
+  },
+  "671": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 666
+  },
+  "672": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 679
+  },
+  "673": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 678
+  },
+  "674": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 677
+  },
+  "675": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 676
+  },
+  "676": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 675
+  },
+  "677": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 674
+  },
+  "678": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 673
+  },
+  "679": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 672
+  },
+  "682": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 683
+  },
+  "683": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 682
+  },
+  "684": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 685
+  },
+  "685": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 684
+  },
+  "686": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 687
+  },
+  "687": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 686
+  },
+  "692": {
+    "Name": "Statue",
+    "Description": "",
+    "MirrorTile": 693
+  },
+  "693": {
+    "Name": "Statue",
+    "Description": "",
+    "MirrorTile": 692
+  },
+  "694": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 695
+  },
+  "695": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 694
+  },
+  "698": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 699
+  },
+  "699": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 698
+  },
+  "700": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 701
+  },
+  "701": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 700
+  },
+  "702": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 703
+  },
+  "703": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 702
+  },
+  "704": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 705
+  },
+  "705": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 704
+  },
+  "706": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 707
+  },
+  "707": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 706
+  },
+  "708": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 710
+  },
+  "710": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 708
+  },
+  "711": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 727
+  },
+  "712": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 728
+  },
+  "713": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 728
+  },
+  "714": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 715
+  },
+  "715": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 714
+  },
+  "716": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 717
+  },
+  "717": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 716
+  },
+  "719": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 735
+  },
+  "720": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 721
+  },
+  "721": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 720
+  },
+  "722": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 723
+  },
+  "723": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 722
+  },
+  "724": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 726
+  },
+  "726": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 724
+  },
+  "727": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 711
+  },
+  "728": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 712
+  },
+  "729": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 713
+  },
+  "730": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 731
+  },
+  "731": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 730
+  },
+  "732": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 733
+  },
+  "733": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 732
+  },
+  "735": {
+    "Name": "",
+    "Description": "",
+    "MirrorTile": 719
+  },
   "736": {
-    "Name": "Closed 1x1 door (north)"
+    "Name": "Closed 1x1 door (north)",
+    "MirrorTile": 737
   },
   "737": {
-    "Name": "Closed 1x1 door (north)"
+    "Name": "Closed 1x1 door (north)",
+    "MirrorTile": 736
   },
   "738": {
-    "Name": "Closed 1x1 door (west)"
+    "Name": "Closed 1x1 door (west)",
+    "MirrorTile": 739
   },
   "739": {
-    "Name": "Closed 1x1 door (east)"
+    "Name": "Closed 1x1 door (east)",
+    "MirrorTile": 738
   },
   "740": {
     "Name": "Door frame ceiling (north)",
     "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "MirrorTile": 742
   },
   "741": {
     "Name": "Door frame ceiling (north)",
-    "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "Description": ""
   },
   "742": {
     "Name": "Door frame ceiling (north)",
     "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "MirrorTile": 740
   },
   "743": {
     "Name": "Door frame ceiling (west)",
     "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "MirrorTile": 759
   },
   "744": {
     "Name": "Door frame ceiling (west)",
     "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "MirrorTile": 760
   },
   "745": {
     "Name": "Door frame ceiling (west)",
     "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "MirrorTile": 761
   },
   "746": {
-    "Name": "Door frame (north)"
+    "Name": "Door frame (north)",
+    "MirrorTile": 747
   },
   "747": {
-    "Name": "Door frame (north)"
+    "Name": "Door frame (north)",
+    "MirrorTile": 746
   },
   "748": {
-    "Name": "Door frame (west)"
+    "Name": "Door frame (west)",
+    "MirrorTile": 749
   },
   "749": {
-    "Name": "Door frame (east)"
+    "Name": "Door frame (east)",
+    "MirrorTile": 748
   },
   "750": {
     "Name": "Doorway (north)"
   },
   "751": {
-    "Name": "Doorway (west)"
+    "Name": "Doorway (west)",
+    "MirrorTile": 767
   },
   "752": {
-    "Name": "Closed 1x1 door (north)"
+    "Name": "Closed 1x1 door (north)",
+    "MirrorTile": 753
   },
   "753": {
-    "Name": "Closed 1x1 door (north)"
+    "Name": "Closed 1x1 door (north)",
+    "MirrorTile": 752
   },
   "754": {
-    "Name": "Closed 1x1 door (west)"
+    "Name": "Closed 1x1 door (west)",
+    "MirrorTile": 755
   },
   "755": {
-    "Name": "Closed 1x1 door (east)"
+    "Name": "Closed 1x1 door (east)",
+    "MirrorTile": 754
   },
   "756": {
     "Name": "Door frame ceiling (south)",
     "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "MirrorTile": 758
   },
   "757": {
     "Name": "Door frame ceiling (south)",
-    "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "Description": ""
   },
   "758": {
     "Name": "Door frame ceiling (south)",
     "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "MirrorTile": 756
   },
   "759": {
     "Name": "Door frame ceiling (east)",
     "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "MirrorTile": 743
   },
   "760": {
     "Name": "Door frame ceiling (east)",
     "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "MirrorTile": 744
   },
   "761": {
     "Name": "Door frame ceiling (east)",
     "Description": "",
-    "PlaceAlwaysOnTopLayer": true
+    "MirrorTile": 745
   },
   "762": {
-    "Name": "Door frame (south)"
+    "Name": "Door frame (south)",
+    "MirrorTile": 763
   },
   "763": {
-    "Name": "Door frame (south)"
+    "Name": "Door frame (south)",
+    "MirrorTile": 762
   },
   "764": {
-    "Name": "Door frame (west)"
+    "Name": "Door frame (west)",
+    "MirrorTile": 765
   },
   "765": {
-    "Name": "Door frame (east)"
+    "Name": "Door frame (east)",
+    "MirrorTile": 764
   },
   "766": {
     "Name": "Doorway (south)"
   },
   "767": {
-    "Name": "Doorway (east)"
+    "Name": "Doorway (east)",
+    "MirrorTile": 751
   },
   "768": {
-    "Name": "Closed door (north)"
+    "Name": "Closed door (north)",
+    "MirrorTile": 769
   },
   "769": {
-    "Name": "Closed door (north)"
+    "Name": "Closed door (north)",
+    "MirrorTile": 768
   },
   "770": {
-    "Name": "Closed door (west)"
+    "Name": "Closed door (west)",
+    "MirrorTile": 771
   },
   "771": {
-    "Name": "Closed door (east)"
+    "Name": "Closed door (east)",
+    "MirrorTile": 770
   },
   "772": {
-    "Name": "Locked door (north)"
+    "Name": "Locked door (north)",
+    "MirrorTile": 773
   },
   "773": {
-    "Name": "Locked door (north)"
+    "Name": "Locked door (north)",
+    "MirrorTile": 772
   },
   "774": {
-    "Name": "Locked door (west)"
+    "Name": "Locked door (west)",
+    "MirrorTile": 775
   },
   "775": {
-    "Name": "Locked door (east)"
+    "Name": "Locked door (east)",
+    "MirrorTile": 774
   },
   "776": {
     "Name": "Closed door (north)"
   },
   "777": {
-    "Name": "Closed door (west)"
+    "Name": "Closed door (west)",
+    "MirrorTile": 793
   },
   "778": {
     "Name": "Closed door frame (north)",
-    "Description": "Place DOOR Actor here. Use type 0 (Closed door) or 1 (Key door).",
+    "MirrorTile": 779,
     "RequiredActorID": "DOOR",
     "ActorValue": 8320
   },
   "779": {
-    "Name": "Closed door frame (north)"
+    "Name": "Closed door frame (north)",
+    "MirrorTile": 778
   },
   "780": {
     "Name": "Closed door frame (west)",
-    "Description": "Place DOOR Actor here. Use type 0 (Closed door) or 1 (Key door).",
+    "MirrorTile": 781,
     "RequiredActorID": "DOOR",
     "ActorValue": 8448
   },
   "781": {
     "Name": "Closed door frame (east)",
-    "Description": "Place DOOR Actor here. Use type 0 (Closed door) or 1 (Key door).",
+    "MirrorTile": 780,
     "RequiredActorID": "DOOR",
     "ActorValue": 8576
   },
@@ -854,46 +3200,780 @@
     "Name": "Wide cracked wall (north)"
   },
   "783": {
-    "Name": "Wide cracked wall (west)"
+    "Name": "Wide cracked wall (west)",
+    "MirrorTile": 799
   },
   "784": {
-    "Name": "Closed door (south)"
+    "Name": "Closed door (south)",
+    "MirrorTile": 785
   },
   "785": {
-    "Name": "Closed door (south)"
+    "Name": "Closed door (south)",
+    "MirrorTile": 784
   },
   "786": {
-    "Name": "Closed door (west)"
+    "Name": "Closed door (west)",
+    "MirrorTile": 787
   },
   "787": {
-    "Name": "Closed door (east)"
+    "Name": "Closed door (east)",
+    "MirrorTile": 786
   },
   "788": {
-    "Name": "Locked door (south)"
+    "Name": "Locked door (south)",
+    "MirrorTile": 789
   },
   "789": {
-    "Name": "Locked door (south)"
+    "Name": "Locked door (south)",
+    "MirrorTile": 788
   },
   "790": {
-    "Name": "Locked door (west)"
+    "Name": "Locked door (west)",
+    "MirrorTile": 791
   },
   "791": {
-    "Name": "Locked door (east)"
+    "Name": "Locked door (east)",
+    "MirrorTile": 790
   },
   "792": {
     "Name": "Closed door (south)"
   },
   "793": {
-    "Name": "Closed door (east)"
+    "Name": "Closed door (east)",
+    "MirrorTile": 777
   },
   "794": {
     "Name": "Closed door frame (south)",
-    "Description": "Place DOOR Actor here. Use type 0 (Closed door) or 1 (Key door).",
+    "MirrorTile": 795,
     "RequiredActorID": "DOOR",
     "ActorValue": 8192
   },
   "795": {
-    "Name": "Closed door frame (south)"
+    "Name": "Closed door frame (south)",
+    "MirrorTile": 794
+  },
+  "796": {
+    "Name": "Closed door frame (west)",
+    "MirrorTile": 797
+  },
+  "797": {
+    "Name": "Closed door frame (east)",
+    "MirrorTile": 796
+  },
+  "798": {
+    "Name": "Wide cracked wall (south)"
+  },
+  "799": {
+    "Name": "Wide cracked wall (east)",
+    "MirrorTile": 783
+  },
+  "800": {
+    "Name": "",
+    "MirrorTile": 801
+  },
+  "801": {
+    "Name": "",
+    "MirrorTile": 800
+  },
+  "802": {
+    "Name": "",
+    "MirrorTile": 803
+  },
+  "803": {
+    "Name": "",
+    "MirrorTile": 802
+  },
+  "804": {
+    "Name": "",
+    "MirrorTile": 807
+  },
+  "805": {
+    "Name": "",
+    "MirrorTile": 806
+  },
+  "806": {
+    "Name": "",
+    "MirrorTile": 805
+  },
+  "807": {
+    "Name": "",
+    "MirrorTile": 804
+  },
+  "808": {
+    "Name": "",
+    "MirrorTile": 809
+  },
+  "809": {
+    "Name": "",
+    "MirrorTile": 808
+  },
+  "810": {
+    "Name": "",
+    "MirrorTile": 811
+  },
+  "811": {
+    "Name": "",
+    "MirrorTile": 810
+  },
+  "812": {
+    "Name": "",
+    "MirrorTile": 815
+  },
+  "813": {
+    "Name": "",
+    "MirrorTile": 814
+  },
+  "814": {
+    "Name": "",
+    "MirrorTile": 813
+  },
+  "815": {
+    "Name": "",
+    "MirrorTile": 812
+  },
+  "816": {
+    "Name": "",
+    "MirrorTile": 817
+  },
+  "817": {
+    "Name": "",
+    "MirrorTile": 816
+  },
+  "818": {
+    "Name": "",
+    "MirrorTile": 819
+  },
+  "819": {
+    "Name": "",
+    "MirrorTile": 818
+  },
+  "820": {
+    "Name": "",
+    "MirrorTile": 823
+  },
+  "821": {
+    "Name": "",
+    "MirrorTile": 822
+  },
+  "822": {
+    "Name": "",
+    "MirrorTile": 821
+  },
+  "823": {
+    "Name": "",
+    "MirrorTile": 820
+  },
+  "824": {
+    "Name": "",
+    "MirrorTile": 825
+  },
+  "825": {
+    "Name": "",
+    "MirrorTile": 824
+  },
+  "826": {
+    "Name": "",
+    "MirrorTile": 827
+  },
+  "827": {
+    "Name": "",
+    "MirrorTile": 826
+  },
+  "828": {
+    "Name": "",
+    "MirrorTile": 831
+  },
+  "829": {
+    "Name": "",
+    "MirrorTile": 830
+  },
+  "830": {
+    "Name": "",
+    "MirrorTile": 829
+  },
+  "831": {
+    "Name": "",
+    "MirrorTile": 828
+  },
+  "832": {
+    "Name": "",
+    "MirrorTile": 833
+  },
+  "833": {
+    "Name": "",
+    "MirrorTile": 822
+  },
+  "834": {
+    "Name": "",
+    "MirrorTile": 825
+  },
+  "835": {
+    "Name": "",
+    "MirrorTile": 824
+  },
+  "836": {
+    "Name": "",
+    "MirrorTile": 839
+  },
+  "837": {
+    "Name": "",
+    "MirrorTile": 838
+  },
+  "838": {
+    "Name": "",
+    "MirrorTile": 837
+  },
+  "839": {
+    "Name": "",
+    "MirrorTile": 836
+  },
+  "840": {
+    "Name": "Locked door (north)",
+    "MirrorTile": 841,
+    "RequiredActorID": "DOOR",
+    "ActorValue": 129
+  },
+  "841": {
+    "Name": "Locked door (north)",
+    "MirrorTile": 840
+  },
+  "842": {
+    "Name": "Locked door (west)",
+    "MirrorTile": 843,
+    "RequiredActorID": "DOOR",
+    "ActorValue": 257
+  },
+  "843": {
+    "Name": "Locked door (east)",
+    "MirrorTile": 842,
+    "RequiredActorID": "DOOR",
+    "ActorValue": 385
+  },
+  "844": {
+    "Name": "",
+    "MirrorTile": 879
+  },
+  "845": {
+    "Name": "",
+    "MirrorTile": 878
+  },
+  "846": {
+    "Name": "",
+    "MirrorTile": 847
+  },
+  "847": {
+    "Name": "",
+    "MirrorTile": 846
+  },
+  "848": {
+    "Name": "",
+    "MirrorTile": 849
+  },
+  "849": {
+    "Name": "",
+    "MirrorTile": 848
+  },
+  "850": {
+    "Name": "",
+    "MirrorTile": 851
+  },
+  "851": {
+    "Name": "",
+    "MirrorTile": 850
+  },
+  "852": {
+    "Name": "",
+    "MirrorTile": 855
+  },
+  "853": {
+    "Name": "",
+    "MirrorTile": 854
+  },
+  "854": {
+    "Name": "Locked door (south)",
+    "MirrorTile": 853,
+    "RequiredActorID": "DOOR",
+    "ActorValue": 1
+  },
+  "855": {
+    "Name": "Locked door (south)",
+    "MirrorTile": 852
+  },
+  "856": {
+    "Name": "Locked door (west)",
+    "MirrorTile": 857
+  },
+  "857": {
+    "Name": "Locked door (east)",
+    "MirrorTile": 856
+  },
+  "858": {
+    "Name": "",
+    "MirrorTile": 859
+  },
+  "859": {
+    "Name": "",
+    "MirrorTile": 858
+  },
+  "860": {
+    "Name": "",
+    "MirrorTile": 895
+  },
+  "861": {
+    "Name": "",
+    "MirrorTile": 894
+  },
+  "862": {
+    "Name": "",
+    "MirrorTile": 863
+  },
+  "863": {
+    "Name": "",
+    "MirrorTile": 862
+  },
+  "866": {
+    "Name": "",
+    "MirrorTile": 867
+  },
+  "867": {
+    "Name": "",
+    "MirrorTile": 866
+  },
+  "868": {
+    "Name": "",
+    "MirrorTile": 869
+  },
+  "869": {
+    "Name": "",
+    "MirrorTile": 868
+  },
+  "870": {
+    "Name": "",
+    "MirrorTile": 871
+  },
+  "871": {
+    "Name": "",
+    "MirrorTile": 870
+  },
+  "872": {
+    "Name": "",
+    "MirrorTile": 873
+  },
+  "873": {
+    "Name": "",
+    "MirrorTile": 872
+  },
+  "876": {
+    "Name": "",
+    "MirrorTile": 893
+  },
+  "877": {
+    "Name": "",
+    "MirrorTile": 892
+  },
+  "878": {
+    "Name": "",
+    "MirrorTile": 845
+  },
+  "879": {
+    "Name": "",
+    "MirrorTile": 844
+  },
+  "882": {
+    "Name": "",
+    "MirrorTile": 883
+  },
+  "883": {
+    "Name": "",
+    "MirrorTile": 882
+  },
+  "884": {
+    "Name": "",
+    "MirrorTile": 885
+  },
+  "885": {
+    "Name": "",
+    "MirrorTile": 884
+  },
+  "886": {
+    "Name": "",
+    "MirrorTile": 887
+  },
+  "887": {
+    "Name": "",
+    "MirrorTile": 886
+  },
+  "888": {
+    "Name": "",
+    "MirrorTile": 889
+  },
+  "889": {
+    "Name": "",
+    "MirrorTile": 888
+  },
+  "892": {
+    "Name": "",
+    "MirrorTile": 877
+  },
+  "893": {
+    "Name": "",
+    "MirrorTile": 876
+  },
+  "894": {
+    "Name": "",
+    "MirrorTile": 861
+  },
+  "895": {
+    "Name": "",
+    "MirrorTile": 860
+  },
+  "896": {
+    "Name": "",
+    "MirrorTile": 897
+  },
+  "897": {
+    "Name": "",
+    "MirrorTile": 896
+  },
+  "898": {
+    "Name": "",
+    "MirrorTile": 899
+  },
+  "899": {
+    "Name": "",
+    "MirrorTile": 898
+  },
+  "900": {
+    "Name": "",
+    "MirrorTile": 903
+  },
+  "901": {
+    "Name": "",
+    "MirrorTile": 902
+  },
+  "902": {
+    "Name": "",
+    "MirrorTile": 901
+  },
+  "903": {
+    "Name": "",
+    "MirrorTile": 900
+  },
+  "904": {
+    "Name": "",
+    "MirrorTile": 905
+  },
+  "905": {
+    "Name": "",
+    "MirrorTile": 904
+  },
+  "906": {
+    "Name": "",
+    "MirrorTile": 907
+  },
+  "907": {
+    "Name": "",
+    "MirrorTile": 906
+  },
+  "908": {
+    "Name": "",
+    "MirrorTile": 911
+  },
+  "909": {
+    "Name": "",
+    "MirrorTile": 910
+  },
+  "910": {
+    "Name": "",
+    "MirrorTile": 909
+  },
+  "911": {
+    "Name": "",
+    "MirrorTile": 908
+  },
+  "912": {
+    "Name": "",
+    "MirrorTile": 913
+  },
+  "913": {
+    "Name": "",
+    "MirrorTile": 912
+  },
+  "914": {
+    "Name": "",
+    "MirrorTile": 915
+  },
+  "915": {
+    "Name": "",
+    "MirrorTile": 914
+  },
+  "916": {
+    "Name": "",
+    "MirrorTile": 919
+  },
+  "917": {
+    "Name": "",
+    "MirrorTile": 918
+  },
+  "918": {
+    "Name": "",
+    "MirrorTile": 917
+  },
+  "919": {
+    "Name": "",
+    "MirrorTile": 916
+  },
+  "920": {
+    "Name": "",
+    "MirrorTile": 921
+  },
+  "922": {
+    "Name": "",
+    "MirrorTile": 923
+  },
+  "923": {
+    "Name": "",
+    "MirrorTile": 922
+  },
+  "924": {
+    "Name": "",
+    "MirrorTile": 927
+  },
+  "925": {
+    "Name": "",
+    "MirrorTile": 926
+  },
+  "926": {
+    "Name": "",
+    "MirrorTile": 925
+  },
+  "927": {
+    "Name": "",
+    "MirrorTile": 924
+  },
+  "928": {
+    "Name": "",
+    "MirrorTile": 929
+  },
+  "929": {
+    "Name": "",
+    "MirrorTile": 928
+  },
+  "930": {
+    "Name": "",
+    "MirrorTile": 931
+  },
+  "931": {
+    "Name": "",
+    "MirrorTile": 930
+  },
+  "932": {
+    "Name": "",
+    "MirrorTile": 935
+  },
+  "933": {
+    "Name": "",
+    "MirrorTile": 934
+  },
+  "934": {
+    "Name": "",
+    "MirrorTile": 933
+  },
+  "935": {
+    "Name": "",
+    "MirrorTile": 932
+  },
+  "936": {
+    "Name": "",
+    "MirrorTile": 937
+  },
+  "937": {
+    "Name": "",
+    "MirrorTile": 936
+  },
+  "938": {
+    "Name": "",
+    "MirrorTile": 939
+  },
+  "939": {
+    "Name": "",
+    "MirrorTile": 938
+  },
+  "940": {
+    "Name": "",
+    "MirrorTile": 975
+  },
+  "941": {
+    "Name": "",
+    "MirrorTile": 974
+  },
+  "942": {
+    "Name": "",
+    "MirrorTile": 943
+  },
+  "943": {
+    "Name": "",
+    "MirrorTile": 942
+  },
+  "944": {
+    "Name": "",
+    "MirrorTile": 945
+  },
+  "945": {
+    "Name": "",
+    "MirrorTile": 944
+  },
+  "946": {
+    "Name": "",
+    "MirrorTile": 947
+  },
+  "947": {
+    "Name": "",
+    "MirrorTile": 946
+  },
+  "948": {
+    "Name": "",
+    "MirrorTile": 951
+  },
+  "949": {
+    "Name": "",
+    "MirrorTile": 950
+  },
+  "950": {
+    "Name": "",
+    "MirrorTile": 949
+  },
+  "951": {
+    "Name": "",
+    "MirrorTile": 948
+  },
+  "952": {
+    "Name": "",
+    "MirrorTile": 953
+  },
+  "953": {
+    "Name": "",
+    "MirrorTile": 952
+  },
+  "954": {
+    "Name": "",
+    "MirrorTile": 955
+  },
+  "955": {
+    "Name": "",
+    "MirrorTile": 954
+  },
+  "956": {
+    "Name": "",
+    "MirrorTile": 991
+  },
+  "957": {
+    "Name": "",
+    "MirrorTile": 990
+  },
+  "958": {
+    "Name": "",
+    "MirrorTile": 959
+  },
+  "959": {
+    "Name": "",
+    "MirrorTile": 958
+  },
+  "962": {
+    "Name": "",
+    "MirrorTile": 963
+  },
+  "963": {
+    "Name": "",
+    "MirrorTile": 962
+  },
+  "964": {
+    "Name": "",
+    "MirrorTile": 965
+  },
+  "965": {
+    "Name": "",
+    "MirrorTile": 964
+  },
+  "966": {
+    "Name": "",
+    "MirrorTile": 967
+  },
+  "967": {
+    "Name": "",
+    "MirrorTile": 966
+  },
+  "968": {
+    "Name": "",
+    "MirrorTile": 969
+  },
+  "969": {
+    "Name": "",
+    "MirrorTile": 968
+  },
+  "972": {
+    "Name": "",
+    "MirrorTile": 989
+  },
+  "973": {
+    "Name": "",
+    "MirrorTile": 988
+  },
+  "974": {
+    "Name": "",
+    "MirrorTile": 941
+  },
+  "975": {
+    "Name": "",
+    "MirrorTile": 940
+  },
+  "978": {
+    "Name": "",
+    "MirrorTile": 979
+  },
+  "979": {
+    "Name": "",
+    "MirrorTile": 978
+  },
+  "980": {
+    "Name": "",
+    "MirrorTile": 981
+  },
+  "981": {
+    "Name": "",
+    "MirrorTile": 980
+  },
+  "982": {
+    "Name": "",
+    "MirrorTile": 983
+  },
+  "983": {
+    "Name": "",
+    "MirrorTile": 982
+  },
+  "984": {
+    "Name": "",
+    "MirrorTile": 985
+  },
+  "985": {
+    "Name": "",
+    "MirrorTile": 984
+  },
+  "988": {
+    "Name": "",
+    "MirrorTile": 973
+  },
+  "989": {
+    "Name": "",
+    "MirrorTile": 972
+  },
+  "990": {
+    "Name": "",
+    "MirrorTile": 957
+  },
+  "991": {
+    "Name": "",
+    "MirrorTile": 956
   },
   "996": {
     "Name": "Stalactite Background (Side view)"
@@ -902,15 +3982,61 @@
     "Name": "Stalactite Background (Side view)"
   },
   "999": {
-    "Name": "Door frame (Side view)"
+    "Name": "Door frame (Side view)",
+    "MirrorTile": 1000
   },
   "1000": {
-    "Name": "Door frame (Side view)"
+    "Name": "Door frame (Side view)",
+    "MirrorTile": 999
   },
   "1001": {
-    "Name": "Door frame (Side view)"
+    "Name": "Door frame (Side view)",
+    "MirrorTile": 1002
   },
   "1002": {
-    "Name": "Door frame (Side view)"
+    "Name": "Door frame (Side view)",
+    "MirrorTile": 1001
+  },
+  "1008": {
+    "Name": "Floor (Side view)",
+    "MirrorTile": 1010
+  },
+  "1009": {
+    "Name": "Floor (Side view)"
+  },
+  "1010": {
+    "Name": "Floor (Side view)",
+    "MirrorTile": 1009
+  },
+  "1011": {
+    "Name": "Wall (Side view)",
+    "MirrorTile": 1013
+  },
+  "1012": {
+    "Name": "Wall (Side view)"
+  },
+  "1013": {
+    "Name": "Wall (Side view)",
+    "MirrorTile": 1011
+  },
+  "1014": {
+    "Name": "Ceiling (Side view)",
+    "MirrorTile": 1016
+  },
+  "1015": {
+    "Name": "Ceiling (Side view)"
+  },
+  "1016": {
+    "Name": "Ceiling (Side view)",
+    "MirrorTile": 1014
+  },
+  "1017": {
+    "Name": "Floor (Side view)"
+  },
+  "1018": {
+    "Name": "Wall (Side view)"
+  },
+  "1019": {
+    "Name": "Ceiling (Side view)"
   }
 }

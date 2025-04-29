@@ -2258,6 +2258,12 @@ namespace EFSAdvent
             }
         }
 
+        private void MirrorBrushbutton_Click(object sender, EventArgs e)
+        {
+            _tileBrush.Clipboard.Mirror();
+            UpdateBrushTileBitmap();
+        }
+
         private void buttonSaveLayers_Click(object sender, EventArgs e)
         {
             _level.SaveLayers();

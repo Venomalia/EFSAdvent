@@ -137,6 +137,39 @@ namespace FSALib
             }
         }
 
+        /// <summary>
+        /// Mirrors the tiles horizontally.
+        /// </summary>
+        public void Mirror()
+        {
+            ReadOnlySpan<ushort> mirrorLOT = Assets.MirrorTileLOT;
+            Span<ushort> tiles = _tiles;
+
+            for (int y = 0; y < Height; y++)
+            {
+                int line = y * Layer.DIMENSION;
+                int halfWidth = Width / 2;
+
+                // Mirror left and right sides
+                for (int x = 0; x < halfWidth; x++)
+                {
+                    int leftIndex = line + x;
+                    int rightIndex = line + (Width - 1 - x);
+
+                    ushort left = mirrorLOT[tiles[rightIndex]];
+                    ushort right = mirrorLOT[tiles[leftIndex]];
+
+                    tiles[leftIndex] = left;
+                    tiles[rightIndex] = right;
+                }
+
+                // If width is odd, mirror the center tile
+                if ((Width & 1) != 0)
+                {
+                    int middleIndex = line + halfWidth;
+                    tiles[middleIndex] = mirrorLOT[tiles[middleIndex]];
+                }
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ namespace FSALib
         private static Dictionary<int, string> songs;
         private static Dictionary<ushort, TilePropertie> tileProperties;
         private static readonly Dictionary<Identifier32, ActorSchema> actors;
+        private static ushort[]? mirrorLOT;
 
         /// <summary>
         /// Gets a read-only dictionary of song IDs and their respective names.
@@ -34,6 +35,32 @@ namespace FSALib
         /// Gets a read-only dictionary of <see cref="TilePropertie"/> indexed by their unique ID.
         /// </summary>
         public static IReadOnlyDictionary<ushort, TilePropertie> TileProperties => tileProperties;
+
+        /// <summary>
+        /// Lookup table that provides the mirrored tile ID for each tile.
+        /// </summary>
+        public static ReadOnlySpan<ushort> MirrorTileLOT
+        {
+            get
+            {
+                if (mirrorLOT == null)
+                {
+                    mirrorLOT = new ushort[0x400];
+                    for (ushort i = 1; i < mirrorLOT.Length; i++)
+                    {
+                        if (TileProperties.TryGetValue(i, out TilePropertie tileInfo) && tileInfo.MirrorTile != 0)
+                        {
+                            mirrorLOT[i] = tileInfo.MirrorTile;
+                        }
+                        else
+                        {
+                            mirrorLOT[i] = i;
+                        }
+                    }
+                }
+                return mirrorLOT;
+            }
+        }
 
         /// <summary>
         /// Gets a read-only dictionary of <see cref="ActorSchema"/> indexed by their unique actor identifier.
@@ -51,6 +78,8 @@ namespace FSALib
         /// </summary>
         public static void Reload()
         {
+            mirrorLOT = null;
+
             // Reload song list
             const string songsJson = AssetsDirectory + "\\songs.json";
             if (!Deserialize(songsJson, out songs))

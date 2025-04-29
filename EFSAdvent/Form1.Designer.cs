@@ -119,6 +119,7 @@ namespace EFSAdvent
             this.label16 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.MirrorBrushbutton = new System.Windows.Forms.Button();
             this.BrushSizeLabel = new System.Windows.Forms.Label();
             this.BrushSizeComboBox = new System.Windows.Forms.ComboBox();
             this.BrushTileLabel = new System.Windows.Forms.Label();
@@ -1142,6 +1143,16 @@ namespace EFSAdvent
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tile Sheet";
             // 
+            // MirrorBrushbutton
+            // 
+            this.MirrorBrushbutton.Location = new System.Drawing.Point(139, 34);
+            this.MirrorBrushbutton.Name = "MirrorBrushbutton";
+            this.MirrorBrushbutton.Size = new System.Drawing.Size(52, 23);
+            this.MirrorBrushbutton.TabIndex = 8;
+            this.MirrorBrushbutton.Text = "Mirror";
+            this.MirrorBrushbutton.UseVisualStyleBackColor = true;
+            this.MirrorBrushbutton.Click += new System.EventHandler(this.MirrorBrushbutton_Click);
+            // 
             // BrushSizeLabel
             // 
             this.BrushSizeLabel.AutoSize = true;
@@ -2147,6 +2158,7 @@ namespace EFSAdvent
         private Label label13;
         private Label label12;
         private FlowLayoutPanel panelActorFields;
+        private Button MirrorBrushbutton;
         private ToolStripMenuItem automaticSetTileActorsToolStripMenuItem;
     }
 }

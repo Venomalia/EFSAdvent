@@ -14,6 +14,11 @@ namespace FSALib.Schema
         public string Description { get; set; }
 
         /// <summary>
+        /// The mirrored version of the tile.
+        /// </summary>
+        public ushort MirrorTile;
+
+        /// <summary>
         /// Required actor that must be placed for the tile to work.
         /// </summary>
         public Identifier32? RequiredActorID { get; set; }
