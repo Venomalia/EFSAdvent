@@ -177,6 +177,7 @@ namespace EFSAdvent
             this.ActorAttributesTip = new System.Windows.Forms.ToolTip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.automaticSetTileActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -538,7 +539,8 @@ namespace EFSAdvent
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoToolStripMenuItem,
-            this.redoToolStripMenuItem});
+            this.redoToolStripMenuItem,
+            this.automaticSetTileActorsToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -575,21 +577,21 @@ namespace EFSAdvent
             // xSizeToolStripMenuItem
             // 
             this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
-            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xSizeToolStripMenuItem.Text = "1x size";
             this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.oneXSizeToolStripMenuItem_Click);
             // 
             // xSizeToolStripMenuItem1
             // 
             this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
-            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
             this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // displayOverlayToolStripMenuItem
             // 
@@ -597,7 +599,7 @@ namespace EFSAdvent
             this.displayOverlayToolStripMenuItem.CheckOnClick = true;
             this.displayOverlayToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.displayOverlayToolStripMenuItem.Name = "displayOverlayToolStripMenuItem";
-            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.displayOverlayToolStripMenuItem.Text = "Display overlay";
             this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
             // 
@@ -608,7 +610,7 @@ namespace EFSAdvent
             this.bicubicToolStripMenuItem,
             this.nearestNeighborToolStripMenuItem});
             this.textureFilterModeToolStripMenuItem.Name = "textureFilterModeToolStripMenuItem";
-            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.textureFilterModeToolStripMenuItem.Text = "Filter mode";
             // 
             // bilinearToolStripMenuItem
@@ -640,7 +642,7 @@ namespace EFSAdvent
             this.autoSelectToolStripMenuItem,
             this.alwaysShowActorsToolStripMenuItem});
             this.actorsToolStripMenuItem.Name = "actorsToolStripMenuItem";
-            this.actorsToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.actorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.actorsToolStripMenuItem.Text = "Actors";
             // 
             // autoSelectToolStripMenuItem
@@ -649,7 +651,7 @@ namespace EFSAdvent
             this.autoSelectToolStripMenuItem.CheckOnClick = true;
             this.autoSelectToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.autoSelectToolStripMenuItem.Name = "autoSelectToolStripMenuItem";
-            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.autoSelectToolStripMenuItem.Text = "Auto select";
             this.autoSelectToolStripMenuItem.ToolTipText = "Auto load actor on room change.";
             // 
@@ -657,7 +659,7 @@ namespace EFSAdvent
             // 
             this.alwaysShowActorsToolStripMenuItem.CheckOnClick = true;
             this.alwaysShowActorsToolStripMenuItem.Name = "alwaysShowActorsToolStripMenuItem";
-            this.alwaysShowActorsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.alwaysShowActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alwaysShowActorsToolStripMenuItem.Text = "Show Always";
             this.alwaysShowActorsToolStripMenuItem.ToolTipText = "Displays actors regardless of the current layer.";
             this.alwaysShowActorsToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
@@ -1125,6 +1127,7 @@ namespace EFSAdvent
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.Controls.Add(this.MirrorBrushbutton);
             this.tabPage2.Controls.Add(this.BrushSizeLabel);
             this.tabPage2.Controls.Add(this.BrushSizeComboBox);
             this.tabPage2.Controls.Add(this.BrushTileLabel);
@@ -1223,7 +1226,7 @@ namespace EFSAdvent
             "Tile Sheet 27"});
             this.currentTileSheetComboBox.Location = new System.Drawing.Point(84, 5);
             this.currentTileSheetComboBox.Name = "currentTileSheetComboBox";
-            this.currentTileSheetComboBox.Size = new System.Drawing.Size(93, 21);
+            this.currentTileSheetComboBox.Size = new System.Drawing.Size(107, 21);
             this.currentTileSheetComboBox.TabIndex = 3;
             this.currentTileSheetComboBox.SelectionChangeCommitted += new System.EventHandler(this.UpdateMapVariables);
             // 
@@ -1905,6 +1908,15 @@ namespace EFSAdvent
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // automaticSetTileActorsToolStripMenuItem
+            // 
+            this.automaticSetTileActorsToolStripMenuItem.Checked = true;
+            this.automaticSetTileActorsToolStripMenuItem.CheckOnClick = true;
+            this.automaticSetTileActorsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.automaticSetTileActorsToolStripMenuItem.Name = "automaticSetTileActorsToolStripMenuItem";
+            this.automaticSetTileActorsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.automaticSetTileActorsToolStripMenuItem.Text = "Automatic set tile actors";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2135,6 +2147,7 @@ namespace EFSAdvent
         private Label label13;
         private Label label12;
         private FlowLayoutPanel panelActorFields;
+        private ToolStripMenuItem automaticSetTileActorsToolStripMenuItem;
     }
 }
 

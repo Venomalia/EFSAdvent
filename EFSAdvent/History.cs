@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace EFSAdvent
@@ -21,21 +20,9 @@ namespace EFSAdvent
             _actionsToRedo.Clear();
         }
 
-        public void StoreTileChange((int x, int y)[] coordinates, ushort[] oldValues, ushort[] newValues, int layer)
+        public void StoreTileChange(List<HistoryTile> tileChanges, int layer)
         {
-            int width = (int)Math.Sqrt(oldValues.Length);
-
-            var action = new HistoryAction(layer);
-            for (int i = 0; i < oldValues.Length; i++)
-            {
-                action.Tiles.Add(new HistoryTile
-                {
-                    x = coordinates[i].x,
-                    y = coordinates[i].y,
-                    oldValue = oldValues[i],
-                    newValue = newValues[i]
-                });
-            }
+            var action = new HistoryAction(tileChanges, layer);
             _actionsToUndo.AddLast(action);
 
             while (_actionsToUndo.Count > _maxSteps)
@@ -81,10 +68,10 @@ namespace EFSAdvent
         public List<HistoryTile> Tiles;
         public int Layer;
 
-        public HistoryAction(int layer)
+        public HistoryAction(List<HistoryTile> tiles, int layer)
         {
             Layer = layer;
-            Tiles = new List<HistoryTile>();
+            Tiles = tiles;
         }
 
         public HistoryAction(HistoryAction action, bool reverse)
@@ -96,27 +83,23 @@ namespace EFSAdvent
 
     public class HistoryTile
     {
-        public int x;
-        public int y;
-        public ushort oldValue;
-        public ushort newValue;
+        public int X;
+        public int Y;
+        public ushort OldValue;
+        public ushort NewValue;
 
         public HistoryTile()
         {
         }
         public HistoryTile(HistoryTile tile, bool reverse)
         {
-            x = tile.x;
-            y = tile.y;
-            oldValue = reverse ? tile.newValue : tile.oldValue;
-            newValue = reverse ? tile.oldValue : tile.newValue;
+            X = tile.X;
+            Y = tile.Y;
+            OldValue = reverse ? tile.NewValue : tile.OldValue;
+            NewValue = reverse ? tile.OldValue : tile.NewValue;
         }
 
         public void ReverseTileChange()
-        {
-            var temp = oldValue;
-            oldValue = newValue;
-            newValue = temp;
-        }
+            => (NewValue, OldValue) = (OldValue, NewValue);
     }
 }

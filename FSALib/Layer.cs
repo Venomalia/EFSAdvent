@@ -17,7 +17,7 @@ namespace FSALib
         public const int DIMENSION = 32;
         public const int TILES = DIMENSION * DIMENSION;
 
-        private readonly ushort[] _tiles = new ushort[DIMENSION * DIMENSION];
+        private readonly ushort[] _tiles = new ushort[TILES];
         private bool isEmpty;
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace FSALib
                 PropertyChanged?.Invoke(this, propertyChangedEventArgs_Tiles);
             }
         }
-        
+
         /// <summary>
         /// Replaces tile values starting from the specified index.
         /// </summary>
@@ -85,6 +85,44 @@ namespace FSALib
         public void SetTiles(ReadOnlySpan<ushort> tiles, int startIndex)
         {
             tiles.CopyTo(_tiles.AsSpan(startIndex));
+
+            // Is this layer empty?
+            IsEmpty = AreTilesEmpty(_tiles);
+
+            // PropertyChanged
+            PropertyChanged?.Invoke(this, propertyChangedEventArgs_Tiles);
+        }
+
+        /// <summary>
+        /// Copies tiles from a <see cref="Stamp"/> into the layer at the specified position.
+        /// </summary>
+        /// <param name="stamp">The source stamp to copy tiles from.</param>
+        /// <param name="x">The x-coordinate in the layer where the stamp will be placed.</param>
+        /// <param name="y">The y-coordinate in the layer where the stamp will be placed.</param>
+        public void SetTiles(Stamp stamp, int x, int y)
+        {
+            int width = Math.Min(stamp.Width, DIMENSION - x);
+            int height = Math.Min(stamp.Height, DIMENSION - y);
+            ReadOnlySpan<ushort> copyTiles = stamp.Tiles;
+
+            if (width == DIMENSION)
+            {
+                int length = height * DIMENSION;
+                copyTiles.Slice(0, length).CopyTo(_tiles.AsSpan(y * DIMENSION, length));
+            }
+            else
+            {
+                for (int cY = 0; cY < height; cY++)
+                {
+                    int startY = (y + cY) * DIMENSION;
+                    int stampStartY = cY * DIMENSION;
+
+                    for (int cX = 0; cX < width; cX++)
+                    {
+                        _tiles[startY + x + cX] = copyTiles[stampStartY + cX];
+                    }
+                }
+            }
 
             // Is this layer empty?
             IsEmpty = AreTilesEmpty(_tiles);
@@ -109,7 +147,7 @@ namespace FSALib
         /// <inheritdoc/>
         public void BinaryDeserialize(Stream source)
         {
-            byte[] data = new byte[_tiles.Length * 2];
+            byte[] data = new byte[TILES * 2];
 
             if (Common.Yaz0.IsMatch(source))
             {
@@ -128,7 +166,7 @@ namespace FSALib
 
         public void BinarySerialize(Stream dest, CompressionLevel level)
         {
-            byte[] data = new byte[_tiles.Length * 2];
+            byte[] data = new byte[TILES * 2];
             WriteSzsFormat(_tiles, MemoryMarshal.Cast<byte, ushort>(data));
             Common.Yaz0.Compress(new MemoryStream(data), dest, level);
         }

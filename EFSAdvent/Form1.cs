@@ -768,7 +768,7 @@ namespace EFSAdvent
             {
                 foreach (var tile in action.Tiles)
                 {
-                    _level.Room.Layers[action.Layer][tile.x, tile.y] = tile.oldValue;
+                    _level.Room.Layers[action.Layer][tile.X, tile.Y] = tile.OldValue;
                 }
                 UpdateLayerCheckListColor(action.Layer);
                 buttonSaveLayers.Enabled = true;
@@ -782,7 +782,7 @@ namespace EFSAdvent
             {
                 foreach (var tile in action.Tiles)
                 {
-                    _level.Room.Layers[action.Layer][tile.x, tile.y] = tile.oldValue;
+                    _level.Room.Layers[action.Layer][tile.X, tile.Y] = tile.OldValue;
                 }
                 UpdateLayerCheckListColor(action.Layer);
                 buttonSaveLayers.Enabled = true;
@@ -2142,6 +2142,7 @@ namespace EFSAdvent
             switch (scaledEvent.Button)
             {
                 case MouseButtons.Left: //Change tiles
+                    _tileBrush.AutomaticSetTileActors = automaticSetTileActorsToolStripMenuItem.Checked;
                     if (_tileBrush.Draw(_level, layer.Value, eventX, eventY))
                     {
                         if (actorsCheckListBox.Items.Count != _level.Room.Actors.Count)

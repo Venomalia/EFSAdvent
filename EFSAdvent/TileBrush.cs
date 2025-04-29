@@ -1,38 +1,40 @@
 ﻿using EFSAdvent.FourSwords;
 using FSALib;
 using FSALib.Schema;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
 namespace EFSAdvent
 {
-    // TODO must be rewritten
     public class TileBrush
     {
-        private readonly List<ClipboardTile> _clipboardTiles = new List<ClipboardTile>();
+        public readonly Stamp Clipboard = new Stamp();
         private readonly History _history;
 
-        public ushort TileValue { get; private set; }
-        public int Width { get; private set; }
-        public int Height { get; private set; }
+        public ushort TileValue => Clipboard.Tiles[0];
+        public int Width => Clipboard.Width;
+        public int Height => Clipboard.Height;
 
-        public TileBrush(History history)
-        {
-            Width = Height = 1;
-            _history = history;
-        }
+        public bool AutomaticSetTileActors;
+
+        public TileBrush(History history) => _history = history;
 
         public void Set(ushort tile, int width, int height)
         {
-            _clipboardTiles.Clear();
-            TileValue = tile;
-            Width = width;
-            Height = height;
+            Clipboard.SetWidthAndHeight(width, height);
+            if ((width | height) > 1)
+            {
+                Clipboard.Tiles.Fill(tile);
+            }
+            else
+            {
+                Clipboard.Tiles[0] = tile;
+            }
         }
 
         public void Copy(Rectangle selection, Level level, int layer)
         {
-            _clipboardTiles.Clear();
             if (selection.X < 0)
             {
                 selection.Width += selection.X;
@@ -56,86 +58,15 @@ namespace EFSAdvent
                 selection.Height = Layer.DIMENSION - selection.Y;
             }
 
-            Width = selection.Width;
-            Height = selection.Height;
-
             ushort tile = level.Room.Layers[layer][selection.X, selection.Y];
-            TileValue = tile;
-
-            if ((selection.Width | selection.Height) != 1)
-            {
-                for (int y = selection.Y; y < selection.Y + selection.Height; y++)
-                {
-                    for (int x = selection.X; x < selection.X + selection.Width; x++)
-                    {
-                        tile = level.Room.Layers[layer][x, y];
-                        _clipboardTiles.Add(new ClipboardTile(x - selection.X, y - selection.Y, tile));
-                    }
-                }
-            }
+            Clipboard.FromLayer(level.Room.Layers[layer], selection.X, selection.Y, selection.Width, selection.Height);
         }
 
         public bool Draw(Level level, int layer, int posX, int posY)
         {
-            if (_clipboardTiles.Count == 0)
-            {
-                return DrawTiles(level, layer, posX, posY);
-            }
-            else
-            {
-                return Paste(level, layer, posX, posY);
-            }
-
-        }
-
-        private bool DrawTiles(Level level, int layer, int posX, int posY)
-        {
-            bool hasPropertie = Assets.TileProperties.TryGetValue(TileValue, out TilePropertie propertie);
-            if (hasPropertie && propertie.PlaceAlwaysOnTopLayer && layer < 8)
-            {
-                layer += 8;
-            }
-
-            if (SaveActionToHistory(level, layer, posX, posY))
-            {
-                for (int y = posY; y < posY + Height; y++)
-                {
-                    for (int x = posX; x < posX + Width; x++)
-                    {
-                        if (x >= Layer.DIMENSION || y >= Layer.DIMENSION)
-                            continue;
-
-                        level.Room.Layers[layer][x, y] = TileValue;
-
-                        if (hasPropertie && propertie.RequiredActorID.HasValue)
-                        {
-                            var tileActor = new Actor(propertie.RequiredActorID.Value, (byte)(layer % 8), (byte)(x * 2), (byte)(y * 2), propertie.ActorValue);
-                            if (!level.Room.Actors.TrySearch(tileActor.Layer, tileActor.XCoord, tileActor.YCoord, tileActor.ID, out Actor _))
-                            {
-                                level.Room.Actors.Add(tileActor);
-                            }
-                        }
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-
-        private bool Paste(Level level, int layer, int posX, int posY)
-        {
             if (SavePasteActionToHistory(level, layer, posX, posY))
             {
-                foreach (ClipboardTile tile in _clipboardTiles)
-                {
-                    int targetX = tile.xOffset + posX;
-                    int targetY = tile.yOffset + posY;
-
-                    if (targetX >= Layer.DIMENSION || targetY >= Layer.DIMENSION)
-                        continue;
-
-                    level.Room.Layers[layer][targetX, targetY] = tile.value;
-                }
+                level.Room.Layers[layer].SetTiles(Clipboard, posX, posY);
                 return true;
             }
             return false;
@@ -143,54 +74,48 @@ namespace EFSAdvent
 
         private bool SavePasteActionToHistory(Level level, int layer, int x, int y)
         {
-            var oldValues = new List<ushort>();
-            var newValues = new List<ushort>();
-            var coordinates = new List<(int x, int y)>();
+            const int DIMENSION = Layer.DIMENSION;
+
+            List<HistoryTile> tileChanges = new List<HistoryTile>();
             bool tileChanged = false;
 
-            foreach (var tile in _clipboardTiles)
+            ReadOnlySpan<ushort> layerTiles = level.Room.Layers[layer].Tiles;
+            ReadOnlySpan<ushort> clipboardTiles = Clipboard.Tiles;
+
+            int width = Math.Min(Clipboard.Width, DIMENSION - x);
+            int height = Math.Min(Clipboard.Height, DIMENSION - y);
+
+            for (int cY = 0; cY < height; cY++)
             {
-                int targetX = tile.xOffset + x;
-                int targetY = tile.yOffset + y;
-
-                if (targetX >= Layer.DIMENSION || targetY >= Layer.DIMENSION)
-                    continue;
-
-                var currentTile = level.Room.Layers[layer][targetX, targetY];
-                tileChanged |= currentTile != tile.value;
-                coordinates.Add((targetX, targetY));
-                oldValues.Add(currentTile);
-                newValues.Add(tile.value);
-            }
-
-            if (!tileChanged)
-            {
-                return false;
-            }
-
-            _history.StoreTileChange(coordinates.ToArray(), oldValues.ToArray(), newValues.ToArray(), layer);
-            return true;
-        }
-
-        private bool SaveActionToHistory(Level level, int layer, int x, int y)
-        {
-            var oldValues = new List<ushort>();
-            var newValues = new List<ushort>();
-            var coordinates = new List<(int x, int y)>();
-            bool tileChanged = false;
-
-            for (int testY = y; testY < y + Height; testY++)
-            {
-                for (int testX = x; testX < x + Width; testX++)
+                int startY = (y + cY) * DIMENSION;
+                int stampStartY = cY * DIMENSION;
+                for (int cX = 0; cX < width; cX++)
                 {
-                    if (testX >= Layer.DIMENSION || testY >= Layer.DIMENSION)
-                        continue;
+                    ushort layerTile = layerTiles[startY + x + cX];
+                    ushort clipboardTile = clipboardTiles[stampStartY + cX];
 
-                    var currentTile = level.Room.Layers[layer][testX, testY];
-                    tileChanged |= currentTile != TileValue;
-                    coordinates.Add((testX, testY));
-                    oldValues.Add(currentTile);
-                    newValues.Add(TileValue);
+                    if (layerTile != clipboardTile)
+                    {
+                        tileChanged = true;
+                        tileChanges.Add(new HistoryTile()
+                        {
+                            X = x + cX,
+                            Y = y + cY,
+                            OldValue = layerTile,
+                            NewValue = clipboardTile
+                        });
+
+                        if (AutomaticSetTileActors
+                            && Assets.TileProperties.TryGetValue(clipboardTile, out TilePropertie propertie)
+                            && propertie.RequiredActorID.HasValue)
+                        {
+                            var tileActor = new Actor(propertie.RequiredActorID.Value, (byte)(layer % 8), (byte)((x + cX) * 2), (byte)((y + cY) * 2), propertie.ActorValue);
+                            if (!level.Room.Actors.TrySearch(tileActor.Layer, tileActor.XCoord, tileActor.YCoord, tileActor.ID, out Actor _))
+                            {
+                                level.Room.Actors.Add(tileActor);
+                            }
+                        }
+                    }
                 }
             }
 
@@ -199,22 +124,8 @@ namespace EFSAdvent
                 return false;
             }
 
-            _history.StoreTileChange(coordinates.ToArray(), oldValues.ToArray(), newValues.ToArray(), layer);
+            _history.StoreTileChange(tileChanges, layer);
             return true;
-        }
-    }
-
-    public readonly struct ClipboardTile
-    {
-        public readonly int xOffset;
-        public readonly int yOffset;
-        public readonly ushort value;
-
-        public ClipboardTile(int xOffset, int yOffset, ushort value)
-        {
-            this.xOffset = xOffset;
-            this.yOffset = yOffset;
-            this.value = value;
         }
     }
 }
