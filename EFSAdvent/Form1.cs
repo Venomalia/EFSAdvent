@@ -863,7 +863,7 @@ namespace EFSAdvent
 
         private void tabControl_TabIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl.SelectedIndex == 2)
+            if (tabControl.SelectedIndex == (int)TabControlIndex.Actor)
             {
                 layerPictureBox.ContextMenuStrip = actorContextMenuStrip;
                 actorContextMenuStrip.Enabled = true;
@@ -1767,9 +1767,9 @@ namespace EFSAdvent
         private void layersPictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             MouseEventArgs scaledEvent = ScaleEventToLayerRealSize(e);
-            switch (tabControl.SelectedTab.TabIndex)
+            switch (tabControl.SelectedIndex)
             {
-                case 1: // Tile tab
+                case (int)TabControlIndex.Tile: // Tile tab
                     switch (e.Button)
                     {
                         case MouseButtons.Left:
@@ -1805,7 +1805,7 @@ namespace EFSAdvent
                             return;
                     }
                     break;
-                case 2: // Actor tab
+                case (int)TabControlIndex.Actor:
                     if (e.Button == MouseButtons.None)
                     {
                         return;
@@ -1950,12 +1950,12 @@ namespace EFSAdvent
         {
             MouseEventArgs scaledEvent = ScaleEventToLayerRealSize(e);
 
-            switch (tabControl.SelectedTab.TabIndex)
+            switch (tabControl.SelectedIndex)
             {
-                case 1: // Tile tab
+                case (int)TabControlIndex.Tile:
                     DoTileAction(scaledEvent);
                     break;
-                case 2: // Actor tab
+                case (int)TabControlIndex.Actor:
                     SetMouseDownActor();
                     break;
                 default:
@@ -1995,11 +1995,11 @@ namespace EFSAdvent
         private void layersPictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             //When the mouse button is released select no actor so that a new one can be selected
-            if (tabControl.SelectedTab.TabIndex == 2)
+            if (tabControl.SelectedIndex == (int)TabControlIndex.Actor)
             {
                 actorMouseDownOnIndex = -1;
             }
-            else if (tabControl.SelectedTab.TabIndex == 1)
+            else if (tabControl.SelectedIndex == (int)TabControlIndex.Tile)
             {
                 int? layer = GetHighestActiveLayerIndex();
                 switch (e.Button)
@@ -2036,7 +2036,7 @@ namespace EFSAdvent
             if (!layerPosition.HasValue)
                 layerPosition = -1;
 
-            if (tabControl.SelectedTab.TabIndex != 1)
+            if (tabControl.SelectedIndex != (int)TabControlIndex.Tile)
             {
                 if (e.Delta < 0) // up
                 {
@@ -2480,5 +2480,11 @@ namespace EFSAdvent
 
         #endregion
 
+        private enum TabControlIndex : int
+        {
+            Map = 0,
+            Tile = 1,
+            Actor
+        }
     }
 }
