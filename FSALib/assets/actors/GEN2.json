@@ -1,6 +1,47 @@
 {
   "name": "Enemy generator 2",
-  "description": "",
+  "description": "Loads enemies in waves from the rooms in the top left corner.",
   "InternalName": "敵ジェネレータ２",
-  "category": "Object"
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable that activates this generator.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Screen edge",
+      "description": "From which direction the enemies come.",
+      "bitOffset": 16,
+      "bitSize": 10,
+      "valueType": "Enum",
+      "enumValues": {
+        "10": {
+          "name": "West",
+          "description": ""
+        },
+        "267": {
+          "name": "East",
+          "description": ""
+        },
+        "129": {
+          "name": "North",
+          "description": ""
+        },
+        "144": {
+          "name": "South",
+          "description": ""
+        }
+      }
+    },
+    {
+      "name": "?",
+      "description": "",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
 }

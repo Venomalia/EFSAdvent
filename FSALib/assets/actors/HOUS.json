@@ -55,10 +55,6 @@
           "description": "A 6x6 house with fire throwers."
         },
         "12": {
-          "name": "House 4 Exits 6x6",
-          "description": "A normal 6x6 house."
-        },
-        "12": {
           "name": "Movable Pillar 6x6",
           "description": "A normal 6x6 house."
         }
