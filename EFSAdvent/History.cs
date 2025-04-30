@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using FSALib;
+using FSALib.Schema;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EFSAdvent
@@ -32,14 +34,16 @@ namespace EFSAdvent
             _actionsToRedo.Clear();
         }
 
-        public bool TryGetUndoAction(out HistoryAction action)
+        public bool TryUndoAction(Room room, out int layer)
         {
             if (_actionsToUndo.Count == 0)
             {
-                action = null;
+                layer = 0;
                 return false;
             }
-            action = _actionsToUndo.Last();
+            HistoryAction action = _actionsToUndo.Last();
+            layer = action.Layer;
+            action.Undo(room);
             _actionsToUndo.RemoveLast();
 
             var reverseAction = new HistoryAction(action, true);
@@ -47,14 +51,16 @@ namespace EFSAdvent
             return true;
         }
 
-        public bool TryGetRedoAction(out HistoryAction action)
+        public bool TryRedoAction(Room room, out int layer)
         {
             if (_actionsToRedo.Count == 0)
             {
-                action = null;
+                layer = 0;
                 return false;
             }
-            action = _actionsToRedo.Last();
+            HistoryAction action = _actionsToRedo.Last();
+            layer = action.Layer;
+            action.Undo(room);
             _actionsToRedo.RemoveLast();
 
             var reverseAction = new HistoryAction(action, true);
@@ -78,6 +84,24 @@ namespace EFSAdvent
         {
             Layer = action.Layer;
             Tiles = action.Tiles.Select(t => new HistoryTile(t, reverse)).ToList();
+        }
+
+        public void Undo(Room room)
+        {
+            foreach (var tile in Tiles)
+            {
+                ushort currentTile = room.Layers[Layer][tile.X, tile.Y];
+                if (Assets.TileProperties.TryGetValue(currentTile, out TilePropertie propertie) && propertie.RequiredActorID.HasValue)
+                {
+                    var tileActor = new Actor(propertie.RequiredActorID.Value, (byte)(Layer % 8), (byte)((tile.X) * 2), (byte)((tile.Y) * 2), propertie.ActorValue);
+                    if (room.Actors.TrySearch(tileActor.Layer, tileActor.XCoord, tileActor.YCoord, tileActor.ID, out Actor actor))
+                    {
+                        room.Actors.Remove(actor);
+                    }
+                }
+
+                room.Layers[Layer][tile.X, tile.Y] = tile.OldValue;
+            }
         }
     }
 

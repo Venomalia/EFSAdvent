@@ -26,10 +26,9 @@ namespace EFSAdvent
         const int ACTOR_PIXELS_PER_COORDINATE = 8;
         const string DEFAULT_SPRITE = "ActorDefault";
         const int LAYER_DIMENSION_IN_PIXELS = Layer.DIMENSION * TILE_DIMENSION_IN_PIXELS;
-        const int MAP_ROOM_DIMENSION_IN_PIXELS = 20;
         const int TILE_DIMENSION_IN_PIXELS = 16;
 
-        private readonly Bitmap tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap, actorLayerBitmap, currentActorBitmap;
+        private readonly Bitmap tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap, actorLayerBitmap;
         private readonly Graphics roomLayerGraphics, actorLayerGraphics;
         private Bitmap overlayBitmap;
 
@@ -95,9 +94,6 @@ namespace EFSAdvent
 
             actorLayerBitmap = new Bitmap(LAYER_DIMENSION_IN_PIXELS, LAYER_DIMENSION_IN_PIXELS, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
             actorLayerGraphics = Graphics.FromImage(actorLayerBitmap);
-
-            currentActorBitmap = new Bitmap(64, 64);
-            ActorInfoPictureBox.Image = currentActorBitmap;
 
             _history = new History(500);
             _tileBrush = new TileBrush(_history);
@@ -769,29 +765,31 @@ namespace EFSAdvent
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_history.TryGetUndoAction(out HistoryAction action))
+            if (_history.TryUndoAction(_level.Room, out int layer))
             {
-                foreach (var tile in action.Tiles)
+                if (actorsCheckListBox.Items.Count != _level.Room.Actors.Count)
                 {
-                    _level.Room.Layers[action.Layer][tile.X, tile.Y] = tile.OldValue;
+                    BuildLayerActorList();
+                    actorLayerComboBox_SelectionChangeCommitted(sender, e);
                 }
-                UpdateLayerCheckListColor(action.Layer);
+                UpdateLayerCheckListColor(layer);
                 buttonSaveLayers.Enabled = true;
-                UpdateView(action.Layer);
+                UpdateView(layer);
             }
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_history.TryGetRedoAction(out HistoryAction action))
+            if (_history.TryRedoAction(_level.Room, out int layer))
             {
-                foreach (var tile in action.Tiles)
+                if (actorsCheckListBox.Items.Count != _level.Room.Actors.Count)
                 {
-                    _level.Room.Layers[action.Layer][tile.X, tile.Y] = tile.OldValue;
+                    BuildLayerActorList();
+                    actorLayerComboBox_SelectionChangeCommitted(sender, e);
                 }
-                UpdateLayerCheckListColor(action.Layer);
+                UpdateLayerCheckListColor(layer);
                 buttonSaveLayers.Enabled = true;
-                UpdateView(action.Layer);
+                UpdateView(layer);
             }
         }
         #endregion
@@ -1152,34 +1150,42 @@ namespace EFSAdvent
 
         private void BuildLayerActorList(bool keepState = true)
         {
-            object[] checkedActorIds = actorsCheckListBox.CheckedItems.Cast<object>().ToArray();
+            object[] checkedActorIds = keepState ? actorsCheckListBox.CheckedItems.Cast<object>().ToArray() : null;
             object selectedActorId = actorsCheckListBox.SelectedItem;
 
-            actorsCheckListBox.Items.Clear();
+            actorsCheckListBox.BeginUpdate();
 
-            if (_level.Room == null)
+            try
             {
-                return;
-            }
+                actorsCheckListBox.Items.Clear();
 
-            for (int i = 0; i < _level.Room.Actors.Count; i++)
-            {
-                actorsCheckListBox.Items.Add(_level.Room.Actors[i]);
-            }
+                if (_level.Room == null)
+                    return;
 
-            if (keepState)
-            {
-                for (int i = 0; i < actorsCheckListBox.Items.Count; i++)
+                foreach (var actor in _level.Room.Actors)
                 {
-                    object actor = actorsCheckListBox.Items[i];
-                    if (checkedActorIds.Contains(actor))
-                        actorsCheckListBox.SetItemChecked(i, true);
+                    actorsCheckListBox.Items.Add(actor);
+                }
 
-                    if (actor == selectedActorId)
-                        actorsCheckListBox.SetSelected(i, true);
+                if (keepState)
+                {
+                    for (int i = 0; i < actorsCheckListBox.Items.Count; i++)
+                    {
+                        object actor = actorsCheckListBox.Items[i];
+                        if (checkedActorIds.Contains(actor))
+                            actorsCheckListBox.SetItemChecked(i, true);
+
+                        if (actor == selectedActorId)
+                            actorsCheckListBox.SetSelected(i, true);
+                    }
                 }
             }
+            finally
+            {
+                actorsCheckListBox.EndUpdate();
+            }
         }
+
 
         private void actorLayerComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
