@@ -18,7 +18,7 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "2.1";
+        private const string VERSION = "2.2";
         private const string BaseTitel = "EFSAdvent " + VERSION + " [Venomalia]";
         private const string WikiUrl = "https://github.com/Venomalia/EFSAdvent/wiki";
         private const string SourceCodeUrl = "https://github.com/Venomalia/EFSAdvent";
@@ -59,7 +59,7 @@ namespace EFSAdvent
         public Form1()
         {
             InitializeComponent();
-            ActorVariableFullInput.Controls[0].Visible = false;
+            ActorVariableFullInput.Controls[0].Enabled = false;
             this.Text = BaseTitel;
             _tileSelection.Width = _tileSelection.Height = 1;
             dataDirectory = "data";
@@ -149,7 +149,6 @@ namespace EFSAdvent
 
             // Load Stamps
             string stampsFolder = Path.Combine(dataDirectory, "Stamps");
-            //TileStampFlowLayoutPanel
             if (Directory.Exists(stampsFolder))
             {
                 foreach (var filePath in Directory.GetFiles(stampsFolder, "*.bin"))
@@ -2304,6 +2303,17 @@ namespace EFSAdvent
         {
             _level.SaveLayers();
             MessageBox.Show("Changes Saved");
+        }
+
+        private void mirrorRoomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _level.Room.Mirror();
+            BuildLayerActorList();
+            if (autoSelectToolStripMenuItem.Checked)
+            {
+                SelectLayerActors(true, 0);
+            }
+            UpdateView();
         }
 
         private void SaveStampButton_Click(object sender, EventArgs e)

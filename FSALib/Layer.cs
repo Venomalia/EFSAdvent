@@ -259,6 +259,37 @@ namespace FSALib
         public static string GetFilePath(string path, int mapIndex, int roomIndex, int layerLevel = 1, int layer = 0)
             => Path.Combine(GetFolder(path, mapIndex), GetFileName(mapIndex, roomIndex, layerLevel, layer));
 
+        /// <summary>
+        /// Mirrors the tiles horizontally.
+        /// </summary>
+        public void Mirror()
+        {
+            ReadOnlySpan<ushort> mirrorLOT = Assets.MirrorTileLOT;
+            Span<ushort> tiles = _tiles;
+
+            for (int y = 0; y < DIMENSION; y++)
+            {
+                int line = y * DIMENSION;
+                int halfWidth = DIMENSION / 2;
+
+                // Mirror left and right sides
+                for (int x = 0; x < halfWidth; x++)
+                {
+                    int leftIndex = line + x;
+                    int rightIndex = line + (DIMENSION - 1 - x);
+
+                    ushort left = mirrorLOT[tiles[rightIndex]];
+                    ushort right = mirrorLOT[tiles[leftIndex]];
+
+                    tiles[leftIndex] = left;
+                    tiles[rightIndex] = right;
+                }
+            }
+
+            // PropertyChanged
+            PropertyChanged?.Invoke(this, propertyChangedEventArgs_Tiles);
+        }
+
         private static readonly PropertyChangedEventArgs propertyChangedEventArgs_Tiles = new PropertyChangedEventArgs(nameof(Tiles));
         private static readonly PropertyChangedEventArgs propertyChangedEventArgs_IsEmpty = new PropertyChangedEventArgs(nameof(IsEmpty));
     }

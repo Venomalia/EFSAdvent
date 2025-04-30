@@ -45,5 +45,17 @@ namespace FSALib
                 _layers[i] = new Layer();
             }
         }
+
+        /// <summary>
+        /// Mirrors the room horizontally.
+        /// </summary>
+        public void Mirror()
+        {
+            foreach (var layer in _layers)
+            {
+                layer.Mirror();
+            }
+            Actors.Mirror();
+        }
     }
 }

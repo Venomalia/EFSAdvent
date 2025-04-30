@@ -146,6 +146,21 @@ namespace FSALib
             dest.Write(Actor.Null);
         }
 
+        internal void Mirror()
+        {
+            List<Actor> items = ((List<Actor>)Items);
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                Actor item = items[i];
+                //That's not right, we need the width of the object.
+                item.XCoord = (byte)(64 - 2 - item.XCoord);
+                items[i] = item;
+            }
+            items.Sort();
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        }
+
         /// <summary>
         /// Generates the folder path where actor-related binary files are stored for a given map index.
         /// </summary>
