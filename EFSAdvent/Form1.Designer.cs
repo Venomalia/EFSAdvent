@@ -38,8 +38,7 @@ namespace EFSAdvent
             this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MapPanel = new System.Windows.Forms.Panel();
-            this.mapPictureBox = new System.Windows.Forms.PictureBox();
+            this.mapPictureBox = new EFSAdvent.MapPictureBox();
             this.loggerTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +67,7 @@ namespace EFSAdvent
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.automaticSetTileActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mirrorRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -184,13 +184,11 @@ namespace EFSAdvent
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.actorContextMenuStrip.SuspendLayout();
-            this.MapPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.rightSideGroupBox.SuspendLayout();
@@ -310,20 +308,13 @@ namespace EFSAdvent
             this.pastToolStripMenuItem.Text = "Paste Here";
             this.pastToolStripMenuItem.Click += new System.EventHandler(this.pastToolStripMenuItem_Click);
             // 
-            // MapPanel
-            // 
-            this.MapPanel.Controls.Add(this.mapPictureBox);
-            this.MapPanel.Location = new System.Drawing.Point(8, 73);
-            this.MapPanel.Name = "MapPanel";
-            this.MapPanel.Size = new System.Drawing.Size(245, 175);
-            this.MapPanel.TabIndex = 2;
-            // 
             // mapPictureBox
             // 
             this.mapPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mapPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.mapPictureBox.Location = new System.Drawing.Point(9, 70);
             this.mapPictureBox.Name = "mapPictureBox";
             this.mapPictureBox.Size = new System.Drawing.Size(240, 170);
+            this.mapPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mapPictureBox.TabIndex = 0;
             this.mapPictureBox.TabStop = false;
             this.mapPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectMapRoom);
@@ -570,6 +561,11 @@ namespace EFSAdvent
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.redoToolStripMenuItem.Text = "Redo Tile Change";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(208, 6);
             // 
             // automaticSetTileActorsToolStripMenuItem
             // 
@@ -870,8 +866,8 @@ namespace EFSAdvent
             // 
             // RoomLayoutgroupBox1
             // 
+            this.RoomLayoutgroupBox1.Controls.Add(this.mapPictureBox);
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomLoadButton);
-            this.RoomLayoutgroupBox1.Controls.Add(this.MapPanel);
             this.RoomLayoutgroupBox1.Controls.Add(this.label5);
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomNewButton);
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomSetButton);
@@ -1991,11 +1987,6 @@ namespace EFSAdvent
             this.RootFolderPathTextBox.Size = new System.Drawing.Size(494, 20);
             this.RootFolderPathTextBox.TabIndex = 23;
             // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(208, 6);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2019,7 +2010,6 @@ namespace EFSAdvent
             this.layersPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.actorContextMenuStrip.ResumeLayout(false);
-            this.MapPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -2086,7 +2076,6 @@ namespace EFSAdvent
         private System.Windows.Forms.Panel layersPanel;
         private System.Windows.Forms.PictureBox tileSheetPictureBox;
         private EFSAdvent.PictureBoxWithInterpolationMode layerPictureBox;
-        private System.Windows.Forms.Panel MapPanel;
         private System.Windows.Forms.TextBox loggerTextBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -2100,7 +2089,7 @@ namespace EFSAdvent
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox currentTileSheetComboBox;
-        private System.Windows.Forms.PictureBox mapPictureBox;
+        private MapPictureBox mapPictureBox;
         private System.Windows.Forms.Button MapRoomSetButton;
         private System.Windows.Forms.Button MapRoomLoadButton;
         private System.Windows.Forms.TabPage tabPage3;

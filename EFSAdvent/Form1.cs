@@ -29,8 +29,8 @@ namespace EFSAdvent
         const int MAP_ROOM_DIMENSION_IN_PIXELS = 20;
         const int TILE_DIMENSION_IN_PIXELS = 16;
 
-        private readonly Bitmap mapBitmap, tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap, actorLayerBitmap, currentActorBitmap;
-        private readonly Graphics mapGraphics, roomLayerGraphics, actorLayerGraphics;
+        private readonly Bitmap tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap, actorLayerBitmap, currentActorBitmap;
+        private readonly Graphics roomLayerGraphics, actorLayerGraphics;
         private Bitmap overlayBitmap;
 
         private readonly History _history;
@@ -45,7 +45,6 @@ namespace EFSAdvent
         private bool _ignoreMapVariableUpdates = false;
 
         int currentRoomNumber;
-        (int x, int y) selectedRoomCoordinates;
         (int x, int y) lastActorCoordinates;
 
         int actorMouseDownOnIndex;
@@ -54,7 +53,7 @@ namespace EFSAdvent
 
         private readonly HashSet<string> V6ACTORS = new HashSet<string>();
 
-        private string dataDirectory;
+        private readonly string dataDirectory;
 
         public Form1()
         {
@@ -90,10 +89,6 @@ namespace EFSAdvent
             roomLayerBitmap = new Bitmap(LAYER_DIMENSION_IN_PIXELS, LAYER_DIMENSION_IN_PIXELS, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
             roomLayerGraphics = Graphics.FromImage(roomLayerBitmap);
             layerPictureBox.Image = roomLayerBitmap;
-
-            mapBitmap = new Bitmap(mapPictureBox.Width, mapPictureBox.Height, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
-            mapGraphics = Graphics.FromImage(mapBitmap);
-            mapPictureBox.Image = mapBitmap;
 
             currentTileSheetComboBox.SelectedIndex = 0;
             BrushSizeComboBox.SelectedIndex = 0;
@@ -200,7 +195,7 @@ namespace EFSAdvent
             _history.Reset();
             actorMouseDownOnIndex = -1;
             currentRoomNumber = Map.EMPTY_ROOM_VALUE;
-            selectedRoomCoordinates = (0, 0);
+            mapPictureBox.SelectedRoomCoordinates = (-1, -1);
         }
 
         #region Dialogs
@@ -261,7 +256,7 @@ namespace EFSAdvent
             _level = new Level(mapPath, _logger);
             _level.LoadMap();
             LoadMapVariable();
-            DrawMap();
+            mapPictureBox.SetMap(_level.Map);
 
             //Get a string which is just the root bossxxx filepath for loading other files
             RootFolderPathTextBox.Text = mapPath.Remove(mapPath.LastIndexOf("\\map\\") + 1);
@@ -731,7 +726,7 @@ namespace EFSAdvent
             MessageBox.Show($"Room successfully imported to room {freeRoomNr}.");
             if (MapRoomNewButton.Enabled == true)
             {
-                var result = MessageBox.Show($"Should the imported room be set to the selected position [{selectedRoomCoordinates.x},{selectedRoomCoordinates.y}]?",
+                var result = MessageBox.Show($"Should the imported room be set to the selected position [{mapPictureBox.SelectedRoomCoordinates.X},{mapPictureBox.SelectedRoomCoordinates.Y}]?",
                                              $"Set to position?",
                                              MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Question);
@@ -955,7 +950,7 @@ namespace EFSAdvent
 
         private void RemoveRoom(object sender, EventArgs e)
         {
-            int selectedRoom = _level.Map[selectedRoomCoordinates.x, selectedRoomCoordinates.y];
+            int selectedRoom = _level.Map[mapPictureBox.SelectedRoomCoordinates.X, mapPictureBox.SelectedRoomCoordinates.Y];
             byte roomToRemove = (byte)MapRoomNumberInput.Value;
 
             // Prevent deleting the currently loaded room
@@ -1009,78 +1004,26 @@ namespace EFSAdvent
             }
         }
 
-        private unsafe void DrawMap()
-        {
-            byte roomColour;
-            var bitmapLock = mapBitmap.LockBits(
-                new Rectangle(0, 0, mapPictureBox.Width, mapPictureBox.Height),
-                System.Drawing.Imaging.ImageLockMode.WriteOnly,
-                mapBitmap.PixelFormat);
-
-            int roomValue;
-            int roomWidthInPixels = mapPictureBox.Width / _level.Map.XDimension;
-            int roomHeightInPixels = mapPictureBox.Height / _level.Map.YDimension;
-
-            for (int y = 0; y < _level.Map.YDimension * roomHeightInPixels; y += roomHeightInPixels)
-            {
-                for (int x = 0; x < _level.Map.XDimension * roomWidthInPixels; x += roomWidthInPixels)
-                {
-                    roomValue = _level.Map[x / roomWidthInPixels, y / roomHeightInPixels];
-                    roomColour = (byte)(roomValue == Map.EMPTY_ROOM_VALUE ? 0xFF : 0x00);
-                    for (int px = 0; px < roomWidthInPixels; px++)
-                    {
-                        for (int py = 0; py < roomHeightInPixels; py++)
-                        {
-                            byte* pixel = (byte*)(bitmapLock.Scan0 + ((y + py) * bitmapLock.Stride) + ((x + px) * 4));
-                            pixel[0] = pixel[1] = pixel[2] = roomColour;
-                        }
-                    }
-                }
-            }
-            mapBitmap.UnlockBits(bitmapLock);
-
-            var serif = new Font("Microsoft Sans Serif", 7);
-            Brush brush = Brushes.White;
-
-            for (int y = 0; y < _level.Map.YDimension * roomHeightInPixels; y += roomHeightInPixels)
-            {
-                for (int x = 0; x < _level.Map.XDimension * roomWidthInPixels; x += roomWidthInPixels)
-                {
-                    roomValue = _level.Map[x / roomWidthInPixels, y / roomHeightInPixels];
-                    if (roomValue != Map.EMPTY_ROOM_VALUE)
-                    {
-                        //Draw the room number over the top of the room for clarity
-                        mapGraphics.DrawString(Convert.ToString(roomValue), serif, brush, x, y);
-                    }
-                }
-            }
-            roomValue = _level.Map[_level.Map.StartX, _level.Map.StartY];
-            mapGraphics.DrawString(Convert.ToString(roomValue), serif, Brushes.Crimson, _level.Map.StartX * roomWidthInPixels, _level.Map.StartY * roomHeightInPixels);
-
-            MapPanel.Refresh();
-        }
-
         private void SelectMapRoom(object sender, MouseEventArgs e)
         {
 
             int roomWidthInPixels = mapPictureBox.Width / _level.Map.XDimension;
             int roomHeightInPixels = mapPictureBox.Height / _level.Map.YDimension;
             //When the user clicks in the map load the value of the clicked room into the edit box
-            selectedRoomCoordinates = (e.X / roomWidthInPixels, e.Y / roomHeightInPixels);
-            int roomValue = Math.Max(_level.Map[selectedRoomCoordinates.x, selectedRoomCoordinates.y], 0);
+            mapPictureBox.SelectedRoomCoordinates = (e.X / roomWidthInPixels, e.Y / roomHeightInPixels);
+            int roomValue = Math.Max(mapPictureBox.SelectedRoomID, 0);
             MapRoomNumberInput.Value = roomValue;
             MapRoomRemoveButton.Enabled = roomValue != Map.EMPTY_ROOM_VALUE;
             MapRoomNewButton.Enabled = true;
 
             CoridinatesTextBox.Clear();
-            CoridinatesTextBox.AppendText($"Map coordinates: x{selectedRoomCoordinates.x} y{selectedRoomCoordinates.y}");
-            DrawMapWithSelectedRoomHighlighted();
+            CoridinatesTextBox.AppendText($"Map coordinates: x{mapPictureBox.SelectedRoomCoordinates.X} y{mapPictureBox.SelectedRoomCoordinates.Y}");
         }
 
         private void SelectRoomNumber(object sender, EventArgs e)
         {
             bool roomExists = MapRoomLoadButton.Enabled = _level.RoomExists((byte)MapRoomNumberInput.Value);
-            int selectedRoom = _level.Map[selectedRoomCoordinates.x, selectedRoomCoordinates.y];
+            int selectedRoom = mapPictureBox.SelectedRoomID;
 
             if (roomExists && MapRoomNumberInput.Value != selectedRoom)
             {
@@ -1093,20 +1036,6 @@ namespace EFSAdvent
             }
         }
 
-        private void DrawMapWithSelectedRoomHighlighted()
-        {
-            DrawMap();
-            int roomWidthInPixels = mapPictureBox.Width / _level.Map.XDimension;
-            int roomHeightInPixels = mapPictureBox.Height / _level.Map.YDimension;
-            var brush = new SolidBrush(Color.FromArgb(100, 0, 255, 0));
-            mapGraphics.FillRectangle(brush,
-                                              selectedRoomCoordinates.x * roomWidthInPixels,
-                                              selectedRoomCoordinates.y * roomHeightInPixels,
-                                              roomWidthInPixels,
-                                              roomHeightInPixels);
-            MapPanel.Refresh();
-        }
-
         private void mapPictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             LoadRoom(sender, e);
@@ -1116,10 +1045,8 @@ namespace EFSAdvent
 
         private void UpdateMapRoomNumber(int roomID)
         {
-            _level.Map[selectedRoomCoordinates.x, selectedRoomCoordinates.y] = roomID;
+            mapPictureBox.SelectedRoomID = roomID;
             MapRoomRemoveButton.Enabled = roomID != Map.EMPTY_ROOM_VALUE;
-            DrawMap();
-            DrawMapWithSelectedRoomHighlighted();
         }
 
         private void SaveMap(object sender, EventArgs e)
@@ -1152,10 +1079,6 @@ namespace EFSAdvent
                     case "MapVariableOverlay":
                         ChangeOverlay((int)MapVariableOverlay.Value);
                         UpdateView();
-                        break;
-                    case "MapVariableStartY":
-                    case "MapVariableStartX":
-                        DrawMap();
                         break;
                     case "MapVariableTileSheet":
                         ChangeTileSheet((int)MapVariableTileSheet.Value);

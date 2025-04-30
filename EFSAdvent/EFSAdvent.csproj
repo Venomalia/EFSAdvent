@@ -105,6 +105,9 @@
     <Compile Include="History.cs" />
     <Compile Include="InputDialog.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="MapPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PictureBoxWithInterpolationMode.cs">
       <SubType>Component</SubType>
     </Compile>
