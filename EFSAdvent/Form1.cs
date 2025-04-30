@@ -1004,11 +1004,12 @@ namespace EFSAdvent
 
         private void SelectMapRoom(object sender, MouseEventArgs e)
         {
-
             int roomWidthInPixels = mapPictureBox.Width / _level.Map.XDimension;
             int roomHeightInPixels = mapPictureBox.Height / _level.Map.YDimension;
+
             //When the user clicks in the map load the value of the clicked room into the edit box
             mapPictureBox.SelectedRoomCoordinates = (e.X / roomWidthInPixels, e.Y / roomHeightInPixels);
+
             int roomValue = Math.Max(mapPictureBox.SelectedRoomID, 0);
             MapRoomNumberInput.Value = roomValue;
             MapRoomRemoveButton.Enabled = roomValue != Map.EMPTY_ROOM_VALUE;
@@ -1016,7 +1017,43 @@ namespace EFSAdvent
 
             CoridinatesTextBox.Clear();
             CoridinatesTextBox.AppendText($"Map coordinates: x{mapPictureBox.SelectedRoomCoordinates.X} y{mapPictureBox.SelectedRoomCoordinates.Y}");
+
+            switch (e.Button)
+            {
+                case MouseButtons.Right:
+                case MouseButtons.Middle:
+                    LoadRoom(sender, e);
+                    return;
+            }
+
         }
+
+        private void mapPictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            int roomWidthInPixels = mapPictureBox.Width / _level.Map.XDimension;
+            int roomHeightInPixels = mapPictureBox.Height / _level.Map.YDimension;
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+
+                    (int X, int Y) upCoordinates = (e.X / roomWidthInPixels, e.Y / roomHeightInPixels);
+                    if (upCoordinates != mapPictureBox.SelectedRoomCoordinates)
+                    {
+                        int downRoom = mapPictureBox.SelectedRoomID;
+                        int upRoom = _level.Map[upCoordinates.X, upCoordinates.Y];
+
+                        if (downRoom != upRoom)
+                        {
+                            mapPictureBox.SelectedRoomID = upRoom;
+                            _level.Map[upCoordinates.X, upCoordinates.Y] = downRoom;
+                        }
+                        mapPictureBox.SelectedRoomCoordinates = upCoordinates;
+                    }
+                    break;
+            }
+        }
+
+        private void mapPictureBox_MouseDoubleClick(object sender, MouseEventArgs e) => LoadRoom(sender, e);
 
         private void SelectRoomNumber(object sender, EventArgs e)
         {
@@ -1034,10 +1071,6 @@ namespace EFSAdvent
             }
         }
 
-        private void mapPictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            LoadRoom(sender, e);
-        }
 
         private void UpdateMapRoomNumber(object sender, EventArgs e) => UpdateMapRoomNumber((byte)MapRoomNumberInput.Value);
 

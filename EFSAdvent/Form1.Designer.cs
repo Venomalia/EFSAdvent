@@ -317,8 +317,9 @@ namespace EFSAdvent
             this.mapPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mapPictureBox.TabIndex = 0;
             this.mapPictureBox.TabStop = false;
-            this.mapPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectMapRoom);
             this.mapPictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mapPictureBox_MouseDoubleClick);
+            this.mapPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SelectMapRoom);
+            this.mapPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mapPictureBox_MouseUp);
             // 
             // loggerTextBox
             // 
