@@ -88,7 +88,7 @@ namespace FSALib
                 if (IsShadowBattle)
                     _shadowRooms[x + y * 5].RoomIndex = value;
                 else
-                    OnPropertyChanged(ref _rooms[x + y * DIMENSION], value, nameof(_rooms));
+                    OnPropertyChanged(ref _rooms[x + y * DIMENSION], value, "Rooms");
             }
         }
 
@@ -221,13 +221,16 @@ namespace FSALib
         /// </returns>
         public (int x, int y) FindRoomPositon(int roomIndex)
         {
-            for (int y = 0; y < YDimension; y++)
+            if (roomIndex != EMPTY_ROOM_VALUE)
             {
-                for (int x = 0; x < XDimension; x++)
+                for (int y = 0; y < YDimension; y++)
                 {
-                    if (this[x, y] == roomIndex)
+                    for (int x = 0; x < XDimension; x++)
                     {
-                        return (x, y);
+                        if (this[x, y] == roomIndex)
+                        {
+                            return (x, y);
+                        }
                     }
                 }
             }

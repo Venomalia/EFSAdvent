@@ -38,7 +38,6 @@ namespace EFSAdvent
             this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mapPictureBox = new EFSAdvent.MapPictureBox();
             this.loggerTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,41 +92,13 @@ namespace EFSAdvent
             this.layersCheckList = new EFSAdvent.CheckedListBoxColorable();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
-            this.MapVariableMusicComboBox = new System.Windows.Forms.ComboBox();
-            this.RoomLayoutgroupBox1 = new System.Windows.Forms.GroupBox();
-            this.MapRoomLoadButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.MapRoomNewButton = new System.Windows.Forms.Button();
-            this.MapRoomSetButton = new System.Windows.Forms.Button();
-            this.MapRoomNumberInput = new System.Windows.Forms.NumericUpDown();
-            this.MapRoomRemoveButton = new System.Windows.Forms.Button();
-            this.MapVariableNPCSheetID = new System.Windows.Forms.NumericUpDown();
-            this.MapVariableOverlay = new System.Windows.Forms.NumericUpDown();
-            this.MapVariableUnknown2 = new System.Windows.Forms.NumericUpDown();
-            this.MapVariableDisallowTingle = new System.Windows.Forms.NumericUpDown();
-            this.MapVariableTileSheet = new System.Windows.Forms.NumericUpDown();
-            this.MapVariableE3Banner = new System.Windows.Forms.NumericUpDown();
-            this.MapVariableStartY = new System.Windows.Forms.NumericUpDown();
-            this.MapVariableStartX = new System.Windows.Forms.NumericUpDown();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.csvLabel4 = new System.Windows.Forms.Label();
-            this.MapSaveButton = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.mapEditor = new EFSAdvent.Controls.MapEditor();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.MirrorBrushbutton = new System.Windows.Forms.Button();
             this.BrushSizeLabel = new System.Windows.Forms.Label();
             this.BrushSizeComboBox = new System.Windows.Forms.ComboBox();
             this.BrushTileLabel = new System.Windows.Forms.Label();
             this.BrushTilePictureBox = new System.Windows.Forms.PictureBox();
-            this.currentTileSheetComboBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.SaveStampButton = new System.Windows.Forms.Button();
             this.MirrorStampButton = new System.Windows.Forms.Button();
@@ -189,22 +160,10 @@ namespace EFSAdvent
             this.layersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.actorContextMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.rightSideGroupBox.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.MapVariablesGroupBox.SuspendLayout();
-            this.RoomLayoutgroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MapRoomNumberInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableNPCSheetID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableOverlay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableDisallowTingle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableTileSheet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableE3Banner)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartX)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -243,9 +202,9 @@ namespace EFSAdvent
             this.tileSheetPanel.AutoScroll = true;
             this.tileSheetPanel.BackColor = System.Drawing.Color.Transparent;
             this.tileSheetPanel.Controls.Add(this.tileSheetPictureBox);
-            this.tileSheetPanel.Location = new System.Drawing.Point(0, 61);
+            this.tileSheetPanel.Location = new System.Drawing.Point(0, 40);
             this.tileSheetPanel.Name = "tileSheetPanel";
-            this.tileSheetPanel.Size = new System.Drawing.Size(273, 462);
+            this.tileSheetPanel.Size = new System.Drawing.Size(273, 483);
             this.tileSheetPanel.TabIndex = 0;
             // 
             // tileSheetPictureBox
@@ -307,19 +266,6 @@ namespace EFSAdvent
             this.pastToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.pastToolStripMenuItem.Text = "Paste Here";
             this.pastToolStripMenuItem.Click += new System.EventHandler(this.pastToolStripMenuItem_Click);
-            // 
-            // mapPictureBox
-            // 
-            this.mapPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mapPictureBox.Location = new System.Drawing.Point(9, 70);
-            this.mapPictureBox.Name = "mapPictureBox";
-            this.mapPictureBox.Size = new System.Drawing.Size(240, 170);
-            this.mapPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mapPictureBox.TabIndex = 0;
-            this.mapPictureBox.TabStop = false;
-            this.mapPictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mapPictureBox_MouseDoubleClick);
-            this.mapPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SelectMapRoom);
-            this.mapPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mapPictureBox_MouseUp);
             // 
             // loggerTextBox
             // 
@@ -602,14 +548,14 @@ namespace EFSAdvent
             this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
             this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.xSizeToolStripMenuItem.Text = "1x size";
-            this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.oneXSizeToolStripMenuItem_Click);
+            this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.OneXSizeToolStripMenuItem_Click);
             // 
             // xSizeToolStripMenuItem1
             // 
             this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
             this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
-            this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.twoXSizeToolStripMenuItem1_Click);
+            this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.TwoXSizeToolStripMenuItem1_Click);
             // 
             // toolStripSeparator6
             // 
@@ -624,7 +570,7 @@ namespace EFSAdvent
             this.displayOverlayToolStripMenuItem.Name = "displayOverlayToolStripMenuItem";
             this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.displayOverlayToolStripMenuItem.Text = "Display overlay";
-            this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
+            this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.UpdateView_Click);
             // 
             // textureFilterModeToolStripMenuItem
             // 
@@ -685,7 +631,7 @@ namespace EFSAdvent
             this.alwaysShowActorsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.alwaysShowActorsToolStripMenuItem.Text = "Show Always";
             this.alwaysShowActorsToolStripMenuItem.ToolTipText = "Displays actors regardless of the current layer.";
-            this.alwaysShowActorsToolStripMenuItem.Click += new System.EventHandler(this.updateView_Click);
+            this.alwaysShowActorsToolStripMenuItem.Click += new System.EventHandler(this.UpdateView_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -709,7 +655,7 @@ namespace EFSAdvent
             this.wikiToolStripMenuItem.Name = "wikiToolStripMenuItem";
             this.wikiToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.wikiToolStripMenuItem.Text = "Wiki";
-            this.wikiToolStripMenuItem.Click += new System.EventHandler(this.wikiToolStripMenuItem_Click);
+            this.wikiToolStripMenuItem.Click += new System.EventHandler(this.WikiToolStripMenuItem_Click);
             // 
             // sourceCodeToolStripMenuItem
             // 
@@ -753,7 +699,7 @@ namespace EFSAdvent
             this.updateLayersButton.TabIndex = 20;
             this.updateLayersButton.Text = "Update view";
             this.updateLayersButton.UseVisualStyleBackColor = true;
-            this.updateLayersButton.Click += new System.EventHandler(this.updateView_Click);
+            this.updateLayersButton.Click += new System.EventHandler(this.UpdateView_Click);
             // 
             // buttonSaveLayers
             // 
@@ -815,7 +761,7 @@ namespace EFSAdvent
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.MapVariablesGroupBox);
+            this.tabPage3.Controls.Add(this.mapEditor);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -824,329 +770,15 @@ namespace EFSAdvent
             this.tabPage3.Text = "Map Info";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // MapVariablesGroupBox
+            // mapEditor
             // 
-            this.MapVariablesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.MapVariablesGroupBox.Controls.Add(this.MapVariableMusicComboBox);
-            this.MapVariablesGroupBox.Controls.Add(this.RoomLayoutgroupBox1);
-            this.MapVariablesGroupBox.Controls.Add(this.MapVariableNPCSheetID);
-            this.MapVariablesGroupBox.Controls.Add(this.MapVariableOverlay);
-            this.MapVariablesGroupBox.Controls.Add(this.MapVariableUnknown2);
-            this.MapVariablesGroupBox.Controls.Add(this.MapVariableDisallowTingle);
-            this.MapVariablesGroupBox.Controls.Add(this.MapVariableTileSheet);
-            this.MapVariablesGroupBox.Controls.Add(this.MapVariableE3Banner);
-            this.MapVariablesGroupBox.Controls.Add(this.MapVariableStartY);
-            this.MapVariablesGroupBox.Controls.Add(this.MapVariableStartX);
-            this.MapVariablesGroupBox.Controls.Add(this.label20);
-            this.MapVariablesGroupBox.Controls.Add(this.label19);
-            this.MapVariablesGroupBox.Controls.Add(this.label18);
-            this.MapVariablesGroupBox.Controls.Add(this.label17);
-            this.MapVariablesGroupBox.Controls.Add(this.csvLabel4);
-            this.MapVariablesGroupBox.Controls.Add(this.MapSaveButton);
-            this.MapVariablesGroupBox.Controls.Add(this.label10);
-            this.MapVariablesGroupBox.Controls.Add(this.label11);
-            this.MapVariablesGroupBox.Controls.Add(this.label16);
-            this.MapVariablesGroupBox.Controls.Add(this.label3);
-            this.MapVariablesGroupBox.Location = new System.Drawing.Point(0, 3);
-            this.MapVariablesGroupBox.Name = "MapVariablesGroupBox";
-            this.MapVariablesGroupBox.Size = new System.Drawing.Size(267, 520);
-            this.MapVariablesGroupBox.TabIndex = 13;
-            this.MapVariablesGroupBox.TabStop = false;
-            this.MapVariablesGroupBox.Text = "Map";
-            // 
-            // MapVariableMusicComboBox
-            // 
-            this.MapVariableMusicComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MapVariableMusicComboBox.FormattingEnabled = true;
-            this.MapVariableMusicComboBox.Location = new System.Drawing.Point(84, 43);
-            this.MapVariableMusicComboBox.Name = "MapVariableMusicComboBox";
-            this.MapVariableMusicComboBox.Size = new System.Drawing.Size(177, 21);
-            this.MapVariableMusicComboBox.TabIndex = 32;
-            this.MapVariableMusicComboBox.SelectedIndexChanged += new System.EventHandler(this.UpdateMapVariables);
-            // 
-            // RoomLayoutgroupBox1
-            // 
-            this.RoomLayoutgroupBox1.Controls.Add(this.mapPictureBox);
-            this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomLoadButton);
-            this.RoomLayoutgroupBox1.Controls.Add(this.label5);
-            this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomNewButton);
-            this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomSetButton);
-            this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomNumberInput);
-            this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomRemoveButton);
-            this.RoomLayoutgroupBox1.Location = new System.Drawing.Point(3, 153);
-            this.RoomLayoutgroupBox1.Name = "RoomLayoutgroupBox1";
-            this.RoomLayoutgroupBox1.Size = new System.Drawing.Size(255, 254);
-            this.RoomLayoutgroupBox1.TabIndex = 31;
-            this.RoomLayoutgroupBox1.TabStop = false;
-            this.RoomLayoutgroupBox1.Text = "Layout of Rooms in Map";
-            // 
-            // MapRoomLoadButton
-            // 
-            this.MapRoomLoadButton.Enabled = false;
-            this.MapRoomLoadButton.Location = new System.Drawing.Point(183, 44);
-            this.MapRoomLoadButton.Name = "MapRoomLoadButton";
-            this.MapRoomLoadButton.Size = new System.Drawing.Size(65, 20);
-            this.MapRoomLoadButton.TabIndex = 11;
-            this.MapRoomLoadButton.Text = "Load";
-            this.MapRoomLoadButton.UseVisualStyleBackColor = true;
-            this.MapRoomLoadButton.Click += new System.EventHandler(this.LoadRoom);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Selected Room";
-            // 
-            // MapRoomNewButton
-            // 
-            this.MapRoomNewButton.Enabled = false;
-            this.MapRoomNewButton.Location = new System.Drawing.Point(112, 18);
-            this.MapRoomNewButton.Name = "MapRoomNewButton";
-            this.MapRoomNewButton.Size = new System.Drawing.Size(65, 20);
-            this.MapRoomNewButton.TabIndex = 29;
-            this.MapRoomNewButton.Text = "New";
-            this.MapRoomNewButton.UseVisualStyleBackColor = true;
-            this.MapRoomNewButton.Click += new System.EventHandler(this.NewRoom);
-            // 
-            // MapRoomSetButton
-            // 
-            this.MapRoomSetButton.Enabled = false;
-            this.MapRoomSetButton.Location = new System.Drawing.Point(112, 44);
-            this.MapRoomSetButton.Name = "MapRoomSetButton";
-            this.MapRoomSetButton.Size = new System.Drawing.Size(65, 20);
-            this.MapRoomSetButton.TabIndex = 10;
-            this.MapRoomSetButton.Text = "Set";
-            this.MapRoomSetButton.UseVisualStyleBackColor = true;
-            this.MapRoomSetButton.Click += new System.EventHandler(this.UpdateMapRoomNumber);
-            // 
-            // MapRoomNumberInput
-            // 
-            this.MapRoomNumberInput.Location = new System.Drawing.Point(8, 44);
-            this.MapRoomNumberInput.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.MapRoomNumberInput.Name = "MapRoomNumberInput";
-            this.MapRoomNumberInput.Size = new System.Drawing.Size(99, 20);
-            this.MapRoomNumberInput.TabIndex = 19;
-            this.MapRoomNumberInput.ValueChanged += new System.EventHandler(this.SelectRoomNumber);
-            // 
-            // MapRoomRemoveButton
-            // 
-            this.MapRoomRemoveButton.Enabled = false;
-            this.MapRoomRemoveButton.Location = new System.Drawing.Point(183, 18);
-            this.MapRoomRemoveButton.Name = "MapRoomRemoveButton";
-            this.MapRoomRemoveButton.Size = new System.Drawing.Size(65, 20);
-            this.MapRoomRemoveButton.TabIndex = 30;
-            this.MapRoomRemoveButton.Text = "Remove";
-            this.MapRoomRemoveButton.UseVisualStyleBackColor = false;
-            this.MapRoomRemoveButton.Click += new System.EventHandler(this.RemoveRoom);
-            // 
-            // MapVariableNPCSheetID
-            // 
-            this.MapVariableNPCSheetID.Location = new System.Drawing.Point(215, 96);
-            this.MapVariableNPCSheetID.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.MapVariableNPCSheetID.Name = "MapVariableNPCSheetID";
-            this.MapVariableNPCSheetID.Size = new System.Drawing.Size(46, 20);
-            this.MapVariableNPCSheetID.TabIndex = 28;
-            this.MapVariableNPCSheetID.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
-            // 
-            // MapVariableOverlay
-            // 
-            this.MapVariableOverlay.Location = new System.Drawing.Point(84, 96);
-            this.MapVariableOverlay.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.MapVariableOverlay.Name = "MapVariableOverlay";
-            this.MapVariableOverlay.Size = new System.Drawing.Size(46, 20);
-            this.MapVariableOverlay.TabIndex = 27;
-            this.MapVariableOverlay.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
-            // 
-            // MapVariableUnknown2
-            // 
-            this.MapVariableUnknown2.Location = new System.Drawing.Point(215, 125);
-            this.MapVariableUnknown2.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.MapVariableUnknown2.Name = "MapVariableUnknown2";
-            this.MapVariableUnknown2.Size = new System.Drawing.Size(46, 20);
-            this.MapVariableUnknown2.TabIndex = 26;
-            this.MapVariableUnknown2.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
-            // 
-            // MapVariableDisallowTingle
-            // 
-            this.MapVariableDisallowTingle.Location = new System.Drawing.Point(84, 122);
-            this.MapVariableDisallowTingle.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.MapVariableDisallowTingle.Name = "MapVariableDisallowTingle";
-            this.MapVariableDisallowTingle.Size = new System.Drawing.Size(46, 20);
-            this.MapVariableDisallowTingle.TabIndex = 25;
-            this.MapVariableDisallowTingle.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
-            // 
-            // MapVariableTileSheet
-            // 
-            this.MapVariableTileSheet.Location = new System.Drawing.Point(84, 70);
-            this.MapVariableTileSheet.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.MapVariableTileSheet.Name = "MapVariableTileSheet";
-            this.MapVariableTileSheet.Size = new System.Drawing.Size(46, 20);
-            this.MapVariableTileSheet.TabIndex = 24;
-            this.MapVariableTileSheet.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
-            // 
-            // MapVariableE3Banner
-            // 
-            this.MapVariableE3Banner.Location = new System.Drawing.Point(215, 70);
-            this.MapVariableE3Banner.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.MapVariableE3Banner.Name = "MapVariableE3Banner";
-            this.MapVariableE3Banner.Size = new System.Drawing.Size(46, 20);
-            this.MapVariableE3Banner.TabIndex = 23;
-            this.MapVariableE3Banner.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
-            // 
-            // MapVariableStartY
-            // 
-            this.MapVariableStartY.Location = new System.Drawing.Point(215, 17);
-            this.MapVariableStartY.Maximum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
-            this.MapVariableStartY.Name = "MapVariableStartY";
-            this.MapVariableStartY.Size = new System.Drawing.Size(46, 20);
-            this.MapVariableStartY.TabIndex = 21;
-            this.MapVariableStartY.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
-            // 
-            // MapVariableStartX
-            // 
-            this.MapVariableStartX.Location = new System.Drawing.Point(84, 17);
-            this.MapVariableStartX.Maximum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
-            this.MapVariableStartX.Name = "MapVariableStartX";
-            this.MapVariableStartX.Size = new System.Drawing.Size(46, 20);
-            this.MapVariableStartX.TabIndex = 20;
-            this.MapVariableStartX.ValueChanged += new System.EventHandler(this.UpdateMapVariables);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 124);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(81, 13);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "Disallow Tingle:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(136, 127);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(56, 13);
-            this.label19.TabIndex = 17;
-            this.label19.Text = "Unknown:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 99);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(46, 13);
-            this.label18.TabIndex = 16;
-            this.label18.Text = "Overlay:";
-            this.ActorAttributesTip.SetToolTip(this.label18, "Index of texture that is applied over top of layer tiles in-game.");
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(136, 98);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(63, 13);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "NPC Sheet:";
-            // 
-            // csvLabel4
-            // 
-            this.csvLabel4.AutoSize = true;
-            this.csvLabel4.Location = new System.Drawing.Point(139, 72);
-            this.csvLabel4.Name = "csvLabel4";
-            this.csvLabel4.Size = new System.Drawing.Size(60, 13);
-            this.csvLabel4.TabIndex = 14;
-            this.csvLabel4.Text = "E3 Banner:";
-            this.ActorAttributesTip.SetToolTip(this.csvLabel4, "Set to 1 to show E3 banner when starting boss005 or boss006");
-            // 
-            // MapSaveButton
-            // 
-            this.MapSaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.MapSaveButton.Enabled = false;
-            this.MapSaveButton.Location = new System.Drawing.Point(11, 478);
-            this.MapSaveButton.Name = "MapSaveButton";
-            this.MapSaveButton.Size = new System.Drawing.Size(256, 35);
-            this.MapSaveButton.TabIndex = 12;
-            this.MapSaveButton.Text = "Save changes to Map";
-            this.MapSaveButton.UseVisualStyleBackColor = true;
-            this.MapSaveButton.Click += new System.EventHandler(this.SaveMap);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 72);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Tile Sheet:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 46);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "BG Music:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(136, 19);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(73, 13);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Start Room Y:";
-            this.ActorAttributesTip.SetToolTip(this.label16, "0-based Y coordinate of the room the players start in.");
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Start Room X:";
-            this.ActorAttributesTip.SetToolTip(this.label3, "0-based X coordinate of the room the players start in.");
+            this.mapEditor.Location = new System.Drawing.Point(0, 0);
+            this.mapEditor.Name = "mapEditor";
+            this.mapEditor.Size = new System.Drawing.Size(273, 526);
+            this.mapEditor.TabIndex = 0;
+            this.mapEditor.LoadRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_LoadRoom);
+            this.mapEditor.NewRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_NewRoom);
+            this.mapEditor.SelectedRoomCoordinatesChanged += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_SelectedRoomCoordinatesChanged);
             // 
             // tabPage2
             // 
@@ -1156,8 +788,6 @@ namespace EFSAdvent
             this.tabPage2.Controls.Add(this.BrushSizeComboBox);
             this.tabPage2.Controls.Add(this.BrushTileLabel);
             this.tabPage2.Controls.Add(this.BrushTilePictureBox);
-            this.tabPage2.Controls.Add(this.currentTileSheetComboBox);
-            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.tileSheetPanel);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -1168,9 +798,9 @@ namespace EFSAdvent
             // 
             // MirrorBrushbutton
             // 
-            this.MirrorBrushbutton.Location = new System.Drawing.Point(139, 34);
+            this.MirrorBrushbutton.Location = new System.Drawing.Point(148, 7);
             this.MirrorBrushbutton.Name = "MirrorBrushbutton";
-            this.MirrorBrushbutton.Size = new System.Drawing.Size(52, 23);
+            this.MirrorBrushbutton.Size = new System.Drawing.Size(52, 21);
             this.MirrorBrushbutton.TabIndex = 8;
             this.MirrorBrushbutton.Text = "Mirror";
             this.MirrorBrushbutton.UseVisualStyleBackColor = true;
@@ -1179,7 +809,7 @@ namespace EFSAdvent
             // BrushSizeLabel
             // 
             this.BrushSizeLabel.AutoSize = true;
-            this.BrushSizeLabel.Location = new System.Drawing.Point(-3, 37);
+            this.BrushSizeLabel.Location = new System.Drawing.Point(6, 10);
             this.BrushSizeLabel.Name = "BrushSizeLabel";
             this.BrushSizeLabel.Size = new System.Drawing.Size(77, 13);
             this.BrushSizeLabel.TabIndex = 7;
@@ -1199,7 +829,7 @@ namespace EFSAdvent
             "7",
             "8",
             "9"});
-            this.BrushSizeComboBox.Location = new System.Drawing.Point(84, 34);
+            this.BrushSizeComboBox.Location = new System.Drawing.Point(93, 7);
             this.BrushSizeComboBox.Name = "BrushSizeComboBox";
             this.BrushSizeComboBox.Size = new System.Drawing.Size(49, 21);
             this.BrushSizeComboBox.TabIndex = 6;
@@ -1224,54 +854,6 @@ namespace EFSAdvent
             this.BrushTilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.BrushTilePictureBox.TabIndex = 4;
             this.BrushTilePictureBox.TabStop = false;
-            // 
-            // currentTileSheetComboBox
-            // 
-            this.currentTileSheetComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.currentTileSheetComboBox.FormattingEnabled = true;
-            this.currentTileSheetComboBox.Items.AddRange(new object[] {
-            "Tile Sheet 00",
-            "Tile Sheet 01",
-            "Tile Sheet 02",
-            "Tile Sheet 03",
-            "Tile Sheet 04",
-            "Tile Sheet 05",
-            "Tile Sheet 06",
-            "Tile Sheet 07",
-            "Tile Sheet 08",
-            "Tile Sheet 09",
-            "Tile Sheet 10",
-            "Tile Sheet 11",
-            "Tile Sheet 12",
-            "Tile Sheet 13",
-            "Tile Sheet 14",
-            "Tile Sheet 15",
-            "Tile Sheet 16",
-            "Tile Sheet 17",
-            "Tile Sheet 18",
-            "Tile Sheet 19",
-            "Tile Sheet 20",
-            "Tile Sheet 21",
-            "Tile Sheet 22",
-            "Tile Sheet 23",
-            "Tile Sheet 24",
-            "Tile Sheet 25",
-            "Tile Sheet 26",
-            "Tile Sheet 27"});
-            this.currentTileSheetComboBox.Location = new System.Drawing.Point(84, 5);
-            this.currentTileSheetComboBox.Name = "currentTileSheetComboBox";
-            this.currentTileSheetComboBox.Size = new System.Drawing.Size(107, 21);
-            this.currentTileSheetComboBox.TabIndex = 3;
-            this.currentTileSheetComboBox.SelectionChangeCommitted += new System.EventHandler(this.UpdateMapVariables);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-3, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Current Tilesheet:";
             // 
             // tabPage4
             // 
@@ -2011,26 +1593,12 @@ namespace EFSAdvent
             this.layersPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.actorContextMenuStrip.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.rightSideGroupBox.ResumeLayout(false);
             this.rightSideGroupBox.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            this.MapVariablesGroupBox.ResumeLayout(false);
-            this.MapVariablesGroupBox.PerformLayout();
-            this.RoomLayoutgroupBox1.ResumeLayout(false);
-            this.RoomLayoutgroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MapRoomNumberInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableNPCSheetID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableOverlay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableDisallowTingle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableTileSheet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableE3Banner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartX)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).EndInit();
@@ -2088,17 +1656,9 @@ namespace EFSAdvent
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox currentTileSheetComboBox;
-        private MapPictureBox mapPictureBox;
-        private System.Windows.Forms.Button MapRoomSetButton;
-        private System.Windows.Forms.Button MapRoomLoadButton;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox BrushTilePictureBox;
         private System.Windows.Forms.Label BrushTileLabel;
-        private System.Windows.Forms.GroupBox MapVariablesGroupBox;
         private System.Windows.Forms.Button updateLayersButton;
         private System.Windows.Forms.ToolTip ActorAttributesTip;
         private System.Windows.Forms.CheckedListBox actorsCheckListBox;
@@ -2107,35 +1667,17 @@ namespace EFSAdvent
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox actorLayerComboBox;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox ActorNameComboBox;
         private System.Windows.Forms.PictureBox ActorInfoPictureBox;
         private System.Windows.Forms.Button actorDeleteButton;
-        private System.Windows.Forms.Button MapSaveButton;
         private System.Windows.Forms.Button buttonActorsSelectNone;
         private System.Windows.Forms.Button buttonSaveLayers;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
-		private System.Windows.Forms.Label csvLabel4;
-		private System.Windows.Forms.Label label20;
-		private System.Windows.Forms.Label label19;
-		private System.Windows.Forms.Label label18;
-		private System.Windows.Forms.Label label17;
 		private System.Windows.Forms.ComboBox BrushSizeComboBox;
-		private System.Windows.Forms.NumericUpDown MapRoomNumberInput;
-		private System.Windows.Forms.NumericUpDown MapVariableNPCSheetID;
-		private System.Windows.Forms.NumericUpDown MapVariableOverlay;
-		private System.Windows.Forms.NumericUpDown MapVariableUnknown2;
-		private System.Windows.Forms.NumericUpDown MapVariableDisallowTingle;
-		private System.Windows.Forms.NumericUpDown MapVariableTileSheet;
-		private System.Windows.Forms.NumericUpDown MapVariableE3Banner;
-		private System.Windows.Forms.NumericUpDown MapVariableStartY;
-		private System.Windows.Forms.NumericUpDown MapVariableStartX;
 		private System.Windows.Forms.NumericUpDown ActorYCoordInput;
 		private System.Windows.Forms.NumericUpDown ActorXCoordInput;
 		private System.Windows.Forms.NumericUpDown ActorLayerInput;
@@ -2148,9 +1690,6 @@ namespace EFSAdvent
         private System.Windows.Forms.GroupBox groupBoxCoridinate;
         private System.Windows.Forms.ContextMenuStrip actorContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem pastToolStripMenuItem;
-        private System.Windows.Forms.Button MapRoomNewButton;
-        private System.Windows.Forms.Button MapRoomRemoveButton;
-        private System.Windows.Forms.GroupBox RoomLayoutgroupBox1;
         private System.Windows.Forms.ToolStripMenuItem textureFilterModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bilinearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bicubicToolStripMenuItem;
@@ -2158,7 +1697,6 @@ namespace EFSAdvent
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roomImportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actorsImportToolStripMenuItem;
-        private System.Windows.Forms.ComboBox MapVariableMusicComboBox;
         private ToolStripMenuItem ExportMenuItem;
         private ToolStripMenuItem viewAspngToolStripMenuItem;
         private ToolStripMenuItem mapAspngToolStripMenuItem;
@@ -2225,6 +1763,7 @@ namespace EFSAdvent
         private TextBox RootFolderPathTextBox;
         private ToolStripMenuItem mirrorRoomToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator7;
+        private Controls.MapEditor mapEditor;
     }
 }
 

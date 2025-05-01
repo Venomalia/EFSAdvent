@@ -82,7 +82,11 @@ namespace EFSAdvent
             DrawMap();
         }
 
-        private void Map_PropertyChanged(object sender, PropertyChangedEventArgs e) => DrawMap();
+        private void Map_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Rooms" || e.PropertyName == "StartX" || e.PropertyName == "StartY")
+                DrawMap();
+        }
 
         private unsafe void DrawMap()
         {

@@ -40,6 +40,7 @@ namespace EFSAdvent.FourSwords
             {
                 layer.PropertyChanged += (sender, e) => { LayersAreDirty = true; };
             }
+            LoadMap();
         }
 
         public void LoadMap()
@@ -119,6 +120,17 @@ namespace EFSAdvent.FourSwords
         {
             string filePath = Layer.GetFilePath(_basePath, Map.Index, roomNumber);
             return File.Exists(filePath);
+        }
+
+        public void DeleteRoom(int roomNumber)
+        {
+            File.Delete(ActorList.GetFilePath(_basePath, Map.Index, roomNumber));
+
+            for (int layer = 0; layer < 8; layer++)
+            {
+                File.Delete(Layer.GetFilePath(_basePath, Map.Index, roomNumber, 1, layer));
+                File.Delete(Layer.GetFilePath(_basePath, Map.Index, roomNumber, 2, layer));
+            }
         }
 
         public int GetNextFreeRoom()
