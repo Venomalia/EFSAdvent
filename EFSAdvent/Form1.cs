@@ -11,6 +11,8 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -2043,9 +2045,20 @@ namespace EFSAdvent
 
         private void DeleteStampButton_Click(object sender, EventArgs e)
         {
-            if (TileStampFlowLayoutPanel.SelectedIndex != -1)
+            int selectedIndex = TileStampFlowLayoutPanel.SelectedIndex;
+            if (selectedIndex != -1)
             {
-                TileStampFlowLayoutPanel.Delete(TileStampFlowLayoutPanel.SelectedIndex);
+                string stampName = TileStampFlowLayoutPanel.Controls[selectedIndex].Name;
+                var result = MessageBox.Show(
+                    $"Are you sure you want to delete the selected stamp \"{stampName}\"?",
+                    "Confirm Deletion",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    TileStampFlowLayoutPanel.Delete(selectedIndex);
+                }
             }
         }
 

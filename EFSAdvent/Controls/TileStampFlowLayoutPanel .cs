@@ -63,13 +63,15 @@ namespace EFSAdvent.Controls
             if (!File.Exists(stampFilePath))
                 throw new FileNotFoundException("Stamp file not found.", stampFilePath);
 
+            string name = Path.GetFileNameWithoutExtension(stampFilePath);
             var panel = new Panel
             {
                 Width = 78,
                 Height = 78,
                 BackColor = SystemColors.Control,
                 BorderStyle = BorderStyle.FixedSingle,
-                Tag = stampFilePath
+                Tag = stampFilePath,
+                Name = name,
             };
 
             string iconFilePath = Path.ChangeExtension(stampFilePath, ".png");
@@ -87,7 +89,7 @@ namespace EFSAdvent.Controls
 
             var label = new Label
             {
-                Text = Path.GetFileNameWithoutExtension(stampFilePath),
+                Text = name,
                 Dock = DockStyle.Bottom,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Width = panel.Width,
