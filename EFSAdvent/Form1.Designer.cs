@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using EFSAdvent.Controls;
+using System.Windows.Forms;
 
 namespace EFSAdvent
 {
@@ -35,7 +36,7 @@ namespace EFSAdvent
             this.tileSheetPanel = new System.Windows.Forms.Panel();
             this.tileSheetPictureBox = new System.Windows.Forms.PictureBox();
             this.layersPanel = new System.Windows.Forms.Panel();
-            this.layerPictureBox = new EFSAdvent.PictureBoxWithInterpolationMode();
+            this.layerPictureBox = new EFSAdvent.Controls.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loggerTextBox = new System.Windows.Forms.TextBox();
@@ -89,10 +90,14 @@ namespace EFSAdvent
             this.CoridinatesTextBox = new System.Windows.Forms.TextBox();
             this.updateLayersButton = new System.Windows.Forms.Button();
             this.buttonSaveLayers = new System.Windows.Forms.Button();
-            this.layersCheckList = new EFSAdvent.CheckedListBoxColorable();
+            this.layersCheckList = new EFSAdvent.Controls.CheckedListBoxColorable();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.mapEditor = new EFSAdvent.Controls.MapEditor();
+            this.MapTabControl = new System.Windows.Forms.TabControl();
+            this.MapMultiplayerTabPage = new System.Windows.Forms.TabPage();
+            this.MapEditor = new EFSAdvent.Controls.MapEditor();
+            this.MapSinglelplayerTabPage = new System.Windows.Forms.TabPage();
+            this.MapEditorSinglelplayer = new EFSAdvent.Controls.MapEditor();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.MirrorBrushbutton = new System.Windows.Forms.Button();
             this.BrushSizeLabel = new System.Windows.Forms.Label();
@@ -103,7 +108,7 @@ namespace EFSAdvent
             this.SaveStampButton = new System.Windows.Forms.Button();
             this.MirrorStampButton = new System.Windows.Forms.Button();
             this.DeleteStampButton = new System.Windows.Forms.Button();
-            this.TileStampFlowLayoutPanel = new EFSAdvent.TileStampFlowLayoutPanel();
+            this.TileStampFlowLayoutPanel = new EFSAdvent.Controls.TileStampFlowLayoutPanel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonActorsSelectNone = new System.Windows.Forms.Button();
             this.actorLayerComboBox = new System.Windows.Forms.ComboBox();
@@ -164,6 +169,9 @@ namespace EFSAdvent
             this.rightSideGroupBox.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.MapTabControl.SuspendLayout();
+            this.MapMultiplayerTabPage.SuspendLayout();
+            this.MapSinglelplayerTabPage.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -216,7 +224,6 @@ namespace EFSAdvent
             this.tileSheetPictureBox.TabIndex = 0;
             this.tileSheetPictureBox.TabStop = false;
             this.tileSheetPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tilePictureBox_MouseClick);
-            this.tileSheetPictureBox.MouseEnter += new System.EventHandler(this.tileSheetPictureBox_MouseEnter);
             // 
             // layersPanel
             // 
@@ -761,7 +768,7 @@ namespace EFSAdvent
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.mapEditor);
+            this.tabPage3.Controls.Add(this.MapTabControl);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -770,15 +777,60 @@ namespace EFSAdvent
             this.tabPage3.Text = "Map Info";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // mapEditor
+            // MapTabControl
             // 
-            this.mapEditor.Location = new System.Drawing.Point(0, 0);
-            this.mapEditor.Name = "mapEditor";
-            this.mapEditor.Size = new System.Drawing.Size(273, 526);
-            this.mapEditor.TabIndex = 0;
-            this.mapEditor.LoadRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_LoadRoom);
-            this.mapEditor.NewRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_NewRoom);
-            this.mapEditor.SelectedRoomCoordinatesChanged += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_SelectedRoomCoordinatesChanged);
+            this.MapTabControl.Controls.Add(this.MapMultiplayerTabPage);
+            this.MapTabControl.Controls.Add(this.MapSinglelplayerTabPage);
+            this.MapTabControl.Location = new System.Drawing.Point(0, 0);
+            this.MapTabControl.Margin = new System.Windows.Forms.Padding(0);
+            this.MapTabControl.Name = "MapTabControl";
+            this.MapTabControl.SelectedIndex = 0;
+            this.MapTabControl.Size = new System.Drawing.Size(273, 526);
+            this.MapTabControl.TabIndex = 1;
+            // 
+            // MapMultiplayerTabPage
+            // 
+            this.MapMultiplayerTabPage.Controls.Add(this.MapEditor);
+            this.MapMultiplayerTabPage.Location = new System.Drawing.Point(4, 22);
+            this.MapMultiplayerTabPage.Name = "MapMultiplayerTabPage";
+            this.MapMultiplayerTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.MapMultiplayerTabPage.Size = new System.Drawing.Size(265, 500);
+            this.MapMultiplayerTabPage.TabIndex = 0;
+            this.MapMultiplayerTabPage.Text = "Multiplayer";
+            this.MapMultiplayerTabPage.UseVisualStyleBackColor = true;
+            // 
+            // MapEditor
+            // 
+            this.MapEditor.Location = new System.Drawing.Point(0, 0);
+            this.MapEditor.Margin = new System.Windows.Forms.Padding(0);
+            this.MapEditor.Name = "MapEditor";
+            this.MapEditor.Size = new System.Drawing.Size(266, 500);
+            this.MapEditor.TabIndex = 0;
+            this.MapEditor.LoadRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_LoadRoom);
+            this.MapEditor.NewRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_NewRoom);
+            this.MapEditor.SelectedRoomCoordinatesChanged += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_SelectedRoomCoordinatesChanged);
+            // 
+            // MapSinglelplayerTabPage
+            // 
+            this.MapSinglelplayerTabPage.Controls.Add(this.MapEditorSinglelplayer);
+            this.MapSinglelplayerTabPage.Location = new System.Drawing.Point(4, 22);
+            this.MapSinglelplayerTabPage.Name = "MapSinglelplayerTabPage";
+            this.MapSinglelplayerTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.MapSinglelplayerTabPage.Size = new System.Drawing.Size(265, 500);
+            this.MapSinglelplayerTabPage.TabIndex = 1;
+            this.MapSinglelplayerTabPage.Text = "Singlelplayer";
+            this.MapSinglelplayerTabPage.UseVisualStyleBackColor = true;
+            // 
+            // MapEditorSinglelplayer
+            // 
+            this.MapEditorSinglelplayer.Location = new System.Drawing.Point(0, 0);
+            this.MapEditorSinglelplayer.Margin = new System.Windows.Forms.Padding(0);
+            this.MapEditorSinglelplayer.Name = "MapEditorSinglelplayer";
+            this.MapEditorSinglelplayer.Size = new System.Drawing.Size(266, 500);
+            this.MapEditorSinglelplayer.TabIndex = 1;
+            this.MapEditorSinglelplayer.LoadRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_LoadRoom);
+            this.MapEditorSinglelplayer.NewRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_NewRoom);
+            this.MapEditorSinglelplayer.SelectedRoomCoordinatesChanged += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_SelectedRoomCoordinatesChanged);
             // 
             // tabPage2
             // 
@@ -1599,6 +1651,9 @@ namespace EFSAdvent
             this.rightSideGroupBox.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.MapTabControl.ResumeLayout(false);
+            this.MapMultiplayerTabPage.ResumeLayout(false);
+            this.MapSinglelplayerTabPage.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrushTilePictureBox)).EndInit();
@@ -1644,7 +1699,7 @@ namespace EFSAdvent
         private System.Windows.Forms.Panel tileSheetPanel;
         private System.Windows.Forms.Panel layersPanel;
         private System.Windows.Forms.PictureBox tileSheetPictureBox;
-        private EFSAdvent.PictureBoxWithInterpolationMode layerPictureBox;
+        private EFSAdvent.Controls.PictureBoxWithInterpolationMode layerPictureBox;
         private System.Windows.Forms.TextBox loggerTextBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -1652,7 +1707,7 @@ namespace EFSAdvent
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.GroupBox rightSideGroupBox;
-        private EFSAdvent.CheckedListBoxColorable layersCheckList;
+        private EFSAdvent.Controls.CheckedListBoxColorable layersCheckList;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
@@ -1763,7 +1818,11 @@ namespace EFSAdvent
         private TextBox RootFolderPathTextBox;
         private ToolStripMenuItem mirrorRoomToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator7;
-        private Controls.MapEditor mapEditor;
+        private Controls.MapEditor MapEditor;
+        private TabControl MapTabControl;
+        private TabPage MapMultiplayerTabPage;
+        private TabPage MapSinglelplayerTabPage;
+        private MapEditor MapEditorSinglelplayer;
     }
 }
 

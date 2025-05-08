@@ -46,7 +46,7 @@ namespace EFSAdvent.Controls
             this.MapVariablesGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.RoomLayoutgroupBox1 = new System.Windows.Forms.GroupBox();
-            this.mapPictureBox = new EFSAdvent.MapPictureBox();
+            this.mapPictureBox = new EFSAdvent.Controls.MapPictureBox();
             this.MapRoomLoadButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.MapRoomNewButton = new System.Windows.Forms.Button();

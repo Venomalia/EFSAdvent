@@ -274,5 +274,33 @@ namespace FSALib
                 return this;
             }
         }
+
+
+        /// <summary>
+        /// Gets the folder path where map data is stored.
+        /// </summary>
+        /// <param name="path">The base directory path.</param>
+        /// <returns>The full folder path for the map.</returns>
+        public static string GetFolder(string path)
+            => Path.Combine(path, "map");
+
+        /// <summary>
+        /// Generates the filename for an map file.
+        /// </summary>
+        /// <param name="mapIndex">The index of the map.</param>
+        /// <param name="singleplayer">Is a singleplayer map.</param>
+        /// <returns>The formatted filename for the map file.</returns>
+        public static string GetFileName(int mapIndex, bool singleplayer)
+            => $"map{mapIndex:D3}{(singleplayer? "1_" : string.Empty  )}.csv";
+
+        /// <summary>
+        /// Constructs the full file path for an map file, combining the folder path and filename.
+        /// </summary>
+        /// <param name="path">The base directory path.</param>
+        /// <param name="mapIndex">The index of the map.</param>
+        /// <param name="singleplayer">Is a singleplayer map.</param>
+        /// <returns>The full file path to the map file.</returns>
+        public static string GetFilePath(string path, int mapIndex, bool singleplayer)
+            => Path.Combine(GetFolder(path), GetFileName(mapIndex, singleplayer));
     }
 }

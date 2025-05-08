@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 
 namespace EFSAdvent.FourSwords
 {
     public class Level
     {
         public Map Map { get; private set; }
+        public Map MapSinglelplayer { get; private set; }
         public Room Room { get; }
 
         public bool IsDirty => MapIsDirty || LayersAreDirty || ActorsAreDirty;
@@ -17,14 +17,12 @@ namespace EFSAdvent.FourSwords
         public bool LayersAreDirty { get; private set; }
         public bool MapIsDirty { get; private set; }
 
-        private readonly string _number;
         private readonly string _basePath;
         private readonly string _mapPath;
         private readonly Logger _logger;
 
         public Level(string mapPath, Logger logger)
         {
-            _number = new String(mapPath.Split(Path.DirectorySeparatorChar).Last().Skip(3).Take(3).ToArray());
             _basePath = mapPath.Remove(mapPath.LastIndexOf("map" + Path.DirectorySeparatorChar));
             _mapPath = mapPath;
             _logger = logger;
@@ -33,6 +31,14 @@ namespace EFSAdvent.FourSwords
             {
                 _mapPath = _mapPath.Replace("map500_ctrl.csv", "map500.csv");
                 _logger.AppendText("Unknown what map500_ctrl.csv is, loading map500.csv instead.");
+            }
+            if (_mapPath.EndsWith("_1.csv"))
+            {
+                string multiplayer = _mapPath.Replace("_1.csv", ".csv");
+                if (File.Exists(multiplayer))
+                {
+                    _mapPath = multiplayer;
+                }
             }
             Room = new Room();
             Room.Actors.CollectionChanged += (sender, e) => { ActorsAreDirty = true; };
@@ -67,6 +73,19 @@ namespace EFSAdvent.FourSwords
                     shadowRooms[i].PropertyChanged += (sender, e) => { MapIsDirty = true; };
                 }
             }
+
+            string mapPathSinglelplayer = _mapPath.Replace(".csv", "_1.csv");
+            if (File.Exists(mapPathSinglelplayer))
+            {
+                using FileStream mapStream = File.Open(mapPathSinglelplayer, FileMode.Open);
+                MapSinglelplayer = new Map(mapStream);
+                MapSinglelplayer.PropertyChanged += (sender, e) => { MapIsDirty = true; };
+            }
+            else
+            {
+                MapSinglelplayer = null;
+            }
+
             MapIsDirty = false;
         }
 
@@ -75,6 +94,13 @@ namespace EFSAdvent.FourSwords
             // Save map file
             using (FileStream mapStream = File.Open(_mapPath, FileMode.Create))
             {
+                Map.BinarySerialize(mapStream);
+            }
+
+            if (MapSinglelplayer != null)
+            {
+                string mapPathSinglelplayer = _mapPath.Replace(".csv", "_1.csv");
+                using FileStream mapStream = File.Open(mapPathSinglelplayer, FileMode.Create);
                 Map.BinarySerialize(mapStream);
             }
             MapIsDirty = false;
@@ -272,5 +298,7 @@ namespace EFSAdvent.FourSwords
                 _logger.AppendLine($"Critical error during TMX import: {ex.Message}");
             }
         }
+
+        public bool IsRoomInUse(int roomIndex) => Map.IsRoomInUse(roomIndex) || (!(MapSinglelplayer is null) && MapSinglelplayer.IsRoomInUse(roomIndex));
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AuroraLib.Core.Format.Identifier;
+using EFSAdvent.Controls;
 using EFSAdvent.FourSwords;
 using FSALib;
 using FSALib.Schema;
@@ -234,7 +235,21 @@ namespace EFSAdvent
                 _level.Map.PropertyChanged -= Map_PropertyChanged;
 
             _level = new Level(mapPath, _logger);
-            mapEditor.SetMap(_level.Map, _level);
+            MapEditor.SetMap(_level.Map, _level);
+            if (_level.MapSinglelplayer is null)
+            {
+                if (MapTabControl.TabPages.Contains(MapSinglelplayerTabPage))
+                    MapTabControl.TabPages.Remove(MapSinglelplayerTabPage);
+                MapEditorSinglelplayer.Enabled = false;
+            }
+            else
+            {
+                if (!MapTabControl.TabPages.Contains(MapSinglelplayerTabPage))
+                    MapTabControl.TabPages.Add(MapSinglelplayerTabPage);
+                MapEditorSinglelplayer.Enabled = true;
+                MapEditorSinglelplayer.SetMap(_level.MapSinglelplayer, _level);
+            }
+
             _level.Map.PropertyChanged += Map_PropertyChanged;
 
             ChangeOverlay();
@@ -242,7 +257,7 @@ namespace EFSAdvent
 
             //Get a string which is just the root bossxxx filepath for loading other files
             RootFolderPathTextBox.Text = mapPath.Remove(mapPath.LastIndexOf("\\map\\") + 1);
-            this.Text = $"{BaseTitel} - Map{_level.Map.Index} - {(mapPath.EndsWith("_1.csv") ? "single " : "multi")}player map";
+            this.Text = $"{BaseTitel} - Map{_level.Map.Index}";
             layerPictureBox.Refresh();
 
             ExportMenuItem.Enabled = true;
@@ -667,15 +682,15 @@ namespace EFSAdvent
             }
 
             MessageBox.Show($"Room successfully imported to room {freeRoomNr}.");
-            if (mapEditor.SelectedRoomCoordinates != (-1, -1))
+            if (MapEditor.SelectedRoomCoordinates != (-1, -1))
             {
-                var result = MessageBox.Show($"Should the imported room be set to the selected position [{mapEditor.SelectedRoomCoordinates.X},{mapEditor.SelectedRoomCoordinates.Y}]?",
+                var result = MessageBox.Show($"Should the imported room be set to the selected position [{MapEditor.SelectedRoomCoordinates.X},{MapEditor.SelectedRoomCoordinates.Y}]?",
                                              $"Set to position?",
                                              MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    _level.Map[mapEditor.SelectedRoomCoordinates.X, mapEditor.SelectedRoomCoordinates.Y] = freeRoomNr;
+                    _level.Map[MapEditor.SelectedRoomCoordinates.X, MapEditor.SelectedRoomCoordinates.Y] = freeRoomNr;
                 }
             }
         }
@@ -842,7 +857,7 @@ namespace EFSAdvent
                 return;
 
             actorAttributesgroupBox.Enabled = false;
-            int newRoomNumber = newRoom ? (_level.Map.IsRoomInUse(roomID) ? (byte)_level.GetNextFreeRoom() : roomID) : roomID;
+            int newRoomNumber = newRoom ? (_level.IsRoomInUse(roomID) ? (byte)_level.GetNextFreeRoom() : roomID) : roomID;
             if (_level.LoadRoom(newRoomNumber, newRoom))
             {
                 _history.Reset();
@@ -2088,11 +2103,6 @@ namespace EFSAdvent
 
                 TileStampFlowLayoutPanel.Add(path);
             }
-        }
-
-        private void tileSheetPictureBox_MouseEnter(object sender, EventArgs e)
-        {
-            tileSheetPictureBox.Focus(); // So mousewheel can be used to scroll
         }
         #endregion Layers
 

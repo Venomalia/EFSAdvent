@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace EFSAdvent
+namespace EFSAdvent.Controls
 {
     public static class InputDialog
     {

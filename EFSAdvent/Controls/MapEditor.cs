@@ -101,7 +101,7 @@ namespace EFSAdvent.Controls
                 }
                 else
                 {
-                    MapRoomRemoveButton.Enabled = !Level.Map.IsRoomInUse((int)MapRoomNumberInput.Value);
+                    MapRoomRemoveButton.Enabled = !Level.IsRoomInUse((int)MapRoomNumberInput.Value);
                 }
             }
             else
@@ -126,7 +126,7 @@ namespace EFSAdvent.Controls
         private void MapRoomNewButton_Click(object sender, EventArgs e)
         {
             int newRoomNumber = (int)MapRoomNumberInput.Value;
-            newRoomNumber = Level.Map.IsRoomInUse(newRoomNumber) ? Level.GetNextFreeRoom() : newRoomNumber;
+            newRoomNumber = Level.IsRoomInUse(newRoomNumber) ? Level.GetNextFreeRoom() : newRoomNumber;
             MapRoomNumberInput.Value = mapPictureBox.SelectedRoomID = newRoomNumber;
             NewRoom(sender, this);
         }
@@ -164,7 +164,7 @@ namespace EFSAdvent.Controls
             MapRoomRemoveButton.Enabled = false;
 
             // If room exists and is not used in the map, offer to delete the actual room files
-            if (Level.RoomExists(roomToRemove) && !Level.Map.IsRoomInUse(roomToRemove))
+            if (Level.RoomExists(roomToRemove) && !Level.IsRoomInUse(roomToRemove))
             {
                 var result = MessageBox.Show(
                     $"Room {roomToRemove} is not used anywhere in the level map.\n\n" +

@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace EFSAdvent
+namespace EFSAdvent.Controls
 {
     public class TileStampFlowLayoutPanel : FlowLayoutPanel
     {
