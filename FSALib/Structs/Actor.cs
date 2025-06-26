@@ -4,7 +4,7 @@ using System.Buffers.Binary;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 
-namespace FSALib
+namespace FSALib.Structs
 {
     /// <summary>
     /// Represents an actor in the FSA game world.
@@ -12,7 +12,7 @@ namespace FSALib
     [StructLayout(LayoutKind.Explicit, Size = 11)]
     public struct Actor : IComparable<Actor>
     {
-        public static Actor Null => new Actor() { ID = new AuroraLib.Core.Format.Identifier.Identifier32(0x20, 0x20, 0x20, 0x20) };
+        public static Actor Null => new Actor() { ID = new Identifier32(0x20, 0x20, 0x20, 0x20) };
 
         private static readonly Regex regex = new Regex(@"^(.{4}), L:(\d+), X:(\d+), Y:(\d+), V:(\d+),(\d+),(\d+),(\d+)");
 
@@ -55,25 +55,25 @@ namespace FSALib
         public byte VariableByte1
         {
             readonly get => (byte)(variable >> 24);
-            set => variable = (variable & 0x00FFFFFF) | ((uint)value << 24);
+            set => variable = variable & 0x00FFFFFF | (uint)value << 24;
         }
 
         public byte VariableByte2
         {
             readonly get => (byte)(variable >> 16);
-            set => variable = (variable & 0xFF00FFFF) | ((uint)value << 16);
-        }   
+            set => variable = variable & 0xFF00FFFF | (uint)value << 16;
+        }
 
         public byte VariableByte3
         {
             readonly get => (byte)(variable >> 8);
-            set => variable = (variable & 0xFFFF00FF) | ((uint)value << 8);
+            set => variable = variable & 0xFFFF00FF | (uint)value << 8;
         }
 
         public byte VariableByte4
         {
-            readonly get => (byte)(variable);
-            set => variable = (variable & 0xFFFFFF00) | value;
+            readonly get => (byte)variable;
+            set => variable = variable & 0xFFFFFF00 | value;
         }
 
         public string Name { get => ID.ToString(); set => ID = new Identifier32(value.AsSpan()); }

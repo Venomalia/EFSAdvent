@@ -6,8 +6,7 @@
 	  <Nullable>enable</Nullable>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <Title>FSALib</Title>
-	  <Version>1.0.0.0</Version>
-	  <NETFrameworks>|netstandard2.0|net481|net48|net472|NET471|NET47|NET462|NET461|</NETFrameworks>
+	  <Version>1.1.0.0</Version>
 	  <AssemblyVersion>$(Version)</AssemblyVersion>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
@@ -15,6 +14,9 @@
 	  <Description>Bibliotek for working with FSA files.</Description>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	  <PackageIcon>Icon.png</PackageIcon>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	  <NETFrameworks>|netstandard2.0|net481|net48|net472|NET471|NET47|NET462|NET461|</NETFrameworks>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 	
 	<PropertyGroup Condition="$(NETFrameworks.Contains('|$(TargetFramework)|'))">
@@ -26,7 +28,8 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <PackageReference Include="AuroraLib.Compression" Version="1.5.0" />
+	  <PackageReference Include="AuroraLib.Compression" Version="1.5.1" />
+	  <PackageReference Include="AuroraLib.Pixel" Version="1.1.0" />
 	</ItemGroup>
 	
 <ItemGroup>
@@ -34,10 +37,8 @@
 </ItemGroup>
 	
 <ItemGroup>
-  <None Include="..\EFSAdvent\Icon.png">
-    <Pack>True</Pack>
-    <PackagePath>\</PackagePath>
-  </None>
+	<None Include="Icon.png" Pack="true" PackagePath="\" />
+	<None Include="README.md" Pack="true" PackagePath="\" />
 </ItemGroup>
 	
 </Project>

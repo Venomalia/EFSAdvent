@@ -1,6 +1,7 @@
 ﻿using EFSAdvent.FourSwords;
 using FSALib;
 using FSALib.Schema;
+using FSALib.Structs;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

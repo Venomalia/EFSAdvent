@@ -1,5 +1,6 @@
 ﻿using AuroraLib.Core.Format.Identifier;
 using AuroraLib.Core.IO;
+using FSALib.Structs;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
