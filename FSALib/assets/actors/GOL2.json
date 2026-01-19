@@ -39,11 +39,25 @@
       }
     },
     {
-      "name": "Unknown Variable 1",
-      "description": "An unknown value related to the goal field.",
+      "name": "Activation State",
+      "description": "The state of activation based on the local variable.",
       "bitOffset": 7,
       "bitSize": 5,
-      "valueType": "Integer"
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Nothing",
+          "description": ""
+        },
+        "1": {
+          "name": "Fairies",
+          "description": "Gives 4 fairies after destroying."
+        },
+        "3": {
+          "name": "Active Variable",
+          "description": "Active a variable after destroying."
+        }
+      }
     },
     {
       "name": "Unknown Variable 2",
