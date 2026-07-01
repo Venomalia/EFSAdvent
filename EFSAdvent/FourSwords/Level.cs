@@ -94,14 +94,14 @@ namespace EFSAdvent.FourSwords
             // Save map file
             using (FileStream mapStream = File.Open(_mapPath, FileMode.Create))
             {
-                Map.BinarySerialize(mapStream);
+                Map.WriteToStream(mapStream);
             }
 
             if (MapSinglelplayer != null)
             {
                 string mapPathSinglelplayer = _mapPath.Replace(".csv", "_1.csv");
                 using FileStream mapStream = File.Open(mapPathSinglelplayer, FileMode.Create);
-                Map.BinarySerialize(mapStream);
+                Map.WriteToStream(mapStream);
             }
             MapIsDirty = false;
         }
@@ -133,7 +133,7 @@ namespace EFSAdvent.FourSwords
                     else
                     {
                         using FileStream layerStream = File.Open(layerPath, FileMode.Open);
-                        layers[i].BinaryDeserialize(layerStream);
+                        layers[i].ReadFromStream(layerStream);
                     }
                 }
             }
@@ -184,7 +184,7 @@ namespace EFSAdvent.FourSwords
             {
                 string layerPath = Layer.GetFilePath(_basePath, Map.Index, Room.Index, i > 7 ? 2 : 1, i % 8);
                 using FileStream layerStream = File.Open(layerPath, FileMode.Create);
-                layers[i].BinarySerialize(layerStream);
+                layers[i].WriteToStream(layerStream);
             }
             LayersAreDirty = false;
         }
@@ -200,7 +200,7 @@ namespace EFSAdvent.FourSwords
             else
             {
                 using FileStream actorListStream = File.Open(actorListPath, FileMode.Open);
-                Room.Actors.BinaryDeserialize(actorListStream);
+                Room.Actors.ReadFromStream(actorListStream);
             }
             ActorsAreDirty = false;
         }
@@ -209,7 +209,7 @@ namespace EFSAdvent.FourSwords
         {
             string actorListPath = ActorList.GetFilePath(_basePath, Map.Index, Room.Index);
             using FileStream actorListStream = File.Open(actorListPath, FileMode.Create);
-            Room.Actors.BinarySerialize(actorListStream);
+            Room.Actors.WriteToStream(actorListStream);
             ActorsAreDirty = false;
         }
 

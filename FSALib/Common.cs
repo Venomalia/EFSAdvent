@@ -1,9 +1,10 @@
-﻿using AuroraLib.Compression.Algorithms;
+﻿using AuroraLib.Compression.Formats.Nintendo;
+using AuroraLib.Core.IO;
 
 namespace FSALib
 {
     internal static class Common
     {
-        public static readonly Yaz0 Yaz0 = new Yaz0() { LookAhead = true, FormatByteOrder = AuroraLib.Core.Endian.Big };
+        public static readonly Yaz0 Yaz0 = new Yaz0() { FormatByteOrder = Endian.Big };
     }
 }

@@ -1,10 +1,9 @@
-﻿using AuroraLib.Compression.Algorithms;
-using AuroraLib.Core;
+﻿using AuroraLib.Compression;
+using AuroraLib.Core.Exceptions;
 using AuroraLib.Core.IO;
 using System;
 using System.ComponentModel;
 using System.IO;
-using System.IO.Compression;
 using System.Runtime.InteropServices;
 
 namespace FSALib
@@ -12,7 +11,7 @@ namespace FSALib
     /// <summary>
     /// Represents a tile-based layer in FSA game environment.
     /// </summary>
-    public sealed class Layer : IBinaryObject, INotifyPropertyChanged
+    public sealed class Layer : INotifyPropertyChanged, IStreamSerializable
     {
         public const int DIMENSION = 32;
         public const int TILES = DIMENSION * DIMENSION;
@@ -145,13 +144,13 @@ namespace FSALib
         }
 
         /// <inheritdoc/>
-        public void BinaryDeserialize(Stream source)
+        public void ReadFromStream(Stream source)
         {
             byte[] data = new byte[TILES * 2];
 
             if (Common.Yaz0.IsMatch(source))
             {
-                Common.Yaz0.Decompress(source, new MemoryStream(data));
+                Common.Yaz0.Decompress(source, data);
             }
             else
             {
@@ -162,13 +161,12 @@ namespace FSALib
         }
 
         /// <inheritdoc/>
-        public void BinarySerialize(Stream dest) => BinarySerialize(dest, CompressionLevel.Optimal);
-
-        public void BinarySerialize(Stream dest, CompressionLevel level)
+        public void WriteToStream(Stream dest) => BinarySerialize(dest, CompressionSettings.High);
+        public void BinarySerialize(Stream dest, CompressionSettings settings)
         {
             byte[] data = new byte[TILES * 2];
             WriteSzsFormat(_tiles, MemoryMarshal.Cast<byte, ushort>(data));
-            Common.Yaz0.Compress(new MemoryStream(data), dest, level);
+            Common.Yaz0.Compress(data, dest, settings);
         }
 
         /// <summary>

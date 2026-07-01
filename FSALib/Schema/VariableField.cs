@@ -1,4 +1,4 @@
-﻿using AuroraLib.Core;
+﻿using AuroraLib.Core.Exceptions;
 using System.Collections.Generic;
 
 namespace FSALib.Schema

@@ -712,7 +712,7 @@ namespace EFSAdvent
             {
                 using (FileStream actorListStream = File.Open(openDialog.FileName, FileMode.Open))
                 {
-                    _level.Room.Actors.BinaryDeserialize(actorListStream);
+                    _level.Room.Actors.ReadFromStream(actorListStream);
                 }
                 BuildLayerActorList(true);
                 DrawActors();
@@ -2089,7 +2089,7 @@ namespace EFSAdvent
 
                 using (FileStream stampData = new FileStream(path, FileMode.CreateNew))
                 {
-                    _tileBrush.Clipboard.BinarySerialize(stampData);
+                    _tileBrush.Clipboard.WriteToStream(stampData);
                 }
                 string icon = Path.ChangeExtension(path, ".png");
                 using (Bitmap iconData = new Bitmap(_tileBrush.Width * 16, _tileBrush.Height * 16))

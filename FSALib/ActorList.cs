@@ -12,7 +12,7 @@ namespace FSALib
     /// <summary>
     /// Represents a collection of actors in FSA game environment.
     /// </summary>
-    public sealed class ActorList : ObservableCollection<Actor>, IBinaryObject
+    public sealed class ActorList : ObservableCollection<Actor>, IStreamSerializable
     {
         /// <inheritdoc cref="ObservableCollection{T}.ObservableCollection()"/>
         public ActorList()
@@ -132,7 +132,7 @@ namespace FSALib
 
 
         /// <inheritdoc/>
-        public void BinaryDeserialize(Stream source)
+        public void ReadFromStream(Stream source)
         {
             Clear();
             source.ReadCollection(Items, (int)source.Length / 11);
@@ -141,7 +141,7 @@ namespace FSALib
         }
 
         /// <inheritdoc/>
-        public void BinarySerialize(Stream dest)
+        public void WriteToStream(Stream dest)
         {
             dest.WriteCollection(Items);
             dest.Write(Actor.Null);

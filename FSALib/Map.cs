@@ -1,6 +1,7 @@
-﻿using AuroraLib.Core;
+﻿using AuroraLib.Core.Exceptions;
 using AuroraLib.Core.IO;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -9,7 +10,7 @@ namespace FSALib
     /// <summary>
     /// Represents a map in fsa.
     /// </summary>
-    public sealed class Map : MapProperties, IBinaryObject
+    public sealed class Map : MapProperties, IStreamSerializable
     {
         public const int DIMENSION = 10, EMPTY_ROOM_VALUE = -1;
 
@@ -109,10 +110,10 @@ namespace FSALib
         }
 
         public Map(Stream source)
-            => BinaryDeserialize(source);
+            => ReadFromStream(source);
 
         /// <inheritdoc/>
-        public void BinaryDeserialize(Stream source)
+        public void ReadFromStream(Stream source)
         {
             using var file = new StreamReader(source);
             string? line = file.ReadLine();
@@ -131,8 +132,11 @@ namespace FSALib
                 NPCSheetID = int.Parse(lineParts[6]);
                 OverlayTextureId = int.Parse(lineParts[7]);
                 Unknown = int.Parse(lineParts[8]);
+
                 if (lineParts.Length >= 10 && int.TryParse(lineParts[9], out int value))
                     DisallowTingle = value;
+                else
+                    Trace.WriteLine($"map{Index}.");
 
                 for (int y = 0; y < 10; y++)
                 {
@@ -178,7 +182,7 @@ namespace FSALib
         }
 
         /// <inheritdoc/>
-        public void BinarySerialize(Stream dest)
+        public void WriteToStream(Stream dest)
         {
             using StreamWriter writer = new StreamWriter(dest);
             if (!IsShadowBattle)
@@ -291,7 +295,7 @@ namespace FSALib
         /// <param name="singleplayer">Is a singleplayer map.</param>
         /// <returns>The formatted filename for the map file.</returns>
         public static string GetFileName(int mapIndex, bool singleplayer)
-            => $"map{mapIndex:D3}{(singleplayer? "1_" : string.Empty  )}.csv";
+            => $"map{mapIndex:D3}{(singleplayer ? "1_" : string.Empty)}.csv";
 
         /// <summary>
         /// Constructs the full file path for an map file, combining the folder path and filename.

@@ -71,7 +71,7 @@ namespace FSALib.Renderer
             for (int i = attributes.Length - 1; i >= 0; i--)
             {
                 int p = attributes[i].PaletteIndex;
-                if (paletteIndex != - 1)
+                if (paletteIndex != -1)
                 {
                     p = (replacePaletteIndex == -1 || p == replacePaletteIndex) ? paletteIndex : p;
                 }

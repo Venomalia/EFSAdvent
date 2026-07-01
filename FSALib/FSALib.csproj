@@ -28,8 +28,9 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <PackageReference Include="AuroraLib.Compression" Version="1.5.3" />
-	  <PackageReference Include="AuroraLib.Pixel" Version="1.4.0" />
+	  <PackageReference Include="AuroraLib.Compression" Version="2.0.1" />
+	  <PackageReference Include="AuroraLib.Compression.Nintendo" Version="2.0.1" />
+	  <PackageReference Include="AuroraLib.Pixel" Version="1.4.3" />
 	</ItemGroup>
 	
 <ItemGroup>

@@ -1,12 +1,12 @@
-﻿using AuroraLib.Core.Buffers;
-using AuroraLib.Core.IO;
-using AuroraLib.Pixel;
+﻿using AuroraLib.Pixel;
 using AuroraLib.Pixel.Image;
 using AuroraLib.Pixel.PixelFormats;
 using AuroraLib.Pixel.PixelProcessor;
 using AuroraLib.Pixel.Processing;
 using System;
+using System.Buffers;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace FSALib.Renderer
 {
@@ -37,9 +37,17 @@ namespace FSALib.Renderer
         /// <param name="scl">Stream containing palette data in RGB555 format.</param>
         public void LoadPalettes(Stream scl)
         {
-            using SpanBuffer<BGR555> buffer = new SpanBuffer<BGR555>((int)scl.Length / 2);
-            scl.Read<BGR555>(buffer);
-            buffer.Span.To<BGR555, TColor>(Palettes);
+            byte[] buffer = ArrayPool<byte>.Shared.Rent((int)scl.Length);
+            try
+            {
+                scl.Read(buffer, 0, (int)scl.Length);
+                Span<BGR555> colors = MemoryMarshal.Cast<byte, BGR555>(buffer.AsSpan(0, (int)scl.Length / 2));
+                colors.To<BGR555, TColor>(Palettes);
+            }
+            finally
+            {
+                ArrayPool<byte>.Shared.Return(buffer);
+            }
         }
 
         /// <summary>

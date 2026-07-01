@@ -55,7 +55,7 @@ namespace EFSAdvent.Controls
         {
             string stampFilePath = (string)Controls[index].Tag;
             using FileStream stampRaw = new FileStream(stampFilePath, FileMode.Open);
-            stamp.BinaryDeserialize(stampRaw);
+            stamp.ReadFromStream(stampRaw);
         }
 
         public void Add(string stampFilePath)

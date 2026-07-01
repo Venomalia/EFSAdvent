@@ -8,7 +8,7 @@ namespace FSALib
     /// <summary>
     /// Represents a tile stamp (SMP) containing a grid of tiles.
     /// </summary>
-    public sealed class Stamp : IBinaryObject
+    public sealed class Stamp: IStreamSerializable
     {
         private readonly ushort[] _tiles = new ushort[Layer.TILES];
 
@@ -81,7 +81,7 @@ namespace FSALib
         }
 
         /// <inheritdoc/>
-        public void BinaryDeserialize(Stream source)
+        public void ReadFromStream(Stream source)
         {
             Span<byte> bytes = MemoryMarshal.Cast<ushort, byte>(_tiles);
             bytes.Clear();
@@ -95,7 +95,7 @@ namespace FSALib
             {
                 for (int y = 0; y < 16; y++)
                 {
-                    source.ReadExactly(bytes.Slice(y*0x40, 0x20));
+                    source.ReadExactly(bytes.Slice(y * 0x40, 0x20));
                 }
             }
 
@@ -121,7 +121,7 @@ namespace FSALib
         }
 
         /// <inheritdoc/>
-        public void BinarySerialize(Stream dest)
+        public void WriteToStream(Stream dest)
         {
             Span<byte> bytes = MemoryMarshal.Cast<ushort, byte>(_tiles);
             if (Height > 16 || Width > 16) // Is 32*32
