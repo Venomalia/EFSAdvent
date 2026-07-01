@@ -183,7 +183,7 @@ namespace FSALib
             using StreamWriter writer = new StreamWriter(dest);
             if (!IsShadowBattle)
             {
-                writer.WriteLine($"map{Index},{StartX},{StartY},{BackgroundMusicId},{ShowE3Banner},{TileSheetId},{NPCSheetID},{OverlayTextureId},{Unknown},{DisallowTingle}");
+                writer.WriteLine($"map{Index:D3},{StartX},{StartY},{BackgroundMusicId},{ShowE3Banner},{TileSheetId},{NPCSheetID},{OverlayTextureId},{Unknown},{DisallowTingle}");
                 StringBuilder sb = new StringBuilder();
                 for (int y = 0; y < DIMENSION; y++)
                 {
