@@ -220,7 +220,7 @@
   "boss990.arc": {
     "Name": "Intro",
     "TextID": -1,
-    "WorldID": -1,
+    "WorldID": -1
   },
   "Boss004.arc": {
     "Name": "ETCS-1",
@@ -243,7 +243,7 @@
   "boss991.arc": {
     "Name": "Intro",
     "TextID": -1,
-    "WorldID": -1,
+    "WorldID": -1
   },
   "Boss007.arc": {
     "Name": "E3-1",
@@ -260,7 +260,7 @@
   "boss009.arc": {
     "Name": "Tingle's room / E3-3",
     "TextID": -1,
-    "WorldID": 10,
+    "WorldID": 10
   },
   "boss992.arc": {
     "Name": "Unknown",
