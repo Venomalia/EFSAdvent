@@ -7,7 +7,7 @@ namespace FSALib.AssetEntries
     /// Represents the properties associated with a tile in the game.
     /// </summary>
     [DebuggerDisplay("{Name}")]
-    public sealed class TilePropertyEntry : IAssetEntry
+    public sealed class TilePropertyDefinition : IAssetDefinition
     {
         /// <inheritdoc/>
         public string Name { get; set; }
@@ -38,7 +38,7 @@ namespace FSALib.AssetEntries
         /// </summary>
         public bool PlaceAlwaysOnTopLayer { get; set; }
 
-        public TilePropertyEntry()
+        public TilePropertyDefinition()
             => Name = Description = string.Empty;
     }
 }

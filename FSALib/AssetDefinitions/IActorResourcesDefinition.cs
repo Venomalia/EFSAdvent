@@ -2,7 +2,7 @@
 
 namespace FSALib.AssetEntries
 {
-    public interface IActorResourcesEntry : IAssetEntry
+    public interface IActorResourcesDefinition : IAssetDefinition
     {
         /// <summary>
         /// Indicates whether the actor has no associated GBA sprite.

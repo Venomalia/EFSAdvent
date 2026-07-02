@@ -6,7 +6,7 @@ namespace FSALib.AssetEntries
     /// Represents a world entry with metadata for loading and UI presentation.
     /// </summary>
     [DebuggerDisplay("{Name}")]
-    public class WorldEntry : IAssetEntry
+    public class WorldDefinition : IAssetDefinition
     {
         /// <inheritdoc/>
         public string Name { get; set; }
@@ -27,7 +27,7 @@ namespace FSALib.AssetEntries
         /// </summary>
         public string MapMaskGraphic { get; set; }
 
-        public WorldEntry()
+        public WorldDefinition()
         {
             Name = MapMaskGraphic = string.Empty;
             TextID = -1;

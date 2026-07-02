@@ -6,7 +6,7 @@ namespace FSALib.AssetEntries
     /// <summary>
     /// Represents an individual value in an enumeration, are typically used to define specific options for a variable field, allowing for easy identification and mapping to specific logic or behaviors.
     /// </summary>
-    public sealed class EnumValue : IActorResourcesEntry
+    public sealed class EnumValue : IActorResourcesDefinition
     {
         /// <inheritdoc/>
         public string Name { get; set; }

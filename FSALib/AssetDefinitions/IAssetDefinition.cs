@@ -4,7 +4,7 @@ namespace FSALib.AssetEntries
     /// <summary>
     /// Defines a common schema structure for various game entities.
     /// </summary>
-    public interface IAssetEntry
+    public interface IAssetDefinition
     {
         /// <summary>
         /// The name of the entry.

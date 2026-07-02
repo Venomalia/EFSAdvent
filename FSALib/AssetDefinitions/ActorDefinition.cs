@@ -7,7 +7,7 @@ namespace FSALib.AssetEntries
     /// Defines the schema for an actor type, describing its properties and behavior.
     /// </summary>
     [DebuggerDisplay("{Name}")]
-    public sealed class ActorEntry : IActorResourcesEntry
+    public sealed class ActorDefinition : IActorResourcesDefinition
     {
         /// <inheritdoc/>
         public string Name { get; set; }
@@ -38,8 +38,11 @@ namespace FSALib.AssetEntries
         /// A list of fields defining additional properties or configurations for the actor.
         /// </summary>
         public List<VariableField> Fields { get; set; }
+        /// Rendering rules that map actor state values to one or more visual variants.
+        /// </summary>
+        public ActorRenderDefinition Rendering { get; set; }
 
-        public ActorEntry()
+        public ActorDefinition()
         {
             Name = Description = InternalName = string.Empty;
             Fields = new List<VariableField>();

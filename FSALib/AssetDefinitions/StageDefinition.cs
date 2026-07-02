@@ -6,7 +6,7 @@ namespace FSALib.AssetEntries
     /// Represents a stage entry with metadata for loading and UI presentation.
     /// </summary>
     [DebuggerDisplay("{Name}")]
-    public class StageEntry : IAssetEntry
+    public class StageDefinition : IAssetDefinition
     {
         /// <inheritdoc/>
         public string Name { get; set; }
@@ -33,7 +33,7 @@ namespace FSALib.AssetEntries
         /// </summary>
         public string TitleCardGraphic { get; set; }
 
-        public StageEntry()
+        public StageDefinition()
         {
             Name = TitleCardGraphic = string.Empty;
             TextID = WorldID = -1;

@@ -6,7 +6,7 @@ namespace FSALib.AssetEntries
     /// <summary>
     /// Represents a variable field within a schema, defining how data is stored and interpreted.
     /// </summary>
-    public sealed class VariableField : IAssetEntry
+    public sealed class VariableField : IAssetDefinition
     {
         /// <inheritdoc/>
         public string Name { get; set; }

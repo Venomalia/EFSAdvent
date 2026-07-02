@@ -944,7 +944,7 @@ namespace EFSAdvent
             DrawTile(brushTileBitmap, currentTileSheet, 0, 0, _tileBrush.TileValue);
 
             _logger.Clear();
-            if (Assets.TileProperties.TryGetValue(_tileBrush.TileValue, out TilePropertyEntry propertie))
+            if (Assets.TileProperties.TryGetValue(_tileBrush.TileValue, out TilePropertyDefinition propertie))
             {
                 _logger.AppendLine(propertie.Name);
                 _logger.AppendLine(string.Empty);
@@ -1161,7 +1161,7 @@ namespace EFSAdvent
                 return;
             }
 
-            var actorName = (KeyValuePair<Identifier32, ActorEntry>)ActorNameComboBox.SelectedItem;
+            var actorName = (KeyValuePair<Identifier32, ActorDefinition>)ActorNameComboBox.SelectedItem;
             Actor actor = new Actor()
             {
                 ID = actorName.Key,
@@ -1198,7 +1198,7 @@ namespace EFSAdvent
         private void UpdateActor(int index, Actor actor)
         {
             bool isSelected = actorsCheckListBox.SelectedIndex == index;
-            if (Assets.Actors.TryGetValue(actor.ID, out ActorEntry schema) && schema.Category == ActorCategoryType.TileObject)
+            if (Assets.Actors.TryGetValue(actor.ID, out ActorDefinition schema) && schema.Category == ActorCategoryType.TileObject)
             {
                 actor.XCoord = (byte)(actor.XCoord / 2 * 2);
                 actor.YCoord = (byte)(actor.YCoord / 2 * 2);
@@ -1285,7 +1285,7 @@ namespace EFSAdvent
         {
             panelActorFields.SuspendLayout();
             panelActorFields.Controls.Clear();
-            if (Assets.Actors.TryGetValue(newActor.ID, out ActorEntry schema))
+            if (Assets.Actors.TryGetValue(newActor.ID, out ActorDefinition schema))
             {
                 _actorInfoToolTip.RemoveAll();
                 _actorInfoToolTip.SetToolTip(ActorNameComboBox, schema.Description);
@@ -1426,7 +1426,7 @@ namespace EFSAdvent
             }
             uint variableFull = field.UpdateActorField((uint)ActorVariableFullInput.Value, newValue);
 
-            var actorName = (KeyValuePair<Identifier32, ActorEntry>)ActorNameComboBox.SelectedItem;
+            var actorName = (KeyValuePair<Identifier32, ActorDefinition>)ActorNameComboBox.SelectedItem;
             Actor actor = new Actor()
             {
                 ID = actorName.Key,

@@ -6,7 +6,7 @@ namespace FSALib.AssetEntries
     /// Represents a battle stage entry with metadata for loading and UI presentation.
     /// </summary>
     [DebuggerDisplay("{Name}")]
-    public class BattleStageEntry : IAssetEntry
+    public class BattleStageDefinition : IAssetDefinition
     {
         /// <inheritdoc/>
         public string Name { get; set; }
@@ -27,7 +27,7 @@ namespace FSALib.AssetEntries
         /// </summary>
         public string IconGraphic { get; set; }
 
-        public BattleStageEntry()
+        public BattleStageDefinition()
         {
             Name = IconGraphic = string.Empty;
             TextID = -1;
