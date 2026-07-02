@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace FSALib.Schema
+namespace FSALib.AssetEntries
 {
     /// <summary>
     /// Defines the schema for an actor type, describing its properties and behavior.
     /// </summary>
-    public sealed class ActorSchema : ISchemaActorResources
+    public sealed class ActorEntry : IActorResourcesEntry
     {
         /// <inheritdoc/>
         public string Name { get; set; }
@@ -27,14 +27,14 @@ namespace FSALib.Schema
         /// <summary>
         /// The category of the actor, defining its role or function in the game.
         /// </summary>
-        public ActorCategory Category { get; set; }
+        public ActorCategoryType Category { get; set; }
 
         /// <summary>
         /// A list of fields defining additional properties or configurations for the actor.
         /// </summary>
         public List<VariableField> Fields { get; set; }
 
-        public ActorSchema()
+        public ActorEntry()
         {
             Name = Description = InternalName = string.Empty;
             Fields = new List<VariableField>();

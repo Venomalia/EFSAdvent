@@ -2,9 +2,11 @@
 using System.Diagnostics;
 using System.IO;
 using AuroraLib.Core.Format.Identifier;
-using FSALib.Schema;
 using AuroraLib.Core.IO;
 using System;
+using FSALib.AssetEntries;
+
+
 
 #if NETSTANDARD || NET20_OR_GREATER
 using Newtonsoft.Json;
@@ -22,8 +24,8 @@ namespace FSALib
         private const string AssetsDirectory = "assets";
 
         private static Dictionary<int, string> songs;
-        private static Dictionary<ushort, TilePropertie> tileProperties;
-        private static readonly Dictionary<Identifier32, ActorSchema> actors;
+        private static Dictionary<ushort, TilePropertyEntry> tileProperty;
+        private static readonly Dictionary<Identifier32, ActorEntry> actors;
         private static ushort[]? mirrorLOT;
 
         /// <summary>
@@ -32,9 +34,9 @@ namespace FSALib
         public static IReadOnlyDictionary<int, string> Songs => songs;
 
         /// <summary>
-        /// Gets a read-only dictionary of <see cref="TilePropertie"/> indexed by their unique ID.
+        /// Gets a read-only dictionary of <see cref="TilePropertyEntry"/> indexed by their unique ID.
         /// </summary>
-        public static IReadOnlyDictionary<ushort, TilePropertie> TileProperties => tileProperties;
+        public static IReadOnlyDictionary<ushort, TilePropertyEntry> TilePropertys => tileProperty;
 
         /// <summary>
         /// Lookup table that provides the mirrored tile ID for each tile.
@@ -48,7 +50,7 @@ namespace FSALib
                     mirrorLOT = new ushort[0x400];
                     for (ushort i = 1; i < mirrorLOT.Length; i++)
                     {
-                        if (TileProperties.TryGetValue(i, out TilePropertie tileInfo) && tileInfo.MirrorTile != 0)
+                        if (TilePropertys.TryGetValue(i, out TilePropertyEntry tileInfo) && tileInfo.MirrorTile != 0)
                         {
                             mirrorLOT[i] = tileInfo.MirrorTile;
                         }
@@ -63,13 +65,13 @@ namespace FSALib
         }
 
         /// <summary>
-        /// Gets a read-only dictionary of <see cref="ActorSchema"/> indexed by their unique actor identifier.
+        /// Gets a read-only dictionary of <see cref="ActorEntry"/> indexed by their unique actor identifier.
         /// </summary>
-        public static IReadOnlyDictionary<Identifier32, ActorSchema> Actors => actors;
+        public static IReadOnlyDictionary<Identifier32, ActorEntry> Actors => actors;
 
         static Assets()
         {
-            actors = new Dictionary<Identifier32, ActorSchema>();
+            actors = new Dictionary<Identifier32, ActorEntry>();
             Reload();
         }
 
@@ -89,9 +91,9 @@ namespace FSALib
 
             // Reload tile properties list
             const string tilePropertiesJson = AssetsDirectory + "\\tileproperties.json";
-            if (!Deserialize(tilePropertiesJson, out tileProperties))
+            if (!Deserialize(tilePropertiesJson, out tileProperty))
+                tileProperty = new Dictionary<ushort, TilePropertyEntry>();
             {
-                tileProperties = new Dictionary<ushort, TilePropertie>();
             }
 
             // Reload actor schemas
@@ -101,7 +103,7 @@ namespace FSALib
                 actors.Clear();
                 foreach (var filePath in Directory.GetFiles(actorsDirectory, "*.json"))
                 {
-                    if (Deserialize(filePath, out ActorSchema schema))
+                    if (Deserialize(filePath, out ActorEntry schema))
                     {
                         Identifier32 identifier = new Identifier32(PathX.GetFileNameWithoutExtension(filePath.AsSpan()));
                         actors.Add(identifier, schema);

@@ -1,9 +1,9 @@
-﻿namespace FSALib.Schema
+﻿namespace FSALib.AssetEntries
 {
     /// <summary>
     /// Defines different categories of actors in the game.
     /// </summary>
-    public enum ActorCategory
+    public enum ActorCategoryType
     {
         /// <summary>
         /// Objects that can be placed in the level, such as decorations or interactive elements.

@@ -27,8 +27,8 @@
         "9": { "name": "Shovel", "description": "The Shovel item." },
         "10": { "name": "Slingshot", "description": "The Slingshot item." },
         "11": {
-          "name": "Four Sword (Unused)",
-          "description": "An unused Four Sword item."
+          "name": "Four Sword",
+          "description": "An Four Sword item."
         }
       }
     },

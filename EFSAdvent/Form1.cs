@@ -2,7 +2,8 @@
 using EFSAdvent.Controls;
 using EFSAdvent.FourSwords;
 using FSALib;
-using FSALib.Schema;
+using FSALib.AssetEntries;
+using FSALib.AssetEntrie;
 using FSALib.Structs;
 using System;
 using System.Collections.Generic;
@@ -944,7 +945,7 @@ namespace EFSAdvent
             DrawTile(brushTileBitmap, currentTileSheet, 0, 0, _tileBrush.TileValue);
 
             _logger.Clear();
-            if (Assets.TileProperties.TryGetValue(_tileBrush.TileValue, out TilePropertie propertie))
+            if (Assets.TilePropertys.TryGetValue(_tileBrush.TileValue, out TilePropertyEntry propertie))
             {
                 _logger.AppendLine(propertie.Name);
                 _logger.AppendLine(string.Empty);
@@ -1161,7 +1162,7 @@ namespace EFSAdvent
                 return;
             }
 
-            var actorName = (KeyValuePair<Identifier32, ActorSchema>)ActorNameComboBox.SelectedItem;
+            var actorName = (KeyValuePair<Identifier32, ActorEntry>)ActorNameComboBox.SelectedItem;
             Actor actor = new Actor()
             {
                 ID = actorName.Key,
@@ -1198,7 +1199,7 @@ namespace EFSAdvent
         private void UpdateActor(int index, Actor actor)
         {
             bool isSelected = actorsCheckListBox.SelectedIndex == index;
-            if (Assets.Actors.TryGetValue(actor.ID, out ActorSchema schema) && schema.Category == ActorCategory.TileObject)
+            if (Assets.Actors.TryGetValue(actor.ID, out ActorEntry schema) && schema.Category == ActorCategoryType.TileObject)
             {
                 actor.XCoord = (byte)(actor.XCoord / 2 * 2);
                 actor.YCoord = (byte)(actor.YCoord / 2 * 2);
@@ -1285,7 +1286,7 @@ namespace EFSAdvent
         {
             panelActorFields.SuspendLayout();
             panelActorFields.Controls.Clear();
-            if (Assets.Actors.TryGetValue(newActor.ID, out ActorSchema schema))
+            if (Assets.Actors.TryGetValue(newActor.ID, out ActorEntry schema))
             {
                 _actorInfoToolTip.RemoveAll();
                 _actorInfoToolTip.SetToolTip(ActorNameComboBox, schema.Description);
@@ -1300,7 +1301,7 @@ namespace EFSAdvent
                     Control inputControl;
                     switch (field.ValueType)
                     {
-                        case FSALib.Schema.ValueType.Integer:
+                        case FSALib.AssetEntrie.ValueType.Integer:
                             var numericUpDown = new NumericUpDown()
                             {
                                 Minimum = 0,
@@ -1311,7 +1312,7 @@ namespace EFSAdvent
                             inputControl = numericUpDown;
                             break;
 
-                        case FSALib.Schema.ValueType.Boolean:
+                        case FSALib.AssetEntrie.ValueType.Boolean:
                             var checkBox = new CheckBox()
                             {
                                 AutoSize = true,
@@ -1321,7 +1322,7 @@ namespace EFSAdvent
                             inputControl = checkBox;
                             break;
 
-                        case FSALib.Schema.ValueType.Enum:
+                        case FSALib.AssetEntrie.ValueType.Enum:
                             ComboBox comboBox = new ComboBox() { DropDownStyle = ComboBoxStyle.DropDownList, };
                             int value = (int)field.ReadActorField(newActor.Variable);
                             foreach (var enumValue in field.EnumValues)
@@ -1342,7 +1343,7 @@ namespace EFSAdvent
                             inputControl = comboBox;
                             break;
 
-                        case FSALib.Schema.ValueType.Flags:
+                        case FSALib.AssetEntrie.ValueType.Flags:
                             CheckedListBox checkedListBox = new CheckedListBox();
 
                             int flagsValue = (int)field.ReadActorField(newActor.Variable);
@@ -1426,7 +1427,7 @@ namespace EFSAdvent
             }
             uint variableFull = field.UpdateActorField((uint)ActorVariableFullInput.Value, newValue);
 
-            var actorName = (KeyValuePair<Identifier32, ActorSchema>)ActorNameComboBox.SelectedItem;
+            var actorName = (KeyValuePair<Identifier32, ActorEntry>)ActorNameComboBox.SelectedItem;
             Actor actor = new Actor()
             {
                 ID = actorName.Key,

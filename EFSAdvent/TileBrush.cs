@@ -1,6 +1,6 @@
 ﻿using EFSAdvent.FourSwords;
 using FSALib;
-using FSALib.Schema;
+using FSALib.AssetEntries;
 using FSALib.Structs;
 using System;
 using System.Collections.Generic;
@@ -107,7 +107,7 @@ namespace EFSAdvent
                         });
 
                         if (AutomaticSetTileActors
-                            && Assets.TileProperties.TryGetValue(clipboardTile, out TilePropertie propertie)
+                            && Assets.TilePropertys.TryGetValue(clipboardTile, out TilePropertyEntry propertie)
                             && propertie.RequiredActorID.HasValue)
                         {
                             var tileActor = new Actor(propertie.RequiredActorID.Value, (byte)(layer % 8), (byte)((x + cX) * 2), (byte)((y + cY) * 2), propertie.ActorValue);

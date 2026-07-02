@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace FSALib.Schema
+namespace FSALib.AssetEntries
 {
-    public interface ISchemaActorResources : ISchema
+    public interface IActorResourcesEntry : IAssetEntry
     {
         /// <summary>
         /// Indicates whether the actor has no associated GBA sprite.

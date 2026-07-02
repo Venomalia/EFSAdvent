@@ -1,11 +1,11 @@
 ﻿using AuroraLib.Core.Format.Identifier;
 
-namespace FSALib.Schema
+namespace FSALib.AssetEntries
 {
     /// <summary>
     /// Represents the properties associated with a tile in the game.
     /// </summary>
-    public sealed class TilePropertie : ISchema
+    public sealed class TilePropertyEntry : IAssetEntry
     {
         /// <inheritdoc/>
         public string Name { get; set; }
@@ -33,7 +33,7 @@ namespace FSALib.Schema
         /// </summary>
         public bool PlaceAlwaysOnTopLayer { get; set; }
 
-        public TilePropertie()
+        public TilePropertyEntry()
             => Name = Description = string.Empty;
     }
 }
