@@ -1,0 +1,67 @@
+{
+  "0": {
+    "Name": "Level 1 Whereabouts of the Wind",
+    "TextID": 44,
+    "MapMaskGraphic": "kk_testmaparea_002.bti"
+  },
+  "1": {
+    "Name": "Level 2 Eastern Hyrule",
+    "TextID": 45,
+    "MapMaskGraphic": "kk_testmaparea_001.bti"
+  },
+  "2": {
+    "Name": "Level 3 Death Mountain",
+    "TextID": 46,
+    "MapMaskGraphic": "kk_testmaparea_003.bti"
+  },
+  "3": {
+    "Name": "Level 4 Near the Fields",
+    "TextID": 47,
+    "MapMaskGraphic": "kk_testmaparea_004.bti"
+  },
+  "4": {
+    "Name": "Level 5 The Dark World",
+    "TextID": 48,
+    "MapMaskGraphic": "kk_testmaparea_005.bti"
+  },
+  "5": {
+    "Name": "Level 6 The Desert of Doubt",
+    "TextID": 49,
+    "MapMaskGraphic": "kk_testmaparea_006.bti"
+  },
+  "6": {
+    "Name": "Level 7 Frozen Hyrule",
+    "TextID": 50,
+    "MapMaskGraphic": "kk_testmaparea_007.bti"
+  },
+  "7": {
+    "Name": "Level 8 Realm of the Heavens",
+    "TextID": 51,
+    "MapMaskGraphic": "kk_testmaparea_008.bti"
+  },
+  "8": {
+    "Name": "Test-1",
+    "TextID": -1,
+    "assetstate": "Development"
+  },
+  "9": {
+    "Name": "ECTS",
+    "TextID": -1,
+    "assetstate": "Development"
+  },
+  "10": {
+    "Name": "E3",
+    "TextID": -1,
+    "assetstate": "Development"
+  },
+  "11": {
+    "Name": "Boss1-4",
+    "TextID": -1,
+    "assetstate": "Development"
+  },
+  "12": {
+    "Name": "Boss5-8",
+    "TextID": -1,
+    "assetstate": "Development"
+  }
+}

@@ -6,8 +6,6 @@ using AuroraLib.Core.IO;
 using System;
 using FSALib.AssetEntries;
 
-
-
 #if NETSTANDARD || NET20_OR_GREATER
 using Newtonsoft.Json;
 #else
@@ -24,8 +22,11 @@ namespace FSALib
         private const string AssetsDirectory = "assets";
 
         private static Dictionary<int, string> songs;
-        private static Dictionary<ushort, TilePropertyEntry> tileProperty;
+        private static Dictionary<ushort, TilePropertyEntry> tileProperties;
         private static readonly Dictionary<Identifier32, ActorEntry> actors;
+        private static Dictionary<int, WorldEntry> worlds;
+        private static Dictionary<string, StageEntry> stages;
+        private static Dictionary<int, BattleStageEntry> battleStages;
         private static ushort[]? mirrorLOT;
 
         /// <summary>
@@ -36,7 +37,22 @@ namespace FSALib
         /// <summary>
         /// Gets a read-only dictionary of <see cref="TilePropertyEntry"/> indexed by their unique ID.
         /// </summary>
-        public static IReadOnlyDictionary<ushort, TilePropertyEntry> TilePropertys => tileProperty;
+        public static IReadOnlyDictionary<ushort, TilePropertyEntry> TileProperties => tileProperties;
+
+        /// <summary>
+        /// Gets a read-only dictionary of world definitions indexed by world ID.
+        /// </summary>
+        public static IReadOnlyDictionary<int, WorldEntry> Worlds => worlds;
+
+        /// <summary>
+        /// Gets a read-only dictionary of stage definitions indexed by stage name.
+        /// </summary>
+        public static IReadOnlyDictionary<string, StageEntry> Stages => stages;
+
+        /// <summary>
+        /// Gets a read-only dictionary of battle stage definitions indexed by battle stage ID.
+        /// </summary>
+        public static IReadOnlyDictionary<int, BattleStageEntry> BattleStages => battleStages;
 
         /// <summary>
         /// Lookup table that provides the mirrored tile ID for each tile.
@@ -50,7 +66,7 @@ namespace FSALib
                     mirrorLOT = new ushort[0x400];
                     for (ushort i = 1; i < mirrorLOT.Length; i++)
                     {
-                        if (TilePropertys.TryGetValue(i, out TilePropertyEntry tileInfo) && tileInfo.MirrorTile != 0)
+                        if (TileProperties.TryGetValue(i, out TilePropertyEntry tileInfo) && tileInfo.MirrorTile != 0)
                         {
                             mirrorLOT[i] = tileInfo.MirrorTile;
                         }
@@ -91,9 +107,30 @@ namespace FSALib
 
             // Reload tile properties list
             const string tilePropertiesJson = AssetsDirectory + "\\tileproperties.json";
-            if (!Deserialize(tilePropertiesJson, out tileProperty))
-                tileProperty = new Dictionary<ushort, TilePropertyEntry>();
+            if (!Deserialize(tilePropertiesJson, out tileProperties))
             {
+                tileProperties = new Dictionary<ushort, TilePropertyEntry>();
+            }
+
+            // Reload stages list
+            const string worldsJson = AssetsDirectory + "\\worlds.json";
+            if (!Deserialize(worldsJson, out worlds))
+            {
+                worlds = new Dictionary<int, WorldEntry>();
+            }
+
+            // Reload stages list
+            const string stagesJson = AssetsDirectory + "\\stages.json";
+            if (!Deserialize(stagesJson, out stages))
+            {
+                stages = new Dictionary<string, StageEntry>();
+            }
+
+            // Reload battle stages list
+            const string battleStagesJson = AssetsDirectory + "\\battlestages.json";
+            if (!Deserialize(battleStagesJson, out battleStages))
+            {
+                battleStages = new Dictionary<int, BattleStageEntry>();
             }
 
             // Reload actor schemas

@@ -1,0 +1,52 @@
+{
+  "0": {
+    "Name": "The Field",
+    "TextID": 32,
+    "IconGraphic": "kk_battlestage_01.bti"
+  },
+  "1": {
+    "Name": "Tower of Flames",
+    "TextID": 33,
+    "IconGraphic": "kk_battlestage_02.bti"
+  },
+  "2": {
+    "Name": "Tower of Winds",
+    "TextID": 34,
+    "IconGraphic": "kk_battlestage_03.bti"
+  },
+  "3": {
+    "Name": "Hyrule Castle",
+    "TextID": 35,
+    "IconGraphic": "kk_battlestage_04.bti"
+  },
+  "4": {
+    "Name": "Above the Clouds",
+    "TextID": 36,
+    "IconGraphic": "kk_battlestage_05.bti"
+  },
+  "5": {
+    "Name": "The Field (Dark World)",
+    "TextID": 37,
+    "IconGraphic": "kk_battlestage_06.bti"
+  },
+  "6": {
+    "Name": "Tower of Flames Dark World)",
+    "TextID": 38,
+    "IconGraphic": "kk_battlestage_07.bti"
+  },
+  "7": {
+    "Name": "Tower of Winds (Dark World)",
+    "TextID": 39,
+    "IconGraphic": "kk_battlestage_08.bti"
+  },
+  "8": {
+    "Name": "Hyrule Castle (Dark World)",
+    "TextID": 40,
+    "IconGraphic": "kk_battlestage_09.bti"
+  },
+  "9": {
+    "Name": "Above the Clouds (Dark World)",
+    "TextID": 41,
+    "IconGraphic": "kk_battlestage_10.bti"
+  }
+}

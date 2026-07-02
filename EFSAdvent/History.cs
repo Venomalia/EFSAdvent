@@ -92,7 +92,7 @@ namespace EFSAdvent
             foreach (var tile in Tiles)
             {
                 ushort currentTile = room.Layers[Layer][tile.X, tile.Y];
-                if (Assets.TilePropertys.TryGetValue(currentTile, out TilePropertyEntry propertie) && propertie.RequiredActorID.HasValue)
+                if (Assets.TileProperties.TryGetValue(currentTile, out TilePropertyEntry propertie) && propertie.RequiredActorID.HasValue)
                 {
                     var tileActor = new Actor(propertie.RequiredActorID.Value, (byte)(Layer % 8), (byte)((tile.X) * 2), (byte)((tile.Y) * 2), propertie.ActorValue);
                     if (room.Actors.TrySearch(tileActor.Layer, tileActor.XCoord, tileActor.YCoord, tileActor.ID, out Actor actor))

@@ -107,7 +107,7 @@ namespace EFSAdvent
                         });
 
                         if (AutomaticSetTileActors
-                            && Assets.TilePropertys.TryGetValue(clipboardTile, out TilePropertyEntry propertie)
+                            && Assets.TileProperties.TryGetValue(clipboardTile, out TilePropertyEntry propertie)
                             && propertie.RequiredActorID.HasValue)
                         {
                             var tileActor = new Actor(propertie.RequiredActorID.Value, (byte)(layer % 8), (byte)((x + cX) * 2), (byte)((y + cY) * 2), propertie.ActorValue);

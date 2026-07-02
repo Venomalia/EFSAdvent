@@ -3,7 +3,6 @@ using EFSAdvent.Controls;
 using EFSAdvent.FourSwords;
 using FSALib;
 using FSALib.AssetEntries;
-using FSALib.AssetEntrie;
 using FSALib.Structs;
 using System;
 using System.Collections.Generic;
@@ -945,7 +944,7 @@ namespace EFSAdvent
             DrawTile(brushTileBitmap, currentTileSheet, 0, 0, _tileBrush.TileValue);
 
             _logger.Clear();
-            if (Assets.TilePropertys.TryGetValue(_tileBrush.TileValue, out TilePropertyEntry propertie))
+            if (Assets.TileProperties.TryGetValue(_tileBrush.TileValue, out TilePropertyEntry propertie))
             {
                 _logger.AppendLine(propertie.Name);
                 _logger.AppendLine(string.Empty);
@@ -1301,7 +1300,7 @@ namespace EFSAdvent
                     Control inputControl;
                     switch (field.ValueType)
                     {
-                        case FSALib.AssetEntrie.ValueType.Integer:
+                        case FSALib.AssetEntries.ValueType.Integer:
                             var numericUpDown = new NumericUpDown()
                             {
                                 Minimum = 0,
@@ -1312,7 +1311,7 @@ namespace EFSAdvent
                             inputControl = numericUpDown;
                             break;
 
-                        case FSALib.AssetEntrie.ValueType.Boolean:
+                        case FSALib.AssetEntries.ValueType.Boolean:
                             var checkBox = new CheckBox()
                             {
                                 AutoSize = true,
@@ -1322,7 +1321,7 @@ namespace EFSAdvent
                             inputControl = checkBox;
                             break;
 
-                        case FSALib.AssetEntrie.ValueType.Enum:
+                        case FSALib.AssetEntries.ValueType.Enum:
                             ComboBox comboBox = new ComboBox() { DropDownStyle = ComboBoxStyle.DropDownList, };
                             int value = (int)field.ReadActorField(newActor.Variable);
                             foreach (var enumValue in field.EnumValues)
@@ -1343,7 +1342,7 @@ namespace EFSAdvent
                             inputControl = comboBox;
                             break;
 
-                        case FSALib.AssetEntrie.ValueType.Flags:
+                        case FSALib.AssetEntries.ValueType.Flags:
                             CheckedListBox checkedListBox = new CheckedListBox();
 
                             int flagsValue = (int)field.ReadActorField(newActor.Variable);

@@ -1,10 +1,12 @@
 ﻿using AuroraLib.Core.Format.Identifier;
+using System.Diagnostics;
 
 namespace FSALib.AssetEntries
 {
     /// <summary>
     /// Represents the properties associated with a tile in the game.
     /// </summary>
+    [DebuggerDisplay("{Name}")]
     public sealed class TilePropertyEntry : IAssetEntry
     {
         /// <inheritdoc/>

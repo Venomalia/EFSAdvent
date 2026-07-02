@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace FSALib.AssetEntries
 {
     /// <summary>
     /// Defines the schema for an actor type, describing its properties and behavior.
     /// </summary>
+    [DebuggerDisplay("{Name}")]
     public sealed class ActorEntry : IActorResourcesEntry
     {
         /// <inheritdoc/>
