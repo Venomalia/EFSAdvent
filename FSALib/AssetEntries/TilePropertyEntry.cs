@@ -13,6 +13,9 @@ namespace FSALib.AssetEntries
         /// <inheritdoc/>
         public string Description { get; set; }
 
+        /// <inheritdoc/>
+        public AssetFlags AssetState { get; set; }
+
         /// <summary>
         /// The mirrored version of the tile.
         /// </summary>

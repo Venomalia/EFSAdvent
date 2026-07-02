@@ -92,7 +92,8 @@
         },
         "16": {
           "name": "Crash",
-          "description": "Causes a crash (bug or unused feature?)."
+          "description": "Causes a crash (bug or unused feature?).",
+          "assetstate": "Broken"
         },
         "32": {
           "name": "Light Thunder",
@@ -104,7 +105,8 @@
         },
         "128": {
           "name": "Crash",
-          "description": "Another crash-inducing flag (possibly unused or bugged)."
+          "description": "Another crash-inducing flag (possibly unused or bugged).",
+          "assetstate": "Broken"
         }
       }
     },

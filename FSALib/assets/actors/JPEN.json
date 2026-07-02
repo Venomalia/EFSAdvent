@@ -33,8 +33,9 @@
           "description": ""
         },
         "5": {
-          "name": "Red Girl (Unused)",
-          "description": ""
+          "name": "Red Girl",
+          "description": "",
+          "assetstate": "Development"
         },
         "6": {
           "name": "Sweetie",
@@ -69,8 +70,9 @@
           "description": ""
         },
         "14": {
-          "name": "Blue Girl (Unused)",
-          "description": ""
+          "name": "Blue Girl",
+          "description": "",
+          "assetstate": "Development"
         },
         "15": {
           "name": "Old Blonde Woman",

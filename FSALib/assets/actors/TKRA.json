@@ -168,16 +168,18 @@
           "description": ""
         },
         "58": {
-          "name": "Sword (Unused)",
-          "description": ""
+          "name": "Sword",
+          "description": "",
+          "assetstate": "Development"
         },
         "64": {
           "name": "Lv2 Pegasus Boots",
           "description": ""
         },
         "65": {
-          "name": "Lv2 Lamp (Unused)",
-          "description": "Turns into a normal one."
+          "name": "Lv2 Lamp",
+          "description": "Turns into a normal one.",
+          "assetstate": "Development"
         },
         "66": {
           "name": "Lv2 Boomerang",

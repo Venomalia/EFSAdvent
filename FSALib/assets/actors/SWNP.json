@@ -96,11 +96,13 @@
       "enumValues": {
         "0": {
           "name": "Chest (Unused)",
-          "description": "The actor functions as a chest."
+          "description": "The actor functions as a chest.",
+          "assetstate": "Development"
         },
         "1": {
           "name": "Fixed Block (Unused)",
-          "description": "The actor is a fixed block."
+          "description": "The actor is a fixed block.",
+          "assetstate": "Development"
         },
         "2": {
           "name": "Item Stand",

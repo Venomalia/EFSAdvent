@@ -15,6 +15,9 @@ namespace FSALib.AssetEntries
         public string Description { get; set; }
 
         /// <inheritdoc/>
+        public AssetFlags AssetState { get; set; }
+
+        /// <inheritdoc/>
         public bool NoGBASprite { get; set; }
 
         /// <inheritdoc/>

@@ -14,6 +14,9 @@ namespace FSALib.AssetEntries
         /// <inheritdoc/>
         public string Description { get; set; }
 
+        /// <inheritdoc/>
+        public AssetFlags AssetState { get; set; }
+
         /// <summary>
         /// The bit position where this field starts within the data structure.
         /// </summary>

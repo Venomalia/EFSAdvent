@@ -16,5 +16,9 @@ namespace FSALib.AssetEntries
         /// </summary>
         string Description { get; }
 
+        /// <summary>
+        /// Additional metadata flags describing the entry state and usage.
+        /// </summary>
+        AssetFlags AssetState { get; }
     }
 }

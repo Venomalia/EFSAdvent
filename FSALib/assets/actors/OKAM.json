@@ -1,6 +1,7 @@
 {
-  "name": "Unused Enemy Aruki",
+  "name": "Aruki",
   "description": "An enemy that requires multiple players to defeat.",
+  "assetstate": "Development",
   "InternalName": "おカメさん",
   "category": "Enemy",
   "NoGBASprite": true,

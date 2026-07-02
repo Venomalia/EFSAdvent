@@ -55,7 +55,10 @@
           "name": "Boy with glasses (NPC Sheet 9)",
           "description": "A boy with glasses."
         },
-        "11": { "name": "Goron (NPC Sheet 10)", "description": "A Goron NPC." },
+        "11": {
+		  "name": "Goron (NPC Sheet 10)",
+		  "description": "A Goron NPC." 
+		},
         "12": {
           "name": "Goron child (NPC Sheet 10)",
           "description": "A young Goron child."
@@ -105,16 +108,18 @@
           "description": "Alternate version of the woman in blue and red."
         },
         "25": {
-          "name": "Fat woman in blue (NPC Sheet 14, unused)",
-          "description": "An unused NPC."
+          "name": "Fat woman in blue (NPC Sheet 14)",
+          "description": "An unused NPC.",
+		  "assetstate": "Development"
         },
         "26": {
           "name": "Boy with tears in his eyes (NPC Sheet 11)",
           "description": "A sad young boy."
         },
         "27": {
-          "name": "Cooking woman in green (NPC Sheet 11, unused)",
-          "description": "An unused cooking woman."
+          "name": "Cooking woman in green (NPC Sheet 11)",
+          "description": "An unused cooking woman.",
+		  "assetstate": "Development"
         },
         "28": {
           "name": "Gerudo (NPC Sheet 12)",

@@ -1,6 +1,7 @@
 {
   "name": "Debug Warp Settings",
   "description": "",
+  "assetstate": "Debug",
   "InternalName": "デバッグ用ワープ設定",
   "category": "Property",
   "fields": [

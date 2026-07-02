@@ -24,11 +24,13 @@
         },
         "1": {
           "name": "Royal Throne (NPC Sheet 15, Unused)",
-          "description": ""
+          "description": "",
+          "assetstate": "Development"
         },
         "2": {
           "name": "4 Fat woman (NPC Sheet 8, Unused)",
-          "description": "(NPC Sheet 8)"
+          "description": "(NPC Sheet 8)",
+          "assetstate": "Development"
         },
         "3": {
           "name": "Big Royal Throne (NPC Sheet 15)",
@@ -40,7 +42,8 @@
         },
         "5": {
           "name": "Barrel (NPC Sheet 13, Unused)",
-          "description": ""
+          "description": "",
+          "assetstate": "Development"
         },
         "6": {
           "name": "Pile of Barrels (NPC Sheet 13)",
