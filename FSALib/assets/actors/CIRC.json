@@ -64,7 +64,10 @@
           "name": "10 Seconds",
           "description": "Magic circle disappears after 10 seconds."
         },
-        "6": { "name": "Beam up", "description": "The player spins around and flies up." },
+        "6": {
+          "name": "Beam up",
+          "description": "The player spins around and flies up."
+        },
         "7": { "name": "Cactus", "description": "Cactus effect." },
         "8": {
           "name": "Glitter Effect",
