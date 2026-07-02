@@ -38,9 +38,11 @@ namespace FSALib.AssetEntries
         /// A list of fields defining additional properties or configurations for the actor.
         /// </summary>
         public List<VariableField> Fields { get; set; }
+
+        /// <summary>
         /// Rendering rules that map actor state values to one or more visual variants.
         /// </summary>
-        public ActorRenderDefinition Rendering { get; set; }
+        public ActorRenderDefinition? Rendering { get; set; }
 
         public ActorDefinition()
         {
