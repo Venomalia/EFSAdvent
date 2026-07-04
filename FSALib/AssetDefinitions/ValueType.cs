@@ -1,5 +1,5 @@
 ﻿
-namespace FSALib.AssetEntries
+namespace FSALib.AssetDefinitions
 {
     /// <summary>
     /// Defines the types of values that can be associated with actor fields.

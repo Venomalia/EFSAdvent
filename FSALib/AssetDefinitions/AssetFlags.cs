@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FSALib.AssetEntries
+namespace FSALib.AssetDefinitions
 {
     /// <summary>
     /// Flags describing the status and intended usage of an asset.

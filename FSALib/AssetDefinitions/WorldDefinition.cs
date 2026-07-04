@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace FSALib.AssetEntries
+namespace FSALib.AssetDefinitions
 {
     /// <summary>
     /// Represents a world entry with metadata for loading and UI presentation.

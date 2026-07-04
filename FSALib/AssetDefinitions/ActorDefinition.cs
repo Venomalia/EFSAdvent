@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace FSALib.AssetEntries
+namespace FSALib.AssetDefinitions
 {
     /// <summary>
     /// Defines the schema for an actor type, describing its properties and behavior.

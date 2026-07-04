@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FSALib.AssetEntries
+namespace FSALib.AssetDefinitions
 {
     public interface IActorResourcesDefinition : IAssetDefinition
     {

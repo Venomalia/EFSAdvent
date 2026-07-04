@@ -1,4 +1,4 @@
-﻿namespace FSALib.AssetEntries
+﻿namespace FSALib.AssetDefinitions
 {
     /// <summary>
     /// Defines different categories of actors in the game.

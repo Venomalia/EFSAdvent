@@ -4,7 +4,7 @@ using System.IO;
 using AuroraLib.Core.Format.Identifier;
 using AuroraLib.Core.IO;
 using System;
-using FSALib.AssetEntries;
+using FSALib.AssetDefinitions;
 
 #if NETSTANDARD || NET20_OR_GREATER
 using Newtonsoft.Json;

@@ -1,7 +1,7 @@
 ﻿using AuroraLib.Core.Exceptions;
 using System.Collections.Generic;
 
-namespace FSALib.AssetEntries
+namespace FSALib.AssetDefinitions
 {
     /// <summary>
     /// Represents a variable field within a schema, defining how data is stored and interpreted.

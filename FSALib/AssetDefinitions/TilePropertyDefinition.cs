@@ -1,7 +1,7 @@
 ﻿using AuroraLib.Core.Format.Identifier;
 using System.Diagnostics;
 
-namespace FSALib.AssetEntries
+namespace FSALib.AssetDefinitions
 {
     /// <summary>
     /// Represents the properties associated with a tile in the game.

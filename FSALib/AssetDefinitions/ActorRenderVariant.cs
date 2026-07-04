@@ -1,4 +1,4 @@
-﻿namespace FSALib.AssetEntries
+﻿namespace FSALib.AssetDefinitions
 {
     /// <summary>
     /// Defines how an actor variant is rendered for a specific actor state.

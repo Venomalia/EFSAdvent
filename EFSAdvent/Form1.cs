@@ -2,7 +2,7 @@
 using EFSAdvent.Controls;
 using EFSAdvent.FourSwords;
 using FSALib;
-using FSALib.AssetEntries;
+using FSALib.AssetDefinitions;
 using FSALib.Structs;
 using System;
 using System.Collections.Generic;
@@ -1300,7 +1300,7 @@ namespace EFSAdvent
                     Control inputControl;
                     switch (field.ValueType)
                     {
-                        case FSALib.AssetEntries.ValueType.Integer:
+                        case FSALib.AssetDefinitions.ValueType.Integer:
                             var numericUpDown = new NumericUpDown()
                             {
                                 Minimum = 0,
@@ -1311,7 +1311,7 @@ namespace EFSAdvent
                             inputControl = numericUpDown;
                             break;
 
-                        case FSALib.AssetEntries.ValueType.Boolean:
+                        case FSALib.AssetDefinitions.ValueType.Boolean:
                             var checkBox = new CheckBox()
                             {
                                 AutoSize = true,
@@ -1321,7 +1321,7 @@ namespace EFSAdvent
                             inputControl = checkBox;
                             break;
 
-                        case FSALib.AssetEntries.ValueType.Enum:
+                        case FSALib.AssetDefinitions.ValueType.Enum:
                             ComboBox comboBox = new ComboBox() { DropDownStyle = ComboBoxStyle.DropDownList, };
                             int value = (int)field.ReadActorField(newActor.Variable);
                             foreach (var enumValue in field.EnumValues)
@@ -1342,7 +1342,7 @@ namespace EFSAdvent
                             inputControl = comboBox;
                             break;
 
-                        case FSALib.AssetEntries.ValueType.Flags:
+                        case FSALib.AssetDefinitions.ValueType.Flags:
                             CheckedListBox checkedListBox = new CheckedListBox();
 
                             int flagsValue = (int)field.ReadActorField(newActor.Variable);

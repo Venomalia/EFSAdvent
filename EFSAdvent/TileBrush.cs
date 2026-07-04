@@ -1,6 +1,6 @@
 ﻿using EFSAdvent.FourSwords;
 using FSALib;
-using FSALib.AssetEntries;
+using FSALib.AssetDefinitions;
 using FSALib.Structs;
 using System;
 using System.Collections.Generic;

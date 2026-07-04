@@ -1,5 +1,5 @@
 ﻿
-namespace FSALib.AssetEntries
+namespace FSALib.AssetDefinitions
 {
     /// <summary>
     /// Defines a common schema structure for various game entities.

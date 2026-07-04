@@ -1,5 +1,5 @@
 ﻿using FSALib;
-using FSALib.AssetEntries;
+using FSALib.AssetDefinitions;
 using FSALib.Structs;
 using System.Collections.Generic;
 using System.Linq;

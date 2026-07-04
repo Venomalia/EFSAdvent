@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FSALib.AssetEntries
+namespace FSALib.AssetDefinitions
 {
     /// <summary>
     /// Defines how actor states are mapped to render variants using a bitmask-based lookup.
