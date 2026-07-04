@@ -19,7 +19,6 @@ namespace EFSAdvent.Controls
         private NumericUpDown MapVariableOverlay;
         private NumericUpDown MapVariableUnknown2;
         private NumericUpDown MapVariableDisallowTingle;
-        private NumericUpDown MapVariableTileSheet;
         private NumericUpDown MapVariableE3Banner;
         private NumericUpDown MapVariableStartY;
         private NumericUpDown MapVariableStartX;
@@ -54,13 +53,13 @@ namespace EFSAdvent.Controls
             this.MapRoomNumberInput = new System.Windows.Forms.NumericUpDown();
             this.MapRoomRemoveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.MapVariableTileSheetComboBox = new System.Windows.Forms.ComboBox();
             this.MapVariableMusicComboBox = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.MapVariableNPCSheetID = new System.Windows.Forms.NumericUpDown();
             this.MapVariableOverlay = new System.Windows.Forms.NumericUpDown();
             this.MapVariableUnknown2 = new System.Windows.Forms.NumericUpDown();
             this.MapVariableDisallowTingle = new System.Windows.Forms.NumericUpDown();
-            this.MapVariableTileSheet = new System.Windows.Forms.NumericUpDown();
             this.MapVariableE3Banner = new System.Windows.Forms.NumericUpDown();
             this.MapVariableStartY = new System.Windows.Forms.NumericUpDown();
             this.MapVariableStartX = new System.Windows.Forms.NumericUpDown();
@@ -83,7 +82,6 @@ namespace EFSAdvent.Controls
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableOverlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableDisallowTingle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableTileSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableE3Banner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartX)).BeginInit();
@@ -91,21 +89,21 @@ namespace EFSAdvent.Controls
             // 
             // MapVariablesGroupBox
             // 
-            this.MapVariablesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.MapVariablesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MapVariablesGroupBox.Controls.Add(this.tableLayoutPanel1);
             this.MapVariablesGroupBox.Location = new System.Drawing.Point(0, 0);
             this.MapVariablesGroupBox.Name = "MapVariablesGroupBox";
-            this.MapVariablesGroupBox.Size = new System.Drawing.Size(267, 445);
+            this.MapVariablesGroupBox.Size = new System.Drawing.Size(267, 470);
             this.MapVariablesGroupBox.TabIndex = 14;
             this.MapVariablesGroupBox.TabStop = false;
             this.MapVariablesGroupBox.Text = "Map";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -115,16 +113,16 @@ namespace EFSAdvent.Controls
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.50914F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.49086F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.46078F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.53922F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(267, 426);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(267, 451);
             this.tableLayoutPanel1.TabIndex = 33;
             // 
             // RoomLayoutgroupBox1
             // 
-            this.RoomLayoutgroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.RoomLayoutgroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RoomLayoutgroupBox1.Controls.Add(this.mapPictureBox);
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomLoadButton);
@@ -133,7 +131,7 @@ namespace EFSAdvent.Controls
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomSetButton);
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomNumberInput);
             this.RoomLayoutgroupBox1.Controls.Add(this.MapRoomRemoveButton);
-            this.RoomLayoutgroupBox1.Location = new System.Drawing.Point(3, 139);
+            this.RoomLayoutgroupBox1.Location = new System.Drawing.Point(3, 164);
             this.RoomLayoutgroupBox1.Name = "RoomLayoutgroupBox1";
             this.RoomLayoutgroupBox1.Size = new System.Drawing.Size(261, 241);
             this.RoomLayoutgroupBox1.TabIndex = 33;
@@ -226,16 +224,16 @@ namespace EFSAdvent.Controls
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.MapVariableTileSheetComboBox);
             this.panel1.Controls.Add(this.MapVariableMusicComboBox);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.MapVariableNPCSheetID);
             this.panel1.Controls.Add(this.MapVariableOverlay);
             this.panel1.Controls.Add(this.MapVariableUnknown2);
             this.panel1.Controls.Add(this.MapVariableDisallowTingle);
-            this.panel1.Controls.Add(this.MapVariableTileSheet);
             this.panel1.Controls.Add(this.MapVariableE3Banner);
             this.panel1.Controls.Add(this.MapVariableStartY);
             this.panel1.Controls.Add(this.MapVariableStartX);
@@ -250,14 +248,24 @@ namespace EFSAdvent.Controls
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 136);
+            this.panel1.Size = new System.Drawing.Size(267, 161);
             this.panel1.TabIndex = 32;
+            // 
+            // MapVariableTileSheetComboBox
+            // 
+            this.MapVariableTileSheetComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MapVariableTileSheetComboBox.FormattingEnabled = true;
+            this.MapVariableTileSheetComboBox.Location = new System.Drawing.Point(84, 28);
+            this.MapVariableTileSheetComboBox.Name = "MapVariableTileSheetComboBox";
+            this.MapVariableTileSheetComboBox.Size = new System.Drawing.Size(177, 21);
+            this.MapVariableTileSheetComboBox.TabIndex = 45;
+            this.MapVariableTileSheetComboBox.SelectedIndexChanged += new System.EventHandler(this.MapVariable_Changed);
             // 
             // MapVariableMusicComboBox
             // 
             this.MapVariableMusicComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MapVariableMusicComboBox.FormattingEnabled = true;
-            this.MapVariableMusicComboBox.Location = new System.Drawing.Point(84, 107);
+            this.MapVariableMusicComboBox.Location = new System.Drawing.Point(84, 55);
             this.MapVariableMusicComboBox.Name = "MapVariableMusicComboBox";
             this.MapVariableMusicComboBox.Size = new System.Drawing.Size(177, 21);
             this.MapVariableMusicComboBox.TabIndex = 35;
@@ -266,7 +274,7 @@ namespace EFSAdvent.Controls
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 110);
+            this.label11.Location = new System.Drawing.Point(3, 58);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 34;
@@ -274,7 +282,7 @@ namespace EFSAdvent.Controls
             // 
             // MapVariableNPCSheetID
             // 
-            this.MapVariableNPCSheetID.Location = new System.Drawing.Point(215, 55);
+            this.MapVariableNPCSheetID.Location = new System.Drawing.Point(215, 82);
             this.MapVariableNPCSheetID.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -287,7 +295,7 @@ namespace EFSAdvent.Controls
             // 
             // MapVariableOverlay
             // 
-            this.MapVariableOverlay.Location = new System.Drawing.Point(84, 55);
+            this.MapVariableOverlay.Location = new System.Drawing.Point(84, 82);
             this.MapVariableOverlay.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -300,7 +308,7 @@ namespace EFSAdvent.Controls
             // 
             // MapVariableUnknown2
             // 
-            this.MapVariableUnknown2.Location = new System.Drawing.Point(215, 81);
+            this.MapVariableUnknown2.Location = new System.Drawing.Point(84, 134);
             this.MapVariableUnknown2.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -313,7 +321,7 @@ namespace EFSAdvent.Controls
             // 
             // MapVariableDisallowTingle
             // 
-            this.MapVariableDisallowTingle.Location = new System.Drawing.Point(84, 81);
+            this.MapVariableDisallowTingle.Location = new System.Drawing.Point(84, 108);
             this.MapVariableDisallowTingle.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -324,22 +332,9 @@ namespace EFSAdvent.Controls
             this.MapVariableDisallowTingle.TabIndex = 41;
             this.MapVariableDisallowTingle.ValueChanged += new System.EventHandler(this.MapVariable_Changed);
             // 
-            // MapVariableTileSheet
-            // 
-            this.MapVariableTileSheet.Location = new System.Drawing.Point(84, 29);
-            this.MapVariableTileSheet.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.MapVariableTileSheet.Name = "MapVariableTileSheet";
-            this.MapVariableTileSheet.Size = new System.Drawing.Size(46, 20);
-            this.MapVariableTileSheet.TabIndex = 40;
-            this.MapVariableTileSheet.ValueChanged += new System.EventHandler(this.MapVariable_Changed);
-            // 
             // MapVariableE3Banner
             // 
-            this.MapVariableE3Banner.Location = new System.Drawing.Point(215, 29);
+            this.MapVariableE3Banner.Location = new System.Drawing.Point(215, 108);
             this.MapVariableE3Banner.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -379,7 +374,7 @@ namespace EFSAdvent.Controls
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 83);
+            this.label20.Location = new System.Drawing.Point(3, 110);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(81, 13);
             this.label20.TabIndex = 36;
@@ -388,7 +383,7 @@ namespace EFSAdvent.Controls
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(136, 86);
+            this.label19.Location = new System.Drawing.Point(5, 139);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 13);
             this.label19.TabIndex = 35;
@@ -397,7 +392,7 @@ namespace EFSAdvent.Controls
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 58);
+            this.label18.Location = new System.Drawing.Point(3, 85);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(46, 13);
             this.label18.TabIndex = 34;
@@ -406,7 +401,7 @@ namespace EFSAdvent.Controls
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(136, 57);
+            this.label17.Location = new System.Drawing.Point(136, 84);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(63, 13);
             this.label17.TabIndex = 33;
@@ -415,7 +410,7 @@ namespace EFSAdvent.Controls
             // csvLabel4
             // 
             this.csvLabel4.AutoSize = true;
-            this.csvLabel4.Location = new System.Drawing.Point(139, 31);
+            this.csvLabel4.Location = new System.Drawing.Point(139, 110);
             this.csvLabel4.Name = "csvLabel4";
             this.csvLabel4.Size = new System.Drawing.Size(60, 13);
             this.csvLabel4.TabIndex = 32;
@@ -450,11 +445,11 @@ namespace EFSAdvent.Controls
             // 
             // MapSaveButton
             // 
-            this.MapSaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.MapSaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MapSaveButton.Enabled = false;
-            this.MapSaveButton.Location = new System.Drawing.Point(3, 386);
+            this.MapSaveButton.Location = new System.Drawing.Point(3, 411);
             this.MapSaveButton.Name = "MapSaveButton";
             this.MapSaveButton.Size = new System.Drawing.Size(261, 37);
             this.MapSaveButton.TabIndex = 13;
@@ -466,7 +461,7 @@ namespace EFSAdvent.Controls
             // 
             this.Controls.Add(this.MapVariablesGroupBox);
             this.Name = "MapEditor";
-            this.Size = new System.Drawing.Size(267, 445);
+            this.Size = new System.Drawing.Size(267, 470);
             this.MapVariablesGroupBox.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.RoomLayoutgroupBox1.ResumeLayout(false);
@@ -479,7 +474,6 @@ namespace EFSAdvent.Controls
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableOverlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableUnknown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableDisallowTingle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MapVariableTileSheet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableE3Banner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapVariableStartX)).EndInit();
@@ -487,5 +481,6 @@ namespace EFSAdvent.Controls
 
         }
 
+        private ComboBox MapVariableTileSheetComboBox;
     }
 }

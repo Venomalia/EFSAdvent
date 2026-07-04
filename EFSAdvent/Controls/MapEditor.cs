@@ -43,7 +43,7 @@ namespace EFSAdvent.Controls
 
         public void SetMap(FSALib.Map map, Level level)
         {
-            // Load Actor from Assets
+            // Load songs from assets
             if (MapVariableMusicComboBox.Items.Count == 0)
             {
                 int songindex = 0;
@@ -61,6 +61,23 @@ namespace EFSAdvent.Controls
                 }
             }
 
+            // Load tilesets from assets
+            if (MapVariableTileSheetComboBox.Items.Count == 0)
+            {
+                int tilesetsindex = 0;
+                foreach (var tileset in FSALib.Assets.Tilesets)
+                {
+                    if (tilesetsindex == tileset.Key)
+                    {
+                        MapVariableTileSheetComboBox.Items.Add(tileset.Value.Name);
+                    }
+                    else
+                    {
+                        MapVariableTileSheetComboBox.Items.Add(tilesetsindex);
+                    }
+                    tilesetsindex++;
+                }
+            }
 
             if (Map != null)
                 Map.PropertyChanged -= Map_PropertyChanged;
@@ -255,7 +272,7 @@ namespace EFSAdvent.Controls
             }
             properties.BackgroundMusicId = MapVariableMusicComboBox.SelectedIndex;
             properties.ShowE3Banner = (int)MapVariableE3Banner.Value;
-            properties.TileSheetId = (int)MapVariableTileSheet.Value;
+            properties.TileSheetId = MapVariableTileSheetComboBox.SelectedIndex;
             properties.NPCSheetID = (int)MapVariableNPCSheetID.Value;
             properties.OverlayTextureId = (int)MapVariableOverlay.Value;
             properties.Unknown = (int)MapVariableUnknown2.Value;
@@ -275,7 +292,7 @@ namespace EFSAdvent.Controls
             MapVariableMusicComboBox.SelectedIndex = properties.BackgroundMusicId;
             SetMapVariableInput(MapVariableE3Banner, properties.ShowE3Banner);
             SetMapVariableInput(MapVariableOverlay, properties.OverlayTextureId);
-            SetMapVariableInput(MapVariableTileSheet, properties.TileSheetId);
+            MapVariableTileSheetComboBox.SelectedIndex = properties.TileSheetId;
             SetMapVariableInput(MapVariableNPCSheetID, properties.NPCSheetID);
             SetMapVariableInput(MapVariableUnknown2, properties.Unknown);
             SetMapVariableInput(MapVariableDisallowTingle, properties.DisallowTingle);

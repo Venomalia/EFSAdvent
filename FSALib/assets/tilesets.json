@@ -1,0 +1,118 @@
+{
+  "0": {
+    "Name": "Temple",
+    "ID": "a"
+  },
+  "1": {
+    "Name": "Cave",
+    "ID": "b"
+  },
+  "2": {
+    "Name": "Hyrule Castle",
+    "ID": "c",
+    "GbaID": "c2"
+  },
+  "3": {
+    "Name": "Fire Temple",
+    "ID": "d"
+  },
+  "4": {
+    "Name": "Temple Castle",
+    "ID": "e"
+  },
+  "5": {
+    "Name": "Dark Temple",
+    "ID": "f"
+  },
+  "6": {
+    "Name": "Desert Temple",
+    "ID": "g"
+  },
+  "7": {
+    "Name": "Pyramid",
+    "ID": "h"
+  },
+  "8": {
+    "Name": "Ice Temple",
+    "ID": "i"
+  },
+  "9": {
+    "Name": "Tower of Winds",
+    "ID": "j"
+  },
+  "10": {
+    "Name": "Fortress of Winds",
+    "ID": "k"
+  },
+  "11": {
+    "Name": "Coast",
+    "ID": "l"
+  },
+  "12": {
+    "Name": "Lake",
+    "ID": "m"
+  },
+  "13": {
+    "Name": "Village",
+    "ID": "n"
+  },
+  "14": {
+    "Name": "Mountain",
+    "ID": "o"
+  },
+  "15": {
+    "Name": "Woods",
+    "assetstate": "Development",
+    "ID": "p"
+  },
+  "16": {
+    "Name": "Graveyard",
+    "ID": "q"
+  },
+  "17": {
+    "Name": "Dark Woods",
+    "ID": "r"
+  },
+  "18": {
+    "Name": "Dark Village",
+    "ID": "s"
+  },
+  "19": {
+    "Name": "Desert",
+    "ID": "t"
+  },
+  "20": {
+    "Name": "Frozen Hyrule",
+    "ID": "u"
+  },
+  "21": {
+    "Name": "Cloud",
+    "ID": "v"
+  },
+  "22": {
+    "Name": "River",
+    "assetstate": "Development",
+    "ID": "w"
+  },
+  "23": {
+    "Name": "Desert 2",
+    "assetstate": "Development",
+    "ID": "x"
+  },
+  "24": {
+    "Name": "Cloud 2",
+    "ID": "y"
+  },
+  "25": {
+    "Name": "Death Mountain",
+    "ID": "z"
+  },
+  "26": {
+    "Name": "Fields",
+    "ID": "1a"
+  },
+  "27": {
+    "Name": "Dark Cloud 2",
+    "ID": "2a"
+  }
+}

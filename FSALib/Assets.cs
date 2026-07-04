@@ -27,6 +27,7 @@ namespace FSALib
         private static Dictionary<int, WorldDefinition> worlds;
         private static Dictionary<string, StageDefinition> stages;
         private static Dictionary<int, BattleStageDefinition> battleStages;
+        private static Dictionary<int, TilesetDefinition> tilesets;
         private static ushort[]? mirrorLOT;
 
         /// <summary>
@@ -53,6 +54,11 @@ namespace FSALib
         /// Gets a read-only dictionary of battle stage definitions indexed by battle stage ID.
         /// </summary>
         public static IReadOnlyDictionary<int, BattleStageDefinition> BattleStages => battleStages;
+
+        /// <summary>
+        /// Gets a read-only dictionary of tileset definitions indexed by tileset ID.
+        /// </summary>
+        public static IReadOnlyDictionary<int, TilesetDefinition> Tilesets => tilesets;
 
         /// <summary>
         /// Lookup table that provides the mirrored tile ID for each tile.
@@ -131,6 +137,13 @@ namespace FSALib
             if (!Deserialize(battleStagesJson, out battleStages))
             {
                 battleStages = new Dictionary<int, BattleStageDefinition>();
+            }
+
+            // Reload battle stages list
+            const string tilesetsJson = AssetsDirectory + "\\tilesets.json";
+            if (!Deserialize(tilesetsJson, out tilesets))
+            {
+                tilesets = new Dictionary<int, TilesetDefinition>();
             }
 
             // Reload actor schemas
