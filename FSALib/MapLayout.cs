@@ -7,11 +7,14 @@ using System.Text;
 namespace FSALib
 {
     /// <summary>
-    /// Represents a map in fsa.
+    /// Represents the room layout and properties of a stage.
     /// </summary>
-    public sealed class Map : MapProperties, IStreamSerializable
+    public sealed class MapLayout : MapProperties, IStreamSerializable
     {
         public const int DIMENSION = 10, EMPTY_ROOM_VALUE = -1;
+
+        // There is a maximum of 10x10 rooms per map, this should be enough for all use cases.
+        public const int MAX_Rooms = 128;
 
         private readonly int[] _rooms = new int[DIMENSION * DIMENSION];
         private readonly ShadowMapProperties[] _shadowRooms = new ShadowMapProperties[10];
@@ -85,6 +88,8 @@ namespace FSALib
             set
             {
                 ThrowIf.LessThan(value, EMPTY_ROOM_VALUE, nameof(value));
+                ThrowIf.GreaterThan(value, MAX_Rooms, nameof(value));
+
                 if (IsShadowBattle)
                     _shadowRooms[x + y * 5].RoomIndex = value;
                 else
@@ -92,7 +97,7 @@ namespace FSALib
             }
         }
 
-        public Map(bool isShadowBattle = false)
+        public MapLayout(bool isShadowBattle = false)
         {
             IsShadowBattle = isShadowBattle;
             if (isShadowBattle)
@@ -108,13 +113,13 @@ namespace FSALib
             }
         }
 
-        public Map(Stream source)
+        public MapLayout(Stream source)
             => ReadFromStream(source);
 
         /// <inheritdoc/>
         public void ReadFromStream(Stream source)
         {
-            using var file = new StreamReader(source);
+            using var file = new StreamReader(source, Encoding.UTF8, false, 1024, true); ;
             string? line = file.ReadLine();
             ThrowIf.Null(line, nameof(line));
             IsShadowBattle = !line.StartsWith("map");
@@ -183,7 +188,7 @@ namespace FSALib
         /// <inheritdoc/>
         public void WriteToStream(Stream dest)
         {
-            using StreamWriter writer = new StreamWriter(dest);
+            using StreamWriter writer = new StreamWriter(dest, Encoding.UTF8, 1024, true);
             if (!IsShadowBattle)
             {
                 writer.WriteLine($"map{Index:D3},{StartX},{StartY},{BackgroundMusicId},{ShowE3Banner},{TileSheetId},{NPCSheetID},{OverlayTextureId},{Unknown},{DisallowTingle}");
@@ -278,6 +283,18 @@ namespace FSALib
             }
         }
 
+        /// <summary>
+        /// Marks all room indices referenced by this map layout.
+        /// </summary>
+        public void MarkUsedRooms(Span<bool> usedRooms)
+        {
+            for (int i = 0; i < _rooms.Length; i++)
+            {
+                int roomIndex = _rooms[i];
+                if (roomIndex != EMPTY_ROOM_VALUE)
+                    usedRooms[roomIndex] = true;
+            }
+        }
 
         /// <summary>
         /// Gets the folder path where map data is stored.
@@ -294,7 +311,7 @@ namespace FSALib
         /// <param name="singleplayer">Is a singleplayer map.</param>
         /// <returns>The formatted filename for the map file.</returns>
         public static string GetFileName(int mapIndex, bool singleplayer)
-            => $"map{mapIndex:D3}{(singleplayer ? "1_" : string.Empty)}.csv";
+            => $"map{mapIndex:D3}{(singleplayer ? "_1" : string.Empty)}.csv";
 
         /// <summary>
         /// Constructs the full file path for an map file, combining the folder path and filename.

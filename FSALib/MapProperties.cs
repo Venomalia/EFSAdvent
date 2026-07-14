@@ -7,7 +7,7 @@ namespace FSALib
     /// </summary>
     public sealed class ShadowMapProperties : MapProperties
     {
-        private int roomIndex = Map.EMPTY_ROOM_VALUE;
+        private int roomIndex = MapLayout.EMPTY_ROOM_VALUE;
         private int unknown2;
 
         /// <summary>
