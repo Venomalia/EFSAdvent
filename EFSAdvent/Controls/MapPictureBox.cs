@@ -13,7 +13,7 @@ namespace EFSAdvent.Controls
 
         private (int X, int Y) selectedRoomCoordinates;
 
-        private FSALib.Map Map;
+        private FSALib.MapLayout Map;
 
         public Brush NumberBrush;
         public Brush StartRoomBrush;
@@ -66,12 +66,12 @@ namespace EFSAdvent.Controls
 
             SizeMode = PictureBoxSizeMode.StretchImage;
             mapBitmap = new Bitmap(32 * 10, 24 * 10, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
-            mapGraphics = Graphics.FromImage(mapBitmap); 
+            mapGraphics = Graphics.FromImage(mapBitmap);
             mapGraphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             Image = mapBitmap;
         }
 
-        public void SetMap(FSALib.Map map)
+        public void SetMap(FSALib.MapLayout map)
         {
             if (Map != null)
                 Map.PropertyChanged -= Map_PropertyChanged;
@@ -110,7 +110,7 @@ namespace EFSAdvent.Controls
                 for (int x = 0; x < Map.XDimension * roomWidthInPixels; x += roomWidthInPixels)
                 {
                     roomValue = Map[x / roomWidthInPixels, y / roomHeightInPixels];
-                    roomColour = (byte)(roomValue == FSALib.Map.EMPTY_ROOM_VALUE ? 0xFF : 0x00);
+                    roomColour = (byte)(roomValue == FSALib.MapLayout.EMPTY_ROOM_VALUE ? 0xFF : 0x00);
                     for (int px = 0; px < roomWidthInPixels; px++)
                     {
                         for (int py = 0; py < roomHeightInPixels; py++)
@@ -146,7 +146,7 @@ namespace EFSAdvent.Controls
                 for (int x = 0; x < Map.XDimension * roomWidthInPixels; x += roomWidthInPixels)
                 {
                     roomValue = Map[x / roomWidthInPixels, y / roomHeightInPixels];
-                    if (roomValue != FSALib.Map.EMPTY_ROOM_VALUE)
+                    if (roomValue != FSALib.MapLayout.EMPTY_ROOM_VALUE)
                     {
                         //Draw the room number over the top of the room for clarity
                         mapGraphics.DrawString(Convert.ToString(roomValue), NumberFront, NumberBrush, x, y);

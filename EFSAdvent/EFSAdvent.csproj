@@ -103,7 +103,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FourSwords\Level.cs" />
     <Compile Include="GraphicsEX.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Controls\InputDialog.cs" />
@@ -151,7 +150,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="RarcPacker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\key.ico" />

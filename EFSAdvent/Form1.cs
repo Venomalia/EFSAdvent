@@ -1,6 +1,5 @@
 ﻿using AuroraLib.Core.Format.Identifier;
 using EFSAdvent.Controls;
-using EFSAdvent.FourSwords;
 using FSALib;
 using FSALib.AssetDefinitions;
 using FSALib.Structs;
@@ -12,8 +11,6 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -21,7 +18,7 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "2.2";
+        private const string VERSION = "2.3";
         private const string BaseTitel = "EFSAdvent " + VERSION + " [Venomalia]";
         private const string WikiUrl = "https://github.com/Venomalia/EFSAdvent/wiki";
         private const string SourceCodeUrl = "https://github.com/Venomalia/EFSAdvent";
@@ -41,7 +38,10 @@ namespace EFSAdvent
         private readonly Identifier32[] _actorIDs;
         private readonly ToolTip _actorInfoToolTip = new ToolTip();
 
-        private Level _level;
+        private Stage _level = new Stage();
+        private int _currentRoomIndex = -1;
+        private bool _levelIsDirty = false;
+        private string _levelFilePaht;
         private Rectangle _tileSelection;
         private (int x, int y) _tileSelectionOrigin;
 
@@ -166,6 +166,7 @@ namespace EFSAdvent
             }
 
             ResetVarsForNewLevel();
+            NewToolStripMenuItem_Click(this, null); // new
         }
 
         private void ResetVarsForNewLevel()
@@ -177,41 +178,17 @@ namespace EFSAdvent
 
         #region Dialogs
 
-        private bool ShowSaveChangesDialog(bool saveMap = true, string message = "Save all changes?")
+        private bool ShowSaveChangesDialog(string message = "Save all changes?")
         {
-            if (saveMap ? _level?.IsDirty ?? false : (_level?.LayersAreDirty ?? false) || (_level?.ActorsAreDirty ?? false))
+            if (_levelIsDirty)
             {
-                var dirtyDataBuilder = new StringBuilder();
-
-                if (_level.ActorsAreDirty) dirtyDataBuilder.Append("Actor data");
-                if (_level.LayersAreDirty)
-                {
-                    if (dirtyDataBuilder.Length > 0)
-                        dirtyDataBuilder.Append(" and ");
-                    dirtyDataBuilder.Append("Layer data");
-                }
-                if (_level.MapIsDirty && saveMap)
-                {
-                    if (dirtyDataBuilder.Length > 0)
-                        dirtyDataBuilder.Append(" and ");
-                    dirtyDataBuilder.Append("Map data");
-                }
-
-                string dirtyData = dirtyDataBuilder.ToString();
-
-                var result = MessageBox.Show($"{dirtyData} has been changed, save changes first?", message, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                var result = MessageBox.Show($"This level {_level.Index} has been changed, save changes first?", message, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
                 switch (result)
                 {
                     case DialogResult.Yes:
-                        _level.SaveActors();
-                        _level.SaveLayers();
-                        if (saveMap)
-                        {
-                            _level.SaveMap();
-                        }
+                        saveChangesToolStripMenuItem_Click(this, null);
                         break;
-
                     case DialogResult.No:
                         break;
 
@@ -227,17 +204,18 @@ namespace EFSAdvent
 
         #region MenuStrip-File
 
-        private void OpenLevelFile(string mapPath)
+        private void OpenLevelFile()
         {
             ResetVarsForNewLevel();
-
 
             if (_level != null)
                 _level.Map.PropertyChanged -= Map_PropertyChanged;
 
-            _level = new Level(mapPath, _logger);
+            _levelIsDirty = false;
+            _currentRoomIndex = -1;
+
             MapEditor.SetMap(_level.Map, _level);
-            if (_level.MapSinglelplayer is null)
+            if (_level.MapSingleplayer is null)
             {
                 if (MapTabControl.TabPages.Contains(MapSinglelplayerTabPage))
                     MapTabControl.TabPages.Remove(MapSinglelplayerTabPage);
@@ -248,7 +226,7 @@ namespace EFSAdvent
                 if (!MapTabControl.TabPages.Contains(MapSinglelplayerTabPage))
                     MapTabControl.TabPages.Add(MapSinglelplayerTabPage);
                 MapEditorSinglelplayer.Enabled = true;
-                MapEditorSinglelplayer.SetMap(_level.MapSinglelplayer, _level);
+                MapEditorSinglelplayer.SetMap(_level.MapSingleplayer, _level);
             }
 
             _level.Map.PropertyChanged += Map_PropertyChanged;
@@ -257,15 +235,13 @@ namespace EFSAdvent
             ChangeTileSheet();
 
             //Get a string which is just the root bossxxx filepath for loading other files
-            RootFolderPathTextBox.Text = mapPath.Remove(mapPath.LastIndexOf("\\map\\") + 1);
+            RootFolderPathTextBox.Text = _levelFilePaht;
             this.Text = $"{BaseTitel} - Map{_level.Map.Index}";
             layerPictureBox.Refresh();
 
-            ExportMenuItem.Enabled = true;
             SaveMenuItem.Enabled = true;
             SaveAsMenuItem.Enabled = true;
             tabControl.Enabled = true;
-            layerPictureBox.Enabled = true;
             rightSideGroupBox.Enabled = true;
             importToolStripMenuItem.Enabled = true;
             LoadRoom(_level.Map[_level.Map.StartX, _level.Map.StartY], false);
@@ -274,6 +250,7 @@ namespace EFSAdvent
 
         private void Map_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+            _levelIsDirty = true;
             switch (e.PropertyName)
             {
                 case "OverlayTextureId":
@@ -292,24 +269,9 @@ namespace EFSAdvent
             if (ShowSaveChangesDialog())
                 return;
 
-            using (var folderDialog = new FolderBrowserDialog())
-            {
-                folderDialog.Description = "Select a save location for the new level.";
-                folderDialog.ShowNewFolderButton = true;
-
-                if (folderDialog.ShowDialog() != DialogResult.OK)
-                    return;
-
-                string selectedPath = folderDialog.SelectedPath;
-                int number = 9;
-                string newLevelPath;
-                do
-                {
-                    newLevelPath = Path.Combine(selectedPath, $"boss{++number:000}", "map");
-                } while (Directory.Exists(newLevelPath));
-                string newMapFilePath = Path.Combine(newLevelPath, $"map{number:000}.csv");
-                OpenLevelFile(newMapFilePath);
-            }
+            _level.Dispose();
+            _level = new Stage();
+            OpenLevelFile();
         }
 
         private void OpenLevel(object sender, EventArgs e)
@@ -319,187 +281,117 @@ namespace EFSAdvent
 
             var openDialog = new OpenFileDialog
             {
-                Filter = "CSV map files|*.csv"
+                Filter = "Supported files (*.arc;*.csv)|*.arc;*.csv|" + "RARC archive files (*.arc)|*.arc|" + "CSV map files (*.csv)|*.csv",
+                CheckFileExists = true
             };
 
-            if (openDialog.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
 
-            if (!openDialog.FileName.EndsWith("csv"))
+            if (openDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+#if !DEBUG
+            try
+#endif
             {
-                MessageBox.Show("File must be a *.csv");
+                if (openDialog.FileName.EndsWith("csv")) // Load folder
+                {
+                    _levelFilePaht = openDialog.FileName.Remove(openDialog.FileName.LastIndexOf("map" + Path.DirectorySeparatorChar)); ;
+                    _level.Dispose();
+                    _level = new Stage(new Rarc(new DirectoryInfo(_levelFilePaht)));
+                }
+                else
+                {
+                    _levelFilePaht = openDialog.FileName;
+                    using FileStream data = new FileStream(openDialog.FileName, FileMode.Open, FileAccess.Read);
+                    _level.ReadFromStream(data);
+                }
+                OpenLevelFile();
+            }
+#if !DEBUG
+            catch (Exception err)
+            {
+                MessageBox.Show($"Failed to load {openDialog.FileName}, {err}.");
                 return;
             }
-            OpenLevelFile(openDialog.FileName);
+#endif
+
         }
 
         private void saveChangesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowSaveChangesDialog();
+            if (Directory.Exists(_levelFilePaht))
+            {
+                _level.WriteToDirectory(_levelFilePaht);
+            }
+            if (File.Exists(_levelFilePaht))
+            {
+                using FileStream data = new FileStream(_levelFilePaht, FileMode.Create, FileAccess.ReadWrite);
+                _level.WriteToStream(data);
+            }
+            else
+            {
+                saveAsToolStripMenuItem_Click(sender, e);
+            }
+            _levelIsDirty = false;
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_level.IsDirty)
+            using var dialog = new SaveFileDialog
             {
-                switch (MessageBox.Show("Save all data before saving as new level?",
-                                                    "Save changes?",
-                                                    MessageBoxButtons.YesNoCancel,
-                                                    MessageBoxIcon.Question))
-                {
-                    case DialogResult.Yes:
-                        _level.SaveActors();
-                        BuildLayerActorList(true);
-                        _level.SaveLayers();
-                        _level.SaveMap();
-                        break;
-
-                    case DialogResult.No:
-                        break;
-
-                    case DialogResult.Cancel:
-                        return;
-                }
-            }
-
-            var saveDialog = new SaveFileDialog
-            {
-                AddExtension = false,
-                FileName = $"boss{_level.Map.Index:D3}",
-                Title = "Save as different level number e.g. bossXXX"
+                Filter = "RARC archive (*.arc)|*.arc",
+                FileName = $"boss{_level.Map.Index:D3}.arc",
+                DefaultExt = "arc",
+                AddExtension = true,
+                CheckFileExists = false
             };
 
-            if (saveDialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                string savedFile = Path.GetFileNameWithoutExtension(saveDialog.FileName);
+                _levelFilePaht = dialog.FileName;
+                string fileName = Path.GetFileName(_levelFilePaht);
+                if (fileName.Length >= 7 && int.TryParse(fileName.Substring(4, 3), out int index))
+                    _level.Index = index;
 
-                var regex = new Regex("boss[0-9]{3}$");
-                if (!regex.IsMatch(savedFile))
-                {
-                    MessageBox.Show("\"Save as\" only supports level names like boss000");
-                    return;
-                }
-
-                string savedFileNumber = new string(savedFile.Skip(4).Take(3).ToArray());
-
-                CopyDirectory(RootFolderPathTextBox.Text, RootFolderPathTextBox.Text, $"{_level.Map.Index:D3}", savedFileNumber);
+                using FileStream data = new FileStream(_levelFilePaht, FileMode.Create, FileAccess.ReadWrite);
+                _level.WriteToStream(data);
+                OpenLevelFile();
             }
-        }
-
-        private static void CopyDirectory(string sourceDir, string destinationDir, string oldNumber, string newNumber)
-        {
-            if (oldNumber == newNumber)
-            {
-                return;
-            }
-
-            var pathParts = destinationDir.Split(Path.DirectorySeparatorChar);
-            pathParts[pathParts.Length - 1] = ReplaceOldLevelNumberWithNew(pathParts[pathParts.Length - 1], oldNumber, newNumber);
-            pathParts[pathParts.Length - 2] = ReplaceOldLevelNumberWithNew(pathParts[pathParts.Length - 2], oldNumber, newNumber);
-            pathParts[0] = pathParts[0] + Path.DirectorySeparatorChar;
-            destinationDir = Path.Combine(pathParts);
-
-            var dir = new DirectoryInfo(sourceDir);
-
-            if (!dir.Exists)
-            {
-                throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
-            }
-
-            DirectoryInfo[] dirs = dir.GetDirectories();
-            Directory.CreateDirectory(destinationDir);
-
-            foreach (FileInfo file in dir.GetFiles())
-            {
-                string fileName = ReplaceOldLevelNumberWithNew(file.Name, oldNumber, newNumber);
-                string targetFilePath = Path.Combine(destinationDir, fileName);
-                file.CopyTo(targetFilePath, true);
-
-                if (targetFilePath.EndsWith(".csv"))
-                {
-                    string contents = File.ReadAllText(targetFilePath);
-                    contents = contents.Replace($"map{oldNumber},", $"map{newNumber},");
-                    File.WriteAllText(targetFilePath, contents);
-                }
-            }
-
-            foreach (DirectoryInfo subDir in dirs)
-            {
-                string newDestinationDir = Path.Combine(destinationDir, subDir.Name);
-                CopyDirectory(subDir.FullName, newDestinationDir, oldNumber, newNumber);
-            }
-        }
-
-        private static string ReplaceOldLevelNumberWithNew(string target, string oldNumber, string newNumber)
-        {
-            return target
-                .Replace("boss" + oldNumber, "boss" + newNumber)
-                .Replace("b" + oldNumber, "b" + newNumber)
-                .Replace("B" + oldNumber, "B" + newNumber)
-                .Replace("map" + oldNumber, "map" + newNumber)
-                .Replace("m" + oldNumber, "m" + newNumber)
-                .Replace("M" + oldNumber, "M" + newNumber);
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
             => Application.Exit();
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-            => e.Cancel = ShowSaveChangesDialog(true, "Save all changes before exiting?");
+            => e.Cancel = ShowSaveChangesDialog("Save all changes before exiting?");
 
         #endregion
 
         #region MenuStrip-Export
 
-        private void ExportLevel(object sender, EventArgs e)
-        {
-            if (ShowSaveChangesDialog(true, "Save all data before exporting?"))
-                return;
-
-            var saveRarc = new SaveFileDialog
-            {
-                DefaultExt = ".arc",
-                AddExtension = true,
-                Filter = "RARC files|*.arc",
-                FileName = $"boss{_level.Map.Index:D3}"
-            };
-
-            if (saveRarc.ShowDialog() == DialogResult.OK)
-            {
-                string path = RootFolderPathTextBox.Text.Remove(RootFolderPathTextBox.Text.Length - 1);
-                var packer = new RarcPacker();
-                packer.CreateRarc(path, saveRarc.FileName);
-            }
-        }
-
         private void ExportRoomAsTmx_Click(object sender, EventArgs e)
         {
-            if (ShowSaveChangesDialog(true, "Save all data before exporting?"))
-                return;
-
             var saveTmx = new SaveFileDialog
             {
                 DefaultExt = ".tmx",
                 AddExtension = true,
                 Filter = "Tiled map files|*.tmx;*.xml",
-                FileName = $"boss{_level.Map.Index:D3}_Room{_level.Room.Index}"
+                FileName = $"boss{_level.Map.Index:D3}_Room{_currentRoomIndex}"
             };
 
             if (saveTmx.ShowDialog() == DialogResult.OK)
             {
-                int TileSheetId = _level.Map.GetRoomProperties(_level.Room.Index).TileSheetId;
+                int TileSheetId = _level.Map.GetRoomProperties(_currentRoomIndex).TileSheetId;
                 string tilesetSource = $"Tile Sheet {TileSheetId:D2}.tsx";
                 string tsxFilePath = Path.Combine(Path.GetDirectoryName(saveTmx.FileName), tilesetSource);
                 ExportMapTilesetAsTsx(tsxFilePath);
-                _level.ExportAsTMX(saveTmx.FileName, tilesetSource);
+                Tiled.ExportAsTMX(_level.Rooms[_currentRoomIndex], saveTmx.FileName, tilesetSource);
             }
         }
 
         private void ExportMapTilesetAsTsx(string savePath)
         {
-            int TileSheetId = _level.Map.GetRoomProperties(_level.Room.Index).TileSheetId;
+            int TileSheetId = _level.Map.GetRoomProperties(_currentRoomIndex).TileSheetId;
             string tiledBaseSheet = Path.Combine(dataDirectory, "TiledBaseSheet.xml");
             string tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {TileSheetId:D2}.PNG");
             Tiled.UpdateTilesetImage(tiledBaseSheet, tileSheetPath, savePath);
@@ -512,7 +404,7 @@ namespace EFSAdvent
                 DefaultExt = ".png",
                 AddExtension = true,
                 Filter = "Portable Network Graphics|*.png",
-                FileName = $"boss{_level.Map.Index:D3}_{_level.Room.Index}"
+                FileName = $"boss{_level.Map.Index:D3}_{_currentRoomIndex}"
             };
 
             if (savePng.ShowDialog() == DialogResult.OK)
@@ -523,9 +415,6 @@ namespace EFSAdvent
 
         private void ExportLevelAsPng(object sender, EventArgs e)
         {
-            if (ShowSaveChangesDialog())
-                return;
-
             var savePng = new SaveFileDialog
             {
                 DefaultExt = ".png",
@@ -538,7 +427,7 @@ namespace EFSAdvent
             {
 
                 bool autoLoadActors = autoSelectToolStripMenuItem.Checked;
-                int lastRoom = _level.Room.Index;
+                int lastRoom = _currentRoomIndex;
                 autoSelectToolStripMenuItem.Checked = sender is ToolStripItem csender && csender.Name == "mapAndAAspngToolStripMenuItem";
 
                 int roomWidth = 512, roomHeight = 384; // Maße eines Raums
@@ -554,7 +443,7 @@ namespace EFSAdvent
                         {
                             int roomValue = _level.Map[x, y];
 
-                            if (roomValue != Map.EMPTY_ROOM_VALUE)
+                            if (roomValue != MapLayout.EMPTY_ROOM_VALUE)
                             {
                                 LoadRoom(roomValue, false);
 
@@ -578,62 +467,55 @@ namespace EFSAdvent
 
         private void ExportRoomsAsPng(object sender, EventArgs e)
         {
-            if (ShowSaveChangesDialog())
+            using var folderDialog = new FolderBrowserDialog();
+            folderDialog.Description = "Select a save location for the images.";
+            folderDialog.ShowNewFolderButton = true;
+
+            if (folderDialog.ShowDialog() != DialogResult.OK)
                 return;
 
-            using (var folderDialog = new FolderBrowserDialog())
+            bool autoLoadActors = autoSelectToolStripMenuItem.Checked;
+            bool overlay = displayOverlayToolStripMenuItem.Checked;
+            int lastRoom = _currentRoomIndex;
+            autoSelectToolStripMenuItem.Checked = sender is ToolStripItem csender && csender.Name == "allRoomsAndActorsAspngToolStripMenuItem";
+            displayOverlayToolStripMenuItem.Checked = false;
+
+            for (int room = 0; room < byte.MaxValue; room++)
             {
-                folderDialog.Description = "Select a save location for the images.";
-                folderDialog.ShowNewFolderButton = true;
-
-                if (folderDialog.ShowDialog() != DialogResult.OK)
-                    return;
-
-                bool autoLoadActors = autoSelectToolStripMenuItem.Checked;
-                bool overlay = displayOverlayToolStripMenuItem.Checked;
-                int lastRoom = _level.Room.Index;
-                autoSelectToolStripMenuItem.Checked = sender is ToolStripItem csender && csender.Name == "allRoomsAndActorsAspngToolStripMenuItem";
-                displayOverlayToolStripMenuItem.Checked = false;
-
-                for (int room = 0; room < byte.MaxValue; room++)
+                if (_level.Rooms[(byte)room] != null)
                 {
-                    if (_level.RoomExists((byte)room))
+                    LoadRoom(room, false);
+                    string baseFileName = $"boss{_level.Map.Index:D3}_room{room}";
+
+                    for (int layer = 0; layer < 8; layer++)
                     {
-                        LoadRoom(room, false);
-                        string baseFileName = $"boss{_level.Map.Index:D3}_room{room}";
-
-                        for (int layer = 0; layer < 8; layer++)
+                        if (layersCheckList.GetItemColor(layer) == Color.Black)
                         {
-                            if (layersCheckList.GetItemColor(layer) == Color.Black)
+                            layersCheckList.SetItemChecked(layer, true);
+                            layersCheckList.SetItemChecked(layer + 8, true);
+
+                            UpdateView();
+                            string path = Path.Combine(folderDialog.SelectedPath, $"{baseFileName}_layer{layer}.png");
+                            if (layer == 0)
                             {
-                                layersCheckList.SetItemChecked(layer, true);
-                                layersCheckList.SetItemChecked(layer + 8, true);
-
-                                UpdateView();
-                                string path = Path.Combine(folderDialog.SelectedPath, $"{baseFileName}_layer{layer}.png");
-                                if (layer == 0)
-                                {
-                                    using (Bitmap baselayer = roomLayerBitmap.Clone(new Rectangle(0, 0, 512, 384), roomLayerBitmap.PixelFormat))
-                                    {
-                                        baselayer.Save(path, System.Drawing.Imaging.ImageFormat.Png);
-                                    }
-                                }
-                                else
-                                {
-                                    roomLayerBitmap.Save(path, System.Drawing.Imaging.ImageFormat.Png);
-                                }
-
-                                layersCheckList.SetItemChecked(layer, false);
-                                layersCheckList.SetItemChecked(layer + 8, false);
+                                using Bitmap baselayer = roomLayerBitmap.Clone(new Rectangle(0, 0, 512, 384), roomLayerBitmap.PixelFormat);
+                                baselayer.Save(path, System.Drawing.Imaging.ImageFormat.Png);
                             }
+                            else
+                            {
+                                roomLayerBitmap.Save(path, System.Drawing.Imaging.ImageFormat.Png);
+                            }
+
+                            layersCheckList.SetItemChecked(layer, false);
+                            layersCheckList.SetItemChecked(layer + 8, false);
                         }
                     }
                 }
-
-                autoSelectToolStripMenuItem.Checked = autoLoadActors;
-                displayOverlayToolStripMenuItem.Checked = overlay;
-                LoadRoom(lastRoom, false);
             }
+
+            autoSelectToolStripMenuItem.Checked = autoLoadActors;
+            displayOverlayToolStripMenuItem.Checked = overlay;
+            LoadRoom(lastRoom, false);
         }
         #endregion
 
@@ -644,12 +526,12 @@ namespace EFSAdvent
             {
                 DefaultExt = ".tmx",
                 Filter = "Tiled map files|*.tmx;*.xml",
-                FileName = $"boss{_level.Map.Index:D3}_Room{_level.Room.Index}.tmx"
+                FileName = $"boss{_level.Map.Index:D3}_Room{_currentRoomIndex}.tmx"
             };
 
             if (openTmx.ShowDialog() == DialogResult.OK)
             {
-                _level.ImportRoomFromTMX(openTmx.FileName);
+                _level.Rooms[_currentRoomIndex] = Tiled.ImportRoomFromTMX(openTmx.FileName);
                 UpdateView();
             }
         }
@@ -712,12 +594,12 @@ namespace EFSAdvent
             {
                 using (FileStream actorListStream = File.Open(openDialog.FileName, FileMode.Open))
                 {
-                    _level.Room.Actors.ReadFromStream(actorListStream);
+                    _level.Rooms[_currentRoomIndex].Actors.ReadFromStream(actorListStream);
                 }
                 BuildLayerActorList(true);
                 DrawActors();
 
-                MessageBox.Show($"{_level.Room.Actors.Count} actors have been successfully added to the current room.");
+                MessageBox.Show($"{_level.Rooms[_currentRoomIndex].Actors.Count} actors have been successfully added to the current room.");
             }
         }
 
@@ -727,30 +609,28 @@ namespace EFSAdvent
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_history.TryUndoAction(_level.Room, out int layer))
+            if (_history.TryUndoAction(_level.Rooms[_currentRoomIndex], out int layer))
             {
-                if (actorsCheckListBox.Items.Count != _level.Room.Actors.Count)
+                if (actorsCheckListBox.Items.Count != _level.Rooms[_currentRoomIndex].Actors.Count)
                 {
                     BuildLayerActorList();
                     actorLayerComboBox_SelectionChangeCommitted(sender, e);
                 }
                 UpdateLayerCheckListColor(layer);
-                buttonSaveLayers.Enabled = true;
                 UpdateView(layer);
             }
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_history.TryRedoAction(_level.Room, out int layer))
+            if (_history.TryRedoAction(_level.Rooms[_currentRoomIndex], out int layer))
             {
-                if (actorsCheckListBox.Items.Count != _level.Room.Actors.Count)
+                if (actorsCheckListBox.Items.Count != _level.Rooms[_currentRoomIndex].Actors.Count)
                 {
                     BuildLayerActorList();
                     actorLayerComboBox_SelectionChangeCommitted(sender, e);
                 }
                 UpdateLayerCheckListColor(layer);
-                buttonSaveLayers.Enabled = true;
                 UpdateView(layer);
             }
         }
@@ -844,6 +724,27 @@ namespace EFSAdvent
 
         private void mapEditor_LoadRoom(object sender, Controls.MapEditor e) => LoadRoom(e.SelectedRoomID, false);
         private void mapEditor_NewRoom(object sender, Controls.MapEditor e) => LoadRoom(e.SelectedRoomID, true);
+
+        private void mapEditor_RemoveRoom(object sender, Controls.MapEditor e)
+        {
+            int roomToRemove = e.SelectedRoomID;
+            var result = MessageBox.Show(
+                $"Room {roomToRemove} is not used anywhere in the level map.\n\n" +
+                "Do you want to delete it completely? This action cannot be undone!",
+                $"Delete room {roomToRemove} permanently?",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK || result == DialogResult.Yes)
+            {
+                _level.Rooms[roomToRemove] = null;
+                if (roomToRemove == _currentRoomIndex)
+                {
+                    LoadRoom(-1, false);
+                }
+            }
+        }
+
         private void mapEditor_SelectedRoomCoordinatesChanged(object sender, Controls.MapEditor e)
         {
             CoridinatesTextBox.Clear();
@@ -852,15 +753,22 @@ namespace EFSAdvent
 
         private void LoadRoom(int roomID, bool newRoom)
         {
-            if (!newRoom && roomID == Map.EMPTY_ROOM_VALUE)
-                return;
-            if (ShowSaveChangesDialog(_level.Map.IsShadowBattle))
-                return;
-
             actorAttributesgroupBox.Enabled = false;
-            int newRoomNumber = newRoom ? (_level.IsRoomInUse(roomID) ? (byte)_level.GetNextFreeRoom() : roomID) : roomID;
-            if (_level.LoadRoom(newRoomNumber, newRoom))
+            if (!newRoom && roomID == MapLayout.EMPTY_ROOM_VALUE)
             {
+                roomLayerBitmap.Clear(Color.Transparent);
+                layerPictureBox.Enabled = false;
+                actorsCheckListBox.Enabled = false;
+                ExportMenuItem.Enabled = false;
+                UpdateView();
+                return;
+            }
+
+            int newRoomNumber = newRoom ? (_level.IsRoomInUse(roomID) ? (byte)_level.GetNextFreeRoom() : roomID) : roomID;
+            if (newRoomNumber != MapLayout.EMPTY_ROOM_VALUE)
+            {
+                _currentRoomIndex = newRoomNumber;
+
                 _history.Reset();
                 BuildLayerActorList(false);
 
@@ -873,6 +781,9 @@ namespace EFSAdvent
                 //Enable all the actor buttons now that data to work with exists
                 actorDeleteButton.Enabled = true;
                 actorLayerComboBox.Enabled = true;
+                actorsCheckListBox.Enabled = true;
+                layerPictureBox.Enabled = true;
+                ExportMenuItem.Enabled = true;
 
                 for (int i = 1; i < 16; i++)
                 {
@@ -882,7 +793,8 @@ namespace EFSAdvent
                 layersCheckList.SetItemChecked(8, true);
                 if (newRoom)
                 {
-                    var baseLayer = _level.Room.Layers[0];
+                    _level.Rooms[newRoomNumber] = new Room();
+                    var baseLayer = _level.Rooms[newRoomNumber].Layers[0];
                     for (int y = 0; y < 24; y++)
                     {
                         for (int x = 0; x < Layer.DIMENSION; x++)
@@ -891,9 +803,10 @@ namespace EFSAdvent
                         }
                     }
                 }
+
                 for (int i = 0; i < 16; i++)
                 {
-                    Color color = _level.Room.Layers[i].IsEmpty ? Color.Gray : Color.Black;
+                    Color color = _level.Rooms[newRoomNumber].Layers[i].IsEmpty ? Color.Gray : Color.Black;
                     layersCheckList.SetItemColor(i, color);
                 }
                 layersCheckList.Refresh();
@@ -979,10 +892,10 @@ namespace EFSAdvent
             {
                 actorsCheckListBox.Items.Clear();
 
-                if (_level.Room == null)
+                if (_level.Rooms[_currentRoomIndex] == null)
                     return;
 
-                foreach (var actor in _level.Room.Actors)
+                foreach (var actor in _level.Rooms[_currentRoomIndex].Actors)
                 {
                     actorsCheckListBox.Items.Add(actor);
                 }
@@ -1020,9 +933,9 @@ namespace EFSAdvent
         {
             _ignoreActorCheckbox = true;
 
-            for (int i = 0; i < _level.Room.Actors.Count; i++)
+            for (int i = 0; i < _level.Rooms[_currentRoomIndex].Actors.Count; i++)
             {
-                var actor = _level.Room.Actors[i];
+                var actor = _level.Rooms[_currentRoomIndex].Actors[i];
                 bool isChecked = selectAll || actor.Layer == selectLayer;
                 actorsCheckListBox.SetItemChecked(i, isChecked);
             }
@@ -1033,9 +946,9 @@ namespace EFSAdvent
         {
             _ignoreActorCheckbox = true;
 
-            for (int i = 0; i < _level.Room.Actors.Count; i++)
+            for (int i = 0; i < _level.Rooms[_currentRoomIndex].Actors.Count; i++)
             {
-                var actor = _level.Room.Actors[i];
+                var actor = _level.Rooms[_currentRoomIndex].Actors[i];
                 bool isChecked = actor.VariableByte4 >> 3 == variable;
 
                 if (!isChecked && V6ACTORS.Contains(actor.Name))
@@ -1075,11 +988,11 @@ namespace EFSAdvent
             _ignoreActorCheckbox = true;
             actorLayerGraphics.Clear(Color.Transparent);
 
-            for (int i = 0; i < _level.Room.Actors.Count; i++)
+            for (int i = 0; i < _level.Rooms[_currentRoomIndex].Actors.Count; i++)
             {
                 if (actorsCheckListBox.GetItemChecked(i) == true)
                 {
-                    var actor = _level.Room.Actors[i];
+                    var actor = _level.Rooms[_currentRoomIndex].Actors[i];
                     DrawActor(actor);
                 }
             }
@@ -1100,8 +1013,8 @@ namespace EFSAdvent
                 actor.Layer = (byte)baseLayer;
                 actor.XCoord = (byte)lastActorCoordinates.x;
                 actor.YCoord = (byte)lastActorCoordinates.y;
-                _level.Room.Actors.Add(actor);
-                int newIndex = _level.Room.Actors.IndexOf(actor);
+                _level.Rooms[_currentRoomIndex].Actors.Add(actor);
+                int newIndex = _level.Rooms[_currentRoomIndex].Actors.IndexOf(actor);
                 actorsCheckListBox.Items.Insert(newIndex, actor);
                 SelectedActor(newIndex);
             }
@@ -1109,9 +1022,9 @@ namespace EFSAdvent
 
         private void actorDeleteButton_Click(object sender, EventArgs e)
         {
-            if (_level.Room.Actors.Count > actorsCheckListBox.SelectedIndex && actorsCheckListBox.SelectedIndex > -1)
+            if (_level.Rooms[_currentRoomIndex].Actors.Count > actorsCheckListBox.SelectedIndex && actorsCheckListBox.SelectedIndex > -1)
             {
-                _level.Room.Actors.RemoveAt(actorsCheckListBox.SelectedIndex);
+                _level.Rooms[_currentRoomIndex].Actors.RemoveAt(actorsCheckListBox.SelectedIndex);
                 actorsCheckListBox.Items.RemoveAt(actorsCheckListBox.SelectedIndex);
                 actorsCheckListBox.SelectedIndex = -1;
                 UpdateView();
@@ -1130,9 +1043,9 @@ namespace EFSAdvent
 
         private void actorsCheckListBox_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete && _level.Room.Actors.Count <= actorsCheckListBox.SelectedIndex || actorsCheckListBox.SelectedIndex < 0)
+            if (e.KeyCode == Keys.Delete && _level.Rooms[_currentRoomIndex].Actors.Count <= actorsCheckListBox.SelectedIndex || actorsCheckListBox.SelectedIndex < 0)
             {
-                _level.Room.Actors.RemoveAt(actorsCheckListBox.SelectedIndex);
+                _level.Rooms[_currentRoomIndex].Actors.RemoveAt(actorsCheckListBox.SelectedIndex);
                 BuildLayerActorList(true);
                 if (actorsCheckListBox.Items.Count > 0)
                 {
@@ -1148,7 +1061,7 @@ namespace EFSAdvent
 
         private void CopyActorToClipboard(object sender, EventArgs e)
         {
-            string actor = _level.Room.Actors[actorsCheckListBox.SelectedIndex].ToStringCode();
+            string actor = _level.Rooms[_currentRoomIndex].Actors[actorsCheckListBox.SelectedIndex].ToStringCode();
             System.Windows.Forms.Clipboard.SetText(actor);
         }
 
@@ -1204,12 +1117,12 @@ namespace EFSAdvent
                 actor.YCoord = (byte)(actor.YCoord / 2 * 2);
             }
 
-            _level.Room.Actors[index] = actor;
+            _level.Rooms[_currentRoomIndex].Actors[index] = actor;
 
             if (isSelected)
                 UpdateSelectedActorUI(actor);
 
-            int newIndex = _level.Room.Actors.IndexOf(actor);
+            int newIndex = _level.Rooms[_currentRoomIndex].Actors.IndexOf(actor);
             if (newIndex != index)
             {
                 _ignoreActorChanges = true;
@@ -1241,7 +1154,7 @@ namespace EFSAdvent
                 return;
             }
 
-            var newActor = _level.Room.Actors[actorsCheckListBox.SelectedIndex];
+            var newActor = _level.Rooms[_currentRoomIndex].Actors[actorsCheckListBox.SelectedIndex];
             UpdateSelectedActorUI(newActor);
             CreateSelectedActorFields(newActor);
         }
@@ -1440,12 +1353,6 @@ namespace EFSAdvent
             UpdateView();
         }
 
-        private void SelectedActor(Actor actor)
-        {
-            int index = _level.Room.Actors.IndexOf(actor);
-            SelectedActor(index);
-        }
-
         private void SelectedActor(int index)
         {
             if (index < 0)
@@ -1464,7 +1371,7 @@ namespace EFSAdvent
 
         private bool IsSelectedActor(Actor actor)
         {
-            int index = _level.Room.Actors.IndexOf(actor);
+            int index = _level.Rooms[_currentRoomIndex].Actors.IndexOf(actor);
             return actorsCheckListBox.SelectedIndex == index;
         }
 
@@ -1478,7 +1385,7 @@ namespace EFSAdvent
 
         private void UpdateView(int? layer = null)
         {
-            if (_level?.Room == null)
+            if (_currentRoomIndex == -1 || _level?.Rooms[_currentRoomIndex] == null)
                 return;
 
             roomLayerGraphics.Clear(Color.Transparent);
@@ -1591,7 +1498,7 @@ namespace EFSAdvent
                 if (newActorXCoord > ActorXCoordInput.Maximum) newActorXCoord = (int)ActorXCoordInput.Maximum;
                 if (newActorYCoord > ActorYCoordInput.Maximum) newActorYCoord = (int)ActorYCoordInput.Maximum;
 
-                var actor = _level.Room.Actors[actorMouseDownOnIndex];
+                var actor = _level.Rooms[_currentRoomIndex].Actors[actorMouseDownOnIndex];
                 actor.XCoord = (byte)newActorXCoord;
                 actor.YCoord = (byte)newActorYCoord;
 
@@ -1654,7 +1561,7 @@ namespace EFSAdvent
             {
                 for (int x = 0; x < Layer.DIMENSION; x++)
                 {
-                    tile = _level.Room.Layers[layer][x, y];
+                    tile = _level.Rooms[_currentRoomIndex].Layers[layer][x, y];
 
                     // Only used tiles must be drawn.
                     if (tile != 0)
@@ -1739,7 +1646,7 @@ namespace EFSAdvent
                 {
                     if (actorsCheckListBox.GetItemChecked(i) == true)
                     {
-                        var actor = _level.Room.Actors[i];
+                        var actor = _level.Rooms[_currentRoomIndex].Actors[i];
                         bool isVisible = alwaysShowActorsToolStripMenuItem.Checked || GetHighestActiveLayerIndex() % 8 == actor.Layer || IsSelectedActor(actor);
                         if (isVisible && actor.XCoord == lastActorCoordinates.x && actor.YCoord == lastActorCoordinates.y)
                         {
@@ -1770,7 +1677,7 @@ namespace EFSAdvent
                     case MouseButtons.Right:
                         if (layer.HasValue)
                         {
-                            _tileBrush.Copy(_tileSelection, _level, layer.Value);
+                            _tileBrush.Copy(_tileSelection, _level.Rooms[_currentRoomIndex].Layers[layer.Value]);
                             UpdateBrushTileBitmap();
                         }
                         break;
@@ -1903,15 +1810,15 @@ namespace EFSAdvent
             {
                 case MouseButtons.Left: //Change tiles
                     _tileBrush.AutomaticSetTileActors = automaticSetTileActorsToolStripMenuItem.Checked;
-                    if (_tileBrush.Draw(_level, layer.Value, eventX, eventY))
+                    if (_tileBrush.Draw(_level.Rooms[_currentRoomIndex], layer.Value, eventX, eventY))
                     {
-                        if (actorsCheckListBox.Items.Count != _level.Room.Actors.Count)
+                        if (actorsCheckListBox.Items.Count != _level.Rooms[_currentRoomIndex].Actors.Count)
                         {
                             BuildLayerActorList();
                             actorLayerComboBox_SelectionChangeCommitted(_tileBrush, null);
                         }
                         UpdateView(layer);
-                        buttonSaveLayers.Enabled = true;
+                        _levelIsDirty = true;
                     }
                     break;
                 case MouseButtons.Right: //Copy tiles
@@ -1957,7 +1864,7 @@ namespace EFSAdvent
 
         private void UpdateLayerCheckListColor(int layer)
         {
-            Color color = _level.Room.Layers[layer].IsEmpty ? Color.Gray : Color.Black;
+            Color color = _level.Rooms[_currentRoomIndex].Layers[layer].IsEmpty ? Color.Gray : Color.Black;
             layersCheckList.SetItemColor(layer, color);
             layersCheckList.Refresh();
         }
@@ -1976,7 +1883,7 @@ namespace EFSAdvent
 
         private void ChangeTileSheet()
         {
-            var properties = _level.Map.GetRoomProperties(_level.Room.Index);
+            var properties = _level.Map.GetRoomProperties(_currentRoomIndex);
             int tileSheetIndex = properties.TileSheetId;
 
             string tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {tileSheetIndex:D2}.PNG");
@@ -2011,7 +1918,7 @@ namespace EFSAdvent
 
         private void ChangeOverlay()
         {
-            var properties = _level.Map.GetRoomProperties(_level.Room.Index);
+            var properties = _level.Map.GetRoomProperties(_currentRoomIndex);
             var tileSheetPath = Path.Combine(dataDirectory, $"Overlays\\filter{properties.OverlayTextureId}.png");
 
             if (File.Exists(tileSheetPath))
@@ -2061,15 +1968,10 @@ namespace EFSAdvent
             }
         }
 
-        private void buttonSaveLayers_Click(object sender, EventArgs e)
-        {
-            _level.SaveLayers();
-            MessageBox.Show("Changes Saved");
-        }
 
         private void mirrorRoomToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _level.Room.Mirror();
+            _level.Rooms[_currentRoomIndex].Mirror();
             BuildLayerActorList();
             if (autoSelectToolStripMenuItem.Checked)
             {
@@ -2119,7 +2021,6 @@ namespace EFSAdvent
         #endregion Layers
 
         #region Actors
-
         private void DrawActor(Actor actor)
         {
             int width, height;

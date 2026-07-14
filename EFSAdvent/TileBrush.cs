@@ -1,5 +1,4 @@
-﻿using EFSAdvent.FourSwords;
-using FSALib;
+﻿using FSALib;
 using FSALib.AssetDefinitions;
 using FSALib.Structs;
 using System;
@@ -34,7 +33,7 @@ namespace EFSAdvent
             }
         }
 
-        public void Copy(Rectangle selection, Level level, int layer)
+        public void Copy(Rectangle selection, Layer layer)
         {
             if (selection.X < 0)
             {
@@ -59,28 +58,27 @@ namespace EFSAdvent
                 selection.Height = Layer.DIMENSION - selection.Y;
             }
 
-            ushort tile = level.Room.Layers[layer][selection.X, selection.Y];
-            Clipboard.FromLayer(level.Room.Layers[layer], selection.X, selection.Y, selection.Width, selection.Height);
+            Clipboard.FromLayer(layer, selection.X, selection.Y, selection.Width, selection.Height);
         }
 
-        public bool Draw(Level level, int layer, int posX, int posY)
+        public bool Draw(Room room, int layer, int posX, int posY)
         {
-            if (SavePasteActionToHistory(level, layer, posX, posY))
+            if (SavePasteActionToHistory(room, layer, posX, posY))
             {
-                level.Room.Layers[layer].SetTiles(Clipboard, posX, posY);
+                room.Layers[layer].SetTiles(Clipboard, posX, posY);
                 return true;
             }
             return false;
         }
 
-        private bool SavePasteActionToHistory(Level level, int layer, int x, int y)
+        private bool SavePasteActionToHistory(Room room, int layer, int x, int y)
         {
             const int DIMENSION = Layer.DIMENSION;
 
             List<HistoryTile> tileChanges = new List<HistoryTile>();
             bool tileChanged = false;
 
-            ReadOnlySpan<ushort> layerTiles = level.Room.Layers[layer].Tiles;
+            ReadOnlySpan<ushort> layerTiles = room.Layers[layer].Tiles;
             ReadOnlySpan<ushort> clipboardTiles = Clipboard.Tiles;
 
             int width = Math.Min(Clipboard.Width, DIMENSION - x);
@@ -111,9 +109,9 @@ namespace EFSAdvent
                             && propertie.RequiredActorID.HasValue)
                         {
                             var tileActor = new Actor(propertie.RequiredActorID.Value, (byte)(layer % 8), (byte)((x + cX) * 2), (byte)((y + cY) * 2), propertie.ActorValue);
-                            if (!level.Room.Actors.TrySearch(tileActor.Layer, tileActor.XCoord, tileActor.YCoord, tileActor.ID, out Actor _))
+                            if (!room.Actors.TrySearch(tileActor.Layer, tileActor.XCoord, tileActor.YCoord, tileActor.ID, out Actor _))
                             {
-                                level.Room.Actors.Add(tileActor);
+                                room.Actors.Add(tileActor);
                             }
                         }
                     }

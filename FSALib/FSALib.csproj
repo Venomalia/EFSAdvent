@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>net8.0;net6.0;netstandard2.0;netstandard2.1;net48;net472;</TargetFrameworks>
+	  <TargetFrameworks>net8.0;net6.0;netstandard2.0;netstandard2.1;net472;</TargetFrameworks>
 	  <ImplicitUsings>false</ImplicitUsings>
 	  <Nullable>enable</Nullable>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -28,8 +28,7 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <PackageReference Include="AuroraLib.Compression" Version="2.0.1" />
-	  <PackageReference Include="AuroraLib.Compression.Nintendo" Version="2.0.1" />
+	  <PackageReference Include="AuroraLib.Compression.Nintendo" Version="2.0.2" />
 	  <PackageReference Include="AuroraLib.Pixel" Version="1.4.3" />
 	</ItemGroup>
 	

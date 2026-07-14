@@ -48,8 +48,6 @@ namespace EFSAdvent
             this.SaveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ExportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.levelAsArcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.roomAstsxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.viewAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,7 +87,6 @@ namespace EFSAdvent
             this.rightSideGroupBox = new System.Windows.Forms.GroupBox();
             this.CoridinatesTextBox = new System.Windows.Forms.TextBox();
             this.updateLayersButton = new System.Windows.Forms.Button();
-            this.buttonSaveLayers = new System.Windows.Forms.Button();
             this.layersCheckList = new EFSAdvent.Controls.CheckedListBoxColorable();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -360,8 +357,6 @@ namespace EFSAdvent
             // ExportMenuItem
             // 
             this.ExportMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.levelAsArcToolStripMenuItem,
-            this.toolStripSeparator4,
             this.roomAstsxToolStripMenuItem,
             this.toolStripSeparator3,
             this.viewAspngToolStripMenuItem,
@@ -373,19 +368,6 @@ namespace EFSAdvent
             this.ExportMenuItem.Name = "ExportMenuItem";
             this.ExportMenuItem.Size = new System.Drawing.Size(249, 22);
             this.ExportMenuItem.Text = "Export";
-            // 
-            // levelAsArcToolStripMenuItem
-            // 
-            this.levelAsArcToolStripMenuItem.Name = "levelAsArcToolStripMenuItem";
-            this.levelAsArcToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.levelAsArcToolStripMenuItem.Text = "Level as .arc";
-            this.levelAsArcToolStripMenuItem.ToolTipText = "Export as FSA Level Archive.";
-            this.levelAsArcToolStripMenuItem.Click += new System.EventHandler(this.ExportLevel);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(226, 6);
             // 
             // roomAstsxToolStripMenuItem
             // 
@@ -676,7 +658,6 @@ namespace EFSAdvent
             this.rightSideGroupBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.rightSideGroupBox.Controls.Add(this.CoridinatesTextBox);
             this.rightSideGroupBox.Controls.Add(this.updateLayersButton);
-            this.rightSideGroupBox.Controls.Add(this.buttonSaveLayers);
             this.rightSideGroupBox.Controls.Add(this.layersCheckList);
             this.rightSideGroupBox.Controls.Add(this.loggerTextBox);
             this.rightSideGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
@@ -707,17 +688,6 @@ namespace EFSAdvent
             this.updateLayersButton.Text = "Update view";
             this.updateLayersButton.UseVisualStyleBackColor = true;
             this.updateLayersButton.Click += new System.EventHandler(this.UpdateView_Click);
-            // 
-            // buttonSaveLayers
-            // 
-            this.buttonSaveLayers.Enabled = false;
-            this.buttonSaveLayers.Location = new System.Drawing.Point(82, 178);
-            this.buttonSaveLayers.Name = "buttonSaveLayers";
-            this.buttonSaveLayers.Size = new System.Drawing.Size(75, 23);
-            this.buttonSaveLayers.TabIndex = 21;
-            this.buttonSaveLayers.Text = "Save Layers";
-            this.buttonSaveLayers.UseVisualStyleBackColor = true;
-            this.buttonSaveLayers.Click += new System.EventHandler(this.buttonSaveLayers_Click);
             // 
             // layersCheckList
             // 
@@ -808,6 +778,7 @@ namespace EFSAdvent
             this.MapEditor.TabIndex = 0;
             this.MapEditor.LoadRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_LoadRoom);
             this.MapEditor.NewRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_NewRoom);
+            this.MapEditor.RemoveRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_RemoveRoom);
             this.MapEditor.SelectedRoomCoordinatesChanged += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_SelectedRoomCoordinatesChanged);
             // 
             // MapSinglelplayerTabPage
@@ -830,6 +801,7 @@ namespace EFSAdvent
             this.MapEditorSinglelplayer.TabIndex = 1;
             this.MapEditorSinglelplayer.LoadRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_LoadRoom);
             this.MapEditorSinglelplayer.NewRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_NewRoom);
+            this.MapEditorSinglelplayer.RemoveRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_RemoveRoom);
             this.MapEditorSinglelplayer.SelectedRoomCoordinatesChanged += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_SelectedRoomCoordinatesChanged);
             // 
             // tabPage2
@@ -1726,7 +1698,6 @@ namespace EFSAdvent
         private System.Windows.Forms.PictureBox ActorInfoPictureBox;
         private System.Windows.Forms.Button actorDeleteButton;
         private System.Windows.Forms.Button buttonActorsSelectNone;
-        private System.Windows.Forms.Button buttonSaveLayers;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
@@ -1755,7 +1726,6 @@ namespace EFSAdvent
         private ToolStripMenuItem ExportMenuItem;
         private ToolStripMenuItem viewAspngToolStripMenuItem;
         private ToolStripMenuItem mapAspngToolStripMenuItem;
-        private ToolStripMenuItem levelAsArcToolStripMenuItem;
         private ToolStripMenuItem wikiToolStripMenuItem;
         private ToolStripMenuItem sourceCodeToolStripMenuItem;
         private TextBox CoridinatesTextBox;
@@ -1771,7 +1741,6 @@ namespace EFSAdvent
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem mapAndAAspngToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator4;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripSeparator toolStripSeparator6;
         private ToolStripMenuItem allRoomsAspngToolStripMenuItem;

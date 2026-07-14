@@ -161,7 +161,7 @@ namespace FSALib
         }
 
         /// <inheritdoc/>
-        public void WriteToStream(Stream dest) => BinarySerialize(dest, CompressionSettings.High);
+        public void WriteToStream(Stream dest) => BinarySerialize(dest, CompressionSettings.Maximum);
         public void BinarySerialize(Stream dest, CompressionSettings settings)
         {
             byte[] data = new byte[TILES * 2];

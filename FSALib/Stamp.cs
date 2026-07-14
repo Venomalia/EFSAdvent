@@ -8,7 +8,7 @@ namespace FSALib
     /// <summary>
     /// Represents a tile stamp (SMP) containing a grid of tiles.
     /// </summary>
-    public sealed class Stamp: IStreamSerializable
+    public sealed class Stamp : IStreamSerializable
     {
         private readonly ushort[] _tiles = new ushort[Layer.TILES];
 

@@ -443,20 +443,6 @@ namespace EFSAdvent.Controls
             this.label3.TabIndex = 31;
             this.label3.Text = "Start Room X:";
             // 
-            // MapSaveButton
-            // 
-            this.MapSaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MapSaveButton.Enabled = false;
-            this.MapSaveButton.Location = new System.Drawing.Point(3, 411);
-            this.MapSaveButton.Name = "MapSaveButton";
-            this.MapSaveButton.Size = new System.Drawing.Size(261, 37);
-            this.MapSaveButton.TabIndex = 13;
-            this.MapSaveButton.Text = "Save changes to Map";
-            this.MapSaveButton.UseVisualStyleBackColor = true;
-            this.MapSaveButton.Click += new System.EventHandler(this.MapSaveButton_Click);
-            // 
             // MapEditor
             // 
             this.Controls.Add(this.MapVariablesGroupBox);

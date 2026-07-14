@@ -1,4 +1,4 @@
-﻿using EFSAdvent.FourSwords;
+﻿using FSALib;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -8,13 +8,9 @@ namespace EFSAdvent.Controls
 {
     public sealed partial class MapEditor : UserControl
     {
-        private FSALib.Map Map;
-        private Level Level;
-
-        public MapEditor()
-        {
-            InitializeComponent();
-        }
+        private MapLayout Map;
+        private Stage Level;
+        public MapEditor() => InitializeComponent();
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -37,11 +33,14 @@ namespace EFSAdvent.Controls
         }
 
         public event EventHandler<MapEditor> LoadRoom;
+
         public event EventHandler<MapEditor> NewRoom;
+
+        public event EventHandler<MapEditor> RemoveRoom;
 
         public event EventHandler<MapEditor> SelectedRoomCoordinatesChanged;
 
-        public void SetMap(FSALib.Map map, Level level)
+        public void SetMap(MapLayout map, Stage level)
         {
             // Load songs from assets
             if (MapVariableMusicComboBox.Items.Count == 0)
@@ -101,30 +100,13 @@ namespace EFSAdvent.Controls
         private void MapRoomNumberInput_ValueChanged(object sender, EventArgs e)
         {
             int roomValue = (int)MapRoomNumberInput.Value;
-            MapRoomRemoveButton.Enabled = roomValue != FSALib.Map.EMPTY_ROOM_VALUE;
+            MapRoomRemoveButton.Enabled = roomValue != FSALib.MapLayout.EMPTY_ROOM_VALUE;
             MapRoomNewButton.Enabled = true;
 
             int selectedRoom = mapPictureBox.SelectedRoomID;
-            int currentRoom = Level.Room.Index;
-            bool roomExists = MapRoomLoadButton.Enabled = Level.RoomExists(roomValue);
+            bool roomExists = MapRoomRemoveButton.Enabled = MapRoomLoadButton.Enabled = roomValue != -1 && Level.Rooms[roomValue] != null;
 
             MapRoomSetButton.Enabled = roomExists && MapRoomNumberInput.Value != selectedRoom;
-
-            if (roomExists)
-            {
-                if (MapRoomNumberInput.Value != currentRoom)
-                {
-                    MapRoomRemoveButton.Enabled = true;
-                }
-                else
-                {
-                    MapRoomRemoveButton.Enabled = !Level.IsRoomInUse((int)MapRoomNumberInput.Value);
-                }
-            }
-            else
-            {
-                MapRoomRemoveButton.Enabled = false;
-            }
 
             if (Map.IsShadowBattle)
                 LoadMapVariable();
@@ -135,7 +117,7 @@ namespace EFSAdvent.Controls
         {
             int roomID = (int)MapRoomNumberInput.Value;
             mapPictureBox.SelectedRoomID = roomID;
-            MapRoomRemoveButton.Enabled = roomID != FSALib.Map.EMPTY_ROOM_VALUE;
+            MapRoomRemoveButton.Enabled = roomID != FSALib.MapLayout.EMPTY_ROOM_VALUE;
         }
 
         private void MapRoomLoadButton_Click(object sender, EventArgs e) => LoadRoom(sender, this);
@@ -143,9 +125,10 @@ namespace EFSAdvent.Controls
         private void MapRoomNewButton_Click(object sender, EventArgs e)
         {
             int newRoomNumber = (int)MapRoomNumberInput.Value;
-            newRoomNumber = Level.IsRoomInUse(newRoomNumber) ? Level.GetNextFreeRoom() : newRoomNumber;
+            newRoomNumber = newRoomNumber == MapLayout.EMPTY_ROOM_VALUE || Level.IsRoomInUse(newRoomNumber) ? Level.GetNextFreeRoom() : newRoomNumber;
             MapRoomNumberInput.Value = mapPictureBox.SelectedRoomID = newRoomNumber;
             NewRoom(sender, this);
+            MapRoomRemoveButton.Enabled = true;
         }
 
         private void MapRoomRemoveButton_Click(object sender, EventArgs e)
@@ -153,47 +136,26 @@ namespace EFSAdvent.Controls
             int selectedRoom = mapPictureBox.SelectedRoomID;
             byte roomToRemove = (byte)MapRoomNumberInput.Value;
 
-            // Prevent deleting the currently loaded room
-            if (Level.Room.Index == selectedRoom)
-            {
-                MessageBox.Show(
-                    "The currently loaded room cannot be deleted.",
-                    "Action Not Allowed",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation);
-                return;
-            }
-
             // Prompt user before removing room from the map
             if (roomToRemove == selectedRoom)
             {
                 var result = MessageBox.Show(
-                    $"Do you want to remove room {roomToRemove} from the map?",
-                    $"Remove room {roomToRemove} from map?",
+                    $"Do you want to remove room {roomToRemove} from the map layout?",
+                    $"Remove room {roomToRemove} from layout?",
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Question);
 
                 if (result != DialogResult.OK && result != DialogResult.Yes)
                     return;
 
-                mapPictureBox.SelectedRoomID = FSALib.Map.EMPTY_ROOM_VALUE;
+                mapPictureBox.SelectedRoomID = MapLayout.EMPTY_ROOM_VALUE;
             }
             MapRoomRemoveButton.Enabled = false;
 
             // If room exists and is not used in the map, offer to delete the actual room files
-            if (Level.RoomExists(roomToRemove) && !Level.IsRoomInUse(roomToRemove))
+            if (Level.Rooms[roomToRemove] != null && !Level.IsRoomInUse(roomToRemove))
             {
-                var result = MessageBox.Show(
-                    $"Room {roomToRemove} is not used anywhere in the level map.\n\n" +
-                    "Do you want to delete it completely? This action cannot be undone!",
-                    $"Delete room {roomToRemove} permanently?",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
-
-                if (result == DialogResult.OK || result == DialogResult.Yes)
-                {
-                    Level.DeleteRoom(roomToRemove);
-                }
+                RemoveRoom(sender, this);
             }
         }
 
@@ -312,11 +274,6 @@ namespace EFSAdvent.Controls
                     input.Value = 0;
                 }
             }
-        }
-
-        private void MapSaveButton_Click(object sender, EventArgs e)
-        {
-            Level.SaveMap();
         }
     }
 }
