@@ -20,11 +20,6 @@ namespace FSALib
         public readonly ActorList Actors;
 
         /// <summary>
-        /// The index of the room. This could be used to identify or reference the room in the game world.
-        /// </summary>
-        public int Index { get; set; }
-
-        /// <summary>
         /// Gets the full set of layers in the room.
         /// </summary>
         public ReadOnlySpan<Layer> Layers => _layers.AsSpan();
