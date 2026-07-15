@@ -61,6 +61,12 @@
     <Reference Include="AuroraLib.Core.Format, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AuroraLib.Core.Format.1.0.4\lib\netstandard2.0\AuroraLib.Core.Format.dll</HintPath>
     </Reference>
+    <Reference Include="AuroraLib.Pixel, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuroraLib.Pixel.1.4.4\lib\net472\AuroraLib.Pixel.dll</HintPath>
+    </Reference>
+    <Reference Include="AuroraLib.Pixel.BitmapExtension, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuroraLib.Pixel.BitmapExtension.1.4.4\lib\net472\AuroraLib.Pixel.BitmapExtension.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>

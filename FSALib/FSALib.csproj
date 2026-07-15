@@ -29,7 +29,7 @@
 	
 	<ItemGroup>
 	  <PackageReference Include="AuroraLib.Compression.Nintendo" Version="2.0.2" />
-	  <PackageReference Include="AuroraLib.Pixel" Version="1.4.3" />
+	  <PackageReference Include="AuroraLib.Pixel" Version="1.4.4" />
 	</ItemGroup>
 	
 <ItemGroup>

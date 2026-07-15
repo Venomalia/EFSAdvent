@@ -1,7 +1,12 @@
 ﻿using AuroraLib.Core.Format.Identifier;
+using AuroraLib.Pixel.BitmapExtension;
+using AuroraLib.Pixel.Image;
+using AuroraLib.Pixel.PixelProcessor;
+using AuroraLib.Pixel.Processing;
 using EFSAdvent.Controls;
 using FSALib;
 using FSALib.AssetDefinitions;
+using FSALib.Renderer;
 using FSALib.Structs;
 using System;
 using System.Collections.Generic;
@@ -13,6 +18,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using BGRA32 = AuroraLib.Pixel.PixelFormats.BGRA<byte>;
 
 namespace EFSAdvent
 {
@@ -28,10 +34,6 @@ namespace EFSAdvent
         const int LAYER_DIMENSION_IN_PIXELS = Layer.DIMENSION * TILE_DIMENSION_IN_PIXELS;
         const int TILE_DIMENSION_IN_PIXELS = 16;
 
-        private readonly Bitmap tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap, actorLayerBitmap;
-        private readonly Graphics roomLayerGraphics, actorLayerGraphics;
-        private Bitmap overlayBitmap;
-
         private readonly History _history;
         private readonly TileBrush _tileBrush;
         private readonly Logger _logger;
@@ -44,6 +46,16 @@ namespace EFSAdvent
         private string _levelFilePaht;
         private Rectangle _tileSelection;
         private (int x, int y) _tileSelectionOrigin;
+
+        readonly Rarc dataRarc;
+        readonly TilesetRenderer<BGRA32> tilesetRendererTV;
+        readonly TilesetRenderer<BGRA32> tilesetRendererGBA;
+        readonly Bitmap tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap;
+
+        readonly Bitmap actorLayerBitmap;
+        readonly Graphics roomLayerGraphics, actorLayerGraphics;
+
+        Bitmap overlayBitmap;
 
         (int x, int y) lastActorCoordinates;
 
@@ -76,15 +88,45 @@ namespace EFSAdvent
                 }
             }
 
-            string SheetPath = Path.Combine(dataDirectory, "Tile Sheet 00.PNG");
-            tileSheetBitmap = new Bitmap(SheetPath);
-            tileSheetBitmapGBA = new Bitmap(SheetPath);
+            string dataArcPath = Path.Combine(dataDirectory, "data.arc");
+            if (!File.Exists(dataArcPath))
+            {
+
+                var result = MessageBox.Show("The required 'data.arc' file could not be found.\n" + "Please select the original 'data.arc' from your FSA game files.",
+                                             "Missing data.arc",
+                                             MessageBoxButtons.OKCancel,
+                                             MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
+                {
+                    var openDialog = new OpenFileDialog
+                    {
+                        Filter = "DATA RARC archive (data.arc)|data.arc",
+                        CheckFileExists = true,
+                        FileName = "data.arc"
+                    };
+                    if (openDialog.ShowDialog() != DialogResult.OK)
+                        Close();
+                    File.Copy(openDialog.FileName, dataArcPath);
+                }
+                else
+                {
+                    Close();
+                }
+            }
+            using FileStream dataStream = File.OpenRead(dataArcPath);
+            dataRarc = new Rarc(dataStream);
+            tilesetRendererTV = new TilesetRenderer<BGRA32>(dataRarc);
+            tilesetRendererGBA = new TilesetRenderer<BGRA32>(dataRarc);
+
+            tileSheetBitmap = new Bitmap(256, 1024);
+            tileSheetBitmapGBA = new Bitmap(256, 1024);
             tileSheetPictureBox.Image = tileSheetBitmap;
 
             brushTileBitmap = new Bitmap(16, 16, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
             BrushTilePictureBox.Image = brushTileBitmap;
 
-            roomLayerBitmap = new Bitmap(LAYER_DIMENSION_IN_PIXELS, LAYER_DIMENSION_IN_PIXELS, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            roomLayerBitmap = new Bitmap(LAYER_DIMENSION_IN_PIXELS, LAYER_DIMENSION_IN_PIXELS);
             roomLayerGraphics = Graphics.FromImage(roomLayerBitmap);
             layerPictureBox.Image = roomLayerBitmap;
 
@@ -271,6 +313,8 @@ namespace EFSAdvent
 
             _level.Dispose();
             _level = new Stage();
+            _level.Map.StartX = 4;
+            _level.Map.StartY = 4;
             OpenLevelFile();
         }
 
@@ -393,8 +437,11 @@ namespace EFSAdvent
         {
             int TileSheetId = _level.Map.GetRoomProperties(_currentRoomIndex).TileSheetId;
             string tiledBaseSheet = Path.Combine(dataDirectory, "TiledBaseSheet.xml");
-            string tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {TileSheetId:D2}.PNG");
-            Tiled.UpdateTilesetImage(tiledBaseSheet, tileSheetPath, savePath);
+
+            string tileSheetFileName = $"TileSheet_{Assets.Tilesets[TileSheetId].ID}.PNG";
+            string tileSheetPath = Path.Combine(Path.GetDirectoryName(savePath), tileSheetFileName);
+            tileSheetBitmap.Save(tileSheetPath);
+            Tiled.UpdateTilesetImage(tiledBaseSheet, tileSheetFileName, savePath);
         }
 
         private void ExportViewAsPng(object sender, EventArgs e)
@@ -852,9 +899,14 @@ namespace EFSAdvent
         private void UpdateBrushTileBitmap()
         {
             BrushTileLabel.Text = Convert.ToString(_tileBrush.TileValue);
-            Bitmap currentTileSheet = (Bitmap)tileSheetPictureBox.Image;
-            brushTileBitmap.Clear(Color.White);
-            DrawTile(brushTileBitmap, currentTileSheet, 0, 0, _tileBrush.TileValue);
+
+            int? layer = GetHighestActiveLayerIndex() % 8;
+            var renderer = (layer == 0 || layer == 8) ? tilesetRendererTV : tilesetRendererGBA;
+            {
+                using var tileImage = (MemoryImage<BGRA32>)brushTileBitmap.AsAuroraImage();
+                tileImage.Clear();
+                renderer.DrawTile(tileImage, 0, 0, _tileBrush.TileValue);
+            }
 
             _logger.Clear();
             if (Assets.TileProperties.TryGetValue(_tileBrush.TileValue, out TilePropertyDefinition propertie))
@@ -1391,29 +1443,39 @@ namespace EFSAdvent
             roomLayerGraphics.Clear(Color.Transparent);
             for (int i = 0; i < 8; i++)
             {
+                using var layerImage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
+
                 // Draw Layer
                 for (int n = 0; n <= 8; n += 8)
                 {
                     if ((layer == null && layersCheckList.GetItemChecked(i + n)) || (i + n) == layer)
                     {
-                        DrawLayer(i + n);
+                        int targetLayer = i + n;
+                        // Is TV layer or GBA?
+                        var renderer = (targetLayer == 0 || targetLayer == 8) ? tilesetRendererTV : tilesetRendererGBA;
+                        renderer.Draw(layerImage, _level.Rooms[_currentRoomIndex].Layers[targetLayer]);
                     }
                 }
 
                 // Draw Overlay
                 if (displayOverlayToolStripMenuItem.Checked && i == 0 && overlayBitmap != null)
                 {
-                    using var graphics = Graphics.FromImage(roomLayerBitmap);
-                    for (int x = 0; x < roomLayerBitmap.Width; x += overlayBitmap.Width)
-                    {
-                        for (int y = 0; y < roomLayerBitmap.Height - 128; y += overlayBitmap.Height)
-                        {
-                            graphics.DrawImage(overlayBitmap, x, y);
-                        }
-                    }
+                    using var overlayImage = (MemoryImage<BGRA32>)overlayBitmap.AsAuroraImage();
+                    DrawOverlayOnLayer(layerImage, overlayImage);
                 }
             }
             DrawActors();
+        }
+
+        private void DrawOverlayOnLayer(MemoryImage<BGRA32> layerImage, MemoryImage<BGRA32> overlayImage)
+        {
+            for (int x = 0; x < layerImage.Width; x += overlayImage.Width)
+            {
+                for (int y = 0; y < roomLayerBitmap.Height - 128; y += overlayBitmap.Height)
+                {
+                    layerImage.CopyFrom(overlayImage, new Point(x, y), BlendModes.Overlay, 1);
+                }
+            }
         }
 
         #region Layers
@@ -1549,67 +1611,6 @@ namespace EFSAdvent
                     );
                 DrawTileSelection(Color.Blue, position);
             }
-        }
-
-        private void DrawLayer(int layer)
-        {
-            // Is TV layer or GBA?
-            Bitmap tileSheet = (layer == 0 || layer == 8) ? tileSheetBitmap : tileSheetBitmapGBA;
-
-            ushort tile;
-            for (int y = 0; y < Layer.DIMENSION; y++)
-            {
-                for (int x = 0; x < Layer.DIMENSION; x++)
-                {
-                    tile = _level.Rooms[_currentRoomIndex].Layers[layer][x, y];
-
-                    // Only used tiles must be drawn.
-                    if (tile != 0)
-                    {
-                        DrawTile(roomLayerBitmap, tileSheet, x, y, tile);
-                    }
-                }
-            }
-        }
-
-        private static unsafe void DrawTile(Bitmap roomLayer, Bitmap tileSheet, int x, int y, int tileNo)
-        {
-            int srcX = (tileNo % TILE_DIMENSION_IN_PIXELS) * TILE_DIMENSION_IN_PIXELS;
-            int srcY = (tileNo / TILE_DIMENSION_IN_PIXELS) * TILE_DIMENSION_IN_PIXELS;
-            int dstY = y * TILE_DIMENSION_IN_PIXELS;
-            int dstX = x * TILE_DIMENSION_IN_PIXELS;
-
-            BitmapData lockedTileSheet = tileSheet.LockBits(new Rectangle(srcX, srcY, 16, 16), System.Drawing.Imaging.ImageLockMode.ReadOnly, tileSheet.PixelFormat);
-            BitmapData lockedRoomLayer = roomLayer.LockBits(new Rectangle(dstX, dstY, 16, 16), System.Drawing.Imaging.ImageLockMode.WriteOnly, roomLayer.PixelFormat);
-            for (int py = 0; py < lockedTileSheet.Height; py++)
-            {
-                byte* srcRow = (byte*)lockedTileSheet.Scan0 + (py * lockedTileSheet.Stride);
-                byte* dstRow = (byte*)lockedRoomLayer.Scan0 + (py * lockedRoomLayer.Stride);
-                for (int px = 0; px < lockedRoomLayer.Width; px++)
-                {
-                    byte srcAlpha = srcRow[(px * 4) + 3];
-                    if (srcAlpha == 255)
-                    {
-                        dstRow[px * 4] = srcRow[px * 4];
-                        dstRow[(px * 4) + 1] = srcRow[(px * 4) + 1];
-                        dstRow[(px * 4) + 2] = srcRow[(px * 4) + 2];
-                        dstRow[(px * 4) + 3] = srcAlpha;
-                    }
-                    else if (srcAlpha > 0)
-                    {
-                        float srcAlphaNorm = srcAlpha / 255f;
-                        float invAlpha = 1 - srcAlphaNorm;
-
-                        dstRow[px * 4] = (byte)(srcRow[px * 4] * srcAlphaNorm + dstRow[px * 4] * invAlpha);
-                        dstRow[(px * 4) + 1] = (byte)(srcRow[(px * 4) + 1] * srcAlphaNorm + dstRow[(px * 4) + 1] * invAlpha);
-                        dstRow[(px * 4) + 2] = (byte)(srcRow[(px * 4) + 2] * srcAlphaNorm + dstRow[(px * 4) + 2] * invAlpha);
-                        dstRow[(px * 4) + 3] = (byte)(srcAlpha + dstRow[(px * 4) + 3] * invAlpha);
-                    }
-
-                }
-            }
-            tileSheet.UnlockBits(lockedTileSheet);
-            roomLayer.UnlockBits(lockedRoomLayer);
         }
 
         private void layersPictureBox_MouseDown(object sender, MouseEventArgs e)
@@ -1872,12 +1873,13 @@ namespace EFSAdvent
         private void LayersCheckList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             // Need to delay redraw because right now the newly checked layer won't have checked=true
-            this.BeginInvoke((MethodInvoker)(() =>
-            {
-                UpdateView();
-                UpdateTileSheetPictureBox();
-            }
-            ));
+            if (IsHandleCreated)
+                this.BeginInvoke((MethodInvoker)(() =>
+                {
+                    UpdateView();
+                    UpdateTileSheetPictureBox();
+                }));
+
             layersCheckList.SelectedIndex = -1;
         }
 
@@ -1885,36 +1887,24 @@ namespace EFSAdvent
         {
             var properties = _level.Map.GetRoomProperties(_currentRoomIndex);
             int tileSheetIndex = properties.TileSheetId;
+            tilesetRendererTV.LoadTileset(dataRarc, tileSheetIndex);
+            tilesetRendererGBA.LoadTileset(dataRarc, tileSheetIndex, true);
 
-            string tileSheetPath = Path.Combine(dataDirectory, $"Tile Sheet {tileSheetIndex:D2}.PNG");
-            string tileSheetPathGBA = Path.Combine(dataDirectory, $"Tile Sheet {tileSheetIndex:D2}_GBA.PNG");
-
-            if (RedrawImage(tileSheetPath, tileSheetBitmap))
             {
-                if (File.Exists(tileSheetPathGBA))
-                    RedrawImage(tileSheetPathGBA, tileSheetBitmapGBA);
-                else
-                    RedrawImage(tileSheetPath, tileSheetBitmapGBA);
+                using var tileSheet = (MemoryImage<BGRA32>)tileSheetBitmap.AsAuroraImage();
+                tileSheet.Clear();
+                tilesetRendererTV.Draw(tileSheet);
 
-                UpdateTileSheetPictureBox();
+                using var tileSheetGBA = (MemoryImage<BGRA32>)tileSheetBitmapGBA.AsAuroraImage();
+                tileSheetGBA.Clear();
+                tilesetRendererGBA.Draw(tileSheetGBA);
             }
+
             UpdateView();
         }
 
         private void UpdateTileSheetPictureBox()
             => tileSheetPictureBox.Image = GetHighestActiveLayerIndex() % 8 == 0 ? tileSheetBitmap : tileSheetBitmapGBA;
-
-        private static bool RedrawImage(string path, Bitmap bitmap)
-        {
-            if (!File.Exists(path))
-                return false;
-
-            using var newBitmap = new Bitmap(path);
-            using var graphics = Graphics.FromImage(bitmap);
-            graphics.Clear(Color.FromArgb(0));
-            graphics.DrawImage(newBitmap, 0, 0);
-            return true;
-        }
 
         private void ChangeOverlay()
         {
@@ -1994,27 +1984,14 @@ namespace EFSAdvent
                     _tileBrush.Clipboard.WriteToStream(stampData);
                 }
                 string icon = Path.ChangeExtension(path, ".png");
-                using (Bitmap iconData = new Bitmap(_tileBrush.Width * 16, _tileBrush.Height * 16))
+                using Bitmap iconData = new Bitmap(_tileBrush.Width * 16, _tileBrush.Height * 16);
+
+                using (var iconmage = (MemoryImage<BGRA32>)iconData.AsAuroraImage())
                 {
-
-                    ReadOnlySpan<ushort> tiles = _tileBrush.Clipboard.Tiles;
-                    for (int y = 0; y < _tileBrush.Height; y++)
-                    {
-                        for (int x = 0; x < _tileBrush.Width; x++)
-                        {
-                            ushort tile = tiles[y * Layer.DIMENSION + x];
-
-                            // Only used tiles must be drawn.
-                            if (tile != 0)
-                            {
-                                DrawTile(iconData, tileSheetBitmap, x, y, tile);
-                            }
-                        }
-                    }
-
-                    iconData.Save(icon, ImageFormat.Png);
+                    tilesetRendererTV.Draw(iconmage, _tileBrush.Clipboard);
                 }
 
+                iconData.Save(icon, ImageFormat.Png);
                 TileStampFlowLayoutPanel.Add(path);
             }
         }
@@ -2062,7 +2039,12 @@ namespace EFSAdvent
                 {
                     case "PNPC":
                         if (isOnCurrentLayer)
-                            DrawTile(actorLayerBitmap, tileSheetBitmap, actor.XCoord / 2, actor.YCoord / 2, (ushort)((actor.VariableByte2 & 0x3) << 8 | actor.VariableByte1));
+                        {
+                            var renderer = (actor.Layer == 0 || actor.Layer == 8) ? tilesetRendererTV : tilesetRendererGBA;
+                            using var iconmage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
+                            renderer.DrawTile(iconmage, actor.XCoord / 2 * TILE_DIMENSION_IN_PIXELS, actor.YCoord / 2 * TILE_DIMENSION_IN_PIXELS, (ushort)((actor.VariableByte2 & 0x3) << 8 | actor.VariableByte1));
+                        }
+
                         break;
                     case "PTMI":
                         actorLayerGraphics.DrawRectangleWithDropShadow(Color.LightCyan,

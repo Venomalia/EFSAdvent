@@ -41,7 +41,7 @@ namespace FSALib.Renderer
             try
             {
                 scl.Read(buffer, 0, (int)scl.Length);
-                Span<BGR555> colors = MemoryMarshal.Cast<byte, BGR555>(buffer.AsSpan(0, (int)scl.Length / 2));
+                Span<BGR555> colors = MemoryMarshal.Cast<byte, BGR555>(buffer);
                 colors.To<BGR555, TColor>(Palettes);
             }
             finally

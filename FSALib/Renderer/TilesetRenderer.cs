@@ -1,8 +1,10 @@
 ﻿using AuroraLib.Core.IO;
 using AuroraLib.Pixel;
 using AuroraLib.Pixel.Image;
+using AuroraLib.Pixel.Processing;
 using FSALib.Structs;
 using System;
+using System.Drawing;
 using System.IO;
 
 namespace FSALib.Renderer
@@ -34,6 +36,32 @@ namespace FSALib.Renderer
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="TilesetRenderer{TColor}"/> class
+        /// using tile resources from a RARC archive.
+        /// </summary>
+        /// <param name="data">The RARC archive containing the tile layout and sprite sheet resources.</param>
+        public TilesetRenderer(Rarc data) : this(data.Root.Directorys[Rarc.CommonFolderTypes.SPL].GetFile("bg_a_spl.szs").Data, data.Root.Directorys[Rarc.CommonFolderTypes.SCH].GetFile("bg_base_sch.szs").Data)
+        {
+        }
+
+        /// <summary>
+        /// Loads a tileset palette and tile data from a RARC archive.
+        /// </summary>
+        /// <param name="data">The RARC archive containing the tileset resources.</param>
+        /// <param name="index">The index of the tileset to load.</param>
+        /// <param name="GBA">Specifies whether to load the GBA variant of the tileset.</param>
+        public void LoadTileset(Rarc data, int index, bool GBA = false)
+        {
+            string paletteFileName = Assets.Tilesets[index].GetPaletteFileName(GBA);
+            var palette = data.Root.Directorys[Rarc.CommonFolderTypes.SCL].GetFile(paletteFileName);
+            LoadPalettes(palette.Data);
+
+            string fileName = Assets.Tilesets[index].GetFileName(GBA);
+            var file = data.Root.Directorys[Rarc.CommonFolderTypes.SCH].GetFile(fileName);
+            LoadTiles(file.Data);
+        }
+
+        /// <summary>
         /// Loads part index data (SCH) from a stream.
         /// </summary>
         /// <param name="setSCH">Stream containing the SCH data to load.</param>
@@ -41,10 +69,10 @@ namespace FSALib.Renderer
             => setSCH.Read(IndexSpritSheet, 0, 0x6000);
 
         /// <summary>
-        /// Renders the entire tileset onto the target image surface.
+        /// Renders all tiles onto the target image surface.
         /// Tiles are arranged in a 16×64 grid (256×1024 pixels).
         /// </summary>
-        /// <param name="target">The image surface to draw on. Must be at least 256×1024 pixels.</param>
+        /// <param name="target">The image surface to draw on. Must be at least 256×1024 pixels.</>
         public void Draw(IImage<TColor> target)
         {
             if (target.Width < 256 || target.Height < 1024)
@@ -55,6 +83,48 @@ namespace FSALib.Renderer
                 int x = (i & 0xf) * TileSize;
                 int y = (i >> 4) * TileSize;
                 DrawTile(target, x, y, i);
+            }
+        }
+
+        /// <summary>
+        /// Draws a complete tile layer onto the target image.
+        /// </summary>
+        /// <param name="target">The image surface to draw on.</param>
+        /// <param name="layer">The layer containing the tile indices to render.</param>
+        public void Draw(IImage<TColor> target, Layer layer)
+            => Draw(target, layer.Tiles, new Rectangle(0, 0, Layer.DIMENSION, Layer.DIMENSION), Layer.DIMENSION);
+
+        /// <summary>
+        /// Draws a stamp onto the target image at the specified offset.
+        /// </summary>
+        /// <param name="target">The image surface to draw on.</param>
+        /// <param name="stamp">The stamp containing the tile data to render.</param>
+        /// <param name="targetOffset">The pixel offset on the target image where the stamp is drawn.</param>
+        public void Draw(IImage<TColor> target, Stamp stamp, Point targetOffset = default)
+            => Draw(target, stamp.Tiles, new Rectangle(0, 0, stamp.Width, stamp.Height), Layer.DIMENSION, targetOffset);
+
+        /// <summary>
+        /// Draws a region of tiles onto the target image.
+        /// </summary>
+        /// <param name="target">The image surface to draw on.</param>
+        /// <param name="tiles">The tile indices to render.</param>
+        /// <param name="region">The tile region to draw from the tile array.</param>
+        /// <param name="stride">The number of tiles per row in the source tile data.</param>
+        /// <param name="targetOffset">The pixel offset on the target image where the tile region is drawn.</param>
+        public void Draw(IImage<TColor> target, ReadOnlySpan<ushort> tiles, Rectangle region, int stride, Point targetOffset = default)
+        {
+            Rectangle targetRegion = new Rectangle(targetOffset.X + region.X * TileSize, targetOffset.Y + region.Y * TileSize, region.Width * TileSize, region.Height * TileSize);
+
+            if (!target.GetBounds().Contains(targetRegion))
+                throw new ArgumentException("Tile region exceeds target bounds.", nameof(target));
+
+            for (int y = region.Y; y < region.Bottom; y++)
+            {
+                for (int x = region.X; x < region.Right; x++)
+                {
+                    ushort tile = tiles[(y - region.Y) * stride + (x - region.X)];
+                    DrawTile(target, targetOffset.X + x * TileSize, targetOffset.Y + y * TileSize, tile);
+                }
             }
         }
 
