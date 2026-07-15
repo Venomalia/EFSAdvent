@@ -110,7 +110,7 @@ namespace FSALib
             /// </summary>
             /// <param name="name">The name of the file.</param>
             /// <param name="mode">The file creation and access mode.</param>
-            public FileNode GetFile(string name, FileMode mode)
+            public FileNode GetFile(string name, FileMode mode = FileMode.Open)
             {
                 bool exists = TryGetFile(name, out FileNode file);
                 switch (mode)

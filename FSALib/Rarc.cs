@@ -10,6 +10,7 @@ using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -130,6 +131,14 @@ namespace FSALib
         public void ReadFromStream(Stream source)
         {
             Root?.Dispose();
+
+            if (Common.Yaz0.IsMatch(source))
+            {
+                using MemoryPoolStream temp = Common.Yaz0.Decompress(source);
+                ReadFromStream(temp);
+                return;
+            }
+
             // Header
             HeaderT header = source.Read<HeaderT>().ReverseEndianness();
 
@@ -207,6 +216,13 @@ namespace FSALib
             {
                 ArrayPool<byte>.Shared.Return(buffer);
             }
+        }
+
+        public void WriteToStream(Stream dest, CompressionSettings settings)
+        {
+            using MemoryPoolStream temp = new MemoryPoolStream();
+            WriteToStream(temp);
+            Common.Yaz0.Compress(temp.UnsafeAsSpan(), dest, settings);
         }
 
         /// <inheritdoc/>

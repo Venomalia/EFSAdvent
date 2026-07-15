@@ -74,16 +74,7 @@ namespace FSALib
         public void ReadFromStream(Stream source)
         {
             resources.Dispose();
-            if (Common.Yaz0.IsMatch(source))
-            {
-                using MemoryPoolStream temp = Common.Yaz0.Decompress(source);
-                resources = new Rarc(temp);
-            }
-            else
-            {
-                resources = new Rarc(source);
-            }
-
+            resources = new Rarc(source);
             Load();
         }
 
@@ -91,9 +82,7 @@ namespace FSALib
         public void WriteToStream(Stream dest)
         {
             SaveToRarc(resources);
-            using MemoryPoolStream temp = new MemoryPoolStream();
-            resources.WriteToStream(temp);
-            Common.Yaz0.Compress(temp.UnsafeAsSpan(), dest, CompressionSettings.Maximum);
+            resources.WriteToStream(dest, CompressionSettings.Maximum);
             dest.WriteAlign(0x10);
             Load(Index);
         }
