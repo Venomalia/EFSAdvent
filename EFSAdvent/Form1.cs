@@ -50,6 +50,8 @@ namespace EFSAdvent
         readonly Rarc dataRarc;
         readonly TilesetRenderer<BGRA32> tilesetRendererTV;
         readonly TilesetRenderer<BGRA32> tilesetRendererGBA;
+        private TilesetRenderer<BGRA32> TilesetRenderer => (GetHighestActiveLayerIndex() % 8) == 0 ? tilesetRendererTV : tilesetRendererGBA;
+
         readonly Bitmap tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap;
 
         readonly Bitmap actorLayerBitmap;
@@ -904,12 +906,10 @@ namespace EFSAdvent
         {
             BrushTileLabel.Text = Convert.ToString(_tileBrush.TileValue);
 
-            int? layer = GetHighestActiveLayerIndex() % 8;
-            var renderer = (layer == 0 || layer == 8) ? tilesetRendererTV : tilesetRendererGBA;
             {
                 using var tileImage = (MemoryImage<BGRA32>)brushTileBitmap.AsAuroraImage();
                 tileImage.Clear();
-                renderer.DrawTile(tileImage, 0, 0, _tileBrush.TileValue);
+                TilesetRenderer.DrawTile(tileImage, 0, 0, _tileBrush.TileValue);
             }
 
             _logger.Clear();
@@ -1523,6 +1523,11 @@ namespace EFSAdvent
                                 UpdateView();
                                 if (position.X >= 0 && position.Y >= 0)
                                 {
+                                    using (var layerImage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage())
+                                    {
+                                        TilesetRenderer.Draw(layerImage, _tileBrush.Clipboard, position.Location);
+                                    }
+
                                     DrawTileSelection(Color.White, position);
                                     _tileSelection.X = position.X;
                                     _tileSelection.Y = position.Y;
