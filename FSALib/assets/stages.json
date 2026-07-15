@@ -1,316 +1,316 @@
 {
-  "boss010.arc": {
+  "boss010": {
     "Name": "Lake Hylia",
     "TextID": 0,
     "WorldID": 0,
     "TitleCardGraphic": "w01_01.bti"
   },
-  "boss011.arc": {
+  "boss011": {
     "Name": "Cave of No Return",
     "TextID": 1,
     "WorldID": 0,
     "TitleCardGraphic": "w01_02.bti"
   },
-  "boss012.arc": {
+  "boss012": {
     "Name": "River Flow",
     "assetstate": "Development",
     "TextID": 2,
     "WorldID": 0,
     "TitleCardGraphic": "w01_03.bti"
   },
-  "boss013.arc": {
+  "boss013": {
     "Name": "Hyrule Castle",
     "TextID": 3,
     "WorldID": 0,
     "TitleCardGraphic": "w01_04.bti"
   },
-  "boss020.arc": {
+  "boss020": {
     "Name": "The Coast",
     "TextID": 4,
     "WorldID": 1,
     "TitleCardGraphic": "w02_01.bti"
   },
-  "boss021.arc": {
+  "boss021": {
     "Name": "Village of the Blue Maiden",
     "TextID": 5,
     "WorldID": 1,
     "TitleCardGraphic": "w02_02.bti"
   },
-  "boss022.arc": {
+  "boss022": {
     "Name": "Rainy Forest",
     "assetstate": "Development",
     "TextID": 6,
     "WorldID": 1,
     "TitleCardGraphic": "w02_03.bti"
   },
-  "boss023.arc": {
+  "boss023": {
     "Name": "Eastern Temple",
     "TextID": 7,
     "WorldID": 1,
     "TitleCardGraphic": "w02_04.bti"
   },
-  "boss030.arc": {
+  "boss030": {
     "Name": "Death Mountain Foothills",
     "TextID": 8,
     "WorldID": 2,
     "TitleCardGraphic": "w03_01.bti"
   },
-  "boss031.arc": {
+  "boss031": {
     "Name": "The Mountain Path",
     "TextID": 9,
     "WorldID": 2,
     "TitleCardGraphic": "w03_02.bti"
   },
-  "boss032.arc": {
+  "boss032": {
     "Name": "Mountain Road",
     "assetstate": "Development",
     "TextID": 10,
     "WorldID": 2,
     "TitleCardGraphic": "w03_03.bti"
   },
-  "boss033.arc": {
+  "boss033": {
     "Name": "Tower of Flames",
     "TextID": 11,
     "WorldID": 2,
     "TitleCardGraphic": "w03_04.bti"
   },
-  "boss040.arc": {
+  "boss040": {
     "Name": "The Field",
     "TextID": 12,
     "WorldID": 3,
     "TitleCardGraphic": "w04_01.bti"
   },
-  "boss041.arc": {
+  "boss041": {
     "Name": "The Swamp",
     "TextID": 13,
     "WorldID": 3,
     "TitleCardGraphic": "w04_02.bti"
   },
-  "boss042.arc": {
+  "boss042": {
     "Name": "Graveyard",
     "assetstate": "Development",
     "TextID": 14,
     "WorldID": 3,
     "TitleCardGraphic": "w04_03.bti"
   },
-  "boss043.arc": {
+  "boss043": {
     "Name": "Infiltration of Hyrule Castle",
     "TextID": 15,
     "WorldID": 3,
     "TitleCardGraphic": "w04_04.bti"
   },
-  "boss050.arc": {
+  "boss050": {
     "Name": "Lost Woods",
     "TextID": 16,
     "WorldID": 4,
     "TitleCardGraphic": "w05_01.bti"
   },
-  "boss051.arc": {
+  "boss051": {
     "Name": "Kakariko Village",
     "TextID": 17,
     "WorldID": 4,
     "TitleCardGraphic": "w05_02.bti"
   },
-  "boss052.arc": {
+  "boss052": {
     "Name": "Four Descents into the Darkness",
     "assetstate": "Development",
     "TextID": 18,
     "WorldID": 4,
     "TitleCardGraphic": "w05_03.bti"
   },
-  "boss053.arc": {
+  "boss053": {
     "Name": "Temple of Darkness",
     "TextID": 19,
     "WorldID": 4,
     "TitleCardGraphic": "w05_04.bti"
   },
-  "boss060.arc": {
+  "boss060": {
     "Name": "Desert of Doubt",
     "TextID": 20,
     "WorldID": 5,
     "TitleCardGraphic": "w06_01.bti"
   },
-  "boss061.arc": {
+  "boss061": {
     "Name": "Desert Temple",
     "TextID": 21,
     "WorldID": 5,
     "TitleCardGraphic": "w06_02.bti"
   },
-  "boss062.arc": {
+  "boss062": {
     "Name": "Oasis",
     "assetstate": "Development",
     "TextID": 22,
     "WorldID": 5,
     "TitleCardGraphic": "w06_03.bti"
   },
-  "boss063.arc": {
+  "boss063": {
     "Name": "Pyramid",
     "TextID": 23,
     "WorldID": 5,
     "TitleCardGraphic": "w06_04.bti"
   },
-  "boss070.arc": {
+  "boss070": {
     "Name": "Frozen Hyrule",
     "TextID": 24,
     "WorldID": 6,
     "TitleCardGraphic": "w07_01.bti"
   },
-  "boss071.arc": {
+  "boss071": {
     "Name": "Temple of Ice",
     "TextID": 25,
     "WorldID": 6,
     "TitleCardGraphic": "w07_02.bti"
   },
-  "boss072.arc": {
+  "boss072": {
     "Name": "Through the Blizzard",
     "assetstate": "Development",
     "TextID": 26,
     "WorldID": 6,
     "TitleCardGraphic": "w07_03.bti"
   },
-  "boss073.arc": {
+  "boss073": {
     "Name": "Tower of Winds",
     "TextID": 27,
     "WorldID": 6,
     "TitleCardGraphic": "w07_04.bti"
   },
-  "boss080.arc": {
+  "boss080": {
     "Name": "Realm of the Heavens",
     "TextID": 28,
     "WorldID": 7,
     "TitleCardGraphic": "w08_01.bti"
   },
-  "boss081.arc": {
+  "boss081": {
     "Name": "The Dark Cloud",
     "TextID": 29,
     "WorldID": 7,
     "TitleCardGraphic": "w08_02.bti"
   },
-  "boss082.arc": {
+  "boss082": {
     "Name": "Fortress of Winds",
     "assetstate": "Development",
     "TextID": 30,
     "WorldID": 7,
     "TitleCardGraphic": "w08_03.bti"
   },
-  "boss083.arc": {
+  "boss083": {
     "Name": "Palace of Winds",
     "TextID": 31,
     "WorldID": 7,
     "TitleCardGraphic": "w08_04.bti"
   },
-  "Boss000.arc": {
+  "Boss000": {
     "Name": "Test-1",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 8
   },
-  "boss001.arc": {
+  "boss001": {
     "Name": "Test-2",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 8
   },
-  "boss002.arc": {
+  "boss002": {
     "Name": "Test-3",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 8
   },
-  "boss990.arc": {
+  "boss990": {
     "Name": "Intro",
     "TextID": -1,
     "WorldID": -1
   },
-  "Boss004.arc": {
+  "Boss004": {
     "Name": "ETCS-1",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 9
   },
-  "boss005.arc": {
+  "boss005": {
     "Name": "ETCS-2",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 9
   },
-  "boss006.arc": {
+  "boss006": {
     "Name": "ETCS-3",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 9
   },
-  "boss991.arc": {
+  "boss991": {
     "Name": "Intro",
     "TextID": -1,
     "WorldID": -1
   },
-  "Boss007.arc": {
+  "Boss007": {
     "Name": "E3-1",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 10
   },
-  "boss008.arc": {
+  "boss008": {
     "Name": "E3-2",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 10
   },
-  "boss009.arc": {
+  "boss009": {
     "Name": "Tingle's room / E3-3",
     "TextID": -1,
     "WorldID": 10
   },
-  "boss992.arc": {
+  "boss992": {
     "Name": "Unknown",
     "assetstate": "Broken",
     "TextID": -1,
     "WorldID": -1
   },
-  "boss090.arc": {
+  "boss090": {
     "Name": "W1: Phantom Ganon Test",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 11
   },
-  "boss091.arc": {
+  "boss091": {
     "Name": "W2: Stone Arrghus Test",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 11
   },
-  "boss092.arc": {
+  "boss092": {
     "Name": "W3: Helmaroc King Test",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 11
   },
-  "boss093.arc": {
+  "boss093": {
     "Name": "W4: Big Poe 1&2 test",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 11
   },
-  "boss094.arc": {
+  "boss094": {
     "Name": "W5: Phantom Ganon 2 Test",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 12
   },
-  "boss095.arc": {
+  "boss095": {
     "Name": "W6: Big Moldorm Test",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 12
   },
-  "boss096.arc": {
+  "boss096": {
     "Name": "W7: Frostare Test",
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 12
   },
-  "boss097.arc": {
+  "boss097": {
     "Name": "W8: Ganon test",
     "assetstate": "Development",
     "TextID": -1,

@@ -16,7 +16,6 @@ using System.Runtime.InteropServices;
 
 namespace FSALib
 {
-
     /// <summary>
     /// Nintendo RARC Archive
     /// </summary>
@@ -115,7 +114,10 @@ namespace FSALib
         public Rarc(DirectoryNode rootnode)
             => Root = rootnode.Clone();
         public Rarc(DirectoryInfo directory)
-            => Root = new DirectoryNode(directory);
+        {
+            Root = new DirectoryNode(directory);
+            Root.Name = Path.GetFileNameWithoutExtension(Root.Name);
+        }
 
         public Rarc(Stream source)
             => ReadFromStream(source);

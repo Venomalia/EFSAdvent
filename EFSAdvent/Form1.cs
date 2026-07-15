@@ -278,7 +278,11 @@ namespace EFSAdvent
 
             //Get a string which is just the root bossxxx filepath for loading other files
             RootFolderPathTextBox.Text = _levelFilePaht;
-            this.Text = $"{BaseTitel} - Map{_level.Map.Index}";
+            if (Assets.Stages.ContainsKey(_level.Resources.Name))
+                this.Text = $"{BaseTitel} - {Assets.Stages[_level.Resources.Name].Name}";
+            else
+                this.Text = $"{BaseTitel} - {_level.Resources.Name}";
+
             layerPictureBox.Refresh();
 
             SaveMenuItem.Enabled = true;
