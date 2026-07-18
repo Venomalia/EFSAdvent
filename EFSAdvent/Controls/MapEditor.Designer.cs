@@ -37,7 +37,6 @@ namespace EFSAdvent.Controls
         private Button MapRoomSetButton;
         private NumericUpDown MapRoomNumberInput;
         private Button MapRoomRemoveButton;
-        private Button MapSaveButton;
 
 
         private void InitializeComponent()
@@ -71,7 +70,6 @@ namespace EFSAdvent.Controls
             this.label10 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.MapSaveButton = new System.Windows.Forms.Button();
             this.MapVariablesGroupBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.RoomLayoutgroupBox1.SuspendLayout();
@@ -109,7 +107,6 @@ namespace EFSAdvent.Controls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.RoomLayoutgroupBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.MapSaveButton, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -284,7 +281,7 @@ namespace EFSAdvent.Controls
             // 
             this.MapVariableNPCSheetID.Location = new System.Drawing.Point(215, 82);
             this.MapVariableNPCSheetID.Maximum = new decimal(new int[] {
-            10000,
+            15,
             0,
             0,
             0});
