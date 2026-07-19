@@ -91,8 +91,9 @@ namespace FSALib.Renderer
         /// </summary>
         /// <param name="target">The image surface to draw on.</param>
         /// <param name="layer">The layer containing the tile indices to render.</param>
-        public void Draw(IImage<TColor> target, Layer layer)
-            => Draw(target, layer.Tiles, new Rectangle(0, 0, Layer.DIMENSION, Layer.DIMENSION), Layer.DIMENSION);
+        /// <param name="targetOffset">The pixel offset on the target image where the layer is drawn.</param
+        public void Draw(IImage<TColor> target, Layer layer, Point targetOffset = default)
+            => Draw(target, layer.Tiles, new Rectangle(0, 0, Layer.DIMENSION, Layer.DIMENSION), Layer.DIMENSION, targetOffset);
 
         /// <summary>
         /// Draws a stamp onto the target image at the specified offset.
