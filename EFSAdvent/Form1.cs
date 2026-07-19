@@ -339,9 +339,7 @@ namespace EFSAdvent
             if (openDialog.ShowDialog() != DialogResult.OK)
                 return;
 
-#if !DEBUG
             try
-#endif
             {
                 if (openDialog.FileName.EndsWith("csv")) // Load folder
                 {
@@ -357,13 +355,11 @@ namespace EFSAdvent
                 }
                 OpenLevelFile();
             }
-#if !DEBUG
             catch (Exception err)
             {
-                MessageBox.Show($"Failed to load {openDialog.FileName}, {err}.");
+                MessageBox.Show($"Failed to load \"{openDialog.FileName}\",\n {err.Message}.");
                 return;
             }
-#endif
 
         }
 
