@@ -24,9 +24,9 @@ namespace FSALib
             get => Map.Index;
             set
             {
-                Map.Index  = value;
+                Map.Index = value;
                 if (MapSingleplayer != null)
-                MapSingleplayer.Index = value;
+                    MapSingleplayer.Index = value;
                 if (!Resources.Directorys.ContainsKey(Rarc.CommonFolderTypes.Map)) // This stage only has this map, so we can adjust the root map / stage index.
                     Resources.Name = $"boss{value:D3}";
             }
@@ -100,14 +100,14 @@ namespace FSALib
 
         private void Load(int mapIndex = -1)
         {
-            if (!Resources.Directorys.ContainsKey(Rarc.CommonFolderTypes.Map))
-                throw new ArgumentException("Does not contain a stage map folder.");
-
-            if (mapIndex == -1)
-                mapIndex = int.Parse(Resources.Name.Substring(4, 3));
-
             // load maps
-            DirectoryNode mapDirectory = Resources.Directorys[Rarc.CommonFolderTypes.Map];
+            if (!Resources.Directorys.TryGetValue(Rarc.CommonFolderTypes.Map, out DirectoryNode mapDirectory))
+                throw new ArgumentException("Does not contain a stage map folder.");
+            if (mapIndex == -1 && (Resources.Name.Length < 7 || !int.TryParse(Resources.Name.Substring(4, 3), out mapIndex)))
+            {
+                if (!int.TryParse(mapDirectory.Files[0].Name.Substring(3, 3),out mapIndex))
+                    throw new ArgumentException($"The map index could not be determined.");
+            }
 
             string mapFileName = MapLayout.GetFileName(mapIndex, false);
             string mapSingleplayerFileName = MapLayout.GetFileName(mapIndex, true);
@@ -132,24 +132,37 @@ namespace FSALib
             var actorFolderkey = (Identifier32)$"B{mapIndex:D3}";
             var layerFolderkey = (Identifier32)$"M{mapIndex:D3}";
 
-            DirectoryNode actorDirectory = Resources.Directorys[Rarc.CommonFolderTypes.BIN].Directorys[actorFolderkey];
-            DirectoryNode layerDirectory = Resources.Directorys[Rarc.CommonFolderTypes.SZS].Directorys[layerFolderkey];
-
-            foreach (var item in actorDirectory.Files)
+            DirectoryNode actorDirectory = Resources.Directorys[Rarc.CommonFolderTypes.BIN];
+            DirectoryNode layerDirectory = Resources.Directorys[Rarc.CommonFolderTypes.SZS];
+            if (Resources.Directorys.TryGetValue(actorFolderkey, out DirectoryNode fixStageDirectory)) // Corrupt ARC actor files?
             {
-                int roomIndex = int.Parse(item.Name.Substring(15, 2));
+                Resources.Directorys.Remove(actorFolderkey);
+                actorDirectory.Directorys.Add(actorFolderkey, fixStageDirectory);
+            }
+            if (Resources.Directorys.TryGetValue(layerFolderkey, out fixStageDirectory)) // Corrupt ARC layer files?
+            {
+                Resources.Directorys.Remove(layerFolderkey);
+                layerDirectory.Directorys.Add(layerFolderkey, fixStageDirectory);
+            }
+            DirectoryNode actorStageDirectory = actorDirectory.Directorys[actorFolderkey];
+            DirectoryNode layerStageDirectory = layerDirectory.Directorys[layerFolderkey];
+
+            foreach (var item in actorStageDirectory.Files)
+            {
+                if (!int.TryParse(item.Name.Substring(15, 2),out int roomIndex))
+                {
+                    continue;
+                }
                 var room = new Room();
                 _rooms[roomIndex] = room;
                 room.Actors.ReadFromStream(item.Data);
-                room.LoadLayers(layerDirectory, mapIndex, roomIndex);
+                room.LoadLayers(layerStageDirectory, mapIndex, roomIndex);
             }
 
             // free maps
             mapDirectory.DeleteAndDisposeFile(mapFileName);
             mapDirectory.DeleteAndDisposeFile(mapSingleplayerFileName);
             // free rooms
-            actorDirectory = Resources.Directorys[Rarc.CommonFolderTypes.BIN];
-            layerDirectory = Resources.Directorys[Rarc.CommonFolderTypes.SZS];
             actorDirectory.DeleteAndDisposeDirectory(actorFolderkey);
             layerDirectory.DeleteAndDisposeDirectory(layerFolderkey);
             // cleanup
