@@ -36,7 +36,6 @@ namespace EFSAdvent
             this.tileSheetPanel = new System.Windows.Forms.Panel();
             this.tileSheetPictureBox = new System.Windows.Forms.PictureBox();
             this.layersPanel = new System.Windows.Forms.Panel();
-            this.layerPictureBox = new EFSAdvent.Controls.PictureBoxWithInterpolationMode();
             this.actorContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loggerTextBox = new System.Windows.Forms.TextBox();
@@ -87,14 +86,11 @@ namespace EFSAdvent
             this.rightSideGroupBox = new System.Windows.Forms.GroupBox();
             this.CoridinatesTextBox = new System.Windows.Forms.TextBox();
             this.updateLayersButton = new System.Windows.Forms.Button();
-            this.layersCheckList = new EFSAdvent.Controls.CheckedListBoxColorable();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MapTabControl = new System.Windows.Forms.TabControl();
             this.MapMultiplayerTabPage = new System.Windows.Forms.TabPage();
-            this.MapEditor = new EFSAdvent.Controls.MapEditor();
             this.MapSinglelplayerTabPage = new System.Windows.Forms.TabPage();
-            this.MapEditorSinglelplayer = new EFSAdvent.Controls.MapEditor();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.MirrorBrushbutton = new System.Windows.Forms.Button();
             this.BrushSizeLabel = new System.Windows.Forms.Label();
@@ -105,7 +101,6 @@ namespace EFSAdvent
             this.SaveStampButton = new System.Windows.Forms.Button();
             this.MirrorStampButton = new System.Windows.Forms.Button();
             this.DeleteStampButton = new System.Windows.Forms.Button();
-            this.TileStampFlowLayoutPanel = new EFSAdvent.Controls.TileStampFlowLayoutPanel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonActorsSelectNone = new System.Windows.Forms.Button();
             this.actorLayerComboBox = new System.Windows.Forms.ComboBox();
@@ -157,10 +152,14 @@ namespace EFSAdvent
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
+            this.MapEditor = new EFSAdvent.Controls.MapEditor();
+            this.MapEditorSinglelplayer = new EFSAdvent.Controls.MapEditor();
+            this.TileStampFlowLayoutPanel = new EFSAdvent.Controls.TileStampFlowLayoutPanel();
+            this.layersCheckList = new EFSAdvent.Controls.CheckedListBoxColorable();
+            this.layerPictureBox = new EFSAdvent.Controls.PictureBoxWithInterpolationMode();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.actorContextMenuStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rightSideGroupBox.SuspendLayout();
@@ -199,6 +198,7 @@ namespace EFSAdvent
             ((System.ComponentModel.ISupportInitialize)(this.ActorYCoordInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).BeginInit();
             this.BottomGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tileSheetPanel
@@ -234,26 +234,6 @@ namespace EFSAdvent
             this.layersPanel.Name = "layersPanel";
             this.layersPanel.Size = new System.Drawing.Size(512, 516);
             this.layersPanel.TabIndex = 1;
-            // 
-            // layerPictureBox
-            // 
-            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.layerPictureBox.Enabled = false;
-            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
-            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.Name = "layerPictureBox";
-            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
-            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.layerPictureBox.TabIndex = 0;
-            this.layerPictureBox.TabStop = false;
-            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
-            this.layerPictureBox.MouseLeave += new System.EventHandler(this.layerPictureBox_MouseLeave);
-            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
-            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
-            this.layerPictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.layerPictureBox_MouseWheel);
             // 
             // actorContextMenuStrip
             // 
@@ -689,37 +669,6 @@ namespace EFSAdvent
             this.updateLayersButton.UseVisualStyleBackColor = true;
             this.updateLayersButton.Click += new System.EventHandler(this.UpdateView_Click);
             // 
-            // layersCheckList
-            // 
-            this.layersCheckList.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.layersCheckList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.layersCheckList.CheckOnClick = true;
-            this.layersCheckList.ColumnWidth = 70;
-            this.layersCheckList.FormattingEnabled = true;
-            this.layersCheckList.Items.AddRange(new object[] {
-            "Layer 1-0",
-            "Layer 1-1",
-            "Layer 1-2",
-            "Layer 1-3",
-            "Layer 1-4",
-            "Layer 1-5",
-            "Layer 1-6",
-            "Layer 1-7",
-            "Layer 2-0",
-            "Layer 2-1",
-            "Layer 2-2",
-            "Layer 2-3",
-            "Layer 2-4",
-            "Layer 2-5",
-            "Layer 2-6",
-            "Layer 2-7"});
-            this.layersCheckList.Location = new System.Drawing.Point(6, 16);
-            this.layersCheckList.MultiColumn = true;
-            this.layersCheckList.Name = "layersCheckList";
-            this.layersCheckList.Size = new System.Drawing.Size(145, 120);
-            this.layersCheckList.TabIndex = 19;
-            this.layersCheckList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LayersCheckList_ItemCheck);
-            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage3);
@@ -769,18 +718,6 @@ namespace EFSAdvent
             this.MapMultiplayerTabPage.Text = "Multiplayer";
             this.MapMultiplayerTabPage.UseVisualStyleBackColor = true;
             // 
-            // MapEditor
-            // 
-            this.MapEditor.Location = new System.Drawing.Point(0, 0);
-            this.MapEditor.Margin = new System.Windows.Forms.Padding(0);
-            this.MapEditor.Name = "MapEditor";
-            this.MapEditor.Size = new System.Drawing.Size(266, 500);
-            this.MapEditor.TabIndex = 0;
-            this.MapEditor.LoadRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_LoadRoom);
-            this.MapEditor.NewRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_NewRoom);
-            this.MapEditor.RemoveRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_RemoveRoom);
-            this.MapEditor.SelectedRoomCoordinatesChanged += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_SelectedRoomCoordinatesChanged);
-            // 
             // MapSinglelplayerTabPage
             // 
             this.MapSinglelplayerTabPage.Controls.Add(this.MapEditorSinglelplayer);
@@ -791,18 +728,6 @@ namespace EFSAdvent
             this.MapSinglelplayerTabPage.TabIndex = 1;
             this.MapSinglelplayerTabPage.Text = "Singlelplayer";
             this.MapSinglelplayerTabPage.UseVisualStyleBackColor = true;
-            // 
-            // MapEditorSinglelplayer
-            // 
-            this.MapEditorSinglelplayer.Location = new System.Drawing.Point(0, 0);
-            this.MapEditorSinglelplayer.Margin = new System.Windows.Forms.Padding(0);
-            this.MapEditorSinglelplayer.Name = "MapEditorSinglelplayer";
-            this.MapEditorSinglelplayer.Size = new System.Drawing.Size(266, 500);
-            this.MapEditorSinglelplayer.TabIndex = 1;
-            this.MapEditorSinglelplayer.LoadRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_LoadRoom);
-            this.MapEditorSinglelplayer.NewRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_NewRoom);
-            this.MapEditorSinglelplayer.RemoveRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_RemoveRoom);
-            this.MapEditorSinglelplayer.SelectedRoomCoordinatesChanged += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_SelectedRoomCoordinatesChanged);
             // 
             // tabPage2
             // 
@@ -923,18 +848,6 @@ namespace EFSAdvent
             this.DeleteStampButton.UseVisualStyleBackColor = true;
             this.DeleteStampButton.Click += new System.EventHandler(this.DeleteStampButton_Click);
             // 
-            // TileStampFlowLayoutPanel
-            // 
-            this.TileStampFlowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.TileStampFlowLayoutPanel.AutoScroll = true;
-            this.TileStampFlowLayoutPanel.Location = new System.Drawing.Point(0, 34);
-            this.TileStampFlowLayoutPanel.Name = "TileStampFlowLayoutPanel";
-            this.TileStampFlowLayoutPanel.SelectedIndex = -1;
-            this.TileStampFlowLayoutPanel.Size = new System.Drawing.Size(273, 489);
-            this.TileStampFlowLayoutPanel.TabIndex = 0;
-            this.TileStampFlowLayoutPanel.SelectionChanged += new System.EventHandler(this.TileStampFlowLayoutPanel_SelectionChanged);
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.buttonActorsSelectNone);
@@ -966,14 +879,6 @@ namespace EFSAdvent
             this.actorLayerComboBox.FormattingEnabled = true;
             this.actorLayerComboBox.Items.AddRange(new object[] {
             "All Actors",
-            "Layer 0",
-            "Layer 1",
-            "Layer 2",
-            "Layer 3",
-            "Layer 4",
-            "Layer 5",
-            "Layer 6",
-            "Layer 7",
             "Variable 1",
             "Variable 2",
             "Variable 3",
@@ -1032,11 +937,11 @@ namespace EFSAdvent
             // ActorInfoPictureBox
             // 
             this.ActorInfoPictureBox.BackColor = System.Drawing.Color.DarkGray;
-            this.ActorInfoPictureBox.Location = new System.Drawing.Point(113, 56);
-            this.ActorInfoPictureBox.MaximumSize = new System.Drawing.Size(64, 64);
+            this.ActorInfoPictureBox.Location = new System.Drawing.Point(94, 63);
+            this.ActorInfoPictureBox.MaximumSize = new System.Drawing.Size(80, 80);
             this.ActorInfoPictureBox.MinimumSize = new System.Drawing.Size(32, 32);
             this.ActorInfoPictureBox.Name = "ActorInfoPictureBox";
-            this.ActorInfoPictureBox.Size = new System.Drawing.Size(61, 62);
+            this.ActorInfoPictureBox.Size = new System.Drawing.Size(80, 80);
             this.ActorInfoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ActorInfoPictureBox.TabIndex = 1;
             this.ActorInfoPictureBox.TabStop = false;
@@ -1464,7 +1369,7 @@ namespace EFSAdvent
             this.groupBoxCoridinate.Controls.Add(this.label6);
             this.groupBoxCoridinate.Location = new System.Drawing.Point(6, 46);
             this.groupBoxCoridinate.Name = "groupBoxCoridinate";
-            this.groupBoxCoridinate.Size = new System.Drawing.Size(101, 90);
+            this.groupBoxCoridinate.Size = new System.Drawing.Size(80, 90);
             this.groupBoxCoridinate.TabIndex = 32;
             this.groupBoxCoridinate.TabStop = false;
             this.groupBoxCoridinate.Text = "Coridinate";
@@ -1478,7 +1383,7 @@ namespace EFSAdvent
             0,
             0});
             this.ActorXCoordInput.Name = "ActorXCoordInput";
-            this.ActorXCoordInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorXCoordInput.Size = new System.Drawing.Size(35, 20);
             this.ActorXCoordInput.TabIndex = 25;
             this.ActorXCoordInput.ValueChanged += new System.EventHandler(this.ActorChanged);
             this.ActorXCoordInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
@@ -1492,7 +1397,7 @@ namespace EFSAdvent
             0,
             0});
             this.ActorYCoordInput.Name = "ActorYCoordInput";
-            this.ActorYCoordInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorYCoordInput.Size = new System.Drawing.Size(35, 20);
             this.ActorYCoordInput.TabIndex = 26;
             this.ActorYCoordInput.ValueChanged += new System.EventHandler(this.ActorChanged);
             this.ActorYCoordInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ActorChanged);
@@ -1524,7 +1429,7 @@ namespace EFSAdvent
             0,
             0});
             this.ActorLayerInput.Name = "ActorLayerInput";
-            this.ActorLayerInput.Size = new System.Drawing.Size(51, 20);
+            this.ActorLayerInput.Size = new System.Drawing.Size(35, 20);
             this.ActorLayerInput.TabIndex = 24;
             this.ActorLayerInput.ValueChanged += new System.EventHandler(this.ActorChanged);
             // 
@@ -1594,6 +1499,93 @@ namespace EFSAdvent
             this.RootFolderPathTextBox.Size = new System.Drawing.Size(494, 20);
             this.RootFolderPathTextBox.TabIndex = 23;
             // 
+            // MapEditor
+            // 
+            this.MapEditor.Location = new System.Drawing.Point(0, 0);
+            this.MapEditor.Margin = new System.Windows.Forms.Padding(0);
+            this.MapEditor.Name = "MapEditor";
+            this.MapEditor.Size = new System.Drawing.Size(266, 500);
+            this.MapEditor.TabIndex = 0;
+            this.MapEditor.LoadRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_LoadRoom);
+            this.MapEditor.NewRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_NewRoom);
+            this.MapEditor.RemoveRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_RemoveRoom);
+            this.MapEditor.SelectedRoomCoordinatesChanged += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_SelectedRoomCoordinatesChanged);
+            // 
+            // MapEditorSinglelplayer
+            // 
+            this.MapEditorSinglelplayer.Location = new System.Drawing.Point(0, 0);
+            this.MapEditorSinglelplayer.Margin = new System.Windows.Forms.Padding(0);
+            this.MapEditorSinglelplayer.Name = "MapEditorSinglelplayer";
+            this.MapEditorSinglelplayer.Size = new System.Drawing.Size(266, 500);
+            this.MapEditorSinglelplayer.TabIndex = 1;
+            this.MapEditorSinglelplayer.LoadRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_LoadRoom);
+            this.MapEditorSinglelplayer.NewRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_NewRoom);
+            this.MapEditorSinglelplayer.RemoveRoom += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_RemoveRoom);
+            this.MapEditorSinglelplayer.SelectedRoomCoordinatesChanged += new System.EventHandler<EFSAdvent.Controls.MapEditor>(this.mapEditor_SelectedRoomCoordinatesChanged);
+            // 
+            // TileStampFlowLayoutPanel
+            // 
+            this.TileStampFlowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.TileStampFlowLayoutPanel.AutoScroll = true;
+            this.TileStampFlowLayoutPanel.Location = new System.Drawing.Point(0, 34);
+            this.TileStampFlowLayoutPanel.Name = "TileStampFlowLayoutPanel";
+            this.TileStampFlowLayoutPanel.SelectedIndex = -1;
+            this.TileStampFlowLayoutPanel.Size = new System.Drawing.Size(273, 489);
+            this.TileStampFlowLayoutPanel.TabIndex = 0;
+            this.TileStampFlowLayoutPanel.SelectionChanged += new System.EventHandler(this.TileStampFlowLayoutPanel_SelectionChanged);
+            // 
+            // layersCheckList
+            // 
+            this.layersCheckList.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.layersCheckList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.layersCheckList.CheckOnClick = true;
+            this.layersCheckList.ColumnWidth = 70;
+            this.layersCheckList.FormattingEnabled = true;
+            this.layersCheckList.Items.AddRange(new object[] {
+            "Layer 1-0",
+            "Layer 1-1",
+            "Layer 1-2",
+            "Layer 1-3",
+            "Layer 1-4",
+            "Layer 1-5",
+            "Layer 1-6",
+            "Layer 1-7",
+            "Layer 2-0",
+            "Layer 2-1",
+            "Layer 2-2",
+            "Layer 2-3",
+            "Layer 2-4",
+            "Layer 2-5",
+            "Layer 2-6",
+            "Layer 2-7"});
+            this.layersCheckList.Location = new System.Drawing.Point(6, 16);
+            this.layersCheckList.MultiColumn = true;
+            this.layersCheckList.Name = "layersCheckList";
+            this.layersCheckList.Size = new System.Drawing.Size(145, 120);
+            this.layersCheckList.TabIndex = 19;
+            this.layersCheckList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LayersCheckList_ItemCheck);
+            // 
+            // layerPictureBox
+            // 
+            this.layerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layerPictureBox.Enabled = false;
+            this.layerPictureBox.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            this.layerPictureBox.Location = new System.Drawing.Point(0, -1);
+            this.layerPictureBox.MinimumSize = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.Name = "layerPictureBox";
+            this.layerPictureBox.Size = new System.Drawing.Size(512, 512);
+            this.layerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.layerPictureBox.TabIndex = 0;
+            this.layerPictureBox.TabStop = false;
+            this.layerPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseDown);
+            this.layerPictureBox.MouseLeave += new System.EventHandler(this.layerPictureBox_MouseLeave);
+            this.layerPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseMove);
+            this.layerPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.layersPictureBox_MouseUp);
+            this.layerPictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.layerPictureBox_MouseWheel);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1615,7 +1607,6 @@ namespace EFSAdvent
             this.tileSheetPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).EndInit();
             this.layersPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.actorContextMenuStrip.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -1661,6 +1652,7 @@ namespace EFSAdvent
             ((System.ComponentModel.ISupportInitialize)(this.ActorLayerInput)).EndInit();
             this.BottomGroupBox.ResumeLayout(false);
             this.BottomGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

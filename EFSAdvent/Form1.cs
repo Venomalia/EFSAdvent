@@ -30,7 +30,6 @@ namespace EFSAdvent
         private const string SourceCodeUrl = "https://github.com/Venomalia/EFSAdvent";
 
         const int ACTOR_PIXELS_PER_COORDINATE = 8;
-        const string DEFAULT_SPRITE = "ActorDefault";
         const int LAYER_DIMENSION_IN_PIXELS = Layer.DIMENSION * TILE_DIMENSION_IN_PIXELS;
         const int TILE_DIMENSION_IN_PIXELS = 16;
 
@@ -54,7 +53,9 @@ namespace EFSAdvent
 
         readonly Bitmap tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap;
 
-        readonly Bitmap actorLayerBitmap;
+        readonly SpriteRenderer<BGRA32> spriteRendererTV;
+        readonly SpriteRenderer<BGRA32> spriteRendererGBA;
+        readonly Bitmap actorLayerBitmap, actorBitmap;
         readonly Graphics roomLayerGraphics, actorLayerGraphics;
 
         Bitmap overlayBitmap;
@@ -120,6 +121,8 @@ namespace EFSAdvent
             dataRarc = new Rarc(dataStream);
             tilesetRendererTV = new TilesetRenderer<BGRA32>(dataRarc);
             tilesetRendererGBA = new TilesetRenderer<BGRA32>(dataRarc);
+            spriteRendererTV = new SpriteRenderer<BGRA32>(dataRarc);
+            spriteRendererGBA = new SpriteRenderer<BGRA32>(dataRarc);
 
             tileSheetBitmap = new Bitmap(256, 1024);
             tileSheetBitmapGBA = new Bitmap(256, 1024);
@@ -136,6 +139,7 @@ namespace EFSAdvent
 
             actorLayerBitmap = new Bitmap(LAYER_DIMENSION_IN_PIXELS, LAYER_DIMENSION_IN_PIXELS, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
             actorLayerGraphics = Graphics.FromImage(actorLayerBitmap);
+            actorBitmap = new Bitmap(64 + 16, 64 + 16, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
 
             _history = new History(500);
             _tileBrush = new TileBrush(_history);
@@ -305,6 +309,7 @@ namespace EFSAdvent
                     ChangeOverlay();
                     break;
                 case "TileSheetId":
+                case "NPCSheetID":
                     ChangeTileSheet();
                     break;
                 default:
@@ -862,7 +867,7 @@ namespace EFSAdvent
 
                 if (autoSelectToolStripMenuItem.Checked)
                 {
-                    SelectLayerActors(true, 0);
+                    SelectAllLayerActors();
                     actorLayerComboBox.SelectedIndex = 0;
                 }
                 else
@@ -974,23 +979,20 @@ namespace EFSAdvent
 
         private void actorLayerComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (actorLayerComboBox.SelectedIndex <= 8)
-                SelectLayerActors(actorLayerComboBox.SelectedIndex == 0, actorLayerComboBox.SelectedIndex - 1);
+            if (actorLayerComboBox.SelectedIndex == 0)
+                SelectAllLayerActors();
             else
-                SelectActorsByVariables(actorLayerComboBox.SelectedIndex - 8);
+                SelectActorsByVariables(actorLayerComboBox.SelectedIndex);
             UpdateView();
         }
 
-        private void SelectLayerActors(bool selectAll, int selectLayer)
+        private void SelectAllLayerActors()
         {
             _ignoreActorCheckbox = true;
 
             for (int i = 0; i < _level.Rooms[_currentRoomIndex].Actors.Count; i++)
-            {
-                var actor = _level.Rooms[_currentRoomIndex].Actors[i];
-                bool isChecked = selectAll || actor.Layer == selectLayer;
-                actorsCheckListBox.SetItemChecked(i, isChecked);
-            }
+                actorsCheckListBox.SetItemChecked(i, true);
+
             _ignoreActorCheckbox = false;
         }
 
@@ -1242,7 +1244,12 @@ namespace EFSAdvent
             }
             else
             {
-                ActorInfoPictureBox.Image = GetActorSpriteOrDefault(actor);
+                using (var brushImage = (MemoryImage<BGRA32>)actorBitmap.AsAuroraImage())
+                {
+                    brushImage.Clear();
+                    DrawActorToImage(actor, new Point(brushImage.Width / 2, brushImage.Height / 2 + 16), brushImage);
+                }
+                ActorInfoPictureBox.Image = actorBitmap;
             }
         }
 
@@ -1440,30 +1447,32 @@ namespace EFSAdvent
             if (_currentRoomIndex == -1 || _level?.Rooms[_currentRoomIndex] == null)
                 return;
 
-            roomLayerGraphics.Clear(Color.Transparent);
-            for (int i = 0; i < 8; i++)
+            using (var layerImage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage())
             {
-                using var layerImage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
-
-                // Draw Layer
-                for (int n = 0; n <= 8; n += 8)
+                layerImage.Clear();
+                for (int i = 0; i < 8; i++)
                 {
-                    if ((layer == null && layersCheckList.GetItemChecked(i + n)) || (i + n) == layer)
+                    // Is TV layer or GBA?
+                    var renderer = (i == 0) ? tilesetRendererTV : tilesetRendererGBA;
+
+                    // Draw Layer
+                    for (int n = 0; n <= 8; n += 8)
                     {
-                        int targetLayer = i + n;
-                        // Is TV layer or GBA?
-                        var renderer = (targetLayer == 0 || targetLayer == 8) ? tilesetRendererTV : tilesetRendererGBA;
-                        renderer.Draw(layerImage, _level.Rooms[_currentRoomIndex].Layers[targetLayer]);
+                        if ((layer == null && layersCheckList.GetItemChecked(i + n)) || (i + n) == layer)
+                        {
+                            renderer.Draw(layerImage, _level.Rooms[_currentRoomIndex].Layers[i + n]);
+                        }
+                    }
+
+                    // Draw Overlay
+                    if (displayOverlayToolStripMenuItem.Checked && i == 0 && overlayBitmap != null)
+                    {
+                        using var overlayImage = (MemoryImage<BGRA32>)overlayBitmap.AsAuroraImage();
+                        DrawOverlayOnLayer(layerImage, overlayImage);
                     }
                 }
-
-                // Draw Overlay
-                if (displayOverlayToolStripMenuItem.Checked && i == 0 && overlayBitmap != null)
-                {
-                    using var overlayImage = (MemoryImage<BGRA32>)overlayBitmap.AsAuroraImage();
-                    DrawOverlayOnLayer(layerImage, overlayImage);
-                }
             }
+
             DrawActors();
         }
 
@@ -1894,7 +1903,8 @@ namespace EFSAdvent
             int tileSheetIndex = properties.TileSheetId;
             tilesetRendererTV.LoadTileset(dataRarc, tileSheetIndex);
             tilesetRendererGBA.LoadTileset(dataRarc, tileSheetIndex, true);
-
+            spriteRendererTV.LoadTilesheet(dataRarc, properties.NPCSheetID, false);
+            spriteRendererGBA.LoadTilesheet(dataRarc, properties.NPCSheetID, true);
             {
                 using var tileSheet = (MemoryImage<BGRA32>)tileSheetBitmap.AsAuroraImage();
                 tileSheet.Clear();
@@ -1970,7 +1980,7 @@ namespace EFSAdvent
             BuildLayerActorList();
             if (autoSelectToolStripMenuItem.Checked)
             {
-                SelectLayerActors(true, 0);
+                SelectAllLayerActors();
             }
             UpdateView();
         }
@@ -2005,13 +2015,25 @@ namespace EFSAdvent
         #region Actors
         private void DrawActor(Actor actor)
         {
-            int width, height;
             int? currentLayer = GetHighestActiveLayerIndex() % 8;
             bool isOnCurrentLayer = currentLayer == actor.Layer;
-            bool isSelectedActor = IsSelectedActor(actor);
             Point actorPixelPosition = new Point(actor.XCoord * ACTOR_PIXELS_PER_COORDINATE, actor.YCoord * ACTOR_PIXELS_PER_COORDINATE);
+            Assets.Actors.TryGetValue(actor.ID, out ActorDefinition actorDefinition);
 
-            // Are always checked
+            // Draw base actor graphics
+            if (isOnCurrentLayer)
+            {
+                using var actorLayer = (MemoryImage<BGRA32>)actorLayerBitmap.AsAuroraImage();
+                DrawActorToImage(actor, actorPixelPosition, actorDefinition, actorLayer);
+            }
+
+            // When we're in aktor tap, we want to display more information
+            if (tabControl.SelectedIndex != (int)TabControlIndex.Actor)
+                return;
+
+            bool isSelectedActor = IsSelectedActor(actor);
+
+            // Teleport Information
             switch (actor.Name)
             {
                 case "WARP":
@@ -2020,13 +2042,14 @@ namespace EFSAdvent
                     int layer = actor.VariableByte4 & 0x7;
                     if (actor.Name == "CIRC" && layer != 0)
                         layer = 1;
+
                     bool isZero = actor.VariableByte3 == 0 && actor.VariableByte2 == 0;
                     int x = isZero ? actorPixelPosition.X : actor.VariableByte3 * ACTOR_PIXELS_PER_COORDINATE;
                     int y = isZero ? actorPixelPosition.Y : actor.VariableByte2 * ACTOR_PIXELS_PER_COORDINATE;
                     if (currentLayer == layer)
                     {
-                        Color color = isSelectedActor ? Color.Red : Color.White;
-                        actorLayerGraphics.DrawRectangleWithDropShadow(color,
+                        Color colorX = isSelectedActor ? Color.Red : Color.White;
+                        actorLayerGraphics.DrawRectangleWithDropShadow(colorX,
                             x,
                             y,
                             ACTOR_PIXELS_PER_COORDINATE * 2,
@@ -2040,6 +2063,8 @@ namespace EFSAdvent
             // Only if on current layer
             if (alwaysShowActorsToolStripMenuItem.Checked || isOnCurrentLayer)
             {
+                int width, height;
+                // debug display
                 switch (actor.Name)
                 {
                     case "PNPC":
@@ -2047,9 +2072,29 @@ namespace EFSAdvent
                         {
                             var renderer = (actor.Layer == 0 || actor.Layer == 8) ? tilesetRendererTV : tilesetRendererGBA;
                             using var iconmage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
-                            renderer.DrawTile(iconmage, actor.XCoord / 2 * TILE_DIMENSION_IN_PIXELS, actor.YCoord / 2 * TILE_DIMENSION_IN_PIXELS, (ushort)((actor.VariableByte2 & 0x3) << 8 | actor.VariableByte1));
+                            ushort tile = (ushort)((actor.VariableByte2 & 0x3) << 8 | actor.VariableByte1);
+                            renderer.DrawTile(iconmage, actor.XCoord / 2 * TILE_DIMENSION_IN_PIXELS, actor.YCoord / 2 * TILE_DIMENSION_IN_PIXELS, tile);
                         }
-
+                        break;
+                    case "PNP2":
+                        if (isOnCurrentLayer)
+                        {
+                            var renderer = (actor.Layer == 0 || actor.Layer == 8) ? tilesetRendererTV : tilesetRendererGBA;
+                            using var iconmage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
+                            ushort tileTarget = (ushort)(actor.Variable & 0xFFF);
+                            ushort tile = (ushort)(actor.Variable >> 12 & 0xFFF);
+                            var layerTiles = _level.Rooms[_currentRoomIndex].Layers[actor.Layer].Tiles;
+                            for (int y = 0; y < Layer.DIMENSION; y++)
+                            {
+                                for (int x = 0; x < Layer.DIMENSION; x++)
+                                {
+                                    if (layerTiles[x + (y * Layer.DIMENSION)] == tileTarget)
+                                    {
+                                        renderer.DrawTile(iconmage, x * TILE_DIMENSION_IN_PIXELS, y * TILE_DIMENSION_IN_PIXELS, tile);
+                                    }
+                                }
+                            }
+                        }
                         break;
                     case "PTMI":
                         actorLayerGraphics.DrawRectangleWithDropShadow(Color.LightCyan,
@@ -2076,8 +2121,8 @@ namespace EFSAdvent
 
                         if ((actor.VariableByte4 & 7) == 4)
                         {
-                            Color color = isSelectedActor ? Color.LightCoral : Color.White;
-                            actorLayerGraphics.DrawRectangleWithDropShadow(color, actorPixelPosition.X, actorPixelPosition.Y, 7, 7);
+                            Color colorX = isSelectedActor ? Color.LightCoral : Color.White;
+                            actorLayerGraphics.DrawRectangleWithDropShadow(colorX, actorPixelPosition.X, actorPixelPosition.Y, 7, 7);
                             return;
                         }
                         break;
@@ -2115,42 +2160,117 @@ namespace EFSAdvent
                     case "BMST":
                         if (actor.VariableByte1 != 0)
                         {
-                            Color color = isSelectedActor ? Color.LightPink : Color.DarkRed;
+                            Color colorX = isSelectedActor ? Color.LightPink : Color.DarkRed;
                             width = Math.Min(actor.VariableByte1, (byte)15) * ACTOR_PIXELS_PER_COORDINATE * 2 - ACTOR_PIXELS_PER_COORDINATE;
-                            actorLayerGraphics.DrawCircleWithDropShadow(color, actorPixelPosition, width);
+                            actorLayerGraphics.DrawCircleWithDropShadow(colorX, actorPixelPosition, width);
                         }
+                        break;
+                    case "TKRA":
+                        int i = actor.VariableByte1;
+                        int sob = 1;
+
+                        if (i <= 7)
+                            i = 1 + i * 4;
+                        else if (i <= 15)
+                            break;
+                        else if (i <= 31)
+                            i = 44 + (i - 15);
+                        else if (i <= 47)
+                            break;
+                        else if (i <= 63)
+                            i = 387 + (i - 48);
+                        else
+                            i = 525 + (i - 64);
+
+                        using (var actorLayer = (MemoryImage<BGRA32>)actorLayerBitmap.AsAuroraImage())
+                            spriteRendererTV.DrawSprite(actorLayer, actorPixelPosition.X + 8, actorPixelPosition.Y - 8, (ushort)i, (ushort)sob);
                         break;
                     default:
                         break;
                 }
 
-                Bitmap actorSprite = GetActorSpriteOrDefault(actor);
+                Bitmap actorSprite = GetActorInfoBitmap(actor);
+                if (actorSprite != null)
+                {
+                    actorLayerGraphics.DrawImage(actorSprite,
+                        actorPixelPosition.X - (actorSprite.Width / 2),
+                        actorPixelPosition.Y - (actorSprite.Height / 2),
+                        actorSprite.Width,
+                        actorSprite.Height);
+                }
 
-                actorLayerGraphics.DrawImage(actorSprite,
-                    actorPixelPosition.X - (actorSprite.Width / 2),
-                    actorPixelPosition.Y - (actorSprite.Height / 2),
-                    actorSprite.Width,
-                    actorSprite.Height);
+                // Highlights Actor
+                if (isSelectedActor)
+                {
+                    actorLayerGraphics.DrawRectangleWithDropShadow(Color.Red, actorPixelPosition.X, actorPixelPosition.Y, 5, 5);
+                }
+                else
+                {
+                    Color color = actorDefinition?.Category switch
+                    {
+                        ActorCategoryType.Object => Color.White,
+                        ActorCategoryType.TileObject => Color.LightGray,
+                        ActorCategoryType.Item => Color.Cyan,
+                        ActorCategoryType.NPC => Color.LimeGreen,
+                        ActorCategoryType.Enemy => Color.LightCoral,
+                        ActorCategoryType.Boss => Color.DarkGreen,
+                        ActorCategoryType.Property => Color.Tan,
+                        ActorCategoryType.Cutscene => Color.Gold,
+                        ActorCategoryType.Intern => Color.Black,
+                        null => Color.Magenta,
+                        _ => Color.Magenta,
+                    };
+                    actorLayerGraphics.DrawRectangleWithDropShadow(color, actorPixelPosition.X, actorPixelPosition.Y, 3, 3);
+                }
+
             }
-
-            // Always highlights selected Actor
-            if (isSelectedActor)
+        }
+        private void DrawActorToImage(Actor actor, Point actorPixelPosition, MemoryImage<BGRA32> image)
+        {
+            if (Assets.Actors.TryGetValue(actor.ID, out ActorDefinition actorDefinition))
+                DrawActorToImage(actor, actorPixelPosition, actorDefinition, image);
+        }
+        private void DrawActorToImage(Actor actor, Point actorPixelPosition, ActorDefinition actorDefinition, MemoryImage<BGRA32> image)
+        {
+            if (actorDefinition?.Rendering != null)
             {
-                actorLayerGraphics.DrawRectangleWithDropShadow(Color.LightCoral, actorPixelPosition.X, actorPixelPosition.Y, 7, 7);
+                var rendering = actorDefinition.Rendering;
+                int variantKey = (int)(actor.Variable & rendering.BitMask);
+                if (rendering.Variants.TryGetValue(variantKey, out var renderList))
+                {
+                    var renderer = actor.Layer == 0 ? spriteRendererTV : spriteRendererGBA;
+                    foreach (var renderInfo in renderList)
+                    {
+                        if (renderInfo.SpriteIndex != -1) // render sprite
+                        {
+                            renderer.DrawSprite(image, actorPixelPosition.X + renderInfo.XOffset, actorPixelPosition.Y + renderInfo.YOffset, (ushort)renderInfo.SpriteIndex, renderInfo.SpriteListIndex, renderInfo.ReplacementPaletteIndex, renderInfo.TargetPaletteIndex);
+                        }
+                        else // render bti
+                        {
+                            if (dataRarc.Root.Directorys[Rarc.CommonFolderTypes.Timg].TryGetFile(renderInfo.BtiFile, out var btiFile) || (_level.Resources.Directorys.TryGetValue(Rarc.CommonFolderTypes.Timg, out var mapFolder) && mapFolder.TryGetFile(renderInfo.BtiFile, out btiFile)))
+                            {
+                                // bti file found
+                                // TODO!!
+                                _logger.AppendLine($"{actor.ID}: \"{btiFile.Name}\" cannot be displayed at this time!");
+                            }
+                            else
+                            {
+                                // bti file not found
+                                _logger.AppendLine($"{actor.ID}: \"{renderInfo.BtiFile}\" not found!");
+                            }
+                        }
+                    }
+                }
             }
         }
 
-        private Bitmap GetActorSpriteOrDefault(Actor actor)
+        private Bitmap? GetActorInfoBitmap(Actor actor)
         {
             string type;
             switch (actor.Name)
             {
-                case "SNPC":
                 case "JIJI":
                     type = $"{actor.VariableByte3 & 0x7F}";
-                    break;
-                case "BRRY":
-                    type = $"{actor.VariableByte3 & 0x7F}_{actor.VariableByte1 & 0x7F}";
                     break;
                 case "DOOR":
                     int doorType = actor.VariableByte1 & 0x7F;
@@ -2164,12 +2284,6 @@ namespace EFSAdvent
                     break;
                 case "STBL":
                     type = $"{actor.VariableByte2 & 0x7F}";
-                    break;
-                case "BLCK":
-                    type = $"{actor.VariableByte1 & 0x3}";
-                    break;
-                case "BCK2":
-                    type = $"{(actor.VariableByte1 >> 2) & 7}";
                     break;
                 default:
                     type = $"{actor.VariableByte1 & 0x7F}";
@@ -2187,7 +2301,7 @@ namespace EFSAdvent
             }
             else
             {
-                return ACTOR_SPRITES[DEFAULT_SPRITE];
+                return null;
             }
         }
 
