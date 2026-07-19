@@ -315,5 +315,45 @@
     "assetstate": "Development",
     "TextID": -1,
     "WorldID": 12
+  },
+  "boss200": {
+    "Name": "Bucking Bronco",
+    "TextID": -1,
+    "WorldID": 0
+  },
+  "boss201": {
+    "Name": "Cucco Wranglers",
+    "TextID": -1,
+    "WorldID": 1
+  },
+  "boss202": {
+    "Name": "Hammer Tag",
+    "TextID": -1,
+    "WorldID": 2
+  },
+  "boss203": {
+    "Name": "Monster Hunting",
+    "TextID": -1,
+    "WorldID": 3
+  },
+  "boss204": {
+    "Name": "Volley, By Golly",
+    "TextID": -1,
+    "WorldID": 4
+  },
+  "boss205": {
+    "Name": "Mole Melee",
+    "TextID": -1,
+    "WorldID": 5
+  },
+  "boss206": {
+    "Name": "Monster Hunting Returns",
+    "TextID": -1,
+    "WorldID": 6
+  },
+  "boss207": {
+    "Name": "Bonus Course",
+    "TextID": -1,
+    "WorldID": 7
   }
 }
