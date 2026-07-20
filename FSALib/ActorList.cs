@@ -75,19 +75,13 @@ namespace FSALib
         /// <param name="layer">The layer of the actor.</param>
         /// <param name="x">The X coordinate.</param>
         /// <param name="y">The Y coordinate.</param>
-        /// <param name="actor">
-        /// When this method returns, contains the found actor if successful; otherwise, the default value.
-        /// </param>
+        /// <param name="actor"> When this method returns, contains the found actor if successful; otherwise, the default value.</param>
         /// <returns>
         /// <c>true</c> if an actor with the specified layer and coordinates was found; otherwise, <c>false</c>.
         /// </returns>
         public bool TrySearch(byte layer, byte x, byte y, out Actor actor)
         {
-            var searchActor = new Actor(0, layer, x, y, 0);
-            int index = ((List<Actor>)Items).BinarySearch(searchActor);
-
-            if (index < 0)
-                index = ~index;
+            int index = GetInsertionIndex(new Actor(0, layer, x, y, 0));
 
             if (index >= Items.Count)
             {
@@ -106,19 +100,13 @@ namespace FSALib
         /// <param name="x">The X coordinate.</param>
         /// <param name="y">The Y coordinate.</param>
         /// <param name="ID">The unique identifier of the actor to find.</param>
-        /// <param name="actor">
-        /// When this method returns, contains the found actor if successful; otherwise, the default value.
-        /// </param>
+        /// <param name="actor"> When this method returns, contains the found actor if successful; otherwise, the default value.</param>
         /// <returns>
         /// <c>true</c> if an actor with the specified layer, coordinates, and ID was found; otherwise, <c>false</c>.
         /// </returns>
         public bool TrySearch(byte layer, byte x, byte y, Identifier32 ID, out Actor actor)
         {
-            var searchActor = new Actor(ID, layer, x, y, 0);
-            int index = ((List<Actor>)Items).BinarySearch(searchActor);
-
-            if (index < 0)
-                index = ~index;
+            int index = GetInsertionIndex(new Actor(ID, layer, x, y, 0));
 
             if (index >= Items.Count)
             {
@@ -130,6 +118,30 @@ namespace FSALib
             return actor.Layer == layer && actor.XCoord == x && actor.YCoord == y && actor.ID.Equals(ID);
         }
 
+        /// <summary>
+        /// Gets the index range containing all actors on the specified layer.
+        /// </summary>
+        /// <param name="layer">The layer of the actors.</param>
+        /// <returns>
+        /// A tuple containing the start index (inclusive) and end index (exclusive)
+        /// of the actors on the specified layer.
+        /// </returns>
+        public (int Start, int End) GetLayerRange(byte layer)
+        {
+            int start = GetInsertionIndex(new Actor(0, layer, 0, 0, 0));
+            int end = GetInsertionIndex(new Actor(0, (byte)(layer + 1), 0, 0, 0));
+
+            return (start, end);
+        }
+
+        private int GetInsertionIndex(Actor searchActor)
+        {
+            int index = ((List<Actor>)Items).BinarySearch(searchActor);
+
+            if (index < 0)
+                index = ~index;
+            return index;
+        }
 
         /// <inheritdoc/>
         public void ReadFromStream(Stream source)
