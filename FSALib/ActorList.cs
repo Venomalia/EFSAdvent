@@ -1,6 +1,8 @@
-﻿using AuroraLib.Core.Format.Identifier;
+﻿using AuroraLib.Core.Collections;
+using AuroraLib.Core.Format.Identifier;
 using AuroraLib.Core.IO;
 using FSALib.Structs;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -173,6 +175,14 @@ namespace FSALib
             items.Sort();
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
+
+        /// <summary>
+        /// Returns a read-only span over all actors in this collection.
+        /// </summary>
+        /// <returns>
+        /// A read-only span containing all actors.
+        /// </returns>
+        public ReadOnlySpan<Actor> AsSpan() => ((List<Actor>)Items).UnsafeAsSpan();
 
         /// <summary>
         /// Generates the folder path where actor-related binary files are stored for a given map index.
