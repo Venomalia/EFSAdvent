@@ -1041,18 +1041,120 @@ namespace EFSAdvent
         {
             _ignoreActorCheckbox = true;
             actorLayerGraphics.Clear(Color.Transparent);
+            var actors = _level.Rooms[_currentRoomIndex].Actors.AsSpan();
+            bool hasPathActors = false;
 
-            for (int i = 0; i < _level.Rooms[_currentRoomIndex].Actors.Count; i++)
+            for (int i = 0; i < actors.Length; i++)
             {
                 if (actorsCheckListBox.GetItemChecked(i) == true)
                 {
-                    var actor = _level.Rooms[_currentRoomIndex].Actors[i];
+                    var actor = actors[i];
                     DrawActor(actor);
+
+                    if (actor.Name == "FSPO" || actor.Name == "RAIL")
+                        hasPathActors = true;
                 }
             }
+
+            if (hasPathActors && tabControl.SelectedIndex == (int)TabControlIndex.Actor)
+            {
+                var paths = new Dictionary<ushort, List<int>>();
+                BuildPathActors(actors, paths);
+                DrawPathActors(actorLayerGraphics, actors, paths, GetHighestActiveLayerIndex().Value % 8);
+            }
+
             roomLayerGraphics.DrawImage(actorLayerBitmap, 0, 0);
             layerPictureBox.Refresh();
             _ignoreActorCheckbox = false;
+        }
+
+        private void DrawPathActors(Graphics layerGraphics, ReadOnlySpan<Actor> actors, Dictionary<ushort, List<int>> paths, int layer)
+        {
+            int ci = 0;
+
+            foreach (var path in paths.Values)
+            {
+                Color color = GetNextColor();
+                int change = 160 / path.Count;
+
+                int start, end;
+                for (int i = 1; i < path.Count; i++)
+                {
+                    start = path[i - 1];
+                    end = path[i];
+                    if (start == -1 || end == -1)
+                        continue;
+
+                    DrawLineBetweenActors(color, actors[start], actors[end]);
+
+                    color = Color.FromArgb(color.A - change, color.R, color.G, color.B);
+                }
+
+                start = path[0];
+                end = path[path.Count - 1];
+                if (start != -1 && end != -1 && actors[start].Name == "RAIL")
+                {
+                    DrawLineBetweenActors(color, actors[start], actors[end]);
+                }
+            }
+            return;
+
+            Color GetNextColor() => ci++ switch
+            {
+                0 => Color.Lime,
+                1 => Color.Red,
+                2 => Color.Cyan,
+                3 => Color.Magenta,
+                4 => Color.Yellow,
+                _ => Color.HotPink,
+            };
+
+            void DrawLineBetweenActors(Color color, Actor startActor, Actor endActor)
+            {
+                if (startActor.Layer == layer && endActor.Layer == layer)
+                {
+                    Point startPosition = new Point(startActor.XCoord * ACTOR_PIXELS_PER_COORDINATE, startActor.YCoord * ACTOR_PIXELS_PER_COORDINATE);
+                    Point endPosition = new Point(endActor.XCoord * ACTOR_PIXELS_PER_COORDINATE, endActor.YCoord * ACTOR_PIXELS_PER_COORDINATE);
+
+                    layerGraphics.DrawLineWithDropShadow(color, startPosition, endPosition);
+                }
+            }
+        }
+
+        private static void BuildPathActors(ReadOnlySpan<Actor> actors, Dictionary<ushort, List<int>> paths)
+        {
+            paths.Clear();
+
+            ushort id, index;
+            for (int i = 0; i < actors.Length; i++)
+            {
+                var actor = actors[i];
+
+                switch (actor.Name)
+                {
+                    case "FSPO":
+                        id = (ushort)(actor.VariableByte4 + byte.MaxValue);
+                        index = actor.VariableByte1;
+                        break;
+                    case "RAIL":
+                        id = actor.VariableByte2;
+                        index = actor.VariableByte3;
+                        break;
+                    default:
+                        continue;
+                }
+
+                if (!paths.TryGetValue(id, out var points))
+                {
+                    points = new List<int>(16);
+                    paths.Add(id, points);
+                }
+
+                while (points.Count <= index)
+                    points.Add(-1);
+
+                points[index] = i;
+            }
         }
 
         private void AddNewActorFromCode(string code)
