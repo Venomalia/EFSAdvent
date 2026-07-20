@@ -1764,7 +1764,7 @@ namespace EFSAdvent
                     if (actorsCheckListBox.GetItemChecked(i) == true)
                     {
                         var actor = _level.Rooms[_currentRoomIndex].Actors[i];
-                        bool isVisible = alwaysShowActorsToolStripMenuItem.Checked || GetHighestActiveLayerIndex() % 8 == actor.Layer || IsSelectedActor(actor);
+                        bool isVisible = GetHighestActiveLayerIndex() % 8 == actor.Layer || IsSelectedActor(actor);
                         if (isVisible && actor.XCoord == lastActorCoordinates.x && actor.YCoord == lastActorCoordinates.y)
                         {
                             actorMouseDownOnIndex = i;
@@ -2163,7 +2163,7 @@ namespace EFSAdvent
             }
 
             // Only if on current layer
-            if (alwaysShowActorsToolStripMenuItem.Checked || isOnCurrentLayer)
+            if (isOnCurrentLayer)
             {
                 int width, height;
                 // debug display
@@ -2199,7 +2199,7 @@ namespace EFSAdvent
                         }
                         break;
                     case "PTMI":
-                        actorLayerGraphics.DrawRectangleWithDropShadow(Color.LightCyan,
+                        actorLayerGraphics.DrawRectangleWithDropShadow(Color.Black,
                             actorPixelPosition.X,
                             actorPixelPosition.Y,
                             ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + actor.VariableByte1),
@@ -2221,25 +2221,40 @@ namespace EFSAdvent
                             width,
                             height);
 
-                        if ((actor.VariableByte4 & 7) == 4)
+                        if ((actor.VariableByte4 & 7) < 4)
                         {
-                            Color colorX = isSelectedActor ? Color.LightCoral : Color.White;
-                            actorLayerGraphics.DrawRectangleWithDropShadow(colorX, actorPixelPosition.X, actorPixelPosition.Y, 7, 7);
-                            return;
+                            actorLayerGraphics.FillRectangle(GraphicsEX.DropShadow,
+                            actorPixelPosition.X - (width / 2),
+                            actorPixelPosition.Y - (height / 2),
+                            width,
+                            height);
                         }
                         break;
 
                     case "SWTH":
-                        if (isOnCurrentLayer && actor.VariableByte1 == 7)
+                        var tYellow = Color.FromArgb(96, Color.Yellow);
+                        if (isOnCurrentLayer)
                         {
-                            width = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + (actor.VariableByte3 >> 4));
-                            height = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + (actor.VariableByte3 & 0xF));
-                            actorLayerGraphics.DrawRectangleWithDropShadow(Color.White,
-                                actorPixelPosition.X - (width / 2),
-                                actorPixelPosition.Y - (height / 2),
-                                width,
-                                height);
+                            switch (actor.VariableByte1)
+                            {
+                                case 7:
+                                    width = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + (actor.VariableByte3 >> 4));
+                                    height = ACTOR_PIXELS_PER_COORDINATE * 2 * (1 + (actor.VariableByte3 & 0xF));
+                                    actorLayerGraphics.DrawRectangleWithDropShadow(tYellow,
+                                        actorPixelPosition.X - (width / 2),
+                                        actorPixelPosition.Y - (height / 2),
+                                        width,
+                                        height);
+                                    break;
+                                default:
+                                    actorLayerGraphics.DrawRectangleWithDropShadow(tYellow, actorPixelPosition.X, actorPixelPosition.Y, 16, 16);
+                                    break;
+                            }
                         }
+                        break;
+                    case "OBLF":
+                        GraphicsEX.Direction d = (GraphicsEX.Direction)(actor.VariableByte2 & 0x3);
+                        actorLayerGraphics.DrawLineWithDropShadow(Color.Aquamarine, actorPixelPosition, actorPixelPosition.MovePointInDirection(d, 64));
                         break;
                     case "LOTS":
                         width = ((actor.VariableByte2 >> 4) + (actor.VariableByte3 & 0xF) * 16) * ACTOR_PIXELS_PER_COORDINATE * 2;
@@ -2299,6 +2314,33 @@ namespace EFSAdvent
                         actorPixelPosition.Y - (actorSprite.Height / 2),
                         actorSprite.Width,
                         actorSprite.Height);
+                }
+
+                // display variables
+                if (displayVariablesActorsToolStripMenuItem.Checked)
+                {
+                    int localVariable = actor.VariableByte4 >> 3;
+                    if (localVariable != 0)
+                    {
+                        actorLayerGraphics.DrawString(Color.Yellow, localVariable.ToString(), actorPixelPosition.X + 2, actorPixelPosition.Y + 2);
+                        if (V6ACTORS.Contains(actor.Name))
+                        {
+                            int o = 1;
+                            int v2 = (actor.VariableByte4 & 0x7) << 2 | actor.VariableByte3 >> 6;
+                            int v3 = (actor.VariableByte3 >> 1) & 0x1F;
+                            int v4 = (actor.VariableByte3 & 0x1) << 4 | actor.VariableByte2 >> 4;
+                            int v5 = (actor.VariableByte2 & 0xF) << 1 | actor.VariableByte1 >> 7;
+                            if (v2 != 0)
+                                actorLayerGraphics.DrawString(Color.GreenYellow, v2.ToString(), actorPixelPosition.X + 2, actorPixelPosition.Y + 2 + o++ * 8);
+                            if (v3 != 0)
+                                actorLayerGraphics.DrawString(Color.GreenYellow, v3.ToString(), actorPixelPosition.X + 2, actorPixelPosition.Y + 2 + o++ * 8);
+                            if (v4 != 0)
+                                actorLayerGraphics.DrawString(Color.GreenYellow, v4.ToString(), actorPixelPosition.X + 2, actorPixelPosition.Y + 2 + o++ * 8);
+                            if (v5 != 0)
+                                actorLayerGraphics.DrawString(Color.GreenYellow, v5.ToString(), actorPixelPosition.X + 2, actorPixelPosition.Y + 2 + o++ * 8);
+                        }
+                    }
+
                 }
 
                 // Highlights Actor

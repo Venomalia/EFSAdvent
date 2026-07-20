@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace EFSAdvent
 {
@@ -15,6 +16,22 @@ namespace EFSAdvent
         public static readonly Color DropShadow = Color.FromArgb(128, 0, 0, 0);
 
         private static readonly Pen DefaultPen = new Pen(DropShadow);
+        private static readonly SolidBrush DefaultBrush = new SolidBrush(DropShadow);
+        private static readonly Font DefaultFront = new Font("Microsoft Sans Serif", 7);
+
+        public static void DrawString(this Graphics graphics, Color color, string text, int x, int y)
+        {
+            DefaultBrush.Color = DropShadow;
+            graphics.DrawString(text, DefaultFront, DefaultBrush, x + 1, y + 1);
+            DefaultBrush.Color = color;
+            graphics.DrawString(text, DefaultFront, DefaultBrush, x, y);
+        }
+
+        public static void FillRectangle(this Graphics graphics, Color color, int x, int y, int width, int height)
+        {
+            DefaultBrush.Color = color;
+            graphics.FillRectangle(DefaultBrush, x, y, width, height);
+        }
 
         public static void DrawRectangleWithDropShadow(this Graphics graphics, Color color, int x, int y, int width, int height)
         {
@@ -42,27 +59,20 @@ namespace EFSAdvent
 
         public static void Clear(this Bitmap bitmap, Color color)
         {
-            using (Graphics g = Graphics.FromImage(bitmap))
-            {
-                g.Clear(color);
-            }
+            using Graphics g = Graphics.FromImage(bitmap);
+            g.Clear(color);
         }
 
         public static Point MovePointInDirection(this Point source, Direction direction, int width)
         {
-            switch (direction)
+            return direction switch
             {
-                case Direction.East:
-                    return new Point(source.X + width, source.Y);
-                case Direction.West:
-                    return new Point(source.X - width, source.Y);
-                case Direction.North:
-                    return new Point(source.X, source.Y - width);
-                case Direction.South:
-                    return new Point(source.X, source.Y + width);
-                default:
-                    return source;
-            }
+                Direction.East => new Point(source.X + width, source.Y),
+                Direction.West => new Point(source.X - width, source.Y),
+                Direction.North => new Point(source.X, source.Y - width),
+                Direction.South => new Point(source.X, source.Y + width),
+                _ => source,
+            };
         }
     }
 }
