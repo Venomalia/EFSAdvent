@@ -1,6 +1,7 @@
 ﻿using AuroraLib.Core.Format.Identifier;
 using System;
 using System.Buffers.Binary;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 
@@ -10,9 +11,10 @@ namespace FSALib.Structs
     /// Represents an actor in the FSA game world.
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = 11)]
+    [DebuggerDisplay("{ID}, L:{Layer}, X:{XCoord}, Y:{YCoord}")]
     public struct Actor : IComparable<Actor>
     {
-        public static Actor Null => new Actor() { ID = new Identifier32(0x20, 0x20, 0x20, 0x20) };
+        internal static Actor Null => new Actor() { ID = new Identifier32(0x20, 0x20, 0x20, 0x20) };
 
         private static readonly Regex regex = new Regex(@"^(.{4}), L:(\d+), X:(\d+), Y:(\d+), V:(\d+),(\d+),(\d+),(\d+)");
 
