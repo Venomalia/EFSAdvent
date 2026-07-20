@@ -157,6 +157,8 @@ namespace EFSAdvent
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
+            this.openSpriteConverterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -310,6 +312,8 @@ namespace EFSAdvent
             this.ExportMenuItem,
             this.importToolStripMenuItem,
             this.toolStripSeparator1,
+            this.openSpriteConverterToolStripMenuItem,
+            this.toolStripSeparator4,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -574,14 +578,14 @@ namespace EFSAdvent
             // bilinearToolStripMenuItem
             // 
             this.bilinearToolStripMenuItem.Name = "bilinearToolStripMenuItem";
-            this.bilinearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bilinearToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.bilinearToolStripMenuItem.Text = "Bilinear";
             this.bilinearToolStripMenuItem.Click += new System.EventHandler(this.bilinearToolStripMenuItem_Click);
             // 
             // bicubicToolStripMenuItem
             // 
             this.bicubicToolStripMenuItem.Name = "bicubicToolStripMenuItem";
-            this.bicubicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bicubicToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.bicubicToolStripMenuItem.Text = "Bicubic";
             this.bicubicToolStripMenuItem.Click += new System.EventHandler(this.bicubicToolStripMenuItem_Click);
             // 
@@ -590,7 +594,7 @@ namespace EFSAdvent
             this.nearestNeighborToolStripMenuItem.Checked = true;
             this.nearestNeighborToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.nearestNeighborToolStripMenuItem.Name = "nearestNeighborToolStripMenuItem";
-            this.nearestNeighborToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nearestNeighborToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.nearestNeighborToolStripMenuItem.Text = "Nearest Neighbor";
             this.nearestNeighborToolStripMenuItem.Click += new System.EventHandler(this.nearestNeighborToolStripMenuItem_Click);
             // 
@@ -609,7 +613,7 @@ namespace EFSAdvent
             this.autoSelectToolStripMenuItem.CheckOnClick = true;
             this.autoSelectToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.autoSelectToolStripMenuItem.Name = "autoSelectToolStripMenuItem";
-            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.autoSelectToolStripMenuItem.Text = "Auto select";
             this.autoSelectToolStripMenuItem.ToolTipText = "Auto load actor on room change.";
             // 
@@ -617,7 +621,7 @@ namespace EFSAdvent
             // 
             this.displayVariablesActorsToolStripMenuItem.CheckOnClick = true;
             this.displayVariablesActorsToolStripMenuItem.Name = "displayVariablesActorsToolStripMenuItem";
-            this.displayVariablesActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.displayVariablesActorsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.displayVariablesActorsToolStripMenuItem.Text = "Display variables";
             this.displayVariablesActorsToolStripMenuItem.ToolTipText = "Displays variables as text.";
             this.displayVariablesActorsToolStripMenuItem.Click += new System.EventHandler(this.UpdateView_Click);
@@ -1586,6 +1590,18 @@ namespace EFSAdvent
             this.RootFolderPathTextBox.Size = new System.Drawing.Size(494, 20);
             this.RootFolderPathTextBox.TabIndex = 23;
             // 
+            // openSpriteConverterToolStripMenuItem
+            // 
+            this.openSpriteConverterToolStripMenuItem.Name = "openSpriteConverterToolStripMenuItem";
+            this.openSpriteConverterToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.openSpriteConverterToolStripMenuItem.Text = "Open Sprite Converter";
+            this.openSpriteConverterToolStripMenuItem.Click += new System.EventHandler(this.openSpriteConverterToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(246, 6);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1784,6 +1800,8 @@ namespace EFSAdvent
         private TabPage MapMultiplayerTabPage;
         private TabPage MapSinglelplayerTabPage;
         private MapEditor MapEditorSinglelplayer;
+        private ToolStripMenuItem openSpriteConverterToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator4;
     }
 }
 

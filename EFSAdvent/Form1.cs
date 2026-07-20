@@ -2408,6 +2408,21 @@ namespace EFSAdvent
             }
         }
 
+        private SpriteConverterForm? _spriteConverter;
+        private void openSpriteConverterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_spriteConverter == null || _spriteConverter.IsDisposed)
+            {
+                _spriteConverter = new SpriteConverterForm(dataRarc);
+                _spriteConverter.Show(this);
+            }
+            else
+            {
+                _spriteConverter.BringToFront();
+                _spriteConverter.Focus();
+            }
+        }
+
         private Bitmap? GetActorInfoBitmap(Actor actor)
         {
             string type;
