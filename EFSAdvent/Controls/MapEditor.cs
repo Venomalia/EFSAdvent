@@ -8,6 +8,7 @@ namespace EFSAdvent.Controls
 {
     public sealed partial class MapEditor : UserControl
     {
+        private readonly Stopwatch mouseHold = new Stopwatch();
         private MapLayout Map;
         private Stage Level;
         public MapEditor() => InitializeComponent();
@@ -167,6 +168,7 @@ namespace EFSAdvent.Controls
 
         private void MapPictureBox_MouseDown(object sender, MouseEventArgs e)
         {
+            mouseHold.Restart(); // for MapPictureBox_MouseUp
             int roomWidthInPixels = mapPictureBox.Width / Map.XDimension;
             int roomHeightInPixels = mapPictureBox.Height / Map.YDimension;
 
@@ -190,6 +192,10 @@ namespace EFSAdvent.Controls
 
         private void MapPictureBox_MouseUp(object sender, MouseEventArgs e)
         {
+            // Prevents accidental moving
+            if (mouseHold.ElapsedMilliseconds < 500)
+                return;
+
             int roomWidthInPixels = mapPictureBox.Width / Map.XDimension;
             int roomHeightInPixels = mapPictureBox.Height / Map.YDimension;
             switch (e.Button)
