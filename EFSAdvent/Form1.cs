@@ -1573,11 +1573,77 @@ namespace EFSAdvent
                         DrawOverlayOnLayer(layerImage, overlayImage);
                     }
                 }
+
+                if ((tabControl.SelectedIndex == (int)TabControlIndex.Tile || tabControl.SelectedIndex == (int)TabControlIndex.Stamp) && GetHighestActiveLayerIndex() != null)
+                {
+                    DrawTileInfosOnLayer(layerImage, _level.Rooms[_currentRoomIndex].Layers[GetHighestActiveLayerIndex().Value % 8].Tiles);
+                }
             }
 
             DrawActors();
         }
 
+        private void DrawTileInfosOnLayer(IImage<BGRA32> target, ReadOnlySpan<ushort> tiles)
+        {
+            for (int y = 0; y < Layer.DIMENSION; y++)
+            {
+                for (int x = 0; x < Layer.DIMENSION; x++)
+                {
+                    Point pos = new Point(x * TILE_DIMENSION_IN_PIXELS + 8, y * TILE_DIMENSION_IN_PIXELS + 8);
+                    ushort tile = tiles[y * Layer.DIMENSION + x];
+
+                    switch (tile)
+                    {
+                        case 12: // Abyss
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 791, 1);
+                            break;
+                        case 13: // Abyss, does damage
+                        case 84: // Abyss
+                        case 222: // Abyss
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 791, 1, 13);
+                            break;
+                        case 33: // Block, movable
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 426, 1);
+                            break;
+                        case 38: // Block, movable north
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 83, 1);
+                            break;
+                        case 39: // Block, movable south
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 82, 1);
+                            break;
+                        case 54: // Block, movable west
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 81, 1);
+                            break;
+                        case 55: // Block, movable east
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 80, 1);
+                            break;
+                        case 105: // Bush, reveals hole
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 410, 1);
+                            break;
+                        case 67: // Pot, reveals star switch
+                        case 70: // Pot (Side view), reveals switch
+                        case 72: // Pot (Side view), reveals star switch
+                        case 104: // Bush, reveals switch
+                        case 106: // Bush, reveals star switch
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 426, 1);
+                            break;
+                        case 66: // Pot, drops a heart
+                        case 71: // Pot (Side view), drops a heart
+                        case 117: // Bush, drops a heart
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 44, 1);
+                            break;
+                        case 68: // Pot, drops two heart
+                        case 73: // Pot (Side view), drops two heart
+                        case 107: // Bush, drops two heart
+                            spriteRendererTV.DrawSprite(target, pos.X - 4, pos.Y, 44, 1);
+                            spriteRendererTV.DrawSprite(target, pos.X + 4, pos.Y, 44, 1);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
         private void DrawOverlayOnLayer(MemoryImage<BGRA32> layerImage, MemoryImage<BGRA32> overlayImage)
         {
             for (int x = 0; x < layerImage.Width; x += overlayImage.Width)
