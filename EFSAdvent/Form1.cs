@@ -781,6 +781,7 @@ namespace EFSAdvent
                 layerPictureBox.ContextMenuStrip = null;
                 actorContextMenuStrip.Enabled = false;
             }
+            UpdateView(null);
         }
 
         #region MapInfo Tab
@@ -2315,7 +2316,14 @@ namespace EFSAdvent
                             height);
                         }
                         break;
+                    case "LIF2":
+                        width = ACTOR_PIXELS_PER_COORDINATE * 2 * (int)(actor.Variable >> 7 & 0x1F);
+                        height = ACTOR_PIXELS_PER_COORDINATE * 2 * (int)(actor.Variable >> 17 & 0x1F);
+                        GraphicsEX.Direction dc = (GraphicsEX.Direction)(actor.Variable >> 12 & 0x3);
+                        if (dc == GraphicsEX.Direction.North) dc = GraphicsEX.Direction.South;
+                        else if (dc == GraphicsEX.Direction.South) dc = GraphicsEX.Direction.North;
 
+                        break;
                     case "SWTH":
                         var tYellow = Color.FromArgb(96, Color.Yellow);
                         if (isOnCurrentLayer)
@@ -2339,6 +2347,8 @@ namespace EFSAdvent
                         break;
                     case "OBLF":
                         GraphicsEX.Direction d = (GraphicsEX.Direction)(actor.VariableByte2 & 0x3);
+                        if (d == GraphicsEX.Direction.North) d = GraphicsEX.Direction.South;
+                        else if (d == GraphicsEX.Direction.South) d = GraphicsEX.Direction.North;
                         actorLayerGraphics.DrawLineWithDropShadow(Color.Aquamarine, actorPixelPosition, actorPixelPosition.MovePointInDirection(d, 64));
                         break;
                     case "LOTS":
@@ -2377,7 +2387,16 @@ namespace EFSAdvent
                             break;
                         else if (i <= 31)
                             i = 44 + (i - 15);
-                        else if (i <= 47)
+                        else if (i <= 41)
+                            break;
+                        else if (i <= 45)
+                        {
+                            i = 639 + (i - 42);
+                            sob = 2;
+                        }
+                        else if (i == 46)
+                            i = 787;
+                        else if (i == 47)
                             break;
                         else if (i <= 63)
                             i = 387 + (i - 48);
