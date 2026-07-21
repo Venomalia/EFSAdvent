@@ -324,9 +324,15 @@ namespace EFSAdvent
 
             _level.Dispose();
             _level = new Stage();
-            _level.Map.StartX = 4;
-            _level.Map.StartY = 4;
+            _level.Map.StartX = _level.Map.StartY = 4;
+            _level.MapSingleplayer.StartY = _level.MapSingleplayer.StartX = 4;
+            _level.Map.OverlayTextureId = _level.MapSingleplayer.OverlayTextureId = 1;
+            _level.Index = 0;
             OpenLevelFile();
+            _level.Map[4, 4] = 0;
+            _level.MapSingleplayer[4, 4] = 0;
+            LoadRoom(0, true);
+            _levelIsDirty = false;
         }
 
         private void OpenLevel(object sender, EventArgs e)
@@ -363,8 +369,11 @@ namespace EFSAdvent
             catch (Exception err)
             {
                 MessageBox.Show($"Failed to load \"{openDialog.FileName}\",\n {err.Message}.");
+                _levelIsDirty = false;
+                NewToolStripMenuItem_Click(sender, e);
                 return;
             }
+            OpenLevelFile();
 
         }
 
@@ -824,6 +833,29 @@ namespace EFSAdvent
                 _currentRoomIndex = newRoomNumber;
 
                 _history.Reset();
+
+                if (newRoom)
+                {
+                    var room = new Room();
+                    _level.Rooms[newRoomNumber] = room;
+                    var baseLayer = room.Layers[0];
+                    for (int y = 0; y < 24; y++)
+                    {
+                        for (int x = 0; x < Layer.DIMENSION; x++)
+                        {
+                            baseLayer[x, y] = 432;
+                        }
+                    }
+
+                    if (newRoomNumber == 0)
+                    {
+                        room.Actors.Add(new Actor((Identifier32)"PLAS", 0, 29, 24, 0));
+                        room.Actors.Add(new Actor((Identifier32)"PLAS", 0, 31, 24, 1));
+                        room.Actors.Add(new Actor((Identifier32)"PLAS", 0, 33, 24, 2));
+                        room.Actors.Add(new Actor((Identifier32)"PLAS", 0, 35, 24, 3));
+                    }
+                }
+
                 BuildLayerActorList(false);
 
                 if (_level.Map.IsShadowBattle)
@@ -845,18 +877,6 @@ namespace EFSAdvent
                 }
                 layersCheckList.SetItemChecked(0, true);
                 layersCheckList.SetItemChecked(8, true);
-                if (newRoom)
-                {
-                    _level.Rooms[newRoomNumber] = new Room();
-                    var baseLayer = _level.Rooms[newRoomNumber].Layers[0];
-                    for (int y = 0; y < 24; y++)
-                    {
-                        for (int x = 0; x < Layer.DIMENSION; x++)
-                        {
-                            baseLayer[x, y] = 432;
-                        }
-                    }
-                }
 
                 for (int i = 0; i < 16; i++)
                 {
@@ -989,7 +1009,6 @@ namespace EFSAdvent
         private void SelectAllLayerActors()
         {
             _ignoreActorCheckbox = true;
-
             for (int i = 0; i < _level.Rooms[_currentRoomIndex].Actors.Count; i++)
                 actorsCheckListBox.SetItemChecked(i, true);
 
