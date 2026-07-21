@@ -55,7 +55,7 @@
     },
     {
       "name": "Speed",
-	  "description": "The movement speed of the platform. A value of 0 keeps the platform stationary.",
+      "description": "The movement speed of the platform. A value of 0 keeps the platform stationary.",
       "bitOffset": 4,
       "bitSize": 4,
       "valueType": "Integer"
@@ -231,60 +231,60 @@
       ],
       "65537": [
         {
-		  "xoffset" : -8,
-		  "yoffset" : -16,
+          "xoffset": -8,
+          "yoffset": -16,
           "spriteIndex": 26,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 6
+          "replacementPaletteIndex": 6
         },
         {
-		  "xoffset" : 8,
-		  "yoffset" : -16,
+          "xoffset": 8,
+          "yoffset": -16,
           "spriteIndex": 26,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 6
+          "replacementPaletteIndex": 6
         },
         {
-		  "xoffset" : 8,
+          "xoffset": 8,
           "spriteIndex": 26,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 6
+          "replacementPaletteIndex": 6
         },
         {
-		  "xoffset" : 8,
-		  "yoffset" : 16,
+          "xoffset": 8,
+          "yoffset": 16,
           "spriteIndex": 26,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 6
+          "replacementPaletteIndex": 6
         }
       ],
       "65539": [
         {
-		  "xoffset" : -8,
-		  "yoffset" : 16,
+          "xoffset": -8,
+          "yoffset": 16,
           "spriteIndex": 26,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 6
+          "replacementPaletteIndex": 6
         },
         {
-		  "xoffset" : 8,
-		  "yoffset" : -16,
+          "xoffset": 8,
+          "yoffset": -16,
           "spriteIndex": 26,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 6
+          "replacementPaletteIndex": 6
         },
         {
-		  "xoffset" : 8,
+          "xoffset": 8,
           "spriteIndex": 26,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 6
+          "replacementPaletteIndex": 6
         },
         {
-		  "xoffset" : 8,
-		  "yoffset" : 16,
+          "xoffset": 8,
+          "yoffset": 16,
           "spriteIndex": 26,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 6
+          "replacementPaletteIndex": 6
         }
       ]
     }

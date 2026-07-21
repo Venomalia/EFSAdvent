@@ -93,42 +93,42 @@
         {
           "spriteIndex": 155,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 3
+          "replacementPaletteIndex": 3
         }
       ],
       "2": [
         {
           "spriteIndex": 155,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 4
+          "replacementPaletteIndex": 4
         }
       ],
       "3": [
         {
           "spriteIndex": 514,
           "spriteListIndex": 1,
-		  "replacementPaletteIndex" : 3
+          "replacementPaletteIndex": 3
         }
       ],
       "4": [
         {
           "spriteIndex": 155,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 6
+          "replacementPaletteIndex": 6
         }
       ],
       "6": [
         {
           "spriteIndex": 155,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 7
+          "replacementPaletteIndex": 7
         }
       ],
       "7": [
         {
           "spriteIndex": 155,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 8
+          "replacementPaletteIndex": 8
         }
       ],
       "1048576": [

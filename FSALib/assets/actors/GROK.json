@@ -43,13 +43,10 @@
   "rendering": {
     "bitMask": 15,
     "variants": {
-      "0": [
-        {
-        }
-      ],
+      "0": [{}],
       "4": [
         {
-		  "yoffset" : 16,
+          "yoffset": 16,
           "spriteIndex": 49,
           "spriteListIndex": 0
         }

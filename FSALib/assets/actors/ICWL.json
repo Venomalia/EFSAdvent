@@ -108,7 +108,7 @@
         {
           "spriteIndex": 155,
           "spriteListIndex": 1,
-		  "replacementPaletteIndex" : 4
+          "replacementPaletteIndex": 4
         },
         {
           "spriteIndex": 458,
@@ -117,7 +117,7 @@
         {
           "spriteIndex": 459,
           "spriteListIndex": 1
-        },
+        }
       ],
       "1024": [
         {
@@ -131,7 +131,7 @@
         {
           "spriteIndex": 459,
           "spriteListIndex": 1
-        },
+        }
       ],
       "1280": [
         {

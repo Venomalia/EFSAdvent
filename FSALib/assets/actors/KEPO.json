@@ -18,7 +18,7 @@
     "variants": {
       "0": [
         {
-		  "yoffset" : -12,
+          "yoffset": -12,
           "spriteIndex": 618,
           "spriteListIndex": 2
         }

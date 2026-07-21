@@ -83,20 +83,20 @@
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 64,
-		  "yoffset" : 0,
+          "xoffset": 64,
+          "yoffset": 0,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 0,
-		  "yoffset" : 64,
+          "xoffset": 0,
+          "yoffset": 64,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 64,
-		  "yoffset" : 64,
+          "xoffset": 64,
+          "yoffset": 64,
           "spriteIndex": 602,
           "spriteListIndex": 2
         }
@@ -107,20 +107,20 @@
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : -48,
-		  "yoffset" : 48,
+          "xoffset": -48,
+          "yoffset": 48,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 48,
-		  "yoffset" : 48,
+          "xoffset": 48,
+          "yoffset": 48,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 0,
-		  "yoffset" : 96,
+          "xoffset": 0,
+          "yoffset": 96,
           "spriteIndex": 602,
           "spriteListIndex": 2
         }
@@ -131,17 +131,17 @@
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 32,
+          "xoffset": 32,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 64,
+          "xoffset": 64,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 96,
+          "xoffset": 96,
           "spriteIndex": 602,
           "spriteListIndex": 2
         }
@@ -152,17 +152,17 @@
           "spriteListIndex": 2
         },
         {
-		  "yoffset" : 32,
+          "yoffset": 32,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "yoffset" : 64,
+          "yoffset": 64,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "yoffset" : 96,
+          "yoffset": 96,
           "spriteIndex": 602,
           "spriteListIndex": 2
         }
@@ -173,28 +173,28 @@
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 48,
-		  "yoffset" : 48,
+          "xoffset": 48,
+          "yoffset": 48,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 112,
-		  "yoffset" : 48,
+          "xoffset": 112,
+          "yoffset": 48,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 160,
-		  "yoffset" : 0,
+          "xoffset": 160,
+          "yoffset": 0,
           "spriteIndex": 602,
           "spriteListIndex": 2
         }
       ],
       "5": [
         {
-		  "xoffset" : -32,
-		  "yoffset" : -16,
+          "xoffset": -32,
+          "yoffset": -16,
           "btifile": "shikimono.bti"
         },
         {
@@ -202,20 +202,20 @@
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 160,
-		  "yoffset" : 0,
+          "xoffset": 160,
+          "yoffset": 0,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 0,
-		  "yoffset" : 96,
+          "xoffset": 0,
+          "yoffset": 96,
           "spriteIndex": 602,
           "spriteListIndex": 2
         },
         {
-		  "xoffset" : 160,
-		  "yoffset" : 96,
+          "xoffset": 160,
+          "yoffset": 96,
           "spriteIndex": 602,
           "spriteListIndex": 2
         }

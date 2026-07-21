@@ -82,51 +82,51 @@
     "variants": {
       "0": [
         {
-		  "xoffset" : 8,
-		  "yoffset" : 8,
+          "xoffset": 8,
+          "yoffset": 8,
           "spriteIndex": 69,
           "spriteListIndex": 0
         }
       ],
       "4": [
         {
-		  "xoffset" : 8,
-		  "yoffset" : 8,
+          "xoffset": 8,
+          "yoffset": 8,
           "spriteIndex": 73,
           "spriteListIndex": 0
         }
       ],
       "8": [
         {
-		  "xoffset" : 8,
-		  "yoffset" : 8,
+          "xoffset": 8,
+          "yoffset": 8,
           "spriteIndex": 74,
           "spriteListIndex": 0
         }
       ],
       "12": [
         {
-		  "xoffset" : 8,
-		  "yoffset" : 8,
+          "xoffset": 8,
+          "yoffset": 8,
           "spriteIndex": 75,
           "spriteListIndex": 0
         }
       ],
       "16": [
         {
-		  "xoffset" : 8,
-		  "yoffset" : 8,
+          "xoffset": 8,
+          "yoffset": 8,
           "spriteIndex": 76,
           "spriteListIndex": 0
         }
       ],
       "20": [
         {
-		  "xoffset" : 8,
-		  "yoffset" : 8,
+          "xoffset": 8,
+          "yoffset": 8,
           "spriteIndex": 73,
           "spriteListIndex": 0,
-		  "replacementPaletteIndex" : 11
+          "replacementPaletteIndex": 11
         }
       ]
     }

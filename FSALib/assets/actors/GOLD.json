@@ -45,8 +45,8 @@
     "variants": {
       "131072": [
         {
-		  "xoffset" : 8,
-		  "yoffset" : 8,
+          "xoffset": 8,
+          "yoffset": 8,
           "spriteIndex": 42,
           "spriteListIndex": 1
         }

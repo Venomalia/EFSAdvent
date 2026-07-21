@@ -76,21 +76,21 @@
         {
           "spriteIndex": 556,
           "spriteListIndex": 2,
-		  "replacementPaletteIndex" : 2
+          "replacementPaletteIndex": 2
         }
       ],
       "4": [
         {
           "spriteIndex": 556,
           "spriteListIndex": 2,
-		  "replacementPaletteIndex" : 3
+          "replacementPaletteIndex": 3
         }
       ],
       "6": [
         {
           "spriteIndex": 556,
           "spriteListIndex": 2,
-		  "replacementPaletteIndex" : 1
+          "replacementPaletteIndex": 1
         }
       ]
     }

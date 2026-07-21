@@ -86,10 +86,7 @@
           "spriteListIndex": 1
         }
       ],
-      "16384": [
-        {
-        }
-      ],
+      "16384": [{}],
       "20480": [
         {
           "spriteIndex": 892,
@@ -101,7 +98,7 @@
           "spriteIndex": 893,
           "spriteListIndex": 1
         }
-      ],
+      ]
     }
   }
 }
