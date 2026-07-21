@@ -16,5 +16,16 @@
         "1": { "name": "State 1", "description": "Unknown state." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 157,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

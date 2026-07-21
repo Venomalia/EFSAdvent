@@ -69,5 +69,16 @@
         "3": { "name": "?", "description": "Unknown flag." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 0,
+          "spriteListIndex": 3
+        }
+      ]
+    }
+  }
 }

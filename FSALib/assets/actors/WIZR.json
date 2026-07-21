@@ -35,8 +35,23 @@
           "name": "Fire",
           "description": "Wizrobe that casts fire magic."
         },
-        "5": { "name": "Ice", "description": "Wizrobe that casts ice magic." }
+        "5": {
+          "name": "Ice",
+          "description": "Wizrobe that casts ice magic."
+        }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+		  "yoffset" : -8,
+          "spriteIndex": 244,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

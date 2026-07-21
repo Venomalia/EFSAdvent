@@ -3,5 +3,35 @@
   "description": "",
   "InternalName": "宝玉の騎士",
   "category": "Cutscene",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 635,
+          "spriteListIndex": 2
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 636,
+          "spriteListIndex": 2
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 637,
+          "spriteListIndex": 2
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 638,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }
+

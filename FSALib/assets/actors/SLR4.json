@@ -62,5 +62,37 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 14,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 556,
+          "spriteListIndex": 2
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 556,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 2
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 556,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 3
+        }
+      ],
+      "6": [
+        {
+          "spriteIndex": 556,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 1
+        }
+      ]
+    }
+  }
 }

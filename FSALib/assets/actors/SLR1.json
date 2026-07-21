@@ -79,5 +79,64 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 1048591,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 155,
+          "spriteListIndex": 0
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 155,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 3
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 155,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 4
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 514,
+          "spriteListIndex": 1,
+		  "replacementPaletteIndex" : 3
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 155,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 6
+        }
+      ],
+      "6": [
+        {
+          "spriteIndex": 155,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 7
+        }
+      ],
+      "7": [
+        {
+          "spriteIndex": 155,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 8
+        }
+      ],
+      "1048576": [
+        {
+          "spriteIndex": 194,
+          "spriteListIndex": 0
+        }
+      ]
+    }
+  }
 }

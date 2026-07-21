@@ -2,5 +2,16 @@
   "name": "Real Bombchu",
   "description": "",
   "InternalName": "ボムチュウ",
-  "category": "Enemy"
+  "category": "Enemy",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 140,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

@@ -2,5 +2,16 @@
   "name": "Heart container",
   "description": "",
   "InternalName": "ハートの器",
-  "category": "Item"
+  "category": "Item",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 59,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

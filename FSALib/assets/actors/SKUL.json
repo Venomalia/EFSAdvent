@@ -61,5 +61,16 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 120,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

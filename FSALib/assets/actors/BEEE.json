@@ -1,7 +1,7 @@
 {
   "name": "Bee",
   "description": "A bee that is triggered by a local variable.",
-  "category": "Object",
+  "category": "Enemy",
   "InternalName": "蜂",
   "fields": [
     {
@@ -24,5 +24,17 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 460,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }
+

@@ -2,5 +2,50 @@
   "name": "Zelda action OBJ cutscene",
   "description": "",
   "InternalName": "ゼルダ動作ＯＢＪ生成",
-  "category": "Cutscene"
+  "category": "Cutscene",
+  "fields": [
+    {
+      "name": "Local Variable",
+      "description": "The local variable number that is triggered or set by this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Type",
+      "description": "Another unknown value related to the generator.",
+      "bitOffset": 0,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Waits For Variable",
+          "description": "Zelda waits for a variable to be set."
+        },
+        "2": {
+          "name": "Trigger Variable",
+          "description": "A local variable is set."
+        },
+        "3": {
+          "name": "Text Box",
+          "description": "A text is displayed."
+        },
+        "4": {
+          "name": "Use Ladder",
+          "description": "Zelder uses the ladder."
+        },
+        "5": {
+          "name": "Waits For Variable",
+          "description": "Zelda waits for a variable to be set."
+        },
+        "6": {
+          "name": "Room completed",
+          "description": "This Room is complete."
+        },
+        "6": {
+          "name": "Trigger Variable + Text Box"
+        }
+      }
+    }
+  ]
 }

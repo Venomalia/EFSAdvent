@@ -31,5 +31,40 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+		  "xoffset" : -32,
+		  "yoffset" : -32,
+          "spriteIndex": 266,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 6
+        },
+        {
+		  "xoffset" : 32,
+		  "yoffset" : -32,
+          "spriteIndex": 266,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 6
+        },
+        {
+		  "xoffset" : -32,
+		  "yoffset" : 32,
+          "spriteIndex": 266,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 6
+        },
+        {
+		  "xoffset" : 32,
+		  "yoffset" : 32,
+          "spriteIndex": 266,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 6
+        }
+      ]
+    }
+  }
 }

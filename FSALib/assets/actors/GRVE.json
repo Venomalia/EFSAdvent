@@ -15,5 +15,16 @@
         "1": { "name": "Hole", "description": "The gravestone has a hole." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 365,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

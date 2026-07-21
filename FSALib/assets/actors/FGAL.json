@@ -2,5 +2,32 @@
   "name": "4 girl control",
   "description": "Four formation forming girls, Require NPC Sheet 8 or 11.",
   "InternalName": "４人女の子制御",
-  "category": "Intern"
+  "category": "NPC",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 904,
+          "spriteListIndex": 1
+        },
+        {
+		  "xoffset" : 16,
+          "spriteIndex": 904,
+          "spriteListIndex": 1
+        },
+        {
+		  "xoffset" : 32,
+          "spriteIndex": 904,
+          "spriteListIndex": 1
+        },
+        {
+		  "xoffset" : 48,
+          "spriteIndex": 904,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }
+

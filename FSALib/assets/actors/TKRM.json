@@ -2,5 +2,16 @@
   "name": "Treasure mark",
   "description": "",
   "InternalName": "宝マーク",
-  "category": "Object"
+  "category": "Object",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 431,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

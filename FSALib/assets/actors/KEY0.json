@@ -11,12 +11,18 @@
       "bitSize": 7,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Key", "description": "A small key." },
+        "0": {
+          "name": "Key",
+          "description": "A small key."
+        },
         "1": {
           "name": "Big Key",
           "description": "A large key used for special doors."
         },
-        "2": { "name": "Letter", "description": "A letter for a quest event." },
+        "2": {
+          "name": "Letter",
+          "description": "A letter for a quest event."
+        },
         "3": {
           "name": "Power Bracelet",
           "description": "A bracelet that increases strength."
@@ -41,7 +47,10 @@
           "name": "Quake Medallion",
           "description": "A magical medallion that causes earthquakes."
         },
-        "9": { "name": "Book", "description": "A book required for an event." },
+        "9": {
+          "name": "Book",
+          "description": "A book required for an event."
+        },
         "10": {
           "name": "Key (Duplicate)",
           "description": "A duplicate key entry."
@@ -69,8 +78,14 @@
       "bitSize": 8,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Unknown 0", "description": "Unknown effect." },
-        "4": { "name": "Unknown 4", "description": "Unknown effect." }
+        "0": {
+          "name": "Unknown 0",
+          "description": "Unknown effect."
+        },
+        "4": {
+          "name": "Unknown 4",
+          "description": "Unknown effect."
+        }
       }
     },
     {
@@ -80,17 +95,148 @@
       "bitSize": 8,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Appears", "description": "Appears normally." },
+        "0": {
+          "name": "Appears",
+          "description": "Appears normally."
+        },
         "2": {
           "name": "Falls from Above",
           "description": "Falls from the sky."
         },
-        "4": { "name": "Unknown 4", "description": "Unknown effect." },
+        "4": {
+          "name": "Unknown 4",
+          "description": "Unknown effect."
+        },
         "72": {
           "name": "Activated with Pegasus Boots",
           "description": "Can be activated by dashing into it."
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 45,
+          "spriteListIndex": 1
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 46,
+          "spriteListIndex": 1
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 47,
+          "spriteListIndex": 1
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 48,
+          "spriteListIndex": 1
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 49,
+          "spriteListIndex": 1
+        }
+      ],
+      "5": [
+        {
+          "spriteIndex": 50,
+          "spriteListIndex": 1
+        }
+      ],
+      "6": [
+        {
+          "spriteIndex": 51,
+          "spriteListIndex": 1
+        }
+      ],
+      "7": [
+        {
+          "spriteIndex": 52,
+          "spriteListIndex": 1
+        }
+      ],
+      "8": [
+        {
+          "spriteIndex": 53,
+          "spriteListIndex": 1
+        }
+      ],
+      "9": [
+        {
+          "spriteIndex": 54,
+          "spriteListIndex": 1
+        }
+      ],
+      "10": [
+        {
+          "spriteIndex": 55,
+          "spriteListIndex": 1
+        }
+      ],
+      "11": [
+        {
+          "spriteIndex": 56,
+          "spriteListIndex": 1
+        }
+      ],
+      "12": [
+        {
+          "spriteIndex": 57,
+          "spriteListIndex": 1
+        }
+      ],
+      "13": [
+        {
+          "spriteIndex": 58,
+          "spriteListIndex": 1
+        }
+      ],
+      "14": [
+        {
+          "spriteIndex": 59,
+          "spriteListIndex": 1
+        }
+      ],
+      "15": [
+        {
+          "spriteIndex": 60,
+          "spriteListIndex": 1
+        }
+      ],
+      "16": [
+        {
+          "spriteIndex": 61,
+          "spriteListIndex": 1
+        }
+      ],
+      "17": [
+        {
+          "spriteIndex": 62,
+          "spriteListIndex": 1
+        }
+      ],
+      "18": [
+        {
+          "spriteIndex": 63,
+          "spriteListIndex": 1
+        }
+      ],
+      "19": [
+        {
+          "spriteIndex": 64,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

@@ -41,5 +41,199 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 7,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 129,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -8,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -16,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -24,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -32,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -44,
+          "spriteIndex": 130,
+          "spriteListIndex": 2
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 129,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 4
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -8,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -16,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -24,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -32,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -44,
+          "spriteIndex": 130,
+          "spriteListIndex": 2
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 129,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -8,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -16,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -24,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -32,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -44,
+          "spriteIndex": 130,
+          "spriteListIndex": 2
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 129,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 6
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -8,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -16,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -24,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -32,
+          "spriteIndex": 131,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -44,
+          "spriteIndex": 130,
+          "spriteListIndex": 2
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 129,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 13
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -8,
+          "spriteIndex": 131,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 13
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -16,
+          "spriteIndex": 131,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 13
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -24,
+          "spriteIndex": 131,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 13
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -32,
+          "spriteIndex": 131,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 13
+        },
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -44,
+          "spriteIndex": 130,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 13
+        }
+      ]
+    }
+  }
 }

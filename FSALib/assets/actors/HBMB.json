@@ -22,5 +22,16 @@
         "1": { "name": "Bomb Flower", "description": "A bomb flower." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 109,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

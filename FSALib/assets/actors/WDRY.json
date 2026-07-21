@@ -28,18 +28,56 @@
       "bitSize": 8,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Green", "description": "A green force gem." },
-        "1": { "name": "Blue", "description": "A blue force gem." },
-        "2": { "name": "Red", "description": "A red force gem." },
-        "3": { "name": "Purple", "description": "A purple force gem." },
+        "0": {
+          "name": "Green",
+          "description": "A green force gem."
+        },
+        "1": {
+          "name": "Blue",
+          "description": "A blue force gem."
+        },
+        "2": {
+          "name": "Red",
+          "description": "A red force gem."
+        },
+        "3": {
+          "name": "Purple",
+          "description": "A purple force gem."
+        },
         "4": {
           "name": "Small Green",
           "description": "A small green force gem."
         },
-        "5": { "name": "Small Blue", "description": "A small blue force gem." },
-        "6": { "name": "Big Red", "description": "A big red force gem." },
-        "7": { "name": "Big Purple", "description": "A big purple force gem." }
+        "5": {
+          "name": "Small Blue",
+          "description": "A small blue force gem."
+        },
+        "6": {
+          "name": "Big Red",
+          "description": "A big red force gem."
+        },
+        "7": {
+          "name": "Big Purple",
+          "description": "A big purple force gem."
+        }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 65536,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 137,
+          "spriteListIndex": 1
+        }
+      ],
+      "65536": [
+        {
+          "spriteIndex": 1137,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

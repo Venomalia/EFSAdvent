@@ -2,5 +2,16 @@
   "name": "Thwomp",
   "description": "",
   "InternalName": "ドッスン(ドシン?)",
-  "category": "Enemy"
+  "category": "Enemy",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 378,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

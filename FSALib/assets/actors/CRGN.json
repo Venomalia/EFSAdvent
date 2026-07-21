@@ -18,13 +18,22 @@
       "bitSize": 5,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Item Ball", "description": "An item in a ball." },
+        "0": {
+          "name": "Item Ball",
+          "description": "An item in a ball."
+        },
         "1": {
           "name": "Random Ball",
           "description": "Can have various effects."
         },
-        "2": { "name": "Item", "description": "An item lying on the floor." },
-        "3": { "name": "Carrot", "description": "A super carrot." }
+        "2": {
+          "name": "Item",
+          "description": "An item lying on the floor."
+        },
+        "3": {
+          "name": "Carrot",
+          "description": "A super carrot."
+        }
       }
     },
     {
@@ -34,18 +43,80 @@
       "bitSize": 11,
       "valueType": "Flags",
       "enumValues": {
-        "1": { "name": "Slingshot", "description": "" },
-        "2": { "name": "Boomerang", "description": "" },
-        "4": { "name": "Bow", "description": "" },
-        "8": { "name": "Bombs", "description": "" },
-        "16": { "name": "Fire Rod", "description": "" },
-        "32": { "name": "Magic Hammer", "description": "" },
-        "64": { "name": "Roc's Feather", "description": "" },
-        "128": { "name": "Pegasus Boots", "description": "" },
-        "256": { "name": "Shovel", "description": "" },
-        "512": { "name": "Lamp", "description": "" },
-        "1024": { "name": "Lv2 Sword", "description": "" }
+        "1": {
+          "name": "Slingshot",
+          "description": ""
+        },
+        "2": {
+          "name": "Boomerang",
+          "description": ""
+        },
+        "4": {
+          "name": "Bow",
+          "description": ""
+        },
+        "8": {
+          "name": "Bombs",
+          "description": ""
+        },
+        "16": {
+          "name": "Fire Rod",
+          "description": ""
+        },
+        "32": {
+          "name": "Magic Hammer",
+          "description": ""
+        },
+        "64": {
+          "name": "Roc's Feather",
+          "description": ""
+        },
+        "128": {
+          "name": "Pegasus Boots",
+          "description": ""
+        },
+        "256": {
+          "name": "Shovel",
+          "description": ""
+        },
+        "512": {
+          "name": "Lamp",
+          "description": ""
+        },
+        "1024": {
+          "name": "Lv2 Sword",
+          "description": ""
+        }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 144,
+          "spriteListIndex": 1
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 144,
+          "spriteListIndex": 1
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 144,
+          "spriteListIndex": 1
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 152,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

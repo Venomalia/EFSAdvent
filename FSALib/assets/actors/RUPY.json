@@ -27,9 +27,18 @@
           "name": "Small Purple",
           "description": "A small purple Force Gem worth 50."
         },
-        "4": { "name": "Green", "description": "A green Force Gem worth 100." },
-        "5": { "name": "Blue", "description": "A blue Force Gem worth 150." },
-        "6": { "name": "Red", "description": "A red Force Gem worth 200." },
+        "4": {
+          "name": "Green",
+          "description": "A green Force Gem worth 100."
+        },
+        "5": {
+          "name": "Blue",
+          "description": "A blue Force Gem worth 150."
+        },
+        "6": {
+          "name": "Red",
+          "description": "A red Force Gem worth 200."
+        },
         "7": {
           "name": "Purple",
           "description": "A purple Force Gem worth 300."
@@ -52,15 +61,18 @@
         },
         "16": {
           "name": "Key Invisible (bug)",
-          "description": "A key invisible Force Gem, possibly a bug."
+          "description": "A key invisible Force Gem, possibly a bug.",
+          "assetstate": "Broken"
         },
         "17": {
           "name": "Big Key Invisible (bug)",
-          "description": "A big key invisible Force Gem, possibly a bug."
+          "description": "A big key invisible Force Gem, possibly a bug.",
+          "assetstate": "Broken"
         },
         "18": {
           "name": "Letter Invisible (bug)",
-          "description": "An invisible letter Force Gem, possibly a bug."
+          "description": "An invisible letter Force Gem, possibly a bug.",
+          "assetstate": "Broken"
         }
       }
     },
@@ -75,7 +87,10 @@
           "name": "Not Interactable",
           "description": "The Force Gem is not interactable."
         },
-        "2": { "name": "?", "description": "Undefined behavior." },
+        "2": {
+          "name": "?",
+          "description": "Undefined behavior."
+        },
         "3": {
           "name": "Does not Despawn",
           "description": "The Force Gem does not despawn."
@@ -168,5 +183,94 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 63,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 1,
+          "frames": 4,
+          "spriteListIndex": 1
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 5,
+          "frames": 4,
+          "spriteListIndex": 1
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 9,
+          "frames": 4,
+          "spriteListIndex": 1
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 13,
+          "frames": 4,
+          "spriteListIndex": 1
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 17,
+          "frames": 4,
+          "spriteListIndex": 1
+        }
+      ],
+      "5": [
+        {
+          "spriteIndex": 21,
+          "frames": 4,
+          "spriteListIndex": 1
+        }
+      ],
+      "6": [
+        {
+          "spriteIndex": 25,
+          "frames": 4,
+          "spriteListIndex": 1
+        }
+      ],
+      "7": [
+        {
+          "spriteIndex": 29,
+          "frames": 4,
+          "spriteListIndex": 1
+        }
+      ],
+      "8": [
+        {
+          "spriteIndex": 1114,
+          "frames": 4,
+          "spriteListIndex": 2
+        }
+      ],
+      "9": [
+        {
+          "spriteIndex": 1110,
+          "frames": 4,
+          "spriteListIndex": 2
+        }
+      ],
+      "10": [
+        {
+          "spriteIndex": 1122,
+          "frames": 4,
+          "spriteListIndex": 2
+        }
+      ],
+      "11": [
+        {
+          "spriteIndex": 1118,
+          "frames": 4,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

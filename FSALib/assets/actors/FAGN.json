@@ -2,5 +2,17 @@
   "name": "Pengator",
   "description": "",
   "InternalName": "ファンギン",
-  "category": "Enemy"
+  "category": "Enemy",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 326,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }
+

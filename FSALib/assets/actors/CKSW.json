@@ -2,7 +2,7 @@
   "name": "Check Switch",
   "description": "A switch that checks multiple local variables and can set random variables under certain conditions.",
   "InternalName": "チェックスィッチ",
-  "category": "Object",
+  "category": "Property",
   "fields": [
     {
       "name": "Trigger Variable",

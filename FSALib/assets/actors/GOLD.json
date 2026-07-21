@@ -11,12 +11,18 @@
       "bitSize": 8,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Force Hole", "description": "Generates a Force Hole" },
         "0": {
+          "name": "Force Hole",
+          "description": "Generates a Force Hole"
+        },
+        "1": {
           "name": "Force Hole, use Variable",
           "description": "Generates a Force Hole"
         },
-        "2": { "name": "Force Stone", "description": "Generates a Force Stone" }
+        "2": {
+          "name": "Force Stone",
+          "description": "Generates a Force Stone"
+        }
       }
     },
     {
@@ -33,5 +39,18 @@
       "bitSize": 8,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 131072,
+    "variants": {
+      "131072": [
+        {
+		  "xoffset" : 8,
+		  "yoffset" : 8,
+          "spriteIndex": 42,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

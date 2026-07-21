@@ -2,7 +2,7 @@
   "name": "Environmental Switch Control",
   "description": "A control system for environmental effects triggered by specific switches.",
   "InternalName": "環境スィッチ制御",
-  "category": "Intern",
+  "category": "Property",
   "fields": [
     {
       "name": "Activation Variable",

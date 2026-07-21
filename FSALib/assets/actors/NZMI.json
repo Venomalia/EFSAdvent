@@ -16,5 +16,16 @@
         "1": { "name": "?", "description": "" }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 171,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

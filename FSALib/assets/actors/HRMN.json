@@ -3,5 +3,16 @@
   "description": "",
   "InternalName": "馬レース男",
   "category": "NPC",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 797,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

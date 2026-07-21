@@ -79,5 +79,76 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 61440,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 1309,
+          "spriteListIndex": 2
+        }
+      ],
+      "4096": [
+        {
+          "spriteIndex": 1256,
+          "spriteListIndex": 2
+        }
+      ],
+      "8192": [
+        {
+          "spriteIndex": 1270,
+          "spriteListIndex": 2
+        }
+      ],
+      "12288": [
+        {
+          "spriteIndex": 1284,
+          "spriteListIndex": 2
+        }
+      ],
+      "16384": [
+        {
+          "spriteIndex": 1296,
+          "spriteListIndex": 2
+        }
+      ],
+      "20480": [
+        {
+          "spriteIndex": 1194,
+          "spriteListIndex": 2
+        }
+      ],
+      "24576": [
+        {
+          "spriteIndex": 1344,
+          "spriteListIndex": 2
+        }
+      ],
+      "28672": [
+        {
+          "spriteIndex": 1335,
+          "spriteListIndex": 2
+        }
+      ],
+      "32768": [
+        {
+          "spriteIndex": 1339,
+          "spriteListIndex": 2
+        }
+      ],
+      "36864": [
+        {
+          "spriteIndex": 334,
+          "spriteListIndex": 0
+        }
+      ],
+      "40960": [
+        {
+          "spriteIndex": 1328,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

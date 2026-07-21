@@ -2,5 +2,16 @@
   "name": "Ganon Battle Zelda",
   "description": "Cutscene with Zelda and Ganon.",
   "InternalName": "ガノン戦ゼルダ",
-  "category": "Boss"
+  "category": "Boss",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 171,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

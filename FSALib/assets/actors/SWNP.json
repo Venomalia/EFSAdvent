@@ -47,7 +47,10 @@
           "name": "Boomerang",
           "description": "Item stand contains a Boomerang."
         },
-        "3": { "name": "Bow", "description": "Item stand contains a Bow." },
+        "3": {
+          "name": "Bow",
+          "description": "Item stand contains a Bow."
+        },
         "4": {
           "name": "Hammer",
           "description": "Item stand contains a Hammer."
@@ -60,7 +63,10 @@
           "name": "Roc's Feather",
           "description": "Item stand contains Roc's Feather."
         },
-        "7": { "name": "Bombs", "description": "Item stand contains Bombs." },
+        "7": {
+          "name": "Bombs",
+          "description": "Item stand contains Bombs."
+        },
         "8": {
           "name": "Shovel",
           "description": "Item stand contains a Shovel."
@@ -82,9 +88,18 @@
           "name": "Secret SE",
           "description": "Plays the secret SE."
         },
-        "1": { "name": "Event SE", "description": "Plays the Event SE." },
-        "2": { "name": "Wrong SE", "description": "Plays the Wrong SE." },
-        "3": { "name": "Secret SE", "description": "Plays the secret SE." }
+        "1": {
+          "name": "Event SE",
+          "description": "Plays the Event SE."
+        },
+        "2": {
+          "name": "Wrong SE",
+          "description": "Plays the Wrong SE."
+        },
+        "3": {
+          "name": "Secret SE",
+          "description": "Plays the secret SE."
+        }
       }
     },
     {
@@ -114,5 +129,80 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 245775,
+    "variants": {
+      "2": [
+        {
+          "spriteIndex": 65,
+          "frames": 1,
+          "spriteListIndex": 1
+        }
+      ],
+      "16386": [
+        {
+          "spriteIndex": 66,
+          "frames": 1,
+          "spriteListIndex": 1
+        }
+      ],
+      "32770": [
+        {
+          "spriteIndex": 67,
+          "frames": 1,
+          "spriteListIndex": 1
+        }
+      ],
+      "49154": [
+        {
+          "spriteIndex": 68,
+          "frames": 1,
+          "spriteListIndex": 1
+        }
+      ],
+      "65538": [
+        {
+          "spriteIndex": 69,
+          "frames": 1,
+          "spriteListIndex": 1
+        }
+      ],
+      "81922": [
+        {
+          "spriteIndex": 70,
+          "frames": 1,
+          "spriteListIndex": 1
+        }
+      ],
+      "98306": [
+        {
+          "spriteIndex": 71,
+          "frames": 1,
+          "spriteListIndex": 1
+        }
+      ],
+      "114690": [
+        {
+          "spriteIndex": 72,
+          "frames": 1,
+          "spriteListIndex": 1
+        }
+      ],
+      "131074": [
+        {
+          "spriteIndex": 73,
+          "frames": 1,
+          "spriteListIndex": 1
+        }
+      ],
+      "147458": [
+        {
+          "spriteIndex": 74,
+          "frames": 1,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

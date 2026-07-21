@@ -18,8 +18,14 @@
       "bitSize": 7,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "East", "description": "The arrow points to the East." },
-        "1": { "name": "West", "description": "The arrow points to the West." },
+        "0": {
+          "name": "East",
+          "description": "The arrow points to the East."
+        },
+        "1": {
+          "name": "West",
+          "description": "The arrow points to the West."
+        },
         "2": {
           "name": "North",
           "description": "The arrow points to the North."
@@ -37,5 +43,34 @@
       "bitSize": 1,
       "valueType": "Boolean"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 16,
+          "spriteListIndex": 0
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 17,
+          "spriteListIndex": 0
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 18,
+          "spriteListIndex": 0
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 19,
+          "spriteListIndex": 0
+        }
+      ]
+    }
+  }
 }

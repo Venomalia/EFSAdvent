@@ -2,5 +2,17 @@
   "name": "Escort Zora",
   "description": "",
   "InternalName": "護衛ゾーラ",
-  "category": "NPC"
+  "category": "NPC",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 578,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }
+

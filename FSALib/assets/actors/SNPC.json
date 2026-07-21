@@ -12,7 +12,7 @@
       "valueType": "Enum",
       "enumValues": {
         "0": { "name": "Invisible text trigger", "description": "" },
-        "1": { "name": "?", "description": "Unknown sprite." },
+        "1": { "name": "Letter", "description": "" },
         "2": { "name": "?", "description": "Unknown sprite." },
         "3": { "name": "Sweetie", "description": "The NPC is Sweetie." },
         "4": {
@@ -24,7 +24,10 @@
         "7": {
           "name": "Red And Blue Girl",
           "description": "The NPC is the Red and Blue Girl."
-        }
+        },
+        "8": { "name": "Blue Girl", "description": "" },
+        "9": { "name": "Old Woman", "description": "" },
+        "10": { "name": "Thin man", "description": "" }
       }
     },
     {
@@ -41,5 +44,75 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 983040,
+    "variants": {
+      "524288": [
+        {
+          "spriteIndex": 288,
+          "spriteListIndex": 0
+        }
+      ],
+      "131072": [
+        {
+          "spriteIndex": 211,
+          "spriteListIndex": 0
+        }
+      ],
+      "196608": [
+        {
+          "spriteIndex": 302,
+          "spriteListIndex": 0
+        }
+      ],
+      "65536": [
+        {
+          "spriteIndex": 57,
+          "spriteListIndex": 1
+        }
+      ],
+      "262144": [
+        {
+          "spriteIndex": 304,
+          "spriteListIndex": 0
+        }
+      ],
+      "327680": [
+        {
+          "spriteIndex": 1333,
+          "spriteListIndex": 2
+        }
+      ],
+      "393216": [
+        {
+          "spriteIndex": 308,
+          "spriteListIndex": 0
+        }
+      ],
+      "458752": [
+        {
+          "spriteIndex": 294,
+          "spriteListIndex": 0
+        },
+        {
+		  "xoffset" : 48,
+          "spriteIndex": 288,
+          "spriteListIndex": 0
+        }
+      ],
+      "589824": [
+        {
+          "spriteIndex": 789,
+          "spriteListIndex": 1
+        }
+      ],
+      "655360": [
+        {
+          "spriteIndex": 898,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

@@ -21,5 +21,16 @@
         "17": { "name": "?", "description": "Unknown effect." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 39,
+          "spriteListIndex": 0
+        }
+      ]
+    }
+  }
 }

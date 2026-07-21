@@ -12,5 +12,17 @@
       "bitSize": 16,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+		  "yoffset" : -12,
+          "spriteIndex": 618,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

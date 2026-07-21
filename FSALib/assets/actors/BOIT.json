@@ -2,5 +2,16 @@
   "name": "Frostare Tail",
   "description": "",
   "InternalName": "氷のボスのしっぽ",
-  "category": "Boss"
+  "category": "Boss",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 227,
+          "spriteListIndex": 0
+        }
+      ]
+    }
+  }
 }

@@ -41,5 +41,150 @@
         "1": { "name": "Lying", "description": "Player is lying on the ground" }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 307,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 16,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 12
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 16,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 13
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 16,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 14
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 16,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 15
+        }
+      ],
+      "16": [
+        {
+          "spriteIndex": 24,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 12
+        }
+      ],
+      "17": [
+        {
+          "spriteIndex": 24,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 13
+        }
+      ],
+      "18": [
+        {
+          "spriteIndex": 24,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 14
+        }
+      ],
+      "19": [
+        {
+          "spriteIndex": 24,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 15
+        }
+      ],
+      "32": [
+        {
+          "spriteIndex": 0,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 12
+        }
+      ],
+      "33": [
+        {
+          "spriteIndex": 0,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 13
+        }
+      ],
+      "34": [
+        {
+          "spriteIndex": 0,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 14
+        }
+      ],
+      "35": [
+        {
+          "spriteIndex": 0,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 15
+        }
+      ],
+      "48": [
+        {
+          "spriteIndex": 8,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 12
+        }
+      ],
+      "49": [
+        {
+          "spriteIndex": 8,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 13
+        }
+      ],
+      "50": [
+        {
+          "spriteIndex": 8,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 14
+        }
+      ],
+      "51": [
+        {
+          "spriteIndex": 8,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 15
+        }
+      ],
+      "304": [
+        {
+          "spriteIndex": 195,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 12
+        }
+      ],
+      "305": [
+        {
+          "spriteIndex": 195,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 13
+        }
+      ],
+      "306": [
+        {
+          "spriteIndex": 195,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 14
+        }
+      ],
+      "307": [
+        {
+          "spriteIndex": 195,
+          "spriteListIndex": 3,
+		  "replacementPaletteIndex" : 15
+        }
+      ]
+    }
+  }
 }

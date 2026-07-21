@@ -5,8 +5,8 @@
   "category": "TileObject",
   "fields": [
     {
-      "name": "Activation Variable",
-      "description": "The local variable number that is triggered or set by this switch.",
+      "name": "Triggered Local Variable",
+      "description": "The local variable number that is triggered or set by this actor.",
       "bitOffset": 27,
       "bitSize": 5,
       "valueType": "Integer"

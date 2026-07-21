@@ -2,7 +2,7 @@
   "name": "Liftable Tree",
   "description": "A tree that can be lifted by the player, potentially dropping loot when destroyed.",
   "InternalName": "持ち上げ木",
-  "category": "TileObject",
+  "category": "Object",
   "NoGBASprite": true,
   "fields": [
     {

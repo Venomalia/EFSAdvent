@@ -16,5 +16,22 @@
         "1": { "name": "Red", "description": "A red Leever." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 1,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 350,
+          "spriteListIndex": 2
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 355,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

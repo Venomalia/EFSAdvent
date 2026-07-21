@@ -58,5 +58,50 @@
       "bitSize": 12,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 61440,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 1143,
+          "spriteListIndex": 2
+        }
+      ],
+      "4096": [
+        {
+          "spriteIndex": 449,
+          "spriteListIndex": 1
+        }
+      ],
+      "8192": [
+        {
+          "spriteIndex": 970,
+          "spriteListIndex": 1
+        }
+      ],
+      "12288": [
+        {
+          "spriteIndex": 449,
+          "spriteListIndex": 1
+        }
+      ],
+      "16384": [
+        {
+        }
+      ],
+      "20480": [
+        {
+          "spriteIndex": 892,
+          "spriteListIndex": 1
+        }
+      ],
+      "24576": [
+        {
+          "spriteIndex": 893,
+          "spriteListIndex": 1
+        }
+      ],
+    }
+  }
 }

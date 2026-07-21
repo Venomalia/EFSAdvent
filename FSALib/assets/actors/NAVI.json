@@ -2,7 +2,7 @@
   "name": "Navi",
   "description": "A fairy that appears and gives the player information.",
   "InternalName": "ナビィ",
-  "category": "NPC",
+  "category": "Cutscene",
   "NoGBASprite": true,
   "fields": [
     {
@@ -41,5 +41,47 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 983040,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 465,
+          "spriteListIndex": 1
+        }
+      ],
+      "65536": [
+        {
+          "spriteIndex": 471,
+          "spriteListIndex": 1
+        }
+      ],
+      "131072": [
+        {
+          "spriteIndex": 477,
+          "spriteListIndex": 1
+        }
+      ],
+      "196608": [
+        {
+          "spriteIndex": 483,
+          "spriteListIndex": 1
+        }
+      ],
+      "262144": [
+        {
+          "spriteIndex": 489,
+          "spriteListIndex": 1
+        }
+      ],
+      "327680": [
+        {
+          "spriteIndex": 495,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }
+

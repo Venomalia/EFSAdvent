@@ -2,5 +2,16 @@
   "name": "Crab",
   "description": "",
   "InternalName": "ピース",
-  "category": "Enemy"
+  "category": "Enemy",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 26,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

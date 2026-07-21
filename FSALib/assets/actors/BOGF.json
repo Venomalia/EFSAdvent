@@ -2,5 +2,17 @@
   "name": "Tornado Vaati",
   "description": "",
   "InternalName": "ボス用グフー",
-  "category": "Boss"
+  "category": "Boss",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 1126,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }
+

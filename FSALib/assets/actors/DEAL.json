@@ -2,5 +2,16 @@
   "name": "Shopkeeper",
   "description": "Cannot be called up directly.",
   "InternalName": "商人",
-  "category": "NPC"
+  "category": "NPC",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 427,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

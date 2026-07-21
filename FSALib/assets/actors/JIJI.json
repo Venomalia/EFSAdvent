@@ -141,7 +141,10 @@
           "name": "Talon (No GBA sprite)",
           "description": "Talon NPC with no GBA sprite."
         },
-        "33": { "name": "Malon", "description": "Glitched version of Malon." },
+        "33": {
+          "name": "Malon",
+          "description": "Glitched version of Malon."
+        },
         "34": {
           "name": "Thin man with red hair",
           "description": "A thin man with red hair."
@@ -174,7 +177,10 @@
           "name": "Maiden 6 (No GBA sprite)",
           "description": "Sixth Maiden with no GBA sprite."
         },
-        "42": { "name": "Old woman", "description": "An old woman character." },
+        "42": {
+          "name": "Old woman",
+          "description": "An old woman character."
+        },
         "43": {
           "name": "Leader with eye patch (NPC Sheet 13)",
           "description": "A leader NPC wearing an eye patch."
@@ -235,5 +241,220 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": "16711680",
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 902,
+          "spriteListIndex": 1
+        }
+      ],
+      "65536": [
+        {
+          "spriteIndex": 427,
+          "spriteListIndex": 1
+        }
+      ],
+      "524288": [
+        {
+          "spriteIndex": 562,
+          "spriteListIndex": 1
+        }
+      ],
+      "589824": [
+        {
+          "spriteIndex": 564,
+          "spriteListIndex": 1
+        }
+      ],
+      "655360": [
+        {
+          "spriteIndex": 572,
+          "spriteListIndex": 1
+        }
+      ],
+      "131072": [
+        {
+          "spriteIndex": 155,
+          "spriteListIndex": 1
+        }
+      ],
+      "393216": [
+        {
+          "spriteIndex": 955,
+          "spriteListIndex": 1
+        }
+      ],
+      "917504": [
+        {
+          "spriteIndex": 215,
+          "spriteListIndex": 0
+        }
+      ],
+      "196608": [
+        {
+          "spriteIndex": 135,
+          "spriteListIndex": 0
+        }
+      ],
+      "262144": [
+        {
+          "spriteIndex": 83,
+          "spriteListIndex": 0
+        }
+      ],
+      "327680": [
+        {
+          "spriteIndex": 119,
+          "spriteListIndex": 0
+        }
+      ],
+      "851968": [
+        {
+          "spriteIndex": 595,
+          "spriteListIndex": 1
+        }
+      ],
+      "720896": [
+        {
+          "spriteIndex": 605,
+          "spriteListIndex": 1
+        }
+      ],
+      "786432": [
+        {
+          "spriteIndex": 613,
+          "spriteListIndex": 1
+        }
+      ],
+      "1048576": [
+        {
+          "spriteIndex": 619,
+          "spriteListIndex": 1
+        }
+      ],
+      "1769472": [
+        {
+          "spriteIndex": 702,
+          "spriteListIndex": 1
+        }
+      ],
+      "1835008": [
+        {
+          "spriteIndex": 708,
+          "spriteListIndex": 1
+        }
+      ],
+      "1703936": [
+        {
+          "spriteIndex": 783,
+          "spriteListIndex": 1
+        }
+      ],
+      "2752512": [
+        {
+          "spriteIndex": 789,
+          "spriteListIndex": 1
+        }
+      ],
+      "2228224": [
+        {
+          "spriteIndex": 899,
+          "spriteListIndex": 1
+        }
+      ],
+      "1179648": [
+        {
+          "spriteIndex": 694,
+          "spriteListIndex": 2
+        }
+      ],
+      "1245184": [
+        {
+          "spriteIndex": 692,
+          "spriteListIndex": 2
+        }
+      ],
+      "1310720": [
+        {
+          "spriteIndex": 696,
+          "spriteListIndex": 2
+        }
+      ],
+      "1572864": [
+        {
+          "spriteIndex": 101,
+          "spriteListIndex": 0
+        }
+      ],
+      "1900544": [
+        {
+          "spriteIndex": 240,
+          "spriteListIndex": 0
+        }
+      ],
+      "1966080": [
+        {
+          "spriteIndex": 248,
+          "spriteListIndex": 0
+        }
+      ],
+      "2031616": [
+        {
+          "spriteIndex": 256,
+          "spriteListIndex": 0
+        }
+      ],
+      "2818048": [
+        {
+          "spriteIndex": 328,
+          "spriteListIndex": 0
+        }
+      ],
+      "2949120": [
+        {
+          "spriteIndex": 330,
+          "spriteListIndex": 0
+        }
+      ],
+      "2883584": [
+        {
+          "spriteIndex": 332,
+          "spriteListIndex": 0
+        }
+      ],
+      "3014656": [
+        {
+          "spriteIndex": 338,
+          "spriteListIndex": 0
+        }
+      ],
+      "3080192": [
+        {
+          "spriteIndex": 340,
+          "spriteListIndex": 0
+        }
+      ],
+      "3145728": [
+        {
+          "spriteIndex": 326,
+          "spriteListIndex": 0
+        }
+      ],
+      "3211264": [
+        {
+          "spriteIndex": 312,
+          "spriteListIndex": 0
+        }
+      ],
+      "3473408": [
+        {
+          "spriteIndex": 1294,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

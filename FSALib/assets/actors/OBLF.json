@@ -15,13 +15,13 @@
     {
       "name": "Type",
       "description": "The type of the lift plate.",
-      "bitOffset": 20,
+      "bitOffset": 16,
       "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": { "name": "Default", "description": "Standard lift type." },
         "1": {
-          "name": "Alternative V4 Types",
+          "name": "Alternative Z an L",
           "description": "An alternative variant of the lift types."
         }
       }
@@ -29,7 +29,7 @@
     {
       "name": "Activation Requirement",
       "description": "Defines the condition required to activate the lift.",
-      "bitOffset": 8,
+      "bitOffset": 12,
       "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
@@ -54,19 +54,11 @@
       }
     },
     {
-      "name": "Lift Type",
-      "description": "The type of the lift (movable or static).",
+      "name": "Speed",
+	  "description": "The movement speed of the platform. A value of 0 keeps the platform stationary.",
       "bitOffset": 4,
       "bitSize": 4,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": {
-          "name": "Static Lift?",
-          "description": "A fixed lift (not movable)."
-        },
-        "1": { "name": "Movable Lift", "description": "A lift that can move." },
-        "2": { "name": "?", "description": "" }
-      }
+      "valueType": "Integer"
     },
     {
       "name": "Lift Plate Type",
@@ -76,15 +68,15 @@
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "4x4 Gray Lift Plate",
+          "name": "4x4 Gray or turned Z",
           "description": "A 4x4 gray lift plate."
         },
         "1": {
-          "name": "2x2 Gray Lift Plate",
+          "name": "2x2 Gray or turned Z",
           "description": "A 2x2 gray lift plate."
         },
         "2": {
-          "name": "2x4 Gray Lift Plate",
+          "name": "2x4 Gray or Z",
           "description": "A 2x4 gray lift plate."
         },
         "3": {
@@ -124,18 +116,177 @@
           "description": "A 3x3 yellow lift plate with a switch that appears."
         },
         "13": {
-          "name": "4 Plates Turned Z",
+          "name": "Bug! 4 Plates Turned Z",
           "description": "Four plates arranged in a Z shape."
         },
         "14": {
-          "name": "4 Plates Upside Down L",
+          "name": "Bug! 4 Plates Upside Down L",
           "description": "Four plates arranged in an upside-down L shape."
         },
         "15": {
-          "name": "4 Plates Z",
+          "name": "Bug! 4 Plates Z",
           "description": "Four plates arranged in a Z shape."
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 65551,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 20,
+          "spriteListIndex": 0
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 21,
+          "spriteListIndex": 0
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 22,
+          "spriteListIndex": 0
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 23,
+          "spriteListIndex": 0
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 24,
+          "spriteListIndex": 0
+        }
+      ],
+      "5": [
+        {
+          "spriteIndex": 25,
+          "spriteListIndex": 0
+        }
+      ],
+      "6": [
+        {
+          "spriteIndex": 26,
+          "spriteListIndex": 0
+        }
+      ],
+      "7": [
+        {
+          "spriteIndex": 27,
+          "spriteListIndex": 0
+        }
+      ],
+      "8": [
+        {
+          "spriteIndex": 28,
+          "spriteListIndex": 0
+        }
+      ],
+      "9": [
+        {
+          "spriteIndex": 29,
+          "spriteListIndex": 0
+        }
+      ],
+      "10": [
+        {
+          "spriteIndex": 28,
+          "spriteListIndex": 0
+        }
+      ],
+      "11": [
+        {
+          "spriteIndex": 32,
+          "spriteListIndex": 0
+        }
+      ],
+      "12": [
+        {
+          "spriteIndex": 30,
+          "spriteListIndex": 0
+        }
+      ],
+      "65536": [
+        {
+          "spriteIndex": 33,
+          "spriteListIndex": 0
+        }
+      ],
+      "65538": [
+        {
+          "spriteIndex": 35,
+          "spriteListIndex": 0
+        }
+      ],
+      "65540": [
+        {
+          "spriteIndex": 34,
+          "spriteListIndex": 0
+        }
+      ],
+      "65537": [
+        {
+		  "xoffset" : -8,
+		  "yoffset" : -16,
+          "spriteIndex": 26,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 6
+        },
+        {
+		  "xoffset" : 8,
+		  "yoffset" : -16,
+          "spriteIndex": 26,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 6
+        },
+        {
+		  "xoffset" : 8,
+          "spriteIndex": 26,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 6
+        },
+        {
+		  "xoffset" : 8,
+		  "yoffset" : 16,
+          "spriteIndex": 26,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 6
+        }
+      ],
+      "65539": [
+        {
+		  "xoffset" : -8,
+		  "yoffset" : 16,
+          "spriteIndex": 26,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 6
+        },
+        {
+		  "xoffset" : 8,
+		  "yoffset" : -16,
+          "spriteIndex": 26,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 6
+        },
+        {
+		  "xoffset" : 8,
+          "spriteIndex": 26,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 6
+        },
+        {
+		  "xoffset" : 8,
+		  "yoffset" : 16,
+          "spriteIndex": 26,
+          "spriteListIndex": 0,
+		  "replacementPaletteIndex" : 6
+        }
+      ]
+    }
+  }
 }

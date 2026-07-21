@@ -3,5 +3,17 @@
   "description": "",
   "InternalName": "ニワトリ探し追い込みNPC",
   "category": "NPC",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 542,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }
+

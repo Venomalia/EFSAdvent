@@ -19,5 +19,20 @@
         "3": { "name": "Big", "description": "A larger version of the Ghini." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 3,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 132,
+          "spriteListIndex": 2
+        }
+      ],
+      "3": [
+        {
+        }
+      ]
+    }
+  }
 }

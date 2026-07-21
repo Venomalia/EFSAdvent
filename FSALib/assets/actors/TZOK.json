@@ -45,5 +45,34 @@
       "bitSize": 8,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 117440512,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 216,
+          "spriteListIndex": 0
+        }
+      ],
+      "16777216": [
+        {
+          "spriteIndex": 902,
+          "spriteListIndex": 1
+        }
+      ],
+      "33554432": [
+        {
+          "spriteIndex": 83,
+          "spriteListIndex": 0
+        }
+      ],
+      "50331648": [
+        {
+          "spriteIndex": 122,
+          "spriteListIndex": 0
+        }
+      ]
+    }
+  }
 }

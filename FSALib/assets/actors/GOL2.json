@@ -73,5 +73,153 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 64,
+		  "yoffset" : 0,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 0,
+		  "yoffset" : 64,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 64,
+		  "yoffset" : 64,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : -48,
+		  "yoffset" : 48,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 48,
+		  "yoffset" : 48,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 0,
+		  "yoffset" : 96,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 32,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 64,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 96,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "yoffset" : 32,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "yoffset" : 64,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "yoffset" : 96,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 48,
+		  "yoffset" : 48,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 112,
+		  "yoffset" : 48,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 160,
+		  "yoffset" : 0,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        }
+      ],
+      "5": [
+        {
+		  "xoffset" : -32,
+		  "yoffset" : -16,
+          "btifile": "shikimono.bti"
+        },
+        {
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 160,
+		  "yoffset" : 0,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 0,
+		  "yoffset" : 96,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        },
+        {
+		  "xoffset" : 160,
+		  "yoffset" : 96,
+          "spriteIndex": 602,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

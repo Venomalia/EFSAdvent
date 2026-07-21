@@ -25,5 +25,16 @@
         "7": { "name": "Boss208", "description": "Loads map boss208.arc." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 1073,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

@@ -2,5 +2,16 @@
   "name": "After the opening goal",
   "description": "Game intro camera sequence?",
   "InternalName": "オープニング用ゴール後",
-  "category": "Cutscene"
+  "category": "Cutscene",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 0,
+          "spriteListIndex": 3
+        }
+      ]
+    }
+  }
 }

@@ -62,5 +62,129 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 3840,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 458,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 459,
+          "spriteListIndex": 1
+        }
+      ],
+      "256": [
+        {
+          "spriteIndex": 244,
+          "spriteListIndex": 2
+        },
+        {
+          "spriteIndex": 458,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 459,
+          "spriteListIndex": 1
+        }
+      ],
+      "512": [
+        {
+          "spriteIndex": 17,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 458,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 459,
+          "spriteListIndex": 1
+        }
+      ],
+      "768": [
+        {
+          "spriteIndex": 155,
+          "spriteListIndex": 1,
+		  "replacementPaletteIndex" : 4
+        },
+        {
+          "spriteIndex": 458,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 459,
+          "spriteListIndex": 1
+        },
+      ],
+      "1024": [
+        {
+          "spriteIndex": 332,
+          "spriteListIndex": 2
+        },
+        {
+          "spriteIndex": 458,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 459,
+          "spriteListIndex": 1
+        },
+      ],
+      "1280": [
+        {
+          "spriteIndex": 94,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 458,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 459,
+          "spriteListIndex": 1
+        }
+      ],
+      "1536": [
+        {
+          "spriteIndex": 59,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 458,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 459,
+          "spriteListIndex": 1
+        }
+      ],
+      "1792": [
+        {
+          "spriteIndex": 458,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 459,
+          "spriteListIndex": 1
+        }
+      ],
+      "2048": [
+        {
+          "spriteIndex": 44,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 458,
+          "spriteListIndex": 1
+        },
+        {
+          "spriteIndex": 459,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

@@ -2,7 +2,7 @@
   "name": "Enemy Annihilation Switch",
   "description": "",
   "InternalName": "敵全滅チェックスィッチ",
-  "category": "Object",
+  "category": "Property",
   "fields": [
     {
       "name": "Enabled Variable",

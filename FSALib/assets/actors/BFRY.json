@@ -26,9 +26,26 @@
           "name": "Item Upgrader",
           "description": "Upgrades an item for the player."
         },
-        "2": { "name": "Item (Internal)", "description": "Don't use." },
-        "3": { "name": "Item Drop (Internal)", "description": "Don't use." }
+        "2": {
+          "name": "Item (Internal)",
+          "description": "Don't use."
+        },
+        "3": {
+          "name": "Item Drop (Internal)",
+          "description": "Don't use."
+        }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 97,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

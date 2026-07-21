@@ -31,5 +31,34 @@
         "3": { "name": "Purple", "description": "Purple force gem" }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 18,
+          "spriteListIndex": 1
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 22,
+          "spriteListIndex": 1
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 26,
+          "spriteListIndex": 1
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 30,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

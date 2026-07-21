@@ -2,5 +2,16 @@
   "name": "Tingle & Sign",
   "description": "Standing Tingle",
   "InternalName": "やぐらチンクル＆看板",
-  "category": "Object"
+  "category": "Npc",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 213,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

@@ -12,23 +12,6 @@
       "valueType": "Integer"
     },
     {
-      "name": "NPC Type",
-      "description": "Defines the type of NPC related to the hammer bulge.",
-      "bitOffset": 24,
-      "bitSize": 3,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": {
-          "name": "No NPC",
-          "description": "No NPC is associated with this hammer bulge."
-        },
-        "1": {
-          "name": "Goron NPC Type",
-          "description": "The hammer bulge is associated with a Goron NPC type."
-        }
-      }
-    },
-    {
       "name": "Reward Type",
       "description": "Defines the type of reward revealed when the hammer bulge is hammered out.",
       "bitOffset": 0,

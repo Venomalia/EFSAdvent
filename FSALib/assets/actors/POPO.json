@@ -19,5 +19,16 @@
         "1": { "name": "Unknown", "description": "An unknown form or state." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 153,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

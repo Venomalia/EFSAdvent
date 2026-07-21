@@ -2,7 +2,7 @@
   "name": "Local Switch",
   "description": "Sets a local variable when a global variable has been triggered.",
   "InternalName": "Localスィッチ",
-  "category": "Object",
+  "category": "Property",
   "fields": [
     {
       "name": "Local Variable to be Set",

@@ -46,9 +46,33 @@
       "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
+        "0": { "name": "Tiny", "description": "A tiny lily pad." },
         "1": { "name": "Small", "description": "A small lily pad." },
         "2": { "name": "Big", "description": "A big lily pad." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 370,
+          "spriteListIndex": 2
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 371,
+          "spriteListIndex": 2
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 372,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

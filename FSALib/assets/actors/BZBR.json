@@ -17,5 +17,22 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 16777216,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 17,
+          "spriteListIndex": 2
+        }
+      ],
+      "16777216": [
+        {
+          "spriteIndex": 20,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

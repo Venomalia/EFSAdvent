@@ -2,7 +2,7 @@
   "name": "Burning Block (Wooden Box)",
   "description": "A movable wooden box.",
   "InternalName": "燃えるブロック（木箱）",
-  "category": "Object",
+  "category": "TileObject",
   "NoGBASprite": true,
   "fields": [
     {
@@ -19,5 +19,18 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+		  "xoffset" : 8,
+		  "yoffset" : 8,
+          "spriteIndex": 382,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

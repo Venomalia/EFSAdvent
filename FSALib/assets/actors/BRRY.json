@@ -2,7 +2,7 @@
   "name": "Buried Force Gem",
   "description": "A buried Force Gem.",
   "InternalName": "埋まりルピー",
-  "category": "Object",
+  "category": "TileObject",
   "fields": [
     {
       "name": "Activation Variable",
@@ -54,5 +54,58 @@
         "3": { "name": "Purple", "description": "The Force Gem is purple." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 65539,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 276,
+          "spriteListIndex": 0
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 279,
+          "spriteListIndex": 0
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 282,
+          "spriteListIndex": 0
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 285,
+          "spriteListIndex": 0
+        }
+      ],
+      "65536": [
+        {
+          "spriteIndex": 277,
+          "spriteListIndex": 0
+        }
+      ],
+      "65537": [
+        {
+          "spriteIndex": 280,
+          "spriteListIndex": 0
+        }
+      ],
+      "65538": [
+        {
+          "spriteIndex": 283,
+          "spriteListIndex": 0
+        }
+      ],
+      "65539": [
+        {
+          "spriteIndex": 286,
+          "spriteListIndex": 0
+        }
+      ],
+    }
+  }
 }

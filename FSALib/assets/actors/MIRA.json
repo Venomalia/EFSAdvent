@@ -16,5 +16,23 @@
         "1": { "name": "Greer", "description": "A variant of the Gibdo enemy." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 193,
+          "spriteListIndex": 2
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 193,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 6
+        }
+      ]
+    }
+  }
 }

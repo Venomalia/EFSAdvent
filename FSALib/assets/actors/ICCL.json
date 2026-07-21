@@ -2,5 +2,16 @@
   "name": "Icicle",
   "description": "",
   "InternalName": "つらら",
-  "category": "Object"
+  "category": "Object",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 412,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

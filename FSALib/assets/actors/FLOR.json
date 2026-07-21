@@ -2,5 +2,16 @@
   "name": "Floor Master",
   "description": "",
   "InternalName": "フロアマスター",
-  "category": "Enemy"
+  "category": "Enemy",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 806,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

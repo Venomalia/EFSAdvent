@@ -28,5 +28,17 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+		  "yoffset" : 8,
+          "spriteIndex": 43,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

@@ -2,5 +2,17 @@
   "name": "Carrot",
   "description": "A carrot.",
   "InternalName": "人参",
-  "category": "Item"
+  "category": "Item",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 682,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }
+

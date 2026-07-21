@@ -78,5 +78,98 @@
         "7": { "name": "Small Blue", "description": "Small blue force gem" }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 127,
+          "spriteListIndex": 1
+        },
+        {
+		  "yoffset" : -4,
+          "spriteIndex": 17,
+          "spriteListIndex": 1
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 127,
+          "spriteListIndex": 1
+        },
+        {
+		  "yoffset" : -4,
+          "spriteIndex": 21,
+          "spriteListIndex": 1
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 127,
+          "spriteListIndex": 1
+        },
+        {
+		  "yoffset" : -4,
+          "spriteIndex": 25,
+          "spriteListIndex": 1
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 127,
+          "spriteListIndex": 1
+        },
+        {
+		  "yoffset" : -4,
+          "spriteIndex": 29,
+          "spriteListIndex": 1
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 127,
+          "spriteListIndex": 1
+        },
+        {
+		  "yoffset" : -4,
+          "spriteIndex": 31,
+          "spriteListIndex": 1
+        }
+      ],
+      "5": [
+        {
+          "spriteIndex": 127,
+          "spriteListIndex": 1
+        },
+        {
+		  "yoffset" : -4,
+          "spriteIndex": 9,
+          "spriteListIndex": 1
+        }
+      ],
+      "6": [
+        {
+          "spriteIndex": 127,
+          "spriteListIndex": 1
+        },
+        {
+		  "yoffset" : -4,
+          "spriteIndex": 13,
+          "spriteListIndex": 1
+        }
+      ],
+      "7": [
+        {
+          "spriteIndex": 127,
+          "spriteListIndex": 1
+        },
+        {
+		  "yoffset" : -4,
+          "spriteIndex": 5,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

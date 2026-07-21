@@ -24,5 +24,42 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 0,
+          "spriteListIndex": 2
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 0,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 4
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 0,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 5
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 0,
+          "spriteListIndex": 2
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 2,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

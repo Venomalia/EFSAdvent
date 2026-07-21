@@ -22,5 +22,17 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 721,
+          "spriteListIndex": 2,
+		  "replacementPaletteIndex" : 4
+        }
+      ]
+    }
+  }
 }

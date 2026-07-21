@@ -25,5 +25,16 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 772,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

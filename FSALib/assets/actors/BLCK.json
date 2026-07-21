@@ -54,5 +54,34 @@
         "8": { "name": "Unknown", "description": "" }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 3,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 69,
+          "spriteListIndex": 0
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 5,
+          "spriteListIndex": 0
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 6,
+          "spriteListIndex": 0
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 7,
+          "spriteListIndex": 0
+        }
+      ]
+    }
+  }
 }

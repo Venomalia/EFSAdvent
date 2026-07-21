@@ -49,5 +49,16 @@
         "6": { "name": "?", "description": "Unknown movement pattern." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 112,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

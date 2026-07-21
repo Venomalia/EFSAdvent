@@ -11,10 +11,22 @@
       "bitSize": 4,
       "valueType": "Integer",
       "enumValues": {
-        "0": { "name": "?", "description": "Unknown state." },
-        "1": { "name": "?", "description": "Unknown state." },
-        "2": { "name": "?", "description": "Unknown state." },
-        "3": { "name": "?", "description": "Unknown state." }
+        "0": {
+          "name": "?",
+          "description": "Unknown state."
+        },
+        "1": {
+          "name": "?",
+          "description": "Unknown state."
+        },
+        "2": {
+          "name": "?",
+          "description": "Unknown state."
+        },
+        "3": {
+          "name": "?",
+          "description": "Unknown state."
+        }
       }
     },
     {
@@ -24,11 +36,52 @@
       "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "East", "description": "The actor is facing East." },
-        "1": { "name": "West", "description": "The actor is facing West." },
-        "2": { "name": "South", "description": "The actor is facing South." },
-        "3": { "name": "North", "description": "The actor is facing North." }
+        "0": {
+          "name": "East",
+          "description": "The actor is facing East."
+        },
+        "1": {
+          "name": "West",
+          "description": "The actor is facing West."
+        },
+        "2": {
+          "name": "South",
+          "description": "The actor is facing South."
+        },
+        "3": {
+          "name": "North",
+          "description": "The actor is facing North."
+        }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 400,
+          "spriteListIndex": 3
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 406,
+          "spriteListIndex": 3
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 412,
+          "spriteListIndex": 3
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 418,
+          "spriteListIndex": 3
+        }
+      ]
+    }
+  }
 }

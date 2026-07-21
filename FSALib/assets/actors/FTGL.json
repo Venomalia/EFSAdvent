@@ -2,5 +2,17 @@
   "name": "Tingle first appearance",
   "description": "Tingle, talks then floats away",
   "InternalName": "初登場チンクル",
-  "category": "NPC"
+  "category": "NPC",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 221,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }
+

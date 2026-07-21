@@ -46,5 +46,32 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 7,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 79,
+          "spriteListIndex": 2
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 286,
+          "spriteListIndex": 2
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 79,
+          "spriteListIndex": 2
+        },
+        {
+          "spriteIndex": 111,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

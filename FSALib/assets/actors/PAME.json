@@ -12,6 +12,7 @@
       "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
+        "0": { "name": "Small", "description": "A Terrorpin." },
         "1": { "name": "Big", "description": "A large Terrorpin." },
         "3": {
           "name": "Big, Green",
@@ -21,5 +22,16 @@
         "8": { "name": "Big, Blue", "description": "A large, blue Terrorpin." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 189,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

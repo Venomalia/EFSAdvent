@@ -3,5 +3,16 @@
   "description": "",
   "InternalName": "ヒノックス",
   "category": "Enemy",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 43,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

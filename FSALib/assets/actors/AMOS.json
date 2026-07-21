@@ -31,19 +31,19 @@
           "description": "The Armos Knight stays in place."
         },
         "3": {
-          "name": "Large, Attacks from Behind",
-          "description": "A large Armos Knight that only attacks when approached from behind."
+          "name": "Large",
+          "description": "A large Armos Knights."
         },
         "4": {
-          "name": "Large, Pushable",
-          "description": "A large Armos Knight that can be pushed."
+          "name": "Large, Attacks from Behind",
+          "description": "A large Armos Knight that only attacks when approached from behind."
         },
         "5": {
           "name": "Large, Activated",
           "description": "A large Armos Knight that is activated upon interaction."
         },
         "6": {
-          "name": "Fixed",
+          "name": "Pushable",
           "description": "The Armos Knight stays in place."
         },
         "7": {
@@ -65,5 +65,58 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 63,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 338,
+          "spriteListIndex": 1
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 339,
+          "spriteListIndex": 1
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 339,
+          "spriteListIndex": 1
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 1093,
+          "spriteListIndex": 2
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 1092,
+          "spriteListIndex": 2
+        }
+      ],
+      "5": [
+        {
+          "spriteIndex": 1092,
+          "spriteListIndex": 2
+        }
+      ],
+      "6": [
+        {
+          "spriteIndex": 339,
+          "spriteListIndex": 1
+        }
+      ],
+      "7": [
+        {
+          "spriteIndex": 1093,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

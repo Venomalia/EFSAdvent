@@ -2,5 +2,16 @@
   "name": "Stone Elevator",
   "description": "",
   "InternalName": "オシン",
-  "category": "Enemy"
+  "category": "Enemy",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 321,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

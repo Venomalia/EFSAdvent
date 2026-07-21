@@ -45,5 +45,58 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 379,
+          "spriteListIndex": 1
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 380,
+          "spriteListIndex": 1
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 381,
+          "spriteListIndex": 1
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 382,
+          "spriteListIndex": 1
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 383,
+          "spriteListIndex": 1
+        }
+      ],
+      "5": [
+        {
+          "spriteIndex": 384,
+          "spriteListIndex": 1
+        }
+      ],
+      "6": [
+        {
+          "spriteIndex": 385,
+          "spriteListIndex": 1
+        }
+      ],
+      "7": [
+        {
+          "spriteIndex": 386,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

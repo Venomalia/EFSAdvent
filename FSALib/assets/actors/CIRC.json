@@ -79,5 +79,46 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 297,
+          "spriteListIndex": 2
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 298,
+          "spriteListIndex": 2
+        }
+      ],
+      "2": [
+        {
+          "spriteIndex": 299,
+          "spriteListIndex": 2
+        }
+      ],
+      "3": [
+        {
+          "spriteIndex": 300,
+          "spriteListIndex": 2
+        }
+      ],
+      "4": [
+        {
+          "spriteIndex": 301,
+          "spriteListIndex": 2
+        }
+      ],
+      "5": [
+        {
+          "spriteIndex": 302,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

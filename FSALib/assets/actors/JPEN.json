@@ -101,5 +101,107 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 61440,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 944,
+          "spriteListIndex": 1
+        }
+      ],
+      "4096": [
+        {
+          "spriteIndex": 928,
+          "spriteListIndex": 1
+        }
+      ],
+      "8192": [
+        {
+          "spriteIndex": 965,
+          "spriteListIndex": 1
+        }
+      ],
+      "12288": [
+        {
+          "spriteIndex": 913,
+          "spriteListIndex": 1
+        }
+      ],
+      "16384": [
+        {
+          "spriteIndex": 1080,
+          "spriteListIndex": 2
+        }
+      ],
+      "20480": [
+        {
+          "spriteIndex": 1144,
+          "spriteListIndex": 2
+        }
+      ],
+      "24576": [
+        {
+          "spriteIndex": 1148,
+          "spriteListIndex": 2
+        }
+      ],
+      "28672": [
+        {
+          "spriteIndex": 1196,
+          "spriteListIndex": 2
+        }
+      ],
+      "32768": [
+        {
+          "spriteIndex": 1158,
+          "spriteListIndex": 2
+        }
+      ],
+      "36864": [
+        {
+          "spriteIndex": 1170,
+          "spriteListIndex": 2
+        }
+      ],
+      "40960": [
+        {
+          "spriteIndex": 1182,
+          "spriteListIndex": 2
+        }
+      ],
+      "45056": [
+        {
+          "spriteIndex": 1214,
+          "spriteListIndex": 2
+        }
+      ],
+      "49152": [
+        {
+          "spriteIndex": 1228,
+          "spriteListIndex": 2
+        }
+      ],
+      "53248": [
+        {
+          "spriteIndex": 1242,
+          "spriteListIndex": 2
+        }
+      ],
+      "57344": [
+        {
+          "spriteIndex": 1204,
+          "spriteListIndex": 2
+        }
+      ],
+      "61440": [
+        {
+          "spriteIndex": 1322,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }
+

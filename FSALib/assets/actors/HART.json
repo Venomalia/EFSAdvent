@@ -11,7 +11,10 @@
       "bitSize": 8,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Drops", "description": "The heart drops." },
+        "0": {
+          "name": "Drops",
+          "description": "The heart drops."
+        },
         "1": {
           "name": "Lies on the Ground and Does Not Despawn",
           "description": "The heart lies on the ground and does not despawn."
@@ -26,5 +29,16 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 44,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }
