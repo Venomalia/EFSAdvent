@@ -217,7 +217,19 @@
   },
   "49": {
     "Name": "Abyss, does damage",
-    "Description": "Links and enemies fall into the abyss."
+    "Description": "Link and enemies fall into the abyss and take damage."
+  },
+  "50": {
+    "Name": "",
+    "Description": ""
+  },
+  "51": {
+    "Name": "Melting Ice Block",
+    "Description": "An ice block that melts when exposed to heat."
+  },
+  "52": {
+    "Name": "",
+    "Description": ""
   },
   "53": {
     "Name": "Eyeball on switch",
@@ -356,6 +368,10 @@
   "83": {
     "Name": "Tall grass",
     "Description": "Not interactive?"
+  },
+  "84": {
+    "Name": "",
+    "Description": ""
   },
   "85": {
     "Name": "Torch",
@@ -529,6 +545,14 @@
     "Name": "Stakes, chopped",
     "Description": "Hammered into the ground."
   },
+  "120": {
+    "Name": "",
+    "Description": ""
+  },
+  "121": {
+    "Name": "",
+    "Description": ""
+  },
   "122": {
     "Name": "Hole",
     "Description": ""
@@ -629,6 +653,30 @@
     "RequiredActorID": "RBPN",
     "ActorValue": 384
   },
+  "143": {
+    "Name": "Object spawn marker",
+    "Description": "Used as a marker tile to indicate where objects, such as treasure chests may appear."
+  },
+  "144": {
+    "Name": "Breaking Ice",
+    "Description": "Ice that gradually cracks and eventually breaks."
+  },
+  "145": {
+    "Name": "Breaking Ice",
+    "Description": "Ice that gradually cracks and eventually breaks."
+  },
+  "146": {
+    "Name": "Broken Ice",
+    "Description": "Ice that gradually cracks and eventually breaks."
+  },
+  "147": {
+    "Name": "",
+    "Description": ""
+  },
+  "148": {
+    "Name": "",
+    "Description": ""
+  },
   "149": {
     "Name": "Strong water current, South",
     "Description": ""
@@ -655,8 +703,24 @@
     "Name": "Water jar (Side view)",
     "Description": "Can be thrown."
   },
+  "155": {
+    "Name": "",
+    "Description": ""
+  },
+  "156": {
+    "Name": "",
+    "Description": ""
+  },
   "157": {
     "Name": "Destroyed fragile block",
+    "Description": ""
+  },
+  "158": {
+    "Name": "",
+    "Description": ""
+  },
+  "159": {
+    "Name": "",
     "Description": ""
   },
   "160": {
@@ -716,12 +780,16 @@
     "MirrorTile": 170
   },
   "172": {
-    "Name": "Eyeball switch",
-    "Description": "",
+    "Name": "Eyeball Switch",
+    "Description": "A switch that activates when hit by a projectile.",
     "RequiredActorID": "MEDM"
   },
+  "173": {
+    "Name": "Slippery Ice",
+    "Description": "A slippery ice surface that causes players to slide while walking."
+  },
   "174": {
-    "Name": "Red switch",
+    "Name": "Red Switch",
     "Description": "Can raise and lower red/blue switch block..",
     "RequiredActorID": "RDBL"
   },
@@ -768,6 +836,22 @@
     "Description": "",
     "MirrorTile": 182
   },
+  "184": {
+    "Name": "",
+    "Description": ""
+  },
+  "185": {
+    "Name": "",
+    "Description": ""
+  },
+  "186": {
+    "Name": "",
+    "Description": ""
+  },
+  "187": {
+    "Name": "",
+    "Description": ""
+  },
   "188": {
     "Name": "Big Chests, opened",
     "Description": "An empty big chest that has already been opened.",
@@ -789,103 +873,115 @@
     "RequiredActorID": "ONOF"
   },
   "192": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, North",
+    "Description": "Top left corner of wall",
     "MirrorTile": 194
   },
-  "194": {
+  "193": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "194": {
+    "Name": "Steel ball spawner, North",
+    "Description": "Top right corner of wall",
     "MirrorTile": 192
   },
   "195": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, North",
+    "Description": "West corner of wall",
     "MirrorTile": 197
   },
-  "197": {
+  "196": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "197": {
+    "Name": "Steel ball spawner, North",
+    "Description": "Right corner of wall",
     "MirrorTile": 195
   },
   "198": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, South",
+    "Description": "Bottom left corner of wall",
     "MirrorTile": 200
   },
-  "200": {
+  "199": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "200": {
+    "Name": "Steel ball spawner, South",
+    "Description": "Bottom left corner of wall",
     "MirrorTile": 198
   },
   "201": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, South",
+    "Description": "Left corner of wall",
     "MirrorTile": 203
   },
   "203": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, South",
+    "Description": "Right corner of wall",
     "MirrorTile": 201
   },
   "204": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, West",
+    "Description": "Top left corner of wall",
     "MirrorTile": 113
   },
   "205": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, West",
+    "Description": "Left corner of wall",
     "MirrorTile": 214
   },
   "206": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, West",
+    "Description": "Bottom left corner of wall",
     "MirrorTile": 215
   },
   "207": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, West",
+    "Description": "Left corner of wall",
     "MirrorTile": 210
   },
   "208": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, East",
+    "Description": "Right corner of wall",
     "MirrorTile": 211
   },
   "209": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, East",
+    "Description": "Bottom right corner of wall",
     "MirrorTile": 212
   },
   "210": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, East ",
+    "Description": "Top left corner of wall",
     "MirrorTile": 207
   },
   "211": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, East",
+    "Description": "Left corner of wall",
     "MirrorTile": 208
   },
   "212": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, East",
+    "Description": "Bottom left corner of wall",
     "MirrorTile": 209
   },
   "213": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, East",
+    "Description": "Top right corner of wall",
     "MirrorTile": 204
   },
   "214": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, East",
+    "Description": "Top corner of wall",
     "MirrorTile": 205
   },
   "215": {
-    "Name": "",
-    "Description": "",
+    "Name": "Steel ball spawner, East",
+    "Description": "Top right corner of wall",
     "MirrorTile": 206
   },
   "216": {
@@ -912,446 +1008,550 @@
     "Name": "Block",
     "Description": "Not movable"
   },
-  "225": {
+  "221": {
     "Name": "",
+    "Description": ""
+  },
+  "223": {
+    "Name": "",
+    "Description": ""
+  },
+  "224": {
+    "Name": "",
+    "Description": ""
+  },
+  "225": {
+    "Name": "Floor Switch, East",
     "Description": "",
     "MirrorTile": 226
   },
   "226": {
-    "Name": "",
+    "Name": "Floor Switch, West",
     "Description": "",
     "MirrorTile": 225
   },
   "227": {
-    "Name": "",
+    "Name": "?",
     "Description": "",
     "MirrorTile": 228
   },
   "228": {
-    "Name": "",
+    "Name": "?",
     "Description": "",
     "MirrorTile": 227
   },
-  "230": {
+  "229": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "230": {
+    "Name": "Dirt wall, East",
+    "Description": "Right side of dirt wall",
     "MirrorTile": 231
   },
   "231": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, West",
+    "Description": "Left side of dirt wall",
     "MirrorTile": 230
   },
   "232": {
-    "Name": "",
+    "Name": "Glitched tile",
     "Description": "",
     "MirrorTile": 233
   },
   "233": {
-    "Name": "",
+    "Name": "Glitched tile",
     "Description": "",
     "MirrorTile": 232
   },
-  "237": {
+  "234": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "235": {
+    "Name": "",
+    "Description": ""
+  },
+  "236": {
+    "Name": "",
+    "Description": ""
+  },
+  "237": {
+    "Name": "Ladder, West",
+    "Description": "Top left of ladder",
     "MirrorTile": 238
   },
   "238": {
-    "Name": "",
-    "Description": "",
+    "Name": "Ladder, East",
+    "Description": "Top right of ladder",
     "MirrorTile": 237
   },
   "239": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, East",
+    "Description": "Bottom right of dirt wall",
     "MirrorTile": 252
   },
   "240": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt Mount, West",
+    "Description": "Top left of dirt mount",
     "MirrorTile": 242
   },
-  "242": {
+  "241": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "242": {
+    "Name": "Dirt Mount, East",
+    "Description": "Top right of dirt mount",
     "MirrorTile": 240
   },
   "243": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt mount",
+    "Description": "Middle",
     "MirrorTile": 245
   },
-  "245": {
+  "244": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "245": {
+    "Name": "Dirt mount",
+    "Description": "Middle",
     "MirrorTile": 243
   },
   "246": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt mount, West",
+    "Description": "Bottom left of dirt mount",
     "MirrorTile": 248
   },
-  "248": {
+  "247": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "248": {
+    "Name": "Dirt mount, East",
+    "Description": "Bottom left of dirt mount",
     "MirrorTile": 246
+  },
+  "249": {
+    "Name": "",
+    "Description": ""
   },
   "250": {
     "Name": "Tree trunk"
   },
-  "252": {
+  "251": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "252": {
+    "Name": "Dirt wall, East",
+    "Description": "Bottom left of dirt wall",
     "MirrorTile": 239
   },
   "253": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall",
+    "Description": "Bottom of dirt wall",
     "MirrorTile": 255
   },
-  "255": {
+  "254": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "255": {
+    "Name": "Dirt wall",
+    "Description": "Bottom of dirt wall",
     "MirrorTile": 253
   },
   "256": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, West",
+    "Description": "Dirt wall in water",
     "MirrorTile": 257
   },
   "257": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, East",
+    "Description": "Dirt wall in water",
     "MirrorTile": 256
   },
-  "259": {
+  "258": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "259": {
+    "Name": "Dirt wall cliff, West",
+    "Description": "Top left of jumpable dirt wall",
     "MirrorTile": 261
   },
-  "261": {
+  "260": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "261": {
+    "Name": "Dirt wall cliff, East",
+    "Description": "Top of jumpable dirt wall",
     "MirrorTile": 259
   },
   "262": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, West",
+    "Description": "Left side of dirt wall",
     "MirrorTile": 263
   },
   "263": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall East",
+    "Description": "Right side of dirt wall",
     "MirrorTile": 262
   },
-  "265": {
+  "264": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "265": {
+    "Name": "Cliff, West",
+    "Description": "Top left of jumpable cliff",
     "MirrorTile": 266
   },
   "266": {
-    "Name": "",
-    "Description": "",
+    "Name": "Cliff, East",
+    "Description": "Top right of jumpable cliff",
     "MirrorTile": 265
   },
   "267": {
-    "Name": "",
+    "Name": "Dirt wall, West",
     "Description": "",
     "MirrorTile": 268
   },
   "268": {
-    "Name": "",
+    "Name": "Dirt wall East",
     "Description": "",
     "MirrorTile": 267
   },
-  "270": {
+  "269": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "270": {
+    "Name": "Cliff, West",
+    "Description": "Bottom left of cliff",
     "MirrorTile": 271
   },
   "271": {
-    "Name": "",
-    "Description": "",
+    "Name": "Cliff East",
+    "Description": "Bottom right of cliff",
     "MirrorTile": 270
   },
   "272": {
-    "Name": "",
+    "Name": "Cliff, East",
     "Description": "",
     "MirrorTile": 274
   },
-  "274": {
+  "273": {
     "Name": "",
+    "Description": ""
+  },
+  "274": {
+    "Name": "Cliff West",
     "Description": "",
     "MirrorTile": 272
   },
   "275": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, East",
+    "Description": "Part of diagonal cliff",
     "MirrorTile": 277
   },
-  "277": {
+  "276": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "277": {
+    "Name": "Dirt wall, East",
+    "Description": "Part of cliff",
     "MirrorTile": 275
   },
   "278": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 285
   },
   "279": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 284
   },
   "280": {
-    "Name": "",
+    "Name": "Dirt wall edge, East",
     "Description": "",
     "MirrorTile": 283
   },
   "281": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 282
   },
   "282": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 281
   },
   "283": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 280
   },
   "284": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 279
   },
   "285": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 278
   },
   "286": {
-    "Name": "",
+    "Name": "Dirt wall, Wast",
     "Description": "",
     "MirrorTile": 287
   },
   "287": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 286
   },
   "288": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall cliff, Wast",
+    "Description": "Edge of cliff",
     "MirrorTile": 290
   },
-  "290": {
+  "289": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "290": {
+    "Name": "Dirt wall cliff",
+    "Description": "Edge of cliff",
     "MirrorTile": 288
   },
   "291": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, West",
+    "Description": "Bottom edge of cliff",
     "MirrorTile": 293
   },
-  "293": {
+  "292": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "293": {
+    "Name": "Dirt wall, East",
+    "Description": "Bottom edge of cliff",
     "MirrorTile": 291
   },
   "294": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 301
   },
   "295": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 300
   },
   "296": {
-    "Name": "",
-    "Description": "",
+    "Name": "Cliff",
+    "Description": "Top edge of cliff",
     "MirrorTile": 299
   },
   "297": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 298
   },
   "298": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 298
   },
   "299": {
-    "Name": "",
-    "Description": "",
+    "Name": "Cliff, Wast",
+    "Description": "Top of cliff",
     "MirrorTile": 296
   },
   "300": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 295
   },
   "301": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 294
   },
   "302": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, West",
+    "Description": "Wall touches water",
     "MirrorTile": 303
   },
   "303": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, East",
+    "Description": "Wall touches water",
     "MirrorTile": 302
   },
   "304": {
-    "Name": "",
+    "Name": "Dirt wall, West",
     "Description": "",
     "MirrorTile": 306
   },
   "306": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 304
   },
   "307": {
-    "Name": "",
+    "Name": "Dirt wall, West",
     "Description": "",
     "MirrorTile": 309
   },
   "309": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 307
   },
   "310": {
-    "Name": "",
-    "Description": "",
+    "Name": "Tree, West",
+    "Description": "Bottom left of tree",
     "MirrorTile": 313
   },
   "311": {
-    "Name": "",
-    "Description": "",
+    "Name": "Tree, West",
+    "Description": "Bottom left of tree",
     "MirrorTile": 312
   },
   "312": {
-    "Name": "",
-    "Description": "",
+    "Name": "Tree, East",
+    "Description": "Bottom right of tree",
     "MirrorTile": 311
   },
   "313": {
-    "Name": "",
-    "Description": "",
+    "Name": "Tree, East",
+    "Description": "Bottom right of tree",
     "MirrorTile": 310
   },
   "314": {
-    "Name": "",
-    "Description": "",
+    "Name": "Tree, East",
+    "Description": "Bottom right of tree",
     "MirrorTile": 315
   },
   "315": {
-    "Name": "",
-    "Description": "",
+    "Name": "Tree, West",
+    "Description": "Bottom right of tree",
     "MirrorTile": 314
   },
   "316": {
-    "Name": "",
-    "Description": "",
+    "Name": "Tree, Wast",
+    "Description": "Top left corner of tree",
     "MirrorTile": 317
   },
   "317": {
-    "Name": "",
-    "Description": "",
+    "Name": "Tree, East",
+    "Description": "Top right corner of tree",
     "MirrorTile": 316
   },
   "318": {
-    "Name": "",
-    "Description": "",
+    "Name": "Tree, West",
+    "Description": "Left corner of tree",
     "MirrorTile": 319
   },
   "319": {
-    "Name": "",
-    "Description": "",
+    "Name": "Tree East",
+    "Description": "Right corner of tree",
     "MirrorTile": 318
   },
   "320": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 325
   },
   "321": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 324
   },
   "322": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, West",
+    "Description": "Wall meets water",
     "MirrorTile": 323
   },
   "323": {
-    "Name": "",
-    "Description": "",
+    "Name": "Dirt wall, East",
+    "Description": "Wall meets water",
     "MirrorTile": 322
   },
   "324": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 321
   },
   "325": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 320
   },
-  "329": {
+  "326": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "327": {
+    "Name": "",
+    "Description": ""
+  },
+  "328": {
+    "Name": "",
+    "Description": ""
+  },
+  "329": {
+    "Name": "Tall grass",
+    "Description": "Tall grass you can cut/burn",
     "MirrorTile": 331
   },
-  "331": {
+  "330": {
     "Name": "",
-    "Description": "",
+    "Description": ""
+  },
+  "331": {
+    "Name": "Dirt",
+    "Description": "Grass that was burned",
     "MirrorTile": 329
   },
   "332": {
-    "Name": "",
+    "Name": "Ice block?",
     "Description": "",
     "MirrorTile": 348
   },
   "333": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 334
   },
   "334": {
-    "Name": "",
+    "Name": "Dirt wall",
     "Description": "",
     "MirrorTile": 333
   },
-  "336": {
+  "335": {
     "Name": "",
+    "Description": ""
+  },
+  "336": {
+    "Name": "Dirt wall, West",
     "Description": "",
     "MirrorTile": 341
   },
   "337": {
-    "Name": "",
+    "Name": "Dirt wall, East",
     "Description": "",
     "MirrorTile": 340
   },
   "338": {
-    "Name": "",
+    "Name": "Dirt ",
     "Description": "",
     "MirrorTile": 339
   },
