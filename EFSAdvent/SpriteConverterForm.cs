@@ -24,6 +24,7 @@ namespace EFSAdvent
             SpriteRenderer = new SpriteRenderer<BGRA32>(DataArc);
             SpriteObjectBitmap = new Bitmap(128, 128);
             SpritListUpDown.Maximum = SpriteRenderer.SpriteAttributeLists.Count - 1;
+            SpritIndexUpDown.Maximum = SpriteRenderer.SpriteAttributeLists[(byte)SpritListUpDown.Value].Count - 1;
             spritePictureBox.Image = SpriteObjectBitmap;
             SpriteSheetUpDown.Value = 10; // <-- LoadTilesheet + DrawSprite
         }
