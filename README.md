@@ -1,31 +1,39 @@
 
 # EFSAdvent
 [![Wiki](https://img.shields.io/badge/Wiki-Documentation-white)](https://github.com/Venomalia/EFSAdvent/wiki)
-[![Discord](https://img.shields.io/badge/Discord-Four_Swords_Plus-blue?logo=Discord&logoColor=fff)](https://discord.gg/G2FhAdf5pR)
+[![Discord](https://img.shields.io/badge/Discord-Four_Swords_Plus-blue?logo=Discord&logoColor=fff)](https://discord.gg/bKTMyrFXhr)
 
-A level editor for the Nintendo GameCube game Four Swords Adventures.  
-This branch is an unofficial update, made with permission, based on the [source code](https://bitbucket.org/jaytheham/efsadvent/src/main/) of Jay(theHam) Harland.
+A level editor for the Nintendo GameCube game *Four Swords Adventures*.  
+This project is an unofficial continuation of EFSAdvent, based on the original [source code](https://bitbucket.org/jaytheham/efsadvent/src/main/) by Jay (theHam) Harland.
 
-## Main Changes
-- Fixed multiple bugs to enhance stability.
-- Start room is now highlighted and auto-loaded when a level is opened.
-- Actor variables are now displayed and editable in their correct format.
-- Enabled copying and pasting actor data via clipboard.
-- Simplified adding and deleting rooms.
-- Enabled importing rooms and actors from other levels.
-- Added a preview to show which tiles will be altered by PNPC and PNP2 actors.
-- Expanded detailed documentation for numerous actors.
-- Shadow Battle Map values can now be loaded and edited.
-- Highlights which layers are in use.
-- Added the ability to export levels as .png files.
-- Enabled export and import of room tiles to Tiled TMX files.
-- Added functionality to load actors from templates.
-- Added visualization of Overlay filter effects.
-- Hyrule Castle GBA levels are displayed correctly.
-- Modern tile brush for easy editing.
+## Features & Improvements
+
+- Improved stability, error handling, and overall editor reliability.
+- Enhanced level editing with easier room management, importing, exporting, and tile editing tools.
+- Added advanced actor support, including variable editing, templates, documentation, rendering, and clipboard support.
+- Added visual tools for actor paths, layer usage, Overlay effects, and tile modifications.
+- Added native sprite and tile rendering based on the original `data.arc` resources.
+- Added full RARC archive support for loading and saving FSA resources.
+- Added support for Shadow Battle Maps and improved GBA level rendering.
+- Added Tiled TMX import/export and PNG level export.
+- Added a Sprite Converter tool.
+- Improved tile information, metadata, and property visualization.
 
 ## Goals
-Fully document all actor variables and their behavior.
+- Fully document all actor variables and their behavior.
+- Continue improving support for advanced FSA level editing features.
+
+## Getting Started
+- Use Dolphin to extract the entire **The Legend of Zelda: Four Swords Adventures** game disc into a folder.
+Launch the editor.
+- On first launch, the editor will ask you to locate **data.arc**. Select: `files/GC4Sword/data.arc`
+The editor will copy this file to its local data folder, so this step only needs to be completed once.
+- After the editor has started, open a stage archive from the extracted game files.
+For example, the first stage is located at: `files/GC4Sword/Boss/boss010.arc`
+
+Changes can be saved directly to the stage archive.  
+Since Dolphin can boot extracted game folders, you can test your changes immediately without rebuilding the disc image!
 
 ## Preview
-![grafik](https://github.com/user-attachments/assets/b8545f2f-d7f2-4e26-95db-4a959b618be9)
+<img width="960" height="606" alt="grafik" src="https://github.com/user-attachments/assets/a39e8801-a415-40e5-9c8a-2de2dd4dd52d" />
+
