@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FSALib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -194,7 +195,7 @@ namespace EFSAdvent.Controls
             // 
             this.MapRoomNumberInput.Location = new System.Drawing.Point(8, 44);
             this.MapRoomNumberInput.Maximum = new decimal(new int[] {
-            255,
+            MapLayout.MAX_Rooms-1,
             0,
             0,
             0});
