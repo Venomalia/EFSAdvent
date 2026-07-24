@@ -23,20 +23,16 @@
       "description": "Defines specific behaviors for movement along the rail.",
       "bitOffset": 0,
       "bitSize": 8,
-      "valueType": "Enum",
+      "valueType": "Flags",
       "enumValues": {
-        "0": { "name": "Default", "description": "" },
-        "1": { "name": "Unknown", "description": "Unidentified behavior." },
+        "1": { "name": "End, Loop back", "description": "The rail ends here and leads back to the starting point." },
+        "2": { "name": "End", "description": "The rail ends here." },
+        "4": { "name": "Zelda Rail?", "description": "Used by Zelda." },
         "8": {
-          "name": "Jumps",
-          "description": "The actor jumps while following the rail."
+          "name": "Jumps Forward",
+          "description": "The actor jumps when he wants to go to the next rail."
         },
-        "16": { "name": "Unknown", "description": "Unidentified behavior." },
-        "17": {
-          "name": "Jumps",
-          "description": "The actor jumps while following the rail."
-        },
-        "24": { "name": "Unknown", "description": "Unidentified behavior." }
+        "16": { "name": "Jumps Backward", "description": "The actor jumps when he wants to go to the last rail." }
       }
     }
   ]

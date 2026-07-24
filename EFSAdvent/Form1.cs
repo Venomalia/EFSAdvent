@@ -1090,12 +1090,13 @@ namespace EFSAdvent
 
         private void DrawPathActors(Graphics layerGraphics, ReadOnlySpan<Actor> actors, Dictionary<ushort, List<int>> paths, int layer)
         {
+            Identifier32 RAIL = new Identifier32("RAIL".AsSpan());
             int ci = 0;
 
             foreach (var path in paths.Values)
             {
                 Color color = GetNextColor();
-                int change = 160 / path.Count;
+                int change = 140 / path.Count;
 
                 int start, end;
                 for (int i = 1; i < path.Count; i++)
@@ -1105,16 +1106,27 @@ namespace EFSAdvent
                     if (start == -1 || end == -1)
                         continue;
 
-                    DrawLineBetweenActors(color, actors[start], actors[end]);
+                    DashStyle style = DashStyle.Solid;
+                    if (actors[start].ID == RAIL)
+                    {
+                        bool jumpsForward = (actors[start].Variable & 0x08) != 0;
+                        bool jumpsBackward = (actors[end].Variable & 0x10) != 0;
+
+                        if (jumpsForward || jumpsBackward)
+                            style = jumpsForward && jumpsBackward ? DashStyle.Dot : DashStyle.Dash;
+                    }
+
+                    DrawLineBetweenActors(color, actors[start], actors[end], style);
 
                     color = Color.FromArgb(color.A - change, color.R, color.G, color.B);
                 }
 
                 start = path[0];
                 end = path[path.Count - 1];
-                if (start != -1 && end != -1 && actors[start].Name == "RAIL")
+                if (start != -1 && end != -1 && actors[start].Name == "RAIL" && (actors[end].Variable & 0x1) != 0)
                 {
                     DrawLineBetweenActors(color, actors[start], actors[end]);
+                    DrawLineBetweenActors(color, actors[start], actors[end], DashStyle.Solid);
                 }
             }
             return;
@@ -1123,20 +1135,22 @@ namespace EFSAdvent
             {
                 0 => Color.Lime,
                 1 => Color.Red,
-                2 => Color.Cyan,
+                2 => Color.Blue,
                 3 => Color.Magenta,
                 4 => Color.Yellow,
+                5 => Color.Cyan,
+                6 => Color.LightGreen,
                 _ => Color.HotPink,
             };
 
-            void DrawLineBetweenActors(Color color, Actor startActor, Actor endActor)
+            void DrawLineBetweenActors(Color color, Actor startActor, Actor endActor, DashStyle style)
             {
                 if (startActor.Layer == layer && endActor.Layer == layer)
                 {
                     Point startPosition = new Point(startActor.XCoord * ACTOR_PIXELS_PER_COORDINATE, startActor.YCoord * ACTOR_PIXELS_PER_COORDINATE);
                     Point endPosition = new Point(endActor.XCoord * ACTOR_PIXELS_PER_COORDINATE, endActor.YCoord * ACTOR_PIXELS_PER_COORDINATE);
 
-                    layerGraphics.DrawLineWithDropShadow(color, startPosition, endPosition);
+                    layerGraphics.DrawLineWithDropShadow(color, startPosition, endPosition, style);
                 }
             }
         }

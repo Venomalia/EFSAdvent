@@ -1,5 +1,5 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace EFSAdvent
 {
@@ -19,38 +19,43 @@ namespace EFSAdvent
         private static readonly SolidBrush DefaultBrush = new SolidBrush(DropShadow);
         private static readonly Font DefaultFront = new Font("Microsoft Sans Serif", 7);
 
-        public static void DrawString(this Graphics graphics, Color color, string text, int x, int y)
+        public static void DrawString(this Graphics graphics, Color color, string text, int x, int y, DashStyle style = DashStyle.Solid)
         {
+            DefaultPen.DashStyle = style;
             DefaultBrush.Color = DropShadow;
             graphics.DrawString(text, DefaultFront, DefaultBrush, x + 1, y + 1);
             DefaultBrush.Color = color;
             graphics.DrawString(text, DefaultFront, DefaultBrush, x, y);
         }
 
-        public static void FillRectangle(this Graphics graphics, Color color, int x, int y, int width, int height)
+        public static void FillRectangle(this Graphics graphics, Color color, int x, int y, int width, int height, DashStyle style = DashStyle.Solid)
         {
+            DefaultPen.DashStyle = style;
             DefaultBrush.Color = color;
             graphics.FillRectangle(DefaultBrush, x, y, width, height);
         }
 
-        public static void DrawRectangleWithDropShadow(this Graphics graphics, Color color, int x, int y, int width, int height)
+        public static void DrawRectangleWithDropShadow(this Graphics graphics, Color color, int x, int y, int width, int height, DashStyle style = DashStyle.Solid)
         {
+            DefaultPen.DashStyle = style;
             DefaultPen.Color = DropShadow;
             graphics.DrawRectangle(DefaultPen, x + 1, y + 1, width, height);
             DefaultPen.Color = color;
             graphics.DrawRectangle(DefaultPen, x, y, width, height);
         }
 
-        public static void DrawLineWithDropShadow(this Graphics graphics, Color color, Point p1, Point p2)
+        public static void DrawLineWithDropShadow(this Graphics graphics, Color color, Point p1, Point p2, DashStyle style = DashStyle.Solid)
         {
+            DefaultPen.DashStyle = style;
             DefaultPen.Color = DropShadow;
             graphics.DrawLine(DefaultPen, p1, p2);
             DefaultPen.Color = color;
             graphics.DrawLine(DefaultPen, p1, p2);
         }
 
-        public static void DrawCircleWithDropShadow(this Graphics graphics, Color color, Point center, int size)
+        public static void DrawCircleWithDropShadow(this Graphics graphics, Color color, Point center, int size, DashStyle style = DashStyle.Solid)
         {
+            DefaultPen.DashStyle = style;
             DefaultPen.Color = DropShadow;
             graphics.DrawEllipse(DefaultPen, center.X + 1 - size, center.Y + 1 - size, size * 2, size * 2);
             DefaultPen.Color = color;
