@@ -25,14 +25,20 @@
       "bitSize": 8,
       "valueType": "Flags",
       "enumValues": {
-        "1": { "name": "End, Loop back", "description": "The rail ends here and leads back to the starting point." },
+        "1": {
+          "name": "End, Loop back",
+          "description": "The rail ends here and leads back to the starting point."
+        },
         "2": { "name": "End", "description": "The rail ends here." },
         "4": { "name": "Zelda Rail?", "description": "Used by Zelda." },
         "8": {
           "name": "Jumps Forward",
           "description": "The actor jumps when he wants to go to the next rail."
         },
-        "16": { "name": "Jumps Backward", "description": "The actor jumps when he wants to go to the last rail." }
+        "16": {
+          "name": "Jumps Backward",
+          "description": "The actor jumps when he wants to go to the last rail."
+        }
       }
     }
   ]

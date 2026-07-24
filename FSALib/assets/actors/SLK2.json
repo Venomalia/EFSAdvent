@@ -45,7 +45,10 @@
       "enumValues": {
         "0": { "name": "Clone", "description": "Unknown flag." },
         "2": { "name": "Source, splits", "description": "Unknown flag." },
-        "4": { "name": "Source, clones jump out", "description": "Unknown flag." },
+        "4": {
+          "name": "Source, clones jump out",
+          "description": "Unknown flag."
+        },
         "6": { "name": "Clone, appears", "description": "Unknown flag." }
       }
     },
