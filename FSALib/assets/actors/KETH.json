@@ -27,7 +27,10 @@
           "name": "Big Keese",
           "description": "A larger version of Keese."
         },
-        "256": { "name": "Hanging from ceiling", "description": "A normal Keese." },
+        "256": {
+          "name": "Hanging from ceiling",
+          "description": "A normal Keese."
+        }
       }
     }
   ],
