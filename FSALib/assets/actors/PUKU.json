@@ -7,7 +7,7 @@
     {
       "name": "Size",
       "description": "Determines the size of the Cheep-Cheep.",
-      "bitOffset": 0,
+      "bitOffset": 4,
       "bitSize": 8,
       "valueType": "Enum",
       "enumValues": {

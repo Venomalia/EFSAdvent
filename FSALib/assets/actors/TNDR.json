@@ -6,8 +6,8 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Behavior Type",
-      "description": "Defines the vulture's behavior or properties.",
+      "name": "Activation distance",
+      "description": "Defines the vulture's activation distance.",
       "bitOffset": 0,
       "bitSize": 8,
       "valueType": "Integer"

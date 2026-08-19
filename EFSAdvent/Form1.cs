@@ -1125,7 +1125,6 @@ namespace EFSAdvent
                 end = path[path.Count - 1];
                 if (start != -1 && end != -1 && actors[start].Name == "RAIL" && (actors[end].Variable & 0x1) != 0)
                 {
-                    DrawLineBetweenActors(color, actors[start], actors[end]);
                     DrawLineBetweenActors(color, actors[start], actors[end], DashStyle.Solid);
                 }
             }
@@ -1635,6 +1634,14 @@ namespace EFSAdvent
                         case 84: // Abyss
                         case 222: // Abyss
                             spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 791, 1, 13);
+                            break;
+                        case 74:
+                        case 76:
+                        case 77: // Not traversable!
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 135, 1, 13);
+                            break;
+                        case 75: // digging not possible
+                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 73, 1, 7);
                             break;
                         case 33: // Block, movable
                             spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 426, 1);

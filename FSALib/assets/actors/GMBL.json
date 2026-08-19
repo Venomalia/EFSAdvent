@@ -36,5 +36,16 @@
       "bitSize": 8,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 300,
+          "spriteListIndex": 0
+        }
+      ]
+    }
+  }
 }

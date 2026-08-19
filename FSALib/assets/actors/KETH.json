@@ -15,7 +15,7 @@
       "name": "Keese Type",
       "description": "Determines the movement and size of the Keese.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 16,
       "valueType": "Enum",
       "enumValues": {
         "0": { "name": "Default", "description": "A normal Keese." },
@@ -26,7 +26,8 @@
         "16": {
           "name": "Big Keese",
           "description": "A larger version of Keese."
-        }
+        },
+        "256": { "name": "Hanging from ceiling", "description": "A normal Keese." },
       }
     }
   ],
@@ -35,7 +36,7 @@
     "variants": {
       "0": [
         {
-          "spriteIndex": 342,
+          "spriteIndex": 343,
           "spriteListIndex": 1
         }
       ]

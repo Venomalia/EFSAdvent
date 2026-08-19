@@ -454,6 +454,84 @@
           "spriteIndex": 1294,
           "spriteListIndex": 2
         }
+      ],
+      "2359296": [
+        {
+          "spriteIndex": 408,
+          "spriteListIndex": 2
+        }
+      ],
+      "2424832": [
+        {
+          "spriteIndex": 434,
+          "spriteListIndex": 2
+        }
+      ],
+      "2490368": [
+        {
+          "spriteIndex": 460,
+          "spriteListIndex": 2
+        }
+      ],
+      "2555904": [
+        {
+          "spriteIndex": 486,
+          "spriteListIndex": 2
+        }
+      ],
+      "2621440": [
+        {
+          "spriteIndex": 512,
+          "spriteListIndex": 2
+        }
+      ],
+      "2686976": [
+        {
+          "spriteIndex": 538,
+          "spriteListIndex": 2
+        }
+      ],
+      "458752": [
+        {
+          "spriteIndex": 213,
+          "spriteListIndex": 2
+        }
+      ],
+      "1441792": [
+        {
+          "spriteIndex": 135,
+          "spriteListIndex": 0
+        }
+      ],
+      "2097152": [
+        {
+          "spriteIndex": 726,
+          "spriteListIndex": 2
+        }
+      ],
+      "2162688": [
+        {
+          "spriteIndex": 746,
+          "spriteListIndex": 2
+        }
+      ],
+      "1114112": [
+        {
+          "spriteIndex": 690,
+          "spriteListIndex": 2
+        }
+      ],
+      "983040": [
+        {
+          "spriteIndex": 542,
+          "spriteListIndex": 1
+        }
+      ],
+      "1507328": [
+        {
+          "spriteIndex": 83,
+          "spriteListIndex": 0
+        }
       ]
     }
   }
