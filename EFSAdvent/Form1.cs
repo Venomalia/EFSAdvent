@@ -1125,7 +1125,6 @@ namespace EFSAdvent
                 end = path[path.Count - 1];
                 if (start != -1 && end != -1 && actors[start].Name == "RAIL" && (actors[end].Variable & 0x1) != 0)
                 {
-                    DrawLineBetweenActors(color, actors[start], actors[end]);
                     DrawLineBetweenActors(color, actors[start], actors[end], DashStyle.Solid);
                 }
             }
@@ -1611,6 +1610,105 @@ namespace EFSAdvent
                 if ((tabControl.SelectedIndex == (int)TabControlIndex.Tile || tabControl.SelectedIndex == (int)TabControlIndex.Stamp) && GetHighestActiveLayerIndex() != null)
                 {
                     DrawTileInfosOnLayer(layerImage, _level.Rooms[_currentRoomIndex].Layers[GetHighestActiveLayerIndex().Value % 8].Tiles);
+                }
+            }
+
+            bool showInteraction = showInteractionToolStripMenuItem.Checked;
+            bool showCollision = showCollisionToolStripMenuItem.Checked;
+            if (showCollision || showInteraction)
+            {
+                int mainLayer = GetHighestActiveLayerIndex().Value % 8;
+                ReadOnlySpan<ushort> tiles = _level.Rooms[_currentRoomIndex].Layers[mainLayer].Tiles;
+                var renderer = (mainLayer == 0) ? tilesetRendererTV : tilesetRendererGBA;
+                for (int y = 0; y < Layer.DIMENSION; y++)
+                {
+                    for (int x = 0; x < Layer.DIMENSION; x++)
+                    {
+                        ushort tile = tiles[y * Layer.DIMENSION + x];
+                        if (Assets.TileProperties.TryGetValue(tile, out var tileDefinition))
+                        {
+                            Point pos = new Point(x * TILE_DIMENSION_IN_PIXELS, y * TILE_DIMENSION_IN_PIXELS);
+                            bool Static = tileDefinition.Interaction == InteractionFlags.None;
+                            if (!Static && showInteraction)
+                            {
+                                tile = tileDefinition.InteractionTile;
+                                if (!Assets.TileProperties.TryGetValue(tile, out tileDefinition))
+                                    continue;
+
+                                if (tile != 0)
+                                {
+                                    using var layerImage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
+                                    renderer.DrawTile(layerImage, pos.X, pos.Y, tile);
+                                }
+
+                            }
+#if DEBUG
+                            if (string.IsNullOrWhiteSpace(tileDefinition.Name))
+                            {
+                                roomLayerGraphics.FillRectangle(Color.FromArgb(160, Color.Magenta), pos.X + 4, pos.Y + 4, 8, 8);
+                            }
+                            else if (tileDefinition.Name.EndsWith("?") || tileDefinition.Description.EndsWith("?"))
+                            {
+                                roomLayerGraphics.FillRectangle(Color.FromArgb(160, Color.Magenta), pos.X + 6, pos.Y + 6, 4, 4);
+                            }
+#endif
+
+                            if (!showCollision)
+                                continue;
+
+                            Color main = tileDefinition.Surface switch
+                            {
+                                SurfaceType.Abyss => Color.White,
+                                SurfaceType.ShallowWater => Color.Aqua,
+                                SurfaceType.DeepWater => Color.Blue,
+                                SurfaceType.Slippery => Color.Lavender,
+                                SurfaceType.Quicksand => Color.Yellow,
+                                SurfaceType.Ladder => Color.Bisque,
+                                _ => Color.Transparent,
+                            };
+
+
+                            if (tileDefinition.Collision == TileCollision.Walkable)
+                            {
+                                if (main != Color.Transparent)
+                                    roomLayerGraphics.FillRectangle(Color.FromArgb(160, main), pos.X, pos.Y, TILE_DIMENSION_IN_PIXELS, TILE_DIMENSION_IN_PIXELS);
+                            }
+                            else
+                            {
+                                if (tileDefinition.Collision.HasFlag(TileCollision.TopLeft))
+                                {
+
+                                }
+                                Color part;
+                                part = tileDefinition.Collision.HasFlag(TileCollision.TopLeft) ? Color.Black : main;
+                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X, pos.Y, 8, 8);
+                                part = tileDefinition.Collision.HasFlag(TileCollision.TopRight) ? Color.Black : main;
+                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X + 8, pos.Y, 8, 8);
+                                part = tileDefinition.Collision.HasFlag(TileCollision.BottomLeft) ? Color.Black : main;
+                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X, pos.Y + 8, 8, 8);
+                                part = tileDefinition.Collision.HasFlag(TileCollision.BottomRight) ? Color.Black : main;
+                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X + 8, pos.Y + 8, 8, 8);
+                            }
+
+                            Color secondary = tileDefinition.Properties switch
+                            {
+                                TileProperties.Hazard => Color.Red,
+                                TileProperties.EnemyCollision => Color.Pink,
+                                TileProperties.ThrowOver => Color.Green,
+                                TileProperties.DropOff => Color.Yellow,
+                                _ => Color.Transparent,
+                            };
+                            if (secondary != Color.Transparent)
+                                roomLayerGraphics.FillRectangle(Color.FromArgb(160, secondary), pos.X + 6, pos.Y + 6, 4, 4);
+                        }
+#if DEBUG
+                        else
+                        {
+                            Point pos = new Point(x * TILE_DIMENSION_IN_PIXELS, y * TILE_DIMENSION_IN_PIXELS);
+                            roomLayerGraphics.FillRectangle(Color.FromArgb(160, Color.Magenta), pos.X, pos.Y, TILE_DIMENSION_IN_PIXELS, TILE_DIMENSION_IN_PIXELS);
+                        }
+#endif
+                    }
                 }
             }
 
