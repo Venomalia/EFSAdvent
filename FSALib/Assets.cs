@@ -174,7 +174,6 @@ namespace FSALib
                 value = null;
                 return false;
             }
-
             try
             {
                 using Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read);
@@ -186,12 +185,18 @@ namespace FSALib
                 }
                 return true;
             }
-            catch (Exception ex)
+#if NET6_0_OR_GREATER
+
+            catch (JsonException ex)
             {
-                Trace.WriteLine($"❌ Exception while loading {path}: {ex.Message}");
-                value = null;
-                return false;
+                throw new JsonException($"Failed to deserialize JSON file: '{path}'. {ex.Message}", ex);
             }
+#else
+            catch (JsonReaderException ex)
+            {
+                throw new JsonReaderException($"Failed to deserialize JSON file: '{path}'. {ex.Message}", ex);
+            }
+#endif
         }
 
         internal static TValue? Deserialize<TValue>(Stream stream) where TValue : class
