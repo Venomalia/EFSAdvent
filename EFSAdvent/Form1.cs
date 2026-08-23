@@ -2384,16 +2384,28 @@ namespace EFSAdvent
                     case "PNPC":
                         if (isOnCurrentLayer)
                         {
-                            var renderer = (actor.Layer == 0 || actor.Layer == 8) ? tilesetRendererTV : tilesetRendererGBA;
+                            bool IsOnGBA = actor.Layer != 0;
+                            ushort tile;
+                            if (IsOnGBA)
+                            {
+                                ushort target = _level.Rooms[_currentRoomIndex].Layers[actor.Layer][actor.XCoord / 2, actor.YCoord / 2];
+                                if (!Assets.TileProperties.TryGetValue(target, out var tileProperty) || !tileProperty.Interaction.HasFlag(InteractionFlags.GBARewriter))
+                                    break;
+                                tile = tileProperty.InteractionTile;
+                            }
+                            else
+                            {
+                                tile = (ushort)((actor.VariableByte2 & 0x3) << 8 | actor.VariableByte1);
+                            }
+                            var renderer = IsOnGBA ? tilesetRendererGBA : tilesetRendererTV;
                             using var iconmage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
-                            ushort tile = (ushort)((actor.VariableByte2 & 0x3) << 8 | actor.VariableByte1);
                             renderer.DrawTile(iconmage, actor.XCoord / 2 * TILE_DIMENSION_IN_PIXELS, actor.YCoord / 2 * TILE_DIMENSION_IN_PIXELS, tile);
                         }
                         break;
                     case "PNP2":
                         if (isOnCurrentLayer)
                         {
-                            var renderer = (actor.Layer == 0 || actor.Layer == 8) ? tilesetRendererTV : tilesetRendererGBA;
+                            var renderer = actor.Layer == 0 ? tilesetRendererTV : tilesetRendererGBA;
                             using var iconmage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
                             ushort tileTarget = (ushort)(actor.Variable & 0xFFF);
                             ushort tile = (ushort)(actor.Variable >> 12 & 0xFFF);

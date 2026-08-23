@@ -13,10 +13,12 @@
   },
   "2": {
     "Name": "Abyss",
-    "Description": "Links and enemies fall into the abyss.",
+    "Description": "Links and enemies fall into the abyss, GBA PNPC replaceable.",
 	"Surface": "Abyss",
 	"Interaction": "GBARewriter",
-	"InteractionTile": 184
+	"InteractionTile": 184,
+    "RequiredActorID": "PNPC",
+    "ActorValue": 202375352
   },
   "3": {
     "Name": "Water background (Side view)",
@@ -1285,16 +1287,20 @@
   },
   "220": {
     "Name": "Block Alt",
-	"Description": "GBA replaceable?",
+	"Description": "GBA PNPC replaceable",
 	"Collision": "Solid",
 	"Interaction": "GBARewriter",
-	"InteractionTile": 158
+	"InteractionTile": 158,
+    "RequiredActorID": "PNPC",
+    "ActorValue": 202376032
   },
   "221": {
     "Name": "Solid floor tile",
-    "Description": "",
+    "Description": "GBA PNPC replaceable",
 	"Interaction": "GBARewriter",
-	"InteractionTile": 32
+	"InteractionTile": 32,
+    "RequiredActorID": "PNPC",
+    "ActorValue": 67108896
   },
   "222": {
 	"Name": "Void",
@@ -5581,9 +5587,11 @@
   },
   "1004": {
     "Name": "Background (Side view)",
-	"Description": "GBA replaceable",
+	"Description": "GBA PNPC replaceable",
 	"Interaction": "GBARewriter",
-	"InteractionTile": 1020
+	"InteractionTile": 1020,
+    "RequiredActorID": "PNPC",
+    "ActorValue": 203424764
   },
   "1005": {
     "Name": "Spikes",
