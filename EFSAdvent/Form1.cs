@@ -72,149 +72,163 @@ namespace EFSAdvent
 
         public Form1()
         {
-            InitializeComponent();
-            ActorVariableFullInput.Controls[0].Enabled = false;
-            this.Text = BaseTitel;
-            _tileSelection.Width = _tileSelection.Height = 1;
-            dataDirectory = "data";
-            if (!Directory.Exists(dataDirectory))
+            try
             {
-                dataDirectory = "..\\..\\data";
+                InitializeComponent();
+                ActorVariableFullInput.Controls[0].Enabled = false;
+                this.Text = BaseTitel;
+                _tileSelection.Width = _tileSelection.Height = 1;
+                dataDirectory = "data";
                 if (!Directory.Exists(dataDirectory))
                 {
-                    dataDirectory = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "data");
-                    MessageBox.Show($"External resources from the \"{dataDirectory}\" folder are required for this tool to function.",
-                                                 "Data folder not found!",
-                                                 MessageBoxButtons.OK,
-                                                 MessageBoxIcon.Error);
-                    Application.Exit();
-                }
-            }
-
-            string dataArcPath = Path.Combine(dataDirectory, "data.arc");
-            if (!File.Exists(dataArcPath))
-            {
-
-                var result = MessageBox.Show("The required 'data.arc' file could not be found.\n" + "Please select the original 'data.arc' from your FSA game files.",
-                                             "Missing data.arc",
-                                             MessageBoxButtons.OKCancel,
-                                             MessageBoxIcon.Warning);
-
-                if (result == DialogResult.OK)
-                {
-                    var openDialog = new OpenFileDialog
+                    dataDirectory = "..\\..\\data";
+                    if (!Directory.Exists(dataDirectory))
                     {
-                        Filter = "DATA RARC archive (data.arc)|data.arc",
-                        CheckFileExists = true,
-                        FileName = "data.arc"
-                    };
-                    if (openDialog.ShowDialog() != DialogResult.OK)
-                        Close();
-                    File.Copy(openDialog.FileName, dataArcPath);
+                        dataDirectory = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "data");
+                        MessageBox.Show($"External resources from the \"{dataDirectory}\" folder are required for this tool to function.",
+                                                     "Data folder not found!",
+                                                     MessageBoxButtons.OK,
+                                                     MessageBoxIcon.Error);
+                        Application.Exit();
+                    }
                 }
-                else
+
+                string dataArcPath = Path.Combine(dataDirectory, "data.arc");
+                if (!File.Exists(dataArcPath))
                 {
-                    Close();
-                }
-            }
-            using FileStream dataStream = File.OpenRead(dataArcPath);
-            dataRarc = new Rarc(dataStream);
-            tilesetRendererTV = new TilesetRenderer<BGRA32>(dataRarc);
-            tilesetRendererGBA = new TilesetRenderer<BGRA32>(dataRarc);
-            spriteRendererTV = new SpriteRenderer<BGRA32>(dataRarc);
-            spriteRendererGBA = new SpriteRenderer<BGRA32>(dataRarc);
 
-            tileSheetBitmap = new Bitmap(256, 1024);
-            tileSheetBitmapGBA = new Bitmap(256, 1024);
-            tileSheetPictureBox.Image = tileSheetBitmap;
+                    var result = MessageBox.Show("The required 'data.arc' file could not be found.\n" + "Please select the original 'data.arc' from your FSA game files.",
+                                                 "Missing data.arc",
+                                                 MessageBoxButtons.OKCancel,
+                                                 MessageBoxIcon.Warning);
 
-            brushTileBitmap = new Bitmap(16, 16, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
-            BrushTilePictureBox.Image = brushTileBitmap;
-
-            roomLayerBitmap = new Bitmap(LAYER_DIMENSION_IN_PIXELS, LAYER_DIMENSION_IN_PIXELS);
-            roomLayerGraphics = Graphics.FromImage(roomLayerBitmap);
-            layerPictureBox.Image = roomLayerBitmap;
-
-            BrushSizeComboBox.SelectedIndex = 0;
-
-            actorLayerBitmap = new Bitmap(LAYER_DIMENSION_IN_PIXELS, LAYER_DIMENSION_IN_PIXELS, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-            actorLayerGraphics = Graphics.FromImage(actorLayerBitmap);
-            actorBitmap = new Bitmap(64 + 16, 64 + 16, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
-
-            _history = new History(500);
-            _tileBrush = new TileBrush(_history);
-            _logger = new Logger(loggerTextBox);
-
-            // Load Actor Namelist from Assets
-            _actorIDs = Assets.Actors.Keys.ToArray();
-            foreach (var item in Assets.Actors)
-            {
-                ActorNameComboBox.Items.Add(item);
-            }
-
-            // Load V6 Typ Actors
-            string V6ActorListPath = Path.Combine(dataDirectory, "V6 Typ Actors.txt");
-            if (File.Exists(V6ActorListPath))
-            {
-                var names = File.ReadLines(V6ActorListPath);
-                V6ACTORS = new HashSet<string>(names.Select(n => n.Trim()));
-            }
-
-            // Load Actor Sprites
-            string spriteFolder = Path.Combine(dataDirectory, "actorsprites");
-            var spritePaths = Directory.GetFiles(spriteFolder, "*.png", SearchOption.TopDirectoryOnly);
-            foreach (var spritePath in spritePaths)
-            {
-                var sprite = new Bitmap(spritePath);
-                ACTOR_SPRITES.Add(spritePath.Split(Path.DirectorySeparatorChar).Last().Split('.')[0], sprite);
-            }
-
-            // Load Stamps
-            string stampsFolder = Path.Combine(dataDirectory, "Stamps");
-            if (Directory.Exists(stampsFolder))
-            {
-                foreach (var filePath in Directory.GetFiles(stampsFolder, "*.bin"))
-                {
-                    TileStampFlowLayoutPanel.Add(filePath);
-                }
-            }
-
-            // Load Actor Templates
-            string templatesFolder = Path.Combine(dataDirectory, "actortemplates");
-            if (Directory.Exists(templatesFolder))
-            {
-                foreach (var filePath in Directory.GetFiles(templatesFolder, "*.txt"))
-                {
-                    string categoryName = Path.GetFileNameWithoutExtension(filePath);
-                    ToolStripMenuItem categoryItem = new ToolStripMenuItem(categoryName);
-
-                    foreach (var line in File.ReadLines(filePath))
+                    if (result == DialogResult.OK)
                     {
-                        if (string.IsNullOrWhiteSpace(line))
+                        var openDialog = new OpenFileDialog
                         {
-                            categoryItem.DropDownItems.Add(new ToolStripSeparator());
-                            continue;
+                            Filter = "DATA RARC archive (data.arc)|data.arc",
+                            CheckFileExists = true,
+                            FileName = "data.arc"
+                        };
+                        if (openDialog.ShowDialog() != DialogResult.OK)
+                            Close();
+                        File.Copy(openDialog.FileName, dataArcPath);
+                    }
+                    else
+                    {
+                        Close();
+                    }
+                }
+                using FileStream dataStream = File.OpenRead(dataArcPath);
+                dataRarc = new Rarc(dataStream);
+                tilesetRendererTV = new TilesetRenderer<BGRA32>(dataRarc);
+                tilesetRendererGBA = new TilesetRenderer<BGRA32>(dataRarc);
+                spriteRendererTV = new SpriteRenderer<BGRA32>(dataRarc);
+                spriteRendererGBA = new SpriteRenderer<BGRA32>(dataRarc);
+
+                tileSheetBitmap = new Bitmap(256, 1024);
+                tileSheetBitmapGBA = new Bitmap(256, 1024);
+                tileSheetPictureBox.Image = tileSheetBitmap;
+
+                brushTileBitmap = new Bitmap(16, 16, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
+                BrushTilePictureBox.Image = brushTileBitmap;
+
+                roomLayerBitmap = new Bitmap(LAYER_DIMENSION_IN_PIXELS, LAYER_DIMENSION_IN_PIXELS);
+                roomLayerGraphics = Graphics.FromImage(roomLayerBitmap);
+                layerPictureBox.Image = roomLayerBitmap;
+
+                BrushSizeComboBox.SelectedIndex = 0;
+
+                actorLayerBitmap = new Bitmap(LAYER_DIMENSION_IN_PIXELS, LAYER_DIMENSION_IN_PIXELS, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                actorLayerGraphics = Graphics.FromImage(actorLayerBitmap);
+                actorBitmap = new Bitmap(64 + 16, 64 + 16, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
+
+                _history = new History(500);
+                _tileBrush = new TileBrush(_history);
+                _logger = new Logger(loggerTextBox);
+
+                // Load Actor Namelist from Assets
+                _actorIDs = Assets.Actors.Keys.ToArray();
+                foreach (var item in Assets.Actors)
+                {
+                    ActorNameComboBox.Items.Add(item);
+                }
+
+                // Load V6 Typ Actors
+                string V6ActorListPath = Path.Combine(dataDirectory, "V6 Typ Actors.txt");
+                if (File.Exists(V6ActorListPath))
+                {
+                    var names = File.ReadLines(V6ActorListPath);
+                    V6ACTORS = new HashSet<string>(names.Select(n => n.Trim()));
+                }
+
+                // Load Actor Sprites
+                string spriteFolder = Path.Combine(dataDirectory, "actorsprites");
+                var spritePaths = Directory.GetFiles(spriteFolder, "*.png", SearchOption.TopDirectoryOnly);
+                foreach (var spritePath in spritePaths)
+                {
+                    var sprite = new Bitmap(spritePath);
+                    ACTOR_SPRITES.Add(spritePath.Split(Path.DirectorySeparatorChar).Last().Split('.')[0], sprite);
+                }
+
+                // Load Stamps
+                string stampsFolder = Path.Combine(dataDirectory, "Stamps");
+                if (Directory.Exists(stampsFolder))
+                {
+                    foreach (var filePath in Directory.GetFiles(stampsFolder, "*.bin"))
+                    {
+                        TileStampFlowLayoutPanel.Add(filePath);
+                    }
+                }
+
+                // Load Actor Templates
+                string templatesFolder = Path.Combine(dataDirectory, "actortemplates");
+                if (Directory.Exists(templatesFolder))
+                {
+                    foreach (var filePath in Directory.GetFiles(templatesFolder, "*.txt"))
+                    {
+                        string categoryName = Path.GetFileNameWithoutExtension(filePath);
+                        ToolStripMenuItem categoryItem = new ToolStripMenuItem(categoryName);
+
+                        foreach (var line in File.ReadLines(filePath))
+                        {
+                            if (string.IsNullOrWhiteSpace(line))
+                            {
+                                categoryItem.DropDownItems.Add(new ToolStripSeparator());
+                                continue;
+                            }
+
+                            var parts = line.Split(';');
+                            if (parts.Length < 2)
+                                continue;
+
+                            string actorName = parts[0].Trim();
+                            string actorCode = parts[1].Trim();
+
+                            ToolStripMenuItem actorItem = new ToolStripMenuItem(actorName);
+                            actorItem.Tag = actorCode;
+                            actorItem.Click += AddActorStripMenuItem_Click;
+                            categoryItem.DropDownItems.Add(actorItem);
                         }
 
-                        var parts = line.Split(';');
-                        if (parts.Length < 2)
-                            continue;
-
-                        string actorName = parts[0].Trim();
-                        string actorCode = parts[1].Trim();
-
-                        ToolStripMenuItem actorItem = new ToolStripMenuItem(actorName);
-                        actorItem.Tag = actorCode;
-                        actorItem.Click += AddActorStripMenuItem_Click;
-                        categoryItem.DropDownItems.Add(actorItem);
+                        actorContextMenuStrip.Items.Add(categoryItem);
                     }
-
-                    actorContextMenuStrip.Items.Add(categoryItem);
                 }
-            }
 
-            ResetVarsForNewLevel();
-            NewToolStripMenuItem_Click(this, null); // new
+                ResetVarsForNewLevel();
+                NewToolStripMenuItem_Click(this, null); // new
+
+
+            }
+            catch (Exception ex)
+            {
+                string message = ex.InnerException?.Message ?? ex.Message;
+
+                message = message.Replace(". ", ".\n").Replace(": ", ":\n");
+
+                MessageBox.Show($"The application encountered an unexpected error during initialization\n\n{message}", $"{BaseTitel} could not be started.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(1);
+            }
         }
 
         private void ResetVarsForNewLevel()
@@ -939,12 +953,24 @@ namespace EFSAdvent
             {
                 _logger.AppendLine(propertie.Name);
                 _logger.AppendLine(string.Empty);
-                _logger.AppendLine(propertie.Description);
-                _logger.AppendLine(string.Empty);
-                if (propertie.RequiredActorID.HasValue)
+                if (!string.IsNullOrWhiteSpace(propertie.Description))
                 {
-                    _logger.AppendLine($"Required Actor: '{propertie.RequiredActorID}'");
+                    _logger.AppendLine(propertie.Description);
+                    _logger.AppendLine(string.Empty);
                 }
+                _logger.AppendLine($"Surface: '{propertie.Surface}'");
+
+                if (propertie.Collision != TileCollision.Walkable)
+                    _logger.AppendLine($"Collision: '{propertie.Collision}'");
+
+                if (propertie.Interaction != InteractionFlags.None)
+                    _logger.AppendLine($"Interactions: '{propertie.Interaction}'");
+
+                if (propertie.Properties != TileProperties.None)
+                    _logger.AppendLine($"Properties: '{propertie.Properties}'");
+
+                if (propertie.RequiredActorID.HasValue)
+                    _logger.AppendLine($"Required Actor: '{propertie.RequiredActorID}'");
             }
 
             BrushTilePictureBox.Refresh();
@@ -1610,6 +1636,105 @@ namespace EFSAdvent
                 if ((tabControl.SelectedIndex == (int)TabControlIndex.Tile || tabControl.SelectedIndex == (int)TabControlIndex.Stamp) && GetHighestActiveLayerIndex() != null)
                 {
                     DrawTileInfosOnLayer(layerImage, _level.Rooms[_currentRoomIndex].Layers[GetHighestActiveLayerIndex().Value % 8].Tiles);
+                }
+            }
+
+            bool showInteraction = showInteractionToolStripMenuItem.Checked;
+            bool showCollision = showCollisionToolStripMenuItem.Checked;
+            if (showCollision || showInteraction)
+            {
+                int mainLayer = GetHighestActiveLayerIndex().Value % 8;
+                ReadOnlySpan<ushort> tiles = _level.Rooms[_currentRoomIndex].Layers[mainLayer].Tiles;
+                var renderer = (mainLayer == 0) ? tilesetRendererTV : tilesetRendererGBA;
+                for (int y = 0; y < Layer.DIMENSION; y++)
+                {
+                    for (int x = 0; x < Layer.DIMENSION; x++)
+                    {
+                        ushort tile = tiles[y * Layer.DIMENSION + x];
+                        if (Assets.TileProperties.TryGetValue(tile, out var tileDefinition))
+                        {
+                            Point pos = new Point(x * TILE_DIMENSION_IN_PIXELS, y * TILE_DIMENSION_IN_PIXELS);
+                            bool Static = tileDefinition.Interaction == InteractionFlags.None;
+                            if (!Static && showInteraction)
+                            {
+                                tile = tileDefinition.InteractionTile;
+                                if (!Assets.TileProperties.TryGetValue(tile, out tileDefinition))
+                                    continue;
+
+                                if (tile != 0)
+                                {
+                                    using var layerImage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
+                                    renderer.DrawTile(layerImage, pos.X, pos.Y, tile);
+                                }
+
+                            }
+#if DEBUG
+                            if (string.IsNullOrWhiteSpace(tileDefinition.Name))
+                            {
+                                roomLayerGraphics.FillRectangle(Color.FromArgb(160, Color.Magenta), pos.X + 4, pos.Y + 4, 8, 8);
+                            }
+                            else if (tileDefinition.Name.EndsWith("?") || tileDefinition.Description.EndsWith("?"))
+                            {
+                                roomLayerGraphics.FillRectangle(Color.FromArgb(160, Color.Magenta), pos.X + 6, pos.Y + 6, 4, 4);
+                            }
+#endif
+
+                            if (!showCollision)
+                                continue;
+
+                            Color main = tileDefinition.Surface switch
+                            {
+                                SurfaceType.Abyss => Color.White,
+                                SurfaceType.ShallowWater => Color.Aqua,
+                                SurfaceType.DeepWater => Color.Blue,
+                                SurfaceType.Slippery => Color.Lavender,
+                                SurfaceType.Quicksand => Color.Yellow,
+                                SurfaceType.Ladder => Color.Bisque,
+                                _ => Color.Transparent,
+                            };
+
+
+                            if (tileDefinition.Collision == TileCollision.Walkable)
+                            {
+                                if (main != Color.Transparent)
+                                    roomLayerGraphics.FillRectangle(Color.FromArgb(160, main), pos.X, pos.Y, TILE_DIMENSION_IN_PIXELS, TILE_DIMENSION_IN_PIXELS);
+                            }
+                            else
+                            {
+                                if (tileDefinition.Collision.HasFlag(TileCollision.TopLeft))
+                                {
+
+                                }
+                                Color part;
+                                part = tileDefinition.Collision.HasFlag(TileCollision.TopLeft) ? Color.Black : main;
+                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X, pos.Y, 8, 8);
+                                part = tileDefinition.Collision.HasFlag(TileCollision.TopRight) ? Color.Black : main;
+                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X + 8, pos.Y, 8, 8);
+                                part = tileDefinition.Collision.HasFlag(TileCollision.BottomLeft) ? Color.Black : main;
+                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X, pos.Y + 8, 8, 8);
+                                part = tileDefinition.Collision.HasFlag(TileCollision.BottomRight) ? Color.Black : main;
+                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X + 8, pos.Y + 8, 8, 8);
+                            }
+
+                            Color secondary = tileDefinition.Properties switch
+                            {
+                                TileProperties.Hazard => Color.Red,
+                                TileProperties.EnemyCollision => Color.Pink,
+                                TileProperties.ThrowOver => Color.Green,
+                                TileProperties.DropOff => Color.Yellow,
+                                _ => Color.Transparent,
+                            };
+                            if (secondary != Color.Transparent)
+                                roomLayerGraphics.FillRectangle(Color.FromArgb(160, secondary), pos.X + 6, pos.Y + 6, 4, 4);
+                        }
+#if DEBUG
+                        else
+                        {
+                            Point pos = new Point(x * TILE_DIMENSION_IN_PIXELS, y * TILE_DIMENSION_IN_PIXELS);
+                            roomLayerGraphics.FillRectangle(Color.FromArgb(160, Color.Magenta), pos.X, pos.Y, TILE_DIMENSION_IN_PIXELS, TILE_DIMENSION_IN_PIXELS);
+                        }
+#endif
+                    }
                 }
             }
 
@@ -2279,16 +2404,28 @@ namespace EFSAdvent
                     case "PNPC":
                         if (isOnCurrentLayer)
                         {
-                            var renderer = (actor.Layer == 0 || actor.Layer == 8) ? tilesetRendererTV : tilesetRendererGBA;
+                            bool IsOnGBA = actor.Layer != 0;
+                            ushort tile;
+                            if (IsOnGBA)
+                            {
+                                ushort target = _level.Rooms[_currentRoomIndex].Layers[actor.Layer][actor.XCoord / 2, actor.YCoord / 2];
+                                if (!Assets.TileProperties.TryGetValue(target, out var tileProperty) || !tileProperty.Interaction.HasFlag(InteractionFlags.GBARewriter))
+                                    break;
+                                tile = tileProperty.InteractionTile;
+                            }
+                            else
+                            {
+                                tile = (ushort)((actor.VariableByte2 & 0x3) << 8 | actor.VariableByte1);
+                            }
+                            var renderer = IsOnGBA ? tilesetRendererGBA : tilesetRendererTV;
                             using var iconmage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
-                            ushort tile = (ushort)((actor.VariableByte2 & 0x3) << 8 | actor.VariableByte1);
                             renderer.DrawTile(iconmage, actor.XCoord / 2 * TILE_DIMENSION_IN_PIXELS, actor.YCoord / 2 * TILE_DIMENSION_IN_PIXELS, tile);
                         }
                         break;
                     case "PNP2":
                         if (isOnCurrentLayer)
                         {
-                            var renderer = (actor.Layer == 0 || actor.Layer == 8) ? tilesetRendererTV : tilesetRendererGBA;
+                            var renderer = actor.Layer == 0 ? tilesetRendererTV : tilesetRendererGBA;
                             using var iconmage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
                             ushort tileTarget = (ushort)(actor.Variable & 0xFFF);
                             ushort tile = (ushort)(actor.Variable >> 12 & 0xFFF);

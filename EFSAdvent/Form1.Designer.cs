@@ -61,6 +61,8 @@ namespace EFSAdvent
             this.roomImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actorsImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.openSpriteConverterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -157,8 +159,9 @@ namespace EFSAdvent
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
-            this.openSpriteConverterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showCollisionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showInteractionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -467,6 +470,18 @@ namespace EFSAdvent
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
             // 
+            // openSpriteConverterToolStripMenuItem
+            // 
+            this.openSpriteConverterToolStripMenuItem.Name = "openSpriteConverterToolStripMenuItem";
+            this.openSpriteConverterToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.openSpriteConverterToolStripMenuItem.Text = "Open Sprite Converter";
+            this.openSpriteConverterToolStripMenuItem.Click += new System.EventHandler(this.openSpriteConverterToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(246, 6);
+            // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
@@ -531,7 +546,8 @@ namespace EFSAdvent
             this.toolStripSeparator6,
             this.displayOverlayToolStripMenuItem,
             this.textureFilterModeToolStripMenuItem,
-            this.actorsToolStripMenuItem});
+            this.actorsToolStripMenuItem,
+            this.tilesToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -613,7 +629,7 @@ namespace EFSAdvent
             this.autoSelectToolStripMenuItem.CheckOnClick = true;
             this.autoSelectToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.autoSelectToolStripMenuItem.Name = "autoSelectToolStripMenuItem";
-            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.autoSelectToolStripMenuItem.Text = "Auto select";
             this.autoSelectToolStripMenuItem.ToolTipText = "Auto load actor on room change.";
             // 
@@ -621,7 +637,7 @@ namespace EFSAdvent
             // 
             this.displayVariablesActorsToolStripMenuItem.CheckOnClick = true;
             this.displayVariablesActorsToolStripMenuItem.Name = "displayVariablesActorsToolStripMenuItem";
-            this.displayVariablesActorsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.displayVariablesActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.displayVariablesActorsToolStripMenuItem.Text = "Display variables";
             this.displayVariablesActorsToolStripMenuItem.ToolTipText = "Displays variables as text.";
             this.displayVariablesActorsToolStripMenuItem.Click += new System.EventHandler(this.UpdateView_Click);
@@ -1590,17 +1606,28 @@ namespace EFSAdvent
             this.RootFolderPathTextBox.Size = new System.Drawing.Size(494, 20);
             this.RootFolderPathTextBox.TabIndex = 23;
             // 
-            // openSpriteConverterToolStripMenuItem
+            // tilesToolStripMenuItem
             // 
-            this.openSpriteConverterToolStripMenuItem.Name = "openSpriteConverterToolStripMenuItem";
-            this.openSpriteConverterToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.openSpriteConverterToolStripMenuItem.Text = "Open Sprite Converter";
-            this.openSpriteConverterToolStripMenuItem.Click += new System.EventHandler(this.openSpriteConverterToolStripMenuItem_Click);
+            this.tilesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showCollisionToolStripMenuItem,
+            this.showInteractionToolStripMenuItem});
+            this.tilesToolStripMenuItem.Name = "tilesToolStripMenuItem";
+            this.tilesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tilesToolStripMenuItem.Text = "Tiles";
             // 
-            // toolStripSeparator4
+            // showCollisionToolStripMenuItem
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(246, 6);
+            this.showCollisionToolStripMenuItem.CheckOnClick = true;
+            this.showCollisionToolStripMenuItem.Name = "showCollisionToolStripMenuItem";
+            this.showCollisionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showCollisionToolStripMenuItem.Text = "Show Collision";
+            // 
+            // showInteractionToolStripMenuItem
+            // 
+            this.showInteractionToolStripMenuItem.CheckOnClick = true;
+            this.showInteractionToolStripMenuItem.Name = "showInteractionToolStripMenuItem";
+            this.showInteractionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showInteractionToolStripMenuItem.Text = "Show Interaction";
             // 
             // Form1
             // 
@@ -1802,6 +1829,9 @@ namespace EFSAdvent
         private MapEditor MapEditorSinglelplayer;
         private ToolStripMenuItem openSpriteConverterToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator4;
+        private ToolStripMenuItem tilesToolStripMenuItem;
+        private ToolStripMenuItem showCollisionToolStripMenuItem;
+        private ToolStripMenuItem showInteractionToolStripMenuItem;
     }
 }
 
