@@ -953,12 +953,24 @@ namespace EFSAdvent
             {
                 _logger.AppendLine(propertie.Name);
                 _logger.AppendLine(string.Empty);
-                _logger.AppendLine(propertie.Description);
-                _logger.AppendLine(string.Empty);
-                if (propertie.RequiredActorID.HasValue)
+                if (!string.IsNullOrWhiteSpace(propertie.Description))
                 {
-                    _logger.AppendLine($"Required Actor: '{propertie.RequiredActorID}'");
+                    _logger.AppendLine(propertie.Description);
+                    _logger.AppendLine(string.Empty);
                 }
+                _logger.AppendLine($"Surface: '{propertie.Surface}'");
+
+                if (propertie.Collision != TileCollision.Walkable)
+                    _logger.AppendLine($"Collision: '{propertie.Collision}'");
+
+                if (propertie.Interaction != InteractionFlags.None)
+                    _logger.AppendLine($"Interactions: '{propertie.Interaction}'");
+
+                if (propertie.Properties != TileProperties.None)
+                    _logger.AppendLine($"Properties: '{propertie.Properties}'");
+
+                if (propertie.RequiredActorID.HasValue)
+                    _logger.AppendLine($"Required Actor: '{propertie.RequiredActorID}'");
             }
 
             BrushTilePictureBox.Refresh();
