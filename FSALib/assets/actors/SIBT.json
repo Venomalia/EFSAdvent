@@ -25,82 +25,160 @@
       "enumValues": {
         "0": {
           "name": "Tenkuu",
-          "description": "Displays the background for the Tenkuu temple.",
-          "resources": [
-            "bg_tenkuu.bti",
-            "bg_tenkuu_tobira.bti",
-            "bg_tenkuu_ue.bti"
-          ]
+          "description": "Displays the background for the Tenkuu temple."
         },
         "1": {
           "name": "Tenkuunotou",
-          "description": "Displays the background for the Tenkuunotou temple.",
-          "resources": [
-            "tenkuunotou.bti",
-            "tenkuunotou_tobira.bti",
-            "tenkuunotou_ue.bti"
-          ]
+          "description": "Displays the background for the Tenkuunotou temple."
         },
         "2": {
           "name": "Koorinoshinden",
-          "description": "Displays the background for the Koorinoshinden temple.",
-          "resources": [
-            "koorinoshinden.bti",
-            "koorinoshinden_tobira.bti",
-            "koorinoshinden_kabuse.bti"
-          ]
+          "description": "Displays the background for the Koorinoshinden temple."
         },
         "3": {
           "name": "Temple of Shadows",
-          "description": "Displays the background for the Temple of Shadows.",
-          "resources": [
-            "yaminosinden.bti",
-            "yaminosinden_tobira.bti",
-            "yaminosinden_ue.bti"
-          ]
+          "description": "Displays the background for the Temple of Shadows."
         },
         "4": {
           "name": "Tower of Fire",
-          "description": "Displays the background for the Tower of Fire.",
-          "resources": [
-            "honounotou.bti",
-            "honounotou_tobira.bti",
-            "honounotou_ue.bti"
-          ]
+          "description": "Displays the background for the Tower of Fire."
         },
         "5": {
           "name": "Pyramid",
-          "description": "Displays the background for the Pyramid.",
-          "resources": [
-            "pyramid.bti",
-            "pyramid_tobira.bti",
-            "pyramid_kabuse.bti"
-          ]
+          "description": "Displays the background for the Pyramid."
         },
         "6": {
           "name": "Sabaku Sinden",
-          "description": "Displays the background for the Sabaku Sinden temple.",
-          "resources": [
-            "sabaku_sinden_l.bti",
-            "sabaku_sinden_l_tobira.bti",
-            "sabaku_sinden_l_ue.bti"
-          ]
+          "description": "Displays the background for the Sabaku Sinden temple."
         },
         "7": {
           "name": "Cave",
-          "description": "Displays the background for the Cave.",
-          "resources": ["ana.bti", "ana_tobira.bti", "ana_ue.bti"]
+          "description": "Displays the background for the Cave."
         },
         "8": {
           "name": "Earth Temple",
-          "description": "Displays the background for the Earth Temple.",
-          "resources": [
-            "higasi_sinden.bti",
-            "higasi_sinden_tobira.bti",
-            "higasi_sinden_ue.bti"
-          ]
+          "description": "Displays the background for the Earth Temple."
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "btifile": "bg_tenkuu.bti"
+        },
+        {
+          "yoffset": -64,
+          "btifile": "bg_tenkuu_tobira.bti"
+        },
+        {
+          "yoffset": -80,
+          "btifile": "bg_tenkuu_ue.bti"
+        }
+      ],
+      "1": [
+        {
+          "btifile": "tenkuunotou.bti"
+        },
+        {
+          "yoffset": -16,
+          "btifile": "tenkuunotou_tobira.bti"
+        },
+        {
+          "yoffset": -32,
+          "btifile": "tenkuunotou_ue.bti"
+        }
+      ],
+      "2": [
+        {
+          "btifile": "koorinoshinden.bti"
+        },
+        {
+          "yoffset": -16,
+          "btifile": "koorinoshinden_tobira.bti"
+        },
+        {
+          "btifile": "koorinoshinden_ue.bti"
+        }
+      ],
+      "3": [
+        {
+          "btifile": "yaminosinden.bti"
+        },
+        {
+          "yoffset": -16,
+          "btifile": "yaminosinden_tobira.bti"
+        },
+        {
+          "yoffset": -48,
+          "btifile": "yaminosinden_ue.bti"
+        }
+      ],
+      "4": [
+        {
+          "btifile": "honounotou.bti"
+        },
+        {
+          "yoffset": -16,
+          "btifile": "honounotou_tobira.bti"
+        },
+        {
+          "btifile": "honounotou_ue.bti"
+        }
+      ],
+      "5": [
+        {
+          "btifile": "pyramid.bti"
+        },
+        {
+          "yoffset": 48,
+          "btifile": "pyramid_tobira.bti"
+        },
+        {
+          "yoffset": 0,
+          "btifile": "pyramid_kabuse.bti"
+        }
+      ],
+      "6": [
+        {
+          "btifile": "sabaku_sinden_l.bti"
+        },
+        {
+          "btifile": "sabaku_sinden_l_tobira.bti"
+        },
+        {
+          "yoffset": -56,
+          "btifile": "sabaku_sinden_l_ue.bti"
+        }
+      ],
+      "7": [
+        {
+          "btifile": "ana.bti"
+        },
+        {
+          "yoffset": -16,
+          "btifile": "ana_tobira.bti"
+        },
+        {
+          "yoffset": -32,
+          "btifile": "ana_ue.bti"
+        }
+      ],
+      "8": [
+        {
+          "btifile": "higasi_sinden.bti"
+        },
+        {
+          "yoffset": -64,
+          "btifile": "higasi_sinden_tobira.bti"
+        },
+        {
+          "yoffset": -64,
+          "btifile": "higasi_sinden_ue.bti"
+        }
+      ]
+    }
+  }
 }

@@ -23,10 +23,18 @@
     }
   ],
   "rendering": {
-    "bitMask": 0,
+    "bitMask": 16,
     "variants": {
       "0": [
         {
+          "spriteIndex": 323,
+          "spriteListIndex": 1
+        }
+      ],
+      "16": [
+        {
+          "xscale": 2,
+          "yscale": 2,
           "spriteIndex": 323,
           "spriteListIndex": 1
         }

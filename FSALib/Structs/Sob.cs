@@ -1,4 +1,3 @@
-using AuroraLib.Pixel.Processing;
 using System;
 using System.Runtime.InteropServices;
 

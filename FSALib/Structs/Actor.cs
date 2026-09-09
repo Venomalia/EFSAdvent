@@ -85,8 +85,8 @@ namespace FSALib.Structs
         {
             int result;
             if ((result = Layer.CompareTo(other.Layer)) != 0) return result;
-            if ((result = XCoord.CompareTo(other.XCoord)) != 0) return result;
             if ((result = YCoord.CompareTo(other.YCoord)) != 0) return result;
+            if ((result = XCoord.CompareTo(other.XCoord)) != 0) return result;
             if ((result = ID.CompareTo(other.ID)) != 0) return result;
             return variable.CompareTo(other.variable);
         }

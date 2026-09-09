@@ -4,5 +4,15 @@
   "InternalName": "ファントムガノン",
   "category": "Boss",
   "Resources": ["fganon"],
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "wait_00_u.bti"
+        }
+      ]
+    }
+  }
 }

@@ -12,16 +12,68 @@
       "valueType": "Integer"
     },
     {
-      "name": "Special BG",
-      "description": "determine the special BG.",
-      "bitOffset": 16,
-      "bitSize": 2,
-      "valueType": "Enum",
+      "name": "Environmental Flags 1",
+      "description": "Additional flags for further environmental effects.",
+      "bitOffset": 4,
+      "bitSize": 12,
+      "valueType": "Flags",
       "enumValues": {
-        "0": {
-          "name": "Off",
-          "description": "No special background."
+        "1": {
+          "name": "Lost Forest Filter",
+          "description": "Applies the Lost Forest filter.",
+          "Resources": [
+            "j3d/forestfilter00.bmd",
+            "j3d/forestfilter00.brk",
+            "j3d/forestfilter00.btk"
+          ]
         },
+        "2": {
+          "name": "CaveBG",
+          "description": ""
+        },
+        "16": {
+          "name": "Piramid BG",
+          "description": "Piramid in the background.",
+          "Resources": ["timg/bg_piramid.bti"]
+        },
+        "32": {
+          "name": "Tower BG",
+          "description": "Tower of wind in the background.",
+          "Resources": ["timg/sky.bti", "timg/wall.bti"]
+        },
+        "64": {
+          "name": "Snowstorm",
+          "description": "Snowstorm effect."
+        },
+        "128": {
+          "name": "Falling Snow",
+          "description": "Falling snow effect."
+        },
+        "256": {
+          "name": "?",
+          "description": "?"
+        },
+        "512": {
+          "name": "Rain",
+          "description": "Rain effect."
+        },
+        "1024": {
+          "name": "Rain (2)",
+          "description": "Another rain effect."
+        },
+        "2048": {
+          "name": "Cloud Mist",
+          "description": "Mist effect from clouds."
+        }
+      }
+    },
+    {
+      "name": "Environmental Flags 2",
+      "description": "Flags that determine various environmental effects, like background changes and visual effects.",
+      "bitOffset": 16,
+      "bitSize": 11,
+      "valueType": "Flags",
+      "enumValues": {
         "1": {
           "name": "Map BG 1",
           "description": "A special background effect 1.",
@@ -32,76 +84,37 @@
           "description": "A special background effect 2.",
           "Resources": ["timg/bg_mori.bti"]
         },
-        "3": {
-          "name": "Special BG 3",
-          "description": "A special background effect 3."
-        }
-      }
-    },
-    {
-      "name": "Environmental Flags 1",
-      "description": "Flags that determine various environmental effects, like background changes and visual effects.",
-      "bitOffset": 18,
-      "bitSize": 9,
-      "valueType": "Flags",
-      "enumValues": {
-        "1": {
+        "4": {
           "name": "Water looks like lava, heat distortion",
           "description": "Water is displayed as lava with heat distortion."
         },
-        "2": {
+        "8": {
           "name": "Water BG",
           "description": "Water background."
         },
-        "4": {
+        "16": {
           "name": "Fog",
           "description": "Fog effect."
         },
-        "8": {
+        "32": {
           "name": "Clouds that cast shadows",
           "description": "Clouds with shadow effects."
         },
-        "32": {
-          "name": "Height",
-          "description": "Height-related visual effects."
-        }
-      }
-    },
-    {
-      "name": "Environmental Flags 2",
-      "description": "Additional flags for further environmental effects.",
-      "bitOffset": 8,
-      "bitSize": 8,
-      "valueType": "Flags",
-      "enumValues": {
-        "2": {
-          "name": "Tower BG",
-          "description": "Tower of wind in the background.",
-          "Resources": ["timg/sky.bti", "timg/wall.bti"]
-        },
-        "4": {
-          "name": "Snowstorm",
-          "description": "Snowstorm effect."
-        },
-        "8": {
-          "name": "Falling Snow",
-          "description": "Falling snow effect."
-        },
-        "16": {
+        "64": {
           "name": "?",
           "description": "?"
         },
-        "32": {
-          "name": "Rain",
-          "description": "Rain effect."
-        },
-        "64": {
-          "name": "Rain (2)",
-          "description": "Another rain effect."
-        },
         "128": {
-          "name": "Cloud Mist",
-          "description": "Mist effect from clouds."
+          "name": "Height",
+          "description": "Height-related visual effects."
+        },
+        "512": {
+          "name": "Dark Fog",
+          "description": ""
+        },
+        "1024": {
+          "name": "Dark BG",
+          "description": ""
         }
       }
     },
@@ -109,45 +122,45 @@
       "name": "Screen Brightness",
       "description": "Controls for the screen's brightness and music or sound effects.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "Bright Screen",
-          "description": "The screen is bright."
+          "name": "Unchanged"
         },
         "1": {
-          "name": "Dark Screen",
+          "name": "Dark Screen, Low contrast",
           "description": "The screen is dark."
         },
         "2": {
-          "name": "?",
-          "description": "Unknown screen setting."
+          "name": "Bright Screen",
+          "description": "The screen is bright."
         },
         "3": {
-          "name": "Cave Noises",
-          "description": "Cave-like noises are heard."
+          "name": "Bright Screen, Wind Noises",
+          "description": "Wind-like noises are heard."
         },
         "4": {
           "name": "Dark Screen, Boss Music",
           "description": "The screen is dark and boss music plays."
         },
+        "5": {
+          "name": "Dark Screen",
+          "description": "The screen is dark."
+        },
+        "9": {
+          "name": "Night Bright Screen"
+        },
+        "10": {
+          "name": "Darkened Screen"
+        },
         "13": {
-          "name": "?",
+          "name": "Dimmed Bright Screen",
           "description": "Unknown setting."
         },
         "14": {
-          "name": "?",
+          "name": "Dimmed Screen",
           "description": "Unknown setting."
-        },
-        "15": {
-          "name": "Lost Forest Filter",
-          "description": "Applies the Lost Forest filter.",
-          "Resources": [
-            "j3d/forestfilter00.bmd",
-            "j3d/forestfilter00.brk",
-            "j3d/forestfilter00.btk"
-          ]
         }
       }
     }

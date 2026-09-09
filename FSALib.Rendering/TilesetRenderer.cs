@@ -7,7 +7,7 @@ using System;
 using System.Drawing;
 using System.IO;
 
-namespace FSALib.Renderer
+namespace FSALib.Rendering
 {
     /// <summary>
     /// Represents a 2D tile-based graphics set composed of 16×16 pixel tiles, each built from four 8×8 parts, using indexed color palettes.
@@ -15,7 +15,7 @@ namespace FSALib.Renderer
     /// <typeparam name="TColor">The color type implementing <see cref="IColor{T}"/> used for rendering.</typeparam>
     public sealed class TilesetRenderer<TColor> : GBA4bppTileRenderer<TColor> where TColor : unmanaged, IColor<TColor>
     {
-        private const int TileSize = PartSize + PartSize;
+        public const int TileSize = PartSize + PartSize;
 
         /// <summary>
         /// The full list of 16×16 pixel tiles, where each tile is composed of four parts.
@@ -93,7 +93,12 @@ namespace FSALib.Renderer
         /// <param name="layer">The layer containing the tile indices to render.</param>
         /// <param name="targetOffset">The pixel offset on the target image where the layer is drawn.</param
         public void Draw(IImage<TColor> target, Layer layer, Point targetOffset = default)
-            => Draw(target, layer.Tiles, new Rectangle(0, 0, Layer.DIMENSION, Layer.DIMENSION), Layer.DIMENSION, targetOffset);
+        {
+            if (layer.IsEmpty)
+                return;
+
+            Draw(target, layer.Tiles, new Rectangle(0, 0, Layer.DIMENSION, Layer.DIMENSION), Layer.DIMENSION, targetOffset);
+        }
 
         /// <summary>
         /// Draws a stamp onto the target image at the specified offset.
@@ -126,9 +131,7 @@ namespace FSALib.Renderer
         public void Draw(IImage<TColor> target, ReadOnlySpan<ushort> tiles, Rectangle region, int stride, Point targetOffset = default)
         {
             Rectangle targetRegion = new Rectangle(targetOffset.X + region.X * TileSize, targetOffset.Y + region.Y * TileSize, region.Width * TileSize, region.Height * TileSize);
-
-            if (!target.GetBounds().Contains(targetRegion))
-                throw new ArgumentException("Tile region exceeds target bounds.", nameof(target));
+            targetRegion = Rectangle.Intersect(target.GetBounds(),targetRegion);
 
             for (int y = region.Y; y < region.Bottom; y++)
             {

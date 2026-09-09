@@ -22,5 +22,15 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "e_goma_ake_2.bti"
+        }
+      ]
+    }
+  }
 }

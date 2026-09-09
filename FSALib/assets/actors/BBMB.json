@@ -28,5 +28,17 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "bomb_big.bti",
+          "xscale": 0.8,
+          "yscale": 0.8
+        }
+      ]
+    }
+  }
 }

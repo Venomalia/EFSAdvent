@@ -31,5 +31,15 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "lift_00.bti"
+        }
+      ]
+    }
+  }
 }

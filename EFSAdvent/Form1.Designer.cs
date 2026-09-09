@@ -52,9 +52,7 @@ namespace EFSAdvent
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.viewAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mapAndAAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allRoomsAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.allRoomsAndActorsAspngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ImportRoomFromTmx = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -73,23 +71,25 @@ namespace EFSAdvent
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xSizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.displayOverlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textureFilterModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bilinearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bicubicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nearestNeighborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.actorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autoSelectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.alwaysShowTVScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayVariablesActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightSideGroupBox = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.RenderOptionsCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.interactionsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.CoridinatesTextBox = new System.Windows.Forms.TextBox();
-            this.updateLayersButton = new System.Windows.Forms.Button();
-            this.layersCheckList = new EFSAdvent.Controls.CheckedListBoxColorable();
+            this.LayerLevelComboBox = new System.Windows.Forms.ComboBox();
+            this.CurrentLayerComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MapTabControl = new System.Windows.Forms.TabControl();
@@ -159,9 +159,6 @@ namespace EFSAdvent
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.BottomGroupBox = new System.Windows.Forms.GroupBox();
             this.RootFolderPathTextBox = new System.Windows.Forms.TextBox();
-            this.tilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showCollisionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showInteractionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileSheetPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileSheetPictureBox)).BeginInit();
             this.layersPanel.SuspendLayout();
@@ -282,12 +279,12 @@ namespace EFSAdvent
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.loggerTextBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.loggerTextBox.Location = new System.Drawing.Point(7, 207);
+            this.loggerTextBox.Location = new System.Drawing.Point(6, 212);
             this.loggerTextBox.Multiline = true;
             this.loggerTextBox.Name = "loggerTextBox";
             this.loggerTextBox.ReadOnly = true;
             this.loggerTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.loggerTextBox.Size = new System.Drawing.Size(150, 312);
+            this.loggerTextBox.Size = new System.Drawing.Size(151, 302);
             this.loggerTextBox.TabIndex = 22;
             // 
             // menuStrip1
@@ -368,9 +365,7 @@ namespace EFSAdvent
             this.toolStripSeparator3,
             this.viewAspngToolStripMenuItem,
             this.mapAspngToolStripMenuItem,
-            this.mapAndAAspngToolStripMenuItem,
-            this.allRoomsAspngToolStripMenuItem,
-            this.allRoomsAndActorsAspngToolStripMenuItem});
+            this.allRoomsAspngToolStripMenuItem});
             this.ExportMenuItem.Enabled = false;
             this.ExportMenuItem.Name = "ExportMenuItem";
             this.ExportMenuItem.Size = new System.Drawing.Size(249, 22);
@@ -379,7 +374,7 @@ namespace EFSAdvent
             // roomAstsxToolStripMenuItem
             // 
             this.roomAstsxToolStripMenuItem.Name = "roomAstsxToolStripMenuItem";
-            this.roomAstsxToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.roomAstsxToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.roomAstsxToolStripMenuItem.Text = "Room as .tmx";
             this.roomAstsxToolStripMenuItem.ToolTipText = "Export as Tiled map files.";
             this.roomAstsxToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomAsTmx_Click);
@@ -387,42 +382,28 @@ namespace EFSAdvent
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(166, 6);
             // 
             // viewAspngToolStripMenuItem
             // 
             this.viewAspngToolStripMenuItem.Name = "viewAspngToolStripMenuItem";
-            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.viewAspngToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.viewAspngToolStripMenuItem.Text = "View as .png";
             this.viewAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportViewAsPng);
             // 
             // mapAspngToolStripMenuItem
             // 
             this.mapAspngToolStripMenuItem.Name = "mapAspngToolStripMenuItem";
-            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.mapAspngToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.mapAspngToolStripMenuItem.Text = "Map as .png";
             this.mapAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
-            // 
-            // mapAndAAspngToolStripMenuItem
-            // 
-            this.mapAndAAspngToolStripMenuItem.Name = "mapAndAAspngToolStripMenuItem";
-            this.mapAndAAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.mapAndAAspngToolStripMenuItem.Text = "Map and Actors as .png ";
-            this.mapAndAAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportLevelAsPng);
             // 
             // allRoomsAspngToolStripMenuItem
             // 
             this.allRoomsAspngToolStripMenuItem.Name = "allRoomsAspngToolStripMenuItem";
-            this.allRoomsAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.allRoomsAspngToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.allRoomsAspngToolStripMenuItem.Text = "All Rooms as .png";
             this.allRoomsAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomsAsPng);
-            // 
-            // allRoomsAndActorsAspngToolStripMenuItem
-            // 
-            this.allRoomsAndActorsAspngToolStripMenuItem.Name = "allRoomsAndActorsAspngToolStripMenuItem";
-            this.allRoomsAndActorsAspngToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.allRoomsAndActorsAspngToolStripMenuItem.Text = "All Rooms and Actors as .png";
-            this.allRoomsAndActorsAspngToolStripMenuItem.Click += new System.EventHandler(this.ExportRoomsAsPng);
             // 
             // importToolStripMenuItem
             // 
@@ -543,11 +524,10 @@ namespace EFSAdvent
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xSizeToolStripMenuItem,
             this.xSizeToolStripMenuItem1,
-            this.toolStripSeparator6,
-            this.displayOverlayToolStripMenuItem,
             this.textureFilterModeToolStripMenuItem,
-            this.actorsToolStripMenuItem,
-            this.tilesToolStripMenuItem});
+            this.toolStripSeparator6,
+            this.alwaysShowTVScreenToolStripMenuItem,
+            this.displayVariablesActorsToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -555,31 +535,16 @@ namespace EFSAdvent
             // xSizeToolStripMenuItem
             // 
             this.xSizeToolStripMenuItem.Name = "xSizeToolStripMenuItem";
-            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xSizeToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.xSizeToolStripMenuItem.Text = "1x size";
             this.xSizeToolStripMenuItem.Click += new System.EventHandler(this.OneXSizeToolStripMenuItem_Click);
             // 
             // xSizeToolStripMenuItem1
             // 
             this.xSizeToolStripMenuItem1.Name = "xSizeToolStripMenuItem1";
-            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.xSizeToolStripMenuItem1.Size = new System.Drawing.Size(195, 22);
             this.xSizeToolStripMenuItem1.Text = "2x size";
             this.xSizeToolStripMenuItem1.Click += new System.EventHandler(this.TwoXSizeToolStripMenuItem1_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
-            // 
-            // displayOverlayToolStripMenuItem
-            // 
-            this.displayOverlayToolStripMenuItem.Checked = true;
-            this.displayOverlayToolStripMenuItem.CheckOnClick = true;
-            this.displayOverlayToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.displayOverlayToolStripMenuItem.Name = "displayOverlayToolStripMenuItem";
-            this.displayOverlayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.displayOverlayToolStripMenuItem.Text = "Display overlay";
-            this.displayOverlayToolStripMenuItem.Click += new System.EventHandler(this.UpdateView_Click);
             // 
             // textureFilterModeToolStripMenuItem
             // 
@@ -588,7 +553,7 @@ namespace EFSAdvent
             this.bicubicToolStripMenuItem,
             this.nearestNeighborToolStripMenuItem});
             this.textureFilterModeToolStripMenuItem.Name = "textureFilterModeToolStripMenuItem";
-            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textureFilterModeToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.textureFilterModeToolStripMenuItem.Text = "Filter mode";
             // 
             // bilinearToolStripMenuItem
@@ -614,33 +579,28 @@ namespace EFSAdvent
             this.nearestNeighborToolStripMenuItem.Text = "Nearest Neighbor";
             this.nearestNeighborToolStripMenuItem.Click += new System.EventHandler(this.nearestNeighborToolStripMenuItem_Click);
             // 
-            // actorsToolStripMenuItem
+            // toolStripSeparator6
             // 
-            this.actorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.autoSelectToolStripMenuItem,
-            this.displayVariablesActorsToolStripMenuItem});
-            this.actorsToolStripMenuItem.Name = "actorsToolStripMenuItem";
-            this.actorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.actorsToolStripMenuItem.Text = "Actors";
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(192, 6);
             // 
-            // autoSelectToolStripMenuItem
+            // alwaysShowTVScreenToolStripMenuItem
             // 
-            this.autoSelectToolStripMenuItem.Checked = true;
-            this.autoSelectToolStripMenuItem.CheckOnClick = true;
-            this.autoSelectToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autoSelectToolStripMenuItem.Name = "autoSelectToolStripMenuItem";
-            this.autoSelectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.autoSelectToolStripMenuItem.Text = "Auto select";
-            this.autoSelectToolStripMenuItem.ToolTipText = "Auto load actor on room change.";
+            this.alwaysShowTVScreenToolStripMenuItem.Checked = true;
+            this.alwaysShowTVScreenToolStripMenuItem.CheckOnClick = true;
+            this.alwaysShowTVScreenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.alwaysShowTVScreenToolStripMenuItem.Name = "alwaysShowTVScreenToolStripMenuItem";
+            this.alwaysShowTVScreenToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.alwaysShowTVScreenToolStripMenuItem.Text = "Always show TV screen";
+            this.alwaysShowTVScreenToolStripMenuItem.Click += new System.EventHandler(this.UpdateView_Click);
             // 
             // displayVariablesActorsToolStripMenuItem
             // 
             this.displayVariablesActorsToolStripMenuItem.CheckOnClick = true;
             this.displayVariablesActorsToolStripMenuItem.Name = "displayVariablesActorsToolStripMenuItem";
-            this.displayVariablesActorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.displayVariablesActorsToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.displayVariablesActorsToolStripMenuItem.Text = "Display variables";
             this.displayVariablesActorsToolStripMenuItem.ToolTipText = "Displays variables as text.";
-            this.displayVariablesActorsToolStripMenuItem.Click += new System.EventHandler(this.UpdateView_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -676,9 +636,13 @@ namespace EFSAdvent
             // rightSideGroupBox
             // 
             this.rightSideGroupBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.rightSideGroupBox.Controls.Add(this.label2);
+            this.rightSideGroupBox.Controls.Add(this.label1);
+            this.rightSideGroupBox.Controls.Add(this.RenderOptionsCheckedListBox);
+            this.rightSideGroupBox.Controls.Add(this.interactionsCheckedListBox);
             this.rightSideGroupBox.Controls.Add(this.CoridinatesTextBox);
-            this.rightSideGroupBox.Controls.Add(this.updateLayersButton);
-            this.rightSideGroupBox.Controls.Add(this.layersCheckList);
+            this.rightSideGroupBox.Controls.Add(this.LayerLevelComboBox);
+            this.rightSideGroupBox.Controls.Add(this.CurrentLayerComboBox);
             this.rightSideGroupBox.Controls.Add(this.loggerTextBox);
             this.rightSideGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.rightSideGroupBox.Enabled = false;
@@ -689,56 +653,99 @@ namespace EFSAdvent
             this.rightSideGroupBox.TabStop = false;
             this.rightSideGroupBox.Text = "Layers";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 126);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Tile Interactions";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Render Options";
+            // 
+            // RenderOptionsCheckedListBox
+            // 
+            this.RenderOptionsCheckedListBox.FormattingEnabled = true;
+            this.RenderOptionsCheckedListBox.Items.AddRange(new object[] {
+            "Actors",
+            "TileChanges",
+            "Overlay",
+            "Collision",
+            "Environment"});
+            this.RenderOptionsCheckedListBox.Location = new System.Drawing.Point(6, 59);
+            this.RenderOptionsCheckedListBox.Name = "RenderOptionsCheckedListBox";
+            this.RenderOptionsCheckedListBox.Size = new System.Drawing.Size(151, 64);
+            this.RenderOptionsCheckedListBox.TabIndex = 27;
+            this.RenderOptionsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.UpdateView_ItemCheck);
+            // 
+            // interactionsCheckedListBox
+            // 
+            this.interactionsCheckedListBox.FormattingEnabled = true;
+            this.interactionsCheckedListBox.Items.AddRange(new object[] {
+            "Sword",
+            "Throwing",
+            "Fire",
+            "Bomb",
+            "Pegasus Boots",
+            "Magic Hammer",
+            "Shovel",
+            "Projectile"});
+            this.interactionsCheckedListBox.Location = new System.Drawing.Point(6, 142);
+            this.interactionsCheckedListBox.Name = "interactionsCheckedListBox";
+            this.interactionsCheckedListBox.Size = new System.Drawing.Size(151, 64);
+            this.interactionsCheckedListBox.TabIndex = 26;
+            this.interactionsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.UpdateView_ItemCheck);
+            // 
             // CoridinatesTextBox
             // 
             this.CoridinatesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CoridinatesTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.CoridinatesTextBox.Location = new System.Drawing.Point(7, 525);
+            this.CoridinatesTextBox.Location = new System.Drawing.Point(7, 524);
             this.CoridinatesTextBox.Name = "CoridinatesTextBox";
             this.CoridinatesTextBox.ReadOnly = true;
             this.CoridinatesTextBox.Size = new System.Drawing.Size(150, 20);
             this.CoridinatesTextBox.TabIndex = 23;
             // 
-            // updateLayersButton
+            // LayerLevelComboBox
             // 
-            this.updateLayersButton.Location = new System.Drawing.Point(6, 178);
-            this.updateLayersButton.Name = "updateLayersButton";
-            this.updateLayersButton.Size = new System.Drawing.Size(75, 23);
-            this.updateLayersButton.TabIndex = 20;
-            this.updateLayersButton.Text = "Update view";
-            this.updateLayersButton.UseVisualStyleBackColor = true;
-            this.updateLayersButton.Click += new System.EventHandler(this.UpdateView_Click);
+            this.LayerLevelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LayerLevelComboBox.FormattingEnabled = true;
+            this.LayerLevelComboBox.Items.AddRange(new object[] {
+            "Both",
+            "Base",
+            "Top"});
+            this.LayerLevelComboBox.Location = new System.Drawing.Point(109, 19);
+            this.LayerLevelComboBox.Name = "LayerLevelComboBox";
+            this.LayerLevelComboBox.Size = new System.Drawing.Size(48, 21);
+            this.LayerLevelComboBox.TabIndex = 25;
+            this.LayerLevelComboBox.SelectedIndexChanged += new System.EventHandler(this.UpdateView_Click);
             // 
-            // layersCheckList
+            // CurrentLayerComboBox
             // 
-            this.layersCheckList.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.layersCheckList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.layersCheckList.CheckOnClick = true;
-            this.layersCheckList.ColumnWidth = 70;
-            this.layersCheckList.FormattingEnabled = true;
-            this.layersCheckList.Items.AddRange(new object[] {
-            "Layer 1-0",
-            "Layer 1-1",
-            "Layer 1-2",
-            "Layer 1-3",
-            "Layer 1-4",
-            "Layer 1-5",
-            "Layer 1-6",
-            "Layer 1-7",
-            "Layer 2-0",
-            "Layer 2-1",
-            "Layer 2-2",
-            "Layer 2-3",
-            "Layer 2-4",
-            "Layer 2-5",
-            "Layer 2-6",
-            "Layer 2-7"});
-            this.layersCheckList.Location = new System.Drawing.Point(6, 16);
-            this.layersCheckList.MultiColumn = true;
-            this.layersCheckList.Name = "layersCheckList";
-            this.layersCheckList.Size = new System.Drawing.Size(145, 120);
-            this.layersCheckList.TabIndex = 19;
-            this.layersCheckList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LayersCheckList_ItemCheck);
+            this.CurrentLayerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CurrentLayerComboBox.FormattingEnabled = true;
+            this.CurrentLayerComboBox.Items.AddRange(new object[] {
+            "TV Layer",
+            "GBA Dark World",
+            "GBA Layer 2",
+            "GBA Layer 3",
+            "GBA Layer 4",
+            "GBA Layer 5",
+            "GBA Layer 6",
+            "GBA Layer 7"});
+            this.CurrentLayerComboBox.Location = new System.Drawing.Point(6, 19);
+            this.CurrentLayerComboBox.Name = "CurrentLayerComboBox";
+            this.CurrentLayerComboBox.Size = new System.Drawing.Size(103, 21);
+            this.CurrentLayerComboBox.TabIndex = 24;
+            this.CurrentLayerComboBox.SelectedIndexChanged += new System.EventHandler(this.UpdateView_Click);
             // 
             // tabControl
             // 
@@ -1066,7 +1073,6 @@ namespace EFSAdvent
             this.tabPageRawVariable.SelectedIndex = 1;
             this.tabPageRawVariable.Size = new System.Drawing.Size(170, 341);
             this.tabPageRawVariable.TabIndex = 33;
-            this.ActorAttributesTip.SetToolTip(this.tabPageRawVariable, "Specify the view of the actor variables");
             // 
             // Variables5TabPage
             // 
@@ -1089,7 +1095,6 @@ namespace EFSAdvent
             this.tabControlRawVarType.SelectedIndex = 0;
             this.tabControlRawVarType.Size = new System.Drawing.Size(151, 246);
             this.tabControlRawVarType.TabIndex = 48;
-            this.ActorAttributesTip.SetToolTip(this.tabControlRawVarType, "Divides the full variable into sections.");
             // 
             // tabPageV5
             // 
@@ -1140,7 +1145,6 @@ namespace EFSAdvent
             this.ActorVariable4AInput.Name = "ActorVariable4AInput";
             this.ActorVariable4AInput.Size = new System.Drawing.Size(51, 20);
             this.ActorVariable4AInput.TabIndex = 40;
-            this.ActorAttributesTip.SetToolTip(this.ActorVariable4AInput, "The last 5 bits of the fifth byte.");
             this.ActorVariable4AInput.ValueChanged += new System.EventHandler(this.ActorChanged);
             // 
             // ActorVariable1Input
@@ -1154,7 +1158,6 @@ namespace EFSAdvent
             this.ActorVariable1Input.Name = "ActorVariable1Input";
             this.ActorVariable1Input.Size = new System.Drawing.Size(51, 20);
             this.ActorVariable1Input.TabIndex = 36;
-            this.ActorAttributesTip.SetToolTip(this.ActorVariable1Input, "The 8 bits of the first byte.");
             this.ActorVariable1Input.ValueChanged += new System.EventHandler(this.ActorChanged);
             // 
             // label_V5_4
@@ -1177,7 +1180,6 @@ namespace EFSAdvent
             this.ActorVariable2Input.Name = "ActorVariable2Input";
             this.ActorVariable2Input.Size = new System.Drawing.Size(51, 20);
             this.ActorVariable2Input.TabIndex = 35;
-            this.ActorAttributesTip.SetToolTip(this.ActorVariable2Input, "The second byte.");
             this.ActorVariable2Input.ValueChanged += new System.EventHandler(this.ActorChanged);
             // 
             // label_V5_1
@@ -1200,7 +1202,6 @@ namespace EFSAdvent
             this.ActorVariable4BInput.Name = "ActorVariable4BInput";
             this.ActorVariable4BInput.Size = new System.Drawing.Size(51, 20);
             this.ActorVariable4BInput.TabIndex = 39;
-            this.ActorAttributesTip.SetToolTip(this.ActorVariable4BInput, "The first 3 bits of the fifth byte.");
             this.ActorVariable4BInput.ValueChanged += new System.EventHandler(this.ActorChanged);
             // 
             // ActorVariable3Input
@@ -1214,7 +1215,6 @@ namespace EFSAdvent
             this.ActorVariable3Input.Name = "ActorVariable3Input";
             this.ActorVariable3Input.Size = new System.Drawing.Size(51, 20);
             this.ActorVariable3Input.TabIndex = 34;
-            this.ActorAttributesTip.SetToolTip(this.ActorVariable3Input, "The third byte.");
             this.ActorVariable3Input.ValueChanged += new System.EventHandler(this.ActorChanged);
             // 
             // label_V5_2
@@ -1313,7 +1313,6 @@ namespace EFSAdvent
             this.ActorV6Variable2fInput.Name = "ActorV6Variable2fInput";
             this.ActorV6Variable2fInput.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable2fInput.TabIndex = 64;
-            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable2fInput, "The next 5 bits.");
             this.ActorV6Variable2fInput.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // ActorV6Variable1Input
@@ -1327,7 +1326,6 @@ namespace EFSAdvent
             this.ActorV6Variable1Input.Name = "ActorV6Variable1Input";
             this.ActorV6Variable1Input.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable1Input.TabIndex = 63;
-            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable1Input, "The first 7 bits of the first byte.");
             this.ActorV6Variable1Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // ActorV6Variable4Input
@@ -1341,7 +1339,6 @@ namespace EFSAdvent
             this.ActorV6Variable4Input.Name = "ActorV6Variable4Input";
             this.ActorV6Variable4Input.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable4Input.TabIndex = 60;
-            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable4Input, "The next 5 bits.");
             this.ActorV6Variable4Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // ActorV6Variable3Input
@@ -1355,7 +1352,6 @@ namespace EFSAdvent
             this.ActorV6Variable3Input.Name = "ActorV6Variable3Input";
             this.ActorV6Variable3Input.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable3Input.TabIndex = 59;
-            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable3Input, "The next 5 bits.");
             this.ActorV6Variable3Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // ActorV6Variable6Input
@@ -1369,7 +1365,6 @@ namespace EFSAdvent
             this.ActorV6Variable6Input.Name = "ActorV6Variable6Input";
             this.ActorV6Variable6Input.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable6Input.TabIndex = 56;
-            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable6Input, "The last 5 bits of the fifth byte.");
             this.ActorV6Variable6Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // ActorV6Variable5Input
@@ -1383,7 +1378,6 @@ namespace EFSAdvent
             this.ActorV6Variable5Input.Name = "ActorV6Variable5Input";
             this.ActorV6Variable5Input.Size = new System.Drawing.Size(51, 20);
             this.ActorV6Variable5Input.TabIndex = 55;
-            this.ActorAttributesTip.SetToolTip(this.ActorV6Variable5Input, "The next 5 bits.");
             this.ActorV6Variable5Input.ValueChanged += new System.EventHandler(this.ActorChangedV6);
             // 
             // groupBoxFullVariable
@@ -1416,7 +1410,6 @@ namespace EFSAdvent
             this.ActorVariableFullInput.ReadOnly = true;
             this.ActorVariableFullInput.Size = new System.Drawing.Size(139, 20);
             this.ActorVariableFullInput.TabIndex = 46;
-            this.ActorAttributesTip.SetToolTip(this.ActorVariableFullInput, "The 32bit value of the actor variable.");
             // 
             // tabPageFieldsVariable
             // 
@@ -1450,7 +1443,6 @@ namespace EFSAdvent
             this.cloneButton.Size = new System.Drawing.Size(80, 22);
             this.cloneButton.TabIndex = 31;
             this.cloneButton.Text = "Copy";
-            this.ActorAttributesTip.SetToolTip(this.cloneButton, "Copies the currently selected actor to the clipboard.");
             this.cloneButton.UseVisualStyleBackColor = true;
             this.cloneButton.Click += new System.EventHandler(this.CopyActorToClipboard);
             // 
@@ -1548,7 +1540,6 @@ namespace EFSAdvent
             this.label6.Size = new System.Drawing.Size(36, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Layer:";
-            this.ActorAttributesTip.SetToolTip(this.label6, "A number between 0 and 7 which selects\r\nthe layer this actor appears on.");
             // 
             // ActorNameComboBox
             // 
@@ -1605,29 +1596,6 @@ namespace EFSAdvent
             this.RootFolderPathTextBox.ReadOnly = true;
             this.RootFolderPathTextBox.Size = new System.Drawing.Size(494, 20);
             this.RootFolderPathTextBox.TabIndex = 23;
-            // 
-            // tilesToolStripMenuItem
-            // 
-            this.tilesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showCollisionToolStripMenuItem,
-            this.showInteractionToolStripMenuItem});
-            this.tilesToolStripMenuItem.Name = "tilesToolStripMenuItem";
-            this.tilesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tilesToolStripMenuItem.Text = "Tiles";
-            // 
-            // showCollisionToolStripMenuItem
-            // 
-            this.showCollisionToolStripMenuItem.CheckOnClick = true;
-            this.showCollisionToolStripMenuItem.Name = "showCollisionToolStripMenuItem";
-            this.showCollisionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.showCollisionToolStripMenuItem.Text = "Show Collision";
-            // 
-            // showInteractionToolStripMenuItem
-            // 
-            this.showInteractionToolStripMenuItem.CheckOnClick = true;
-            this.showInteractionToolStripMenuItem.Name = "showInteractionToolStripMenuItem";
-            this.showInteractionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.showInteractionToolStripMenuItem.Text = "Show Interaction";
             // 
             // Form1
             // 
@@ -1714,14 +1682,12 @@ namespace EFSAdvent
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.GroupBox rightSideGroupBox;
-        private EFSAdvent.Controls.CheckedListBoxColorable layersCheckList;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.PictureBox BrushTilePictureBox;
         private System.Windows.Forms.Label BrushTileLabel;
-        private System.Windows.Forms.Button updateLayersButton;
         private System.Windows.Forms.ToolTip ActorAttributesTip;
         private System.Windows.Forms.CheckedListBox actorsCheckListBox;
         private System.Windows.Forms.Label label6;
@@ -1766,20 +1732,15 @@ namespace EFSAdvent
         private TextBox CoridinatesTextBox;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem roomAstsxToolStripMenuItem;
-        private ToolStripMenuItem displayOverlayToolStripMenuItem;
+        private ToolStripMenuItem renderOverlayToolStripMenuItem;
         private ToolStripMenuItem ImportRoomFromTmx;
         private Label BrushSizeLabel;
-        private ToolStripMenuItem actorsToolStripMenuItem;
-        private ToolStripMenuItem autoSelectToolStripMenuItem;
-        private ToolStripMenuItem displayVariablesActorsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator3;
-        private ToolStripMenuItem mapAndAAspngToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripSeparator toolStripSeparator6;
         private ToolStripMenuItem allRoomsAspngToolStripMenuItem;
-        private ToolStripMenuItem allRoomsAndActorsAspngToolStripMenuItem;
         private TabControl tabPageRawVariable;
         private TabPage Variables5TabPage;
         private NumericUpDown ActorVariable4AInput;
@@ -1829,9 +1790,14 @@ namespace EFSAdvent
         private MapEditor MapEditorSinglelplayer;
         private ToolStripMenuItem openSpriteConverterToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator4;
-        private ToolStripMenuItem tilesToolStripMenuItem;
-        private ToolStripMenuItem showCollisionToolStripMenuItem;
-        private ToolStripMenuItem showInteractionToolStripMenuItem;
+        private ComboBox CurrentLayerComboBox;
+        private ToolStripMenuItem alwaysShowTVScreenToolStripMenuItem;
+        private ComboBox LayerLevelComboBox;
+        private CheckedListBox interactionsCheckedListBox;
+        private ToolStripMenuItem displayVariablesActorsToolStripMenuItem;
+        private CheckedListBox RenderOptionsCheckedListBox;
+        private Label label2;
+        private Label label1;
     }
 }
 

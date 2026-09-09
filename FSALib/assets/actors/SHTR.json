@@ -2,7 +2,7 @@
   "name": "Shutter Door",
   "description": "A door that can be activated or deactivated by local variables.",
   "InternalName": "シャッター",
-  "category": "Object",
+  "category": "TileObject",
   "fields": [
     {
       "name": "Activation Variable",

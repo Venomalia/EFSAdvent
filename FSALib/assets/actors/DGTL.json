@@ -4,5 +4,15 @@
   "InternalName": "デグテール",
   "category": "Boss",
   "Resources": ["degtail"],
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "boss_deg_atama.bti"
+        }
+      ]
+    }
+  }
 }

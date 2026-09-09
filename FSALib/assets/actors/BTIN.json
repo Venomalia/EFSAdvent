@@ -63,411 +63,712 @@
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "Temple entrance A",
-          "description": "",
-          "Resources": ["timg/d_iriguti_a.bti", "timg/d_iriguti_a_light.bti"]
+          "name": "Temple entrance A"
         },
         "1": {
-          "name": "Yaminosinden",
-          "description": "",
-          "Resources": ["timg/yaminosinden.bti"]
+          "name": "Yaminosinden"
         },
         "2": {
-          "name": "Koorinoshinden",
-          "description": "",
-          "Resources": ["timg/koorinoshinden.bti"]
+          "name": "Koorinoshinden"
         },
         "3": {
-          "name": "Tower of fire",
-          "description": "",
-          "Resources": ["timg/honounotou.bti"]
+          "name": "Tower of fire"
         },
         "4": {
-          "name": "Tenkuunotou",
-          "description": "",
-          "Resources": ["timg/tenkuunotou.bti"]
+          "name": "Tenkuunotou"
         },
         "5": {
-          "name": "Background Opening",
-          "description": "",
-          "Resources": ["timg/bg_opening.bti"]
+          "name": "Background Opening"
         },
         "6": {
-          "name": "Background Tenkuu2",
-          "description": "",
-          "Resources": ["timg/bg_tenkuu2.bti"]
+          "name": "Background Tenkuu2"
         },
         "7": {
-          "name": "Ana",
-          "description": "",
-          "Resources": ["timg/ana.bti"]
+          "name": "Ana"
         },
         "8": {
-          "name": "Temple entrance B",
-          "description": "",
-          "Resources": ["timg/d_iriguti_b.bti", "timg/d_iriguti_b_light.bti"]
+          "name": "Temple entrance B"
         },
         "9": {
-          "name": "Temple entrance D",
-          "description": "",
-          "Resources": ["timg/d_iriguti_d.bti", "timg/d_iriguti_d_light.bti"]
+          "name": "Temple entrance D"
         },
         "10": {
-          "name": "Temple entrance F",
-          "description": "",
-          "Resources": ["timg/d_iriguti_f.bti", "timg/d_iriguti_f_light.bti"]
+          "name": "Temple entrance F"
         },
         "11": {
-          "name": "Temple entrance G",
-          "description": "",
-          "Resources": ["timg/d_iriguti_g.bti", "timg/d_iriguti_g_light.bti"]
+          "name": "Temple entrance G"
         },
         "12": {
-          "name": "Temple entrance H",
-          "description": "",
-          "Resources": ["timg/d_iriguti_h.bti", "timg/d_iriguti_h_light.bti"]
+          "name": "Temple entrance H"
         },
         "13": {
-          "name": "Temple entrance I",
-          "description": "",
-          "Resources": ["timg/d_iriguti_i.bti", "timg/d_iriguti_i_light.bti"]
+          "name": "Temple entrance I"
         },
         "14": {
-          "name": "Temple entrance K",
-          "description": "",
-          "Resources": ["timg/d_iriguti_k.bti", "timg/d_iriguti_k_light.bti"]
+          "name": "Temple entrance K"
         },
         "15": {
-          "name": "Boss door plate D",
-          "description": "",
-          "Resources": ["timg/bti_boss_d.bti"]
+          "name": "Boss door plate D"
         },
         "16": {
-          "name": "Boss door plate E",
-          "description": "",
-          "Resources": ["timg/bti_boss_e.bti"]
+          "name": "Boss door plate E"
         },
         "17": {
-          "name": "Boss door plate F",
-          "description": "",
-          "Resources": ["timg/bti_boss_f.bti"]
+          "name": "Boss door plate F"
         },
         "18": {
-          "name": "Boss door plate G",
-          "description": "",
-          "Resources": ["timg/bti_boss_g.bti"]
+          "name": "Boss door plate G"
         },
         "19": {
-          "name": "Boss door plate H",
-          "description": "",
-          "Resources": ["timg/bti_boss_h.bti"]
+          "name": "Boss door plate H"
         },
         "20": {
-          "name": "Boss door plate I",
-          "description": "",
-          "Resources": ["timg/bti_boss_i.bti"]
+          "name": "Boss door plate I"
         },
         "21": {
-          "name": "Prison bars",
-          "description": "",
-          "Resources": ["timg/rouya.bti", "timg/rouya_a.bti"]
+          "name": "Prison bars"
         },
         "22": {
-          "name": "Top of tower",
-          "description": "",
-          "Resources": ["timg/okujyo.bti"]
+          "name": "Top of tower"
         },
         "23": {
-          "name": "Nakaniwa Left",
-          "description": "",
-          "Resources": ["timg/nakaniwa_l.bti"]
+          "name": "Nakaniwa Left"
         },
         "24": {
-          "name": "Nakaniwa Right",
-          "description": "",
-          "Resources": ["timg/nakaniwa_r.bti"]
+          "name": "Nakaniwa Right"
         },
         "25": {
-          "name": "Hyrule Mamorigami",
-          "description": "",
-          "Resources": ["timg/hyrule_mamorigami.bti"]
+          "name": "Hyrule Mamorigami"
         },
         "26": {
-          "name": "Saidan",
-          "description": "",
-          "Resources": ["timg/saidan.bti"]
+          "name": "Saidan"
         },
         "27": {
-          "name": "Chijo E",
-          "description": "",
-          "Resources": ["timg/chijo_e.bti"]
+          "name": "Chijo E"
         },
         "28": {
-          "name": "Chijo E",
-          "description": "",
-          "Resources": ["timg/chijo_e.bti"]
+          "name": "Chijo E"
         },
         "29": {
-          "name": "Chijo E",
-          "description": "",
-          "Resources": ["timg/chijo_e.bti"]
+          "name": "Chijo E"
         },
         "30": {
-          "name": "Chijo E",
-          "description": "",
-          "Resources": ["timg/chijo_e.bti"]
+          "name": "Chijo E"
         },
         "31": {
-          "name": "Sekihi",
-          "description": "",
-          "Resources": ["timg/sekihi.bti"]
+          "name": "Sekihi"
         },
         "32": {
-          "name": "Sabaku Ganon",
-          "description": "",
-          "Resources": ["timg/sabaku_ganon.bti"]
+          "name": "Sabaku Ganon"
         },
         "33": {
-          "name": "Higasi Sinden",
-          "description": "",
-          "Resources": ["timg/higasi_sinden.bti"]
+          "name": "Higasi Sinden"
         },
         "34": {
-          "name": "Jen 8-3",
-          "description": "",
-          "Resources": ["timg/jen_8_3.bti"]
+          "name": "Jen 8-3"
         },
         "35": {
-          "name": "Jen Blue",
-          "description": "",
-          "Resources": ["timg/jen_blue.bti"]
+          "name": "Jen Blue"
         },
         "36": {
-          "name": "Jen Green",
-          "description": "",
-          "Resources": ["timg/jen_green.bti"]
+          "name": "Jen Green"
         },
         "37": {
-          "name": "Jen Purple",
-          "description": "",
-          "Resources": ["timg/jen_purple.bti"]
+          "name": "Jen Purple"
         },
         "38": {
-          "name": "Jen Red",
-          "description": "",
-          "Resources": ["timg/jen_red.bti"]
+          "name": "Jen Red"
         },
         "39": {
-          "name": "Phantom Ganon 1 Room",
-          "description": "",
-          "Resources": ["timg/phantom_ganon.bti"]
+          "name": "Phantom Ganon 1 Room"
         },
         "40": {
-          "name": "Stone Arrghus Room",
-          "description": "",
-          "Resources": ["timg/iwart.bti"]
+          "name": "Stone Arrghus Room"
         },
         "41": {
-          "name": "Helmaroc King Room",
-          "description": "",
-          "Resources": ["timg/jeek.bti"]
+          "name": "Helmaroc King Room"
         },
         "42": {
-          "name": "Phantom Ganon 2",
-          "description": "",
-          "Resources": ["timg/phantom_ganon2.bti"]
+          "name": "Phantom Ganon 2"
         },
         "43": {
-          "name": "Degtail",
-          "description": "",
-          "Resources": ["timg/degtail.bti"]
+          "name": "Degtail"
         },
         "44": {
-          "name": "Phantom Ganon 1 Defeated Room",
-          "description": "",
-          "Resources": ["timg/phantom_ganon1_2.bti"]
+          "name": "Phantom Ganon 1 Defeated Room"
         },
         "45": {
-          "name": "Big Poe Room",
-          "description": "",
-          "Resources": ["timg/big_poo.bti"]
+          "name": "Big Poe Room"
         },
         "46": {
-          "name": "Big Poe Defeated Room",
-          "description": "",
-          "Resources": ["timg/big_poo_2.bti"]
+          "name": "Big Poe Defeated Room"
         },
         "47": {
-          "name": "Ganon Room",
-          "description": "",
-          "Resources": ["timg/ganon.bti"]
+          "name": "Ganon Room"
         },
         "48": {
-          "name": "Gufu",
-          "description": "",
-          "Resources": ["timg/gufu.bti"]
+          "name": "Gufu"
         },
         "49": {
-          "name": "Zuna Tent",
-          "description": "",
-          "Resources": ["timg/tent.bti", "timg/tent_a.bti"]
+          "name": "Zuna Tent"
         },
         "50": {
-          "name": "End Daiza",
-          "description": "",
-          "Resources": ["timg/end_daiza.bti"]
+          "name": "End Daiza"
         },
         "51": {
-          "name": "Kairo",
-          "description": "",
-          "Resources": ["timg/kairo.bti", "timg/kairo_ue.bti"]
+          "name": "Kairo"
         },
         "52": {
-          "name": "Gerudo Tent",
-          "description": "",
-          "Resources": ["timg/naporu_tent.bti", "timg/naporu_tent_a.bti"]
+          "name": "Gerudo Tent"
         },
         "53": {
-          "name": "Top of the Tower of Wind Door",
-          "description": "",
-          "Resources": ["timg/okujyo_kabuse.bti"]
+          "name": "Top of the Tower of Wind Door"
         },
         "54": {
-          "name": "Helmaroc King Room Cave Entrance Ceiling",
-          "description": "",
-          "Resources": ["timg/jeek_kabuse.bti"]
+          "name": "Helmaroc King Room Cave Entrance Ceiling"
         },
         "55": {
-          "name": "Umaana 1 Hidari",
-          "description": "",
-          "Resources": ["timg/umaana_1_hidari.bti"]
+          "name": "Umaana 1 Hidari"
         },
         "56": {
-          "name": "Umaana 1 Migi",
-          "description": "",
-          "Resources": ["timg/umaana_1_migi.bti"]
+          "name": "Umaana 1 Migi"
         },
         "57": {
-          "name": "Umaana 1 Mae",
-          "description": "",
-          "Resources": ["timg/umaana_1_mae.bti"]
+          "name": "Umaana 1 Mae"
         },
         "58": {
-          "name": "Boulder Hole",
-          "description": "",
-          "Resources": ["timg/ana_1.bti", "timg/ana_2.bti"]
+          "name": "Boulder Hole"
         },
         "59": {
-          "name": "Boulder Hole Full",
-          "description": "",
-          "Resources": ["timg/ana_1.bti", "timg/ana_2.bti"]
+          "name": "Boulder Hole Full"
         },
         "60": {
-          "name": "Helmaroc King Room Branch",
-          "description": "",
-          "Resources": ["timg/jeek_ki.bti"]
+          "name": "Helmaroc King Room Branch"
         },
         "61": {
-          "name": "Pyramide",
-          "description": "",
-          "Resources": ["timg/kazari_piramid.bti"]
+          "name": "Pyramide"
         },
         "62": {
-          "name": "Pyramid with Entrance",
-          "description": "",
-          "Resources": ["timg/piramid_s.bti", "timg/piramid_s_kabuse.bti"]
+          "name": "Pyramid with Entrance"
         },
         "63": {
-          "name": "Shooting Gallery Sign",
-          "description": "",
-          "Resources": ["timg/kanban.bti"]
+          "name": "Shooting Gallery Sign"
         },
         "64": {
-          "name": "Sabaku Sinden Left",
-          "description": "",
-          "Resources": ["timg/sabaku_sinden_l.bti"]
+          "name": "Sabaku Sinden Left"
         },
         "65": {
-          "name": "Sabaku Sinden Small",
-          "description": "",
-          "Resources": ["timg/sabaku_sinden_s.bti"]
+          "name": "Sabaku Sinden Small"
         },
         "66": {
-          "name": "House 1",
-          "description": "",
-          "Resources": ["timg/kanban_hidari_a.bti", "timg/kanban_hidari_b.bti"]
+          "name": "House 1"
         },
         "67": {
-          "name": "House 2",
-          "description": "",
-          "Resources": ["timg/kanban_migi_a.bti", "timg/kanban_migi_b.bti"]
+          "name": "House 2"
         },
         "68": {
-          "name": "Yaguraheya",
-          "description": "",
-          "Resources": ["timg/yaguraheya.bti"]
+          "name": "Yaguraheya"
         },
         "69": {
-          "name": "Egrass",
-          "description": "",
-          "Resources": ["timg/egrass.bti"]
+          "name": "Egrass"
         },
         "70": {
-          "name": "Kakariko Gate",
-          "description": "",
-          "Resources": ["timg/ura_gate.bti"]
+          "name": "Kakariko Gate"
         },
         "71": {
-          "name": "Jen Blue Koware",
-          "description": "",
-          "Resources": ["timg/jen_blue_koware.bti"]
+          "name": "Jen Blue Koware"
         },
         "72": {
-          "name": "Jen Green Koware",
-          "description": "",
-          "Resources": ["timg/jen_green_koware.bti"]
+          "name": "Jen Green Koware"
         },
         "73": {
-          "name": "Jen Purple Koware",
-          "description": "",
-          "Resources": ["timg/jen_purple_koware.bti"]
+          "name": "Jen Purple Koware"
         },
         "74": {
-          "name": "Jen Red Koware",
-          "description": "",
-          "Resources": ["timg/jen_red_koware.bti"]
+          "name": "Jen Red Koware"
         },
         "75": {
-          "name": "Jen Blue Tsume",
-          "description": "",
-          "Resources": ["timg/jen_blue_tsume.bti"]
+          "name": "Jen Blue Tsume"
         },
         "76": {
-          "name": "Jen Green Tsume",
-          "description": "",
-          "Resources": ["timg/jen_green_tsume.bti"]
+          "name": "Jen Green Tsume"
         },
         "77": {
-          "name": "Jen Purple Tsume",
-          "description": "",
-          "Resources": ["timg/jen_purple_tsume.bti"]
+          "name": "Jen Purple Tsume"
         },
         "78": {
-          "name": "Jen Red Tsume",
-          "description": "",
-          "Resources": ["timg/jen_red_tsume.bti"]
+          "name": "Jen Red Tsume"
         },
         "79": {
-          "name": "Hiroba",
-          "description": "",
-          "Resources": ["timg/hiroba.bti"]
+          "name": "Hiroba"
         },
         "80": {
-          "name": "Tower of Fire Lookout Point",
-          "description": "",
-          "Resources": ["timg/honoonotou_soto.bti", "timg/bg_mori.bti"]
+          "name": "Tower of Fire Lookout Point"
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 127,
+    "variants": {
+      "0": [
+        {
+          "btifile": "d_iriguti_a.bti"
+        },
+        {
+          "btifile": "d_iriguti_a_light.bti"
+        }
+      ],
+      "1": [
+        {
+          "btifile": "yaminosinden.bti"
+        }
+      ],
+      "2": [
+        {
+          "btifile": "koorinoshinden.bti"
+        }
+      ],
+      "3": [
+        {
+          "btifile": "honounotou.bti"
+        }
+      ],
+      "4": [
+        {
+          "btifile": "tenkuunotou.bti"
+        }
+      ],
+      "5": [
+        {
+          "btifile": "bg_opening.bti"
+        }
+      ],
+      "6": [
+        {
+          "btifile": "bg_tenkuu2.bti"
+        }
+      ],
+      "7": [
+        {
+          "btifile": "ana.bti"
+        }
+      ],
+      "8": [
+        {
+          "btifile": "d_iriguti_b.bti"
+        },
+        {
+          "btifile": "d_iriguti_b_light.bti"
+        }
+      ],
+      "9": [
+        {
+          "btifile": "d_iriguti_d.bti"
+        },
+        {
+          "btifile": "d_iriguti_d_light.bti"
+        }
+      ],
+      "10": [
+        {
+          "btifile": "d_iriguti_f.bti"
+        },
+        {
+          "btifile": "d_iriguti_f_light.bti"
+        }
+      ],
+      "11": [
+        {
+          "btifile": "d_iriguti_g.bti"
+        },
+        {
+          "btifile": "d_iriguti_g_light.bti"
+        }
+      ],
+      "12": [
+        {
+          "btifile": "d_iriguti_h.bti"
+        },
+        {
+          "btifile": "d_iriguti_h_light.bti"
+        }
+      ],
+      "13": [
+        {
+          "btifile": "d_iriguti_i.bti"
+        },
+        {
+          "btifile": "d_iriguti_i_light.bti"
+        }
+      ],
+      "14": [
+        {
+          "btifile": "d_iriguti_k.bti"
+        },
+        {
+          "btifile": "d_iriguti_k_light.bti"
+        }
+      ],
+      "15": [
+        {
+          "btifile": "bti_boss_d.bti"
+        }
+      ],
+      "16": [
+        {
+          "btifile": "bti_boss_e.bti"
+        }
+      ],
+      "17": [
+        {
+          "btifile": "bti_boss_f.bti"
+        }
+      ],
+      "18": [
+        {
+          "btifile": "bti_boss_g.bti"
+        }
+      ],
+      "19": [
+        {
+          "btifile": "bti_boss_h.bti"
+        }
+      ],
+      "20": [
+        {
+          "btifile": "bti_boss_i.bti"
+        }
+      ],
+      "20": [
+        {
+          "btifile": "bti_boss_i.bti"
+        }
+      ],
+      "21": [
+        {
+          "btifile": "rouya.bti"
+        },
+        {
+          "btifile": "rouya_a.bti"
+        }
+      ],
+      "22": [
+        {
+          "btifile": "okujyo.bti"
+        }
+      ],
+      "23": [
+        {
+          "btifile": "nakaniwa_l.bti"
+        }
+      ],
+      "24": [
+        {
+          "btifile": "nakaniwa_r.bti"
+        }
+      ],
+      "25": [
+        {
+          "btifile": "hyrule_mamorigami.bti"
+        }
+      ],
+      "26": [
+        {
+          "btifile": "saidan.bti"
+        }
+      ],
+      "27": [
+        {
+          "btifile": "chijo_e.bti"
+        }
+      ],
+      "28": [
+        {
+          "btifile": "chijo_e.bti"
+        }
+      ],
+      "29": [
+        {
+          "btifile": "chijo_e.bti"
+        }
+      ],
+      "30": [
+        {
+          "btifile": "chijo_e.bti"
+        }
+      ],
+      "31": [
+        {
+          "btifile": "sekihi.bti"
+        }
+      ],
+      "32": [
+        {
+          "btifile": "sabaku_ganon.bti"
+        }
+      ],
+      "33": [
+        {
+          "btifile": "higasi_sinden.bti"
+        }
+      ],
+      "34": [
+        {
+          "btifile": "jen_8_3.bti"
+        }
+      ],
+      "35": [
+        {
+          "btifile": "jen_blue.bti"
+        }
+      ],
+      "36": [
+        {
+          "btifile": "jen_green.bti"
+        }
+      ],
+      "37": [
+        {
+          "btifile": "jen_purple.bti"
+        }
+      ],
+      "38": [
+        {
+          "btifile": "jen_red.bti"
+        }
+      ],
+      "39": [
+        {
+          "btifile": "phantom_ganon.bti"
+        }
+      ],
+      "40": [
+        {
+          "btifile": "iwart.bti"
+        }
+      ],
+      "41": [
+        {
+          "btifile": "jeek.bti"
+        }
+      ],
+      "42": [
+        {
+          "btifile": "phantom_ganon2.bti"
+        }
+      ],
+      "43": [
+        {
+          "btifile": "degtail.bti"
+        }
+      ],
+      "44": [
+        {
+          "btifile": "phantom_ganon1_2.bti"
+        }
+      ],
+      "45": [
+        {
+          "btifile": "big_poo.bti"
+        }
+      ],
+      "46": [
+        {
+          "btifile": "big_poo_2.bti"
+        }
+      ],
+      "47": [
+        {
+          "btifile": "ganon.bti"
+        }
+      ],
+      "48": [
+        {
+          "btifile": "gufu.bti"
+        }
+      ],
+      "49": [
+        {
+          "btifile": "tent.bti"
+        },
+        {
+          "btifile": "tent_a.bti"
+        }
+      ],
+      "50": [
+        {
+          "btifile": "end_daiza.bti"
+        }
+      ],
+      "51": [
+        {
+          "btifile": "kairo.bti"
+        },
+        {
+          "btifile": "kairo_ue.bti"
+        }
+      ],
+      "52": [
+        {
+          "btifile": "naporu_tent.bti"
+        },
+        {
+          "btifile": "naporu_tent_a.bti"
+        }
+      ],
+      "53": [
+        {
+          "btifile": "okujyo_kabuse.bti"
+        }
+      ],
+      "54": [
+        {
+          "btifile": "jeek_kabuse.bti"
+        }
+      ],
+      "55": [
+        {
+          "btifile": "umaana_1_hidari.bti"
+        }
+      ],
+      "56": [
+        {
+          "btifile": "umaana_1_migi.bti"
+        }
+      ],
+      "57": [
+        {
+          "btifile": "umaana_1_mae.bti"
+        }
+      ],
+      "58": [
+        {
+          "btifile": "ana_1.bti"
+        }
+      ],
+      "59": [
+        {
+          "btifile": "ana_2.bti"
+        }
+      ],
+      "60": [
+        {
+          "btifile": "jeek_ki.bti"
+        }
+      ],
+      "61": [
+        {
+          "btifile": "kazari_piramid.bti"
+        }
+      ],
+      "62": [
+        {
+          "btifile": "piramid_s.bti"
+        },
+        {
+          "btifile": "piramid_s_kabuse.bti"
+        }
+      ],
+      "63": [
+        {
+          "btifile": "kanban.bti"
+        }
+      ],
+      "64": [
+        {
+          "btifile": "sabaku_sinden_l.bti"
+        }
+      ],
+      "65": [
+        {
+          "btifile": "sabaku_sinden_s.bti"
+        }
+      ],
+      "66": [
+        {
+          "btifile": "kanban_hidari_a.bti"
+        },
+        {
+          "btifile": "kanban_hidari_b.bti"
+        }
+      ],
+      "67": [
+        {
+          "btifile": "kanban_migi_a.bti"
+        },
+        {
+          "btifile": "kanban_migi_b.bti"
+        }
+      ],
+      "68": [
+        {
+          "btifile": "yaguraheya.bti"
+        }
+      ],
+      "69": [
+        {
+          "btifile": "egrass.bti"
+        }
+      ],
+      "70": [
+        {
+          "btifile": "ura_gate.bti"
+        }
+      ],
+      "71": [
+        {
+          "btifile": "jen_blue_koware.bti"
+        }
+      ],
+      "72": [
+        {
+          "btifile": "jen_green_koware.bti"
+        }
+      ],
+      "73": [
+        {
+          "btifile": "jen_purple_koware.bti"
+        }
+      ],
+      "74": [
+        {
+          "btifile": "jen_red_koware.bti"
+        }
+      ],
+      "75": [
+        {
+          "btifile": "jen_blue_tsume.bti"
+        }
+      ],
+      "76": [
+        {
+          "btifile": "jen_green_tsume.bti"
+        }
+      ],
+      "77": [
+        {
+          "btifile": "jen_purple_tsume.bti"
+        }
+      ],
+      "78": [
+        {
+          "btifile": "jen_red_tsume.bti"
+        }
+      ],
+      "79": [
+        {
+          "btifile": "hiroba.bti"
+        }
+      ],
+      "80": [
+        {
+          "btifile": "honoonotou_soto.bti"
+        },
+        {
+          "btifile": "bg_mori.bti"
+        }
+      ]
+    }
+  }
 }

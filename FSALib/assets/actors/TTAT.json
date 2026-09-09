@@ -22,5 +22,34 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "e_tst_kara.bti"
+        },
+        {
+          "yoffset": -32,
+          "btifile": "e_tst_paku_green_0.bti"
+        },
+        {
+          "xoffset": -32,
+          "rotation": 270,
+          "btifile": "e_tst_paku_red_0.bti"
+        },
+        {
+          "xoffset": 32,
+          "rotation": 90,
+          "btifile": "e_tst_paku_purple_0.bti"
+        },
+        {
+          "yoffset": 32,
+          "rotation": 180,
+          "btifile": "e_tst_paku_blue_0.bti"
+        }
+      ]
+    }
+  }
 }

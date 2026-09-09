@@ -4,5 +4,15 @@
   "InternalName": "ボス：ワート",
   "category": "Boss",
   "Resources": ["wart"],
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "wart_eye4.bti"
+        }
+      ]
+    }
+  }
 }

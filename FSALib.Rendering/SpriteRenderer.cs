@@ -1,6 +1,5 @@
 ﻿using AuroraLib.Pixel;
 using AuroraLib.Pixel.Image;
-using AuroraLib.Pixel.Processing;
 using FSALib.Structs;
 using System;
 using System.Buffers;
@@ -10,7 +9,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using static FSALib.Rarc;
 
-namespace FSALib.Renderer
+namespace FSALib.Rendering
 {
     /// <summary>
     /// Renders sprite graphics and manages sprite tiles, palettes, and sprite attribute data.

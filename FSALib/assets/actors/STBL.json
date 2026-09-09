@@ -86,7 +86,11 @@
           "spriteListIndex": 1
         }
       ],
-      "16384": [{}],
+      "16384": [
+        {
+          "btifile": "kazari_piramid.bti"
+        }
+      ],
       "20480": [
         {
           "spriteIndex": 892,

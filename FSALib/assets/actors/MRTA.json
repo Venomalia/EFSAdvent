@@ -42,8 +42,30 @@
     }
   ],
   "rendering": {
-    "bitMask": 256,
+    "bitMask": 273,
     "variants": {
+      "0": [
+        {
+          "btifile": "yy_1_1maruta1.bti"
+        }
+      ],
+      "1": [
+        {
+          "rotation": 90,
+          "btifile": "yy_1_1maruta1.bti"
+        }
+      ],
+      "16": [
+        {
+          "btifile": "yy_1_1maruta2.bti"
+        }
+      ],
+      "17": [
+        {
+          "rotation": 90,
+          "btifile": "yy_1_1maruta2.bti"
+        }
+      ],
       "256": [
         {
           "spriteIndex": 1093,

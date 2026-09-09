@@ -64,7 +64,7 @@
     }
   ],
   "rendering": {
-    "bitMask": 14,
+    "bitMask": 65550,
     "variants": {
       "0": [
         {
@@ -91,6 +91,14 @@
           "spriteIndex": 556,
           "spriteListIndex": 2,
           "replacementPaletteIndex": 1
+        }
+      ],
+      "65536": [
+        {
+          "xscale": 2,
+          "yscale": 2,
+          "spriteIndex": 798,
+          "spriteListIndex": 1
         }
       ]
     }

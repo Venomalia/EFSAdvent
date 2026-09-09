@@ -1,7 +1,7 @@
 ﻿using AuroraLib.Pixel.BitmapExtension;
 using AuroraLib.Pixel.Image;
 using FSALib;
-using FSALib.Renderer;
+using FSALib.Rendering;
 using System;
 using System.Drawing;
 using System.Windows.Forms;

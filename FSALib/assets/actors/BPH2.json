@@ -55,6 +55,11 @@
   "rendering": {
     "bitMask": 15,
     "variants": {
+      "0": [
+        {
+          "btifile": "boss_p_haki_01.bti"
+        }
+      ],
       "1": [
         {
           "spriteIndex": 433,

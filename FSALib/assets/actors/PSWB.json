@@ -12,5 +12,15 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "4hippari_switch_0.bti"
+        }
+      ]
+    }
+  }
 }

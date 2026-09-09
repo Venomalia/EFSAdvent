@@ -8,8 +8,7 @@
     "variants": {
       "0": [
         {
-          "spriteIndex": 1126,
-          "spriteListIndex": 2
+          "btifile": "e_gufu_1.bti"
         }
       ]
     }

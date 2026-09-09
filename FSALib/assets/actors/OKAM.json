@@ -44,5 +44,20 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 1,
+    "variants": {
+      "0": [
+        {
+          "btifile": "e_tes_aruki_0.bti"
+        }
+      ],
+      "1": [
+        {
+          "btifile": "e_tes_aruki_tate_0.bti"
+        }
+      ]
+    }
+  }
 }

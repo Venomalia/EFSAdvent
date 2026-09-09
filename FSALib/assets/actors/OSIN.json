@@ -3,13 +3,27 @@
   "description": "",
   "InternalName": "オシン",
   "category": "Enemy",
+  "fields": [
+    {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor. (0 = always active)",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ],
   "rendering": {
-    "bitMask": 0,
+    "bitMask": 18,
     "variants": {
       "0": [
         {
           "spriteIndex": 321,
           "spriteListIndex": 1
+        }
+      ],
+      "18": [
+        {
+          "btifile": "said_a.bti"
         }
       ]
     }

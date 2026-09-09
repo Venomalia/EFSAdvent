@@ -43,7 +43,11 @@
   "rendering": {
     "bitMask": 15,
     "variants": {
-      "0": [{}],
+      "0": [
+        {
+          "btifile": "fly_0001.bti"
+        }
+      ],
       "4": [
         {
           "xoffset": 16,

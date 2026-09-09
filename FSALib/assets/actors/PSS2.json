@@ -18,5 +18,16 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "kabe_switch_0.bti",
+          "xoffset": 8
+        }
+      ]
+    }
+  }
 }
