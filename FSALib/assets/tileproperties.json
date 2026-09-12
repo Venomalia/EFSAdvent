@@ -64,7 +64,7 @@
     "Collision": "Solid"
   },
   "12": {
-    "Name": "Abyss Alt",
+    "Name": "Abyss Alt 1",
     "Description": "Links and enemies fall into the abyss.",
     "Surface": "Abyss"
   },
@@ -80,7 +80,7 @@
     "Collision": "Solid"
   },
   "15": {
-    "Name": "Void, not walkable Alt",
+    "Name": "Void, not walkable GBA Wall",
     "Description": "GBA dividing wall",
     "Collision": "Solid"
   },
@@ -251,7 +251,7 @@
   },
   "49": {
     "Name": "Abyss, does damage Alt 1",
-    "Description": "Link and enemies fall into the abyss and take damage Dupe of tile 13?",
+    "Description": "Link and enemies fall into the abyss and take damage Dupe of tile 13? Needs more Research",
     "Surface": "Abyss"
   },
   "50": {
@@ -418,12 +418,12 @@
   },
   "76": {
     "Name": "Ground Soild on left side",
-    "Description": "",
+    "Description": "Not traversable from the left side",
     "Collision": "Left"
   },
   "77": {
     "Name": "Ground Solid on top side",
-    "Description": "",
+    "Description": "Not traversable from the top side",
     "Collision": "Top"
   },
   "78": {
@@ -460,7 +460,7 @@
   },
   "84": {
     "Name": "Abyss",
-    "Description": "84",
+    "Description": "Another Abyss tile that might harm the Player?",
     "Surface": "Abyss"
   },
   "85": {
@@ -674,7 +674,7 @@
   },
   "120": {
     "Name": "Small magic circle gate",
-    "Description": "Used for the mini magic circle gates in caves and other indoor areas"
+    "Description": "Used for the mini magic circle gates in caves and other indoor areas it also can be deco ground tiles based off the Tileset used"
   },
   "121": {
     "Name": "Picked up Bush Hole",
@@ -834,7 +834,7 @@
   },
   "148": {
     "Name": "Need to Research Tile?",
-    "Description": "148",
+    "Description": "Some kind of Solid tile? 148",
     "Collision": "Solid"
   },
   "149": {
@@ -897,8 +897,8 @@
     "Collision": "Solid"
   },
   "159": {
-    "Name": "Abyss",
-    "Description": "159",
+    "Name": "Abyss Alt 2",
+    "Description": "Another Abyss Tile that might act like the Non Damaging Ones? Tile 159",
     "Surface": "Abyss"
   },
   "160": {
@@ -1128,7 +1128,7 @@
     "Collision": "Solid"
   },
   "202": {
-    "Name": "Part of Steel ball spawner Alt, North",
+    "Name": "Part of Steel ball spawner Alt, South",
     "Description": "Part of the Steel ball spawner",
     "Collision": "Solid"
   },
@@ -1231,7 +1231,7 @@
     "MirrorTile": 218
   },
   "220": {
-    "Name": "Block Alt",
+    "Name": "Block Alt (used for the GBA Rewriter System)",
     "Description": "GBA PNPC replaceable",
     "Collision": "Solid",
     "Interaction": "GBARewriter",
@@ -1240,7 +1240,7 @@
     "ActorValue": 202376032
   },
   "221": {
-    "Name": "Solid floor tile",
+    "Name": "Solid floor tile (used for the GBA Rewriter System)",
     "Description": "GBA PNPC replaceable",
     "Interaction": "GBARewriter",
     "InteractionTile": 32,
@@ -1248,8 +1248,8 @@
     "ActorValue": 67108896
   },
   "222": {
-    "Name": "Void",
-    "Description": "222",
+    "Name": "Void Alt 2",
+    "Description": "Another Void Tile that Needs Research Tile 222",
     "Surface": "Abyss",
     "Properties": "Hazard"
   },
@@ -1624,7 +1624,7 @@
     "Collision": "Solid"
   },
   "286": {
-    "Name": "Dirt wall, Wast",
+    "Name": "Dirt wall, West",
     "Description": "",
     "MirrorTile": 287,
     "Collision": "Solid"
@@ -1636,7 +1636,7 @@
     "Collision": "Solid"
   },
   "288": {
-    "Name": "Dirt wall cliff, Wast",
+    "Name": "Dirt wall cliff, West",
     "Description": "Edge of cliff",
     "MirrorTile": 290,
     "Collision": "Solid"
@@ -1702,7 +1702,7 @@
     "Collision": "Solid"
   },
   "299": {
-    "Name": "Cliff, Wast",
+    "Name": "Cliff, West",
     "Description": "Top of cliff",
     "MirrorTile": 296,
     "Collision": "BottomRight",
@@ -1982,7 +1982,7 @@
   },
   "346": {
     "Name": "Floor switch",
-    "Description": "346",
+    "Description": "An switch on the floor in Caves or Palaces or Dungeons needs the Switch Actor to function",
     "RequiredActorID": "SWTH",
     "ActorValue": 134217856
   },
@@ -2196,20 +2196,20 @@
     "Collision": "Solid"
   },
   "381": {
-    "Name": "",
-    "Description": "Rock inside of DeepWater",
+    "Name": "Rock inside of DeepWater",
+    "Description": "",
     "MirrorTile": 380,
     "Collision": "Solid"
   },
   "382": {
-    "Name": "Dock",
-    "Description": "",
+    "Name": "Dock with Bottom West of Ladder",
+    "Description": "Bottom of Ladder Left with Dock",
     "MirrorTile": 383,
     "Collision": "Left"
   },
   "383": {
-    "Name": "Dock",
-    "Description": "",
+    "Name": "Dock with Bottom East of Ladder",
+    "Description": "Bottom of Ladder Right with Dock",
     "MirrorTile": 382,
     "Collision": "Right"
   },
@@ -2298,13 +2298,13 @@
     "Collision": "Solid"
   },
   "398": {
-    "Name": "",
-    "Description": "",
+    "Name": "Need to Research Tile?",
+    "Description": "398",
     "MirrorTile": 399
   },
   "399": {
-    "Name": "",
-    "Description": "",
+    "Name": "Need to Research Tile?",
+    "Description": "399",
     "MirrorTile": 398
   },
   "400": {
@@ -2506,12 +2506,12 @@
   },
   "433": {
     "Name": "Solid Flooring? Alt",
-    "Description": "Dupe of Tile 221 Maybe? Need to Test it more",
+    "Description": "Dupe of Tile 221 Maybe? Need to Test it more might be another GBARewriter Tile? tile 433",
     "Collision": "Solid"
   },
   "434": {
     "Name": "Quicksand",
-    "Description": "",
+    "Description": "It is sand that you sink into in Desert Levels",
     "Surface": "Quicksand"
   },
   "435": {
@@ -2611,8 +2611,8 @@
     "Description": "A small ladder entrance or exit used with Warp Actor"
   },
   "450": {
-    "Name": "Void Alt",
-    "Description": "A dupe of Tile 00 Maybe need to Test It?"
+    "Name": "Void Alt 3",
+    "Description": "A dupe of Tile 00 Maybe need to Research and Test It?"
   },
   "451": {
     "Name": "Default Ground, variance",
@@ -3269,7 +3269,7 @@
   },
   "559": {
     "Name": "Abyss?",
-    "Description": "",
+    "Description": "More Abyss Need to Research it more Tile 559",
     "Surface": "Abyss"
   },
   "560": {
@@ -4259,26 +4259,25 @@
     "MirrorTile": 719
   },
   "736": {
-    "Name": "Closed 1x1 door (north)",
     "MirrorTile": 737,
     "RequiredActorID": "DOOR",
     "ActorValue": 2147483776,
     "Collision": "Solid"
   },
   "737": {
-    "Name": "Closed 1x1 door (north)",
+    "Name": "Closed 1x1 door (north right side)",
     "MirrorTile": 736,
     "Collision": "Solid"
   },
   "738": {
-    "Name": "Closed 1x1 door (west)",
+    "Name": "Closed 1x1 door (west top side)",
     "MirrorTile": 739,
     "RequiredActorID": "DOOR",
     "ActorValue": 2147483904,
     "Collision": "Solid"
   },
   "739": {
-    "Name": "Closed 1x1 door (east)",
+    "Name": "Closed 1x1 door (east top side)",
     "MirrorTile": 738,
     "RequiredActorID": "DOOR",
     "ActorValue": 2147484032,
@@ -4345,24 +4344,24 @@
     "MirrorTile": 767
   },
   "752": {
-    "Name": "Closed 1x1 door (north)",
+    "Name": "Closed 1x1 door (south left side)",
     "MirrorTile": 753,
     "RequiredActorID": "DOOR",
     "ActorValue": 2147483648,
     "Collision": "Solid"
   },
   "753": {
-    "Name": "Closed 1x1 door (north)",
+    "Name": "Closed 1x1 door (south right side)",
     "MirrorTile": 752,
     "Collision": "Solid"
   },
   "754": {
-    "Name": "Closed 1x1 door (west)",
+    "Name": "Closed 1x1 door (west bottom side)",
     "MirrorTile": 755,
     "Collision": "Solid"
   },
   "755": {
-    "Name": "Closed 1x1 door (east)",
+    "Name": "Closed 1x1 door (east bottom side)",
     "MirrorTile": 754,
     "Collision": "Solid"
   },
@@ -5051,208 +5050,224 @@
     "Collision": "Solid"
   },
   "896": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 897,
     "Collision": "Solid"
   },
   "897": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 896,
     "Collision": "Solid"
   },
   "898": {
-    "Name": "",
-    "MirrorTile": 899
+    "Name": "Cracked Bombable wall, (North Left Side) House",
+    "MirrorTile": 899,
+    "Collision": "Solid"
   },
   "899": {
-    "Name": "",
-    "MirrorTile": 898
+    "Name": "Cracked Bombable wall, (North Right Side) House",
+    "MirrorTile": 898,
+    "Collision": "Solid"
   },
   "900": {
-    "Name": "",
-    "MirrorTile": 903
+    "Name": "Door Frame, House",
+    "MirrorTile": 903,
+    "Collision": "Solid"
   },
   "901": {
-    "Name": "",
-    "MirrorTile": 902
+    "Name": "Cracked Bombable wall, (West Top Side) House",
+    "MirrorTile": 902,
+    "Collision": "Solid"
   },
   "902": {
-    "Name": "",
-    "MirrorTile": 901
+    "Name": "Cracked Bombable wall, (East Top Side) House",
+    "MirrorTile": 901,
+    "Collision": "Solid"
   },
   "903": {
-    "Name": "",
-    "MirrorTile": 900
+    "Name": "Door Frame, House",
+    "MirrorTile": 900,
+    "Collision": "Solid"
   },
   "904": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 905,
     "Collision": "Left"
   },
   "905": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 904,
     "Collision": "Right"
   },
   "906": {
-    "Name": "",
+    "Name": "Cracked Bombable wall Open Door, (North Left Side) House",
     "MirrorTile": 907,
     "Collision": "Left"
   },
   "907": {
-    "Name": "",
+    "Name": "Cracked Bombable wall Open Door, (North Right Side) House",
     "MirrorTile": 906,
     "Collision": "Right"
   },
   "908": {
-    "Name": "",
-    "MirrorTile": 911
+    "Name": "Door Frame, House",
+    "MirrorTile": 911,
+    "Collision": "Top"
   },
   "909": {
-    "Name": "",
+    "Name": "Cracked Bombable wall Open Door, (West Top Side) House",
     "MirrorTile": 910,
     "Collision": "Top"
   },
   "910": {
-    "Name": "",
+    "Name": "Cracked Bombable wall Open Door, (East Top Side) House",
     "MirrorTile": 909,
-    "Collision": "top"
+    "Collision": "Top"
   },
   "911": {
-    "Name": "",
-    "MirrorTile": 908
+    "Name": "Door Frame, House",
+    "MirrorTile": 908,
+    "Collision": "Top"
   },
   "912": {
-    "Name": "",
+    "Name": "Cracked Bombable wall, (South Left Side) House",
     "MirrorTile": 913,
     "Collision": "Solid"
   },
   "913": {
-    "Name": "",
+    "Name": "Cracked Bombable wall, (South Right Side) House",
     "MirrorTile": 912,
     "Collision": "Solid"
   },
   "914": {
-    "Name": "",
-    "MirrorTile": 915
+    "Name": "Door Frame, House",
+    "MirrorTile": 915,
+    "Collision": "Solid"
   },
   "915": {
-    "Name": "",
-    "MirrorTile": 914
+    "Name": "Door Frame, House",
+    "MirrorTile": 914,
+    "Collision": "Solid"
   },
   "916": {
-    "Name": "",
-    "MirrorTile": 919
+    "Name": "Door Frame, House",
+    "MirrorTile": 919,
+    "Collision": "Solid"
   },
   "917": {
-    "Name": "",
-    "MirrorTile": 918
+    "Name": "Cracked Bombable wall, (West Bottom Side) House",
+    "MirrorTile": 918,
+    "Collision": "Solid"
   },
   "918": {
-    "Name": "",
-    "MirrorTile": 917
+    "Name": "Cracked Bombable wall, (East Bottom Side) House",
+    "MirrorTile": 917,
+    "Collision": "Solid"
   },
   "919": {
-    "Name": "",
-    "MirrorTile": 916
+    "Name": "Door Frame, House",
+    "MirrorTile": 916,
+    "Collision": "Solid"
   },
   "920": {
-    "Name": "",
+    "Name": "Cracked Bombable wall Open Door, (South Left Side) House",
     "MirrorTile": 921,
     "Collision": "Left"
   },
   "921": {
-    "Name": "",
+    "Name": "Cracked Bombable wall Open Door, (South Right Side) House",
     "MirrorTile": 920,
     "Collision": "Right"
   },
   "922": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 923,
     "Collision": "Left"
   },
   "923": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 922,
     "Collision": "Right"
   },
   "924": {
-    "Name": "",
-    "MirrorTile": 927
+    "Name": "Door Frame, House",
+    "MirrorTile": 927,
+    "Collision": "Bottom"
   },
   "925": {
-    "Name": "",
+    "Name": "Cracked Bombable wall Open Door, (West Bottom Side) House",
     "MirrorTile": 926,
     "Collision": "Bottom"
   },
   "926": {
-    "Name": "",
+    "Name": "Cracked Bombable wall Open Door, (East Bottom Side) House",
     "MirrorTile": 925,
     "Collision": "Bottom"
   },
   "927": {
-    "Name": "",
-    "MirrorTile": 924
+    "Name": "Door Frame, House",
+    "MirrorTile": 924,
+    "Collision": "Bottom"
   },
   "928": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 929,
     "Collision": "Left"
   },
   "929": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 928,
     "Collision": "Right"
   },
   "930": {
-    "Name": "Open Door, House",
+    "Name": "Open Door, (South Left Side) House",
     "MirrorTile": 931,
     "Collision": "Left"
   },
   "931": {
-    "Name": "Open Door, House",
+    "Name": "Open Door, (South Right Side) House",
     "MirrorTile": 930,
     "Collision": "Right"
   },
   "932": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 935,
     "Collision": "Top"
   },
   "933": {
-    "Name": "Open Door, House",
+    "Name": "Open Door, (West Top Side) House",
     "MirrorTile": 934,
     "Collision": "Top"
   },
   "934": {
-    "Name": "Open Door, House",
+    "Name": "Open Door, (East Top Side) House",
     "MirrorTile": 933,
     "Collision": "Top"
   },
   "935": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 932,
     "Collision": "Top"
   },
   "936": {
-    "Name": "Key or Vine Door (South)",
+    "Name": "Key or Vine Door, (North Left Side) House",
     "MirrorTile": 937,
     "RequiredActorID": "DOOR",
     "ActorValue": 131,
     "Collision": "Solid"
   },
   "937": {
-    "Name": "Key or Vine Door (South)",
+    "Name": "Key or Vine Door, (North Left Side) House",
     "MirrorTile": 936,
     "Collision": "Solid"
   },
   "938": {
-    "Name": "Key or Vine Door",
+    "Name": "Key or Vine Door, (West Top Side) House",
     "MirrorTile": 939,
     "Collision": "Solid"
   },
   "939": {
-    "Name": "Key or Vine Door",
+    "Name": "Key or Vine Door, (East Top Side) House",
     "MirrorTile": 938,
     "Collision": "Solid"
   },
@@ -5277,62 +5292,62 @@
     "Collision": "TopRight"
   },
   "944": {
-    "Name": "Open Door, House",
+    "Name": "Open Door, (North Left Side) House",
     "MirrorTile": 945,
     "Collision": "Left"
   },
   "945": {
-    "Name": "Open Door, House",
+    "Name": "Open Door, (North Right Side) House",
     "MirrorTile": 944,
     "Collision": "Right"
   },
   "946": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 947,
     "Collision": "Left"
   },
   "947": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 946,
     "Collision": "Right"
   },
   "948": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 951,
     "Collision": "Bottom"
   },
   "949": {
-    "Name": "Open Door, House",
+    "Name": "Open Door, (West Bottom Side) House",
     "MirrorTile": 950,
     "Collision": "Bottom"
   },
   "950": {
-    "Name": "Open Door, House",
+    "Name": "Open Door, (East Bottom Side) House",
     "MirrorTile": 949,
     "Collision": "Bottom"
   },
   "951": {
-    "Name": "",
+    "Name": "Door Frame, House",
     "MirrorTile": 948,
     "Collision": "Bottom"
   },
   "952": {
-    "Name": "Key or Vine Door",
+    "Name": "Key or Vine Door, (South Left Side) House",
     "MirrorTile": 953,
     "Collision": "Solid"
   },
   "953": {
-    "Name": "Key or Vine Door",
+    "Name": "Key or Vine Door, (South Right Side) House",
     "MirrorTile": 952,
     "Collision": "Solid"
   },
   "954": {
-    "Name": "Key or Vine Door",
+    "Name": "Key or Vine Door, (West Bottom Side) House",
     "MirrorTile": 955,
     "Collision": "Solid"
   },
   "955": {
-    "Name": "Key or Vine Door",
+    "Name": "Key or Vine Door, (East Bottom Side) House",
     "MirrorTile": 954,
     "Collision": "Solid"
   },
@@ -5549,7 +5564,7 @@
     "ActorValue": 203424764
   },
   "1005": {
-    "Name": "Spikes",
+    "Name": "Spikes (Side view)",
     "Properties": "Hazard",
     "Collision": "Solid"
   },
