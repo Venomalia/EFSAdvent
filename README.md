@@ -35,5 +35,8 @@ Changes can be saved directly to the stage archive.
 Since Dolphin can boot extracted game folders, you can test your changes immediately without rebuilding the disc image!
 
 ## Preview
-<img width="960" height="606" alt="grafik" src="https://github.com/user-attachments/assets/a39e8801-a415-40e5-9c8a-2de2dd4dd52d" />
+<img width="959" height="603" alt="grafik" src="https://github.com/user-attachments/assets/d7ae2942-3291-4545-8583-07fcb6fa1ced" />
+<img width="956" height="603" alt="grafik" src="https://github.com/user-attachments/assets/2adafe29-b21c-4261-a05e-bb6133312ad7" />
+
+
 
