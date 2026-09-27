@@ -2,5 +2,15 @@
   "name": "Shadowlink Generator",
   "description": "",
   "InternalName": "シャドウリンクのジェネレーター",
-  "category": "Object"
+  "category": "Object",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "jen_8_3.bti"
+        }
+      ]
+    }
+  }
 }

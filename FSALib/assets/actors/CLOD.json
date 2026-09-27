@@ -23,5 +23,20 @@
       "bitSize": 8,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 131072,
+    "variants": {
+      "0": [
+        {
+          "btifile": "lift_s_a.bti"
+        }
+      ],
+      "131072": [
+        {
+          "btifile": "lift_l_a.bti"
+        }
+      ]
+    }
+  }
 }

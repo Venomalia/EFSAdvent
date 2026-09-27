@@ -72,5 +72,7 @@ namespace FSALib.AssetDefinitions
         /// Responds to a “PNPC” tile changes.
         /// </summary>
         GBARewriter = 1 << 10,
+
+        All = Fragile | GBARewriter | Diggable | Touch | Pickupable,
     }
 }

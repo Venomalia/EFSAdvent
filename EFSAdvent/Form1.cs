@@ -1,12 +1,15 @@
 ﻿using AuroraLib.Core.Format.Identifier;
 using AuroraLib.Pixel.BitmapExtension;
+using AuroraLib.Pixel.Formats;
+using AuroraLib.Pixel.Formats.Common;
 using AuroraLib.Pixel.Image;
 using AuroraLib.Pixel.PixelProcessor;
 using AuroraLib.Pixel.Processing;
+using AuroraLib.Pixel.Processing.Processor;
 using EFSAdvent.Controls;
 using FSALib;
 using FSALib.AssetDefinitions;
-using FSALib.Renderer;
+using FSALib.Rendering;
 using FSALib.Structs;
 using System;
 using System.Collections.Generic;
@@ -16,6 +19,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Threading;
 using System.Windows.Forms;
 using BGRA32 = AuroraLib.Pixel.PixelFormats.BGRA<byte>;
@@ -24,7 +28,7 @@ namespace EFSAdvent
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "2.3";
+        private const string VERSION = "2.4";
         private const string BaseTitel = "EFSAdvent " + VERSION + " [Venomalia]";
         private const string WikiUrl = "https://github.com/Venomalia/EFSAdvent/wiki";
         private const string SourceCodeUrl = "https://github.com/Venomalia/EFSAdvent";
@@ -39,26 +43,18 @@ namespace EFSAdvent
         private readonly Identifier32[] _actorIDs;
         private readonly ToolTip _actorInfoToolTip = new ToolTip();
 
-        private Stage _level = new Stage();
+        private Stage _level { get => stageRenderer.CurrentStage; set => stageRenderer.CurrentStage = value; }
         private int _currentRoomIndex = -1;
         private bool _levelIsDirty = false;
         private string _levelFilePaht;
         private Rectangle _tileSelection;
         private (int x, int y) _tileSelectionOrigin;
 
-        readonly Rarc dataRarc;
-        readonly TilesetRenderer<BGRA32> tilesetRendererTV;
-        readonly TilesetRenderer<BGRA32> tilesetRendererGBA;
-        private TilesetRenderer<BGRA32> TilesetRenderer => (GetHighestActiveLayerIndex() % 8) == 0 ? tilesetRendererTV : tilesetRendererGBA;
+        readonly StageRenderer<BGRA32> stageRenderer;
 
-        readonly Bitmap tileSheetBitmap, tileSheetBitmapGBA, roomLayerBitmap, brushTileBitmap;
-
-        readonly SpriteRenderer<BGRA32> spriteRendererTV;
-        readonly SpriteRenderer<BGRA32> spriteRendererGBA;
+        readonly Bitmap tileSheetBitmap, roomLayerBitmap, brushTileBitmap;
         readonly Bitmap actorLayerBitmap, actorBitmap;
         readonly Graphics roomLayerGraphics, actorLayerGraphics;
-
-        Bitmap overlayBitmap;
 
         (int x, int y) lastActorCoordinates;
 
@@ -72,7 +68,6 @@ namespace EFSAdvent
 
         public Form1()
         {
-            try
             {
                 InitializeComponent();
                 ActorVariableFullInput.Controls[0].Enabled = false;
@@ -120,14 +115,10 @@ namespace EFSAdvent
                     }
                 }
                 using FileStream dataStream = File.OpenRead(dataArcPath);
-                dataRarc = new Rarc(dataStream);
-                tilesetRendererTV = new TilesetRenderer<BGRA32>(dataRarc);
-                tilesetRendererGBA = new TilesetRenderer<BGRA32>(dataRarc);
-                spriteRendererTV = new SpriteRenderer<BGRA32>(dataRarc);
-                spriteRendererGBA = new SpriteRenderer<BGRA32>(dataRarc);
+
+                stageRenderer = new StageRenderer<BGRA32>(new Rarc(dataStream));
 
                 tileSheetBitmap = new Bitmap(256, 1024);
-                tileSheetBitmapGBA = new Bitmap(256, 1024);
                 tileSheetPictureBox.Image = tileSheetBitmap;
 
                 brushTileBitmap = new Bitmap(16, 16, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
@@ -220,15 +211,6 @@ namespace EFSAdvent
 
 
             }
-            catch (Exception ex)
-            {
-                string message = ex.InnerException?.Message ?? ex.Message;
-
-                message = message.Replace(". ", ".\n").Replace(": ", ":\n");
-
-                MessageBox.Show($"The application encountered an unexpected error during initialization\n\n{message}", $"{BaseTitel} could not be started.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Environment.Exit(1);
-            }
         }
 
         private void ResetVarsForNewLevel()
@@ -293,8 +275,6 @@ namespace EFSAdvent
 
             _level.Map.PropertyChanged += Map_PropertyChanged;
 
-            ChangeOverlay();
-            ChangeTileSheet();
 
             //Get a string which is just the root bossxxx filepath for loading other files
             RootFolderPathTextBox.Text = _levelFilePaht;
@@ -310,6 +290,11 @@ namespace EFSAdvent
             tabControl.Enabled = true;
             rightSideGroupBox.Enabled = true;
             importToolStripMenuItem.Enabled = true;
+            LayerLevelComboBox.SelectedIndex = 0;
+            RenderOptionsCheckedListBox.SetItemChecked(0, true); // Actors
+            RenderOptionsCheckedListBox.SetItemChecked(1, true); // TileChanges
+            RenderOptionsCheckedListBox.SetItemChecked(2, true); // Overlay
+            RenderOptionsCheckedListBox.SetItemChecked(4, true); // Environment
             LoadRoom(_level.Map[_level.Map.StartX, _level.Map.StartY], false);
         }
 
@@ -320,11 +305,9 @@ namespace EFSAdvent
             switch (e.PropertyName)
             {
                 case "OverlayTextureId":
-                    ChangeOverlay();
-                    break;
-                case "TileSheetId":
                 case "NPCSheetID":
-                    ChangeTileSheet();
+                case "TileSheetId":
+                    UpdateView();
                     break;
                 default:
                     break;
@@ -500,46 +483,30 @@ namespace EFSAdvent
                 FileName = $"boss{_level.Map.Index:D3}"
             };
 
-            if (savePng.ShowDialog() == DialogResult.OK)
+            if (savePng.ShowDialog() != DialogResult.OK)
+                return;
+
+            int lastRoom = _currentRoomIndex;
+            int roomWidth = 512, roomHeight = 384;
+            var render = GetRenderOptions();
+            using var mapImage = new MemoryImage<BGRA32>(roomWidth * _level.Map.XDimension, roomHeight * _level.Map.YDimension);
+
+            var tempLocalVariable = stageRenderer.LocalVariable;
+            stageRenderer.LocalVariable = uint.MaxValue;
+            for (int y = 0; y < _level.Map.YDimension; y++)
             {
-
-                bool autoLoadActors = autoSelectToolStripMenuItem.Checked;
-                int lastRoom = _currentRoomIndex;
-                autoSelectToolStripMenuItem.Checked = sender is ToolStripItem csender && csender.Name == "mapAndAAspngToolStripMenuItem";
-
-                int roomWidth = 512, roomHeight = 384; // Maße eines Raums
-                int mapWidth = roomWidth * _level.Map.XDimension; // Gesamtbreite
-                int mapHeight = roomHeight * _level.Map.YDimension; // Gesamthöhe
-
-                using (Bitmap levelBitmap = new Bitmap(mapWidth, mapHeight))
-                using (Graphics g = Graphics.FromImage(levelBitmap))
+                for (int x = 0; x < _level.Map.XDimension; x++)
                 {
-                    for (int y = 0; y < _level.Map.YDimension; y++)
+                    int roomValue = _level.Map[x, y];
+
+                    if (roomValue != MapLayout.EMPTY_ROOM_VALUE)
                     {
-                        for (int x = 0; x < _level.Map.XDimension; x++)
-                        {
-                            int roomValue = _level.Map[x, y];
-
-                            if (roomValue != MapLayout.EMPTY_ROOM_VALUE)
-                            {
-                                LoadRoom(roomValue, false);
-
-                                int drawX = x * roomWidth;
-                                int drawY = y * roomHeight;
-
-                                Rectangle sourceRect = new Rectangle(0, 0, roomWidth, roomHeight);
-                                Rectangle destRect = new Rectangle(drawX, drawY, roomWidth, roomHeight);
-                                g.DrawImage(roomLayerBitmap, destRect, sourceRect, GraphicsUnit.Pixel);
-                            }
-                        }
+                        stageRenderer.Draw(mapImage, roomValue, 0, new Point(x * roomWidth, y * roomHeight), render);
                     }
-
-                    levelBitmap.Save(savePng.FileName, System.Drawing.Imaging.ImageFormat.Png);
                 }
-
-                autoSelectToolStripMenuItem.Checked = autoLoadActors;
-                LoadRoom(lastRoom, false);
             }
+            new PNG().WriteImage(mapImage, savePng.FileName);
+            stageRenderer.LocalVariable = tempLocalVariable;
         }
 
         private void ExportRoomsAsPng(object sender, EventArgs e)
@@ -551,48 +518,29 @@ namespace EFSAdvent
             if (folderDialog.ShowDialog() != DialogResult.OK)
                 return;
 
-            bool autoLoadActors = autoSelectToolStripMenuItem.Checked;
-            bool overlay = displayOverlayToolStripMenuItem.Checked;
-            int lastRoom = _currentRoomIndex;
-            autoSelectToolStripMenuItem.Checked = sender is ToolStripItem csender && csender.Name == "allRoomsAndActorsAspngToolStripMenuItem";
-            displayOverlayToolStripMenuItem.Checked = false;
+            var render = GetRenderOptions();
+            using var image = new MemoryImage<BGRA32>(512, 512);
 
-            for (int room = 0; room < byte.MaxValue; room++)
+            var tempLocalVariable = stageRenderer.LocalVariable;
+            stageRenderer.LocalVariable = uint.MaxValue;
+            for (int i = 0; i < MapLayout.MAX_Rooms; i++)
             {
-                if (_level.Rooms[(byte)room] != null)
+                var room = _level.Rooms[i];
+                if (room != null)
                 {
-                    LoadRoom(room, false);
-                    string baseFileName = $"boss{_level.Map.Index:D3}_room{room}";
-
-                    for (int layer = 0; layer < 8; layer++)
+                    for (int l = 0; l < Room.LAYER; l++)
                     {
-                        if (layersCheckList.GetItemColor(layer) == Color.Black)
-                        {
-                            layersCheckList.SetItemChecked(layer, true);
-                            layersCheckList.SetItemChecked(layer + 8, true);
+                        if (room.Layers[l].IsEmpty)
+                            continue;
 
-                            UpdateView();
-                            string path = Path.Combine(folderDialog.SelectedPath, $"{baseFileName}_layer{layer}.png");
-                            if (layer == 0)
-                            {
-                                using Bitmap baselayer = roomLayerBitmap.Clone(new Rectangle(0, 0, 512, 384), roomLayerBitmap.PixelFormat);
-                                baselayer.Save(path, System.Drawing.Imaging.ImageFormat.Png);
-                            }
-                            else
-                            {
-                                roomLayerBitmap.Save(path, System.Drawing.Imaging.ImageFormat.Png);
-                            }
-
-                            layersCheckList.SetItemChecked(layer, false);
-                            layersCheckList.SetItemChecked(layer + 8, false);
-                        }
+                        image.Clear();
+                        stageRenderer.Draw(image, i, (byte)l, default, render);
+                        string path = Path.Combine(folderDialog.SelectedPath, $"boss{_level.Map.Index:D3}_room{i:D2}_layer{l}.png");
+                        new PNG().WriteImage(image, path);
                     }
                 }
             }
-
-            autoSelectToolStripMenuItem.Checked = autoLoadActors;
-            displayOverlayToolStripMenuItem.Checked = overlay;
-            LoadRoom(lastRoom, false);
+            stageRenderer.LocalVariable = tempLocalVariable;
         }
         #endregion
 
@@ -674,7 +622,7 @@ namespace EFSAdvent
                     _level.Rooms[_currentRoomIndex].Actors.ReadFromStream(actorListStream);
                 }
                 BuildLayerActorList(true);
-                DrawActors();
+                UpdateView();
 
                 MessageBox.Show($"{_level.Rooms[_currentRoomIndex].Actors.Count} actors have been successfully added to the current room.");
             }
@@ -693,8 +641,7 @@ namespace EFSAdvent
                     BuildLayerActorList();
                     actorLayerComboBox_SelectionChangeCommitted(sender, e);
                 }
-                UpdateLayerCheckListColor(layer);
-                UpdateView(layer);
+                UpdateView();
             }
         }
 
@@ -707,8 +654,7 @@ namespace EFSAdvent
                     BuildLayerActorList();
                     actorLayerComboBox_SelectionChangeCommitted(sender, e);
                 }
-                UpdateLayerCheckListColor(layer);
-                UpdateView(layer);
+                UpdateView();
             }
         }
         #endregion
@@ -787,15 +733,17 @@ namespace EFSAdvent
         {
             if (tabControl.SelectedIndex == (int)TabControlIndex.Actor)
             {
+                RenderOptionsCheckedListBox.SetItemChecked(0, true);
                 layerPictureBox.ContextMenuStrip = actorContextMenuStrip;
                 actorContextMenuStrip.Enabled = true;
             }
             else
             {
+                RenderOptionsCheckedListBox.SetItemChecked(0, tabControl.SelectedIndex == (int)TabControlIndex.Map);
                 layerPictureBox.ContextMenuStrip = null;
                 actorContextMenuStrip.Enabled = false;
             }
-            UpdateView(null);
+            UpdateView();
         }
 
         #region MapInfo Tab
@@ -873,42 +821,16 @@ namespace EFSAdvent
 
                 BuildLayerActorList(false);
 
-                if (_level.Map.IsShadowBattle)
-                {
-                    ChangeTileSheet();
-                    ChangeOverlay();
-                }
-
                 //Enable all the actor buttons now that data to work with exists
                 actorDeleteButton.Enabled = true;
                 actorLayerComboBox.Enabled = true;
                 actorsCheckListBox.Enabled = true;
                 layerPictureBox.Enabled = true;
                 ExportMenuItem.Enabled = true;
+                CurrentLayerComboBox.SelectedIndex = 0;
 
-                for (int i = 1; i < 16; i++)
-                {
-                    layersCheckList.SetItemChecked(i, false);
-                }
-                layersCheckList.SetItemChecked(0, true);
-                layersCheckList.SetItemChecked(8, true);
-
-                for (int i = 0; i < 16; i++)
-                {
-                    Color color = _level.Rooms[newRoomNumber].Layers[i].IsEmpty ? Color.Gray : Color.Black;
-                    layersCheckList.SetItemColor(i, color);
-                }
-                layersCheckList.Refresh();
-
-                if (autoSelectToolStripMenuItem.Checked)
-                {
-                    SelectAllLayerActors();
-                    actorLayerComboBox.SelectedIndex = 0;
-                }
-                else
-                {
-                    actorLayerComboBox.SelectedIndex = -1;
-                }
+                SelectAllLayerActors();
+                actorLayerComboBox.SelectedIndex = 0;
 
                 UpdateView();
             }
@@ -945,7 +867,7 @@ namespace EFSAdvent
             {
                 using var tileImage = (MemoryImage<BGRA32>)brushTileBitmap.AsAuroraImage();
                 tileImage.Clear();
-                TilesetRenderer.DrawTile(tileImage, 0, 0, _tileBrush.TileValue);
+                stageRenderer.tilesetRendererTV.DrawTile(tileImage, 0, 0, _tileBrush.TileValue);
             }
 
             _logger.Clear();
@@ -1035,6 +957,7 @@ namespace EFSAdvent
 
         private void SelectAllLayerActors()
         {
+            stageRenderer.LocalVariable = uint.MaxValue;
             _ignoreActorCheckbox = true;
             for (int i = 0; i < _level.Rooms[_currentRoomIndex].Actors.Count; i++)
                 actorsCheckListBox.SetItemChecked(i, true);
@@ -1044,6 +967,7 @@ namespace EFSAdvent
 
         private void SelectActorsByVariables(int variable)
         {
+            stageRenderer.LocalVariable = (uint)(1 << variable) | 1;
             _ignoreActorCheckbox = true;
 
             for (int i = 0; i < _level.Rooms[_currentRoomIndex].Actors.Count; i++)
@@ -1106,7 +1030,7 @@ namespace EFSAdvent
             {
                 var paths = new Dictionary<ushort, List<int>>();
                 BuildPathActors(actors, paths);
-                DrawPathActors(actorLayerGraphics, actors, paths, GetHighestActiveLayerIndex().Value % 8);
+                DrawPathActors(actorLayerGraphics, actors, paths, CurrentLayerComboBox.SelectedIndex);
             }
 
             roomLayerGraphics.DrawImage(actorLayerBitmap, 0, 0);
@@ -1220,12 +1144,7 @@ namespace EFSAdvent
         {
             if (Actor.PasteFromString(code, out Actor actor))
             {
-                int? activeLayer = GetHighestActiveLayerIndex();
-                int baseLayer = activeLayer.HasValue
-                    ? (activeLayer > 7 ? activeLayer - 8 : activeLayer).Value
-                    : 0;
-
-                actor.Layer = (byte)baseLayer;
+                actor.Layer = (byte)CurrentLayerComboBox.SelectedIndex;
                 actor.XCoord = (byte)lastActorCoordinates.x;
                 actor.YCoord = (byte)lastActorCoordinates.y;
                 _level.Rooms[_currentRoomIndex].Actors.Add(actor);
@@ -1408,7 +1327,7 @@ namespace EFSAdvent
                 using (var brushImage = (MemoryImage<BGRA32>)actorBitmap.AsAuroraImage())
                 {
                     brushImage.Clear();
-                    DrawActorToImage(actor, new Point(brushImage.Width / 2, brushImage.Height / 2 + 16), brushImage);
+                    stageRenderer.Draw(brushImage, actor, new Point(brushImage.Width / 2 - (actor.XCoord * 8), brushImage.Height / 2 - (actor.YCoord * 8) + 2));
                 }
                 ActorInfoPictureBox.Image = actorBitmap;
             }
@@ -1420,6 +1339,12 @@ namespace EFSAdvent
             panelActorFields.Controls.Clear();
             if (Assets.Actors.TryGetValue(newActor.ID, out ActorDefinition schema))
             {
+                _logger.Clear();
+                _logger.AppendLine(schema.Name);
+                _logger.AppendLine(schema.InternalName);
+                _logger.AppendLine(string.Empty);
+                _logger.AppendLine(schema.Description);
+
                 _actorInfoToolTip.RemoveAll();
                 _actorInfoToolTip.SetToolTip(ActorNameComboBox, schema.Description);
 
@@ -1603,146 +1528,92 @@ namespace EFSAdvent
 
         #region View
 
-        private void UpdateView(int? layer = null)
+        private RenderOptions GetRenderOptions()
+        {
+            RenderOptions render = LayerLevelComboBox.SelectedIndex switch
+            {
+                0 => RenderOptions.Layers,
+                1 => RenderOptions.BaseLayer,
+                2 => RenderOptions.TopLayer,
+                _ => RenderOptions.Nothing,
+            };
+
+            foreach (string item in RenderOptionsCheckedListBox.CheckedItems)
+            {
+                if (Enum.TryParse(item, out RenderOptions option))
+                {
+                    render |= option;
+                }
+            }
+            return render;
+        }
+
+        private void UpdateView()
         {
             if (_currentRoomIndex == -1 || _level?.Rooms[_currentRoomIndex] == null)
                 return;
 
+            byte CurrentRoom = (byte)_currentRoomIndex;
+            byte CurrentLayer = (byte)CurrentLayerComboBox.SelectedIndex;
+            bool isTileTap = tabControl.SelectedIndex == (int)TabControlIndex.Tile || tabControl.SelectedIndex == (int)TabControlIndex.Stamp;
+
+            var render = GetRenderOptions();
+            InteractionFlags interactions = InteractionFlags.None;
+            foreach (string item in interactionsCheckedListBox.CheckedItems)
+            {
+                interactions |= item switch
+                {
+                    "Sword" => InteractionFlags.Slashable,
+                    "Throwing" => InteractionFlags.Pickupable,
+                    "Fire" => InteractionFlags.Burnable,
+                    "Bomb" => InteractionFlags.Bombable,
+                    "Pegasus Boots" => InteractionFlags.Dashable,
+                    "Magic Hammer" => InteractionFlags.Hammerable,
+                    "Shovel" => InteractionFlags.Diggable,
+                    "Projectile" => InteractionFlags.Projectile,
+                    _ => InteractionFlags.None,
+                };
+            }
+
             using (var layerImage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage())
             {
                 layerImage.Clear();
-                for (int i = 0; i < 8; i++)
+                if (CurrentLayer != 0 && alwaysShowTVScreenToolStripMenuItem.Checked)
                 {
-                    // Is TV layer or GBA?
-                    var renderer = (i == 0) ? tilesetRendererTV : tilesetRendererGBA;
-
-                    // Draw Layer
-                    for (int n = 0; n <= 8; n += 8)
-                    {
-                        if ((layer == null && layersCheckList.GetItemChecked(i + n)) || (i + n) == layer)
-                        {
-                            renderer.Draw(layerImage, _level.Rooms[_currentRoomIndex].Layers[i + n]);
-                        }
-                    }
-
-                    // Draw Overlay
-                    if (displayOverlayToolStripMenuItem.Checked && i == 0 && overlayBitmap != null)
-                    {
-                        using var overlayImage = (MemoryImage<BGRA32>)overlayBitmap.AsAuroraImage();
-                        DrawOverlayOnLayer(layerImage, overlayImage);
-                    }
+                    stageRenderer.Draw(layerImage, CurrentRoom, 0);
+                    layerImage.Apply(new FillProcessor(new Vector4(0.6f), BlendModes.Normal));
                 }
 
-                if ((tabControl.SelectedIndex == (int)TabControlIndex.Tile || tabControl.SelectedIndex == (int)TabControlIndex.Stamp) && GetHighestActiveLayerIndex() != null)
+                if (LayerLevelComboBox.SelectedIndex == 2)
                 {
-                    DrawTileInfosOnLayer(layerImage, _level.Rooms[_currentRoomIndex].Layers[GetHighestActiveLayerIndex().Value % 8].Tiles);
+                    stageRenderer.Draw(layerImage, CurrentRoom, CurrentLayer, default, RenderOptions.BaseLayer);
+                    layerImage.Apply(new FillProcessor(new Vector4(Vector3.Zero, 0.5f), BlendModes.Normal));
                 }
+                stageRenderer.Draw(layerImage, CurrentRoom, CurrentLayer, default, render, interactions);
+
+                if (isTileTap)
+                    DrawTileInfosOnLayer(layerImage, _level.Rooms[_currentRoomIndex].Layers[CurrentLayerComboBox.SelectedIndex].Tiles);
             }
 
-            bool showInteraction = showInteractionToolStripMenuItem.Checked;
-            bool showCollision = showCollisionToolStripMenuItem.Checked;
-            if (showCollision || showInteraction)
+            // Update tile sheet bitmap
+            if (tabControl.SelectedIndex == (int)TabControlIndex.Tile)
             {
-                int mainLayer = GetHighestActiveLayerIndex().Value % 8;
-                ReadOnlySpan<ushort> tiles = _level.Rooms[_currentRoomIndex].Layers[mainLayer].Tiles;
-                var renderer = (mainLayer == 0) ? tilesetRendererTV : tilesetRendererGBA;
-                for (int y = 0; y < Layer.DIMENSION; y++)
+                using (var tileSheet = (MemoryImage<BGRA32>)tileSheetBitmap.AsAuroraImage())
                 {
-                    for (int x = 0; x < Layer.DIMENSION; x++)
-                    {
-                        ushort tile = tiles[y * Layer.DIMENSION + x];
-                        if (Assets.TileProperties.TryGetValue(tile, out var tileDefinition))
-                        {
-                            Point pos = new Point(x * TILE_DIMENSION_IN_PIXELS, y * TILE_DIMENSION_IN_PIXELS);
-                            bool Static = tileDefinition.Interaction == InteractionFlags.None;
-                            if (!Static && showInteraction)
-                            {
-                                tile = tileDefinition.InteractionTile;
-                                if (!Assets.TileProperties.TryGetValue(tile, out tileDefinition))
-                                    continue;
-
-                                if (tile != 0)
-                                {
-                                    using var layerImage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
-                                    renderer.DrawTile(layerImage, pos.X, pos.Y, tile);
-                                }
-
-                            }
-#if DEBUG
-                            if (string.IsNullOrWhiteSpace(tileDefinition.Name))
-                            {
-                                roomLayerGraphics.FillRectangle(Color.FromArgb(160, Color.Magenta), pos.X + 4, pos.Y + 4, 8, 8);
-                            }
-                            else if (tileDefinition.Name.EndsWith("?") || tileDefinition.Description.EndsWith("?"))
-                            {
-                                roomLayerGraphics.FillRectangle(Color.FromArgb(160, Color.Magenta), pos.X + 6, pos.Y + 6, 4, 4);
-                            }
-#endif
-
-                            if (!showCollision)
-                                continue;
-
-                            Color main = tileDefinition.Surface switch
-                            {
-                                SurfaceType.Abyss => Color.White,
-                                SurfaceType.ShallowWater => Color.Aqua,
-                                SurfaceType.DeepWater => Color.Blue,
-                                SurfaceType.Slippery => Color.Lavender,
-                                SurfaceType.Quicksand => Color.Yellow,
-                                SurfaceType.Ladder => Color.Bisque,
-                                _ => Color.Transparent,
-                            };
-
-
-                            if (tileDefinition.Collision == TileCollision.Walkable)
-                            {
-                                if (main != Color.Transparent)
-                                    roomLayerGraphics.FillRectangle(Color.FromArgb(160, main), pos.X, pos.Y, TILE_DIMENSION_IN_PIXELS, TILE_DIMENSION_IN_PIXELS);
-                            }
-                            else
-                            {
-                                if (tileDefinition.Collision.HasFlag(TileCollision.TopLeft))
-                                {
-
-                                }
-                                Color part;
-                                part = tileDefinition.Collision.HasFlag(TileCollision.TopLeft) ? Color.Black : main;
-                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X, pos.Y, 8, 8);
-                                part = tileDefinition.Collision.HasFlag(TileCollision.TopRight) ? Color.Black : main;
-                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X + 8, pos.Y, 8, 8);
-                                part = tileDefinition.Collision.HasFlag(TileCollision.BottomLeft) ? Color.Black : main;
-                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X, pos.Y + 8, 8, 8);
-                                part = tileDefinition.Collision.HasFlag(TileCollision.BottomRight) ? Color.Black : main;
-                                if (part != Color.Transparent) roomLayerGraphics.FillRectangle(Color.FromArgb(160, part), pos.X + 8, pos.Y + 8, 8, 8);
-                            }
-
-                            Color secondary = tileDefinition.Properties switch
-                            {
-                                TileProperties.Hazard => Color.Red,
-                                TileProperties.EnemyCollision => Color.Pink,
-                                TileProperties.ThrowOver => Color.Green,
-                                TileProperties.DropOff => Color.Yellow,
-                                _ => Color.Transparent,
-                            };
-                            if (secondary != Color.Transparent)
-                                roomLayerGraphics.FillRectangle(Color.FromArgb(160, secondary), pos.X + 6, pos.Y + 6, 4, 4);
-                        }
-#if DEBUG
-                        else
-                        {
-                            Point pos = new Point(x * TILE_DIMENSION_IN_PIXELS, y * TILE_DIMENSION_IN_PIXELS);
-                            roomLayerGraphics.FillRectangle(Color.FromArgb(160, Color.Magenta), pos.X, pos.Y, TILE_DIMENSION_IN_PIXELS, TILE_DIMENSION_IN_PIXELS);
-                        }
-#endif
-                    }
+                    tileSheet.Clear();
+                    if (CurrentLayerComboBox.SelectedIndex == 0)
+                        stageRenderer.tilesetRendererTV.Draw(tileSheet);
+                    else
+                        stageRenderer.tilesetRendererGBA.Draw(tileSheet);
                 }
+                tileSheetPictureBox.Image = tileSheetBitmap;
             }
-
             DrawActors();
         }
 
         private void DrawTileInfosOnLayer(IImage<BGRA32> target, ReadOnlySpan<ushort> tiles)
         {
+            var renderer = stageRenderer.spriteRendererTV;
             for (int y = 0; y < Layer.DIMENSION; y++)
             {
                 for (int x = 0; x < Layer.DIMENSION; x++)
@@ -1753,56 +1624,48 @@ namespace EFSAdvent
                     switch (tile)
                     {
                         case 12: // Abyss
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 791, 1);
+                            renderer.DrawSprite(target, pos.X, pos.Y, 791, 1);
                             break;
                         case 13: // Abyss, does damage
                         case 84: // Abyss
                         case 222: // Abyss
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 791, 1, 13);
-                            break;
-                        case 74:
-                        case 76:
-                        case 77: // Not traversable!
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 135, 1, 13);
-                            break;
-                        case 75: // digging not possible
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 73, 1, 7);
+                            renderer.DrawSprite(target, pos.X, pos.Y, 791, 1, 13);
                             break;
                         case 33: // Block, movable
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 426, 1);
+                            renderer.DrawSprite(target, pos.X, pos.Y, 426, 1);
                             break;
                         case 38: // Block, movable north
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 83, 1);
+                            renderer.DrawSprite(target, pos.X, pos.Y, 83, 1);
                             break;
                         case 39: // Block, movable south
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 82, 1);
+                            renderer.DrawSprite(target, pos.X, pos.Y, 82, 1);
                             break;
                         case 54: // Block, movable west
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 81, 1);
+                            renderer.DrawSprite(target, pos.X, pos.Y, 81, 1);
                             break;
                         case 55: // Block, movable east
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 80, 1);
+                            renderer.DrawSprite(target, pos.X, pos.Y, 80, 1);
                             break;
                         case 105: // Bush, reveals hole
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 410, 1);
+                            renderer.DrawSprite(target, pos.X, pos.Y, 410, 1);
                             break;
                         case 67: // Pot, reveals star switch
                         case 70: // Pot (Side view), reveals switch
                         case 72: // Pot (Side view), reveals star switch
                         case 104: // Bush, reveals switch
                         case 106: // Bush, reveals star switch
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 426, 1);
+                            renderer.DrawSprite(target, pos.X, pos.Y, 426, 1);
                             break;
                         case 66: // Pot, drops a heart
                         case 71: // Pot (Side view), drops a heart
                         case 117: // Bush, drops a heart
-                            spriteRendererTV.DrawSprite(target, pos.X, pos.Y, 44, 1);
+                            renderer.DrawSprite(target, pos.X, pos.Y, 44, 1);
                             break;
                         case 68: // Pot, drops two heart
                         case 73: // Pot (Side view), drops two heart
                         case 107: // Bush, drops two heart
-                            spriteRendererTV.DrawSprite(target, pos.X - 4, pos.Y, 44, 1);
-                            spriteRendererTV.DrawSprite(target, pos.X + 4, pos.Y, 44, 1);
+                            renderer.DrawSprite(target, pos.X - 4, pos.Y, 44, 1);
+                            renderer.DrawSprite(target, pos.X + 4, pos.Y, 44, 1);
                             break;
                         default:
                             break;
@@ -1810,17 +1673,6 @@ namespace EFSAdvent
                 }
             }
         }
-        private void DrawOverlayOnLayer(MemoryImage<BGRA32> layerImage, MemoryImage<BGRA32> overlayImage)
-        {
-            for (int x = 0; x < layerImage.Width; x += overlayImage.Width)
-            {
-                for (int y = 0; y < roomLayerBitmap.Height - 128; y += overlayBitmap.Height)
-                {
-                    layerImage.CopyFrom(overlayImage, new Point(x, y), BlendModes.Overlay, 1);
-                }
-            }
-        }
-
         #region Layers
 
         private MouseEventArgs ScaleEventToLayerRealSize(MouseEventArgs e)
@@ -1864,7 +1716,7 @@ namespace EFSAdvent
                                 {
                                     using (var layerImage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage())
                                     {
-                                        TilesetRenderer.Draw(layerImage, _tileBrush.Clipboard, position.Location);
+                                        stageRenderer.tilesetRendererTV.Draw(layerImage, _tileBrush.Clipboard, position.Location);
                                     }
 
                                     DrawTileSelection(Color.White, position);
@@ -1996,7 +1848,7 @@ namespace EFSAdvent
                     if (actorsCheckListBox.GetItemChecked(i) == true)
                     {
                         var actor = _level.Rooms[_currentRoomIndex].Actors[i];
-                        bool isVisible = GetHighestActiveLayerIndex() % 8 == actor.Layer || IsSelectedActor(actor);
+                        bool isVisible = CurrentLayerComboBox.SelectedIndex == actor.Layer || IsSelectedActor(actor);
                         if (isVisible && actor.XCoord == lastActorCoordinates.x && actor.YCoord == lastActorCoordinates.y)
                         {
                             actorMouseDownOnIndex = i;
@@ -2017,18 +1869,12 @@ namespace EFSAdvent
             }
             else if (tabControl.SelectedIndex == (int)TabControlIndex.Tile || tabControl.SelectedIndex == (int)TabControlIndex.Stamp)
             {
-                int? layer = GetHighestActiveLayerIndex();
+                int layer = GetCurrentSupLayer();
                 switch (e.Button)
                 {
-                    case MouseButtons.Left:
-                        if (layer.HasValue) UpdateLayerCheckListColor(layer.Value);
-                        break;
                     case MouseButtons.Right:
-                        if (layer.HasValue)
-                        {
-                            _tileBrush.Copy(_tileSelection, _level.Rooms[_currentRoomIndex].Layers[layer.Value]);
-                            UpdateBrushTileBitmap();
-                        }
+                        _tileBrush.Copy(_tileSelection, _level.Rooms[_currentRoomIndex].Layers[layer]);
+                        UpdateBrushTileBitmap();
                         break;
                     default:
                         break;
@@ -2048,96 +1894,48 @@ namespace EFSAdvent
 
         private void layerPictureBox_MouseWheel(object sender, MouseEventArgs e)
         {
-            int? layerPosition = GetHighestActiveLayerIndex();
-            if (!layerPosition.HasValue)
-                layerPosition = -1;
-
-            if (tabControl.SelectedIndex != (int)TabControlIndex.Tile && tabControl.SelectedIndex != (int)TabControlIndex.Stamp)
+            if (ModifierKeys.HasFlag(Keys.Control))
             {
+                int layerLevel = LayerLevelComboBox.SelectedIndex;
                 if (e.Delta < 0) // up
                 {
-                    if (layerPosition == -1)
-                    {
-                        layersCheckList.SetItemChecked(0, true);
-                        layersCheckList.SetItemChecked(8, true);
-                    }
-                    else
-                    {
-                        layerPosition %= 8;
-                        int lastLayer = layerPosition.Value;
-
-                        do
-                        {
-                            layerPosition++;
-                            if (layerPosition == 8)
-                                return;
-                        } while (layersCheckList.GetItemColor(layerPosition.Value) == Color.Gray);
-
-                        if (lastLayer > 0)
-                        {
-                            layersCheckList.SetItemChecked(lastLayer, false);
-                            layersCheckList.SetItemChecked(lastLayer + 8, false);
-                        }
-
-                        layersCheckList.SetItemChecked(layerPosition.Value, true);
-
-                        layerPosition += 8;
-                        if (!layersCheckList.GetItemChecked(layerPosition.Value))
-                            layersCheckList.SetItemChecked(layerPosition.Value, true);
-                    }
+                    if (layerLevel < LayerLevelComboBox.Items.Count - 1)
+                        LayerLevelComboBox.SelectedIndex++;
                 }
-                else if (e.Delta > 0 && layerPosition > 0 && layerPosition != 8)
-                {
-                    layersCheckList.SetItemChecked(layerPosition.Value, false);
-                    layerPosition %= 8;
-                    if (layersCheckList.GetItemChecked(layerPosition.Value))
-                        layersCheckList.SetItemChecked(layerPosition.Value, false);
-
-                    do
-                    {
-                        layerPosition--;
-                        if (layerPosition == 0)
-                            return;
-                    } while (layersCheckList.GetItemColor(layerPosition.Value) == Color.Gray);
-
-                    if (!layersCheckList.GetItemChecked(layerPosition.Value))
-                        layersCheckList.SetItemChecked(layerPosition.Value, true);
-                    layerPosition += 8;
-                    if (!layersCheckList.GetItemChecked(layerPosition.Value))
-                        layersCheckList.SetItemChecked(layerPosition.Value, true);
-                }
+                else if (layerLevel > 0)
+                    LayerLevelComboBox.SelectedIndex--;
+                return;
             }
-            else
-            {
-                if (e.Delta < 0 && layerPosition != 15) // up
-                {
-                    if (layerPosition == -1)
-                    {
-                        layersCheckList.SetItemChecked(0, true);
-                    }
-                    else
-                    {
-                        if (layerPosition > 8)
-                        {
-                            layersCheckList.SetItemChecked(layerPosition.Value, false);
-                            layersCheckList.SetItemChecked(layerPosition.Value % 8, false);
-                        }
-                        layerPosition = layerPosition < 8 ? layerPosition + 8 : layerPosition % 8 + 1;
-                        layersCheckList.SetItemChecked(layerPosition.Value, true);
-                    }
-                }
-                else if (e.Delta > 0 && layerPosition > 0)
-                {
-                    layersCheckList.SetItemChecked(layerPosition.Value, false);
-                    if (layerPosition == 0)
-                        return;
+            int layerPosition = CurrentLayerComboBox.SelectedIndex;
 
-                    layerPosition = layerPosition < 8 ? layerPosition + 7 : layerPosition % 8;
-                    if (!layersCheckList.GetItemChecked(layerPosition.Value))
-                        layersCheckList.SetItemChecked(layerPosition.Value, true);
-                }
+            ReadOnlySpan<Layer> baseLayers = _level.Rooms[_currentRoomIndex].BaseLayers;
+            if (e.Delta < 0) // up
+            {
+                do
+                {
+                    layerPosition++;
+                    if (layerPosition == 8)
+                        return;
+                } while (baseLayers[layerPosition].IsEmpty);
+                CurrentLayerComboBox.SelectedIndex = layerPosition;
+            }
+            else if (layerPosition > 0)
+            {
+                do
+                {
+                    layerPosition--;
+                } while (layerPosition > 0 && baseLayers[layerPosition].IsEmpty);
+                CurrentLayerComboBox.SelectedIndex = layerPosition;
             }
         }
+
+
+        private int GetCurrentSupLayer() => LayerLevelComboBox.SelectedIndex switch
+        {
+            0 => ModifierKeys.HasFlag(Keys.Control) ? CurrentLayerComboBox.SelectedIndex + 8 : CurrentLayerComboBox.SelectedIndex,
+            1 => CurrentLayerComboBox.SelectedIndex,
+            2 => CurrentLayerComboBox.SelectedIndex + 8,
+        };
 
         private void DoTileAction(MouseEventArgs scaledEvent)
         {
@@ -2148,25 +1946,21 @@ namespace EFSAdvent
             {
                 return;
             }
-            int? layer = GetHighestActiveLayerIndex();
-            if (!layer.HasValue)
-            {
-                return;
-            }
 
             //If right click set the brush tile to the clicked tile
             switch (scaledEvent.Button)
             {
                 case MouseButtons.Left: //Change tiles
+                    var room = _level.Rooms[_currentRoomIndex];
                     _tileBrush.AutomaticSetTileActors = automaticSetTileActorsToolStripMenuItem.Checked;
-                    if (_tileBrush.Draw(_level.Rooms[_currentRoomIndex], layer.Value, eventX, eventY))
+                    if (_tileBrush.Draw(room, GetCurrentSupLayer(), eventX, eventY))
                     {
-                        if (actorsCheckListBox.Items.Count != _level.Rooms[_currentRoomIndex].Actors.Count)
+                        if (actorsCheckListBox.Items.Count != room.Actors.Count)
                         {
                             BuildLayerActorList();
                             actorLayerComboBox_SelectionChangeCommitted(_tileBrush, null);
                         }
-                        UpdateView(layer);
+                        UpdateView();
                         _levelIsDirty = true;
                     }
                     break;
@@ -2185,23 +1979,6 @@ namespace EFSAdvent
             CoridinatesTextBox.AppendText($"Tile coordinates: x{eventX} y{eventY}");
         }
 
-        private int? GetHighestActiveLayerIndex()
-        {
-            for (int i = 15; i > 7; i += 7)
-            {
-                if (layersCheckList.GetItemChecked(i) == true)
-                {
-                    return i;
-                }
-                i -= 8;
-                if (layersCheckList.GetItemChecked(i) == true)
-                {
-                    return i;
-                }
-            }
-            return null;
-        }
-
         private void DrawTileSelection(Color brushColor, Rectangle position)
         {
             var brush = new SolidBrush(Color.FromArgb(30, brushColor));
@@ -2211,13 +1988,6 @@ namespace EFSAdvent
             layersPanel.Refresh();
         }
 
-        private void UpdateLayerCheckListColor(int layer)
-        {
-            Color color = _level.Rooms[_currentRoomIndex].Layers[layer].IsEmpty ? Color.Gray : Color.Black;
-            layersCheckList.SetItemColor(layer, color);
-            layersCheckList.Refresh();
-        }
-
         private void LayersCheckList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             // Need to delay redraw because right now the newly checked layer won't have checked=true
@@ -2225,47 +1995,7 @@ namespace EFSAdvent
                 this.BeginInvoke((MethodInvoker)(() =>
                 {
                     UpdateView();
-                    UpdateTileSheetPictureBox();
                 }));
-
-            layersCheckList.SelectedIndex = -1;
-        }
-
-        private void ChangeTileSheet()
-        {
-            var properties = _level.Map.GetRoomProperties(_currentRoomIndex);
-            int tileSheetIndex = properties.TileSheetId;
-            tilesetRendererTV.LoadTileset(dataRarc, tileSheetIndex);
-            tilesetRendererGBA.LoadTileset(dataRarc, tileSheetIndex, true);
-            spriteRendererTV.LoadTilesheet(dataRarc, properties.NPCSheetID, false);
-            spriteRendererGBA.LoadTilesheet(dataRarc, properties.NPCSheetID, true);
-            {
-                using var tileSheet = (MemoryImage<BGRA32>)tileSheetBitmap.AsAuroraImage();
-                tileSheet.Clear();
-                tilesetRendererTV.Draw(tileSheet);
-
-                using var tileSheetGBA = (MemoryImage<BGRA32>)tileSheetBitmapGBA.AsAuroraImage();
-                tileSheetGBA.Clear();
-                tilesetRendererGBA.Draw(tileSheetGBA);
-            }
-
-            UpdateView();
-        }
-
-        private void UpdateTileSheetPictureBox()
-            => tileSheetPictureBox.Image = GetHighestActiveLayerIndex() % 8 == 0 ? tileSheetBitmap : tileSheetBitmapGBA;
-
-        private void ChangeOverlay()
-        {
-            var properties = _level.Map.GetRoomProperties(_currentRoomIndex);
-            var tileSheetPath = Path.Combine(dataDirectory, $"Overlays\\filter{properties.OverlayTextureId}.png");
-
-            if (File.Exists(tileSheetPath))
-            {
-                overlayBitmap?.Dispose();
-                overlayBitmap = new Bitmap(tileSheetPath);
-            }
-            UpdateView();
         }
 
         private void MirrorBrushbutton_Click(object sender, EventArgs e)
@@ -2312,10 +2042,8 @@ namespace EFSAdvent
         {
             _level.Rooms[_currentRoomIndex].Mirror();
             BuildLayerActorList();
-            if (autoSelectToolStripMenuItem.Checked)
-            {
-                SelectAllLayerActors();
-            }
+
+            SelectAllLayerActors();
             UpdateView();
         }
 
@@ -2337,7 +2065,7 @@ namespace EFSAdvent
 
                 using (var iconmage = (MemoryImage<BGRA32>)iconData.AsAuroraImage())
                 {
-                    tilesetRendererTV.Draw(iconmage, _tileBrush.Clipboard);
+                    stageRenderer.tilesetRendererTV.Draw(iconmage, _tileBrush.Clipboard);
                 }
 
                 iconData.Save(icon, ImageFormat.Png);
@@ -2349,17 +2077,10 @@ namespace EFSAdvent
         #region Actors
         private void DrawActor(Actor actor)
         {
-            int? currentLayer = GetHighestActiveLayerIndex() % 8;
+            int currentLayer = CurrentLayerComboBox.SelectedIndex;
             bool isOnCurrentLayer = currentLayer == actor.Layer;
             Point actorPixelPosition = new Point(actor.XCoord * ACTOR_PIXELS_PER_COORDINATE, actor.YCoord * ACTOR_PIXELS_PER_COORDINATE);
             Assets.Actors.TryGetValue(actor.ID, out ActorDefinition actorDefinition);
-
-            // Draw base actor graphics
-            if (isOnCurrentLayer)
-            {
-                using var actorLayer = (MemoryImage<BGRA32>)actorLayerBitmap.AsAuroraImage();
-                DrawActorToImage(actor, actorPixelPosition, actorDefinition, actorLayer);
-            }
 
             // When we're in aktor tap, we want to display more information
             if (tabControl.SelectedIndex != (int)TabControlIndex.Actor)
@@ -2401,47 +2122,6 @@ namespace EFSAdvent
                 // debug display
                 switch (actor.Name)
                 {
-                    case "PNPC":
-                        if (isOnCurrentLayer)
-                        {
-                            bool IsOnGBA = actor.Layer != 0;
-                            ushort tile;
-                            if (IsOnGBA)
-                            {
-                                ushort target = _level.Rooms[_currentRoomIndex].Layers[actor.Layer][actor.XCoord / 2, actor.YCoord / 2];
-                                if (!Assets.TileProperties.TryGetValue(target, out var tileProperty) || !tileProperty.Interaction.HasFlag(InteractionFlags.GBARewriter))
-                                    break;
-                                tile = tileProperty.InteractionTile;
-                            }
-                            else
-                            {
-                                tile = (ushort)((actor.VariableByte2 & 0x3) << 8 | actor.VariableByte1);
-                            }
-                            var renderer = IsOnGBA ? tilesetRendererGBA : tilesetRendererTV;
-                            using var iconmage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
-                            renderer.DrawTile(iconmage, actor.XCoord / 2 * TILE_DIMENSION_IN_PIXELS, actor.YCoord / 2 * TILE_DIMENSION_IN_PIXELS, tile);
-                        }
-                        break;
-                    case "PNP2":
-                        if (isOnCurrentLayer)
-                        {
-                            var renderer = actor.Layer == 0 ? tilesetRendererTV : tilesetRendererGBA;
-                            using var iconmage = (MemoryImage<BGRA32>)roomLayerBitmap.AsAuroraImage();
-                            ushort tileTarget = (ushort)(actor.Variable & 0xFFF);
-                            ushort tile = (ushort)(actor.Variable >> 12 & 0xFFF);
-                            var layerTiles = _level.Rooms[_currentRoomIndex].Layers[actor.Layer].Tiles;
-                            for (int y = 0; y < Layer.DIMENSION; y++)
-                            {
-                                for (int x = 0; x < Layer.DIMENSION; x++)
-                                {
-                                    if (layerTiles[x + (y * Layer.DIMENSION)] == tileTarget)
-                                    {
-                                        renderer.DrawTile(iconmage, x * TILE_DIMENSION_IN_PIXELS, y * TILE_DIMENSION_IN_PIXELS, tile);
-                                    }
-                                }
-                            }
-                        }
-                        break;
                     case "PTMI":
                         actorLayerGraphics.DrawRectangleWithDropShadow(Color.Black,
                             actorPixelPosition.X,
@@ -2473,14 +2153,6 @@ namespace EFSAdvent
                             width,
                             height);
                         }
-                        break;
-                    case "LIF2":
-                        width = ACTOR_PIXELS_PER_COORDINATE * 2 * (int)(actor.Variable >> 7 & 0x1F);
-                        height = ACTOR_PIXELS_PER_COORDINATE * 2 * (int)(actor.Variable >> 17 & 0x1F);
-                        GraphicsEX.Direction dc = (GraphicsEX.Direction)(actor.Variable >> 12 & 0x3);
-                        if (dc == GraphicsEX.Direction.North) dc = GraphicsEX.Direction.South;
-                        else if (dc == GraphicsEX.Direction.South) dc = GraphicsEX.Direction.North;
-
                         break;
                     case "SWTH":
                         var tYellow = Color.FromArgb(96, Color.Yellow);
@@ -2527,6 +2199,21 @@ namespace EFSAdvent
                         };
                         actorLayerGraphics.DrawCircleWithDropShadow(Color.Honeydew, actorPixelPosition, width);
                         break;
+                    case "BOYO":
+                        switch (actor.VariableByte1 & 0xF)
+                        {
+                            case 2:
+                            case 3:
+                                actorLayerGraphics.DrawCircleWithDropShadow(Color.Blue, actorPixelPosition, 4 * ACTOR_PIXELS_PER_COORDINATE);
+                                break;
+                            case 4:
+                            case 5:
+                                actorLayerGraphics.DrawCircleWithDropShadow(Color.Blue, actorPixelPosition, 10 * ACTOR_PIXELS_PER_COORDINATE);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
                     case "BMST":
                         if (actor.VariableByte1 != 0)
                         {
@@ -2562,7 +2249,7 @@ namespace EFSAdvent
                             i = 525 + (i - 64);
 
                         using (var actorLayer = (MemoryImage<BGRA32>)actorLayerBitmap.AsAuroraImage())
-                            spriteRendererTV.DrawSprite(actorLayer, actorPixelPosition.X + 8, actorPixelPosition.Y - 8, (ushort)i, (ushort)sob);
+                            stageRenderer.spriteRendererTV.DrawSprite(actorLayer, actorPixelPosition.X + 8, actorPixelPosition.Y - 8, (ushort)i, (ushort)sob);
                         break;
                     default:
                         break;
@@ -2631,51 +2318,13 @@ namespace EFSAdvent
 
             }
         }
-        private void DrawActorToImage(Actor actor, Point actorPixelPosition, MemoryImage<BGRA32> image)
-        {
-            if (Assets.Actors.TryGetValue(actor.ID, out ActorDefinition actorDefinition))
-                DrawActorToImage(actor, actorPixelPosition, actorDefinition, image);
-        }
-        private void DrawActorToImage(Actor actor, Point actorPixelPosition, ActorDefinition actorDefinition, MemoryImage<BGRA32> image)
-        {
-            if (actorDefinition?.Rendering != null)
-            {
-                var rendering = actorDefinition.Rendering;
-                int variantKey = (int)(actor.Variable & rendering.BitMask);
-                if (rendering.Variants.TryGetValue(variantKey, out var renderList))
-                {
-                    var renderer = actor.Layer == 0 ? spriteRendererTV : spriteRendererGBA;
-                    foreach (var renderInfo in renderList)
-                    {
-                        if (renderInfo.SpriteIndex != -1) // render sprite
-                        {
-                            renderer.DrawSprite(image, actorPixelPosition.X + renderInfo.XOffset, actorPixelPosition.Y + renderInfo.YOffset, (ushort)renderInfo.SpriteIndex, renderInfo.SpriteListIndex, renderInfo.ReplacementPaletteIndex, renderInfo.TargetPaletteIndex);
-                        }
-                        else // render bti
-                        {
-                            if (dataRarc.Root.Directorys[Rarc.CommonFolderTypes.Timg].TryGetFile(renderInfo.BtiFile, out var btiFile) || (_level.Resources.Directorys.TryGetValue(Rarc.CommonFolderTypes.Timg, out var mapFolder) && mapFolder.TryGetFile(renderInfo.BtiFile, out btiFile)))
-                            {
-                                // bti file found
-                                // TODO!!
-                                _logger.AppendLine($"{actor.ID}: \"{btiFile.Name}\" cannot be displayed at this time!");
-                            }
-                            else
-                            {
-                                // bti file not found
-                                _logger.AppendLine($"{actor.ID}: \"{renderInfo.BtiFile}\" not found!");
-                            }
-                        }
-                    }
-                }
-            }
-        }
 
         private SpriteConverterForm? _spriteConverter;
         private void openSpriteConverterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_spriteConverter == null || _spriteConverter.IsDisposed)
             {
-                _spriteConverter = new SpriteConverterForm(dataRarc);
+                _spriteConverter = new SpriteConverterForm(stageRenderer.data);
                 _spriteConverter.Show(this);
             }
             else
@@ -2690,9 +2339,6 @@ namespace EFSAdvent
             string type;
             switch (actor.Name)
             {
-                case "JIJI":
-                    type = $"{actor.VariableByte3 & 0x7F}";
-                    break;
                 case "DOOR":
                     int doorType = actor.VariableByte1 & 0x7F;
                     if (doorType == 5 || doorType == 7)
@@ -2724,6 +2370,12 @@ namespace EFSAdvent
             {
                 return null;
             }
+        }
+
+        private void UpdateView_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (_currentRoomIndex != -1)
+                BeginInvoke((Action)UpdateView);
         }
 
         private void actorContextMenuStrip_Paint(object sender, PaintEventArgs e)

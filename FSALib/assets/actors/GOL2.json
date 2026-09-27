@@ -193,8 +193,8 @@
       ],
       "5": [
         {
-          "xoffset": -32,
-          "yoffset": -16,
+          "xoffset": 80,
+          "yoffset": 48,
           "btifile": "shikimono.bti"
         },
         {

@@ -78,7 +78,7 @@ namespace FSALib
                 }
             }
 
-            private static Identifier32 ToFourCC(string value)
+            public static Identifier32 ToFourCC(string value)
             {
                 Span<char> buffer = stackalloc char[4];
                 buffer.Fill(' ');

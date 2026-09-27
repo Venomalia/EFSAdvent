@@ -18,5 +18,15 @@
         "3": { "name": "North", "description": "The rock moves to the north." }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "yy_1_1_iwa1.bti"
+        }
+      ]
+    }
+  }
 }

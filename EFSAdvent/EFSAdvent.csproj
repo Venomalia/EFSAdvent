@@ -58,14 +58,23 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AuroraLib.Core, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuroraLib.Core.1.7.1\lib\net472\AuroraLib.Core.dll</HintPath>
+    </Reference>
     <Reference Include="AuroraLib.Core.Format, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AuroraLib.Core.Format.1.0.4\lib\netstandard2.0\AuroraLib.Core.Format.dll</HintPath>
     </Reference>
-    <Reference Include="AuroraLib.Pixel, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AuroraLib.Pixel.1.4.4\lib\net472\AuroraLib.Pixel.dll</HintPath>
+    <Reference Include="AuroraLib.Pixel, Version=1.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuroraLib.Pixel.1.5.4\lib\net472\AuroraLib.Pixel.dll</HintPath>
     </Reference>
-    <Reference Include="AuroraLib.Pixel.BitmapExtension, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AuroraLib.Pixel.BitmapExtension.1.4.4\lib\net472\AuroraLib.Pixel.BitmapExtension.dll</HintPath>
+    <Reference Include="AuroraLib.Pixel.BitmapExtension, Version=1.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuroraLib.Pixel.BitmapExtension.1.5.4\lib\net472\AuroraLib.Pixel.BitmapExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="AuroraLib.Pixel.Formats, Version=0.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuroraLib.Pixel.Formats.0.8.2\lib\net472\AuroraLib.Pixel.Formats.dll</HintPath>
+    </Reference>
+    <Reference Include="AuroraLib.Pixel.Formats.Dolphin, Version=0.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuroraLib.Pixel.Formats.Dolphin.0.8.2\lib\net472\AuroraLib.Pixel.Formats.Dolphin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -73,6 +82,9 @@
     </Reference>
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.IO.Hashing, Version=10.0.0.12, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Hashing.10.0.12\lib\net462\System.IO.Hashing.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
@@ -202,6 +214,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FSALib.Rendering\FSALib.Rendering.csproj">
+      <Project>{d143780c-44c0-3d9d-f152-92023c4800b2}</Project>
+      <Name>FSALib.Rendering</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FSALib\FSALib.csproj">
       <Project>{523a73ed-3093-44cd-9232-0d3567ba18e5}</Project>
       <Name>FSALib</Name>

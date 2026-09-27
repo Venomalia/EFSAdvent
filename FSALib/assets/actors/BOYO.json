@@ -34,18 +34,21 @@
           "description": "The bumper block moves from west to east."
         },
         "2": {
-          "name": "Moves in a small circle",
+          "name": "Small circle, Clockwise",
           "description": "The bumper block moves in a small circular pattern."
         },
         "3": {
-          "name": "Moves in a circle",
+          "name": "Small circlee, Counterclockwise",
           "description": "The bumper block moves in a circular pattern."
         },
         "4": {
-          "name": "Moves in a big circle",
+          "name": "Big circle, Clockwise",
           "description": "The bumper block moves in a large circular pattern."
         },
-        "5": { "name": "?", "description": "Unknown movement pattern." },
+        "5": {
+          "name": "Big circle, Counterclockwise",
+          "description": "Unknown movement pattern."
+        },
         "6": { "name": "?", "description": "Unknown movement pattern." }
       }
     }

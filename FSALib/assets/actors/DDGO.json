@@ -3,5 +3,15 @@
   "description": "",
   "InternalName": "ドドンゴ",
   "category": "Enemy",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "e-dod_aruki_yoko_0.bti"
+        }
+      ]
+    }
+  }
 }

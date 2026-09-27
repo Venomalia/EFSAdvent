@@ -2,7 +2,7 @@
   "name": "Switch-Related NPC",
   "description": "An object related to switches, which can trigger effects, spawn items, or play sounds.",
   "InternalName": "スィッチ関係ＮＰＣ",
-  "category": "Object",
+  "category": "TileObject",
   "fields": [
     {
       "name": "Activation Variable",
@@ -137,70 +137,80 @@
         {
           "spriteIndex": 65,
           "frames": 1,
-          "spriteListIndex": 1
+          "spriteListIndex": 1,
+          "xoffset": 8
         }
       ],
       "16386": [
         {
           "spriteIndex": 66,
           "frames": 1,
-          "spriteListIndex": 1
+          "spriteListIndex": 1,
+          "xoffset": 8
         }
       ],
       "32770": [
         {
           "spriteIndex": 67,
           "frames": 1,
-          "spriteListIndex": 1
+          "spriteListIndex": 1,
+          "xoffset": 8
         }
       ],
       "49154": [
         {
           "spriteIndex": 68,
           "frames": 1,
-          "spriteListIndex": 1
+          "spriteListIndex": 1,
+          "xoffset": 8
         }
       ],
       "65538": [
         {
           "spriteIndex": 69,
           "frames": 1,
-          "spriteListIndex": 1
+          "spriteListIndex": 1,
+          "xoffset": 8
         }
       ],
       "81922": [
         {
           "spriteIndex": 70,
           "frames": 1,
-          "spriteListIndex": 1
+          "spriteListIndex": 1,
+          "xoffset": 8
         }
       ],
       "98306": [
         {
           "spriteIndex": 71,
           "frames": 1,
-          "spriteListIndex": 1
+          "spriteListIndex": 1,
+          "xoffset": 8
         }
       ],
       "114690": [
         {
           "spriteIndex": 72,
           "frames": 1,
-          "spriteListIndex": 1
+          "spriteListIndex": 1,
+          "xoffset": 8
         }
       ],
       "131074": [
         {
           "spriteIndex": 73,
           "frames": 1,
-          "spriteListIndex": 1
+          "spriteListIndex": 1,
+          "xoffset": 8
         }
       ],
       "147458": [
         {
           "spriteIndex": 74,
           "frames": 1,
-          "spriteListIndex": 1
+          "spriteListIndex": 1,
+          "xoffset": 8
         }
       ]
     }

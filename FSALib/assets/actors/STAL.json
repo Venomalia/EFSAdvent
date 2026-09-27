@@ -47,6 +47,14 @@
           "spriteIndex": 356,
           "spriteListIndex": 1
         }
+      ],
+      "16": [
+        {
+          "spriteIndex": 356,
+          "spriteListIndex": 1,
+          "xscale": 2,
+          "yscale": 2
+        }
       ]
     }
   }

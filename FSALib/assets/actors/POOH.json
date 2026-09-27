@@ -29,7 +29,11 @@
           "spriteListIndex": 2
         }
       ],
-      "3": [{}]
+      "3": [
+        {
+          "btifile": "e_obake_5.bti"
+        }
+      ]
     }
   }
 }

@@ -69,5 +69,46 @@
       "bitSize": 5,
       "valueType": "Integer"
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 12582915,
+    "variants": {
+      "4194304": [
+        {
+          "xoffset": 8,
+          "yoffset": -8,
+          "xscale": 0.4,
+          "yscale": 0.35,
+          "btifile": "bakudan_right.bti"
+        }
+      ],
+      "4194305": [
+        {
+          "xoffset": -8,
+          "yoffset": -8,
+          "xscale": 0.4,
+          "yscale": 0.35,
+          "btifile": "bakudan_left.bti"
+        }
+      ],
+      "8388608": [
+        {
+          "xoffset": 8,
+          "yoffset": -8,
+          "xscale": 0.4,
+          "yscale": 0.35,
+          "btifile": "atari_right.bti"
+        }
+      ],
+      "8388609": [
+        {
+          "xoffset": -8,
+          "yoffset": -8,
+          "xscale": 0.4,
+          "yscale": 0.35,
+          "btifile": "atari_left.bti"
+        }
+      ]
+    }
+  }
 }

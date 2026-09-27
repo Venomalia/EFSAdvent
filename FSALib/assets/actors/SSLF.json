@@ -3,5 +3,46 @@
   "description": "Tilting section of floor",
   "InternalName": "シーソーリフト",
   "category": "Object",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Type",
+      "description": ".",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Platform",
+          "description": ""
+        },
+        "1": {
+          "name": "Sand",
+          "description": ""
+        }
+      }
+    },
+    {
+      "name": "Behavior",
+      "description": "",
+      "bitOffset": 7,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ],
+  "rendering": {
+    "bitMask": 15,
+    "variants": {
+      "0": [
+        {
+          "btifile": "formation_lift.bti"
+        }
+      ],
+      "1": [
+        {
+          "btifile": "sand5.bti"
+        }
+      ]
+    }
+  }
 }

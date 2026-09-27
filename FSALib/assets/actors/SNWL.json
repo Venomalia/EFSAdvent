@@ -4,5 +4,15 @@
   "InternalName": "雪の壁",
   "category": "Object",
   "NoGBASprite": true,
-  "Resources": ["timg/yuki_l.bti"]
+  "Resources": ["timg/yuki_l.bti"],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "yuki_l.bti"
+        }
+      ]
+    }
+  }
 }

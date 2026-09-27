@@ -15,6 +15,10 @@
         /// </summary>
         public short YOffset { get; set; } = 0;
 
+        public float XScale { get; set; } = 1;
+        public float YScale { get; set; } = 1;
+
+        public float Rotation { get; set; } = 0;
         /// <summary>
         /// Index of the sprite used to render this actor variant.
         /// </summary>

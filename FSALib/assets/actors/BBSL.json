@@ -1,6 +1,6 @@
 {
   "name": "Giant Bomb Shadowlink",
-  "description": "A massive bomb associated with Shadowlink, triggered by a local variable.",
+  "description": "A massive bomb Shadowlink, triggered by a local variable.",
   "InternalName": "巨大爆弾シャドウリンク",
   "category": "Object",
   "fields": [
@@ -28,5 +28,17 @@
         }
       }
     }
-  ]
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "bomb_big.bti",
+          "xscale": 0.8,
+          "yscale": 0.8
+        }
+      ]
+    }
+  }
 }

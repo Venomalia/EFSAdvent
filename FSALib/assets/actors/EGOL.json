@@ -3,5 +3,15 @@
   "description": "",
   "InternalName": "アイゴール",
   "category": "Enemy",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "btifile": "e_igol_ushiro_0.bti"
+        }
+      ]
+    }
+  }
 }

@@ -14,6 +14,7 @@ namespace FSALib
     public sealed class Layer : INotifyPropertyChanged, IStreamSerializable
     {
         public const int DIMENSION = 32;
+        public const int TVHEIGHT = 24;
         public const int TILES = DIMENSION * DIMENSION;
 
         private readonly ushort[] _tiles = new ushort[TILES];

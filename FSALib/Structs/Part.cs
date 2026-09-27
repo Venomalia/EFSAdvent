@@ -1,5 +1,4 @@
-﻿using AuroraLib.Pixel.Processing;
-using System;
+﻿using System;
 
 namespace FSALib.Structs
 {

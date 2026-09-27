@@ -3,12 +3,13 @@ using AuroraLib.Pixel.Image;
 using AuroraLib.Pixel.PixelFormats;
 using AuroraLib.Pixel.PixelProcessor;
 using AuroraLib.Pixel.Processing;
+using FSALib.Structs;
 using System;
 using System.Buffers;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace FSALib.Renderer
+namespace FSALib.Rendering
 {
     public abstract class GBA4bppTileRenderer<TColor> where TColor : unmanaged, IColor<TColor>
     {
@@ -71,13 +72,13 @@ namespace FSALib.Renderer
             return IndexSpritSheet.AsSpan(sourceIndex, IndexPartSize);
         }
 
-        protected static void DrawPart(IImage<TColor> target, int x, int y, ReadOnlySpan<byte> tIndex, ReadOnlySpan<TColor> tpalette, MirrorAxis mirrorAxis)
+        protected static void DrawPart(IImage<TColor> target, int x, int y, ReadOnlySpan<byte> tIndex, ReadOnlySpan<TColor> tpalette, Structs.MirrorAxis mirrorAxis)
         {
             if (x < 0 || y < 0 || x + PartSize > target.Width || y + PartSize > target.Height)
                 return;
 
-            bool flipV = mirrorAxis.HasFlag(MirrorAxis.Vertical);
-            bool flipH = mirrorAxis.HasFlag(MirrorAxis.Horizontal);
+            bool flipV = mirrorAxis.HasFlag(Structs.MirrorAxis.Vertical);
+            bool flipH = mirrorAxis.HasFlag(Structs.MirrorAxis.Horizontal);
 
             RowAccessor<TColor> targetAccessor = new RowAccessor<TColor>(target, x, PartSize);
             for (int line = 0, p = 0; line < PartSize; line++)

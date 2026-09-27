@@ -876,13 +876,15 @@
   "155": {
     "Name": "Bombable Cliff Wall Left",
     "Description": "A cliff wall that can be blowed up have to use the Door Actor Though",
+    "MirrorTile": 156,
     "Collision": "Solid",
     "Interaction": "Bombable",
-    "InteractionTile": 127
+    "InteractionTile": 126
   },
   "156": {
     "Name": "Bombable Cliff Wall Right",
     "Description": "A cliff wall that can be blowed up have to use the Door Actor Though",
+    "MirrorTile": 155,
     "Collision": "Solid",
     "Interaction": "Bombable",
     "InteractionTile": 127
@@ -4767,7 +4769,8 @@
   },
   "837": {
     "Name": "",
-    "MirrorTile": 838
+    "MirrorTile": 838,
+    "Collision": "Top"
   },
   "838": {
     "Name": "",
@@ -4849,7 +4852,8 @@
   },
   "853": {
     "Name": "Door (west)",
-    "MirrorTile": 854
+    "MirrorTile": 854,
+    "Collision": "Bottom"
   },
   "854": {
     "Name": "Door (east)",
