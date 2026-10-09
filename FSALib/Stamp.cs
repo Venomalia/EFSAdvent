@@ -83,7 +83,7 @@ namespace FSALib
         /// <inheritdoc/>
         public void ReadFromStream(Stream source)
         {
-            Span<byte> bytes = MemoryMarshal.Cast<ushort, byte>(_tiles);
+            Span<byte> bytes = MemoryMarshal.Cast<ushort, byte>(_tiles.AsSpan());
             bytes.Clear();
 
             int needed = (int)source.Length == 0x200 ? 0x200 : Layer.TILES * 2;
@@ -123,7 +123,7 @@ namespace FSALib
         /// <inheritdoc/>
         public void WriteToStream(Stream dest)
         {
-            Span<byte> bytes = MemoryMarshal.Cast<ushort, byte>(_tiles);
+            Span<byte> bytes = MemoryMarshal.Cast<ushort, byte>(_tiles.AsSpan());
             if (Height > 16 || Width > 16) // Is 32*32
             {
                 dest.Write(bytes);

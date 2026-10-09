@@ -166,7 +166,7 @@ namespace FSALib
         public void BinarySerialize(Stream dest, CompressionSettings settings)
         {
             byte[] data = new byte[TILES * 2];
-            WriteSzsFormat(_tiles, MemoryMarshal.Cast<byte, ushort>(data));
+            WriteSzsFormat(_tiles, MemoryMarshal.Cast<byte, ushort>(data.AsSpan()));
             Common.Yaz0.Compress(data, dest, settings);
         }
 
