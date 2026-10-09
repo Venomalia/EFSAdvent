@@ -2,5 +2,16 @@
   "name": "Cutscene 4 swords",
   "description": "",
   "InternalName": "デモ用4つの剣",
-  "category": "Cutscene"
+  "category": "Cutscene",
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 377,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

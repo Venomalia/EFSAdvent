@@ -24,8 +24,8 @@
     "variants": {
       "0": [
         {
-          "xscale": 3,
-          "yscale": 3,
+          "xscale": 2,
+          "yscale": 2,
           "spriteIndex": 333,
           "spriteListIndex": 1
         }

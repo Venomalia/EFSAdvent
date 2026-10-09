@@ -8,17 +8,21 @@
     {
       "name": "Loot Type",
       "description": "Defines what, if anything, is dropped when the tree is destroyed.",
-      "bitOffset": 0,
-      "bitSize": 8,
+      "bitOffset": 22,
+      "bitSize": 5,
       "valueType": "Enum",
       "enumValues": {
         "0": {
           "name": "Force Gems",
           "description": "The tree drops Force Gems when destroyed."
         },
-        "64": {
+        "1": {
           "name": "No Drops",
           "description": "The tree does not drop any items when destroyed."
+        },
+        "2": {
+          "name": "Force Fairy",
+          "description": "The tree drops a Force Fairy when destroyed."
         }
       }
     }

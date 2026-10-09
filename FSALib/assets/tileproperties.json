@@ -464,9 +464,8 @@
     "Surface": "Abyss"
   },
   "85": {
-    "Name": "Torch",
-    "Description": "A torch that produces light, can be lighted with a LWSW Actor.",
-    "RequiredActorID": "TRCH",
+    "Name": "Torch (GBA)",
+    "Description": "A torch.",
     "Collision": "Solid"
   },
   "86": {
@@ -1256,21 +1255,19 @@
     "Properties": "Hazard"
   },
   "223": {
-    "Name": "Need to Research Tile?",
+    "Name": "Open Grave",
     "Description": "223"
   },
   "224": {
-    "Name": "Need to Research Tile?",
+    "Name": "Open Grave",
     "Description": "224"
   },
   "225": {
-    "Name": "Floor Switch, East",
-    "Description": "",
+    "Name": "Open Grave",
     "MirrorTile": 226
   },
   "226": {
-    "Name": "Floor Switch, West",
-    "Description": "",
+    "Name": "Open Grave",
     "MirrorTile": 225
   },
   "227": {
@@ -4123,31 +4120,37 @@
   "708": {
     "Name": "",
     "Description": "",
-    "MirrorTile": 710
+    "MirrorTile": 710,
+    "Collision": "Solid"
   },
   "709": {
     "Name": "",
-    "Description": ""
+    "Description": "",
+    "Collision": "Solid"
   },
   "710": {
     "Name": "",
     "Description": "",
-    "MirrorTile": 708
+    "MirrorTile": 708,
+    "Collision": "Solid"
   },
   "711": {
     "Name": "",
     "Description": "",
-    "MirrorTile": 727
+    "MirrorTile": 727,
+    "Collision": "Solid"
   },
   "712": {
     "Name": "",
     "Description": "",
-    "MirrorTile": 728
+    "MirrorTile": 728,
+    "Collision": "Solid"
   },
   "713": {
     "Name": "",
     "Description": "",
-    "MirrorTile": 728
+    "MirrorTile": 728,
+    "Collision": "Solid"
   },
   "714": {
     "Name": "",
@@ -4205,31 +4208,37 @@
   "724": {
     "Name": "",
     "Description": "",
-    "MirrorTile": 726
+    "MirrorTile": 726,
+    "Collision": "Solid"
   },
   "725": {
     "Name": "",
-    "Description": ""
+    "Description": "",
+    "Collision": "Solid"
   },
   "726": {
     "Name": "",
     "Description": "",
-    "MirrorTile": 724
+    "MirrorTile": 724,
+    "Collision": "Solid"
   },
   "727": {
     "Name": "",
     "Description": "",
-    "MirrorTile": 711
+    "MirrorTile": 711,
+    "Collision": "Solid"
   },
   "728": {
     "Name": "",
     "Description": "",
-    "MirrorTile": 712
+    "MirrorTile": 712,
+    "Collision": "Solid"
   },
   "729": {
     "Name": "",
     "Description": "",
-    "MirrorTile": 713
+    "MirrorTile": 713,
+    "Collision": "Solid"
   },
   "730": {
     "Name": "",
@@ -4261,6 +4270,7 @@
     "MirrorTile": 719
   },
   "736": {
+    "Name": "Closed 1x1 door (north left side)",
     "MirrorTile": 737,
     "RequiredActorID": "DOOR",
     "ActorValue": 2147483776,

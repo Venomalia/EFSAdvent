@@ -22,7 +22,9 @@
       "0": [
         {
           "spriteIndex": 365,
-          "spriteListIndex": 2
+          "spriteListIndex": 2,
+          "xoffset": 16,
+          "yoffset": 16
         }
       ]
     }
