@@ -3,6 +3,7 @@ using AuroraLib.Core.Format.Identifier;
 using AuroraLib.Core.IO;
 using System;
 using System.IO;
+using System.Linq;
 using static FSALib.Rarc;
 
 namespace FSALib
@@ -52,7 +53,7 @@ namespace FSALib
         /// <summary>
         /// Gets the root directory of the stage resource archive.
         /// </summary>
-        public DirectoryNode Resources => resources.Root;
+        public DirectoryNode Resources => resources.Root.Name == "boss991_all" ? resources.Root.Directorys.Values.First() : resources.Root;
 
         public Stage(bool isShadowBattle = false)
         {
