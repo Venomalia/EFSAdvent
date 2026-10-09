@@ -6,10 +6,12 @@ using AuroraLib.Core.IO;
 using System;
 using FSALib.AssetDefinitions;
 
+
 #if NETSTANDARD || NET20_OR_GREATER
 using Newtonsoft.Json;
 #else
 using System.Text.Json;
+using System.Text.Json.Serialization;
 #endif
 
 namespace FSALib
@@ -28,7 +30,7 @@ namespace FSALib
         private static Dictionary<string, StageDefinition> stages;
         private static Dictionary<int, BattleStageDefinition> battleStages;
         private static Dictionary<int, TilesetDefinition> tilesets;
-        private static ushort[]? mirrorLOT;
+        private static readonly ushort[] mirrorLOT;
 
         /// <summary>
         /// Gets a read-only dictionary of song IDs and their respective names.
@@ -63,28 +65,7 @@ namespace FSALib
         /// <summary>
         /// Lookup table that provides the mirrored tile ID for each tile.
         /// </summary>
-        public static ReadOnlySpan<ushort> MirrorTileLOT
-        {
-            get
-            {
-                if (mirrorLOT == null)
-                {
-                    mirrorLOT = new ushort[0x400];
-                    for (ushort i = 1; i < mirrorLOT.Length; i++)
-                    {
-                        if (TileProperties.TryGetValue(i, out TilePropertyDefinition tileInfo) && tileInfo.MirrorTile != 0)
-                        {
-                            mirrorLOT[i] = tileInfo.MirrorTile;
-                        }
-                        else
-                        {
-                            mirrorLOT[i] = i;
-                        }
-                    }
-                }
-                return mirrorLOT;
-            }
-        }
+        public static ReadOnlySpan<ushort> MirrorTileLOT => mirrorLOT;
 
         /// <summary>
         /// Gets a read-only dictionary of <see cref="ActorDefinition"/> indexed by their unique actor identifier.
@@ -94,6 +75,7 @@ namespace FSALib
         static Assets()
         {
             actors = new Dictionary<Identifier32, ActorDefinition>();
+            mirrorLOT = new ushort[0x400];
             Reload();
         }
 
@@ -102,52 +84,38 @@ namespace FSALib
         /// </summary>
         public static void Reload()
         {
-            mirrorLOT = null;
-
             // Reload song list
-            const string songsJson = AssetsDirectory + "\\songs.json";
+            string songsJson = Path.Combine(AssetsDirectory, "songs.json");
             if (!Deserialize(songsJson, out songs))
-            {
                 songs = new Dictionary<int, string>();
-            }
 
             // Reload tile properties list
-            const string tilePropertiesJson = AssetsDirectory + "\\tileproperties.json";
+            string tilePropertiesJson = Path.Combine(AssetsDirectory, "tileproperties.json");
             if (!Deserialize(tilePropertiesJson, out tileProperties))
-            {
                 tileProperties = new Dictionary<ushort, TilePropertyDefinition>();
-            }
 
             // Reload stages list
-            const string worldsJson = AssetsDirectory + "\\worlds.json";
+            string worldsJson = Path.Combine(AssetsDirectory, "worlds.json");
             if (!Deserialize(worldsJson, out worlds))
-            {
                 worlds = new Dictionary<int, WorldDefinition>();
-            }
 
             // Reload stages list
-            const string stagesJson = AssetsDirectory + "\\stages.json";
+            string stagesJson = Path.Combine(AssetsDirectory, "stages.json");
             if (!Deserialize(stagesJson, out stages))
-            {
                 stages = new Dictionary<string, StageDefinition>();
-            }
 
             // Reload battle stages list
-            const string battleStagesJson = AssetsDirectory + "\\battlestages.json";
+            string battleStagesJson = Path.Combine(AssetsDirectory, "battlestages.json");
             if (!Deserialize(battleStagesJson, out battleStages))
-            {
                 battleStages = new Dictionary<int, BattleStageDefinition>();
-            }
 
             // Reload battle stages list
-            const string tilesetsJson = AssetsDirectory + "\\tilesets.json";
+            string tilesetsJson = Path.Combine(AssetsDirectory, "tilesets.json");
             if (!Deserialize(tilesetsJson, out tilesets))
-            {
                 tilesets = new Dictionary<int, TilesetDefinition>();
-            }
 
             // Reload actor schemas
-            const string actorsDirectory = AssetsDirectory + "\\actors";
+            string actorsDirectory = Path.Combine(AssetsDirectory, "actors");
             if (Directory.Exists(actorsDirectory))
             {
                 actors.Clear();
@@ -163,6 +131,18 @@ namespace FSALib
             else
             {
                 Trace.WriteLine($"⚠️ The directory {actorsDirectory} does not exist.");
+            }
+
+            for (ushort i = 1; i < mirrorLOT.Length; i++)
+            {
+                if (TileProperties.TryGetValue(i, out TilePropertyDefinition tileInfo) && tileInfo.MirrorTile != 0)
+                {
+                    mirrorLOT[i] = tileInfo.MirrorTile;
+                }
+                else
+                {
+                    mirrorLOT[i] = i;
+                }
             }
         }
 
@@ -202,13 +182,34 @@ namespace FSALib
         internal static TValue? Deserialize<TValue>(Stream stream) where TValue : class
         {
 #if NETSTANDARD || NET20_OR_GREATER
-            using var reader = new StreamReader(stream);
-            string json = reader.ReadToEnd();
-            return JsonConvert.DeserializeObject<TValue>(json);
+    using var reader = new StreamReader(stream);
+    string json = reader.ReadToEnd();
+    return JsonConvert.DeserializeObject<TValue>(json);
 #else
-            return JsonSerializer.Deserialize<TValue>(stream);
+            var options = new JsonSerializerOptions();
+            options.Converters.Add(new JsonStringEnumConverter());
+            options.Converters.Add(new Identifier32Converter());
+            return JsonSerializer.Deserialize<TValue>(stream, options);
 #endif
         }
+
+#if !NETSTANDARD && !NET20_OR_GREATER
+        private sealed class Identifier32Converter : JsonConverter<Identifier32>
+        {
+            public override Identifier32 Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+            {
+                if (reader.TokenType != JsonTokenType.String)
+                    throw new JsonException();
+
+                return new Identifier32(reader.GetString().AsSpan());
+            }
+
+            public override void Write(Utf8JsonWriter writer, Identifier32 value, JsonSerializerOptions options)
+            {
+                writer.WriteStringValue(value.ToString());
+            }
+        }
+#endif
 
         internal static void Serialize(Stream stream, object? value)
         {
