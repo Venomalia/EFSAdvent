@@ -5,11 +5,52 @@
   "category": "Item",
   "fields": [
     {
-      "name": "Unknown Variable 1",
-      "description": "An unknown value related to the hovering force gem.",
-      "bitOffset": 24,
+      "name": "Force Gem",
+      "description": "The type of the force gem.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Green", "description": "Green force gem" },
+        "1": { "name": "Blue", "description": "Blue force gem" },
+        "2": { "name": "Red", "description": "Red force gem" },
+        "3": { "name": "Purple", "description": "Purple force gem" },
+        "4": {
+          "name": "Green Flashing Purple",
+          "description": "Green flashing purple force gem"
+        },
+        "5": { "name": "Small Red", "description": "Small red force gem" },
+        "6": {
+          "name": "Small Purple",
+          "description": "Small purple force gem"
+        },
+        "7": { "name": "Small Blue", "description": "Small blue force gem" }
+      }
+    },
+    {
+      "name": "Flag Effects",
+      "description": "Various flag effects associated with the hovering force gem.",
+      "bitOffset": 8,
       "bitSize": 8,
-      "valueType": "Integer"
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "Appear Effect",
+          "description": "Appears with a small light effect."
+        },
+        "4": {
+          "name": "Hovers Higher When Approached",
+          "description": "Moves higher when the player approaches."
+        },
+        "16": {
+          "name": "Hovers Near Ground",
+          "description": "Stays just above the ground, making it easy to collect."
+        },
+        "64": {
+          "name": "Rendering Effect?",
+          "description": "Changes parameters used when rendering the force gem."
+        }
+      }
     },
     {
       "name": "Movement Type",
@@ -32,7 +73,10 @@
           "name": "Counterclockwise",
           "description": "Moves in a counterclockwise direction."
         },
-        "5": { "name": "Unknown", "description": "An unknown movement type." },
+        "5": {
+          "name": "Rises and Falls",
+          "description": "Moves upward and downward."
+        },
         "6": {
           "name": "Moves Vertical, Centered",
           "description": "Moves vertically, centered."
@@ -40,43 +84,40 @@
         "7": {
           "name": "Moves Horizontal, Centered",
           "description": "Moves horizontally, centered."
+        },
+        "8": {
+          "name": "Diagonal Flight",
+          "description": "Flies diagonally off-screen."
         }
       }
     },
     {
-      "name": "Flag Effects",
-      "description": "Various flag effects associated with the hovering force gem.",
-      "bitOffset": 8,
-      "bitSize": 8,
+      "name": "Additional Effects",
+      "description": "Controls activation, position-related behavior, and conditional despawning.",
+      "bitOffset": 24,
+      "bitSize": 3,
       "valueType": "Flags",
       "enumValues": {
-        "1": { "name": "Appear effect", "description": "" },
-        "4": { "name": "Hovers high when close", "description": "" },
-        "16": { "name": "Hovers low", "description": "" }
+        "1": {
+          "name": "Activation Variable",
+          "description": "Makes the force gem appear when its activation variable is set."
+        },
+        "2": {
+          "name": "Position Effect?",
+          "description": "Enables a conditional position-related effect when the movement type is 8."
+        },
+        "4": {
+          "name": "Conditional Despawn?",
+          "description": "Detaches the actor when the corresponding global state flag is disabled."
+        }
       }
     },
     {
-      "name": "Force Gem",
-      "description": "The type of the force gem.",
-      "bitOffset": 0,
-      "bitSize": 8,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "Green", "description": "Green force gem" },
-        "1": { "name": "Blue", "description": "Blue force gem" },
-        "2": { "name": "Red", "description": "Red force gem" },
-        "3": { "name": "Purple", "description": "Purple force gem" },
-        "4": {
-          "name": "Green Flashing Purple",
-          "description": "Green flashing purple force gem"
-        },
-        "5": { "name": "Small Red", "description": "Small red force gem" },
-        "6": {
-          "name": "Small Purple",
-          "description": "Small purple force gem"
-        },
-        "7": { "name": "Small Blue", "description": "Small blue force gem" }
-      }
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ],
   "rendering": {

@@ -41,7 +41,7 @@
       "name": "Size in Y Axis",
       "description": "Size of the blindfold in the Y axis.",
       "bitOffset": 16,
-      "bitSize": 3,
+      "bitSize": 8,
       "valueType": "Integer"
     }
   ]

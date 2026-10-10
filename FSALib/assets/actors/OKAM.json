@@ -10,7 +10,7 @@
       "name": "Replacement Enemy in Single Player",
       "description": "The enemy that replaces this one in single player mode.",
       "bitOffset": 8,
-      "bitSize": 8,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": {

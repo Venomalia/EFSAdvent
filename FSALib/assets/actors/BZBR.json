@@ -5,21 +5,15 @@
   "category": "Enemy",
   "fields": [
     {
-      "name": "Options",
-      "description": "",
-      "bitOffset": 24,
-      "bitSize": 3,
-      "valueType": "Flags",
-      "enumValues": {
-        "1": {
-          "name": "Jumps towards player",
-          "description": "Jumps towards the player when he is near."
-        }
-      }
+      "name": "Jumps At Player",
+      "description": "Jumps at the player when they are nearby",
+      "bitOffset": 0,
+      "bitSize": 1,
+      "valueType": "Boolean"
     }
   ],
   "rendering": {
-    "bitMask": 16777216,
+    "bitMask": 1,
     "variants": {
       "0": [
         {
@@ -27,7 +21,7 @@
           "spriteListIndex": 2
         }
       ],
-      "16777216": [
+      "1": [
         {
           "spriteIndex": 20,
           "spriteListIndex": 2

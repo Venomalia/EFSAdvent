@@ -1,6 +1,22 @@
 {
   "name": "Goal for opening",
-  "description": "",
+  "description": "A warp used during the opening sequence that warps the player to a destination room when activated.",
   "InternalName": "オープニング用ゴール",
-  "category": "Property"
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Destination Room X",
+      "description": "The X coordinate of the destination room.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Destination Room Y",
+      "description": "The Y coordinate of the destination room.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Integer"
+    }
+  ]
 }

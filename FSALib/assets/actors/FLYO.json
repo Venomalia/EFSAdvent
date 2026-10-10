@@ -6,41 +6,80 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Trigger Variable",
-      "description": "The variable that should be triggered when this tile is destroyed.",
-      "bitOffset": 27,
+      "name": "Index Number",
+      "description": "An index number associated with this tile.",
+      "bitOffset": 0,
+      "bitSize": 11,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "Selects the room flag that activates the actor when set.",
+      "bitOffset": 11,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
+      "name": "Red Tint",
+      "description": "Whether the tile is tinted red.",
+      "bitOffset": 20,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
       "name": "Tile Type",
-      "description": "The type of the floor tile.",
+      "description": "The type of floor tile. Determines the tile's appearance and associated resources.",
       "bitOffset": 16,
-      "bitSize": 8,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Floor Tile", "description": "A regular floor tile." },
-        "1": { "name": "Bush", "description": "A bush tile." },
-        "2": { "name": "Tree", "description": "A tree tile." },
-        "3": { "name": "Unknown", "description": "An unknown tile type." },
-        "4": { "name": "Gravestone", "description": "A gravestone tile." },
-        "5": { "name": "Pot", "description": "A pot tile." },
-        "6": { "name": "Statue", "description": "A statue tile." },
-        "7": { "name": "Chest", "description": "A chest tile." },
+        "0": {
+          "name": "Floor Tile",
+          "description": "A regular floor tile using floor1_smp.bin."
+        },
+        "1": {
+          "name": "Bush",
+          "description": "A bush tile using enemy_both2_sob.bin."
+        },
+        "2": {
+          "name": "Tree",
+          "description": "A tree tile using wood_ura.bti, wood_yasi.bti, or wood_omote.bti, depending on the Tileset."
+        },
+        "3": {
+          "name": "House",
+          "description": "A house tile using house_smp.bin."
+        },
+        "4": {
+          "name": "Gravestone",
+          "description": "A gravestone tile using enemy_gc_sob.bin."
+        },
+        "5": {
+          "name": "Pot",
+          "description": "A pot tile using enemy_both2_sob.bin."
+        },
+        "6": {
+          "name": "Statue",
+          "description": "A statue tile using statue_smp.bin."
+        },
+        "7": {
+          "name": "Chest",
+          "description": "A chest tile using treasure_smp.bin when unopened or empty_smp.bin when opened."
+        },
         "8": {
           "name": "Floor Tile with Hole",
-          "description": "A floor tile that leaves a hole when destroyed."
+          "description": "A floor tile variant using floor1_smp.bin."
         },
-        "9": { "name": "Statue Red", "description": "A red statue tile." },
-        "17": { "name": "Red Bush", "description": "A red bush tile." },
-        "28": { "name": "Eye Statue", "description": "An eye statue tile." }
+        "9": {
+          "name": "Statue Red",
+          "description": "A red statue tile using statue_smp.bin."
+        }
       }
     },
     {
-      "name": "Index Number",
-      "description": "An index number associated with this tile.",
-      "bitOffset": 0,
-      "bitSize": 8,
+      "name": "Destroyed Variable",
+      "description": "The room variable set when this tile is destroyed.",
+      "bitOffset": 27,
+      "bitSize": 5,
       "valueType": "Integer"
     }
   ]

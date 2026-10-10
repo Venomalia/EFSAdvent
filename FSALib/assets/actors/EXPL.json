@@ -1,6 +1,22 @@
 {
   "name": "Explosion",
-  "description": "",
+  "description": "A small white explosion that is activated by a local variable trigger.",
   "InternalName": "爆発",
-  "category": "Intern"
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Explosion Type",
+      "description": "Selects the explosion behavior. The available values and their effects are not yet confirmed.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
 }

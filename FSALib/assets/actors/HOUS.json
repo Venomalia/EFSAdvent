@@ -5,23 +5,55 @@
   "category": "TileObject",
   "fields": [
     {
-      "name": "Move to North Trigger",
-      "description": "Activates this variable when the house is moved to the north.",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Integer"
+      "name": "House Type",
+      "description": "Selects the house or room model to render.",
+      "bitOffset": 0,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "House 6x6",
+          "description": "Renders the house model using house_smp.bin and house1_smp.bin."
+        },
+        "1": {
+          "name": "Pillar 6x6",
+          "description": "Renders room models using room_smp.bin, room1_smp.bin, room2_smp.bin, and room3_smp.bin."
+        },
+        "2": {
+          "name": "Fire Thrower House 6x6",
+          "description": "Renders the house model using house3_smp.bin and house31_smp.bin."
+        }
+      }
     },
     {
-      "name": "Move to South Trigger",
-      "description": "Activates this variable when the house is moved to the south.",
-      "bitOffset": 22,
-      "bitSize": 5,
-      "valueType": "Integer"
+      "name": "Area Geometry",
+      "description": "Selects the geometry of the registered areas.",
+      "bitOffset": 3,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Single Area",
+          "description": "Registers one rectangular area in the upper region."
+        },
+        "1": {
+          "name": "Two Upper Areas",
+          "description": "Registers two rectangular areas in the upper region, one on each side."
+        },
+        "2": {
+          "name": "Two Lower Areas",
+          "description": "Registers two rectangular areas in the lower region, one on each side."
+        },
+        "3": {
+          "name": "No Additional Area",
+          "description": "Does not register an area in this geometry branch."
+        }
+      }
     },
     {
-      "name": "Move to West Trigger",
-      "description": "Activates this variable when the house is moved to the west.",
-      "bitOffset": 17,
+      "name": "Unknown Value",
+      "description": "A 5-bit value used to select a matching entry and register associated areas.",
+      "bitOffset": 7,
       "bitSize": 5,
       "valueType": "Integer"
     },
@@ -33,32 +65,25 @@
       "valueType": "Integer"
     },
     {
-      "name": "Unknown Variable",
-      "description": "Unknown functionality or behavior.",
-      "bitOffset": 7,
+      "name": "Move to West Trigger",
+      "description": "Activates this variable when the house is moved to the west.",
+      "bitOffset": 17,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
-      "name": "House Type",
-      "description": "The type of the house.",
-      "bitOffset": 0,
-      "bitSize": 7,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": {
-          "name": "House 6x6",
-          "description": "A normal 6x6 house."
-        },
-        "2": {
-          "name": "Fire thrower 6x6",
-          "description": "A 6x6 house with fire throwers."
-        },
-        "12": {
-          "name": "Movable Pillar 6x6",
-          "description": "A normal 6x6 house."
-        }
-      }
+      "name": "Move to South Trigger",
+      "description": "Activates this variable when the house is moved to the south.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Move to North Trigger",
+      "description": "Activates this variable when the house is moved to the north.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ]
 }

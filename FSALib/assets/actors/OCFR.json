@@ -16,7 +16,7 @@
       "name": "Fire Behavior",
       "description": "Defines the movement pattern of the fire.",
       "bitOffset": 24,
-      "bitSize": 3,
+      "bitSize": 1,
       "valueType": "Enum",
       "enumValues": {
         "0": {
@@ -26,16 +26,15 @@
         "1": {
           "name": "Always Centered",
           "description": "The fire stays centered at all times."
-        },
-        "2": {
-          "name": "Alternating Left/Right (Disappears After Activation)",
-          "description": "The fire alternates between left and right and disappears after activating the variable."
-        },
-        "3": {
-          "name": "Always Centered (Disappears After Activation)",
-          "description": "The fire stays centered and disappears after activation."
         }
       }
+    },
+    {
+      "name": "Disappears After Activation",
+      "description": "Determines whether the fire disappears after activating the variable.",
+      "bitOffset": 25,
+      "bitSize": 1,
+      "valueType": "Boolean"
     },
     {
       "name": "Random Delay",

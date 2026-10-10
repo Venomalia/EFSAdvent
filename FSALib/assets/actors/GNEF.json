@@ -1,7 +1,58 @@
 {
   "name": "Giant Generator Effect",
-  "description": "Links are sucked into a GBA portal.",
+  "description": "Creates the barrier that imprisons the Knight of the Jewels.",
   "InternalName": "巨大ジェネレーターエフェクト",
   "category": "Object",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Initial Cutscene Completion Variable",
+      "description": "Room Variable set after the initial cutscene.",
+      "bitOffset": 0,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Suction Completion Variable",
+      "description": "Room flag set when the second cutscene ends.",
+      "bitOffset": 7,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Suction Trigger Variable",
+      "description": "Room Variable checked to trigger the cutscene that sucks the players into the GBA portal.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Graphic Variant",
+      "description": "Selects the portal color.",
+      "bitOffset": 17,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Blue"
+        },
+        "1": {
+          "name": "Green"
+        },
+        "2": {
+          "name": "Red"
+        },
+        "3": {
+          "name": "Purple"
+        }
+      }
+    },
+    {
+      "name": "Completion Room Variable",
+      "description": "Room flag set when the effect sequence completes.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
 }

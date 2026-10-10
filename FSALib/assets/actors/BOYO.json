@@ -6,23 +6,10 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Start Position",
-      "description": "Defines the starting position of the bumper block.",
-      "bitOffset": 8,
-      "bitSize": 8,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "0%", "description": "Starts at 0% position." },
-        "1": { "name": "25%", "description": "Starts at 25% position." },
-        "2": { "name": "50%", "description": "Starts at 50% position." },
-        "3": { "name": "75%", "description": "Starts at 75% position." }
-      }
-    },
-    {
       "name": "Movement Type",
       "description": "Defines the movement pattern of the bumper block.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 3,
       "valueType": "Enum",
       "enumValues": {
         "0": {
@@ -30,15 +17,15 @@
           "description": "The bumper block spins in place."
         },
         "1": {
-          "name": "Moves from west to east",
-          "description": "The bumper block moves from west to east."
+          "name": "Direction",
+          "description": "The bumper block moves in the direction specified by Direction."
         },
         "2": {
           "name": "Small circle, Clockwise",
           "description": "The bumper block moves in a small circular pattern."
         },
         "3": {
-          "name": "Small circlee, Counterclockwise",
+          "name": "Small circle, Counterclockwise",
           "description": "The bumper block moves in a circular pattern."
         },
         "4": {
@@ -48,9 +35,28 @@
         "5": {
           "name": "Big circle, Counterclockwise",
           "description": "Unknown movement pattern."
-        },
-        "6": { "name": "?", "description": "Unknown movement pattern." }
+        }
       }
+    },
+    {
+      "name": "Direction / Start Position",
+      "description": "For Movement Type 1, determines the movement direction. For Movement Types 2–5, determines the initial position within the circle.",
+      "bitOffset": 8,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "East / 0%" },
+        "1": { "name": "West / 25%" },
+        "2": { "name": "South / 50%" },
+        "3": { "name": "North / 75%" }
+      }
+    },
+    {
+      "name": "Increased Movement Speed",
+      "description": "Increases the bumper block's movement speed.",
+      "bitOffset": 16,
+      "bitSize": 1,
+      "valueType": "Boolean"
     }
   ],
   "rendering": {

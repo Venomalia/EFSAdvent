@@ -6,19 +6,27 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Gohma State",
-      "description": "The current state or behavior of Gohma.",
+      "name": "Gohma Behavior",
+      "description": "Determines Gohma's behavior and whether it acts as a miniboss.",
       "bitOffset": 0,
-      "bitSize": 2,
-      "valueType": "Flags",
+      "bitSize": 4,
+      "valueType": "Enum",
       "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "Gohma uses its default behavior."
+        },
         "1": {
           "name": "Walking Sideways",
-          "description": "Gohma is walking sideways."
+          "description": "Gohma walks sideways."
         },
         "2": {
-          "name": "Miniboss",
-          "description": "Gohma is in the Miniboss fight state."
+          "name": "Boss",
+          "description": "Gohma is initialized as a miniboss."
+        },
+        "3": {
+          "name": "Boss Walking Sideways",
+          "description": "Gohma is initialized as a miniboss and walks sideways."
         }
       }
     }

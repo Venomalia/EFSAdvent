@@ -1,6 +1,304 @@
 {
   "name": "Lifting Item",
-  "description": "Item held above the head",
+  "description": "An item obtained by the player, such as an item found in a chest.",
   "InternalName": "持ち上げアイテム",
-  "category": "Intern"
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Item Type",
+      "description": "Selects the item type and its associated behavior.",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Small Green Force Gem",
+          "description": "1 Force Gem"
+        },
+        "1": {
+          "name": "Small Blue Force Gem",
+          "description": "5 Force Gems"
+        },
+        "2": {
+          "name": "Small Red Force Gem",
+          "description": "20 Force Gems"
+        },
+        "3": {
+          "name": "Small Purple Force Gem",
+          "description": "50 Force Gems"
+        },
+        "4": {
+          "name": "Green Force Gem",
+          "description": "100 Force Gems"
+        },
+        "5": {
+          "name": "Blue Force Gem",
+          "description": "150 Force Gems"
+        },
+        "6": {
+          "name": "Red Force Gem",
+          "description": "200 Force Gems"
+        },
+        "7": {
+          "name": "Purple Force Gem",
+          "description": "300 Force Gems"
+        },
+        "8": {
+          "name": "Big Green Force Gem",
+          "description": "1000 Force Gems"
+        },
+        "9": {
+          "name": "Big Blue Force Gem",
+          "description": "1500 Force Gems"
+        },
+        "10": {
+          "name": "Big Red Force Gem",
+          "description": "2000 Force Gems"
+        },
+        "11": {
+          "name": "Big Purple Force Gem",
+          "description": "3000 Force Gems"
+        },
+        "16": {
+          "name": "Key",
+          "description": "A regular key."
+        },
+        "17": {
+          "name": "Big Key",
+          "description": "A key for big chest."
+        },
+        "18": {
+          "name": "Letter",
+          "description": "A special letter."
+        },
+        "19": {
+          "name": "Power Bracelet",
+          "description": "With its power, Link can lift objects, such as Trees."
+        },
+        "20": {
+          "name": "Heart Container",
+          "description": "Increases max health."
+        },
+        "21": {
+          "name": "Blue Bracelet",
+          "description": "Cuts all damage receives in half."
+        },
+        "22": {
+          "name": "Moon Pearl",
+          "description": "Used to activate Moon Gates."
+        },
+        "23": {
+          "name": "Bombos Medallion",
+          "description": "Triggers a rain of fire which defeats every enemy on the screen."
+        },
+        "24": {
+          "name": "Quake Medallion",
+          "description": "Triggers an earthquake that turns enemies into Zols."
+        },
+        "25": {
+          "name": "Book (text error)",
+          "description": "Text issue."
+        },
+        "32": {
+          "name": "Item Crystal (text error)",
+          "description": "Text issue."
+        },
+        "42": {
+          "name": "Blue Royal Jewel",
+          "description": "Text issue."
+        },
+        "43": {
+          "name": "Green Royal Jewel",
+          "description": "Text issue."
+        },
+        "44": {
+          "name": "Red Royal Jewel",
+          "description": "Text issue."
+        },
+        "45": {
+          "name": "Purple Royal Jewel",
+          "description": "Text issue."
+        },
+        "46": {
+          "name": "Nova Bomb",
+          "description": "A powerful explosive."
+        },
+        "47": {
+          "name": "Empty",
+          "description": "The chest contains nothing."
+        },
+        "48": {
+          "name": "Pegasus Boots",
+          "description": ""
+        },
+        "49": {
+          "name": "Lamp",
+          "description": ""
+        },
+        "50": {
+          "name": "Boomerang",
+          "description": ""
+        },
+        "51": {
+          "name": "Bow",
+          "description": ""
+        },
+        "52": {
+          "name": "Magic Hammer",
+          "description": ""
+        },
+        "53": {
+          "name": "Fire Rod",
+          "description": ""
+        },
+        "54": {
+          "name": "Roc's Feather",
+          "description": ""
+        },
+        "55": {
+          "name": "Bombs",
+          "description": ""
+        },
+        "56": {
+          "name": "Shovel",
+          "description": ""
+        },
+        "57": {
+          "name": "Slingshot",
+          "description": ""
+        },
+        "58": {
+          "name": "Sword",
+          "description": "",
+          "assetstate": "Development"
+        },
+        "64": {
+          "name": "Lv2 Pegasus Boots",
+          "description": ""
+        },
+        "65": {
+          "name": "Lv2 Lamp",
+          "description": "Turns into a normal one.",
+          "assetstate": "Development"
+        },
+        "66": {
+          "name": "Lv2 Boomerang",
+          "description": ""
+        },
+        "67": {
+          "name": "Lv2 Bow",
+          "description": ""
+        },
+        "68": {
+          "name": "Lv2 Magic Hammer",
+          "description": ""
+        },
+        "69": {
+          "name": "Lv2 Fire Rod",
+          "description": ""
+        },
+        "70": {
+          "name": "Lv2 Roc's Feather",
+          "description": ""
+        },
+        "71": {
+          "name": "Lv2 Bombs",
+          "description": ""
+        },
+        "72": {
+          "name": "Lv2 Shovel",
+          "description": ""
+        },
+        "73": {
+          "name": "Lv2 Slingshot",
+          "description": ""
+        },
+        "74": {
+          "name": "Lv2 Sword",
+          "description": "The sword has full power."
+        }
+      }
+    },
+    {
+      "name": "Player Number",
+      "description": "The player index used for item behavior and actor creation.",
+      "bitOffset": 24,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Player 0",
+          "description": "Player index 0."
+        },
+        "1": {
+          "name": "Player 1",
+          "description": "Player index 1."
+        },
+        "2": {
+          "name": "Player 2",
+          "description": "Player index 2."
+        },
+        "3": {
+          "name": "Player 3",
+          "description": "Player index 3."
+        }
+      }
+    },
+    {
+      "name": "Additional Player Number",
+      "description": "A second player index used by some item behaviors.",
+      "bitOffset": 26,
+      "bitSize": 2,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Switch 21",
+      "description": "Changes the internal state for item types 4 through 11.",
+      "bitOffset": 21,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Switch 22",
+      "description": "Unknown boolean parameter.",
+      "bitOffset": 22,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Switch 23",
+      "description": "Unknown boolean parameter.",
+      "bitOffset": 23,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Switch 28",
+      "description": "Unknown boolean parameter.",
+      "bitOffset": 28,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Switch 29",
+      "description": "Controls whether the special handling for item types 48 through 73 is skipped.",
+      "bitOffset": 29,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Switch 30",
+      "description": "Disables certain item-related calls for item types 0 through 11 when enabled.",
+      "bitOffset": 30,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Switch 31",
+      "description": "Controls whether the STPN actor is created.",
+      "bitOffset": 31,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    }
+  ]
 }

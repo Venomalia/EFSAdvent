@@ -5,33 +5,54 @@
   "category": "Enemy",
   "fields": [
     {
+      "name": "Keese Type",
+      "description": "Determines the movement behavior of the Keese.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "Remains stationary until the player approaches, then slowly flies toward them."
+        },
+        "1": {
+          "name": "Hidden?",
+          "description": "No visible Keese is observed."
+        },
+        "2": {
+          "name": "Force Crystal Dropper",
+          "description": "Often drops Force Crystals?."
+        },
+        "3": {
+          "name": "Flies Up and Down",
+          "description": "Flies up and down and approaches the player when nearby."
+        },
+        "4": {
+          "name": "Independent Movement",
+          "description": "Moves independently without the normal player-seeking behavior."
+        }
+      }
+    },
+    {
+      "name": "Large Sprite",
+      "description": "Enlarges the Keese sprite.",
+      "bitOffset": 4,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Upside Down",
+      "description": "Turns the Keese upside down, making it appear to hang from the ceiling.",
+      "bitOffset": 8,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
       "name": "Activation Variable",
-      "description": "The local variable that activates this actor.",
+      "description": "Specifies the local variable used to control the Keese's activation.",
       "bitOffset": 27,
       "bitSize": 5,
       "valueType": "Integer"
-    },
-    {
-      "name": "Keese Type",
-      "description": "Determines the movement and size of the Keese.",
-      "bitOffset": 0,
-      "bitSize": 16,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "Default", "description": "A normal Keese." },
-        "3": {
-          "name": "Flies Back and Forth",
-          "description": "A Keese that moves between two points."
-        },
-        "16": {
-          "name": "Big Keese",
-          "description": "A larger version of Keese."
-        },
-        "256": {
-          "name": "Hanging from ceiling",
-          "description": "A normal Keese."
-        }
-      }
     }
   ],
   "rendering": {

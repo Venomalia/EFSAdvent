@@ -5,11 +5,33 @@
   "category": "Object",
   "fields": [
     {
-      "name": "Variable that activates this actor",
-      "description": "The local variable that triggers this OFF switch.",
-      "bitOffset": 27,
+      "name": "Logic of the OFF switch",
+      "description": "Defines how the switch changes the target room variable when activated or deactivated.",
+      "bitOffset": 0,
       "bitSize": 5,
-      "valueType": "Integer"
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Deactivate on Activation",
+          "description": "Sets the target variable to 0 when the switch is activated."
+        },
+        "1": {
+          "name": "Restore Previous State",
+          "description": "Sets the target variable to 0 when activated and restores its previously stored state when deactivated."
+        },
+        "2": {
+          "name": "Toggle Variable",
+          "description": "Toggles the target variable between 0 and 1 each time the switch is activated."
+        },
+        "3": {
+          "name": "Invert Activation State",
+          "description": "Sets the target variable to 1 while the switch is deactivated and to 0 while it is activated."
+        },
+        "4": {
+          "name": "Deactivate while Activated",
+          "description": "Sets the target variable to 0 while the switch remains activated."
+        }
+      }
     },
     {
       "name": "Variable to be deactivated",
@@ -19,23 +41,11 @@
       "valueType": "Integer"
     },
     {
-      "name": "Logic of the OFF switch",
-      "description": "Defines the behavior of the OFF switch.",
-      "bitOffset": 0,
-      "bitSize": 7,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "Unknown", "description": "Unknown behavior." },
-        "1": { "name": "Unknown", "description": "Unknown behavior." },
-        "2": {
-          "name": "On / off switch",
-          "description": "The switch toggles the state of the variable."
-        },
-        "3": {
-          "name": "Active variable until triggered",
-          "description": "The variable remains active until it is triggered by an event."
-        }
-      }
+      "name": "Variable that activates this actor",
+      "description": "The local variable that triggers this OFF switch.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ]
 }

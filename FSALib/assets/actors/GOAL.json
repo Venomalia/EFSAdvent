@@ -5,17 +5,36 @@
   "category": "Property",
   "fields": [
     {
-      "name": "Type",
-      "description": "",
+      "name": "Activation Mode",
+      "description": "Determines the goal activation behavior.",
       "bitOffset": 0,
-      "bitSize": 8,
-      "valueType": "Flags",
+      "bitSize": 5,
+      "valueType": "Enum",
       "enumValues": {
+        "0": {
+          "name": "All Enemies Defeated",
+          "description": "Activates when all enemies are defeated."
+        },
         "1": {
-          "name": "Uses Variable",
-          "description": ""
+          "name": "Variable Triggered",
+          "description": "Activates when the actor's activation condition is met."
+        },
+        "2": {
+          "name": "Immediate",
+          "description": "Activates without an additional condition."
+        },
+        "3": {
+          "name": "Player Positions? (Intern?)",
+          "description": "Checks player positions at the four goal locations before starting the completion sequence."
         }
       }
+    },
+    {
+      "name": "Reward Option",
+      "description": "Enables an additional reward under certain conditions. The exact activation conditions are not fully understood.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
     },
     {
       "name": "Set Variable",

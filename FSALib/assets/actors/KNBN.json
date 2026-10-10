@@ -6,10 +6,35 @@
   "fields": [
     {
       "name": "Text ID",
-      "description": "The ID of the text displayed when the sign is read.",
+      "description": "The ID of the text displayed by the actor. The stored value is increased by 299 before being used as the text ID.",
       "bitOffset": 0,
       "bitSize": 16,
       "valueType": "Integer"
+    },
+    {
+      "name": "Flags",
+      "description": "Controls the sign's activation conditions.",
+      "bitOffset": 28,
+      "bitSize": 4,
+      "Flags": "Integer",
+      "enumValues": {
+        "2": {
+          "name": "Flag 28",
+          "description": "When set, disables the actor under the checked conditions."
+        },
+        "4": {
+          "name": "Flag 29",
+          "description": "When set, disables the actor if fn_80138AB0() returns 1."
+        },
+        "8": {
+          "name": "Flag 30",
+          "description": "Selects an alternate condition branch based on the global state."
+        },
+        "16": {
+          "name": "Flag 31",
+          "description": "Selects an alternate condition branch based on the global state."
+        }
+      }
     }
   ]
 }

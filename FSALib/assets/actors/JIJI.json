@@ -5,6 +5,38 @@
   "category": "NPC",
   "fields": [
     {
+      "name": "Text ID",
+      "description": "Selects the dialogue text. The stored value is the configured value plus 299.",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Interaction Mode",
+      "description": "Determines how the NPC initiates the first conversation. After the first conversation, the value is reset to 0.",
+      "bitOffset": 12,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Manual",
+          "description": "The player must interact with the NPC to start a conversation."
+        },
+        "1": {
+          "name": "Proximity (2 Tiles)",
+          "description": "The NPC initiates the first conversation when the player comes within 2 tiles."
+        },
+        "2": {
+          "name": "Proximity (1 Tile)",
+          "description": "The NPC initiates the first conversation when the player comes within 1 tile."
+        },
+        "3": {
+          "name": "Proximity (4 Tiles)",
+          "description": "The NPC initiates the first conversation when the player comes within 4 tiles."
+        }
+      }
+    },
+    {
       "name": "Actor Sprite",
       "description": "The sprite associated with the NPC character.",
       "bitOffset": 16,
@@ -94,6 +126,10 @@
         "20": {
           "name": "Ghost child (NPC Sheet 1)",
           "description": "A ghost child with no GBA sprite."
+        },
+        "21": {
+          "name": "Text Trigger",
+          "description": "Has no sprite but has collision. Used in-game to trigger text events."
         },
         "22": {
           "name": "Man with blue tufty hair B (NPC Sheet 8 & 11)",
@@ -228,11 +264,18 @@
       }
     },
     {
-      "name": "Text ID",
-      "description": "What text the actor says?",
-      "bitOffset": 0,
-      "bitSize": 16,
-      "valueType": "Integer"
+      "name": "Disappear After Conversation",
+      "description": "If enabled, the NPC disappears in a puff of smoke after the conversation.",
+      "bitOffset": 26,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Spawn Jump Animation",
+      "description": "If enabled, the NPC jumps when spawned and lands with a small impact shake.",
+      "bitOffset": 25,
+      "bitSize": 1,
+      "valueType": "Boolean"
     },
     {
       "name": "Trigger Variable",

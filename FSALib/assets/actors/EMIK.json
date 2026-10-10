@@ -1,7 +1,15 @@
 {
   "name": "Shrine maiden for ending",
-  "description": "",
+  "description": "Shrine maiden character used in the ending sequence.",
   "InternalName": "エンディング用巫女",
-  "category": "NPC",
-  "NoGBASprite": true
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Index",
+      "description": "Selects an entry from two lookup tables used to initialize the actor's position.",
+      "bitOffset": 0,
+      "bitSize": 3,
+      "valueType": "Integer"
+    }
+  ]
 }

@@ -1,6 +1,30 @@
 {
   "name": "Log monitoring",
-  "description": "",
+  "description": "Plays the secret sound when a log is moved.",
   "InternalName": "丸太監視NPC",
-  "category": "Property"
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Monitoring Type",
+      "description": "Determines the monitoring area size.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Small", "description": "Uses bounds of -8.0 to 8.0." },
+        "1": {
+          "name": "Large",
+          "description": "Uses bounds of -16.0 to 16.0."
+        },
+        "2": {
+          "name": "Small (X Offset)",
+          "description": "Uses bounds of -8.0 to 8.0 and checks two positions 80.0 units apart along the X axis."
+        },
+        "3": {
+          "name": "Small (Y Offset)",
+          "description": "Uses bounds of -8.0 to 8.0 and checks two positions 80.0 units apart along the Y axis."
+        }
+      }
+    }
+  ]
 }

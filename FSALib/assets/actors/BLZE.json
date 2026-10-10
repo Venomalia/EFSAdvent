@@ -1,6 +1,36 @@
 {
-  "name": "Spreading fire",
-  "description": "Cannot be called up directly.",
+  "name": "Spreading Fire",
+  "description": "An internal actor that manages fire spreading to nearby tiles, such as grass ignited by fire.",
   "InternalName": "燃え移る火",
-  "category": "Intern"
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Spreading Interval?",
+      "description": "Controls a timer used by the spreading fire. A value of 0 results in 30; other values are multiplied by 2.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Fire Mode?",
+      "description": "Controls fire behavior and tile placement. Values 5 and 6 prevent the fire from spawning additional spreading fire actors.",
+      "bitOffset": 6,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown",
+      "description": "Purpose unknown.",
+      "bitOffset": 4,
+      "bitSize": 2,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Parameter?",
+      "description": "Passed to tile operations and inherited by spawned fire actors. A value of 15 is treated as -1.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Integer"
+    }
+  ]
 }

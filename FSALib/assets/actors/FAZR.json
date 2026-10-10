@@ -1,8 +1,52 @@
 {
   "name": "Escort Zora",
-  "description": "",
+  "description": "A Escort Zora that follows a player. Two Escort Zora actors, two FZRA points, and a BARI barrier are required to trigger the associated cutscene.",
   "InternalName": "護衛ゾーラ",
   "category": "NPC",
+  "fields": [
+    {
+      "name": "Second Zora",
+      "description": "Identifies this actor as the second Zora.",
+      "bitOffset": 0,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Follow Player",
+      "description": "Enables player-following behavior. This option is activated when the player approaches the actor.",
+      "bitOffset": 2,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Target Player",
+      "description": "Specifies which player the actor follows.",
+      "bitOffset": 3,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "First Rail ID",
+      "description": "Specifies a rail used during the associated cutscene. The actor selects the nearer of the two configured rails.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Second Rail ID",
+      "description": "Specifies the other rail used during the associated cutscene. The actor selects the nearer of the two configured rails.",
+      "bitOffset": 16,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "Specifies the room variable set when the actor reaches its destination rail during the cutscene.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ],
   "rendering": {
     "bitMask": 0,
     "variants": {

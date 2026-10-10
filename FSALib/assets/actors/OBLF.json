@@ -6,61 +6,6 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Activation Variable",
-      "description": "The variable that activates this lift.",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Type",
-      "description": "The type of the lift plate.",
-      "bitOffset": 16,
-      "bitSize": 4,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "Default", "description": "Standard lift type." },
-        "1": {
-          "name": "Alternative Z an L",
-          "description": "An alternative variant of the lift types."
-        }
-      }
-    },
-    {
-      "name": "Activation Requirement",
-      "description": "Defines the condition required to activate the lift.",
-      "bitOffset": 12,
-      "bitSize": 4,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "Default", "description": "Standard lift type." },
-        "2": {
-          "name": "Must be activated by variable",
-          "description": "Requires a specific variable to activate."
-        }
-      }
-    },
-    {
-      "name": "Direction",
-      "description": "The direction the lift will move in.",
-      "bitOffset": 8,
-      "bitSize": 4,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "East", "description": "Moves to the East." },
-        "1": { "name": "West", "description": "Moves to the West." },
-        "2": { "name": "South", "description": "Moves South." },
-        "3": { "name": "North", "description": "Moves North." }
-      }
-    },
-    {
-      "name": "Speed",
-      "description": "The movement speed of the platform. A value of 0 keeps the platform stationary.",
-      "bitOffset": 4,
-      "bitSize": 4,
-      "valueType": "Integer"
-    },
-    {
       "name": "Lift Plate Type",
       "description": "The type of the lift plate.",
       "bitOffset": 0,
@@ -72,7 +17,7 @@
           "description": "A 4x4 gray lift plate."
         },
         "1": {
-          "name": "2x2 Gray or turned Z",
+          "name": "2x2 Gray or turned L",
           "description": "A 2x2 gray lift plate."
         },
         "2": {
@@ -80,11 +25,11 @@
           "description": "A 2x4 gray lift plate."
         },
         "3": {
-          "name": "4x2 Gray Lift Plate",
+          "name": "4x2 Gray or turned L",
           "description": "A 4x2 gray lift plate."
         },
         "4": {
-          "name": "2x2 Gray O Lift Plate",
+          "name": "4x4 Gray O or turned L",
           "description": "A 2x2 gray O lift plate."
         },
         "5": {
@@ -128,6 +73,66 @@
           "description": "Four plates arranged in a Z shape."
         }
       }
+    },
+    {
+      "name": "Speed",
+      "description": "The movement speed of the platform. A value of 0 keeps the platform stationary.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Direction",
+      "description": "The movement direction of the lift.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "East", "description": "Moves east." },
+        "1": { "name": "West", "description": "Moves west." },
+        "2": { "name": "South", "description": "Moves south." },
+        "3": { "name": "North", "description": "Moves north." },
+        "4": { "name": "Southeast", "description": "Moves southeast." },
+        "5": { "name": "Southwest", "description": "Moves southwest." },
+        "6": { "name": "Northeast", "description": "Moves northeast." },
+        "7": { "name": "Northwest", "description": "Moves northwest." }
+      }
+    },
+    {
+      "name": "Activation Requirement",
+      "description": "Defines the condition required to activate the lift.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Default", "description": "Standard lift type." },
+        "1": { "name": "?", "description": "" },
+        "2": {
+          "name": "Must be activated by variable",
+          "description": "Requires a specific variable to activate."
+        }
+      }
+    },
+    {
+      "name": "Alternative Z an L",
+      "description": "An alternative variant of the lift types.",
+      "bitOffset": 16,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Unknown Flag",
+      "description": "Boolean flag that affects lift behavior. Its exact purpose is not yet confirmed.",
+      "bitOffset": 24,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The variable that activates this lift.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ],
   "rendering": {

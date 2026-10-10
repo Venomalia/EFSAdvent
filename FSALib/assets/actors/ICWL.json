@@ -6,8 +6,44 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Unknown Variable 3",
-      "description": "An unknown value related to the ice wall.",
+      "name": "Ice Wall Size",
+      "description": "The size of the ice wall.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Big", "description": "A big ice wall." },
+        "1": { "name": "Small", "description": "A small ice wall." }
+      }
+    },
+    {
+      "name": "Melt Sound",
+      "description": "Selects the sound effect played when the ice wall melts.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "No additional sound event is triggered."
+        },
+        "1": {
+          "name": "Secret SE",
+          "description": "Plays the secret sound effect."
+        },
+        "2": {
+          "name": "Positive SE",
+          "description": "Plays the positive sound effect."
+        },
+        "3": {
+          "name": "Negative SE",
+          "description": "Plays the negative sound effect."
+        }
+      }
+    },
+    {
+      "name": "Spawned Object",
+      "description": "Selects the object or actor spawned when the ice wall melts.",
       "bitOffset": 8,
       "bitSize": 8,
       "valueType": "Enum",
@@ -36,30 +72,6 @@
           "description": "A hole that triggers a force luck event."
         },
         "8": { "name": "Heart", "description": "A heart item." }
-      }
-    },
-    {
-      "name": "Ice Wall Size",
-      "description": "The size of the ice wall.",
-      "bitOffset": 0,
-      "bitSize": 4,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "Big", "description": "A big ice wall." },
-        "1": { "name": "Small", "description": "A small ice wall." }
-      }
-    },
-    {
-      "name": "Extra Flag",
-      "description": "",
-      "bitOffset": 4,
-      "bitSize": 4,
-      "valueType": "Flags",
-      "enumValues": {
-        "1": {
-          "name": "Secret SE",
-          "description": "Plays Secret SE"
-        }
       }
     }
   ],

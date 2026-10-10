@@ -5,45 +5,67 @@
   "category": "TileObject",
   "fields": [
     {
-      "name": "Trigger Variable",
-      "description": "The variable that triggers this switch.",
-      "bitOffset": 27,
-      "bitSize": 5,
+      "name": "Timer",
+      "description": "Initial countdown value used by the switch's delayed behavior.",
+      "bitOffset": 0,
+      "bitSize": 12,
       "valueType": "Integer"
     },
     {
-      "name": "Unknown Parameter",
-      "description": "Unknown function, possibly related to activation.",
-      "bitOffset": 24,
+      "name": "Switch Behavior",
+      "description": "Selects the switch's behavior, including state changes, timing.",
+      "bitOffset": 12,
       "bitSize": 3,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Switch Type",
-      "description": "Determines how the switch behaves when activated.",
-      "bitOffset": 8,
-      "bitSize": 8,
       "valueType": "Enum",
       "enumValues": {
         "0": {
           "name": "Permanent",
-          "description": "The switch stays activated indefinitely."
+          "description": "The switch remains active permanently."
         },
-        "16": {
-          "name": "On/Off",
-          "description": "The switch toggles between active and inactive states."
+        "1": {
+          "name": "On / Off",
+          "description": "The switch can be turned on or off."
         },
-        "32": {
-          "name": "Timed",
-          "description": "The switch remains active for a limited time."
+        "2": {
+          "name": "Time",
+          "description": "The switch remains active for the configured duration."
+        },
+        "3": {
+          "name": "Persistent On / Off",
+          "description": "The switch state follows the configured global flag and persists when leaving the room."
+        },
+        "4": {
+          "name": "Persistent On / Off (Alternate)",
+          "description": "The switch state follows the configured global flag and persists when leaving the room, using alternate state handling."
         }
       }
     },
     {
-      "name": "Active Duration",
-      "description": "The duration the switch remains active (only applies if timed).",
-      "bitOffset": 0,
-      "bitSize": 8,
+      "name": "Initial Activation Condition",
+      "description": "Determines the switch's initial activation state based on the number of active players.",
+      "bitOffset": 25,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default State",
+          "description": "The switch starts inactive."
+        },
+        "1": {
+          "name": "2 Players",
+          "description": "The switch starts activated when exactly 2 players are active."
+        },
+        "2": {
+          "name": "2 or 3 Players",
+          "description": "The switch starts activated when 2 or 3 players are active."
+        }
+      }
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "Map-wide variable number checked or updated by the switch.",
+      "bitOffset": 27,
+      "bitSize": 5,
       "valueType": "Integer"
     }
   ]

@@ -1,6 +1,6 @@
 {
   "name": "Ice melted by 4 people",
-  "description": "",
+  "description": "A wall of ice that can be melted with the Fire Rod when used by all four players.",
   "InternalName": "４人で溶かす氷",
   "category": "Object",
   "NoGBASprite": true,

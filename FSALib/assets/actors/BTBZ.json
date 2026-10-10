@@ -1,6 +1,29 @@
 {
-  "name": "Battle blizzard",
-  "description": "",
+  "name": "Battle Blizzard",
+  "description": "A blizzard that periodically intensifies and damages players. It can be activated by a room variable.",
   "InternalName": "バトル用吹雪",
-  "category": "Property"
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Extended Duration",
+      "description": "Extends the time before the blizzard intensifies.",
+      "bitOffset": 0,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Activation Sound",
+      "description": "Enables a sound effect when the blizzard activates.",
+      "bitOffset": 1,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The room variable used to activate or deactivate the blizzard.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
 }

@@ -5,36 +5,43 @@
   "category": "Property",
   "fields": [
     {
-      "name": "Cost",
-      "description": "The cost to play the gambling game.",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "100", "description": "Costs 100" },
-        "17": { "name": "300", "description": "Costs 300" }
-      }
+      "name": "Reward Weight 1",
+      "description": "Sets the weight of reward tier 1. The value contributes to the first cumulative threshold.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Reward Weight 2",
+      "description": "Sets the weight of reward tier 2. The value is added to the first weight to determine the second cumulative threshold.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Reward Weight 3",
+      "description": "Sets the weight of reward tier 3. The value is added to the first two weights to determine the third cumulative threshold.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Integer"
     },
     {
       "name": "Playable Rounds",
-      "description": "The number of playable rounds in the gambling game.",
+      "description": "The number of times the player can play the gambling game.",
       "bitOffset": 24,
-      "bitSize": 3,
+      "bitSize": 4,
       "valueType": "Integer"
     },
     {
-      "name": "Unknown Variable 3",
-      "description": "Unknown value related to the gambling shop.",
-      "bitOffset": 16,
-      "bitSize": 8,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Unknown Variable 4",
-      "description": "Another unknown value related to the gambling shop.",
-      "bitOffset": 0,
-      "bitSize": 8,
-      "valueType": "Integer"
+      "name": "Cost",
+      "description": "Determines the cost to play the gambling game.",
+      "bitOffset": 31,
+      "bitSize": 1,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "100", "description": "Costs 100 Force Crystals." },
+        "1": { "name": "300", "description": "Costs 300 Force Crystals." }
+      }
     }
   ],
   "rendering": {

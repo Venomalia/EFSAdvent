@@ -1,5 +1,46 @@
 {
   "name": "Giant bomb",
   "description": "",
-  "category": "Object"
+  "category": "Object",
+  "fields": [
+    {
+      "name": "Movement Direction",
+      "description": "Selects the movement direction used by the giant bomb.",
+      "bitOffset": 0,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Option 0",
+          "description": "Selects movement option 0."
+        },
+        "1": {
+          "name": "Option 1",
+          "description": "Selects movement option 1."
+        },
+        "2": {
+          "name": "Option 2",
+          "description": "Selects movement option 2."
+        },
+        "3": {
+          "name": "Option 3",
+          "description": "Selects movement option 3."
+        }
+      }
+    },
+    {
+      "name": "Room Flag",
+      "description": "Room flag index used when the giant bomb activates or deactivates the flag.",
+      "bitOffset": 2,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Resource Variant",
+      "description": "Selects resource identifier 0x1A8 or 0x1C1.",
+      "bitOffset": 7,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    }
+  ]
 }

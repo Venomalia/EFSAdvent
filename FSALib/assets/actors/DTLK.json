@@ -2,5 +2,14 @@
   "name": "Escort Zora",
   "description": "NPC that follows you",
   "InternalName": "ダミー会話",
-  "category": "NPC"
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Player Number",
+      "description": "Player number to follow.",
+      "bitOffset": 28,
+      "bitSize": 2,
+      "valueType": "Integer"
+    }
+  ]
 }

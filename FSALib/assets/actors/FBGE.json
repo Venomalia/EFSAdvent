@@ -1,7 +1,29 @@
 {
   "name": "Fireball Generator",
-  "description": "",
+  "description": "Shoots fireballs at nearby players.",
   "InternalName": "火の玉ジェネレーター",
   "category": "Object",
-  "NoGBASprite": true
+  "fields": [
+    {
+      "name": "Disable in State 0",
+      "description": "Disables the generator when the global state is 0.",
+      "bitOffset": 0,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Disable in State 1",
+      "description": "Disables the generator when the global state is non-zero.",
+      "bitOffset": 1,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Deactivation Variable",
+      "description": "Specifies the room variable used to deactivate the generator.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
 }

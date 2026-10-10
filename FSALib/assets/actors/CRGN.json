@@ -13,7 +13,7 @@
     },
     {
       "name": "Type",
-      "description": "Another unknown value related to the generator.",
+      "description": "Determines the type of object generated.",
       "bitOffset": 0,
       "bitSize": 5,
       "valueType": "Enum",

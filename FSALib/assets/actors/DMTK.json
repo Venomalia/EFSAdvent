@@ -1,6 +1,29 @@
 {
   "name": "Dummy Talk",
-  "description": "",
+  "description": "Associates dialogue processing with a specific player.",
   "InternalName": "ダミーTalk",
-  "category": "Property"
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Message ID",
+      "description": "A message or resource identifier passed to the game's message handling system.",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown Parameter",
+      "description": "Compared against another value during parameter setup.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Player",
+      "description": "Selects the player associated with the dialogue processing.",
+      "bitOffset": 16,
+      "bitSize": 4,
+      "valueType": "Integer"
+    }
+  ]
 }

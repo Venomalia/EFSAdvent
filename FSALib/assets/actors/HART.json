@@ -8,7 +8,7 @@
       "name": "Heart State",
       "description": "The current state or behavior of the small heart.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 2,
       "valueType": "Enum",
       "enumValues": {
         "0": {

@@ -2,7 +2,7 @@
   "name": "Enemy generator 2",
   "description": "Loads enemies in waves from the rooms in the top left corner.",
   "InternalName": "敵ジェネレータ２",
-  "category": "Object",
+  "category": "Property",
   "fields": [
     {
       "name": "Activation Variable",

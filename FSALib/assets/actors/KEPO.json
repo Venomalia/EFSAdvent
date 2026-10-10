@@ -1,16 +1,51 @@
 {
   "name": "Kepora Gebora",
-  "description": "",
+  "description": "An owl-like NPC who provides guidance to the player.",
   "InternalName": "ケポラ・ゲボラ",
   "category": "NPC",
   "NoGBASprite": true,
   "fields": [
     {
       "name": "Text ID",
-      "description": "What text the actor says?",
+      "description": "The ID of the text displayed by the actor. The stored value is increased by 299 before being used as the text ID.",
       "bitOffset": 0,
       "bitSize": 16,
       "valueType": "Integer"
+    },
+    {
+      "name": "Start on Branch",
+      "description": "If enabled, Kepora Gebora starts on the branch. Otherwise, the player must approach him before he flies down.",
+      "bitOffset": 19,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Player Detection Range",
+      "description": "Sets the range used to search for the nearest eligible player. The value is adjusted and clamped before being used as the search radius.",
+      "bitOffset": 20,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Room Flag",
+      "description": "The room flag checked to determine Kepora Gebora's behavior and set during certain state transitions. A value of 0 disables the room flag check.",
+      "bitOffset": 25,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Additional Effect",
+      "description": "Enables an additional actor effect when the internal mode is 0 or 3.",
+      "bitOffset": 30,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Special Mode",
+      "description": "Enables special behavior when the relevant global conditions are met. This affects Kepora Gebora's initial state and dialog flow.",
+      "bitOffset": 31,
+      "bitSize": 1,
+      "valueType": "Boolean"
     }
   ],
   "rendering": {

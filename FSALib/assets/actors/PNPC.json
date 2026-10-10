@@ -8,8 +8,58 @@
       "name": "Tile Value",
       "description": "The value of the tile that will appear.",
       "bitOffset": 0,
-      "bitSize": 12,
+      "bitSize": 10,
       "valueType": "Integer"
+    },
+    {
+      "name": "Player Count Condition",
+      "description": "Determines the minimum number of active players required for tile changed.",
+      "bitOffset": 10,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Always",
+          "description": "Allows tile generation regardless of player count."
+        },
+        "1": {
+          "name": "3+ Players",
+          "description": "Allows tile generation when at least 3 players are active."
+        },
+        "2": {
+          "name": "4 Players",
+          "description": "Allows tile generation when all 4 players are active."
+        },
+        "3": {
+          "name": "2+ Players",
+          "description": "Allows tile generation when at least 2 players are active."
+        }
+      }
+    },
+    {
+      "name": "Special Effect Type",
+      "description": "Selects the effect created when the tile rewrite is processed.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Dust",
+          "description": "Creates a dust effect."
+        },
+        "1": {
+          "name": "Explosion",
+          "description": "Creates an explosion effect."
+        },
+        "2": {
+          "name": "Leaves",
+          "description": "Creates a leaf effect."
+        },
+        "3": {
+          "name": "Rocks",
+          "description": "Creates a rock effect."
+        }
+      }
     },
     {
       "name": "Tile Layer",
@@ -29,38 +79,57 @@
       }
     },
     {
-      "name": "Options",
-      "description": "Determines Usages.",
+      "name": "Activation Mode",
+      "description": "Controls when and how the tile rewrite is activated.",
       "bitOffset": 20,
-      "bitSize": 4,
+      "bitSize": 3,
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "Single use",
-          "description": "Can be switched on."
+          "name": "Single Use",
+          "description": "The rewrite is not repeated after successful execution."
         },
         "1": {
-          "name": "On/ Off",
-          "description": "Can be switched on and off."
+          "name": "Toggle",
+          "description": "Activates the tile rewrite when a player approaches, provided the Activation Variable is 0."
         },
         "2": {
-          "name": "On/ Off",
-          "description": "Can be switched on and off."
+          "name": "Conditional Toggle",
+          "description": "Uses additional conditions to control the rewrite and restoration behavior."
+        },
+        "3": {
+          "name": "Toggle Unknown",
+          "description": "The behavior has not yet been identified."
         }
       }
     },
     {
-      "name": "Special Effect",
-      "description": "Defines whether a special effect is applied.",
-      "bitOffset": 24,
+      "name": "Unknown",
+      "description": "",
+      "bitOffset": 23,
       "bitSize": 3,
-      "valueType": "Flags",
+      "valueType": "Enum",
       "enumValues": {
-        "4": {
-          "name": "Dust Particles",
-          "description": "Shows dust particles when activated."
+        "0": {
+          "name": "Default",
+          "description": "Uses the default effect behavior."
+        },
+        "2": {
+          "name": "Effect 2",
+          "description": "Triggers effect code 0x42."
+        },
+        "3": {
+          "name": "Effect 3",
+          "description": "Triggers effect code 3."
         }
       }
+    },
+    {
+      "name": "Enable Special Effect",
+      "description": "Enables or disables the effect selected by Effect Type.",
+      "bitOffset": 26,
+      "bitSize": 1,
+      "valueType": "Boolean"
     },
     {
       "name": "Activation Variable",

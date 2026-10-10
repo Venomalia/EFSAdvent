@@ -1,6 +1,6 @@
 {
   "name": "Buried Force Gem",
-  "description": "A buried Force Gem.",
+  "description": "A buried Force Gem that can be revealed by digging or activated by a room variable.",
   "InternalName": "埋まりルピー",
   "category": "TileObject",
   "fields": [
@@ -13,7 +13,7 @@
     },
     {
       "name": "Buried State",
-      "description": "Defines the buried state of the Force Gem.",
+      "description": "Defines the buried state and activation behavior of the Force Gem.",
       "bitOffset": 16,
       "bitSize": 8,
       "valueType": "Enum",
@@ -24,34 +24,66 @@
         },
         "1": {
           "name": "Buried Deep",
-          "description": "The Force Gem is buried deeply and not visible."
+          "description": "The Force Gem is buried deeply and is not initially visible."
         },
         "2": {
           "name": "Buried Visible, Requires Active Variable",
-          "description": "The Force Gem is buried but visible and requires the activation of a local variable to appear."
+          "description": "The Force Gem is buried but visible and requires a room variable to be active."
         },
         "3": {
           "name": "Buried Deep, Requires Active Variable",
-          "description": "The Force Gem is buried deeply and requires the activation of a local variable to appear."
+          "description": "The Force Gem is buried deeply and requires a room variable to be active."
         },
-        "4": { "name": "Secret SE", "description": "Plays secret(SE)." },
+        "4": {
+          "name": "Secret SE",
+          "description": "Triggers the secret sound effect."
+        },
         "5": {
           "name": "Secret SE, Requires Active Variable",
-          "description": "Plays secret(SE), requires the activation of a local variable."
+          "description": "Triggers the secret sound effect when the required room variable is active."
+        }
+      }
+    },
+    {
+      "name": "Spawn Type",
+      "description": "Defines the type of Force Gem spawned when dug up.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Force Gem",
+          "description": "Spawns a normal Force Gem (RUPY)."
+        },
+        "1": {
+          "name": "Escaping Force Gem",
+          "description": "Spawns an escaping Force Gem (ESRY)."
         }
       }
     },
     {
       "name": "Force Gem Type",
-      "description": "Defines the type of the buried Force Gem.",
+      "description": "Defines the type of Force Gem to spawn.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 2,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Green", "description": "The Force Gem is green." },
-        "1": { "name": "Blue", "description": "The Force Gem is blue." },
-        "2": { "name": "Red", "description": "The Force Gem is red." },
-        "3": { "name": "Purple", "description": "The Force Gem is purple." }
+        "0": {
+          "name": "Green",
+          "description": "Green Force Gem."
+        },
+        "1": {
+          "name": "Blue",
+          "description": "Blue Force Gem."
+        },
+        "2": {
+          "name": "Red",
+          "description": "Red Force Gem."
+        },
+        "3": {
+          "name": "Purple",
+          "description": "Purple Force Gem."
+        }
       }
     }
   ],

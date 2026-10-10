@@ -1,11 +1,11 @@
 {
   "name": "Dropped Items",
-  "description": "Dropped item, which may be hidden under a rock.",
+  "description": "A dropped item that can be collected by a player.",
   "category": "Item",
   "fields": [
     {
       "name": "Dropped Item Type",
-      "description": "Specifies the type of item that was dropped.",
+      "description": "Specifies the type of item.",
       "bitOffset": 0,
       "bitSize": 7,
       "valueType": "Enum",
@@ -26,18 +26,65 @@
         "8": { "name": "Bombs", "description": "The Bombs item." },
         "9": { "name": "Shovel", "description": "The Shovel item." },
         "10": { "name": "Slingshot", "description": "The Slingshot item." },
-        "11": {
-          "name": "Four Sword",
-          "description": "An Four Sword item."
+        "11": { "name": "Four Sword", "description": "The Four Sword item." }
+      }
+    },
+
+    {
+      "name": "Drop Behavior",
+      "description": "Controls how the dropped item is created and placed in the room.",
+      "bitOffset": 7,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Create Copy",
+          "description": "Creates a copy of the item and uses randomized position offsets."
+        },
+        "1": {
+          "name": "Normal",
+          "description": "The item lies on the ground or can be hidden under a rock."
+        },
+        "2": {
+          "name": "Create Copy (Alternate Value)",
+          "description": "Creates a copy of the item and uses randomized position offsets. This value is normalized to 0 during initialization."
+        },
+        "3": {
+          "name": "Dropped",
+          "description": "Represents an item that has been dropped and uses fixed position offsets."
         }
       }
     },
     {
-      "name": "Hidden Under Rock",
-      "description": "Indicates if the dropped item is hidden under a rock.",
-      "bitOffset": 7,
-      "bitSize": 1,
-      "valueType": "Boolean"
+      "name": "unknown 1",
+      "description": "An additional five-bit parameter. Its value is stored by the actor, but its purpose has not yet been established.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "unknown 2",
+      "description": "An additional five-bit parameter. Values above 3 are changed to -1 for most item types, but are retained for item types 11 and 22.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Item Level",
+      "description": "Selects the item level.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Level 1",
+          "description": "Uses level 1 items."
+        },
+        "2": {
+          "name": "Level 2",
+          "description": "Uses level 2 items."
+        }
+      }
     }
   ]
 }

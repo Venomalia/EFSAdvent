@@ -6,9 +6,97 @@
   "fields": [
     {
       "name": "Brightness",
-      "description": "Controls the brightness level of the room.",
+      "description": "Selects the room lighting preset, including its color, brightness, and additional effect parameters.",
       "bitOffset": 0,
       "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Warm Gray, Dark",
+          "description": "RGB (210, 200, 170), brightness 10 (dark), parameters: 0 and 4."
+        },
+        "1": {
+          "name": "Blue, Dark",
+          "description": "RGB (150, 200, 255), brightness 10 (dark), parameters: 0 and 4."
+        },
+        "2": {
+          "name": "Peach, Bright",
+          "description": "RGB (255, 200, 160), brightness 130 (dimmed), parameters: 0 and 0."
+        },
+        "3": {
+          "name": "Peach, Dark",
+          "description": "RGB (255, 200, 160), brightness 10 (dark), parameters: 0 and 4."
+        },
+        "4": {
+          "name": "Peach, Bright",
+          "description": "RGB (255, 200, 160), brightness 200 (bright), parameters: 0 and 4."
+        },
+        "5": {
+          "name": "Peach, Bright",
+          "description": "RGB (255, 200, 160), brightness 200 (bright), parameters: 0 and 0."
+        },
+        "6": {
+          "name": "Pale Blue, Dark",
+          "description": "RGB (200, 210, 255), brightness 10 (dark), parameters: 0 and 4."
+        },
+        "7": {
+          "name": "Pale Blue, Bright",
+          "description": "RGB (200, 210, 255), brightness 200 (bright), parameters: 0 and 4."
+        },
+        "8": {
+          "name": "Pale Blue, Bright",
+          "description": "RGB (200, 210, 255), brightness 200 (bright), parameters: 0 and 0."
+        },
+        "9": {
+          "name": "Blue, Dark",
+          "description": "RGB (150, 200, 255), brightness 10 (dark), parameters: 0 and 4."
+        },
+        "10": {
+          "name": "Blue, Dimmed",
+          "description": "RGB (150, 200, 255), brightness 130 (dimmed), parameters: 0 and 4."
+        },
+        "11": {
+          "name": "Blue, Dimmed",
+          "description": "RGB (150, 200, 255), brightness 130 (dimmed), parameters: 0 and 0."
+        },
+        "12": {
+          "name": "Ice Cyan, Glare",
+          "description": "RGB (210, 255, 255), brightness 220 (glare), parameters: 25 and 4."
+        },
+        "13": {
+          "name": "Magenta, Dark",
+          "description": "RGB (255, 128, 255), brightness 10 (dark), parameters: 0 and 4."
+        },
+        "14": {
+          "name": "Magenta, Bright",
+          "description": "RGB (255, 128, 255), brightness 200 (bright), parameters: 0 and 4."
+        },
+        "15": {
+          "name": "Magenta, Dimmed",
+          "description": "RGB (255, 128, 255), brightness 130 (dimmed), parameters: 0 and 0."
+        },
+        "16": {
+          "name": "Peach, Dimmed to Bright (Triggered)",
+          "description": "RGB (255, 200, 160), brightness 10 (dark), parameters: 0 and 4. Transitions to target value 200, If the flag is unset, an additional event or sound function is called."
+        },
+        "17": {
+          "name": "White, Dimmed",
+          "description": "RGB (255, 255, 255), brightness 128 (dimmed), parameters: 0 and 4."
+        }
+      }
+    },
+    {
+      "name": "Room Flag (16)",
+      "description": "Room flag checked when Brightness Mode 16 finishes its transition. If the flag is not set, an additional event or sound function is called.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Flag (16)",
+      "description": "Controls the transition behavior of Brightness Mode 16. In state 5, a value of 0 triggers a transition to state 2; a non-zero value also checks the virtual function at offset 0x34 before transitioning.",
+      "bitOffset": 27,
+      "bitSize": 5,
       "valueType": "Integer"
     }
   ]

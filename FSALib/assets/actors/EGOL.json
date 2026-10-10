@@ -1,6 +1,6 @@
 {
   "name": "Eyegore",
-  "description": "",
+  "description": "Stone statue-like enemy that charges at Link when approached. Can only be defeated by shooting arrows into its eye.",
   "InternalName": "アイゴール",
   "category": "Enemy",
   "NoGBASprite": true,

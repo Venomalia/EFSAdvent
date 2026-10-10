@@ -1,10 +1,17 @@
 {
   "name": "NPC flying in Thwomp",
-  "description": "Requires NPC sheet 8 or 11.",
+  "description": "An NPC that is launched away from its starting position when the player triggers a quake with the Pegasus Boots.",
   "InternalName": "ドッスンで飛ぶNPC",
   "category": "NPC",
   "NoGBASprite": true,
   "fields": [
+    {
+      "name": "Text ID",
+      "description": "Selects the dialogue text. The stored value is the configured value plus 299.",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Integer"
+    },
     {
       "name": "Actor Sprite",
       "description": "The sprite associated with the NPC character.",
@@ -81,22 +88,68 @@
       }
     },
     {
-      "name": "Text ID",
-      "description": "What text the actor says?",
-      "bitOffset": 0,
-      "bitSize": 12,
+      "name": "Return Speed",
+      "description": "Sets the speed at which the actor returns to its starting position. 0 is the fastest and 3 is the slowest.",
+      "bitOffset": 16,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Very Fast",
+          "description": ""
+        },
+        "1": {
+          "name": "Fast",
+          "description": ""
+        },
+        "2": {
+          "name": "Slow",
+          "description": ""
+        },
+        "3": {
+          "name": "Very Slow",
+          "description": ""
+        }
+      }
+    },
+    {
+      "name": "Y Knockback",
+      "description": "Sets the vertical displacement relative to the actor's starting position when the player triggers a quake with the Pegasus Boots.",
+      "bitOffset": 18,
+      "bitSize": 3,
       "valueType": "Integer"
     },
     {
-      "name": "?",
-      "description": "",
-      "bitOffset": 16,
-      "bitSize": 11,
+      "name": "Invert Y Knockback",
+      "description": "Reverses the vertical displacement direction relative to the actor's starting position.",
+      "bitOffset": 21,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "X Knockback",
+      "description": "Sets the horizontal displacement relative to the actor's starting position when the player triggers a quake with the Pegasus Boots.",
+      "bitOffset": 22,
+      "bitSize": 3,
       "valueType": "Integer"
+    },
+    {
+      "name": "Invert X Knockback",
+      "description": "Reverses the horizontal displacement direction relative to the actor's starting position.",
+      "bitOffset": 25,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Use Alternate Start Position",
+      "description": "Makes the actor start at the configured X/Y displacement relative to its original starting position. When the trigger variable is set, the actor returns to its original starting position. The Pegasus Boots have no effect on the actor in this mode.",
+      "bitOffset": 26,
+      "bitSize": 1,
+      "valueType": "Boolean"
     },
     {
       "name": "Trigger Variable",
-      "description": "The variable set after the conversation with this actor.",
+      "description": "The variable that triggers the actor to return to its original starting position when using the alternate start position mode.",
       "bitOffset": 27,
       "bitSize": 5,
       "valueType": "Integer"

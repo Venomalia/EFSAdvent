@@ -1,8 +1,64 @@
 {
   "name": "Real Bombchu",
-  "description": "",
+  "description": "A bomb that can remain stationary, move in different directions, or be picked up and thrown by the player.",
   "InternalName": "ボムチュウ",
   "category": "Enemy",
+  "fields": [
+    {
+      "name": "Player Number",
+      "description": "The player assigned to the Bombchu when using mode 5.",
+      "bitOffset": 16,
+      "bitSize": 2,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Reduced Movement Speed",
+      "description": "When enabled, reduces movement speed in Horizontal (mode 3) and Diagonal (mode 4) modes.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Disable Timer",
+      "description": "When enabled, the Bombchu does not explode automatically and only explodes when damaged.",
+      "bitOffset": 4,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Movement Mode",
+      "description": "Defines how the Bombchu moves and behaves.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "values": {
+        "0": {
+          "name": "Inactive (Pickupable)",
+          "description": "Does not move or explode and can be picked up by the player."
+        },
+        "1": {
+          "name": "Timed",
+          "description": "Activates and explodes after a delay."
+        },
+        "2": {
+          "name": "Timed (Alternate)",
+          "description": "Activates and explodes after a delay. Uses an alternate configuration."
+        },
+        "3": {
+          "name": "Horizontal",
+          "description": "Moves horizontally from left to right and explodes after a delay."
+        },
+        "4": {
+          "name": "Diagonal",
+          "description": "Moves diagonally and explodes after a delay."
+        },
+        "5": {
+          "name": "Player-Held",
+          "description": "Is held by the player and can be thrown."
+        }
+      }
+    }
+  ],
   "rendering": {
     "bitMask": 0,
     "variants": {

@@ -1,7 +1,18 @@
 {
   "name": "Lily pad Zora",
-  "description": "",
+  "description": "A Zora hiding beneath a lily pad that launches the player into the air when they stand on it.",
   "InternalName": "蓮ゾーラ",
   "category": "Object",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 371,
+          "spriteListIndex": 2
+        }
+      ]
+    }
+  }
 }

@@ -1,6 +1,120 @@
 {
-  "name": "Item pedestal",
-  "description": "",
+  "name": "Item Pedestal",
+  "description": "An item spawned internally by the game rather than directly created as an object.",
   "InternalName": "アイテム台座",
-  "category": "Intern"
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Item Type",
+      "description": "Selects the item displayed by the pedestal.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Empty",
+          "description": "The pedestal contains no item."
+        },
+        "1": {
+          "name": "Pegasus Boots",
+          "description": "Item stand contains Pegasus Boots."
+        },
+        "2": {
+          "name": "Lantern",
+          "description": "Item stand contains a Lantern."
+        },
+        "3": {
+          "name": "Boomerang",
+          "description": "Item stand contains a Boomerang."
+        },
+        "4": {
+          "name": "Bow",
+          "description": "Item stand contains a Bow."
+        },
+        "5": {
+          "name": "Hammer",
+          "description": "Item stand contains a Hammer."
+        },
+        "6": {
+          "name": "Fire Rod",
+          "description": "Item stand contains a Fire Rod."
+        },
+        "7": {
+          "name": "Roc's Feather",
+          "description": "Item stand contains Roc's Feather."
+        },
+        "8": {
+          "name": "Bombs",
+          "description": "Item stand contains Bombs."
+        },
+        "9": {
+          "name": "Shovel",
+          "description": "Item stand contains a Shovel."
+        },
+        "10": {
+          "name": "Slingshot",
+          "description": "Item stand contains a Slingshot."
+        }
+      }
+    },
+    {
+      "name": "Switch",
+      "description": "Controls whether the pedestal enters the next state after the item interaction.",
+      "bitOffset": 4,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Tile Layer",
+      "description": "Selects the tile layer used for item placement.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "options": {
+        "0": {
+          "name": "Base Tile Layer",
+          "description": "Places the item on the base tile layer."
+        },
+        "1": {
+          "name": "Top Tile Layer",
+          "description": "Places the item on the top tile layer."
+        }
+      }
+    },
+    {
+      "name": "Player Number",
+      "description": "The player index used to check whether the item can be collected.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "X Offset (+1)",
+      "description": "Offsets the item's X position by one unit.",
+      "bitOffset": 16,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Y Offset (+1)",
+      "description": "Offsets the item's Y position by one unit.",
+      "bitOffset": 20,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "X Offset (+16)",
+      "description": "Adds an additional 16 units to the item's X position.",
+      "bitOffset": 24,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Y Offset (+16)",
+      "description": "Adds an additional 16 units to the item's Y position.",
+      "bitOffset": 25,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    }
+  ]
 }

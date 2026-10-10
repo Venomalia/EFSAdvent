@@ -1,6 +1,51 @@
 {
   "name": "Grass",
-  "description": "",
+  "description": "Defines the particle effect spawned when the grass is destroyed.",
   "InternalName": "草",
-  "category": "Intern"
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Drop Behavior",
+      "description": "Determines the items dropped by Grass.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "Uses the normal drop logic."
+        },
+        "1": {
+          "name": "Heart",
+          "description": "Drops a heart."
+        },
+        "2": {
+          "name": "MTBO",
+          "description": "Drops an MTBO object."
+        },
+        "3": {
+          "name": "Two Hearts",
+          "description": "Drops two hearts."
+        },
+        "4": {
+          "name": "Chance for Heart",
+          "description": "Has a 60% chance to drop a heart."
+        }
+      }
+    },
+    {
+      "name": "Alternate Drop Behavior",
+      "description": "Enables alternate item-generation behavior when set.",
+      "bitOffset": 16,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Drop Type",
+      "description": "Determines which Grass generates.",
+      "bitOffset": 20,
+      "bitSize": 4,
+      "valueType": "Enum"
+    }
+  ]
 }

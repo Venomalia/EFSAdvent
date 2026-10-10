@@ -1,63 +1,91 @@
 {
   "name": "Flame",
-  "description": "A flame that triggers based on the specified conditions.",
+  "description": "A flame trap that activates according to its type and configured conditions.",
   "InternalName": "炎",
   "category": "Object",
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Trigger Variable",
-      "description": "The local variable number that triggers or activates this flame.",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Direction",
-      "description": "The direction of the flame.",
-      "bitOffset": 16,
-      "bitSize": 8,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "East", "description": "The flame faces east." },
-        "1": { "name": "West", "description": "The flame faces west." },
-        "2": { "name": "North", "description": "The flame faces north." },
-        "3": { "name": "South", "description": "The flame faces south." }
-      }
-    },
-    {
       "name": "Flame Type",
-      "description": "The type of flame behavior.",
+      "description": "Determines the flame trap's behavior.",
       "bitOffset": 0,
       "bitSize": 8,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Jet of Fire", "description": "A jet of fire." },
+        "0": {
+          "name": "Jet of Fire",
+          "description": "A standard jet of fire that can be toggled on and off using the Trigger Variable."
+        },
         "1": {
           "name": "Jet of Fire (Off)",
-          "description": "A jet of fire, but it is turned off."
+          "description": "An initially inactive jet of fire that can be toggled on and off using the Trigger Variable."
         },
         "2": {
           "name": "Jet of Fire (When Approaching)",
-          "description": "A jet of fire that activates when approaching."
+          "description": "A jet of fire that can be toggled on and off using the Trigger Variable and reacts to approaching players."
         },
         "3": {
-          "name": "Jet of Fire (Time-based)",
-          "description": "A jet of fire that activates based on a time cycle."
+          "name": "Jet of Fire (Time-Based)",
+          "description": "A jet of fire that operates on a timer and can be permanently extinguished."
         },
         "4": {
           "name": "Small Ring of Fire",
-          "description": "A small ring of fire."
+          "description": "An initially inactive small ring of fire that can be toggled on and off using the Trigger Variable."
         },
         "5": {
           "name": "Ring of Fire",
-          "description": "A larger ring of fire."
+          "description": "An initially inactive ring of fire that can be toggled on and off using the Trigger Variable."
         },
         "6": {
           "name": "Jet of Fire (Extinguish When Disabled)",
-          "description": "A jet of fire that goes out completely when disabled."
+          "description": "A jet of fire that can be permanently extinguished."
+        },
+        "7": {
+          "name": "Jet of Fire (Inactive)",
+          "description": "An inactive jet of fire that cannot be toggled using the Trigger Variable."
         }
       }
+    },
+    {
+      "name": "Invisible Switch",
+      "description": "An invisible switch that sets a room flag. Its exact purpose is unknown.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Direction",
+      "description": "Selects directional offsets and related orientation data.",
+      "bitOffset": 16,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "East" },
+        "1": { "name": "West" },
+        "2": { "name": "North" },
+        "3": { "name": "South" }
+      }
+    },
+    {
+      "name": "Flame Size Option",
+      "description": "Affects the flame's size or range through a floating-point calculation. The exact values are not yet confirmed.",
+      "bitOffset": 18,
+      "bitSize": 2,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Monochrome Effect",
+      "description": "Enables the black-and-white flame effect.",
+      "bitOffset": 20,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "The room-local variable used to trigger or activate the flame.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ],
   "rendering": {

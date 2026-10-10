@@ -1,34 +1,61 @@
 {
   "name": "Indelible Flame",
-  "description": "A flame actor that can be triggered by a local variable and has different behaviors based on its state.",
+  "description": "A flame that can be extinguished with water or controlled using a room variable, depending on its configuration.",
   "InternalName": "消えない炎",
   "category": "Object",
   "fields": [
     {
-      "name": "Activation Variable",
-      "description": "The local variable that triggers or activates this actor.",
-      "bitOffset": 27,
+      "name": "Flame Option",
+      "description": "Defines the flame's behavior and activation method.",
+      "bitOffset": 0,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Water-Extinguishable",
+          "description": "The flame can be extinguished with water."
+        },
+        "2": {
+          "name": "Variable-Extinguishable",
+          "description": "The flame can be extinguished using a room variable."
+        },
+        "16": {
+          "name": "Variable-Activated",
+          "description": "The flame starts extinguished and can be activated using a room variable."
+        },
+        "19": {
+          "name": "Variable-Controlled",
+          "description": "The flame can be switched on and off using a room variable."
+        }
+      }
+    },
+    {
+      "name": "Extinguish Result Variable",
+      "description": "The room variable set to 1 when the flame is extinguished.",
+      "bitOffset": 12,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
-      "name": "Flame Option",
-      "description": "Defines the flame's behavior based on the local variable state.",
-      "bitOffset": 0,
-      "bitSize": 8,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "Option 0", "description": "Undefined option." },
-        "1": { "name": "Option 1", "description": "Undefined option." },
-        "2": {
-          "name": "Extinguished by Variable 1",
-          "description": "The flame is extinguished by the local variable."
-        },
-        "19": {
-          "name": "Activates Flame by Variable 1",
-          "description": "The flame is activated by the local variable."
-        }
-      }
+      "name": "Flame Area Height",
+      "description": "Height of the flame area.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Flame Area Width",
+      "description": "Width of the flame area.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "The room variable used to activate or extinguish the flame.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ],
   "rendering": {

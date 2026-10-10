@@ -1,7 +1,29 @@
 {
   "name": "Horse race end range",
-  "description": "",
+  "description": "Defines a rectangular range for ending the horse race.",
   "InternalName": "馬レース終了範囲",
   "category": "Cutscene",
-  "NoGBASprite": true
+  "fields": [
+    {
+      "name": "Width",
+      "description": "Sets the range width in 8-unit increments.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Height",
+      "description": "Sets the range height in 8-unit increments.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Align to Grid",
+      "description": "When enabled, offsets the range from the actor's position. Otherwise, aligns the position to a 16-unit grid before applying the offset.",
+      "bitOffset": 16,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    }
+  ]
 }

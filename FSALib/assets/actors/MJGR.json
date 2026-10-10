@@ -5,10 +5,17 @@
   "category": "Object",
   "fields": [
     {
-      "name": "Layer",
-      "description": "The layer where the players arrive.",
-      "bitOffset": 24,
+      "name": "Magic Circle Type",
+      "description": "Selects the magic circle configuration. Values 0 and 3 enable the generator when its activation condition is met; other values disable it.",
+      "bitOffset": 0,
       "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Y Coordinate",
+      "description": "The Y coordinate players arrive at.",
+      "bitOffset": 8,
+      "bitSize": 8,
       "valueType": "Integer"
     },
     {
@@ -19,10 +26,10 @@
       "valueType": "Integer"
     },
     {
-      "name": "Y Coordinate",
-      "description": "The Y coordinate players arrive at.",
-      "bitOffset": 8,
-      "bitSize": 8,
+      "name": "Layer",
+      "description": "The layer where the players arrive.",
+      "bitOffset": 24,
+      "bitSize": 3,
       "valueType": "Integer"
     }
   ],

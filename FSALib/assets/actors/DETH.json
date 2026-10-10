@@ -1,6 +1,6 @@
 {
   "name": "Vaati Reaper",
-  "description": "",
+  "description": "Vaati that pursues the players and kills them on contact.",
   "InternalName": "死神",
   "category": "Intern",
   "NoGBASprite": true

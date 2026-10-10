@@ -1,16 +1,55 @@
 {
-  "name": "Chicken search drive Minigame",
-  "description": "",
+  "name": "Cucco Wranglers Minigame",
+  "description": "A minigame in which players must catch all Cuccos and throw them into a 6×6 fenced area located directly next to the NPC.",
   "InternalName": "ニワトリ探し追い込みNPC",
   "category": "NPC",
   "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Character",
+      "description": "Selects the NPC character.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Blonde Girl",
+          "description": "Uses the blonde-haired girl character."
+        },
+        "1": {
+          "name": "Malon",
+          "description": "Uses Malon."
+        }
+      }
+    },
+    {
+      "name": "Required Cucco Count",
+      "description": "Sets the number of Cuccos that players must catch during the minigame.",
+      "bitOffset": 4,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The local variable to set when the minigame's time limit expires.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ],
   "rendering": {
-    "bitMask": 0,
+    "bitMask": 1,
     "variants": {
       "0": [
         {
           "spriteIndex": 542,
           "spriteListIndex": 1
+        }
+      ],
+      "1": [
+        {
+          "spriteIndex": 746,
+          "spriteListIndex": 2
         }
       ]
     }

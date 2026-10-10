@@ -6,10 +6,10 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Goal Shape",
+      "name": "Goal Formation",
       "description": "The shape or arrangement of the imprisoning field.",
       "bitOffset": 0,
-      "bitSize": 4,
+      "bitSize": 5,
       "valueType": "Enum",
       "enumValues": {
         "0": {
@@ -34,33 +34,19 @@
         },
         "5": {
           "name": "Maid",
-          "description": "The imprisoning field has a maid shape (specific context unknown)."
+          "description": "The imprisoning field has a maid shape."
         }
       }
     },
     {
-      "name": "Activation State",
-      "description": "The state of activation based on the local variable.",
+      "name": "Set Activation Variable",
+      "description": "Determines whether the activation variable is set when the field is destroyed.",
       "bitOffset": 7,
-      "bitSize": 5,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": {
-          "name": "Nothing",
-          "description": ""
-        },
-        "1": {
-          "name": "Fairies",
-          "description": "Gives 4 fairies after destroying."
-        },
-        "3": {
-          "name": "Active Variable",
-          "description": "Active a variable after destroying."
-        }
-      }
+      "bitSize": 1,
+      "valueType": "Boolean"
     },
     {
-      "name": "Unknown Variable 2",
+      "name": "Unknown Variable",
       "description": "An unknown value related to the goal field.",
       "bitOffset": 22,
       "bitSize": 5,
@@ -68,7 +54,7 @@
     },
     {
       "name": "Activation Variable",
-      "description": "The local variable number that triggers or activates this actor if Variable 2 indicates this.",
+      "description": "Local variable set when the imprisoning field is destroyed.",
       "bitOffset": 27,
       "bitSize": 5,
       "valueType": "Integer"

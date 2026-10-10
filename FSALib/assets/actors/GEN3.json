@@ -5,33 +5,6 @@
   "category": "Object",
   "fields": [
     {
-      "name": "Activation Variable",
-      "description": "Variable that activates this actor.",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Amount",
-      "description": "Amount of enemies to be spawned by this generator.",
-      "bitOffset": 16,
-      "bitSize": 4,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Options",
-      "description": "",
-      "bitOffset": 20,
-      "bitSize": 4,
-      "valueType": "Flags",
-      "enumValues": {
-        "1": {
-          "name": "Multi-use",
-          "description": "Can be switched on."
-        }
-      }
-    },
-    {
       "name": "Enemy Type",
       "description": "The type of enemy to be generated.",
       "bitOffset": 0,
@@ -172,6 +145,41 @@
           "description": "A Keese that flies back and forth."
         }
       }
+    },
+    {
+      "name": "Initial Spawn Delay",
+      "description": "A timer or counter used by the enemy generator.",
+      "bitOffset": 7,
+      "bitSize": 9,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Amount",
+      "description": "The number of enemies to spawn. A value of 0 allows unlimited spawning.",
+      "bitOffset": 16,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Multi-use",
+      "description": "The generator enters a waiting state after its spawn counter reaches zero and can be used again.",
+      "bitOffset": 20,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Suppress Music Change",
+      "description": "Prevents the generator from changing the music.",
+      "bitOffset": 24,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "Variable that activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "name": "digging Minigame",
-  "description": "",
+  "name": "Digging Minigame",
+  "description": "Starts a 60-second minigame and randomly activates one of room-local variables 16–19, which is reset when the timer expires.",
   "category": "NPC",
   "InternalName": "穴掘り屋",
   "NoGBASprite": true

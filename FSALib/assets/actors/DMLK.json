@@ -1,7 +1,26 @@
 {
-  "name": "Cutscene shadow link",
-  "description": "Shadow Link, disappears.",
+  "name": "Cutscene Shadow Link",
+  "description": "Shadow Link appears during cutscenes and disappears at specific points in the sequence.",
   "InternalName": "デモ用シャドウリンク",
   "category": "Cutscene",
-  "NoGBASprite": true
+  "fields": [
+    {
+      "name": "Behavior",
+      "description": "Determines Shadow Link's appearance and animation behavior.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Timed Appearance"
+        },
+        "1": {
+          "name": "Cutscene Sequence A"
+        },
+        "2": {
+          "name": "Cutscene Sequence B"
+        }
+      }
+    }
+  ]
 }

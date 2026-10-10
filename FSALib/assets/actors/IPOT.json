@@ -6,41 +6,49 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Iron Jar Index",
-      "description": "The index of the bomb.",
-      "bitOffset": 24,
-      "bitSize": 3,
-      "valueType": "Integer"
-    },
-    {
       "name": "Direction",
-      "description": "The direction the iron jar is facing.",
+      "description": "The orientation of the iron jar.",
       "bitOffset": 0,
       "bitSize": 2,
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "East",
-          "description": "Facing East"
+          "name": "Right",
+          "description": "Facing right."
         },
         "1": {
-          "name": "West",
-          "description": "Facing West"
+          "name": "Left",
+          "description": "Facing left."
+        },
+        "2": {
+          "name": "Under",
+          "description": "Facing downward."
+        },
+        "3": {
+          "name": "Top",
+          "description": "Facing upward."
         }
       }
     },
     {
+      "name": "Activation Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 2,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
       "name": "Type",
       "description": "The type of Iron Jar.",
-      "bitOffset": 16,
-      "bitSize": 8,
+      "bitOffset": 21,
+      "bitSize": 3,
       "valueType": "Enum",
       "enumValues": {
-        "32": {
+        "1": {
           "name": "Nothing",
           "description": "The fuse is burning."
         },
-        "64": {
+        "2": {
           "name": "Bomb Jar",
           "description": "Explodes in a big explosion.",
           "Resources": [
@@ -50,7 +58,7 @@
             "timg/bakudan_under.bti"
           ]
         },
-        "128": {
+        "4": {
           "name": "Force Jar",
           "description": "Explodes in some force crystals.",
           "Resources": [
@@ -63,10 +71,10 @@
       }
     },
     {
-      "name": "Activation Variable",
-      "description": "The local variable number that triggers or activates this actor.",
-      "bitOffset": 2,
-      "bitSize": 5,
+      "name": "Iron Jar Index",
+      "description": "The index of the bomb.",
+      "bitOffset": 24,
+      "bitSize": 8,
       "valueType": "Integer"
     }
   ],

@@ -1,7 +1,32 @@
 {
   "name": "Iron ball",
-  "description": "",
-  "category": "Object",
+  "description": "An iron ball that rolls in a specified direction and damages the player on contact.",
+  "category": "Intern",
   "InternalName": "鉄球（玉）",
-  "NoGBASprite": true
+  "fields": [
+    {
+      "name": "Size",
+      "description": "Determines the size of the iron ball.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Small" },
+        "1": { "name": "Large" }
+      }
+    },
+    {
+      "name": "Direction",
+      "description": "The direction the iron ball rolls.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "South" },
+        "1": { "name": "East" },
+        "2": { "name": "North" },
+        "3": { "name": "West" }
+      }
+    }
+  ]
 }

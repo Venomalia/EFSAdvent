@@ -6,56 +6,6 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Activation Variable",
-      "description": "The local variable number that triggers or activates this actor. (0 = always active)",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
-      "name": "BTI Option",
-      "description": "Defines the different states for this BTI actor.",
-      "bitOffset": 24,
-      "bitSize": 3,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "Option 0", "description": "Undefined option." },
-        "1": { "name": "Option 1", "description": "Undefined option." },
-        "2": { "name": "Option 2", "description": "Undefined option." },
-        "16": { "name": "Option 16", "description": "Undefined option." },
-        "32": { "name": "Option 32", "description": "Undefined option." }
-      }
-    },
-    {
-      "name": "Display Layer",
-      "description": "Defines the layer where the BTI object is displayed.",
-      "bitOffset": 16,
-      "bitSize": 3,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": {
-          "name": "Background",
-          "description": "Displayed in the background."
-        },
-        "16": {
-          "name": "Foreground",
-          "description": "Displayed in the foreground."
-        },
-        "48": {
-          "name": "Background",
-          "description": "Displayed in the background."
-        },
-        "64": {
-          "name": "Background",
-          "description": "Displayed in the background."
-        },
-        "80": {
-          "name": "Foreground",
-          "description": "Displayed in the foreground."
-        }
-      }
-    },
-    {
       "name": "BTI Texture",
       "description": "Defines the texture or object to be used for the BTI NPC.",
       "bitOffset": 0,
@@ -306,6 +256,116 @@
           "name": "Tower of Fire Lookout Point"
         }
       }
+    },
+    {
+      "name": "Render Priority",
+      "description": "Adjusts the rendering priority relative to the selected render layer.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default (0)"
+        },
+        "1": {
+          "name": "+1"
+        },
+        "2": {
+          "name": "+2"
+        },
+        "3": {
+          "name": "-1"
+        },
+        "4": {
+          "name": "-2"
+        },
+        "5": {
+          "name": "-3"
+        }
+      }
+    },
+    {
+      "name": "Render Layer",
+      "description": "Selects the rendering layer relative to the game layers.",
+      "bitOffset": 16,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "0 (Actor)",
+          "description": "Renders at the actor layer."
+        },
+        "1": {
+          "name": "+1 (Foreground)",
+          "description": "Renders in front of the foreground tile layer."
+        },
+        "2": {
+          "name": "+2 (Foreground)",
+          "description": "Renders in front of the foreground layer."
+        },
+        "3": {
+          "name": "-1 (Behind Tiles)",
+          "description": "Renders behind the tile layer."
+        },
+        "4": {
+          "name": "-2 (Background)",
+          "description": "Renders on the background layer."
+        },
+        "5": {
+          "name": "-3",
+          "description": "Renders behind all other layers and is not visible."
+        }
+      }
+    },
+    {
+      "name": "Behavior",
+      "description": "Controls the actor's behavior and state transitions.",
+      "bitOffset": 20,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Always Active",
+          "description": "The actor is present regardless of the activation variable."
+        },
+        "1": {
+          "name": "Activate Once",
+          "description": "The actor appears when the activation trigger is activated and remains present."
+        },
+        "2": {
+          "name": "While Active",
+          "description": "The actor remains present while the activation trigger is active."
+        },
+        "3": {
+          "name": "While Active",
+          "description": "Observed to behave like behavior 2."
+        },
+        "4": {
+          "name": "Deactivate Once",
+          "description": "The actor is initially present and disappears when the activation trigger is activated, remaining absent afterward."
+        }
+      }
+    },
+    {
+      "name": "Unknown",
+      "description": "Adds 1 to the actor's layer when enabled?",
+      "bitOffset": 25,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Spawn Effect",
+      "description": "Enables a puff of dust when the texture appears while using a variable-controlled render mode.",
+      "bitOffset": 26,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "Selects the room variable used to control activation. A value of 0 allows activation without checking a specific variable.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ],
   "rendering": {

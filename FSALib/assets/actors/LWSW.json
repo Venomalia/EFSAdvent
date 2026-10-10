@@ -5,31 +5,25 @@
   "category": "TileObject",
   "fields": [
     {
+      "name": "Timer",
+      "description": "Initial countdown value. The countdown is decremented while the actor is in state 1.",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Timer Mode",
+      "description": "Enables the additional countdown check while the actor is in state 1.",
+      "bitOffset": 22,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
       "name": "Enabled Variable",
       "description": "The variable that gets enabled when the torch is lit.",
       "bitOffset": 27,
       "bitSize": 5,
       "valueType": "Integer"
-    },
-    {
-      "name": "Unknown Parameter 1",
-      "description": "Unknown function, possibly related to activation.",
-      "bitOffset": 16,
-      "bitSize": 8,
-      "valueType": "Integer",
-      "enumValues": {
-        "64": { "name": "Unknown", "description": "Unknown effect." }
-      }
-    },
-    {
-      "name": "Unknown Parameter 2",
-      "description": "Another unknown effect.",
-      "bitOffset": 0,
-      "bitSize": 8,
-      "valueType": "Integer",
-      "enumValues": {
-        "15": { "name": "Unknown", "description": "Unknown effect." }
-      }
     }
   ]
 }

@@ -8,7 +8,7 @@
       "name": "Floor Type",
       "description": "The type of floor behavior.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 6,
       "valueType": "Enum",
       "enumValues": {
         "0": {

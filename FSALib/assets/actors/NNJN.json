@@ -3,6 +3,79 @@
   "description": "A carrot.",
   "InternalName": "人参",
   "category": "Item",
+  "fields": [
+    {
+      "name": "Disappears Over Time",
+      "description": "When enabled, the carrot disappears after a delay.",
+      "bitOffset": 0,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Hidden in Grass",
+      "description": "When enabled, the carrot starts hidden in the grass.",
+      "bitOffset": 4,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Interaction Mode",
+      "description": "Selects the behavior used after an interaction. When set, the carrot deactivates instead of detaching in the corresponding interaction branch.",
+      "bitOffset": 8,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Movement Direction",
+      "description": "Determines the direction in which the carrot moves.",
+      "bitOffset": 22,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Positive X",
+          "description": "Moves along the positive X axis."
+        },
+        "1": {
+          "name": "Negative X",
+          "description": "Moves along the negative X axis."
+        },
+        "2": {
+          "name": "Positive Y",
+          "description": "Moves along the positive Y axis."
+        },
+        "3": {
+          "name": "Negative Y",
+          "description": "Moves along the negative Y axis."
+        }
+      }
+    },
+    {
+      "name": "Movement Speed",
+      "description": "Determines the carrot's movement speed.",
+      "bitOffset": 27,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Stationary",
+          "description": "The carrot does not move."
+        },
+        "1": {
+          "name": "Slow",
+          "description": "Moves at a speed of 0.6."
+        },
+        "2": {
+          "name": "Medium",
+          "description": "Moves at a speed of 1.6."
+        },
+        "3": {
+          "name": "Fast",
+          "description": "Moves at a speed of 2.4."
+        }
+      }
+    }
+  ],
   "rendering": {
     "bitMask": 0,
     "variants": {

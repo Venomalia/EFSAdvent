@@ -1,7 +1,23 @@
 {
   "name": "Fish",
-  "description": "",
+  "description": "A fish that swims through water and can be eaten by hungry Zora.",
   "InternalName": "魚",
   "category": "NPC",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Additional Fish Count",
+      "description": "Determines how many additional fish actors are spawned.",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spawn Distribution",
+      "description": "Affects the random distribution of spawned fish across valid tiles.",
+      "bitOffset": 20,
+      "bitSize": 8,
+      "valueType": "Integer"
+    }
+  ]
 }

@@ -1,20 +1,16 @@
 {
   "name": "Rat",
-  "description": "",
+  "description": "A rat enemy that can move randomly or actively pursue the player.",
   "InternalName": "ネズミ",
   "category": "Enemy",
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Type?",
-      "description": "The type of Rat enemy.",
+      "name": "Aggressive Movement",
+      "description": "Determines whether the rat moves randomly or actively tries to approach the player.",
       "bitOffset": 0,
-      "bitSize": 8,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "?", "description": "" },
-        "1": { "name": "?", "description": "" }
-      }
+      "bitSize": 1,
+      "valueType": "Boolean"
     }
   ],
   "rendering": {

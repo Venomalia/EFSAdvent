@@ -6,35 +6,55 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Iron Jar Index",
-      "description": "The index of the bomb associated with this fire point.",
-      "bitOffset": 24,
-      "bitSize": 3,
+      "name": "Fuse Index",
+      "description": "The index number associated with the fuse.",
+      "bitOffset": 0,
+      "bitSize": 8,
       "valueType": "Integer"
     },
     {
-      "name": "Fire Point Type",
-      "description": "The type of fire point, indicating the fuse or its endpoints.",
+      "name": "Fire Point Parameter",
+      "description": "A 5-bit parameter passed to the associated FSOB actor.",
       "bitOffset": 16,
-      "bitSize": 8,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "End Point Direction",
+      "description": "The direction of the position offset applied when enabled.",
+      "bitOffset": 21,
+      "bitSize": 2,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Fuse", "description": "The fuse of the bomb." },
-        "10": { "name": "Burning Fuse", "description": "The fuse is burning." },
-        "128": {
-          "name": "End Point Left",
-          "description": "The left end point of the fuse."
+        "0": {
+          "name": "East",
+          "description": "Offsets the position to the east."
         },
-        "160": {
-          "name": "End Point Right",
-          "description": "The right end point of the fuse."
+        "1": {
+          "name": "West",
+          "description": "Offsets the position to the west."
+        },
+        "2": {
+          "name": "South",
+          "description": "Offsets the position to the south."
+        },
+        "3": {
+          "name": "North",
+          "description": "Offsets the position to the north."
         }
       }
     },
     {
-      "name": "Fuse Index",
-      "description": "The index number associated with the fuse.",
-      "bitOffset": 0,
+      "name": "End Point Enabled",
+      "description": "Whether the position offset is applied.",
+      "bitOffset": 23,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Iron Jar Index",
+      "description": "The index of the bomb associated with this fire point.",
+      "bitOffset": 24,
       "bitSize": 8,
       "valueType": "Integer"
     }

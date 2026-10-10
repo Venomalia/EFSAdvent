@@ -5,31 +5,25 @@
   "category": "Object",
   "fields": [
     {
-      "name": "Focus Variable",
-      "description": "The variable that is set as soon as in focus.",
-      "bitOffset": 27,
-      "bitSize": 5,
+      "name": "Timer",
+      "description": "A timer or counter that is decremented while the actor is focus.",
+      "bitOffset": 0,
+      "bitSize": 12,
       "valueType": "Integer"
     },
     {
       "name": "Trigger Variable",
-      "description": "The variable that causes the area to be focused.",
+      "description": "The room variable set when the area is focused and the timer expires.",
       "bitOffset": 22,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
-      "name": "Options?",
-      "description": "",
-      "bitOffset": 7,
-      "bitSize": 10,
-      "valueType": "Flags",
-      "enumValues": {
-        "1": {
-          "name": "?",
-          "description": ""
-        }
-      }
+      "name": "Focus Variable",
+      "description": "The variable that is set as soon as in focus.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ]
 }

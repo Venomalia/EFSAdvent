@@ -1,8 +1,31 @@
 {
   "name": "Floor Master",
-  "description": "",
+  "description": "An enemy that pulls the player into the ground.",
   "InternalName": "フロアマスター",
   "category": "Enemy",
+  "fields": [
+    {
+      "name": "Teleport to Position",
+      "description": "When enabled, sends the player to the X and Y coordinates specified by the position parameters.",
+      "bitOffset": 0,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Y Position",
+      "description": "The Y coordinate to which the player is sent when Teleport to Position is enabled.",
+      "bitOffset": 8,
+      "bitSize": 6,
+      "valueType": "Integer"
+    },
+    {
+      "name": "X Position",
+      "description": "The X coordinate to which the player is sent when Teleport to Position is enabled.",
+      "bitOffset": 16,
+      "bitSize": 6,
+      "valueType": "Integer"
+    }
+  ],
   "rendering": {
     "bitMask": 0,
     "variants": {

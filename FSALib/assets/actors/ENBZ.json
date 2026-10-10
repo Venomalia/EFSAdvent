@@ -1,6 +1,59 @@
 {
   "name": "Enemy area generator",
-  "description": "",
+  "description": "Generates a group of enemies at randomized positions around the actor and manages their lifecycle.",
   "InternalName": "敵発生エリア",
-  "category": "Intern"
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Enemy Type",
+      "description": "Selects an enemy preset.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Sword Soldier",
+          "description": "Sword Soldier with parameter 0."
+        },
+        "1": {
+          "name": "Big Sword Soldier",
+          "description": "Sword Soldier with parameter 6."
+        },
+        "2": {
+          "name": "Stalfos",
+          "description": "Stalfos with parameter 4."
+        },
+        "3": {
+          "name": "Big Stalfos",
+          "description": "Stalfos with parameter 20."
+        },
+        "4": {
+          "name": "Keese",
+          "description": "Keese with parameter 256."
+        },
+        "5": {
+          "name": " BigKeese",
+          "description": "Keese with parameter 272."
+        },
+        "255": {
+          "name": "Random",
+          "description": "Randomly selects an enemy preset for each spawned enemy."
+        }
+      }
+    },
+    {
+      "name": "Respawn Mode",
+      "description": "Controls whether the generator resets after all generated enemies are defeated.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Enemy Count",
+      "description": "Sets the number of enemies to generate. A value of 0 defaults to 3.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Integer"
+    }
+  ]
 }

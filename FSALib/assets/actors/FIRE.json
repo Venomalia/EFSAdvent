@@ -1,6 +1,64 @@
 {
-  "name": "Fire rod fire",
-  "description": "",
+  "name": "Fire Rod Fire",
+  "description": "A fire projectile created by the Fire Rod.",
   "InternalName": "プレイヤーロッドの火",
-  "category": "Intern"
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Player Index",
+      "description": "Selects the player used by player-related checks.",
+      "bitOffset": 0,
+      "bitSize": 2,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Direction",
+      "description": "Selects the direction of positional offsets.",
+      "bitOffset": 4,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "East" },
+        "1": { "name": "West" },
+        "2": { "name": "South" },
+        "3": { "name": "North" }
+      }
+    },
+    {
+      "name": "Behavior Mode",
+      "description": "Selects the projectile's behavior and lifecycle.",
+      "bitOffset": 6,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Collision and Effect Handling" },
+        "1": { "name": "Unknown" },
+        "2": { "name": "Effect and State Transition" },
+        "3": { "name": "Collision, Effects and State Transition" },
+        "4": { "name": "Collision, Effects and State Transition" },
+        "5": { "name": "Timer-Based Lifecycle" }
+      }
+    },
+    {
+      "name": "Option Flag",
+      "description": "An option whose purpose is not yet determined.",
+      "bitOffset": 11,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Behavior Option",
+      "description": "Affects initialization and bounds or collision setup. Value 2 has a special handling path in behavior mode 0.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Collision Response",
+      "description": "Changes collision handling in behavior modes 3 and 4.",
+      "bitOffset": 16,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    }
+  ]
 }

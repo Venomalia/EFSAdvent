@@ -12,18 +12,28 @@
       "valueType": "Integer"
     },
     {
+      "name": "unknown",
+      "description": "An additional door configuration value. Its exact purpose is unknown.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
       "name": "Closes when room entered",
       "description": "Determines if the door closes when the room is entered.",
       "bitOffset": 17,
-      "bitSize": 5,
+      "bitSize": 2,
       "valueType": "Enum",
       "enumValues": {
         "0": {
           "name": "Does not close",
           "description": "The door remains open when the room is entered."
         },
+        "1": {
+          "name": "unknown"
+        },
         "2": {
-          "name": "Closes when room entered",
+          "name": "Closes when room entered?",
           "description": "The door closes when the room is entered."
         }
       }

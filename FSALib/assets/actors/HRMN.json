@@ -3,6 +3,15 @@
   "description": "",
   "InternalName": "馬レース男",
   "category": "NPC",
+  "fields": [
+    {
+      "name": "Completion Flag",
+      "description": "The room flag to set when the minigame reaches its completion phase.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ],
   "NoGBASprite": true,
   "rendering": {
     "bitMask": 0,

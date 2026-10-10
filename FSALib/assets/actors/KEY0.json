@@ -6,9 +6,9 @@
   "fields": [
     {
       "name": "Item Type",
-      "description": "Specifies what type of item this object represents.",
+      "description": "Determines the key item type.",
       "bitOffset": 0,
-      "bitSize": 7,
+      "bitSize": 5,
       "valueType": "Enum",
       "enumValues": {
         "0": {
@@ -50,19 +50,74 @@
         "9": {
           "name": "Book",
           "description": "A book required for an event."
-        },
-        "10": {
-          "name": "Key (Duplicate)",
-          "description": "A duplicate key entry."
         }
       }
     },
     {
-      "name": "Activated by Variable",
-      "description": "The local variable that triggers or activates this actor (Flag must be set).",
+      "name": "Behavior Mode",
+      "description": "Determines how the key behaves.",
       "bitOffset": 7,
-      "bitSize": 1,
-      "valueType": "Boolean"
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Lies on Ground",
+          "description": "The key lies on the ground."
+        },
+        "1": {
+          "name": "Appears on Variable",
+          "description": "The key appears when the activation variable is set."
+        },
+        "2": {
+          "name": "Carried by Player",
+          "description": "The key is picked up and carried by a player."
+        },
+        "3": {
+          "name": "Unknown",
+          "description": "Unknown behavior."
+        },
+        "4": {
+          "name": "Held by Enemy",
+          "description": "The key is held by an enemy at the same position."
+        },
+        "5": {
+          "name": "Falls from Above on Variable",
+          "description": "The key falls from above when activated by a variable."
+        },
+        "6": {
+          "name": "Secret Sound Effect",
+          "description": "Triggers a secret sound effect."
+        },
+        "7": {
+          "name": "Impact",
+          "description": "The key falls from above when struck by the Hammer or Pegasus Boots."
+        },
+        "8": {
+          "name": "Invisible Impact",
+          "description": "The key falls from above when struck by the Hammer or Pegasus Boots."
+        }
+      }
+    },
+    {
+      "name": "Player Index",
+      "description": "Specifies a player index used by Behavior Mode 2.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Unknown?",
+      "description": "An unknown 5-bit value.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Room Flag?",
+      "description": "Specifies the room flag index checked by the actor in Behavior Modes 1 and 5.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
     },
     {
       "name": "Activation Variable",
@@ -70,48 +125,6 @@
       "bitOffset": 27,
       "bitSize": 5,
       "valueType": "Integer"
-    },
-    {
-      "name": "Unknown Variable",
-      "description": "An unknown value related to this item.",
-      "bitOffset": 16,
-      "bitSize": 8,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": {
-          "name": "Unknown 0",
-          "description": "Unknown effect."
-        },
-        "4": {
-          "name": "Unknown 4",
-          "description": "Unknown effect."
-        }
-      }
-    },
-    {
-      "name": "Appearance Type",
-      "description": "Determines how the key appears in the game.",
-      "bitOffset": 8,
-      "bitSize": 8,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": {
-          "name": "Appears",
-          "description": "Appears normally."
-        },
-        "2": {
-          "name": "Falls from Above",
-          "description": "Falls from the sky."
-        },
-        "4": {
-          "name": "Unknown 4",
-          "description": "Unknown effect."
-        },
-        "72": {
-          "name": "Activated with Pegasus Boots",
-          "description": "Can be activated by dashing into it."
-        }
-      }
     }
   ],
   "rendering": {

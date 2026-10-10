@@ -1,5 +1,35 @@
 {
-  "name": "Goma check?",
-  "description": "",
-  "category": "Property"
+  "name": "Global Check Switch",
+  "description": "Checks three global flags and, once all are set, Links plays a short animation and sets a fourth flag to mark the objective as completed.",
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Completion Variable",
+      "description": "Global flag set when all three required flags are set and the animation finishes.",
+      "bitOffset": 7,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Check Variable 1",
+      "description": "First global flag to check.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Check Variable 2",
+      "description": "Second global flag to check.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Check Variable 3",
+      "description": "Third global flag to check.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
 }
