@@ -1,6 +1,6 @@
 {
-  "name": "AGB Window Control",
-  "description": "Controls the GBA TV window.",
+  "name": "GBA Window Control",
+  "description": "Controls the GBA TV window, in single-player mode.",
   "InternalName": "AGBウィンドウ制御",
   "category": "Property",
   "fields": [
@@ -12,34 +12,51 @@
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "Centered",
-          "description": "The GBA window is centered on the screen."
+          "name": "Centered (Default)"
+        },
+        "1": {
+          "name": "Top Left"
+        },
+        "2": {
+          "name": "Top Centered"
+        },
+        "3": {
+          "name": "Top Right"
         },
         "4": {
-          "name": "Left Centered",
-          "description": "The GBA window is aligned to the left center."
+          "name": "Centered Left"
+        },
+        "5": {
+          "name": "Centered Right"
+        },
+        "6": {
+          "name": "Bottom Left"
+        },
+        "7": {
+          "name": "Bottom Centered"
         },
         "8": {
-          "name": "Bottom Right",
-          "description": "The GBA window is placed in the bottom-right corner."
+          "name": "Bottom Right"
         },
-        "12": {
-          "name": "Top Right",
-          "description": "The GBA window is placed in the top-right corner."
-        },
-        "16": {
-          "name": "Bottom Centered",
-          "description": "The GBA window is aligned to the bottom center."
-        },
-        "20": {
-          "name": "Slightly Left",
-          "description": "The GBA window is slightly shifted to the left."
-        },
-        "24": {
-          "name": "Slightly Right",
-          "description": "The GBA window is slightly shifted to the right."
+        "31": {
+          "name": "Centered, Disabled by trigger",
+          "description": "Keeps the GBA window closed while the trigger is active."
         }
       }
+    },
+    {
+      "name": "Trigger Duration",
+      "description": "The duration in frames for which the GBA window remains disabled after the trigger activates.",
+      "bitOffset": 0,
+      "bitSize": 12,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Trigger local Variable",
+      "description": "The local variable used to trigger the window control.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ]
 }

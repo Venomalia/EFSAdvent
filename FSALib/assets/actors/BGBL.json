@@ -1,5 +1,6 @@
 {
-  "name": "?",
-  "description": "Invisible but it makes you take damage",
-  "category": "Intern"
+  "name": "Fireball",
+  "description": "A fireball that is only visible on the GBA screen and damages the player on contact.",
+  "category": "Intern",
+  "NoGBASprite": false
 }

@@ -1,13 +1,52 @@
 {
   "name": "Hyrule Castle Barrier",
-  "description": "A blue electric field that prevents passage until deactivated.",
+  "description": "A blue electric field that blocks passage until deactivated.",
   "InternalName": "ハイラル城結界",
   "category": "Object",
   "fields": [
     {
+      "name": "Deactivation Effect",
+      "description": "Determines the effect played when the barrier is deactivated.",
+      "bitOffset": 0,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Normal",
+          "description": "Plays the secret sound when deactivated."
+        },
+        "1": {
+          "name": "Silent",
+          "description": "Deactivates without playing the secret sound."
+        },
+        "2": {
+          "name": "Orange Explosion",
+          "description": "Turns orange and explodes without playing a sound."
+        }
+      }
+    },
+    {
+      "name": "Orientation",
+      "description": "Determines the barrier's orientation.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Horizontal" },
+        "1": { "name": "Vertical" }
+      }
+    },
+    {
       "name": "Deactivation Variable",
-      "description": "The local variable that deactivates the barrier.",
+      "description": "The room-local variable that deactivates the barrier when set to true.",
       "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Output Variable",
+      "description": "The room-local variable set to true when the barrier is deactivated.",
+      "bitOffset": 22,
       "bitSize": 5,
       "valueType": "Integer"
     }

@@ -1,32 +1,53 @@
 {
   "name": "Giant Bomb",
-  "description": "A massive bomb that can be triggered by a variable.",
+  "description": "A massive bomb with configurable spawning behavior, triggered by a room-local variable.",
   "InternalName": "巨大爆弾",
   "category": "Object",
   "fields": [
     {
-      "name": "Trigger Variable",
-      "description": "The local variable that triggers the explosion of the giant bomb.",
-      "bitOffset": 27,
-      "bitSize": 5,
+      "name": "Spawn Time",
+      "description": "The time until the bomb spawns. Only used when Spawn Type is Growing.",
+      "bitOffset": 0,
+      "bitSize": 12,
       "valueType": "Integer"
     },
     {
-      "name": "Unknown Parameter",
-      "description": "An unidentified parameter that affects the bomb's behavior.",
+      "name": "Text Info",
+      "description": "Determines the text displayed at the bottom of the screen.",
+      "bitOffset": 12,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Escape to the GBA!" },
+        "1": { "name": "Run Away!" },
+        "3": { "name": "No Text" }
+      }
+    },
+    {
+      "name": "Spawn Type",
+      "description": "Determines how the bomb spawns and behaves.",
       "bitOffset": 16,
-      "bitSize": 3,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "Unknown 0",
-          "description": "Effect is unclear."
+          "name": "Timer, Growing",
+          "description": "The bomb grows until the spawn timer reaches zero."
         },
         "1": {
-          "name": "Unknown 1",
-          "description": "Effect is unclear."
-        }
+          "name": "Triggered, Drop",
+          "description": "Falls from the sky when the trigger variable is activated."
+        },
+        "2": { "name": "Inactive" },
+        "3": { "name": "Explosion" }
       }
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "The room-local variable that triggers the bomb's behavior when set to true.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ],
   "rendering": {

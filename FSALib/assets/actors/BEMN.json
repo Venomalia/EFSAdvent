@@ -1,7 +1,48 @@
 {
   "name": "Bee Manager",
-  "description": "Circle of red bees",
+  "description": "Manages a circle of red bees.",
   "InternalName": "蜂マネージャー",
   "category": "Enemy",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Trigger Type",
+      "description": "Determines what triggers the bees to appear.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Proximity",
+          "description": "Activates when the player approaches."
+        },
+        "1": {
+          "name": "Hammer",
+          "description": "Activates when the ground is struck with a hammer."
+        },
+        "2": {
+          "name": "Variable",
+          "description": "Activates when the specified room-local variable is set to true."
+        }
+      }
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "The room-local variable that activates the bees when set to true.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ],
+  "rendering": {
+    "bitMask": 0,
+    "variants": {
+      "0": [
+        {
+          "spriteIndex": 460,
+          "spriteListIndex": 1
+        }
+      ]
+    }
+  }
 }

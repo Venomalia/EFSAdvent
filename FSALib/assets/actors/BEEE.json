@@ -1,26 +1,23 @@
 {
   "name": "Bee",
-  "description": "A bee that is triggered by a local variable.",
+  "description": "Bees that attacks the player and disappears after a while. Can be defeated with fire.",
   "category": "Enemy",
   "InternalName": "蜂",
   "fields": [
     {
-      "name": "Activation Variable",
-      "description": "The local variable number that triggers or activates this actor.",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Type Flags",
-      "description": "Determines how the Bee behaves.",
+      "name": "Trigger Type",
+      "description": "Determines what triggers the bees to appear.",
       "bitOffset": 0,
-      "bitSize": 8,
-      "valueType": "Flags",
+      "bitSize": 1,
+      "valueType": "Enum",
       "enumValues": {
+        "0": {
+          "name": "Hammer",
+          "description": "Appears when the ground is struck with a hammer."
+        },
         "1": {
-          "name": "?",
-          "description": "?"
+          "name": "Proximity",
+          "description": "Appears when the player approaches."
         }
       }
     }

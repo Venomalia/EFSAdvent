@@ -1,80 +1,83 @@
 {
   "name": "Color Block (1 Player)",
-  "description": "A block that can be moved in a specific direction by a Link of the same color.",
+  "description": "A block that can be pushed in a specific direction by a Link of the matching color.",
   "InternalName": "カラーブロック１人用",
   "category": "Object",
   "fields": [
     {
-      "name": "Activation Variable",
-      "description": "The local variable that triggers the activation after the block is moved.",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
       "name": "Movement Direction",
-      "description": "Determines the movement direction of the block.",
+      "description": "Determines the direction in which the block can be pushed.",
       "bitOffset": 0,
       "bitSize": 2,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Movable East", "description": "Can be pushed east." },
-        "1": { "name": "Movable West", "description": "Can be pushed west." },
-        "2": { "name": "Movable South", "description": "Can be pushed south." },
-        "3": { "name": "Movable North", "description": "Can be pushed north." }
+        "0": { "name": "East" },
+        "1": { "name": "West" },
+        "2": { "name": "South" },
+        "3": { "name": "North" }
       }
     },
     {
       "name": "Block Type",
-      "description": "Defines the block's color and its state. The block can only be moved by a Link of the same color.",
+      "description": "Determines the block's color and appearance. Colored blocks can only be pushed by Link of the matching color.",
       "bitOffset": 2,
       "bitSize": 3,
       "valueType": "Enum",
       "enumValues": {
         "0": {
           "name": "Standard Block",
-          "description": "A standard block without color."
+          "description": "A standard block without a specific color."
         },
         "1": {
           "name": "Green",
-          "description": "Green block. Can only be moved by Green Link."
+          "description": "Can only be pushed by Green Link."
         },
         "2": {
           "name": "Red",
-          "description": "Red block. Can only be moved by Red Link."
+          "description": "Can only be pushed by Red Link."
         },
         "3": {
           "name": "Blue",
-          "description": "Blue block. Can only be moved by Blue Link."
+          "description": "Can only be pushed by Blue Link."
         },
         "4": {
           "name": "Purple",
-          "description": "Purple block. Can only be moved by Purple Link."
+          "description": "Can only be pushed by Purple Link."
         },
         "5": {
           "name": "Random Color",
-          "description": "Block with a random color."
+          "description": "A block with a randomly selected color."
         },
         "6": {
           "name": "Broken Texture (1)",
-          "description": "Block with a broken texture type 1."
+          "description": "Uses an unusual block texture."
         },
         "7": {
           "name": "Broken Texture (2)",
-          "description": "Block with a broken texture type 2."
+          "description": "Uses an alternative unusual block texture."
         }
       }
     },
     {
-      "name": "Property Unknown",
-      "description": "An additional property for unknown purposes.",
+      "name": "Unknown",
+      "description": "An unknown property that affects the block's behavior.",
       "bitOffset": 5,
-      "bitSize": 3,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": { "name": "?", "description": "Unknown property." },
-        "1": { "name": "?", "description": "Unknown property." }
-      }
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Unknown",
+      "description": "An unknown flag that affects the block's behavior. seems to make the block immovable?",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The room-local variable activated after the block is moved.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ],
   "rendering": {

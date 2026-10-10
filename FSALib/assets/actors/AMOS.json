@@ -5,13 +5,6 @@
   "category": "Enemy",
   "fields": [
     {
-      "name": "Rail ID",
-      "description": "Defines the movement rail ID for the Armos Knight.",
-      "bitOffset": 8,
-      "bitSize": 8,
-      "valueType": "Integer"
-    },
-    {
       "name": "Type",
       "description": "Determines how the Armos Knight behaves.",
       "bitOffset": 0,
@@ -27,24 +20,24 @@
           "description": "The Armos Knight can be pushed by the player."
         },
         "2": {
-          "name": "Fixed",
+          "name": "Fixed (Triggered)",
           "description": "The Armos Knight stays in place."
         },
         "3": {
-          "name": "Large",
-          "description": "A large Armos Knights."
+          "name": "Large, Default",
+          "description": "A large Armos Knight."
         },
         "4": {
-          "name": "Large, Attacks from Behind",
+          "name": "Large, Pushable",
           "description": "A large Armos Knight that only attacks when approached from behind."
         },
         "5": {
-          "name": "Large, Activated",
+          "name": "Large, Activated (Triggered)",
           "description": "A large Armos Knight that is activated upon interaction."
         },
         "6": {
-          "name": "Pushable",
-          "description": "The Armos Knight stays in place."
+          "name": "Fixed",
+          "description": "The Armos Knight that remains stationary."
         },
         "7": {
           "name": "Large, Fixed",
@@ -53,17 +46,25 @@
       }
     },
     {
-      "name": "Type Flags",
-      "description": "Determines how the Armos Knight behaves.",
+      "name": "Double Size",
+      "description": "Doubles the rendered sprite size.",
       "bitOffset": 4,
-      "bitSize": 4,
-      "valueType": "Flags",
-      "enumValues": {
-        "1": {
-          "name": "Big",
-          "description": "A large Armos Knight."
-        }
-      }
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Rail ID",
+      "description": "Defines the movement rail ID for the Armos Knight.",
+      "bitOffset": 8,
+      "bitSize": 8,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable",
+      "description": "The local variable that activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ],
   "rendering": {
@@ -95,7 +96,7 @@
       ],
       "4": [
         {
-          "spriteIndex": 1092,
+          "spriteIndex": 1093,
           "spriteListIndex": 2
         }
       ],

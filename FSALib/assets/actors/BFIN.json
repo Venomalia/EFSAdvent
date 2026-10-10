@@ -1,6 +1,6 @@
 {
   "name": "Battle Royale End Check",
-  "description": "",
+  "description": "Checks for the end of a Shadow Battle mode match.",
   "InternalName": "バトルロイヤル終了チェック",
   "category": "Property"
 }
