@@ -1,31 +1,91 @@
 {
   "name": "Crystal Ball",
-  "description": "A crystal ball with different states.",
+  "description": "A crystal ball with different states and spawn parameters.",
   "InternalName": "水晶玉",
   "category": "Object",
   "fields": [
     {
       "name": "State",
-      "description": "Defines the current state of the crystal ball.",
+      "description": "Defines the state of the crystal ball.",
       "bitOffset": 0,
-      "bitSize": 8,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "Default",
-          "description": "The default state of the crystal ball."
+          "name": "Default"
         },
         "1": {
-          "name": "Held State",
-          "description": "The crystal ball is being held."
+          "name": "Held State"
         },
         "2": {
-          "name": "Bug",
-          "description": "The crystal ball is in a bugged state."
+          "name": "Bug"
         },
         "3": {
-          "name": "Held State, Carrot",
-          "description": "The crystal ball is held and contains a carrot."
+          "name": "Held State, Carrot"
+        }
+      }
+    },
+    {
+      "name": "Additional Spawn Option",
+      "description": "Adds spawn option 2 to the random selection.",
+      "bitOffset": 4,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Spawn Option",
+      "description": "Selects the object or item spawned by the crystal ball. The exact meaning of each value is not fully known.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spawn Parameter",
+      "description": "Additional parameter passed to the spawned actor.",
+      "bitOffset": 16,
+      "bitSize": 2,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Option Switch",
+      "description": "An undocumented switch checked by the crystal ball's behavior.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Behavior",
+      "description": "An undocumented on/off switch checked by the crystal ball's behavior.",
+      "bitOffset": 18,
+      "bitSize": 9,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "Unknown 1"
+        },
+        "2": {
+          "name": "Unknown 2"
+        },
+        "4": {
+          "name": "Unknown 3"
+        },
+        "8": {
+          "name": "Unknown 4"
+        },
+        "16": {
+          "name": "Unknown 5"
+        },
+        "32": {
+          "name": "Unknown 6"
+        },
+        "64": {
+          "name": "Unknown 7"
+        },
+        "128": {
+          "name": "Unknown 8"
+        },
+        "256": {
+          "name": "Unknown 9"
         }
       }
     }

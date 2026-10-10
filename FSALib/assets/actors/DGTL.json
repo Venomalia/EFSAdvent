@@ -5,6 +5,15 @@
   "category": "Boss",
   "Resources": ["degtail"],
   "NoGBASprite": true,
+  "parameters": [
+    {
+      "name": "Intro Cutscene",
+      "description": "Determines how the boss fight begins.",
+      "bitOffset": 0,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    }
+  ],
   "rendering": {
     "bitMask": 0,
     "variants": {

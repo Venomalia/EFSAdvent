@@ -1,6 +1,6 @@
 {
   "name": "Wallmaster",
-  "description": "",
+  "description": "A large hand-like enemy that can either fall from the ceiling or move across the floor.",
   "InternalName": "フォールマスター",
   "category": "Enemy",
   "fields": [
@@ -9,7 +9,7 @@
       "description": "Determines how the wallmaster behaves.",
       "bitOffset": 0,
       "bitSize": 1,
-      "valueType": "Flags",
+      "valueType": "Enum",
       "enumValues": {
         "0": {
           "name": "Falls from the ceiling.",
@@ -22,17 +22,73 @@
       }
     },
     {
-      "name": "Behavior",
-      "description": "Determines how the wallmaster behaves.",
+      "name": "Use Player Entry Position",
+      "description": "Uses the player's position upon entering the room as the target instead of the configured X, Y, and layer.",
       "bitOffset": 1,
-      "bitSize": 7,
-      "valueType": "Flags",
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Unknown Configuration",
+      "description": "",
+      "bitOffset": 5,
+      "bitSize": 3,
+      "valueType": "Enum",
       "enumValues": {
+        "0": {
+          "name": "Configuration 0",
+          "description": "Uses value order 3, 0, 2 and size 0x1E0."
+        },
         "1": {
-          "name": "?",
-          "description": "?"
+          "name": "Configuration 1",
+          "description": "Uses value order 3, 1, 2 and size 0xF0."
+        },
+        "2": {
+          "name": "Configuration 2",
+          "description": "Uses value order 1, 3, 0 and size 0xF0."
+        },
+        "3": {
+          "name": "Configuration 3",
+          "description": "Uses value order 1, 2, 0 and size 0xF0."
+        },
+        "4": {
+          "name": "Configuration 4",
+          "description": "Uses value order 2, 0, 3 and size 0x1E0."
+        },
+        "5": {
+          "name": "Configuration 5",
+          "description": "Uses value order 2, 1, 3 and size 0x1E0."
+        },
+        "6": {
+          "name": "Configuration 6",
+          "description": "Uses value order 0, 3, 1 and size 0xF0."
+        },
+        "7": {
+          "name": "Configuration 7",
+          "description": "Uses value order 0, 2, 1 and size 0xF0."
         }
       }
+    },
+    {
+      "name": "Target Y",
+      "description": "The Y coordinate of the destination where the Wallmaster takes the player.",
+      "bitOffset": 8,
+      "bitSize": 6,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Target X",
+      "description": "The X coordinate of the destination where the Wallmaster takes the player.",
+      "bitOffset": 16,
+      "bitSize": 6,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Target Layer",
+      "description": "The layer to which the Wallmaster takes the player.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
     }
   ],
   "rendering": {

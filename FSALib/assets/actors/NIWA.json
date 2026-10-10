@@ -5,21 +5,101 @@
   "category": "NPC",
   "fields": [
     {
-      "name": "Cucco Size",
-      "description": "The size of the Cucco.",
-      "bitOffset": 8,
-      "bitSize": 8,
+      "name": "Behavior Mode",
+      "description": "Determines the Cucco's behavior.",
+      "bitOffset": 0,
+      "bitSize": 4,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Default", "description": "Standard-sized Cucco." },
-        "16": { "name": "Large Cucco", "description": "A larger Cucco." }
+        "0": {
+          "name": "Passive",
+          "description": "Does not flee from the player."
+        },
+        "1": {
+          "name": "Aggressive",
+          "description": "Attacks the player after being provoked repeatedly."
+        },
+        "2": {
+          "name": "Large Fleeing Cucco",
+          "description": "A large Cucco that quickly flees from the player and disappears."
+        },
+        "3": {
+          "name": "Fleeing Cucco Group",
+          "description": "Spawns three Cuccos that quickly flee from the player and disappear."
+        },
+        "4": {
+          "name": "Flee and Disappear",
+          "description": "Quickly flees from the player and disappears."
+        },
+        "5": {
+          "name": "Carried",
+          "description": "A Cucco being carried by the player."
+        },
+        "6": {
+          "name": "Passive, Fleeing",
+          "description": "Behaves like mode 0 but flees from the player."
+        },
+        "7": {
+          "name": "Delayed Fleeing",
+          "description": "Behaves like mode 6, but initially moves around."
+        },
+        "8": {
+          "name": "Flee and Disappear",
+          "description": "Appears to behave like mode 4."
+        }
       }
     },
     {
-      "name": "Fleeing Speed",
-      "description": "Determines whether the Cucco fled from the player.",
-      "bitOffset": 0,
-      "bitSize": 8,
+      "name": "Unknown Player Parameter",
+      "description": "Purpose unknown.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Player (Intern)",
+      "description": "Selects the player associated with the Cucco.",
+      "bitOffset": 8,
+      "bitSize": 2,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Behavior Flags",
+      "description": "Controls additional Cucco behavior.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Flags",
+      "enumValues": {
+        "1": {
+          "name": "Large Cucco",
+          "description": "Selects the larger Cucco rendering variant. Also affects sound selection and is propagated to spawned Cuccos."
+        },
+        "2": {
+          "name": "Unknown Behavior",
+          "description": "May affect the Cucco's fleeing behavior. Exact effect unknown."
+        },
+        "4": {
+          "name": "Trigger-Activated",
+          "description": "The Cucco appears only after its trigger variable is set."
+        },
+        "8": {
+          "name": "Fast Movement",
+          "description": "Makes the Cucco move significantly faster."
+        }
+      }
+    },
+    {
+      "name": "Unknown Parameter",
+      "description": "Purpose and valid values have not been established.",
+      "bitOffset": 24,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "The local variable number that triggers or activates this actor.",
+      "bitOffset": 27,
+      "bitSize": 5,
       "valueType": "Integer"
     }
   ],

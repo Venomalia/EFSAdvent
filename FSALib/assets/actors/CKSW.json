@@ -1,56 +1,67 @@
 {
   "name": "Check Switch",
-  "description": "A switch that checks multiple local variables and can set random variables under certain conditions.",
+  "description": "Randomly activates one of four room-local variables.",
   "InternalName": "チェックスィッチ",
   "category": "Property",
   "fields": [
     {
       "name": "Trigger Variable",
-      "description": "The local variable number that triggers or activates this actor. (0 = always active)",
+      "description": "The room-local variable that activates this actor (0 = always active).",
       "bitOffset": 27,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
-      "name": "Checked Variable 1",
-      "description": "A local variable number that is checked by this actor.",
+      "name": "Variable 1",
+      "description": "The first room-local variable available for random selection.",
       "bitOffset": 22,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
-      "name": "Checked Variable 2",
-      "description": "A local variable number that is checked by this actor.",
+      "name": "Variable 2",
+      "description": "The second room-local variable available for random selection.",
       "bitOffset": 17,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
-      "name": "Checked Variable 3",
-      "description": "A local variable number that is checked by this actor.",
+      "name": "Variable 3",
+      "description": "The third room-local variable available for random selection.",
       "bitOffset": 12,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
-      "name": "Checked Variable 4",
-      "description": "A local variable number that is checked by this actor.",
+      "name": "Variable 4",
+      "description": "The fourth room-local variable available for random selection.",
       "bitOffset": 7,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
       "name": "Action Control",
-      "description": "Controls the random variable actions.",
+      "description": "Controls how the actor behaves after setting a variable.",
       "bitOffset": 0,
       "bitSize": 7,
       "valueType": "Enum",
       "enumValues": {
-        "0": { "name": "Sets a random variable" },
-        "1": {
-          "name": "Sets a random variable, can be triggered multiple times"
+        "0": {
+          "name": "One Shot",
+          "description": "Sets one randomly selected variable and then disappears."
         },
-        "46": { "name": "Sets all variables" }
+        "1": {
+          "name": "Repeatable",
+          "description": "Sets a randomly selected variable and can be triggered again."
+        },
+        "2": {
+          "name": "Persistent",
+          "description": "Sets a randomly selected variable and remains present."
+        },
+        "3": {
+          "name": "Set All",
+          "description": "Repeatedly selects and sets random variables. All values other than 0, 1, and 2 behave this way."
+        }
       }
     }
   ]

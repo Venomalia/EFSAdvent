@@ -1,15 +1,46 @@
 {
   "name": "Dodongo",
-  "description": "",
+  "description": "A Dodongo, a fire-breathing enemy that can be defeated with bombs.",
   "InternalName": "ドドンゴ",
   "category": "Enemy",
   "NoGBASprite": true,
+  "parameters": [
+    {
+      "name": "Behavior",
+      "description": "Determines the Dodongo's behavior.",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "values": {
+        "0": "Dodongo",
+        "1": "Fire Only",
+        "2": "Dodongo, Boss Music",
+        "3": "Unused"
+      }
+    },
+    {
+      "name": "Dodongo Type",
+      "description": "For Behaviors 0 and 2, selects the Dodongo's type. For Behavior 1, selects the direction in which fire is emitted.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "values": {
+        "0": "Normal Dodongo",
+        "1": "Giant Dodongo"
+      }
+    }
+  ],
   "rendering": {
-    "bitMask": 0,
+    "bitMask": 17,
     "variants": {
       "0": [
         {
           "btifile": "e-dod_aruki_yoko_0.bti"
+        }
+      ],
+      "16": [
+        {
+          "btifile": "e-dod_aruki_yoko_l0.bti"
         }
       ]
     }

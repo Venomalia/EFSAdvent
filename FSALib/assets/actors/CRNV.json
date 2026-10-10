@@ -3,5 +3,22 @@
   "description": "",
   "InternalName": "クリスタルデモ後にたたずむナビィ",
   "category": "Cutscene",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Fairy Color",
+      "description": "Determines the color of the fairy.",
+      "bitOffset": 0,
+      "bitSize": 3,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Blue" },
+        "1": { "name": "Orange" },
+        "2": { "name": "Green" },
+        "3": { "name": "Cyan" },
+        "4": { "name": "Red" },
+        "5": { "name": "Purple" }
+      }
+    }
+  ]
 }

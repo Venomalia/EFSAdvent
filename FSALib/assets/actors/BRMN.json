@@ -1,6 +1,74 @@
 {
   "name": "Eyeroc Manager",
-  "description": "",
+  "description": "Controls the spawning and movement of the four Eyerocs.",
   "InternalName": "鳥マネージャー",
-  "category": "Enemy"
+  "category": "Property",
+  "fields": [
+    {
+      "name": "Movement Mode",
+      "description": "Determines the orientation of the four Eyerocs, which always move in a line.",
+      "bitOffset": 0,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Horizontal",
+          "description": "The four Eyerocs form a horizontal line."
+        },
+        "1": {
+          "name": "Vertical",
+          "description": "The four Eyerocs form a vertical line."
+        },
+        "2": {
+          "name": "Random",
+          "description": "A random movement mode is selected."
+        }
+      }
+    },
+    {
+      "name": "Formation Direction",
+      "description": "Determines the starting side of the four Eyerocs.",
+      "bitOffset": 4,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Left",
+          "description": "The four Eyerocs start at the left edge."
+        },
+        "1": {
+          "name": "Right",
+          "description": "The four Eyerocs start at the right edge."
+        },
+        "2": {
+          "name": "Random",
+          "description": "A random direction is selected."
+        }
+      }
+    },
+    {
+      "name": "Flight Pattern",
+      "description": "Determines the flight pattern of the Eyerocs.",
+      "bitOffset": 8,
+      "bitSize": 1,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Circular",
+          "description": "The Eyerocs start at the top and fly in a circular path."
+        },
+        "1": {
+          "name": "Horizontal",
+          "description": "The Eyerocs start at the bottom and fly horizontally across the screen."
+        }
+      }
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "Room variable used to trigger the Eyeroc Manager.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ]
 }

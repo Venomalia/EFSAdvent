@@ -1,7 +1,30 @@
 {
   "name": "Kepora Gebora for ending cutscene",
-  "description": "",
+  "description": "Controls Kepora Gebora's behavior and cutscene configuration during the ending sequence.",
   "InternalName": "エンディング用ケポラ・ゲボラ",
   "category": "Cutscene",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Behavior",
+      "description": "Selects the cutscene behavior. Values 0–3 have code references.",
+      "bitOffset": 0,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Cutscene",
+      "description": "Selects cutscene data and configuration. Values 0–19 have code references; values 18 and 19 trigger additional actor creation.",
+      "bitOffset": 3,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Alternate Mode",
+      "description": "Selects an alternate cutscene resource and configuration. When enabled, the actor uses a different cutscene data table and may create additional actors depending on Behavior.",
+      "bitOffset": 8,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    }
+  ]
 }

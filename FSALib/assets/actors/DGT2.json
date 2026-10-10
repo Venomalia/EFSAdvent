@@ -1,6 +1,6 @@
 {
   "name": "Mini-moldorm",
-  "description": "",
+  "description": "A small, worm-like enemy that moves quickly and erratically, attacking players by ramming into them.",
   "InternalName": "テール",
   "category": "Enemy",
   "NoGBASprite": true,

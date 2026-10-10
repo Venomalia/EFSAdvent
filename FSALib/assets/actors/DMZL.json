@@ -1,9 +1,51 @@
 {
   "name": "Princess Zelda Cutscene",
-  "description": "",
+  "description": "Princess Zelda's intro cutscene behavior, including room transitions and room flag handling.",
   "InternalName": "デモ用ゼルダ姫",
   "category": "Cutscene",
   "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Cutscene ID",
+      "description": "Selects a specific cutscene.",
+      "bitOffset": 0,
+      "bitSize": 8,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Opening Cutscene" },
+        "1": { "name": "Opening Follow-up Cutscene" },
+        "2": { "name": "Shadow Mirror Cutscene (Stage 8-2)" }
+      }
+    },
+    {
+      "name": "Destination Room X",
+      "description": "The X coordinate of the destination room.",
+      "bitOffset": 8,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Destination Room Y",
+      "description": "The Y coordinate of the destination room.",
+      "bitOffset": 12,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Room Flag",
+      "description": "Room flag checked by the cutscene. Option 2 requires this flag to be set.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Room Flag",
+      "description": "Room flag set or cleared by the cutscene, depending on the selected behavior.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    }
+  ],
   "rendering": {
     "bitMask": 0,
     "variants": {

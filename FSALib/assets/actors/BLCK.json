@@ -1,58 +1,118 @@
 {
   "name": "Block",
-  "description": "Movable stone block.",
+  "description": "A pushable stone block that can be moved to solve puzzles or clear paths.",
   "InternalName": "ブロック",
   "category": "Object",
   "fields": [
     {
-      "name": "Activation Variable",
-      "description": "The local variable number that is triggered or set by this actor after it was moved.",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Block Size",
-      "description": "Determines the size of the block.",
+      "name": "Block Type",
+      "description": "Determines the block size or internal movement state.",
       "bitOffset": 0,
       "bitSize": 2,
       "valueType": "Enum",
       "enumValues": {
         "0": {
-          "name": "1x1 Block",
-          "description": "A single unit size block."
+          "name": "1x1 Block Movement State (Internal)",
+          "description": "Internal movement state of a block. Uses Movement Axis to determine the movement direction and Block Variant to determine the block type."
         },
-        "1": { "name": "2x2 Block", "description": "A block of size 2x2." },
-        "2": { "name": "3x3 Block", "description": "A block of size 3x3." },
-        "3": { "name": "4x4 Block", "description": "A block of size 4x4." }
+        "1": {
+          "name": "2x2 Block",
+          "description": "A block occupying a 2x2 area."
+        },
+        "2": {
+          "name": "3x3 Block",
+          "description": "A block occupying a 3x3 area."
+        },
+        "3": {
+          "name": "4x4 Block",
+          "description": "A block occupying a 4x4 area."
+        }
       }
     },
     {
-      "name": "Unknown",
-      "description": "",
+      "name": "Movement Axis",
+      "description": "Restricts the 2x2 block's movement to one axis.",
       "bitOffset": 2,
       "bitSize": 2,
-      "valueType": "Flags",
+      "valueType": "Enum",
       "enumValues": {
-        "1": { "name": "Unknown", "description": "" },
-        "2": { "name": "Unknown", "description": "" }
+        "0": {
+          "name": "Horizontal",
+          "description": "The block can move east and west."
+        },
+        "1": {
+          "name": "Vertical",
+          "description": "The block can move north and south."
+        },
+        "2": {
+          "name": "Immovable",
+          "description": "The block is fixed in place."
+        }
       }
     },
     {
-      "name": "Special",
-      "description": "Determines if the block can be moved endlessly.",
-      "bitOffset": 8,
-      "bitSize": 4,
+      "name": "Block Variant (Internal)",
+      "description": "Determines the block type used by the internal movement state. Value 0 is normal, value 1 is green.",
+      "bitOffset": 4,
+      "bitSize": 3,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Flags",
+      "description": "Controls block movement behavior and direction-related room variables.",
+      "bitOffset": 7,
+      "bitSize": 5,
       "valueType": "Flags",
       "enumValues": {
         "1": {
-          "name": "Endlessly Movable",
-          "description": "The block can be moved endlessly."
+          "name": "Return to Origin",
+          "description": "The block slowly returns to its original position after it is no longer pushed."
         },
-        "2": { "name": "Unknown", "description": "" },
-        "4": { "name": "Unknown", "description": "" },
-        "8": { "name": "Unknown", "description": "" }
+        "2": {
+          "name": "Endlessly Movable",
+          "description": "Uses four room variables for east, west, south, and north while the block is moving."
+        },
+        "4": {
+          "name": "Unknown 9",
+          "description": "Unknown behavior."
+        },
+        "8": {
+          "name": "Movement Axis",
+          "description": "For 2x2 blocks, restricts movement to either the east/west or north/south axis. For 3x3 and 4x4 blocks, makes the block immovable."
+        },
+        "16": {
+          "name": "Full Tile Movement",
+          "description": "Makes the block move a full tile on its first push, keeping its movement aligned to the tile grid."
+        }
       }
+    },
+    {
+      "name": "East Variable",
+      "description": "Room variable used for eastward movement when Endlessly Movable is enabled.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "West Variable",
+      "description": "Room variable used for westward movement when Endlessly Movable is enabled.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "South Variable",
+      "description": "Room variable used for southward movement when Endlessly Movable is enabled.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Activation Variable / North Variable",
+      "description": "Room variable activated when the block has been moved, or used for northward movement when Endlessly Movable is enabled.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ],
   "rendering": {

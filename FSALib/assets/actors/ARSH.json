@@ -1,5 +1,6 @@
 {
   "name": "Small fireball",
-  "description": "",
-  "category": "Intern"
+  "description": "A small fireball that damages the player on contact.",
+  "category": "Intern",
+  "NoGBASprite": true
 }

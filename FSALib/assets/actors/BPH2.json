@@ -7,6 +7,30 @@
   "NoGBASprite": true,
   "fields": [
     {
+      "name": "Poe Type",
+      "description": "Defines the type of Poe in the fight.",
+      "bitOffset": 0,
+      "bitSize": 1,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Big Poe",
+          "description": "The second form of Big Poe."
+        },
+        "1": {
+          "name": "Inner Poe",
+          "description": "A phase or form related to the inner Poe."
+        }
+      }
+    },
+    {
+      "name": "Unknown",
+      "description": "Bits 6–7 are checked when Big Poe processes nearby FIRE actors. Only actors with this field set to 0 are processed by this check.",
+      "bitOffset": 6,
+      "bitSize": 2,
+      "valueType": "Integer"
+    },
+    {
       "name": "Spotlight 1 trigger Variable",
       "description": "Triggers the first spotlight for the boss fight.",
       "bitOffset": 27,
@@ -33,23 +57,6 @@
       "bitOffset": 12,
       "bitSize": 5,
       "valueType": "Integer"
-    },
-    {
-      "name": "Poe Type",
-      "description": "Defines the type of Poe in the fight.",
-      "bitOffset": 0,
-      "bitSize": 7,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": {
-          "name": "Big Poe",
-          "description": "The second form of Big Poe."
-        },
-        "1": {
-          "name": "Inner Poe",
-          "description": "A phase or form related to the inner Poe."
-        }
-      }
     }
   ],
   "rendering": {

@@ -5,28 +5,50 @@
   "category": "Item",
   "fields": [
     {
+      "name": "Unknown Timer?",
+      "description": "",
+      "bitOffset": 0,
+      "bitSize": 4,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Despawning State",
+      "description": "Selects the fairy's despawning behavior.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "Uses the normal initialization and update behavior."
+        },
+        "1": {
+          "name": "doesn't despawn",
+          "description": "The fairy doesn't despawn."
+        },
+        "2": {
+          "name": "Light Orb",
+          "description": "Changes the fairy into a glowing orb. Its purpose is not yet understood."
+        },
+        "3": {
+          "name": "Revival",
+          "description": "Makes the fairy fly upward, possibly as part of a revival effect."
+        }
+      }
+    },
+    {
+      "name": "Unknown",
+      "description": "",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
       "name": "Activation Variable",
       "description": "The local variable number that triggers or activates this actor.",
       "bitOffset": 27,
       "bitSize": 5,
       "valueType": "Integer"
-    },
-    {
-      "name": "Despawning State",
-      "description": "Determines whether the fairy despawns or not.",
-      "bitOffset": 0,
-      "bitSize": 8,
-      "valueType": "Enum",
-      "enumValues": {
-        "0": {
-          "name": "Despawns",
-          "description": "The fairy despawns."
-        },
-        "16": {
-          "name": "Does not despawn",
-          "description": "The fairy does not despawn."
-        }
-      }
     }
   ],
   "rendering": {

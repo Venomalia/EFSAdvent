@@ -7,23 +7,37 @@
   "NoGBASprite": true,
   "fields": [
     {
-      "name": "Spotlight 1 Trigger Variable",
-      "description": "The local variable that triggers the first spotlight in the Big Poe fight.",
-      "bitOffset": 27,
+      "name": "Mode",
+      "description": "Determines which rendering path is used for the Big Poe.",
+      "bitOffset": 0,
+      "bitSize": 2,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Default",
+          "description": "Uses the default rendering path."
+        },
+        "1": {
+          "name": "Mode 1",
+          "description": "Skips the creation of the rendering geometry?"
+        },
+        "2": {
+          "name": "Mode 2",
+          "description": "Uses the enemy_both2_sob.bin rendering resource?"
+        }
+      }
+    },
+    {
+      "name": "Defeat Trigger Variable",
+      "description": "The room flag set when the Big Poe is defeated.",
+      "bitOffset": 2,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
-      "name": "Spotlight 2 Trigger Variable",
-      "description": "The local variable that triggers the second spotlight in the Big Poe fight.",
-      "bitOffset": 22,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Spotlight 3 Trigger Variable",
-      "description": "The local variable that triggers the third spotlight in the Big Poe fight.",
-      "bitOffset": 17,
+      "name": "Activation Trigger Variable",
+      "description": "The room flag set during activation and modified during the fight.",
+      "bitOffset": 7,
       "bitSize": 5,
       "valueType": "Integer"
     },
@@ -35,17 +49,24 @@
       "valueType": "Integer"
     },
     {
-      "name": "Low Life Difficulty Variable",
-      "description": "The variable to be set when Big Poe has low life to increase the difficulty of the fight.",
-      "bitOffset": 7,
+      "name": "Spotlight 3 Trigger Variable",
+      "description": "The local variable that triggers the third spotlight in the Big Poe fight.",
+      "bitOffset": 17,
       "bitSize": 5,
       "valueType": "Integer"
     },
     {
-      "name": "Unknown Variable 6",
-      "description": "An unknown variable that is set to 124 in specific conditions.",
-      "bitOffset": 0,
-      "bitSize": 7,
+      "name": "Spotlight 2 Trigger Variable",
+      "description": "The local variable that triggers the second spotlight in the Big Poe fight.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Spotlight 1 Trigger Variable",
+      "description": "The local variable that triggers the first spotlight in the Big Poe fight.",
+      "bitOffset": 27,
+      "bitSize": 5,
       "valueType": "Integer"
     }
   ],

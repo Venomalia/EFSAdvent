@@ -1,33 +1,12 @@
 {
   "name": "BGM Change",
-  "description": "Changes the background music when triggered by a local variable.",
+  "description": "Changes the background music when its trigger conditions are met.",
   "InternalName": "ＢＧＭチェンジＮＰＣ",
   "category": "Property",
   "fields": [
     {
-      "name": "Trigger Variable",
-      "description": "The local variable number that triggers or activates this actor.",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Unknown Variable 4",
-      "description": "Defines some unknown behavior or state.",
-      "bitOffset": 12,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
-      "name": "Unknown Variable 5",
-      "description": "Further unknown state, needs clarification.",
-      "bitOffset": 7,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
       "name": "Music to be Played",
-      "description": "Defines the music to be played, corresponding to various locations or events.",
+      "description": "Selects the background music or event track.",
       "bitOffset": 0,
       "bitSize": 7,
       "valueType": "Enum",
@@ -57,7 +36,7 @@
         "22": { "name": "Guessing" },
         "23": { "name": "Fortune-Telling" },
         "24": { "name": "Mini Boss Battle" },
-        "25": { "name": "Invincibility(bug)" },
+        "25": { "name": "Invincibility (possibly unused or bugged)" },
         "26": { "name": "Jewel" },
         "27": { "name": "Item Fanfare" },
         "28": { "name": "Shadow Link Battle" },
@@ -72,6 +51,63 @@
         "37": { "name": "Inside a House (Dark)" },
         "38": { "name": "Village (unsolved)" }
       }
+    },
+    {
+      "name": "Trigger Mode",
+      "description": "Determines when the music changes.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": {
+          "name": "Area / Variable",
+          "description": "The music changes when the area or variable condition is met."
+        },
+        "1": {
+          "name": "Area",
+          "description": "The music changes when a player enters the defined area."
+        },
+        "2": {
+          "name": "Layer (Multiplayer Area)",
+          "description": "In single-player, the music changes when the player is on the actor's layer. In multiplayer, a player must be inside the defined area."
+        },
+        "3": {
+          "name": "Mode 3",
+          "description": "Appears to behave similarly to Mode 0, but has different music activation and priority behavior."
+        },
+        "4": {
+          "name": "Mode 4 (Unused?)",
+          "description": "Appears to behave similarly to Mode 0, but differs in how it handles certain existing music states."
+        }
+      }
+    },
+    {
+      "name": "Sub Music (Single-player only)",
+      "description": "When enabled, targets the GBA layer music instead of the main TV music in single-player mode.",
+      "bitOffset": 7,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    },
+    {
+      "name": "Area Width",
+      "description": "Sets the horizontal trigger extent. The stored value is increased by 1 before being scaled into world units.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Area Height",
+      "description": "Sets the vertical trigger extent. The stored value is increased by 1 before being scaled into world units.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Trigger Variable",
+      "description": "The room-local variable associated with the trigger.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ]
 }

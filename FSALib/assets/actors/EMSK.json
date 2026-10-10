@@ -1,6 +1,15 @@
 {
   "name": "Ending MapSkipper",
-  "description": "",
+  "description": "Internal actor that triggers a map transition when its countdown reaches zero.",
   "InternalName": "エンディングMapSkipper",
-  "category": "Intern"
+  "category": "Intern",
+  "fields": [
+    {
+      "name": "Destination",
+      "description": "Selects an entry in a lookup table containing map transition parameters.",
+      "bitOffset": 0,
+      "bitSize": 7,
+      "valueType": "Integer"
+    }
+  ]
 }

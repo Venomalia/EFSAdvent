@@ -1,6 +1,6 @@
 {
   "name": "Deadlock",
-  "description": "",
+  "description": "A enemy that turns to stone when struck. It can be destroyed with the Magic Hammer or fire.",
   "InternalName": "デッドロック",
   "category": "Enemy",
   "NoGBASprite": true,

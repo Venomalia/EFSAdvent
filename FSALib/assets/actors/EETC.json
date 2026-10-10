@@ -3,5 +3,42 @@
   "description": "Four ladies from start of game who change formation",
   "InternalName": "エンディング用その他キャラ",
   "category": "Cutscene",
-  "NoGBASprite": true
+  "NoGBASprite": true,
+  "fields": [
+    {
+      "name": "Formation",
+      "description": "Selects the formation and behavior of the characters.",
+      "bitOffset": 0,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Character Option",
+      "description": "Selects a character configuration through a lookup table.",
+      "bitOffset": 5,
+      "bitSize": 7,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Variant",
+      "description": "Selects a variant through a lookup table.",
+      "bitOffset": 12,
+      "bitSize": 2,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Additional Option",
+      "description": "An additional configuration value. Its purpose is unknown.",
+      "bitOffset": 14,
+      "bitSize": 6,
+      "valueType": "Integer"
+    },
+    {
+      "name": "State Override",
+      "description": "Enables an alternate mode when non-zero.",
+      "bitOffset": 31,
+      "bitSize": 1,
+      "valueType": "Boolean"
+    }
+  ]
 }

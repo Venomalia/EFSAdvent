@@ -1,19 +1,12 @@
 {
   "name": "Great Fairy",
-  "description": "Great Fairy.",
+  "description": "A fairy that restores health or upgrades the player's items.",
   "InternalName": "大妖精",
   "category": "NPC",
   "fields": [
     {
-      "name": "Activation Variable",
-      "description": "The local variable number that triggers or activates this actor.",
-      "bitOffset": 27,
-      "bitSize": 5,
-      "valueType": "Integer"
-    },
-    {
       "name": "Fairy Type",
-      "description": "Determines the type of effect the Great Fairy has.",
+      "description": "Determines the Great Fairy's function.",
       "bitOffset": 0,
       "bitSize": 2,
       "valueType": "Enum",
@@ -23,18 +16,83 @@
           "description": "Restores health to the player."
         },
         "1": {
-          "name": "Item Upgrader",
-          "description": "Upgrades an item for the player."
+          "name": "Item Upgrade",
+          "description": "Upgrades the player's item and sets the corresponding activation variable."
         },
         "2": {
-          "name": "Item (Internal)",
-          "description": "Don't use."
+          "name": "Item Upgrade (Unused / Bug)",
+          "description": "Attempts to upgrade the item at index 0, regardless of the player's current item. The upgrade is bugged, and the fairy disappears afterward. Not used in normal gameplay."
         },
         "3": {
-          "name": "Item Drop (Internal)",
-          "description": "Don't use."
+          "name": "Item Upgrade Drop (Internal)",
+          "description": "Internal type. Do not use."
         }
       }
+    },
+    {
+      "name": "Item Upgrade Target (Internal)",
+      "description": "Selects the item upgraded to level 2 by the Great Fairy.",
+      "bitOffset": 4,
+      "bitSize": 4,
+      "valueType": "Enum",
+      "enumValues": {
+        "0": { "name": "Not used" },
+        "1": { "name": "Slingshot" },
+        "2": { "name": "Fire Rod" },
+        "3": { "name": "Hammer" },
+        "4": { "name": "Boomerang" },
+        "5": { "name": "Bow" },
+        "6": { "name": "Bombs" },
+        "7": { "name": "Pegasus Boots" },
+        "8": { "name": "Roc's Feather" },
+        "9": { "name": "Shovel" },
+        "10": {
+          "name": "Sword (Unused)",
+          "description": "Unused option."
+        },
+        "11": {
+          "name": "Power Bracelets",
+          "description": "Possibly unused or bugged."
+        }
+      }
+    },
+    {
+      "name": "Player Number (Internal)",
+      "description": "Selects the player associated with the Item Upgrade.",
+      "bitOffset": 8,
+      "bitSize": 2,
+      "valueType": "Integer",
+      "minValue": 0,
+      "maxValue": 3
+    },
+
+    {
+      "name": "Player 1 Activation Variable",
+      "description": "The room-local variable checked before upgrading item and set afterward. If 0, an upgrade items unlimited times.",
+      "bitOffset": 27,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Player 2 Activation Variable",
+      "description": "The room-local variable checked before upgrading item and set afterward. If 0, an upgrade items unlimited times.",
+      "bitOffset": 22,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Player 3 Activation Variable",
+      "description": "The room-local variable checked before upgrading item and set afterward. If 0, an upgrade items unlimited times.",
+      "bitOffset": 17,
+      "bitSize": 5,
+      "valueType": "Integer"
+    },
+    {
+      "name": "Player 4 Activation Variable",
+      "description": "The room-local variable checked before upgrading item and set afterward. If 0, an upgrade items unlimited times.",
+      "bitOffset": 12,
+      "bitSize": 5,
+      "valueType": "Integer"
     }
   ],
   "rendering": {
